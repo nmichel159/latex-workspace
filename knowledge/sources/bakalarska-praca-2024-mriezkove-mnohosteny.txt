@@ -1,0 +1,1771 @@
+UNIVERZITA PAVLA JOZEFA ŠAFÁRIKA V KOŠICIACH
+                    PRÍRODOVEDECKÁ FAKULTA
+
+      Mrežové mnohosteny v n-rozmernej kocke
+                  BAKALÁRSKA PRÁCA
+
+2024  Norbert Micheľ
+UNIVERZITA PAVLA JOZEFA ŠAFÁRIKA V KOŠICIACH
+                 PRÍRODOVEDECKÁ FAKULTA
+
+             Mrežové mnohosteny v n-rozmernej kocke
+                         BAKALÁRSKA PRÁCA
+
+Študijný program: ANALÝZA DÁT A UMELÁ INTELIGENCIA
+
+Študijný odbor: Matematika - Informatika
+
+Vedúci práce:  Mgr. Martin Vodička
+
+Košice 2024                               Norbert Micheľ
+             Univerzita P. J. Šafárika v Košiciach
+                     Prírodovedecká fakulta
+
+             ZADANIE ZÁVEREČNEJ PRÁCE
+
+Meno a priezvisko študenta:  Norbert Micheľ
+Študijný program:            analýza dát a umelá inteligencia (medziodborové štúdium,
+                             bakalársky I. st., denná forma)
+Študijný odbor:              Informatika, Matematika
+Typ záverečnej práce:        Bakalárska práca
+Jazyk záverečnej práce:      slovenský
+Sekundárny jazyk:            anglický
+
+Názov:       Mrežové mnohosteny v n-rozmernej kocke
+Názov EN:
+Cieľ:        Lattice polytopes inside n-dimensional cube
+
+Literatúra:  Oboznámiť sa so základnými pojmami v oblasti mrežových mnohostenov,
+             spracovať ich a vysvetliť na príkladoch. Vybrať si špeciálnu triedu mnohostenov
+             s vrcholmi v n-rozmernej kocke, skúmať ich vlastnosti a skúsiť dosiahnuť
+             zaujímavé výsledky.
+
+             1. Winfried Bruns and Joseph Gubeladze. Polytopes, Rings, and K-Theory.
+             Monographs in Mathematics. XIV, 461 p. 52 illus. Springer-Verlag, 2009
+             2. Christian Haase, Benjamin Nill, Andreas Paffenholz: Lecture notes on lattice
+             polytopes
+             https://www2.mathematik.tu-darmstadt.de/paffenholz/daten/
+             preprints/20210628_Lattice_Polytopes.pdf
+             3. Bernd Sturmfels. Gröbner bases and convex polytopes. Univ. Lecture Series
+             (vol. 8). American Mathematical Society (Providence, RI), 1996, xii+162 pages
+
+Vedúci:      Mgr. Martin Vodička
+
+Ústav :      ÚMAT - Ústav matematiky
+
+Riaditeľ ústavu: prof. RNDr. Ondrej Hutník, PhD.
+
+Spôsob sprístupnenia elektronickej verzie práce: bez obmedzenia
+
+Dátum schválenia: 12.10.2023
+Poďakovanie Rád by som vyjadril úprimné poďakovanie môjmu školiteľovi za jeho
+neoceniteľnú podporu a odborné rady počas prípravy tejto bakalárskej práce. Jeho
+vedenie a trpezlivosť mi pomohli prekonať mnohé výzvy a dosiahnuť tento úspech.
+Ďakujem za všetko!
+Abstrakt
+
+V tejto bakalárskej práci sa venujeme analýze objemov konvexných mnohostenov umiest-
+nených v kocke. Špeciálne sa sústreďujeme na štúdium minimálnych a maximálnych
+objemov týchto mnohostenov, pričom využívame rôzne geometrické a algebraické me-
+tódy. Začíname definovaním základných pojmov a nástrojov potrebných na analýzu.
+V ďalších častiach sa zaoberáme priemerným objemom mnohostena v kocke a zmieša-
+ným objemom, čo vedie k hlbšiemu pochopeniu konvexných kombinácií mnohostenov.
+Kľúčovou časťou práce je identifikácia a analýza extrémnych objemov, kde podrobne
+skúmame maximálny a minimálny objem v rôznych kontextoch, vrátane objemu v sim-
+plexe. Na záver prezentujeme výsledky našich výpočtov a diskutujeme ich implikácie
+v širšom matematickom kontexte.
+
+Kľúčové slová: mriežka, báza mriežky, konvexné mnohosteny, Stred-mnohosten,
+skosený mnohosten, zmiešaný objem
+Abstract
+
+In this bachelor’s thesis, we focus on the analysis of the volumes of convex polytopes
+placed within a cube. Specifically, we concentrate on studying the minimum and maxi-
+mum volumes of these polytope, utilizing various geometric and algebraic methods. We
+begin by defining the basic concepts and tools necessary for the analysis. In subsequent
+sections, we address the average volume of a polyhedron within a cube and the mixed
+volume, leading to a deeper understanding of the convex combinations of polytopes. A
+key part of the thesis is the identification and analysis of extreme volumes, where we
+thoroughly examine the maximum and minimum volumes in different contexts, inclu-
+ding the volume within a simplex. Finally, we present the results of our calculations
+and discuss their implications in a broader mathematical context.
+
+Keywords: lattice, lattice basis, convex polytopes, centre-polytopes, truncated
+polyhedron, mixed volume
+Obsah
+
+Úvod . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+
+1 Základy                                           9
+
+1.1 Základné pojmy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+
+1.2 Pomocný aparát na analýzu . . . . . . . . . . . . . . . . . . . . . . . . 11
+
+2 Priemerný objem mnohostena v kocke                14
+
+2.1 Stred-mnohosten a jeho vztahy . . . . . . . . . . . . . . . . . . . . . . 15
+
+2.2 Priemerný objem mnohostena v kocke . . . . . . . . . . . . . . . . . . . 18
+
+3 Zmiešaný objem a konvexné kombinácie mnohostenov  23
+
+3.1 Horné ohraničenie objemu konvexnej kombinácie dvoch mnohostenov . 24
+
+3.2 Objem skloneného ihlanu . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+
+3.3 Zmiešaný objem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+
+3.4 Vzťah medzi zmiešaným objemom a skloneným ihlanom . . . . . . . . . 29
+
+4 Extrémne objemy v kocke                           31
+
+4.1 Maximálny objem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+
+4.2 Maximálny objem v simplexe . . . . . . . . . . . . . . . . . . . . . . . 32
+
+4.3 Minimálny objem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+
+Záver . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+
+Literatúra                                          42
+
+                           7
+Úvod
+
+Táto bakalárska práca sa zaoberá analýzou objemov konvexných mnohostenov umiest-
+nených v kocke. Primárnym cieľom je preskúmať minimálne a maximálne objemy týchto
+mnohostenov pomocou rôznych geometrických a algebraických metód. Práca je rozde-
+lená do niekoľkých častí, pričom každá časť sa zameriava na iný aspekt problematiky.
+
+   Najprv sú definované základné pojmy a nástroje, ktoré sú potrebné na analýzu
+objemov konvexných mnohostenov. V ďalších kapitolách sa sústreďujeme na priemerný
+objem mnohostena v kocke a na zmiešané objemy, čo vedie k hlbšiemu pochopeniu
+konvexných kombinácií mnohostenov. Významnú časť práce predstavuje identifikácia
+a analýza extrémnych objemov, kde detailne skúmame maximálny a minimálny objem
+v rôznych kontextoch, vrátane objemu v simplexe.
+
+   Výsledky tejto analýzy sú prezentované v záverečnej časti, kde sú diskutované ich
+implikácie v širšom matematickom kontexte. Práca prispieva k teoretickému poznaniu
+v oblasti geometrie a môže slúžiť ako základ pre ďalší výskum v tejto oblasti.
+
+   Navyše, táto práca prehlbuje pochopenie priestorovej geometrie a jej aplikácií, čím
+poskytuje nové pohľady na optimalizáciu objemov v rôznych geometrických konfigurá-
+ciách. Dúfame, že naše zistenia podporia ďalšie štúdium a aplikáciu konvexných mno-
+hostenov v praktických a teoretických oblastiach matematiky.
+
+                                                      8
+Kapitola 1
+
+Základy
+
+Táto kapitola slúži na to, aby čitateľ mal základný aparát, na ktorom môže ďalej stavať.
+
+1.1 Základné pojmy
+
+V tejto kapitole sa budeme zaoberať základnými pojmami, aby sme mohli v ďalších
+kapitolách, ktoré sú nadstavbou na túto, používať potrebný aparát. Tým, že riešime
+problémy v mriežke, musíme si najprv definovať, čo to je mriežka, a niekoľko jej vlast-
+ností. Pre väčší prehľad v základoch a pochopenie pojmov môžete si viac prečítať v
+článku [1]. Z tohoto článku budeme rozoberať tie najdôležitejšie definície a koncepty
+potrebné pre hlbšie pochopenie problematiky.
+Definícia 1.1.1. Mriežkový mnohosten je konvexný obal v Rn konečného počtu bodov
+v Zn.
+Definícia 1.1.2. Vrchol v mnohostena M je bod, pre ktorý existuje jediná konvexná
+kombinácia bodov patriacich do mnohostena M . Inými slovami:
+
+                                               v = λivi,
+
+                                                                                  i
+
+                                                     λi = 1,
+
+                                                                           i
+
+                                                   λi ≥ 0
+a to λi = 1 pre jeden z týchto bodov vi = v a ostatné λj = 0, kde všetky vi ∈ M .
+
+                                                      9
+Definícia 1.1.3. Báza vektorového priestoru Rn tvorená vektormi v1, v2, . . . , vn je
+mriežková báza mriežky Zn, ak množina celočíselných lineárnych kombinácií týchto
+vektorov spĺňa nasledujúcu rovnicu:
+
+{λ1v1 + λ1v2 + · · · + λnvn : λ1, λ2, . . . , λn ∈ Z} = Zn.
+
+Definícia 1.1.4. Afinné zobrazenie φ určuje mriežkový izomorfizmus práve vtedy, keď
+asociované linárne zobrazenie zobrazuje bázu mriežky na bázu.
+
+Definícia 1.1.5. Dva mriežkové mnohosteny M a N sú izomorfné (tiež nazývané
+unimodulárne ekvivalentné alebo mriežkovo ekvivalentné), ak existuje afinný mriežkový
+izomorfizmus, ktorý zobrazuje mnohosten M na mnohosten N .
+
+   Čo si môžeme všimnúť, že dĺžka sa v euklidovskom priestore nezachováva pre mno-
+hosteny, ktoré sú izomorfné, ale čo sa zachováva, je objem.
+
+Definícia 1.1.6. Dĺžka mriežkovej úsečky e = conv(v, w) ⊂ Rd je definovaná ako
+
+          dĺžka(e) := e ∩ Zd − 1.
+
+   Väčšina tejto práce sa zaoberá objemami, takže musíme definovať, čo je to objem a
+ako sa dá počítať.
+
+Definícia 1.1.7. Objem mnohostena M je miera priestoru, ktorý tento mnohosten
+zaberá v euklidovskom priestore.
+
+   Ak je mnohosten M rozdelený na konečný počet n-rozmerných mnohosten, potom
+objem V (M ) je súčtom objemov týchto mnohostenov.
+
+   Toto nasledujúce tvrdenie je známy a celkom častý aparát, ktorý sa používa na
+mnohé dôkazy.
+
+Tvrdenie. Objem V mnohostena M môže byť vypočítaný pomocou determinantu.
+
+Ak máme množinu n + 1 bodov {v0, v1, . . . , vn} v n-rozmernom priestore, ktoré tvoria
+n-rozmerný simplex, objem tohto simplexu je daný vzťahom:
+
+V  =  1   det  v1 − v0  v2 − v0  ···  vn − v0           .
+      n!
+
+V našej práci sa budeme zaoberať konvexnými mnohostenmi, takže si musíme defi-
+
+novať, čo vlastne je objem komplexnejších mnohostenov.
+
+                        10
+Definícia 1.1.8. Nech M1, M2, . . . , Mk sú mnohosteny. Hovoríme, že mnohosten M je
+konvexnou kombináciou mnohostenov M1, M2, . . . , Mk, ak platí:
+
+                  k                                 k
+
+           M = αi · mi | ∀mi ∈ Mi, i ∈ {1, . . . , k}, αi = 1 .
+
+                  i=1                               i=1
+
+Túto operáciu budeme označovať ako M = conv(M1, M2, . . . , Mk).
+
+Definícia 1.1.9. Nech M1, M2, · · · , Mk sú mnohosteny. Mnohosten M je konvex-
+nou kombináciou mnohostenov M1, M2, · · · , Mk, tak objem V (M ) budeme značiť ako
+V (conv(M1, M2, · · · , Mk).
+
+1.2 Pomocný aparát na analýzu
+
+Každá časť matematiky potrebuje vo veľa dôkazoch analýzu, tu je príklad niekoľkých
+praktických viet, ktoré budeme ďalej v práci používať.
+
+Definícia 1.2.1. Gama funkcia Γ(x) je definovaná pre x > 0 ako:
+
+                                                                                ∞
+
+                                         Γ(x) = tx−1e−t dt.
+
+                                                                               0
+
+Veta 1.2.2. Gama funkcia Γ(x) a faktoriál (x − 1)! sú navzájom úzko prepojené, kon-
+krétne platí:
+
+                                        Γ(x) = (x − 1)! x ∈ Z.
+
+   Uvádzame Strinlingov vzťah, ktorý môžete ho nájsť [3].
+
+Veta 1.2.3. Strinlingov vzťah (alebo Stirlingova aproximácia) pre aproximáciu fakto-
+
+riálu n!:
+
+                                     √      nn
+                       n! ≈ 2πn                 .
+                                            e
+
+Veta 1.2.4. Eulerovho formula e je:
+
+                       lim           1+ 1   n
+                       n→∞              n
+                                              = e.
+
+Celkom praktické vzorce sú na počítanie základných objemov základných geomet-
+
+rických útvarov.
+
+                                        11
+Veta 1.2.5. Pre objem ihlana I platí:
+                                          V (I) = 1 · V (S) · h,
+                                                     n
+
+kde S je (n − 1)-rozmerný objem základne a h je výška ihlanu.
+
+   Ďalším všeobecne známym vzťahom je na objem gule, ktorý môžete nájsť napr. v
+članku [2].
+
+Veta 1.2.6. Objem n-rozmernej guľe:
+
+                              Vn = Γ        πn/2         rn.
+
+                                            n   +  1
+                                            2
+
+Aby sme objem vedeli nejako ohraničiť, uvedieme jednu z viet, ktorá hovorí, že ak
+
+každý vektor zo simplexu otočíme tak, aby bol kolmý na ostatné, objem simplexu sa
+
+nezmenší.
+
+Veta 1.2.7. Nech M je n-rozmerný simplex v n-rozmernej priestore, kde mi je vrchol
+simplexa M potom platí:
+
+           V (M )   ≤    |m0  − m1|   ·  |m0   − m2|     ·  ...   · |m0   −  mn| .
+                                                 n!
+
+Dôkaz. Budeme to riešiť pomocou indukcie cez dimenziu k.
+   Prvý krok indukcie: Pre dimenziu k = 1 triviálne platí, že objem simplexu je
+
+rovný norme rozdielu týchto dvoch vrcholov.
+   Druhý krok indukcie: Predpokladajme, že tvrdenie platí pre dimenziu k. Uká-
+
+žeme, že platí aj pre dimenziu k + 1. Nech máme simplex Sk+1. Simplex je špeciálny
+prípad ihlanu, takže pre jeho objem platí:
+
+                         V  (Sk+1)  =    k  1   1  ·  V  (Sk)  ·  h.
+                                            +
+
+   kde V (Sk) je objem podstavy nášho simplexu, ktorý vieme vďaka indukčnému pred-
+pokladu ohraničiť:
+
+           V  (Sk)  ≤    |m0  −  m1|  ·  |m0   − m2|     ·  ...   ·  |m0  −  mk| .
+                                                 k!
+
+Výšku h vieme ohraniči:
+
+                                            12
+                                   h ≤ |m0 − mk+1|.
+
+Keď tieto dve ohraničenia dosadíme, dostaneme:
+
+V  (Sk+1)  =  1  ·  V  (Sk)  ·  h  ≤  |m0  −  m1|  ·  |m0  − m2| · . . .  ·  |m0  −  mk+1| .
+              n                                            (k + 1)!
+
+                                           13
+Kapitola 2
+
+Priemerný objem mnohostena v
+
+kocke
+
+V tejto kapitole sa zameriame na skúmanie priemerného objemu náhodne vybraného
+mnohostena, ktorého vrcholy sa nachádzajú v hyperkocke. Najprv sa budeme zaobe-
+rať mnohostenmi definovanými vrcholmi s hodnotami 0, 1 a 0.5 v n-rozmernej kocke.
+Takéto mnohosteny označujeme ako Stred-mnohosteny a ich vrcholy musia spĺňať pod-
+mienku, že počet súradníc s hodnotou 0.5 je fixné celé číslo k.
+
+   Hlavným cieľom tejto kapitoly je dokázať niekoľko kľúčových vlastností týchto mno-
+hostenov a použiť tieto vlastnosti na odhad priemerného objemu náhodne vybraného
+mnohostena. Preukážeme, že ak n smeruje k nekonečnu, priemerný objem týchto mno-
+hostenov konverguje k hodnote 1. Tento výsledok je zaujímavý z hľadiska teórie prav-
+depodobnosti a geometrie, pretože nám umožňuje lepšie pochopiť, ako sa správa objem
+mnohostena vo vysokých dimenziách.
+
+   Na začiatku definujeme Stred-mnohosteny a dokážeme niekoľko základných inklúzií
+medzi nimi. Následne budeme analyzovanie odhad objemu pomocou pravdepodobnosti
+výskytu vrcholov. Na záver budeme dokazovať konvergenciu priemerného objemu k
+hodnote 1.
+
+   Táto kapitola poskytuje systematický prístup k riešeniu problému priemerného ob-
+jemu náhodne vybraného mnohostena cez vrcholy v kocke, pričom využíva kombináciu
+geometrických a pravdepodobnostných metód. Týmto spôsobom prispieva k hlbšiemu
+pochopeniu vlastností mnohostenov vo vysokých dimenziách a ich aplikácií v rôznych
+
+                                                      14
+oblastiach matematiky a informatiky.
+
+2.1 Stred-mnohosten a jeho vztahy
+
+V tejto podkapitole definujeme koncept Stred-mnohostena a následne sa budeme za-
+oberať vzťahmi medzi stred-mnohostenom a parametrom k. Potom preskúmame alter-
+natívne definície Stred-mnohostena.
+
+Definícia 2.1.1. Mnohosten Mn,k ⊂ Rn budeme označovať ako Stred-mnohosten, po-
+kiaľ každý jeho vrchol má súradnice 0, 1 a 0.5, pričom počet súradníc 0.5 je k . Inými
+slovami:
+
+                                                                                                      n
+
+             Mn,k = conv({(x1, . . . , xn) ∈ {0, 0.5, 1}n | δ(xi, 0.5) = n − k}).
+
+                                                                                                     i=1
+
+Veta 2.1.2. Nech máme čísla n a k. Uvažujme dva mnohosteny Mn,k a Mn,k+1, potom
+platí nasledujúce tvrdenie:
+
+                                             Mn,k+1 ⊆ Mn,k.
+
+Dôkaz. Na preukázanie tejto inklúzie stačí dokázať, že každý vrchol mnohostena
+Mn,k+1 je možné vyjadriť pomocou vrcholov mnohostena Mn,k. Majme ľubovoľný vrchol
+v mnohostena Mn,k+1. Zavedme si množiny indexov I,J, a K, kde:
+
+                                             I = {i | vi = 0},
+
+                                            J = {i | vi = 0.5},
+                                             K = {i | vi = 1}.
+   Podľa definície Stred-mnohostena vieme, že v mnohostene Mn,k+1 má množina in-
+dexov J presne k + 1 prvkov.
+   Teraz si zavedzme vrcholy a a b mnohostena Mn,k nasledovne:
+
+                                        ai = 0, bi = 0, ak i ∈ I,
+
+                                        ai = 0, bi = 1, ak i ∈ K.
+   Máme presne k + 1 súradníc, ktorým sme ešte nepriradili hodnotu. Keďže k + 1 je
+kladné číslo, môžeme povedať, že množina J nie je prázdna. Rozdeľme množinu J na
+
+                                                      15
+podmnožiny J1 a J2 nasledovne:
+
+                                 J1 = {x | x = min(J)},
+
+                                            J2 = J \ J1.
+Zvyšné súradnice pre a a b definujeme nasledovne:
+
+                              ai = 0.5, bi = 0.5, ak i ∈ J2,
+
+                                 ai = 0, bi = 1, ak i ∈ J1.
+
+Veľkosť množiny J2 je presne o jednu súradnicu menšia než veľkosť množiny J, čo
+
+je k + 1 − 1 = k. Z toho vyplýva, že vrcholy a a b patria do mnohostena Mn,k.
+
+Ak  urobíme  konvexnú  kombináciu         vrcholov       a   a   b  s   váhami       1  a  1  dostaneme:
+                                                                                     2     2
+
+             1         +      1     =  0.25  +  0.25     =   0.5,      ak    i  ∈  J2,
+             2 ai             2 bi
+
+                       1      +  1     =  0  +  0.5   =  0.5,       ak    i  ∈  J1,
+                       2 ai      2 bi
+
+                       1         +  1     =  0  +  0  =      0,  ak    i  ∈  I,
+                       2 ai         2 bi
+
+                       1      +  1     =  0.5   +  0.5   =   1,     ak    i  ∈  K.
+                       2 ai      2 bi
+
+Ako môžeme vidieť, konvexná kombinácia týchto dvoch bodov presne reprezentuje
+
+vrchol v, pretože J1 ∪ J2=J.
+
+Teraz vytvoríme alternatívnu definíciu Stred-mnohostena.
+
+Veta 2.1.3. Nech máme čísla n a k a kocku K = conv({−1, 1}n). Vytvorme 2n menších
+
+kociek Ki z pôvodnej kocky K, pričom každá menšia kocka Ki je definovaná protilahlými
+vrcholmi, ktoré sú (0, 0, . . . , 0) a vi ∈ K.
+
+   Mnohosten M definujeme ako:
+
+             2n                                                                    
+
+                                                          n
+                                                                                    
+
+             M = conv(Ki) ∩ x | vi · xj < n − k  .
+
+             i=1                                j=1                                 
+
+Potom mnohosteny Mn,k a M sú rovnaké po transformácii súradníc.
+
+                                                16
+Dôkaz. Teraz ideme dokázať obidve inklúzie.
+
+Inklúzia Mn,k ⊆ M :
+
+Bez ujmy na všeobecnosti budeme dokazovať M ∩ K1 = Mn,k ∩ K1 po transfor-
+
+mácii súradníc. Zoberieme si kladnú menšiu kocku, ktorá má vrcholy {1, 1, 1, . . . , 1} a
+
+{0, 0, 0, . . . , 0}. K tejto menšej kocke je prislúchajúci podpriestor  n    xi  <  n  −  k.
+                                                                         i=1
+
+Tu potrebujeme, aby všetky vrcholy mnohostena Mn,k boli v M . Tým, že riešime iba
+
+kladnú menšiu kocku, hľadáme iba vrcholy Mn,k, ktoré sú kladné. Tie majú nasledovný
+
+zápis. Nech majme vrchol v Mn,k, množiny I a J, kde I je množina všetkých súradníc,
+
+ktoré majú hodnotu 0, a množina J je množina všetkých súradníc, ktoré majú hodnotu
+
+1. Vrchol v vyzerá nasledovne:
+
+                                vi = 0, ak i ∈ I,
+
+                                vi = 1, ak i ∈ J.
+
+Teraz dosadíme tento bod do nášho podpriestoru a dostaneme:
+
+                                   n
+
+                          xi = 0 · |I| + 1 · |J| = 0 · k + 1 · (n − k) = n − k.
+
+                                 i=1
+
+Čiže vrchol mnohostena Mn,k patrí do M .
+
+   Inklúzia M ⊆ Mn,k:
+
+   Mnohosten M je definovaný vrcholmi z nadroviny a vrcholmi z pôvodnej kocky.
+
+Vzniknuté vrcholy z nadroviny sú také, že sú na hrane tejto menšej kocky. Inými slo-
+
+vami, vrchol M má n − 1 súradníc z množiny {0, 1} a jednu súradnicu z intervalu
+
+[0, 1].
+
+Z dôvodu, že n − k je celočíselné číslo a n − 1 súradníc je tiež celočíselné číslo, aj tá
+
+posledná súradnica, ktorá definuje hranu, musí byť celočíselná.
+
+Zistili sme, že každý vrchol M , ktorý riešime v menšej kocke, má celočíselné súrad-
+
+nice. Tým, že možnosti sú iba súradnice 0 a 1, môžeme sumu zjednodušiť na s (počet
+
+jednotiek) a l (počet núl):
+
+                                                      n
+
+                                       xi = 0 · l + 1 · s = s < n − k.
+
+                                                    i=1
+
+   Pri pohľade na ľubovoľné s, ktoré spĺňa túto nerovnicu, zistíme, že to je vrchol z
+
+Mn,(n−s) mnohostena. A z vety 2.1.2 vieme, že ten je podmnožinou Mn,(n−s−1), a keď
+túto definíciu budeme opakovať k-krát, dostaneme Mn,k mnohosten, čo dokazuje, že
+každý vrchol z M je podmnožinou Mn,k.
+
+                                17
+2.2 Priemerný objem mnohostena v kocke
+
+Za pomoci Stred-mnohostena dokážeme hlavnú vetu tejto kapitoly, ktorá analyzuje
+priemerný objem mnohostena umiestneného v kocke.
+
+Veta 2.2.1. Nech p ∈ (0, 1) je dané reálne číslo. Náhodne vyberme podmnožinu vr-
+cholov kocky A ⊆ {0, 1}n, tak, že každý bod sa v A nachádza s pravdepodobnosťou p
+nezávisle od ostatných. Označme V n,p = E(V (conv(A))) Potom platí:
+
+                                   lim  V   n,p  =   1.
+
+                                   n→∞
+
+Dôkaz.  Na  začiatku  si  fixneme  hodnotu  k  =  ⌊  n   ⌋.  Uvažujme  Stred -mnohosten  Mn,k .
+                                                     64
+
+Každý vrchol Mn,k sa nachádza vnútri kocky, pretože jeho súradnice sú menšie 1. Čiže
+
+V n,p ≤ 1. Stačí nám dokázať, že rovnomerný výskyt bodov Stred-mnohostenu Mn,k
+
+konverguje k 1, a objem Stred-mnohostenu Mn,k konverguje k 1 tiež.
+   Skúsme zdola ohraničiť rovnomerný výskyt bodov v Stred-mnohostene Mn,k Uva-
+
+žujme vrchol v Stred-mnohostenu Mn,k. Na základe jeho súradníc vieme vyvodiť, že
+sa nachádza na niekoľkých uhlopriečkach kocky. Označme množinu I ⊂ {1, . . . , n} sú-
+
+radníc, kde vi = 0, analogicky označme množinu J ⊂ {1, . . . , n} súradníc, kde vj = 1,
+
+a množinu L ⊂ {1, . . . , n} súradníc, kde vl = 0.5. Definujem vrcholy a,b, ktoré budú
+tvoriť uhlopriečku v kocke. Ako si môžeme všimnúť, množiny I,J a L sú disjunktné.
+
+Vrchol a bude mať súradnice ai = 0,i ∈ I a ai = 1, i ∈ J. keď i ∈/ I ani i ∈/ J, môžeme
+
+pre túto súradnicu zvoliť ľubovoľnú hodnotu z {0, 1}. Vrchol b budú mať súradnice
+
+bi = 0, i ∈ I, bi = 1, i ∈ J. keď i ∈/ I a i ∈/ J, tak bi = 1 − ai. Keď vytvoríme konvexnú
+
+kombináciu týchto dvoch vrcholov s váhami 1/2, dostaneme, že:
+
+                                1/2 · ai + 1/2 · bi = 0 + 0 = 0, i ∈ I ,
+
+                             1/2 · ai + 1/2 · bi = 0.5 + 0.5 = 1, i ∈ J ,
+                        1/2 · ai + 1/2 · bi = 0 + 0.5 = 0.5, i ∈/ J ∧ i ∈/ I.
+   Veľkosť množiny L je k. Počet všetkých možností, ako vybrať pre vrchol v1 z množiny
+L hodnotu 1, je 2k. Avšak z dôvodu symetrie uhlopriečok sa polovica prípadov bude
+opakovať. Celkový počet unikátnych uhlopriečok je preto 2k−1.
+
+                                            18
+   Pravdepodobnosť, že v sa nachádza A kvôli uhlopriečke, je p2. Pravdepodobnosť, že
+náš v sa nachádza v conv(A). Odhadneme zdola tak, že v množine A sa nachádza aspoň
+jedna z tých 2k−1 uhlopriečok. Túto pravdepodobnosť môžeme vyjadriť ako výraz:
+
+                                 P (v ∈ conv(A)) ≥ 1 − (1 − p2)2k−1.
+
+   Keď substituujeme q := 1 − p2, l := 2k−1 dostaneme:
+
+                                                   1 − ql.
+
+   V n-rozmernom priestore môžeme každý bod z Stred-mnohostenu Mn,k vyjadriť ako
+konvexnú kombináciu maximálne n + 1 vrcholov. Z tohto dôvodu môžeme odhadnúť
+hranicu pravdepodobnosti pre ľubovoľný bod stred-mnohostena Mn,k tým, že vypočí-
+tame pravdepodobnosť, že všetkých n+1 vrcholov sa nachádza súčasne v danej množine
+A. Tento odhad môžeme zapísať ako:
+
+                                    P (v ∈ conv(A)) ≥ (1 − ql)n+1.
+
+Teraz budeme dokazovať, že pravdepodobnosť výskytu každého bodu v útvare M kon-
+verguje k 1, keď dimenzia n smeruje k nekonečnu. Inými slovami, chceme dokázať:
+
+                                       lim (1 − ql)n+1 = 1.
+
+                                                          n→∞
+
+Teraz budeme upravovať túto limitu:
+
+lim (1 − ql)n+1 =
+
+n→∞
+
+                   1   (n+1)
+                   ql
+
+lim (1 − ql)           1         =
+                       ql
+
+n→∞
+
+                          (n+1)
+
+lim  [(1  −  ql)   1   ]   1     =
+                   ql      ql
+
+n→∞
+
+                   (n+1)
+
+     lim (e−1)         1   .
+                       ql
+
+n→∞
+
+Tu sme využili Eulerovu formulu 1.2.4. Môžeme si všimnúť, že stačí dokázať, že:
+
+lim       (n + 1)          =
+
+n→∞          (  1  )l
+                q
+
+lim  (    (n + 1)          = 0.
+           ) 1 2k−1
+n→∞
+          1−p2
+
+             19
+    Táto limita sa rovná 0, keď resubstituujeme. Dôvodom je, že (n + 1) je lineárna
+
+funkcia   a  ((    1   )2k−1  je  exponenciálna   funkcia.        Keďže     základ    1   je  väčší  ako  1.  Avšak,
+                 1−p2                                                               1−p2
+
+musíme brať do úvahy, že 2k−1 musí byť aspoň lineárne závislé od n, takže keď dosadíme
+
+za  k  =  ⌊  n   ⌋  dostaneme     2k−1,   čo  je  viac   ako      lineárna     funkcia.   To  znamená,        že  rast
+             64
+
+( ) 1 2k−1   je     ešte  rýchlejší  než  exponenciálny.       Z     toho   vyplýva,  že:
+  1−p2
+
+                                                               (n+1)
+
+                                          lim     (e−1)  (     1  )2k−1     =
+                                                            1−p2
+
+                                          n→∞
+
+                                                  limn→∞       (n+1)
+
+                                                            (     1  )2k−1
+                                                               1−p2
+                                          (e ) = −1
+
+                                                  (e−1)0 = 1.
+
+   Na základe týchto úvah sme zistili, že každý bod nášho útvaru M má rovnomerne
+priemerný výskyt, ktorý limitne konverguje k hodnote 1. Teraz potrebujeme ešte zistiť,
+že objem tohto útvaru má tiež limitne hodnotu 1.
+
+   Podľa Vety 2.1.3 si môžeme všimnúť, že náš Stred-mnohosten Mn,k je vlastne kocka,
+odstránená pomocou nadroviny o mnohosteny, ktoré sú rovnaké.
+
+   Uvažujme prienik menšej kocky a gule, ktorá má stred vo vrchole kocky a polomer
+k najbližšiemu vrcholu mnohostenu Mn,k, odstránime z pôvodnej kocky tento prienik
+a ten je o niečo viac ako samotný Mn,k mnohosten.Týmto odstránením sa objem mno-
+hostenu A, ktorý odhadujeme, zmenší o niečo viac.
+
+   Počet prienikov menšej kocky a gule je presne 2n, čo vyplýva z počtu vrcholov kocky.
+Nahradením týchto prienikov získame presne 1 guľu. Objem tejto gule označíme ako
+Vg. Preto objem nášho mnohostenu Mn,k je aspôň:
+
+                                                  V = 1 − Vg.
+
+   Polomer gule vieme vyjadriť prostredníctvom konštanty k. Každá časť guľe má stred
+vo vrchole kocky a jej najbližší vrchol z Stred-mnohostena Mn,k má súradnice identické
+s tými vrcholmi, kde sú hodnoty 0 alebo 1. Ak má niektorý vrchol hodnotu 0.5, vzdia-
+lenosť od stredu gule k tomuto vrcholu je práve 0.5, pretože kocka na tejto osi má
+hodnoty 0 alebo 1. Čiže polomer gule je
+
+                                                  (0.52)k.
+                                                    20
+   Pomocou polomeru gule vieme vyjadriť celkový objem gule podĺa vety 1.2.6 nasle-
+dovne:
+
+                                Vg      =         πn        1) (       (0.52)k)n.
+                                                      2
+
+                                           Γ(     n  +
+                                                  2
+
+Chceme dokázať, že:
+
+                                                 lim        Vg    =    0.
+
+                                                 n→∞
+
+Ak to dokážeme, tak objem V je limitne 1. Takže teraz budeme riešiť objem Vg:
+
+                              lim          πn        1) (      (0.52)⌊         n   ⌋)n    ≤
+                                               2                               64
+                              n→∞
+                                    Γ(     n  +
+                                           2
+
+                              lim             πn        1) (      (0.52) n )n =
+                                                  2                      64
+                              n→∞
+                                        Γ(    n  +
+                                              2
+
+                                    lim                 πn               nn
+                                                            2            16 =
+                                    n→∞
+                                                 Γ(  n     +   1)
+                                                     2
+
+                                    lim              πn            (   n    )  n   =
+                                                         2             16      2
+                                    n→∞
+                                                 Γ(  n     +   1)
+                                                     2
+
+                           lim                       π     n                       (  n   )  n  =
+                                                     1)    2                          16     2
+                           n→∞
+                                √  2π(     n  +            n   +1−  1  e−   n  +1
+                                           2               2        2       2
+
+                              lim            π       n  en     +1  n     1  (  n   )  n  =
+                                        √            2     2       2     2     16     2
+                              n→∞                              1)
+                                          2π(        n  +             +
+                                                     2
+
+                                   lim        e√π2n2πe(n2n2(+n2 )1n2)(n281+) n212  =
+
+                                   n→∞
+
+lim                     √e    π en n          (   n  )  n          =     √e        ∗ 0 ∗ (< 1) = 0.
+                          2π      22              2     2                  2π
+n→∞                            8n
+                                     2  (  n  +   1)     n  +  1
+                                           2             2     2
+
+V týchto úpravách sme využili Strinlingov vzťah 1.2.3. Dokázali sme, že sme náš
+
+Stred-mnohosten Mn,k má každý bod vo svojom vnútri s limitnou pravdepodobnosťou
+1 a limitným objemom 1. Tým pádom je jeho priemerný objem conv(A) ∩ Mn,k je
+
+limitne 1. Pretože:
+
+                     1  ≥  lim  V  n,p  ≥     lim          E(conv(A)               ∩  Mn,k ))      =  1.
+
+                           n→∞                n→∞
+
+                                                            21
+   Čo si však musíme uvedomiť, je, že nie celý mnohosten M sa musí nachádzať v kaž-
+dom vygenerovanom mnohostene z kocky, ale každý bod mnohostenu má limitnú šancu
+1, že sa tam bude nachádzať (čo znamená, že pravdepodobne sa bude tam nachádzať
+takmer celý mnohosten, ale nemusí nutne byť celý).
+
+                                                      22
+Kapitola 3
+
+Zmiešaný objem a konvexné
+kombinácie mnohostenov
+
+V tejto kapitole sa budeme zaoberať tým, čo sa stane, keď máme dva mnohosteny, M a
+N, a začneme počítať objem V (conv(M, N )). Prirodzene sa môžeme spýtať, aký majú
+tento objem minimálny a maximálny. Ako prvé si musíme vyjasniť, čo presne je objem.
+Jeden zo spôsobov, ako riešiť tento typ problému, je pomocou tzv. zmiešaného objemu.
+Pre viac informácií o problematike zmiešaných objemov si môžete prečítať v kapitole
+12 v knihe [4]. Rozoberieme tie najdôležitejšie pozorovania, ktoré o zmiešanom objeme
+budeme potrebovať.
+
+Definícia 3.0.1. Minkowského súčet dvoch polytopov P a Q v euklidovskom priestore
+Rn je definovaný nasledovne:
+
+                               P + Q = {p + q | p ∈ P, q ∈ Q}
+
+Definícia 3.0.2. Zmiešaný objem je je geometrická hodnota, ktorá reprezentuje ko-
+
+eficient v asymptotickom správaní objemu Minkowského súčtu mnohostenov. Nech
+
+P1, P2, . . . , Pk sú konvexné mnohosteny v Rn. Zmiešaný objem V (P1, P2, . . . , Pk) je
+
+definovaný ako:
+
+V  (P1, P2, . . . , Pk)  =  ∂  λ1∂   ∂k   ·  ·  ∂λk  V  (λ1P1  +  λ2P2  +  ···  + λkPk)                  ,
+                                    λ2 ·
+                                                                                         λ1 =λ2 =···=λk =0
+
+kde V je objem a λi sú nezávislé skaláry.
+
+Nasledujúce dve vety si môžete prečítať v 12. kapitole v knihe [4].
+
+                                                        23
+Veta 3.0.3. Nech V je zmiešaný objem mnohostenov M1, M2, . . . , Mn. Funkcia V je
+
+polynóm v tvare:
+
+                     V (λ1M1 + λ2M2 + · · · + λnMn) =
+
+                            n            V (M1(k1), M2(k2), . . . , Mn(kn))λk11 λ2k2 · · · λknn
+                     k1, k2, . . . , kn
+k1+k2+···+kn=n
+
+kde V (M1(k1), M2(k2), . . . , Mn(kn)) sú zmiešané objemy M1, M2, . . . , Mn.
+
+Veta 3.0.4. Koeficienty v polynóme zmiešaného objemu pre dva mnohosteny M,N sú
+
+ohraničené vzťahom:
+
+                                    ck2 ≥ ck−1 · ck+1,
+
+kde ck je koeficient pri λk1λn2−k.
+
+3.1 Horné ohraničenie objemu konvexnej kombiná-
+       cie dvoch mnohostenov
+
+V tejto podkapitole sa budeme zaoberať otázkou toho, čo vlastne znamená maximálny
+objem. Keď tento problém prevedieme na prípad, kde N a M sú 2D útvary, môžeme si
+všimnúť, že vieme vytvoriť objem V (conv(N, M )) ľubovoľne veľký. Teraz musíme túto
+myšlienku zovšeobecniť na ľubovoľnú dimenziu.
+
+Veta 3.1.1. Neexistuje hodnota V , aby pre každú dvojicu mnohostenov M, O s obje-
+mami m a o platilo:
+
+                                          V (conv(M, O)) ≤ V.
+
+Dôkaz. Ideme skonštruovať dva mnohosteny M a O, ktoré dosiahnu viac ako objem
+V . Nech máme parameter a, b, c, d ∈ R+.
+
+   Definujme množinu A(a, b) ako množinu vrcholov mnohostena M a množinu B(c, d)
+ako množinu vrcholov O nasledovne:
+
+                  A(a, b) = {v ∈ {0, a}n | ∥v∥ = a and v ≠ (0, 0, 0, . . . , 0, a)}
+
+                                ∪{(0, 0, 0, . . . , 0)} ∪ {(0, 0, 0, . . . , b)}
+                  B(c, d) = {v ∈ {0, c}n | ∥v∥ = c and v ≠ (c, 0, 0, . . . , 0, 0)}
+
+                                                      24
+                                ∪{(0, 0, 0, . . . , 0)} ∪ {(d, 0, 0, . . . , 0)}
+   Ako môžeme vidieť, keď si zvolíme ľubovoľné a a b, tak dim(conv(A(a, b))) = n , a
+z toho vyplýva, že objem mnohostena V (conv(A(a, b))) > 0. Keď si zafixujeme a, tak
+pre b = 1 dostaneme objem V (conv(B(a, 1))) = k. Ak však za b dosadíme m/k, tak
+sme po jednej súradnici preskálovaní m/k krát viac, čo znamená, že sme presne zmenili
+objem, aby sme mali m. Inými slovami, pre každé a vieme nájsť b tak, aby sme mali
+mnohosten, ktorý má objem m. Analogicky to dokážeme pre mnohosten B(c, d).
+   Vytvorme si množiny vrcholov nových mnohostenov A′(a) a B′(c) nasledovne:
+
+                                  A′(a) = A(a, b) \ {(0, 0, 0, . . . , b)}
+
+                                  B′(c) = B(c, d) \ {(d, 0, 0, . . . , 0)}
+   Môžeme si všimnúť, že V (conv(A′(a))) ≤ V (conv((A(a, b))) z dôvodu, že A′(a) ⊂
+A(a, b). Keď urobíme konvexnu kombináciu mnohostenov tvorené množinami conv(A′(1))
+a conv(B′(1)), tak vidíme, že v každej vrstve okrem 0 a 1 je n-rozmerny rez, čiže má
+objem. Vzniknutý mnohosten má teda nejaký objem, označme si ho l.
+   Teraz, keď dosadíme za a = V /l a za c = V /l, tak sme v každom smere okrem
+jedného zväčšili súradnice V /l krát. To znamená, že objem sa zväčšil (V /l)n−1 krát, čo
+inými slovami znamená, že sme našli mnohosten, ktorý má ostro väčší objem ako V .
+   Tým, že mnohosteny tvorené vrcholmi z množín conv(A′(a)) a conv(B′(c)) boli
+podmnožinami conv(A(a, b)) a conv(B(c, d)), tak aj mnohosten vzniknutý konvexnou
+kombináciou bude podmnožinou, čiže aj jeho objem bude menší. Zhrnutie je, že vieme
+nájsť dva mnohosteny M a O, ktoré majú objemy m a o a V (conv(M, O)) > V .
+
+3.2 Objem skloneného ihlanu
+
+Pri riešení minimálneho objemu sa nám prirodzene naskytne otázka, aké by mali byť
+tieto dva mnohosteny M a N , aby boli podobné. Z geometrických útvarov je známe,
+že keď každý rez je podobný k podstave, takýmto útvarom je napríklad ihlan. Preto
+najprv zovšeobecníme tento koncept a vypočítame ich objem.
+
+Definícia 3.2.1. Nech máme dva mnohosteny N a M a dve nadroviny RN a RM , ktoré
+sú rovnobežné a zároveň |RN , RM | = 1. Predpokladajme, že mnohosten M ∈ RM a
+
+                                                      25
+vieme ho zobraziť s kladným koeficientom na mnohosten N ∈ RN . Potom mnohosten
+S nazývame skosený:
+
+   S = {α · a + (1 − α) · b | ∀a ∈ M, ∀b ∈ N, α ∈ [0, 1]}.
+
+Veta 3.2.2. Nech máme dva mnohosteny M , N s objemami m, o a dve nadroviny RN
+a RM , ktoré sú rovnobežné a zároveň |RN , RM | = 1. Predpokladajme, že mnohosten
+M ∈ RM a vieme ho zobraziť s kladným koeficientom na mnohosten N ∈ RN . Potom
+objem skoseného mnohostenu S je:
+
+V (S) = V (conv(M, N )) = 1 · V (M ) ·           1           − 1 · V (N ) ·           n−1 V (N )
+
+                     n                                          n                          V (M )
+
+                                                                                                   .
+
+                                        1−    n−1   V (N )                         1−  n−1  V (N )
+                                                    V (M )                                  V (M )
+
+Dôkaz. Bez ujmy na všeobecnosti môžeme prehlásiť, že m ≥ o. Skosený mnohosten
+si môžeme predstaviť ako ihlan I1 so základňou M a výškou h, od ktorého sme odčí-
+tali ihlan I2 so základňou N a výškou h − 1. Aplikujeme tento vzorec na oba ihlany.
+Dostaneme:
+
+V  (conv(M, N ))  =  V  (I1)  −  V      (I2)  =  1  ·  m  ·  h  −  1  ·  o  ·  (h  −  1).
+                                                 n                 n
+
+Tým, že sme prešli z h na h − 1, tak nech k je koeficient podobnosti. Čiže tým, že
+mnohosteny M, N sa nachádzajú v (n − 1)-dimenzii, sme objem zmenšili kn−1. Inými
+slovami:
+
+                                          V (N ) = V (M ) · kn−1
+
+                        k=       n−1    V (N )
+                                        V (M ).
+
+Teraz si môžeme všimnúť, že k je nejaké číslo medzi 0 a 1. Zavedime si funkciu
+
+f (x) ako funkciu, ktorá hovorí, že keď sme vo výške x, tak koľkokrát sa nám zmenšili
+
+rozmery. Ako môžeme vidieť, f (0) = s, aby sme mali objem V (M ) a f (1) = s · k, aby
+
+sme dosiahli objem V (N ). Funkcia f (x) je lineárna, pretože keď si urobíme hocijaký rez
+
+ihlanom, dostaneme trojuholník a funkcia f vyjadruje základňu toho trojuholníka. Zo
+
+začiatku nevieme, aká je, preto máme označenie f (0) = s, ale čo si môžeme všimnúť,
+
+je, že f (h) = 0. Určíme b a c z týchto troch rovníc:
+
+                        I.s = b · 0 + c
+                               26
+                                  II.s · k = b · 1 + c
+
+                                  III.0 = h · b + c.
+
+Z rovnice I vieme, že:
+
+                                           c = s.
+
+Dosadíme c do rovnice II:
+
+                                       s·k = b+s
+
+                                       b=s·k−s
+
+                                       b = s(k − 1).
+
+Teraz dosadíme b a c do rovnice III:
+
+                                  0 = h · s(k − 1) + s
+
+                                  0 = s · h(k − 1) + s
+
+                                  s · h(k − 1) = −s
+
+                                       h(k − 1) = −1
+
+                                       h   =       −1
+                                                  k−1
+
+                                       h   =   1  1    .
+                                                  −   k
+
+Tým, že máme h vyjadrené cez k a to cez V (N ) a V (M ), tak vieme už vypočítať
+
+objem skoseného ihlana:
+
+V  (conv(M, N ))         =  1  ·  V  (M )  ·   1  1  k  −  1  ·  V  (N )  ·  (1  1  k  −  1)  =
+                            n                     −        n                     −
+
+   1 · V (M ) ·                   1            − 1 · V (N ) ·       n−1 V (N )
+
+   n                                               n                         V (M )
+
+                                                                                     .
+
+                         1−       n−1  V (N )                       1−    n−1    V (N )
+                                       V (M )                                    V (M )
+
+3.3 Zmiešaný objem
+
+Zmiešaný objem zovšeobecňuje našu otázku o extrémnych hodnotách objemu V (conv(N, M )).
+Tu budeme rozoberať niekoľko základných vlastností, keď riešime zmiešaný objem pre
+dva mnohosteny.
+
+                                               27
+Veta 3.3.1. Nech máme dva mnohosteny M a N s objemami m a o. Minimálny objem
+nadobúda, keď pre všetky nerovnice z vety 3.0.4 ci2 ≥ ci−1 · ci+1 nastanú rovnosti.
+Dôkaz. Keď sa pozrieme na každý člen ci z mixed valued, ten vyzerá nasledovne:
+
+                                        ci = ai · (t)i · (1 − t)n−i.
+
+   Pre interval t ∈ [0, 1] vidíme triviálne, že čím menšie je ai, tým menší bude tento
+člen pre ľubovoľné t ∈ [0, 1]. Cieľom je teda minimalizovať ai. Ako prvé si nerovnicu
+logaritmujeme. Táto úprava je ekvivalentná:
+
+                                                a2i ≥ ai−1 · ai+1
+
+                                         log(a2i ) ≥ log(ai−1 · ai+1)
+                                             2ai ≥ ai−1 + ai+1.
+
+   Ako prvé si musíme všimnúť, že a0 musí byť rovné V (M ) z dôvodu, že keď do výrazu
+mixed value dosadíme 0, zostane nám iba jeden člen. Analogicky an musí byť rovný
+
+V (N ) z rovnakého dôvodu, keď dosadíme 1.
+
+Riešenie sústavy rovníc (2ai ≥ ai−1 + ai+1, ∀i ∈ {1, 2, . . . , n}) je jedinečné z dôvodu,
+
+že sú nerovnice lineárne nezávislé a ich je presne taký počet, aby malo iba jedno riešenie.
+
+To je nasledovné:
+
+                                         ai   =  a1   +  i  ·  (a1  −  an) .
+                                                                    n
+
+Predpokladajme, že existuje riešenie, ktoré má menší objem tie koeficienty pomenu-
+
+jem ako a′i kde i ∈ {0, 1, · · · , n}. To znamená, že existuje nejaké ai′, také že ai ≤ a′i a
+ai′+1 < ai+1, lebo a0 = a′0.
+
+   Teraz si vytvoríme bi a b′i ako:
+
+            bi  =     ai  −  i·  (a1  −  an)  =  a1   +  i·    (a1  −  an)    −i  ·  (a1  − an)  =      a1
+                                      n                             n                     n
+
+                                         bi′  =  ai′  −  i  ·  (a1  −  an) .
+                                                                    n
+
+Čo si môžeme všimnúť, že keď napíšeme rovnicu:
+
+                                              2ai′ ≥ a′i−1 + a′i+1
+
+2bi′  −  2  ·   i  ·  (a1  −  an)  ≥  b′i−1  −  (i  −  1)   ·  (a1  −  an)  +  bi′+1  −   (i  +  1)  ·  (a1  −  an)
+                           n                                        n                                        n
+
+                                                         28
+                                            2bi′ ≥ b′i−1 + bi′+1.
+   Keď sa pozrieme na nerovnosť 2bi′ ≥ b′i−1 + bi′+1, tak to je predpis polroviny. Ale z
+dôvodu, že vieme, že bi je konštanta a bi′ ≥ bi a bi+1 > bi′+1, tak vidíme, že priamka,
+ktorá definuje hranicu tejto polroviny, je klesajúca. Teda b′i − b′i+1 > 0. A keď túto
+vedomosť dosadíme do nerovnice:
+
+                                             2b′i+1 ≥ bi′ + b′i+2
+
+                                         bi′+1 ≥ bi′ − bi′+1 + bi′+2
+                                             b′i+1 − bi′+2 > 0.
+
+   Dostali sme tú istú nerovnosť, ale pre ďalšie členy. Problém je, že inými slovami, keď
+máme takúto nerovnosť, dostali sme od toho momentu klesajúcu postupnosť, a tým,
+že je to klesajúca postupnosť, nemôžeme sa vrátiť naspäť na konštantu bi. Teda toto
+riešenie by nesplnilo podmienku bn = bn′ = V (N ).
+
+   Zhrnutie: Minimálny objem existuje iba jediným spôsobom navrhnutia koeficientov,
+a to keď všetky nerovnosti nastanú ako rovnosti.
+
+3.4 Vzťah medzi zmiešaným objemom a skloneným
+
+       ihlanom
+
+Môžeme si všimnúť, že sklonený ihlan je naším kandidátom na minimálny objem dvoch
+mnohostenov. Pomocou zmiešaného objemu dokážeme, že náš odhad bol správny a
+menší objem nie je možné dosiahnuť.
+
+Veta 3.4.1. Nech máme dva mnohosteny M , N s objemami m, o a dve nadroviny RN
+a RM , ktoré sú rovnobežné a zároveň |RN , RM | = 1. Minimálny objem V (conv(M, N ))
+je rovnaký ako objem skoseného ihlanu S s podstavou M a nadstavbou N .
+
+Dôkaz. Z dôkazu o tom, že minimálny objem je vtedy, keď nastávajú rovnosti, sme
+zistili, že existuje iba jediné riešenie tejto sústavy rovníc. Pre jednoduchosť si označme
+m = an−1 a o = bn−1. Každý člen bude mať koeficient akbn−k−1. Aby sme vypočítali
+objem mixed value, musíme integrovať predpis funkcie. Budeme každý člen integrovať
+
+                                                      29
+postupne. Zoberieme si k-tý člen, ktorý má predpis:
+
+ck = ak · bn−k−1 ·                        n−1          · xk · (1 − x)n−k−1.
+                                            k
+
+Je známy integrál:
+
+                     1    · (1  −  x)n−k dx    =  Γ(k     + 1) · Γ(n    −       k)
+                                                           Γ(n + 1)                .
+                      xk
+
+                    0
+
+Z dôvodu, že k a n sú celé čísla, vieme, že Γ(x) = (x − 1)!. Po dosadení dostaneme:
+
+                    ck = ak · bn−k−1 ·     n−1             k! · (n − k − 1)!
+                                             k            ·
+
+                                                                    n
+
+                       ck = ak · bn−k−1 ·         n−1          ·     1
+                                                    k
+                                                                  n−1   ·n
+                                                                    k
+
+                                   ck  =   ak  ·  bn−k−1
+                                                          .
+
+                                                  n
+
+Čiže minimálny objem, ktorý vieme dostať, je:
+
+                                                       n  ak · bn−k−1
+                                                                       .
+                       V (conv(N, M )) ≥                          n
+
+                                                  k=0
+
+Objem skoseného ihlanu vieme, že je:
+
+V (S) = 1 · V (M ) ·                    1              − 1 · V (N ) ·           n−1 V (N )
+
+                                                                                      V (M )
+
+                    n           1−     n−1    V (N )      n               1−          n−1  V (N )
+                                              V (M )                                       V (M )
+
+                    V (S) = an ·           1           − bn ·        n−1 bn
+                                                                            an
+
+                                   1 − n−1 bn                     1 − n−1 bn
+                                                   an                             an
+
+                    V (S) = an ·           1           − bn ·        n−1 bn
+                                                                            an
+
+                                   1 − n−1 bn                     1 − n−1 bn
+                                                   an                             an
+
+                       V  (S)   =   an + bn       =        n   ak · bn−k
+                                   (a − b) · n            k=0   n+1 .
+
+Týmto sme dokázali, že minimálny objem vytvorený z dvoch mnohostenov čo majú
+
+objemy o a m, ktorý môžeme zostrojiť, je konkrétne pomocou skoseného ihlanu.
+
+                                              30
+Kapitola 4
+Extrémne objemy v kocke
+
+Vráťme sa späť k problému, ktorý sme riešili v kapitole 2. V tejto kapitole sme riešili
+priemerný objem. Teraz sa pokúsime zaoberať extrémnymi mnohostenmi v kocke, keď
+si fixujeme počet vrcholov na k.
+
+4.1 Maximálny objem
+
+Maximálny objem vieme vyriešiť pre polovicu prípadov vtedy, keď platí k ≥ 2n−1. Tu
+položíme vetu, ktorú následne dokážeme.
+
+Veta 4.1.1. Nech máme čísla k a n, kde k ≥ 2n−1. Pre každý mnohosten M tvorený
+z k vrcholov z kocky, ktorého objem je V (M ), platí:
+
+                                 V   (M,   k)  ≤  1  −  2n −    k
+                                                          n!     .
+
+Dôkaz. Budeme to riešiť pomocou indukcie cez počet vrcholov.
+   Prvý krok indukcie: Pre l = 2n = k existuje iba jediná možnosť, ako vytvoriť
+
+mnohosten M , a to že využijeme všetky vrcholy. Objem je teda triviálne 1. Po dosadení
+do vzorca dostaneme:
+
+                  V (M, k)    <  1−  2n − k    =  1−    2n − 2n     =  1  =  V (M ).
+                                       n!                  n!
+
+Druhý krok indukcie: Predpokladajme, že máme mnohosten M ′ na l−1 vrcholoch,
+
+ktorý  má  objem  väčší  ako  V  (M ′)  >  1  −  2n  −(l−1)  .  To  znamená,   že  jeho   objem,     vďaka
+                                                      n!
+
+diskrétnemu  charakteru  objemu,     musi  byť    vyjadrený     ako  V  (M ′)  =   s   ,  kde  s  ∈  N.  Čo  si
+                                                                                   n!
+
+                                                 31
+môžeme všimnúť, je že 2n − (l − 1) je celé číslo, takže najbližší diskrétny objem, ktorý
+
+môžeme  dosiahnuť,    je  1  −  2n−l  .  Teda   vieme    ohraničiť     V   (M ′)  ≥   1  −  2n−l  .
+                                  n!                                                          n!
+
+Teraz sa pokúsime vytvoriť mnohosten N ′, ktorý má l vrcholov, použijeme všetky
+
+vrcholy z M ′ a pridáme ľubovoľný ďalší. Pretože každý vrchol je nevyjadriteľný ostat-
+
+nými,  tak  objem  V  (N ′)  >   V  (M ′).  Pretože       objem    V   (M ′)  ≥   1   −  2n−l  ,  z  analogického
+                                                                                           n!
+
+dôvodu diskrétneho objemu dostaneme:
+
+                                      V  (N ′)  ≥  1  −   2n  −l   +   1.
+                                                               n!
+
+Z indukčného predpokladu vieme, že pre každý mnohosten M , čiže aj N , platí:
+
+                   1 − 2n − l ≥ V (M, l) ≥ V (N ′) ≥ 1 − 2n − l + 1
+                             n!                                                   n!
+
+                                 1 − 2n − l ≥ 1 − 2n − l + 1 .
+                                            n!                     n!
+
+Čo je spor. Tým sme dokázali aj druhý indukčný krok.
+
+   Poznámka: Konštrukcia ukazuje, že vieme zostrojiť taký mnohosten. Ak potrebu-
+jeme nevyužiť 2n − k vrcholov, vyberieme tie, ktoré majú súčet súradníc párny. Ako si
+môžeme všimnúť, žiadne dve z týchto vrcholov nesusedia, čiže mnohosten vzniknutý z
+kocky je odrezaním niekoľkých jednotkových simplexov.
+
+4.2 Maximálny objem v simplexe
+
+V oblasti objemov mnohostenov je jedným z najviac diskutovaných objemov simplex
+(podrobnejšie rozobrané je možné nájsť v knihe [5]), pretože je to najmenší mnohosten,
+ktorý môže nadobudnúť nejaký objem. Je však zaujímavé, že je viac otázok ako od-
+povedí, pretože existuje mnoho otvorených problémov, z ktorých jeden je presne určiť
+maximálny objem simplexu.
+
+   Pre jednoduchšiu prácu s objemom simplexu sa často využíva determinant. Matica
+A, ktorá obsahuje len hodnoty -1 a 1 a má maximalny determinant, sa nazýva Ha-
+damardova matica [6]. Jej dôležitou vlastnosťou je, že determinant tejto matice dáva
+objem simplexu delený n!. Pre ďalšie informácie o tejto matici sa môžete dočítať [7].
+
+                                                      32
+   V súvislosti s determinantom tejto matice bolo vykonaných veľa výskumov, ale zo-
+stáva veľa nezodpovedaných otázok. V tejto podkapitole sa pokúsime preskúmať nie-
+ktoré z týchto zodpovedaných otázok. Pre jednoduchosť budeme pracovať s maticou
+obsahujúcou len 0 a 1, no vždy je možné ju transformovať na Hamandovu maticu.
+
+Definícia 4.2.1. Nech máme maticu A, kde každý prvok matice má hodnotu z {0, 1}.
+Maticu Ar nazývame reverznou maticou A, keď platí:
+
+                                       ak ai,j = 1
+                                                      .
+                               0
+                      ari,j =           ak ai,j = 0
+
+                               1
+
+Veta 4.2.2. Nech M je n-rozmerný simplex v n-rozmernej jednotkovej kocke, potom
+
+platí
+
+                  V (M ) ≤                                n+1  .
+
+                                 (n + 1) · 0.5
+
+                                         (n)!
+
+Pre dimenzie n, ktoré nevieme zapísať ako n + 1 = 4k, tak rovnosť nemôže nastať.
+
+Dôkaz. Vložme simplex M do (n+1)-rozmerného priestoru tak, že každý bod v z
+priestoru, kde sa nachádza simplex M , zobrazíme do toho priestoru nasledovne:
+
+                                      v = (0.5, v1, v2, v3, . . . , vn).
+
+   Teraz vytvoríme v tomto priestore nový simplex S tak, že zoberieme všetkých n + 1
+vrcholov zo simplexa M a pridáme ešte jeden vrchol m, a to konkrétne:
+
+                  m = (0, 0.5, 0.5, 0.5, . . . , 0.5).
+
+   Teraz vieme objem simplexu vypočítať dvoma spôsobmi. Jeden je cez ihlan s pod-
+stavou M a výškou 0.5. Prvý spôsob je:
+
+                         V (S)       =  V (M )
+                                        n+1.
+
+Druhý spôsobom vieme tento objem ohraničiť nasledovne:
+
+       V  (S)  ≤  |m  −  m1|  ·  |m  − m2| · . . .  ·  |m      −  mn+1| .
+                                      (n + 1)!
+
+   Keď vytvoríme tých n + 1 vektorov pomocou vrchola m, dostaneme rozdiel taký, že
+každá súradnica bude mať hodnoty 0.5 alebo −0.5. Dôvodom je, že všetky vrcholy z
+
+                                     33
+M majú všetky súradnice okrem prvej rovné 0 alebo 1 a po odčítaní od 0.5 dostaneme
+
+presne tieto hodnoty. Pri prvej súradnici dostaneme 0.5.
+
+    Každá norma týchto bodov je rovnaká, konkrétne (n + 1) · 0.52. Po dosadení mô-
+
+žeme vidieť, že:                                           n+1
+
+                                V (S) ≤     (n + 1) · 0.5          .
+
+                                            (n + 1)!
+
+Po  dosadení  V (S)  =  V (M )  dostaneme:
+                         n+1
+
+                                V (M )                               n+1
+                                n+1 ≤
+                                            (n + 1) · 0.5
+                                               (n + 1)!
+
+                                            (n + 1) · 0.5  n+1
+
+                                V (M ) ≤           (n)!            .
+
+    Teraz dokážeme, že rovnosť nemôže nastať pre prípady, keď n + 1 ̸= 4k. Môžeme si
+
+všimnúť, že ohraničenie pomocou noriem znamená, že rovnosť nastáva v prípade, keď
+
+sú tieto vektory navzájom kolmé. To znamená, že ich skalárny súčin musí byť rovný 0.
+
+Každý vektor je tvorený hodnotami 0.5 alebo -0.5, takže počet suradníc s hodnotou 0.5
+
+musí byť rovnaký ako počet suradníc s hodnotou -0.5. V kontexte pôvodného simplexu
+
+M to znamená, že prvý vrchol bez ujmy na všeobecnosti má súradnice (0, 0, 0, ..., 0).
+
+Zvyšných n vrcholov musí mať s súradníc s hodnotou 0 a s + 1 súradnicu s hodnotou
+
+1, aby skalárny súčin s prvým vektorom bol rovný 0. Prípady, keď n + 1 = 4l + 1 alebo
+
+n + 1 = 4l + 3, môžeme vylúčiť, pretože n musí byť rozložené na s nulových a s + 1
+
+jednotkových súradníc, čo spolu tvorí nepárny počet.
+
+    Zostal nám posledný prípad, že n + 1 = 4k + 2, čo znamená n = 4k + 1. V tomto
+
+prípade musí mať každý vrchol 2k nulových a 2k+1 jednotkových súradníc. Pomenujme
+
+si tieto dva vektory ako a, b a urobme ich skalárny súčin:
+
+                                4k+2
+
+                        a · b = ai · bi = 0.25 + (−0.25).
+
+                                i=1         ai=bi          ai̸=bi
+
+Keďže celkový počet je 4k + 2, obidve sumy majú presný počet 2k + 1. V sume, kde
+
+ai ̸= bi, musí byť presne 2k + 1 jednotkových súradníc, zatiaľ čo v sume, kde ai = bi,
+musí byť spolu párny počet.
+
+    Vieme však, že vo vektoroch a a b majú spolu 2k + 1 + 2k + 1 = 4k + 2 (teda párny)
+
+počet jednotiek.
+
+                                            34
+   Poznámka: Predpokladá sa, že pre každé n = 4k + 1 je možné skonštruovať takú
+maticu, v ktorej sú všetky vektory navzájom kolmé. Tento predpoklad by umožnil
+konštrukciu s maximálnym objemom simplexu. Tento problém však dodnes zostáva
+otvoreným problémom.
+
+   Jedno z pozorovaní v tejto oblasti je, že v skutočnosti pre nekonečne veľa n =
+4k + 1 je možné skonštruovať takú maticu, v ktorej sú všetky vektory navzájom kolmé.
+Tu je veta, ktorá ukazuje, že ak poznáme nejakú maticu, ktorá spĺňa podmienku, že
+vektory sú na seba kolmé, potom vieme skonštruovať ďalšiu väčšiu maticu s rovnakými
+vlastnosťami.
+
+Veta 4.2.3. Ak máme simplex M , pre ktorý platí:
+
+                                 √                n+1
+                                   n + 1 · 0.5
+                V (M ) =                               .
+                                            n!
+
+potom existuje simplex M 2 v dimenzii 2n+1, pre ktorý platí rovnosť tiež v jeho dimenzii.
+
+Dôkaz. Ako sme v predchádzajúcom dokázali, aby nastala rovnosť, musia byť vektory
+
+na seba kolmé. Preto vieme, že tieto vektory sú na seba kolmé. Vrcholy simplexu M
+
+označíme ako v0, v1, v2, . . . , v(n), pričom bez ujmy na všeobecnosti v0=(0,0,0,...,0).
+
+Potom maticu A definujeme nasledovne:
+
+                                                         
+
+                   0 0 0 ... 0
+
+                                                         
+
+                          v21                            
+                   0       ...        v22        v2n
+                                       ...  ...           
+                                             ...
+             A  =    ...                                   .
+                                                         
+                   
+                                                         
+
+                                                          
+
+                                                         
+
+                                                         
+
+                   0 vn1 vn2 . . . v(n)n
+
+Nech:                                       
+
+                           B=         AA    .
+
+                                            
+
+                                       A Ar
+
+   Nové vrcholy tvoria nový simplex M2, ktorý neobsahuje prvú súradnicu. Skontrolu-
+jeme, že všetky skalárne súčiny sú rovné 0 po rovnakej transformácii ako v dôkaze pre
+
+vetu 4.2.2.
+
+Zavedieme operáciu a ⊕ b, čo bude operácia medzi vektormi a a b. Ak sú vektory
+
+na seba kolmé po transformácii, tak a ⊕ b = 0, a ak a = b, výsledok je počet zložiek
+
+vektora a. Nech ai je i-ty vektor z matice A, a nech bi je i-ty vektor z matice B. Vieme,
+že pre každú dvojicu (i, j) ∈ {1, . . . , n}2 platí:
+
+                                       35
+                                             ak i ≠ j
+                                                         .
+                            0,
+                ai ⊕ aj =                     ak i = j
+
+                            n,
+
+Teraz ideme rozobrať prípady pre maticu B, aby sme overili, že všetky vektory sú
+
+kolmé na seba:
+
+• Ak (i, j) ∈ {1, . . . , n}2 a i ≠ j, tak:
+
+                bi ⊕ bj = ai ⊕ aj + ai ⊕ aj = 0 + 0 = 0.
+
+• Ak (i, j) ∈ {n + 1, . . . , 2 · n}2 a i ̸= j, tak:
+                   bi ⊕ bj = ai−n ⊕ aj−n + (−ai−n) ⊕ (−aj−n) = 0 + 0 = 0.
+
+• Ak i ∈ {1, . . . , n} a i + n = j, tak:
+                          bi ⊕ bj = ai ⊕ ai + (ai) ⊕ (−ai) = n − n = 0.
+
+• Ak i ∈ {1, . . . , n}, j ∈ {n + 1, . . . , 2 · n} a i + n ≠ j, tak:
+                      bi ⊕ bj = ai ⊕ (−aj−n) + ai ⊕ (−aj−n) = 0 + 0 = 0.
+
+   Táto konštrukcia zachováva kolmosť vektorov. Zostrojili sme simplex M 2, ktorý
+zachováva rovnosť vo svojej dimenzii.
+
+4.3 Minimálny objem
+
+Teraz sa budeme zaoberať minimálnymi objemami. Ako môžeme vidieť, pre m ≤ 2n−1
+sú minimálne objemy triviálne 0, keď sú vrcholy umiestnené na jednej stene kocky. Ak
+však máme m > 2n−1, jeden z kandidátov na minimálny objem je taký, že vrcholy
+musíme umiestniť na dve oproti sebe ležiace steny kocky. Umiestnime ich tak, aby boli
+čo najviac vyrovnané vzhľadom na počet vrcholov. Tým sa naša úloha trochu zmení a
+to tak, že na každej stene ideme minimalizovať objem o jednu dimenziu menšiu.
+
+   Keď máme m = 2k, vidíme, že na oboch stenách dostaneme ten istú podúlohu a jeho
+objem bude rovnaký ako z pôvodnej n-rozmernej kocky. Ak je počet vrcholov nepárny,
+
+                                                      36
+dostaneme dva mnohosteny, ktoré majú jeden párny a druhý nepárny počet vrcholov.
+Obidva mnohosteny budú rovnaké, ale jeden bude mať o jeden vrchol navyše. Skúsme
+položiť hypotézu, aké vzťahy medzi týmito mnohostenmi platia.
+
+Definícia 4.3.1. Nech n a m sú kladné celé čísla. Potom V (n, m) je objem, vynáso-
+bený n!, mnohostena nášho predpokladaného M s minimálnym objemom, ktorý má m
+vrcholov v n-rozmernej kocke.
+
+Definícia 4.3.2. Minimálny rozdielový odhad je:
+
+          D(n, m) = V (n, m) − V (n, m − 1).
+
+Hypotéza: Minimálny rozdielový odhad vieme definovať ako:
+
+                           D(1, 0) = 0
+
+                           D(1, 1) = 1
+
+      D(n,   m)  =  D(n    −  1,  m  )     pre m nepárne
+                                  2
+
+D(n,  m)  =  (n  −  1)  ·  D(n  −   1,  m  −     1)     pre m párne.
+                                           2
+
+Spomenutá konštrukcia sa snaží vyrovnať vrcholy na dvoch stenách a tým znížiť
+
+problém na menší, ktorý budeme tiež riešiť. Naším cieľom je dokázať, že táto rekurzívna
+
+definícia pre konštrukciu nášho mnohostena spĺňa hypotézu.
+
+Dôkaz bude spočívať v indukcii podľa dimenzie.
+
+Prvý krok indukcie: Nech k = 1 a k = 2. Ako môžeme vidieť, že pre dimenziu
+
+1 nemáme vôbec použitý rekurzívny vzťah a keď nájdeme minimálne objemy (tie sú
+
+jednoznačne dané, pretože existuje iba jediná možnosť konštalácie tých vrcholov v
+
+kocke), jednoducho je možné overiť, že spĺňajú našu hypotézu. Nech k = 1 a potom
+
+k = 2. Ako môžeme vidieť, pre 1-rozmernú kocku máme použitý rekurzívny vzťah
+
+D(1, 0) = 0 a D(1, 1) = 1. Pri hľadaní minimálneho objemu pre 2-rozmernú kocku
+
+(sú jednoznačne dané z dôvodu, že existuje iba jediná možnosť konfigurácie vrcholov v
+
+kocke) je jednoduche overiť, že spĺňajú našu hypotézu.
+
+Druhý krok indukcie: Vieme, že platí hypotéza pre k-rozmernú kocku a chceme
+
+dokázať hypotézu pre (k + 1)-rozmernú kocku. Ak je m párne číslo, tak V (k + 1, m) =
+
+(k + 1) · V (k, m/2), z dôvodu, že na obidvoch stranách budeme mať rovnaký mnohosten
+
+                                37
+a výsledný mnohosten bude mať rovnaký objem. Ale naša definícia diskretizuje objem,
+takže potrebujeme vynásobiť to ešte dimenziou.
+
+   Ak máme nepárny počet vrcholov, z našej konštrukcie rozdelíme vrcholy na čo naj-
+vyrovnanejší počet, teda na jednej strane bude o jeden vrchol viac. Objem dvoch mno-
+hostenov na stenách budú mať známe objemy V (k, m/2 + 0.5) a V (k, m/2 − 0.5). Z
+definície dostaneme:
+
+              D(k, m/2 + 0.5) = V (k, m/2 + 0.5) − V (k, m/2 − 0.5).
+
+   Ak by sme mali o jeden vrchol viac, znamenalo by to, že dostaneme párny počet
+vrcholov, a ten vieme, že má určitý objem. Teraz však potrebujeme odstrániť určitú
+časť, a to je presne ihlan, ktorý má výšku 1 a podstavu s objemom D(k, m/2 + 0.5).
+Takže, objem pre V (k + 1, m) je daný vzťahom:
+
+              V  (k  +  1,  m)  =  V   (k,  m     +  1)  −  (k    +    1)  ·  D(k, m/2  +  0.5)
+                                                                               k+1              .
+
+   Už sme vytvorili objemy pre každý počet vrcholov. Aby sme si overili hypotézu,
+musíme objemy previesť na D. Po dosadení z definície dostaneme:
+
+                        D(k     +  1,  m)   =     D(k,   m  )       pre m nepárne
+                                                         2
+
+                     D(k    +  1,  m)  =    k  ·  D(k,     m  −   1)       pre m párne.
+                                                              2
+
+Veta 4.3.3. Nech máme 2n mnohostenov. Pomenujme si tieto mnohosteny ako M1, M2, . . . , M2n,
+
+pričom Mi má minimálny objem pre i vrcholov. Teraz si vytvorme priemerný objem
+
+V (n) ako:                                               2n
+                                                         i=1
+                                       V (n) =                V   (Mi)     .
+
+                                                              2n
+
+Potom platí:
+
+                                       lim    V   (n)  =    ln(  1  )  +   1.
+                                                                 2
+                                       n→∞
+
+Dôkaz. Pretože máme známu postupnosť našich minimálnych rozdielových odhadov
+
+ako:
+
+                        D(n,      m)   =  D(n     −    1,  m  )   pre  m       nepárne
+                                                           2
+
+                 D(n, m)       =   (n  −  1)   ·  D(n    −  1,   m−        1)  pre  m  párne.
+                                                                    2
+
+                                                       38
+   Tak musíme definovať postupnosť objemov a to definujeme nasledovne:
+
+                                 V (n, m) = V (n, m − 1) + D(n, m).
+
+   Vďaka tomu, že máme definovanú postupnosť objemov, tak na výpočet priemernej
+hodnoty potrebujeme vytvoriť súčet týchto objemov. Pomenujme ho S(n):
+
+                                                                                 2n
+
+                                           S(n) = V (n, i).
+
+                                                                                i=0
+
+   Teraz túto sumu vytvoríme ako rekurentný tvar cez S. Túto postupnosť môžeme
+upraviť ako:
+
+                          2n−1                    2n−1
+
+                  S(n) = V (n, 2 · i) + V (n, 2 · i + 1).
+
+                          i=0                     i=0
+
+Keď sa pozrieme na každý člen     2n−1  V    (n,  2·i),  môžeme      vidieť,    že  každý  člen  V  (n,  m)
+                                  i=0
+
+vieme rozložiť pomocou D(n, m) nasledovne:
+
+                                                                              m
+
+                                     V (n, m) = D(n, m).
+
+                                                                             i=0
+
+Tu môžeme vidieť, že keď si sparujeme D(n, 2 · i) s D(n, 2 · i + 1), tak podľa definície
+
+dostaneme:
+
+           D(n, 2 · i) + D(n, 2 · i + 1) = D(n − 1, i) + (n − 1) · D(n − 1, i)
+                       D(n, 2 · i) + D(n, 2 · i + 1) = n · D(n − 1, i).
+
+Každý člen V (n, 2 · i) vieme vyjadriť ako:
+
+                    2·i                 i
+
+            V (n, 2 · i) = D(n, j) = n · D(n − 1, j) = n · V (n − 1, i).
+
+                    j=0                 j=0
+
+Keď rozpíšeme sumu  2n−1  V  (n,  2  ·  i),  tak  dostaneme:
+                    i=0
+
+            2n−1                     2n−1
+
+                  V (n, 2 · i) = n · V (n − 1, i) = n · S(n − 1).
+
+            i=0                         i=0
+
+Teraz tú istú myšlienku aplikujeme na             2n−1   V (n, 2  ·  i  +  1),  ale  pridáme  každému
+                                                  i=0
+
+členu V (n, 2 · i + 1) + D(n, 2 · i + 1). Dostaneme:
+
+2n−1                2n−1                                                   2n−1
+
+      V (n, 2 · i + 1) = (V (n, 2 · i + 1) + D(n, 2 · i + 1)) − D(n, 2 · i + 1) =
+
+i=0                 i=0                                                    i=0
+
+                                             39
+                    2n−1                         2n−1
+
+                          (V (n, 2 · i + 2) − D(n, 2 · i + 1) =
+
+                    i=0                           i=0
+
+                                                     2n−1
+
+                         n · S(n − 1) + D(n, 2 · i + 1) =
+
+                                                      i=0
+
+                                                      2n−1
+
+                          n · S(n − 1) + D(n − 1, i) =
+
+                                                       i=0
+
+          n · S(n − 1) + V (n − 1, 2n−1)) = n · S(n − 1) + (n − 1)!.
+
+   V (n − 1, 2n−1) = (n − 1)! z dôvodu, že toto je presný objem celej kocky, keď diskre-
+tizujeme objem na najmenšie časti prenásobený (n-1)!.Po dosadení do pôvodnej S(n)
+dostaneme:
+
+          2n−1              2n−1
+
+S(n) = V (n, 2 · i) + V (n, 2 · i + 1) = 2 · n · S(n − 1) + (n − 1)!.
+
+          i=0               i=0
+
+Teraz potrebujeme počítať v skutočných objemoch, nie v diskrétnych. Výslednú
+
+sumu musíme vydeliť n!. Aby sme dostali priemer, potom celkový súčet musíme ešte
+
+vydeliť 2n. To znamená, že máme postupnosť priemerných objemov V (n):
+
+                                     V   (n)  =   S(n)
+                                                         .
+
+                                                  n! · 2n
+
+Keď postupnosť V (n) rozpíšeme, dostaneme:
+
+                            V  (n)       =  1  +    n    −1     .
+                                                   i=0  n · 2n
+
+Talorov rozvoj ln(1 − x) vieme zapísať ako:
+
+                                                   ∞     −xn
+                                                              .
+                               ln(1 − x) =         i=0 n
+
+Dosadíme  x=  1  ,  môžeme  vidieť,  že  keď   spravíme     limitný   prechod,  dosiahneme:
+              2
+
+                    lim V (n)  =     1+  ∞        −1     =  1   + ln  1  .
+                                         i=0     n · 2n               2
+                    n→∞
+
+                                               40
+Záver
+
+V tejto bakalárskej práci sme sa venovali štúdiu objemov konvexných mnohostenov
+umiestnených v kocke. Našim cieľom bolo pochopiť a analyzovať, ako sa tieto objemy
+menia v závislosti od rôznych faktorov, ako sú počet vrcholov mnohostenov, ich roz-
+miestnenie a dimenzia kocky.
+
+   Začali sme definovaním základných pojmov a nástrojov potrebných na analýzu kon-
+vexných mnohostenov a ich objemov. Podrobne sme sa venovali konceptu minimálneho
+a maximálneho objemu v kocke, pričom sme využili geometrické a algebraické metódy
+na ich výpočet a overenie našich hypotéz. Pri skúmaní sme zaviedli a aplikovali re-
+kurenčné vzťahy, ktoré nám umožnili odhadnúť objemy pre rôzne dimenzie a počty
+vrcholov.
+
+   Analyzovali sme aj extrémne objemy, pričom sme sa zamerali na prípady maximál-
+neho objemu v simplexe a minimálneho objemu v rôznych kontextoch. Naše výsledky
+ukazujú, že pomocou rekurenčných vzťahov je možné efektívne vypočítať objemy kon-
+vexných mnohostenov a potvrdiť naše hypotézy o ich správaní.
+
+   Na záver môžeme konštatovať, že práca priniesla nové poznatky o objemoch konvex-
+ných mnohostenov v kocke a poskytla pevný základ pre ďalší výskum v tejto oblasti.
+Naše výsledky majú potenciál byť aplikované nielen v teoretickej matematike, ale aj v
+praktických oblastiach, ako sú výpočtová geometria a optimalizácia.
+
+   V budúcnosti by bolo zaujímavé rozšíriť túto analýzu na iné typy mnohostenov
+a geometrických telies, ako aj skúmať vplyv ďalších geometrických a topologických
+vlastností na objemy. Ďalšou výzvou je nájsť efektívnejšie algoritmy na výpočet týchto
+objemov a aplikovať získané poznatky v rôznych vedeckých a inžinierskych disciplínach.
+
+                                                      41
+Literatúra
+
+[1] A. P. Christian Haase, Benjamin Nill, Lecture Notes on Lattice
+    Polytopes. https://www2.mathematik.tu-darmstadt.de/~paffenholz/daten/
+    preprints/20201007_Lattice_Polytopes.pdf, 2020.
+
+[2] M. K. V. David J. Smith, How Small Is a Unit Ball?, Mathematics Magazine,
+    62(2), 101–107, 13 Feb 2018, ISBN: 978-1-400-84290-2.
+
+[3] J. A. Gubner, The Gamma Function and Stirling’s Formula. https://gubner.
+    ece.wisc.edu/notes/GammaFunctionStirling.pdf, 2021.
+
+[4] D. O. Horst Martini, Luis Montejano, Bodies of Constant Width, Birkhäuser
+    Cham, 2019, ISBN: 978-3-030-03868-7.
+
+[5] P. Stein, A Note on the Volume of a Simplex, The American Mathematical Mont-
+    hly, Vol. 73, No. 3, Mar., 1966, ISBN: 978-3-540-17096-9.
+
+[6] A. H. W. D. Wallis, Hadamard Matrices and Their Applications, Ann. Statist.
+    6 (6) 1184 - 1238, November, 1978, ISBN: 978-1-400-84290-2.
+
+[7] E. W. Weisstein, Hadamard’s Maximum Determinant Problem. https:
+    //mathworld.wolfram.com/HadamardsMaximumDeterminantProblem.html, 2024,
+    [cit. 25.5.2024].
+
+                                                      42
+

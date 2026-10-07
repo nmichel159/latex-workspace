@@ -1,0 +1,460 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.7.2, 28 August 2024) written by LianTze Lim (liantze@gmail.com). Compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and simpleicons packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/simpleicons for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+% WHEN COMPILING WITH XELATEX PLEASE USE
+% xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex
+\iftutex 
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+% ...and the markers for the date/location for \cvevent
+% \renewcommand{\cvDateMarker}{\faCalendar*[regular]}
+% \renewcommand{\cvLocationMarker}{\faMapMarker*}
+
+
+% If your CV/résumé is in a language other than English,
+% then you probably want to change these so that when you
+% copy-paste from the PDF or run pdftotext, the location
+% and date marker icons for \cvevent will paste as correct
+% translations. For example Spanish:
+% \renewcommand{\locationname}{Ubicación}
+% \renewcommand{\datename}{Fecha}
+
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% \input{pubs-authoryear.tex}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+\input{pubs-num.tex}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+% \usepackage{academicons}\let\faOrcid\aiOrcid
+\begin{document}
+\name{Mgr. Norbert Micheľ}
+\tagline{Software Developer, Data Analyst}
+%% You can add multiple photos on the left or right
+%\photoR{2.8cm}{Globe_High}
+\photoR{2.8cm}{nieco2}
+% \photoL{2.5cm}{Yacht_High,Suitcase_High}
+
+\personalinfo{%
+  % Not all of these are required!
+  \email{noro.michel159@gmail.com}
+  \phone{+421 907 869 883}
+
+  \location{Košice, Slovakia}
+  %\homepage{www.homepage.com}
+  % \twitter{@twitterhandle}
+  %\xtwitter{@x-handle}
+  \linkedin{norbert-micheľ}
+  \github{nmichel159}
+  \printinfo{\faGraduationCap}{Mgr. Charles University}
+ 
+  %\orcid{0000-0000-0000-0000}
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+  %%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+\cvsection{Experience}
+
+\cvevent{AI Engineer}{Instaview}{2026 -- Present}{Prague}
+
+\cvevent{Software Developer}{LevelGo}{2025 -- 2026}{Košice}
+
+\cvevent{}{DADO}{2025 -- 2025}{Bratislava}
+
+\cvevent{}{KDC - Košice Development Center}{2021 -- 2024}{Košice}
+
+\divider
+
+\cvevent{Erasmus Student Exchange}{Charles University, Prague}{2024 -- 2024}{Prague}
+
+\divider
+
+\cvevent{Student Scientific Activity}{UPJŠ - P. J. Šafárik University}{2022 -- 2023}{Košice}
+
+
+
+
+
+\cvsection{Projects}
+
+\cvevent{AI Engineer – Interview Analysis System}{Instaview}{2026}{Prague}
+\begin{itemize}
+    \item Technologies: \textbf{Python, LLMs}
+    \item Developed an AI-driven system for automated interview analysis using large language models.
+    \item Implemented semantic evaluation of candidate responses to assess both technical and soft skills.
+    \item Designed algorithms for matching candidates to positions based on skill alignment and contextual meaning.
+\end{itemize}
+\divider
+
+\cvevent{Full-Stack Developer – Mobile Sports Application}{LevelGo}{2025 -- 2026}{Košice}
+\begin{itemize}
+    \item Technologies: \textbf{Python, Flutter}
+    \item Implemented a mobile application using Flutter with a focus on clean architecture and maintainable code structure.
+    \item Developed back-end services in Python to support application logic, data processing, and API communication.
+\end{itemize}
+
+
+\divider
+\cvevent{Full-Stack Developer – AI Integration Platform}{DADO}{2025 -- 2025}{Bratislava}
+\begin{itemize}
+    \item Technologies: \textbf{Vue.js, PHP}
+    \item Integrated third-party AI APIs for automated data processing and content generation tasks.
+    \item Customized and adapted AI tools to meet specific client requirements and workflow automation objectives.
+\end{itemize}
+
+
+
+\divider
+
+
+\cvevent{Internal Blazor Component Library}{KDC}{}{}
+\begin{itemize}
+\item Language: \textbf{C\#}
+    \item Designed and implemented a reusable Blazor library that contains custom graphical components such as counters, sliders, and other UI elements.
+    \item Developed demo applications showcasing component usage for internal developers.
+\end{itemize}
+\divider
+\cvevent{Full-Stack Application for Slovak Railways - ZSSK}{KDC}{}{}
+\begin{itemize}
+\item Language: \textbf{C\#}
+    \item Developed a full-stack application in C\# for ZSSK, encompassing both front-end and back-end development.
+    \item Integrated and synchronized data within the internal ZSSK system.
+    \item Managed and resolved bug reports while working on concurrent projects.
+\end{itemize}
+
+\divider
+\cvevent{Web Front-End Development for Government-Related Websites - Various Clients}{KDC}{}{}
+\begin{itemize}
+    \item Language - \textbf{JavaScript}
+    \item Developed and maintained front-end interfaces for multiple government-related websites, ensuring responsive and user-friendly design.
+    \item Implemented and integrated APIs to facilitate seamless communication between front-end and back-end systems for diverse clients.
+\end{itemize}
+
+\divider
+\cvevent{Application for Scheduling Using Linear Programming}{UPJŠ}{}{}
+\begin{itemize}
+    \item Language -  \textbf{Python}
+    \item Designed and developed an application for scheduling tasks based on linear programming techniques, tailored for the IYPT (International Young Physicists’ Tournament) event.
+    \item Addressed the NP-hard nature of the scheduling problem by incorporating elements of randomness to accelerate the algorithm and achieve practical runtimes.
+\end{itemize}
+
+\newpage
+\cvsection{Achievements}
+
+\cvsubsectionfont{Academic}
+
+\cvevent{Best Scientific Thesis}{Nomination for Bernard Bolzano Foundation Annual Prize, Charles University}{2025}{Prague}
+\begin{itemize}
+  \item Prestigious annual award recognizing the best scientific thesis at the Faculty of Mathematics and Physics, granted to a very limited number of students.
+\end{itemize}
+
+\divider
+
+\cvsubsectionfont{Programming}
+
+\cvevent{Master of Slovakia}{Central European Regional Contest (CERC)}{2022}{Ljubljana}
+
+\cvevent{2nd Place}{Student Programming Competition - UPJŠ}{2022}{Košice}
+
+\cvevent{Winner}{National Round of the Informatics Olympiad (CKOI)}{2020}{Bratislava}
+
+\divider
+
+\cvsubsectionfont{Math}
+
+\cvevent{Silver Medal}{Middle European Mathematical Olympiad (MEMO)}{2020}{Košice}
+
+
+\medskip
+
+\cvsection{A Day of My Life}
+
+% Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+% \wheelchart{outer radius}{inner radius}{
+% comma-separated list of value/text width/color/detail}
+\wheelchart{1.5cm}{0.5cm}{%
+  8/8em/accent!30/{Sleep},
+  1/6em/accent!50/Household tasks,
+  8/8em/accent!60/{Daytime job, Academic Life},
+  4/10em/accent/Sports and relaxation,
+  5/6em/accent!20/Spending time with friends
+}
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the current column
+
+
+\cvsection{Publications}
+
+%% Specify your last name(s) and first name(s) as given in the .bib to automatically bold your own name in the publications list.
+%% One caveat: You need to write \bibnamedelima where there's a space in your name for this to work properly; or write \bibnamedelimi if you use initials in the .bib
+%% You can specify multiple names, especially if you have changed your name or if you need to highlight multiple authors.
+\mynames{Lim/Lian\bibnamedelima Tze,
+  Wong/Lian\bibnamedelima Tze,
+  Lim/Tracy,
+  Lim/L.\bibnamedelimi T.}
+%% MAKE SURE THERE IS NO SPACE AFTER THE FINAL NAME IN YOUR \mynames LIST
+
+\nocite{*}
+
+%\printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+
+%\divider
+
+%\printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Journal Articles}},type=article]
+
+%\divider
+
+%\printbibliography[heading=pubtype,title={\printinfo{\faUsers}{Conference Proceedings}},type=inproceedings]
+
+\printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Prepared Publications}},type=unpublished]
+
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+\cvsection{Highlights}
+
+
+
+\cvachievement{\faStar}{Master’s Degree in One Year}{Charles University, accelerated completion}
+
+\divider
+
+\cvachievement{\faStar}{Silver Medal – MEMO}{International mathematics competition}
+
+\divider
+
+
+
+\cvachievement{\faStar}{Best Thesis Nomination}{Bernard Bolzano Foundation Prize}
+
+\divider
+
+\cvachievement{\faStar}{Slovakia Master – CERC}{Competitive programming champion}
+
+\cvsection{\href{https://github.com/nmichel159/3D_tic_tac_toe_dropped}{\faGithub Projects on GitHub}}
+
+\cvevent{\href{https://github.com/nmichel159/3D_tic_tac_toe_dropped}{3D Tic-Tac-Toe Dropped \faGithub}}{Python, Tkinter}{2022}{}
+\divider
+
+
+\cvevent{\href{https://github.com/nmichel159/IYPT_Linear_programming}{IYPT-Linear programming \faGithub}}{Python, Tkinter, Pupl}{2022}{}
+\divider
+\cvevent{\href{https://github.com/nmichel159/interview_2025}{Interview \faGithub}}{Vue + Vite}{2025}{}
+
+\divider
+\cvevent{\href{https://github.com/nmichel159/scheduling}{Scheduling \faGithub}}{Python + React}{2026}{}
+
+
+
+
+
+
+
+
+
+
+
+
+\cvsection{Languages}
+
+\cvtag{Python}
+\cvtag{C++}
+\cvtag{C\#}
+\cvtag{Haskell}
+\cvtag{Java}
+\cvtag{JavaScript}
+\cvtag{TypeScript}
+\cvtag{Rust}
+\cvtag{Kotlin}
+\cvtag{SQL}
+
+
+
+\cvsection{Spoken Languages}
+
+\cvskill{English - B2}{4}
+\divider
+
+\cvskill{Slovak - C1}{5}
+\divider
+
+\cvskill{Czech - C1}{5}
+\divider
+
+\cvskill{German - A2}{1} %% Supports X.5 values.
+\newpage
+
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vspace etc to make adjustments.
+\medskip
+
+\cvsection{Education}
+
+\cvevent{PhD. in Computer Science }{Pavol Jozef Šafárik University, Faculty of Science, Košice, Slovakia}{2025 -- present}{}
+Thesis title: General Logistic Problems. Supervisor: prof\ RNDr.\ Gabriel Semanišin, PhD.
+
+\divider
+
+\cvevent{Mgr. in Discrete Models and Algorithms}{Charles University, Faculty of Mathematics and Physics, Prague, Czech Republic}{2024 -- 2025}{}
+Thesis title: Min Cut-Path Problem. Supervisor: prof.\ RNDr.\ Martin Loebl, CSc.
+
+\divider
+
+\cvevent{Bc. in Data Analysis and Artificial Intelligence}{Pavol Jozef Šafárik University, Faculty of Science, Košice, Slovakia}{2021 -- 2024}{}
+Thesis title: Mrežové mnohosteny v n-rozmernej kocke. Supervisor: Mgr.\ Martin Vodička.
+
+
+\cvsection{Frameworks}
+
+\cvtag{Blazor}
+\cvtag{NumPy}
+\cvtag{SciPy}
+\cvtag{Matplotlib}
+\cvtag{Pandas}
+\cvtag{NetworkX}
+\cvtag{React}
+\cvtag{Vue}
+\cvtag{Angular}
+\cvtag{Flask}
+\cvtag{Flutter}
+
+\cvsection{Tools}
+
+\cvtag{LaTeX}
+\cvtag{Git}
+\cvtag{Jupyter}
+\cvtag{Visual Studio}
+\cvtag{VS Code}
+\cvtag{.NET}
+
+
+\cvsection{Strengths}
+
+% Don't overuse these \cvtag boxes — they're just eye-candies and not essential. If something doesn't fit on a single line, it probably works better as part of an itemized list (probably inlined itemized list), or just as a comma-separated list of strengths.
+
+% The `ragged2e` document class option might cause automatic linebreaks between \cvtag to fail.
+% Either remove the ragged2e option; or 
+% add \LaTeXraggedright in the paragraph for these \cvtag
+{\LaTeXraggedright
+\cvtag{Reliable}
+\cvtag{Hard-working}
+\cvtag{Flexible}
+\cvtag{Friendly}
+\cvtag{Adaptable}
+\cvtag{Soft-skill}
+\par}
+\cvsection{Interests}
+
+\cvtag{Abstinent}
+\cvtag{Chess}
+\cvtag{Ultimate Frisbee}
+
+
+
+
+
+% \divider
+
+
+
+\end{paracol}
+
+
+\end{document}

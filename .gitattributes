@@ -1,0 +1,10 @@
+* text=auto
+*.tex text
+*.bib text
+*.cls text
+*.bst text
+*.ps1 text eol=crlf
+*.pdf binary
+*.png binary
+*.jpg binary
+*.zip binary

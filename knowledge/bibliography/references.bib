@@ -1,0 +1,295 @@
+% =============================================================================
+% Kanonicka bibliografia pracovneho priestoru.
+% Zdroj zaznamov: clanok 1 (projects/clanok-1-min-cut-path), diplomova praca (2025)
+% a bakalarska praca (2024). Do projektu sa kopiruju len citovane zaznamy; opravy sa robia najprv tu.
+%
+% Stav kazdeho zaznamu je v komentari nad nim:
+%   OVERENE  - udaje skontrolovane podla DOI / stranky vydavatela / katalogu (datum v komentari)
+%   CIASTOCNE - overena len cast udajov, zvysok podla povodneho zaznamu
+%   TODO     - znamy problem, treba doriesit
+% Komentare su bez diakritiky, aby subor presiel aj cez 8-bitovy BibTeX.
+% =============================================================================
+
+% ----------------------------------------------------------------------------
+% Grafy, algoritmy, zlozitost
+% ----------------------------------------------------------------------------
+
+% OVERENE 2026-10-07. 6. vydanie vyslo v roku 2025 (v diplomovke a v povodnom .bib bol rok 2023
+% a ISBN 978-3-662-67631-2 s neplatnou kontrolnou cislicou).
+@book{Diestel2025,
+  author    = {Diestel, Reinhard},
+  title     = {Graph Theory},
+  edition   = {6th},
+  series    = {Graduate Texts in Mathematics},
+  number    = {173},
+  publisher = {Springer},
+  address   = {Berlin, Heidelberg},
+  year      = {2025},
+  isbn      = {978-3-662-70106-5}
+}
+
+% OVERENE 2026-10-07 (pevna vazba). Povodne ISBN 978-0-262-53989-5 malo neplatnu kontrolnu cislicu.
+@book{Cormen2022,
+  author    = {Cormen, Thomas H. and Leiserson, Charles E. and Rivest, Ronald L. and Stein, Clifford},
+  title     = {Introduction to Algorithms},
+  edition   = {4th},
+  publisher = {MIT Press},
+  address   = {Cambridge, MA},
+  year      = {2022},
+  isbn      = {978-0-262-04630-5}
+}
+
+% OVERENE 2026-10-07 (brozovane vydanie; pevna vazba 978-0-387-95241-3). Povodne ISBN koncilo na 9.
+@book{GodsilRoyle2001,
+  author    = {Godsil, Chris and Royle, Gordon},
+  title     = {Algebraic Graph Theory},
+  series    = {Graduate Texts in Mathematics},
+  number    = {207},
+  publisher = {Springer},
+  address   = {New York},
+  year      = {2001},
+  isbn      = {978-0-387-95220-8}
+}
+
+% OVERENE 2026-10-07 (dblp, STOC '71, s. 151-158).
+@inproceedings{Cook1971Complexity,
+  author    = {Cook, Stephen A.},
+  title     = {The Complexity of Theorem-Proving Procedures},
+  booktitle = {Proceedings of the Third Annual ACM Symposium on Theory of Computing (STOC '71)},
+  pages     = {151--158},
+  publisher = {ACM},
+  address   = {New York, NY, USA},
+  year      = {1971},
+  doi       = {10.1145/800157.805047}
+}
+
+% ----------------------------------------------------------------------------
+% Rezy, toky, suvislost
+% ----------------------------------------------------------------------------
+
+% OVERENE 2026-10-07. Povodne DOI 10.1137/0109045 bolo nespravne.
+@article{GomoryHu1961,
+  author    = {Gomory, Ralph E. and Hu, T. C.},
+  title     = {Multi-Terminal Network Flows},
+  journal   = {Journal of the Society for Industrial and Applied Mathematics},
+  volume    = {9},
+  number    = {4},
+  pages     = {551--570},
+  year      = {1961},
+  doi       = {10.1137/0109047}
+}
+
+% OVERENE 2026-10-07 (archiv ORSJ: Vol. 39, No. 2, s. 135-158). DOI sa nepodarilo potvrdit.
+@article{NagamochiKameda1996,
+  author    = {Nagamochi, Hiroshi and Kameda, Tiko},
+  title     = {Constructing Cactus Representation for All Minimum Cuts in an Undirected Network},
+  journal   = {Journal of the Operations Research Society of Japan},
+  volume    = {39},
+  number    = {2},
+  pages     = {135--158},
+  year      = {1996}
+}
+
+% OVERENE 2026-10-07 podla DOI a arXiv:1211.6553: Algorithmica 77(2), 309--335.
+% V povodnom .bib bol pod klucom Mehlhorn2016Certifying uvedeny ACM Transactions on Algorithms 12(1), 2016.
+% CIASTOCNE: rok tlaceneho cisla 77(2) je 2017 (online 2015) - rok nebol vo vysledku overenia vyslovne uvedeny.
+@article{Mehlhorn2017Certifying,
+  author    = {Mehlhorn, Kurt and Neumann, Adrian and Schmidt, Jens M.},
+  title     = {Certifying 3-Edge-Connectivity},
+  journal   = {Algorithmica},
+  volume    = {77},
+  number    = {2},
+  pages     = {309--335},
+  year      = {2017},
+  doi       = {10.1007/s00453-015-0075-x}
+}
+
+% OVERENE 2026-10-07 (SIAM).
+@article{itai1979maximum,
+  author    = {Itai, Alon and Shiloach, Yossi},
+  title     = {Maximum Flow in Planar Networks},
+  journal   = {SIAM Journal on Computing},
+  volume    = {8},
+  number    = {2},
+  pages     = {135--150},
+  year      = {1979},
+  doi       = {10.1137/0208012}
+}
+
+% OVERENE 2026-10-07.
+@article{henzinger1997faster,
+  author    = {Henzinger, Monika R. and Klein, Philip N. and Rao, Satish and Subramanian, Sairam},
+  title     = {Faster Shortest-Path Algorithms for Planar Graphs},
+  journal   = {Journal of Computer and System Sciences},
+  volume    = {55},
+  number    = {1},
+  pages     = {3--23},
+  year      = {1997},
+  doi       = {10.1006/jcss.1997.1493}
+}
+
+% ----------------------------------------------------------------------------
+% Nahodne grafy, pravdepodobnost, analyza v priemernom pripade
+% ----------------------------------------------------------------------------
+
+% OVERENE 2026-10-07.
+@book{Bollobas2001,
+  author    = {Bollobás, Béla},
+  title     = {Random Graphs},
+  edition   = {2nd},
+  series    = {Cambridge Studies in Advanced Mathematics},
+  number    = {73},
+  publisher = {Cambridge University Press},
+  address   = {Cambridge},
+  year      = {2001},
+  isbn      = {978-0-521-79722-1}
+}
+
+% OVERENE 2026-10-07. Povodne ISBN koncilo na 6 (neplatna kontrolna cislica).
+@book{Frieze2016,
+  author    = {Frieze, Alan and Karoński, Michał},
+  title     = {Introduction to Random Graphs},
+  publisher = {Cambridge University Press},
+  address   = {Cambridge},
+  year      = {2016},
+  isbn      = {978-1-107-11850-8},
+  url       = {https://www.math.cmu.edu/~af1p/BOOK.pdf}
+}
+
+% OVERENE 2026-10-07: zbornik, editor Tim Roughgarden, pevna vazba ISBN 978-1-108-49431-1.
+% V diplomovke (polozka 6) je Roughgarden uvedeny ako autor a ISBN 978-1-108-87803-4 je neplatne.
+% Pri citovani konkretnej kapitoly pouzit @incollection s autormi kapitoly.
+@book{Roughgarden2021,
+  editor    = {Roughgarden, Tim},
+  title     = {Beyond the Worst-Case Analysis of Algorithms},
+  publisher = {Cambridge University Press},
+  address   = {Cambridge},
+  year      = {2021},
+  isbn      = {978-1-108-49431-1}
+}
+
+% OVERENE 2026-10-07: 4. vydanie vyslo v roku 2019, poradie autorov Diez, Cetinkaya-Rundel, Barr.
+% V diplomovke (polozka 3) je rok 2022 a ine poradie autorov.
+@book{Diez2019OpenIntro,
+  author    = {Diez, David M. and {\c{C}}etinkaya-Rundel, Mine and Barr, Christopher D.},
+  title     = {OpenIntro Statistics},
+  edition   = {4th},
+  publisher = {OpenIntro},
+  year      = {2019},
+  isbn      = {978-1-943450-07-7},
+  url       = {https://www.openintro.org/book/os/}
+}
+
+% OVERENE 2026-10-07 podla arXiv:2109.00637: autori su Blanc, Lange, Qiao, Tan.
+% V diplomovke (polozka 7) je uvedeny len "Lange, Julian" - chyba. Zdroj pojmu "almost polynomial time".
+@misc{Blanc2021ProperlyLearning,
+  author        = {Blanc, Guy and Lange, Jane and Qiao, Mingda and Tan, Li-Yang},
+  title         = {Properly learning decision trees in almost polynomial time},
+  year          = {2021},
+  eprint        = {2109.00637},
+  archivePrefix = {arXiv},
+  note          = {arXiv preprint}
+}
+
+% CIASTOCNE (2026-10-07): autori, nazov, casopis, rocnik, strany a rok overene podla zoznamu publikacii
+% F. Chung; DOI neoverene, preto neuvedene. Presny zdroj pre priemer G(n,p): (1+o(1)) log n / log(np),
+% ak np -> nekonecno; pre np/log n = c > c0 je priemer sustredeny na konecne vela hodnot.
+% Odporucane citovat pri Theorem VI.2 clanku 1 (zatial sa tam cituje len Bollobas2001).
+@article{ChungLu2001,
+  author  = {Chung, Fan and Lu, Linyuan},
+  title   = {The Diameter of Sparse Random Graphs},
+  journal = {Advances in Applied Mathematics},
+  volume  = {26},
+  pages   = {257--279},
+  year    = {2001}
+}
+
+% ----------------------------------------------------------------------------
+% Pribuzne problemy (zatial necitovane; odporucane do casti o pribuznych pracach clanku 1)
+% ----------------------------------------------------------------------------
+
+% OVERENE 2026-10-07 podla arXiv:2101.03519. Non-separating st-path = cesta, po odstraneni
+% ktorej HRAN ostane graf suvisly; existencia je na vseobecnych grafoch NP-tazka, na chordalnych
+% grafoch sa najkratsia taka cesta najde v case O(n log n + m). Zrkadlovy pojem k Separating Shortest Path.
+@misc{Mao2021NonSeparating,
+  author        = {Mao, Xiao},
+  title         = {Shortest non-separating st-path on chordal graphs},
+  year          = {2021},
+  eprint        = {2101.03519},
+  archivePrefix = {arXiv},
+  note          = {arXiv preprint}
+}
+
+% ----------------------------------------------------------------------------
+% Konvexna geometria (zdroje bakalarskej prace)
+% ----------------------------------------------------------------------------
+
+% OVERENE 2026-10-07: Mathematics Magazine 62(2), 1989, 101--107.
+% V bakalarke je uvedeny datum 2018 a ISBN - oboje nespravne.
+@article{SmithVamanamurthy1989,
+  author  = {Smith, David J. and Vamanamurthy, M. K.},
+  title   = {How Small Is a Unit Ball?},
+  journal = {Mathematics Magazine},
+  volume  = {62},
+  number  = {2},
+  pages   = {101--107},
+  year    = {1989}
+}
+
+% OVERENE 2026-10-07 (Project Euclid). V bakalarke je navyse uvedene nespravne ISBN.
+@article{HedayatWallis1978,
+  author  = {Hedayat, A. and Wallis, W. D.},
+  title   = {Hadamard Matrices and Their Applications},
+  journal = {The Annals of Statistics},
+  volume  = {6},
+  number  = {6},
+  pages   = {1184--1238},
+  year    = {1978},
+  doi     = {10.1214/aos/1176344370}
+}
+
+% OVERENE 2026-10-07 (Springer): tlacene vydanie 978-3-030-03866-3, e-kniha 978-3-030-03868-7.
+@book{MartiniMontejanoOliveros2019,
+  author    = {Martini, Horst and Montejano, Luis and Oliveros, D{\'e}borah},
+  title     = {Bodies of Constant Width: An Introduction to Convex Geometry with Applications},
+  publisher = {Birkh{\"a}user},
+  address   = {Cham},
+  year      = {2019},
+  isbn      = {978-3-030-03866-3},
+  doi       = {10.1007/978-3-030-03868-7}
+}
+
+% CIASTOCNE: autor, nazov, casopis, rocnik a rok sedia s citaciami v literature; strany sa nepodarilo potvrdit.
+% V bakalarke je navyse uvedene nespravne ISBN.
+@article{Stein1966,
+  author  = {Stein, P.},
+  title   = {A Note on the Volume of a Simplex},
+  journal = {The American Mathematical Monthly},
+  volume  = {73},
+  number  = {3},
+  year    = {1966}
+}
+
+% ----------------------------------------------------------------------------
+% Vlastne prace
+% ----------------------------------------------------------------------------
+
+% Udaje z titulnej strany PDF (knowledge/sources/diplomova-praca-2025-min-cut-path.pdf).
+@mastersthesis{Michel2025MinCutPath,
+  author  = {Miche{\v{l}}, Norbert},
+  title   = {Min Cut-Path},
+  school  = {Charles University, Faculty of Mathematics and Physics},
+  address = {Prague},
+  year    = {2025}
+}
+
+% Udaje z titulnej strany PDF (knowledge/sources/bakalarska-praca-2024-mriezkove-mnohosteny.pdf).
+@mastersthesis{Michel2024LatticePolytopes,
+  author  = {Miche{\v{l}}, Norbert},
+  title   = {Mre{\v{z}}ov{\'e} mnohosteny v n-rozmernej kocke},
+  type    = {Bachelor's thesis},
+  school  = {Pavol Jozef {\v{S}}af{\'a}rik University in Ko{\v{s}}ice, Faculty of Science},
+  address = {Ko{\v{s}}ice},
+  year    = {2024},
+  note    = {In Slovak}
+}

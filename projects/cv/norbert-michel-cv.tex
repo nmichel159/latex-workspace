@@ -1,0 +1,429 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Životopis – Norbert Micheľ. Postavené na altacv.cls v1.7.3 (LianTze Lim).
+% Kompilácia: ./scripts/build-project.ps1 -Project cv -MainFile norbert-michel-cv.tex
+% Metadáta PDF (názov, autor, kľúčové slová): norbert-michel-cv.xmpdata
+%
+% Makro \fillin{...} označí text, ktorý treba ešte doplniť (v hotovom CV nesmie ostať).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+\geometry{left=1.25cm,right=1.25cm,top=1.1cm,bottom=1.0cm,columnsep=0.8cm}
+
+\usepackage{paracol}
+\usepackage[rm]{roboto}
+\usepackage[defaultsans]{lato}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{microtype}   % jemnejšia sadzba: menej pretečených riadkov, rovnomernejší text
+\usepackage{qrcode}      % QR kód v hlavičke
+\usepackage{needspace}   % položka sa nerozdelí medzi stranami
+
+%--- Farby: pôvodná bordová paleta, ale tmavší text (lepší kontrast, aj pri tlači)
+\definecolor{Ink}{HTML}{222222}
+\definecolor{BodyGrey}{HTML}{474747}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\definecolor{Gold}{HTML}{9A7A1F}
+\definecolor{Sidebar}{HTML}{FAF6EC}
+\colorlet{name}{Ink}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{Ink}
+\colorlet{body}{BodyGrey}
+
+\renewcommand{\namefont}{\fontsize{26}{30}\selectfont\rmfamily\bfseries}
+\renewcommand{\taglinefont}{\large\bfseries}
+\renewcommand{\cvsectionfont}{\Large\rmfamily\bfseries}
+\renewcommand{\cvItemMarker}{{\color{accent}\small\textbullet}}
+
+%=== OPRAVY CHÝB Z PÔVODNEJ VERZIE ===========================================
+% (1) \divider ukončí odsek -> nadpis za čiarou sa už "neprilepí" k čiare
+%     (to spôsobovalo "Full-", "Web", "Ap-" trčiace na okraji strany 2)
+%     + čiara je "leaders" (lepidlo), takže pri zlome strany zmizne a nezostane osamotená na spodku
+\renewcommand{\divider}{\par\needspace{8\baselineskip}\vskip6pt
+  \cleaders\vbox to 0.6pt{\vss\hbox to\linewidth{\textcolor{body!25}{\hdashrule{\linewidth}{0.6pt}{0.5ex}}}}\vskip0.6pt
+  \vskip8pt}
+
+% (2) Ligatúry fi/fl sa pri kopírovaní a v ATS rozložia na bežné písmená
+%     ("Artificial", nie "Arti<U+FB01>cial" -> ATS inak nenájde kľúčové slovo)
+\ifpdftex
+  \pdfglyphtounicode{f_i}{0066 0069}\pdfglyphtounicode{fi}{0066 0069}
+  \pdfglyphtounicode{f_l}{0066 006C}\pdfglyphtounicode{fl}{0066 006C}
+  \pdfglyphtounicode{f_f}{0066 0066}\pdfglyphtounicode{ff}{0066 0066}
+  \pdfglyphtounicode{f_f_i}{0066 0066 0069}\pdfglyphtounicode{ffi}{0066 0066 0069}
+  \pdfglyphtounicode{f_f_l}{0066 0066 006C}\pdfglyphtounicode{ffl}{0066 0066 006C}
+  % Lato pomenúva ligatúry uniFB00–uniFB04
+  \pdfglyphtounicode{uniFB00}{0066 0066}\pdfglyphtounicode{uniFB01}{0066 0069}
+  \pdfglyphtounicode{uniFB02}{0066 006C}\pdfglyphtounicode{uniFB03}{0066 0066 0069}
+  \pdfglyphtounicode{uniFB04}{0066 0066 006C}
+\fi
+
+% (3) Menej pretečených riadkov pri zarovnaní vľavo
+\setlength{\emergencystretch}{1.5em}
+
+%=== POMOCNÉ MAKRÁ ===========================================================
+% Ikona, ktorá sa pri kopírovaní / v ATS neprepíše ako "\csuse {email symbol}:"
+\newcommand{\icon}[1]{\BeginAccSupp{method=plain,ActualText={}}#1\EndAccSupp{}}
+
+% Placeholder na doplnenie (v hotovom CV nesmie ostať!)
+\newcommand{\fillin}[1]{{\color{Gold}\icon{\faPen}\,\textit{#1}}}
+
+% Kontakt v hlavičke: \cvinfo[odkaz]{ikona}{text}
+\newcommand{\cvinfo}[3][]{%
+  \mbox{\textcolor{accent}{\icon{\normalfont#2}}~\ifstrempty{#1}{#3}{\href{#1}{#3}}}\hspace{1.3em}}
+
+% Nadpis sekcie s ikonou + záložka (bookmark) v PDF
+\newcounter{cvsec}
+% (voliteľný 1. argument = medzera nad nadpisom; prvé nadpisy v stĺpcoch ju nemajú,
+%  aby boli oba stĺpce presne v jednej rovine)
+\newcommand{\cvsect}[3][\bigskip]{%
+  \par\needspace{10\baselineskip}\nointerlineskip#1
+  \stepcounter{cvsec}\pdfbookmark[0]{#3}{cvsec.\thecvsec}%
+  {\color{heading}\cvsectionfont\icon{\makebox[1.5em][l]{\smash{\color{accent}\large#2}}}\MakeUppercase{#3}\par}%
+  \vspace{-0.5ex}{\color{headingrule}\rule{\linewidth}{1.6pt}\par}\medskip}
+
+% Pozícia: \cvrole{Pozícia}{Firma}{Obdobie}{Miesto}
+\newcommand{\cvrole}[4]{%
+  \par\needspace{7\baselineskip}\noindent{\large\bfseries\color{emphasis}#1}\hfill{\small\bfseries\color{body}#3}\par
+  \vspace{2pt}\noindent{\bfseries\color{accent}#2}\hfill{\small\color{body}\icon{\faMapMarker*}~#4}\par
+  \smallskip}
+
+% Technológie pod položkou
+\newcommand{\cvtech}[1]{\par\nopagebreak\vspace{1pt}\noindent{\small\color{body}\icon{\color{accent}\faCode}~\textit{#1}}\par}
+
+% Projekt: \cvproject{Názov}{URL}{Rok}{Popis}{Technológie}
+\newcommand{\cvproject}[5]{%
+  \par\needspace{5\baselineskip}\noindent{\bfseries\color{emphasis}\href{#2}{#1~\icon{\color{accent}\faGithub}}}\hfill{\small\color{body}#3}\par
+  \vspace{2pt}#4\cvtech{#5}}
+
+% Ocenenie: \cvaward{ikona}{Čo}{Kde, rok}
+\newcommand{\cvaward}[3]{%
+  \par\noindent\makebox[1.8em][l]{\icon{\color{accent}#1}}%
+  \parbox[t]{\dimexpr\linewidth-1.8em\relax}{\LaTeXraggedright\leavevmode{\bfseries\color{emphasis}#2}\par{\small #3}}\par\vspace{5pt}}
+
+% Vzdelanie: \cvedu{Titul}{Škola}{Obdobie}{Detaily}
+\newcommand{\cvedu}[4]{%
+  \par\needspace{5\baselineskip}\noindent{\LaTeXraggedright\bfseries\color{emphasis}#1\par}
+  \vspace{1pt}\noindent{\LaTeXraggedright\small\bfseries\color{accent}#2\par}
+  \vspace{1pt}\noindent{\small\color{body}#3}\par
+  \ifstrempty{#4}{}{\vspace{3pt}{\small #4}\par}\smallskip}
+
+% Štítky: plný = hlavná zručnosť, obrys = ďalšie
+\renewcommand{\cvtag}[1]{\tikz[baseline]\node[anchor=base,draw=body!30,fill=white,rounded corners=2pt,
+  inner xsep=0.65ex,inner ysep=0.5ex,text height=1.5ex,text depth=.25ex,font=\small]{#1};}
+\newcommand{\cvtagmain}[1]{\tikz[baseline]\node[anchor=base,draw=accent,fill=accent,text=white,rounded corners=2pt,
+  inner xsep=0.65ex,inner ysep=0.5ex,text height=1.5ex,text depth=.25ex,font=\small\bfseries]{#1};}
+\newcommand{\skillgroup}[1]{\par\medskip\noindent{\scriptsize\bfseries\color{accent}\textls[120]{\MakeUppercase{#1}}}\par\vspace{3pt}}
+% ragged2e by inak nevedel zalomiť riadok medzi štítkami (pretekali za okraj)
+\newenvironment{tags}{\par\LaTeXraggedright}{\par}
+
+% Jazyk podľa CEFR: \cvlang{Jazyk}{úroveň}{počet dielikov: A1=1 ... C2/rodný=6}
+\newlength{\cvlangseg}\newlength{\cvlanggap}\setlength{\cvlanggap}{2pt}
+\newcommand{\cvlang}[3]{%
+  \par\noindent\makebox[0.3\linewidth][l]{\bfseries\color{emphasis}#1}%
+  \setlength{\cvlangseg}{\dimexpr(0.46\linewidth-5\cvlanggap)/6\relax}%
+  \begin{tikzpicture}[baseline=-0.2ex]
+    \foreach \i in {1,...,6}{%
+      \ifnum\i>#3\relax\def\segcol{body!15}\else\def\segcol{accent}\fi
+      \fill[\segcol] ({(\i-1)*(\cvlangseg+\cvlanggap)},0) rectangle ++(\cvlangseg,4pt);}
+  \end{tikzpicture}\hfill{\small\color{body}#2}\par\vspace{4pt}}
+
+%=== ČASOVÁ OS (TikZ) ========================================================
+% POZOR: mesiace sú ORIENTAČNÉ – pôvodné CV obsahuje iba roky. Uprav podľa reality.
+% Formát: rok + (mesiac-1)/12, napr. september 2021 = 2021.67
+\newcommand{\tlnow}{2026.77}   % dnes (október 2026)
+\newlength{\tlunit}
+\newcommand{\tlbar}[6]{% {y}{od}{do}{text}{farba výplne}{farba textu}
+  \fill[#5,rounded corners=2pt] ({#2-2021+0.012},{#1-0.16}) rectangle ({#3-2021-0.012},{#1+0.16});
+  \node[anchor=west,inner sep=0pt,xshift=2.5pt,text=#6,font=\scriptsize\bfseries] at ({#2-2021},#1) {#4};}
+\newcommand{\cvtimeline}{%
+  \setlength{\tlunit}{\dimexpr(\linewidth-0.9cm)/6\relax}%
+  \noindent\BeginAccSupp{method=escape,ActualText={Timeline of study and work 2021-2026 (details below)}}%
+  \begin{tikzpicture}[x=\tlunit,y=1cm]
+    \foreach \yr in {2021,...,2026}{%
+      \draw[body!18] ({\yr-2021},0.36) -- ({\yr-2021},-1.44);
+      \node[anchor=south west,inner sep=1pt,text=body,font=\scriptsize] at ({\yr-2021},0.36) {\yr};}
+    \draw[body!18] (6,0.36) -- (6,-1.44);
+    % dráhy: štúdium / výskum a pobyty / práca (2 riadky, lebo sa práce prekrývajú)
+    \node[text=accent,font=\small] at (-0.16,0) {\icon{\faGraduationCap}};
+    \node[text=accent,font=\small] at (-0.16,-0.42) {\icon{\faFlask}};
+    \node[text=accent,font=\small] at (-0.16,-1.05) {\icon{\faBriefcase}};
+    % štúdium
+    \tlbar{0}{2021.67}{2024.50}{Bc. \textperiodcentered{} UPJŠ Košice}{GoldenEarth}{Ink}
+    \tlbar{0}{2024.67}{2025.58}{Mgr. \textperiodcentered{} Charles Univ.}{GoldenEarth}{Ink}
+    \tlbar{0}{2025.67}{\tlnow}{PhD \textperiodcentered{} UPJŠ}{GoldenEarth}{Ink}
+    % študentská vedecká činnosť a Erasmus (letný semester 2024 – odhad)
+    \tlbar{-0.42}{2022.25}{2023.40}{Student research (ŠVOČ)}{GoldenEarth!70}{Ink}
+    \tlbar{-0.42}{2024.08}{2024.55}{Erasmus+}{GoldenEarth!70}{Ink}
+    % práca – riadok 1
+    \tlbar{-0.84}{2021.50}{2024.60}{KDC \textperiodcentered{} C\#/.NET, JavaScript}{accent!75}{white}
+    \tlbar{-0.84}{2025.00}{2025.45}{DADO}{accent!75}{white}
+    \tlbar{-0.84}{2025.50}{\tlnow}{LevelGo}{accent}{white}
+    % práca – riadok 2
+    \tlbar{-1.26}{2026.00}{2026.42}{Instaview}{accent!75}{white}
+    \tlbar{-1.26}{2026.44}{\tlnow}{UNLP}{accent}{white}
+    % dnes
+    \draw[accent,densely dashed,thick] ({\tlnow-2021},0.28) -- ({\tlnow-2021},-1.42);
+    \node[anchor=south,inner sep=1pt,text=accent,font=\scriptsize\itshape] at ({\tlnow-2021},0.36) {today};
+  \end{tikzpicture}\EndAccSupp{}\par}
+
+%=== PUBLIKÁCIE ===============================================================
+\input{pubs-num.tex}
+\addbibresource{publications.bib}
+
+\begin{document}
+
+%=== HLAVIČKA ================================================================
+\noindent
+\begin{minipage}[c]{\dimexpr\linewidth-2.4cm\relax}
+  {\namefont\color{name}NORBERT MICHEĽ\par}
+  \smallskip
+  {\taglinefont\color{tagline}Software Developer \& Researcher \enspace\textperiodcentered\enspace LLM-Powered Algorithms\par}
+  \medskip
+  {\footnotesize\color{body}%
+    \cvinfo[mailto:noro.michel159@gmail.com]{\faEnvelope}{noro.michel159@gmail.com}%
+    \cvinfo[tel:+421907869883]{\faPhone}{+421 907 869 883}%
+    \cvinfo{\faMapMarker*}{Košice, Slovakia}%
+    \cvinfo[https://www.linkedin.com/in/norbert-miche\%C4\%BE]{\faLinkedin}{norbert-micheľ}%
+    \cvinfo[https://github.com/nmichel159]{\faGithub}{nmichel159}\par}
+\end{minipage}\hfill
+\begin{minipage}[c]{2.1cm}\centering
+  \qrcode[height=1.9cm]{https://github.com/nmichel159}\par\vspace{2pt}
+  {\tiny\color{body}GitHub}
+\end{minipage}\par
+
+\medskip
+\cvtimeline
+\vspace{9pt}
+
+%=== DVA STĹPCE ================================================================
+\columnratio{0.62}
+\backgroundcolor{c[1](7pt,2pt)(1.25cm,1.0cm)}{Sidebar}
+\begin{paracol}{2}
+
+\cvsect[]{\faBriefcase}{Experience}
+
+\cvrole{Optimization Engineer}{UNLP -- Louis Pasteur University Hospital}{2026 -- present}{Košice}
+\begin{itemize}
+  \item Building a shift-scheduling system for hospital staff that generates duty rosters using integer linear programming (ILP).
+  \item Developing the full application around the optimization model -- Python back end (FastAPI) and React front end -- with an agentic AI-driven workflow.
+\end{itemize}
+\cvtech{Python \textperiodcentered{} FastAPI \textperiodcentered{} React \textperiodcentered{} integer linear programming\enspace
+  \href{https://github.com/nmichel159/scheduling}{\icon{\faGithub}}}
+\divider
+
+\cvrole{Software Developer}{LevelGo}{2025 -- present}{Košice}
+\begin{itemize}
+  \item Developing a Flutter sports app built on clean architecture.
+  \item Building the Python back-end services: application logic, data processing and the API used by the mobile client.
+\end{itemize}
+\cvtech{Flutter (Dart) \textperiodcentered{} Python}
+\divider
+
+\cvrole{AI Engineer}{Instaview}{2026}{Prague}
+\begin{itemize}
+  \item Developed an LLM-based system that analyzes job interviews and evaluates candidates' answers for both technical and soft skills.
+  \item Designed algorithms that match candidates to open positions based on skill alignment and the semantic meaning of their answers.
+\end{itemize}
+\cvtech{Python \textperiodcentered{} LLMs}
+\divider
+
+\cvrole{Full-Stack Developer}{DADO}{2025}{Bratislava}
+\begin{itemize}
+  \item Integrated third-party AI APIs to automate data processing and content generation.
+  \item Tailored AI tools to client requirements and workflow automation.
+\end{itemize}
+\cvtech{Vue.js \textperiodcentered{} PHP \textperiodcentered{} AI APIs}
+\divider
+
+\cvrole{Software Developer}{KDC -- Košice Development Center}{2021 -- 2024}{Košice}
+\begin{itemize}
+  \item Built a full-stack C\# application for Slovak Railways (ZSSK), including data synchronization with ZSSK's internal system.
+  \item Designed a reusable Blazor component library (counters, sliders and other UI controls) with demo apps for internal developers.
+  \item Built and maintained front ends and API integrations for several government-related websites.
+\end{itemize}
+\cvtech{C\# \textperiodcentered{} .NET \textperiodcentered{} Blazor \textperiodcentered{} JavaScript}
+
+\cvsect{\faLaptopCode}{Selected Projects}
+
+\cvproject{Skill Analyzer (LLM)}{https://github.com/nmichel159/skill-analyzer-LLM}{2026}
+  {Uses large language models to build a skill-similarity matrix that helps database queries compare and match skills.}
+  {Python \textperiodcentered{} LLMs \textperiodcentered{} PostgreSQL}
+\divider
+\cvproject{IYPT Tournament Scheduler}{https://github.com/nmichel159/IYPT_Linear_programming}{2022}
+  {Student research project: randomized algorithms combined with linear programming make an NP-hard scheduling problem tractable in practice -- fair, efficient match schedules for the International Young Physicists' Tournament.}
+  {Python \textperiodcentered{} PuLP \textperiodcentered{} Tkinter}
+\divider
+\cvproject{3D Tic-Tac-Toe Dropped}{https://github.com/nmichel159/3D_tic_tac_toe_dropped}{2022}
+  {3D ``falling'' tic-tac-toe (3$\times$3$\times$3 up to 5$\times$5$\times$5, gravity as in Connect Four) with custom rendering: a vanishing-point projection and its inverse map the 3D board onto the 2D canvas and back for click detection.}
+  {Python \textperiodcentered{} Tkinter \textperiodcentered{} projective geometry}
+\divider
+\cvproject{Distressed-Value Stock Screener}{https://github.com/nmichel159/stock}{2026}
+  {Streamlit research tool for finding financially distressed but potentially undervalued stocks across global exchanges.}
+  {Python \textperiodcentered{} Streamlit \textperiodcentered{} Pandas}
+\divider
+\cvproject{Sport App}{https://github.com/nmichel159/sport}{2026}
+  {Sports activity management app that works both offline and online: authentication, match management and statistics.}
+  {TypeScript \textperiodcentered{} React Native \textperiodcentered{} FastAPI}
+
+\cvsect{\faBookOpen}{Publications}
+
+\mynames{Micheľ/N.}
+\nocite{*}
+\printbibliography[heading=pubtype,title={Manuscripts in preparation},type=unpublished]
+
+\cvsect{\faChalkboardTeacher}{Mentoring}
+
+\cvedu{Construction of a Small-Cap Equity Investment Portfolio Using Large Language Models}{Master's thesis -- Kiara Koščová}{2026}{}
+\divider
+\cvedu{Algorithms for Move Generation and Evaluation in Chess}{Bachelor's thesis -- Tomáš Oltman}{2025}{}
+
+%=== PRAVÝ STĹPEC ==============================================================
+\switchcolumn
+
+\cvsect[]{\faTrophy}{Highlights}
+
+\cvaward{\faBolt}{Mgr. in 1 year (standard 2)}{Charles University, Prague}
+\cvaward{\faMedal}{Silver Medal -- MEMO 2020}{Middle European Mathematical Olympiad}
+\cvaward{\faTrophy}{Winner -- National Olympiads}{Mathematical Olympiad \& Olympiad in Informatics}
+\cvaward{\faLaptopCode}{Slovak Champion -- CERC 2022}{ICPC Central Europe Regional Contest}
+\cvaward{\faAward}{Bernard Bolzano Prize nominee 2025}{Best-thesis award, Charles University (MFF)}
+\cvaward{\faCode}{2nd Place -- UPJŠ Contest 2022}{Student programming competition, Košice}
+
+\cvsect{\faGraduationCap}{Education}
+
+\cvedu{PhD in Computer Science}{P. J. Šafárik University in Košice}{2025 -- present}
+  {Thesis: \emph{Optimisation Algorithms Powered by LLMs}\\ Supervisor: prof.\ RNDr.\ Gabriel Semanišin, PhD.}
+\divider
+\cvedu{Mgr. (MSc) in Discrete Models and Algorithms}{Charles University, Faculty of Mathematics and Physics, Prague}{2024 -- 2025 \textperiodcentered{} 1 year instead of 2}
+  {Thesis: \emph{Min Cut-Path} -- nominated for the Bernard Bolzano Foundation Prize\\ Supervisor: prof.\ RNDr.\ Martin Loebl, CSc.}
+\divider
+\cvedu{Bc. in Data Analysis and Artificial Intelligence}{P. J. Šafárik University in Košice}{2021 -- 2024}
+  {Thesis: \emph{Lattice Polytopes in the $n$-Dimensional Cube}\\ Supervisor: Mgr.\ Martin Vodička}
+
+\cvsect{\faLanguage}{Languages}
+
+\cvlang{Slovak}{native}{6}
+\cvlang{Czech}{C1}{5}
+\cvlang{English}{B2}{4}
+\cvlang{German}{A2}{2}
+
+\cvsect{\faTools}{Skills}
+
+\skillgroup{Agentic AI development}
+\noindent\makebox[1.8cm][l]{\LARGE\bfseries\color{accent}15B+}%
+\parbox[c]{\dimexpr\linewidth-1.8cm\relax}{\small tokens processed with AI coding agents}\par\vspace{5pt}
+\begin{tags}
+\cvtagmain{Claude Code}
+\cvtag{Codex}
+\cvtag{Antigravity}
+\cvtag{Agentic workflows}
+\end{tags}
+
+\skillgroup{Programming languages}
+\begin{tags}
+\cvtagmain{Python}
+\cvtagmain{C++}
+\cvtagmain{C\#}
+\cvtagmain{TypeScript}
+\cvtag{JavaScript}
+\cvtag{Java}
+\cvtag{Kotlin}
+\cvtag{Dart}
+\cvtag{Rust}
+\cvtag{Haskell}
+\cvtag{C}
+\cvtag{PHP}
+\cvtag{SQL}
+\cvtag{Bash}
+\end{tags}
+
+\skillgroup{AI \& LLMs}
+\begin{tags}
+\cvtagmain{LLMs}
+\cvtagmain{Prompt engineering}
+\cvtagmain{RAG}
+\cvtag{Embeddings \& semantic search}
+\cvtag{OpenAI API}
+\cvtag{LangChain}
+\cvtag{Hugging Face}
+\cvtag{Ollama}
+\cvtag{PyTorch}
+\cvtag{scikit-learn}
+\cvtag{NLP}
+\end{tags}
+
+\skillgroup{Data science}
+\begin{tags}
+\cvtagmain{NumPy}
+\cvtagmain{Pandas}
+\cvtag{SciPy}
+\cvtag{Matplotlib}
+\cvtag{NetworkX}
+\cvtag{Jupyter}
+\cvtag{Streamlit}
+\end{tags}
+
+\skillgroup{Optimization \& algorithms}
+\begin{tags}
+\cvtagmain{Linear \& integer programming}
+\cvtagmain{Gurobi}
+\cvtag{PuLP}
+\cvtagmain{Combinatorial optimization}
+\cvtagmain{Graph algorithms}
+\cvtag{Randomized algorithms}
+\cvtag{Algorithms \& data structures}
+\end{tags}
+
+\skillgroup{Web \& mobile}
+\begin{tags}
+\cvtagmain{FastAPI}
+\cvtag{Flask}
+\cvtag{Node.js}
+\cvtag{ASP.NET Core}
+\cvtag{Blazor}
+\cvtag{REST APIs}
+\cvtagmain{React}
+\cvtag{Vue}
+\cvtag{Angular}
+\cvtag{HTML / CSS}
+\cvtagmain{Flutter}
+\cvtag{React Native}
+\cvtag{Expo}
+\cvtag{Android}
+\end{tags}
+
+\skillgroup{Databases}
+\begin{tags}
+\cvtagmain{PostgreSQL}
+\cvtag{MySQL}
+\cvtag{SQL Server}
+\cvtag{SQLite}
+\end{tags}
+
+\skillgroup{DevOps \& tools}
+\begin{tags}
+\cvtagmain{Git / GitHub}
+\cvtagmain{Docker}
+\cvtag{Linux}
+\cvtag{AWS}
+\cvtag{Railway}
+\cvtag{LaTeX}
+\end{tags}
+
+\cvsect{\faHeart}{Interests}
+
+\begin{tags}
+\cvtag{Chess (FIDE 2000+)}
+\cvtag{Ultimate Frisbee}
+\cvtag{Bouldering}
+\end{tags}
+
+% bočný panel dotiahne farbu až po spodok poslednej strany
+\par\vspace*{\dimexpr\pagegoal-\pagetotal-2pt\relax}
+
+\end{paracol}
+\end{document}

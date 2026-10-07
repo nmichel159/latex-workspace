@@ -1,0 +1,38 @@
+# Generovane vystupy a docasne subory
+outputs/
+tmp/
+
+# Nastroje a instalatory (velke binarky)
+installers/
+.latex-tools/
+
+# pdfx zapisuje tento subor vedla zdroja pri kazdej kompilacii
+projects/**/pdfa.xmpi
+
+# Pomocne subory LaTeXu, ak by sa kompilovalo mimo scripts/build-project.ps1
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+
+# Lokalne poznamky a nastavenia, ktore do repozitara nepatria
+archived-sessions.md
+.claude/settings.local.json
+
+# Systemove a editorove subory
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+*~

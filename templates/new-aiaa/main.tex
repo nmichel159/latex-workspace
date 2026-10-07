@@ -1,0 +1,87 @@
+% Kostra clanku v triede new-aiaa (rovnake nastavenie ako projects/clanok-1-min-cut-path).
+% Konvencie: knowledge/writing/latex-conventions.md
+% Kompilacia: .\scripts\build-project.ps1 -Project <projekt>
+\documentclass[journal]{new-aiaa}
+%\documentclass[conf]{new-aiaa}   % konferencny prispevok
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+% Trieda nacitava newtxmath, ktory uz definuje \openbox a \Bbbk; bez tychto dvoch riadkov
+% skoncia amsthm a amssymb chybou "Command ... already defined".
+\let\openbox\relax
+\let\Bbbk\relax
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{etoolbox}
+
+\usepackage[most]{tcolorbox}
+\newtcolorbox{problem}[1][]{enhanced, colback=white, colframe=black, boxrule=0.8pt, arc=2pt,
+  left=6pt, right=6pt, top=6pt, bottom=6pt, title=\textbf{Problem: #1}}
+
+\numberwithin{equation}{section}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{claim}[definition]{Claim}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{proposition}[definition]{Proposition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{example}[definition]{Example}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\AtBeginEnvironment{algorithmic}{\setstretch{1}}
+
+% Notacia pre Min Cut-Path (knowledge/research/min-cut-path.md)
+\newcommand{\cp}{\operatorname{cp}}
+\newcommand{\CP}{\operatorname{CP}}
+\newcommand{\OPT}{\mathrm{OPT}}
+\newcommand{\MinCutPath}{\textsc{Min Cut-Path}}
+
+\title{Title of the Paper}
+
+\author{Norbert Micheľ\\
+Institute of Computer Science, Faculty of Science, Pavol Jozef Šafárik University in Košice\\
+Košice, Slovakia\\
+\texttt{5344553@upjs.sk}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Abstract.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:introduction}
+
+\section{Fundamentals}
+\label{sec:fundamentals}
+
+\begin{definition}[Name]
+\label{def:name}
+Text.
+\end{definition}
+
+\begin{theorem}
+\label{thm:name}
+Statement.
+\end{theorem}
+
+\begin{proof}
+Proof.
+\end{proof}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\section*{Acknowledgment}
+
+\bibliography{references}
+
+\end{document}
