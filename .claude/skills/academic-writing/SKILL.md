@@ -11,28 +11,29 @@ thesis, or to move material from the thesis into an article.
 ## Before writing
 
 1. Read `projects/<project>/README.md` and the surrounding source, not only the passage to change.
-2. Read the knowledge base for the topic:
-   - `knowledge/research/min-cut-path.md` for definitions, notation, what is already proven where, and the
-     differences between the master thesis and article 1;
-   - `knowledge/writing/academic-style.md` for structure, typical phrasing and the checklist;
-   - `knowledge/writing/latex-conventions.md` for environments, labels, macros and citations.
-3. When exact wording of an existing result is needed, search `knowledge/sources/*.txt` and confirm in the PDF.
+2. Read, in this order (the "By task" table in `knowledge/README.md` lists the variants):
+   - the topic file in `knowledge/research/` (definitions, notation, what is proven where);
+   - `knowledge/writing/academic-style.md`, especially section 9 "The author's habits";
+   - `knowledge/writing/paper-structure.md` for the part being written (title, abstract, introduction, related work,
+     conclusion; thesis to paper: section 13), `knowledge/writing/math-writing.md` for definitions, statements,
+     proofs and algorithms, `knowledge/writing/experiments-reporting.md` for experiments;
+   - `knowledge/writing/latex-conventions.md` for environments, labels, macros; `knowledge/writing/thesis.md` for
+     dissertation text.
+3. Exact wording of an existing result: search `knowledge/sources/*.txt`, confirm in the PDF.
 
 ## While writing
 
-- Use the document's existing notation and environment names; do not introduce a second symbol for the same thing.
-- Text taken from the thesis must be adapted: sections instead of chapters, `Lemma`/`Theorem` naming of the
-  article, `CP(u, v)` instead of `cut-path(u, v)`, no references to objects that are not in the article.
-- Every theorem gets a proof or a citation. Do not strengthen, weaken or "repair" a mathematical claim silently;
-  if a statement looks wrong, say so and propose the fix separately.
-- A fact about the literature needs a verified source. Add the entry to `knowledge/bibliography/references.bib`
-  first; never invent bibliographic data.
-- Write in the document's language (articles: American English, authorial "we", present tense).
+- Use the document's notation and environment names; no second symbol for the same thing.
+- Never change mathematical content silently. A statement that looks wrong: say so, propose the fix separately,
+  record it in the project `README.md` under "Known problems".
+- A statement about the literature needs a source: skill `cite-sources`.
+- Write in the manuscript's own language (English by default) and follow `academic-style.md` section 2.
 
 ## After writing
 
-1. Run the checklist in `knowledge/writing/academic-style.md` on the changed passage.
+1. Run `.\scripts\check-text.ps1 -Path <changed file>` once per changed file (`-Path` takes one file or folder), or
+   `-Path projects\<project>\sections` for the whole folder. Resolve each finding or justify it in the report.
 2. Build with `.\scripts\build-project.ps1 -Project <project>` and check for `??` and `[?]`.
 3. Update `knowledge/research/*.md` if a result, definition or notation was added or changed, and the project
-   `README.md` if the status or the list of known problems changed.
-4. Report what was written, open questions for the author, and the clickable PDF link.
+   `README.md` if the status or "Known problems" changed.
+4. Report what was written, open questions for the author, remaining findings with reasons, and the clickable PDF link.

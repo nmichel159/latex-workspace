@@ -1,0 +1,9 @@
+\documentclass{llncs}
+\usepackage[most]{tcolorbox}
+\let\problem\relax
+\let\endproblem\relax
+\newtcolorbox{problem}[1][]{enhanced, colback=white, colframe=black, title=\textbf{Problem: #1}}
+\begin{document}
+\begin{problem}[Test] x \end{problem}
+\begin{theorem} t \end{theorem}
+\end{document}

@@ -1,0 +1,916 @@
+                          Min Cut-Path Problem
+
+                                                             Norbert Micheƒæ
+                Institute of Computer Science, Faculty of Science, Pavol Jozef ≈†af√°rik University in Ko≈°ice
+
+                                                             Ko≈°ice, Slovakia
+                                                           5344553@upjs.sk
+
+               In modern distributed systems, data exchange between servers must often balance two
+          opposing objectives: enabling communication within a trusted domain and preventing communi-
+          cation by potential adversaries. When information flows through a network, it is desirable to
+          establish a reliable path between authorized servers while simultaneously enforcing structural
+          constraints that deny any alternative communication routes accessible to an opponent. This dual
+          requirement leads naturally to the study of network configurations that combine communication
+          for legitimate participants with control mechanisms that isolate or restrict hostile ones. In this
+          context, one seeks structures that ensure communication only within a specified subnetwork
+          while suppressing all competing connections. In this paper, we formalize this concept through
+          the notion of a cut-path, a structure that simultaneously contains a connecting path and a
+          separating cut, and we study the computational and structural properties of the corresponding
+          Min Cut-Path problem.
+
+                                                 I. Introduction
+
+    In distributed communication systems, a central challenge lies in maintaining a secure but controlled flow of
+information between servers. Although authorized entities require uninterrupted communication channels, adversarial
+agents must be denied access to any possible route that would allow information transfer. This tension between enabling
+and restricting communication naturally motivates the study of graph structures that can simultaneously express both
+communication and isolation. The interplay between these two objectives‚Äîconnectivity and control‚Äîserves as the
+conceptual foundation of the present work.
+
+    Graph theory provides an elegant formal framework for representing such systems. Vertices correspond to servers or
+agents, and edges represent direct communication links between them. Within this model, ensuring communication
+between trusted servers while cutting off an opponent translates to identifying a set of edges that contains both a
+connecting path, which carries the communication, and a separating cut, which guarantees that every other route
+between the two servers uses at least one of the selected edges. This hybrid structure, which captures both connection
+and disconnection properties at the same time, will be formally introduced as a cut-path. Such a structure allows the
+system to maintain communication within a trusted subnetwork while leaving an adversary no alternative route.
+    Several classical problems in network theory combine notions of connectivity and separation from different
+perspectives. For example, the study of multi-terminal minimum cuts [1], of representations of all minimum cuts [2],
+and of small cuts and edge connectivity [3] explores the trade-off between maintaining essential communication routes
+and minimizing potential vulnerabilities. Similarly, the interaction between shortest paths and minimum cuts has
+been investigated in the context of the max-flow min-cut duality [4]. However, these formulations treat connectivity
+and separation as distinct or opposing properties, rather than unifying them within a single combinatorial object. In
+contrast, the present work adopts a unified perspective through the concept of a cut-path, which inherently embodies
+both connectivity and disconnection within the same set of edges.
+
+    The central problem studied in this paper, the Min Cut-Path problem, seeks a smallest set of edges that simultaneously
+contains a path and a cut between two distinguished vertices. This dual optimization objective reflects the balance
+between maintaining minimal communication infrastructure and enforcing maximal control over connectivity. The
+problem was introduced in the author‚Äôs master‚Äôs thesis [5], where several tractable cases were identified, but the
+complexity of the general problem was left open. To the best of our knowledge, the problem has not been studied
+elsewhere. We close this gap by settling the complexity of the problem and by presenting its basic structural properties.
+
+    Our main contributions are as follows. First, we prove that the decision version of the Min Cut-Path problem is
+NP-complete via a two-step reduction from 3-SAT through an intermediate problem called Separating Shortest Path.
+Second, we identify two graph classes in which the problem becomes tractable. Namely, we show that for graphs of
+diameter two and for graphs with minimum cut-value at most two, the value of the minimum cut-path can be computed
+in polynomial time and is given by a simple closed formula. Finally, we connect these results with random graph theory,
+demonstrating that dense Erd≈ës‚ÄìR√©nyi graphs almost surely fall into the tractable regime and that, in sparser random
+graphs, a simple algorithm yields an efficient average-case approximation. The NP-completeness result is new; the
+results on special graph classes and on random graphs first appeared in [5].
+
+    The remainder of this paper is structured as follows. Section II introduces the formal definitions, notation, and
+fundamental concepts used throughout the paper, including the definition of cut-paths and their basic properties. The
+NP-completeness of the Min Cut-Path problem is established in Section III through a two-step reduction from 3-SAT
+via the intermediate Separating Shortest Path problem. Sections IV and V analyze two classes of graphs in which
+the problem becomes polynomially solvable: graphs of diameter two and graphs with minimum cut-value at most two.
+Section VI investigates Erd≈ës‚ÄìR√©nyi random graphs, with emphasis on their diameter and connectivity, and derives
+an average-case approximation result for the Min Cut-Path problem. Finally, Section VII concludes the paper and
+discusses directions for future research.
+
+                                                                      2
+                                                II. Fundamentals
+
+    Throughout the paper, we use standard notation from graph theory and computational complexity, following the
+conventions of [4, 6]. All graphs under consideration are undirected and finite, unless otherwise stated. For a graph
+Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏), we let Ì†µÌ±õ = |Ì†µÌ±â | denote the number of vertices and Ì†µÌ±ö = |Ì†µÌ∞∏ | the number of edges.
+
+    We often deal with two distinct vertices Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â. The value Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) denotes the distance between Ì†µÌ±¢ and Ì†µÌ±£, i.e., the
+length of a shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path in Ì†µÌ∞∫. Similarly, the value Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) denotes the minimum size of a cut that separates Ì†µÌ±¢ and
+Ì†µÌ±£. All problems studied in this paper are defined with respect to these two distinguished vertices Ì†µÌ±¢ and Ì†µÌ±£, which are
+assumed to lie in the same connected component of Ì†µÌ∞∫.
+
+    We identify a path with its set of edges. For any path Ì†µÌ±É ‚äÜ Ì†µÌ∞∏, we denote by Ì†µÌ∞∫ \ Ì†µÌ±É the graph obtained from Ì†µÌ∞∫ by
+removing all edges of Ì†µÌ±É. Furthermore, for a vertex Ì†µÌ±• ‚àà Ì†µÌ±â and a vertex subset Ì†µÌ±Ü ‚äÜ Ì†µÌ±â, we write deg(Ì†µÌ±•, Ì†µÌ±Ü) for the number
+of neighbors of Ì†µÌ±• that belong to Ì†µÌ±Ü, that is, deg(Ì†µÌ±•, Ì†µÌ±Ü) = |{ Ì†µÌ±¶ ‚àà Ì†µÌ±Ü : {Ì†µÌ±•, Ì†µÌ±¶} ‚àà Ì†µÌ∞∏ }|.
+
+    The notion of a cut-path captures a hybrid structure in a graph that combines two fundamental and seemingly
+opposing elements: a path and a cut. Intuitively, a cut-path between two vertices Ì†µÌ±¢ and Ì†µÌ±£ is a set of edges that
+simultaneously contains a path connecting Ì†µÌ±¢ to Ì†µÌ±£ and a cut that, if removed, would disconnect Ì†µÌ±¢ from Ì†µÌ±£. In this sense, a
+cut-path ensures both communication and control. Formally:
+Definition II.1 (Cut-Path). Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a graph, and let Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â be two distinct vertices. A cut-path between Ì†µÌ±¢
+and Ì†µÌ±£ is a set of edges Ì†µÌ±Ü ‚äÜ Ì†µÌ∞∏ for which there exist subsets Ì†µÌ±É, Ì†µÌ∞∂ ‚äÜ Ì†µÌ±Ü such that:
+
+    1) Ì†µÌ∞∂ is a cut separating Ì†µÌ±¢ and Ì†µÌ±£ (i.e., removing Ì†µÌ∞∂ disconnects Ì†µÌ±¢ from Ì†µÌ±£),
+    2) Ì†µÌ±É is a path connecting Ì†µÌ±¢ and Ì†µÌ±£.
+Definition II.2 (Cut-Paths). Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a graph, and let Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â be two distinct vertices. The set of all cut-paths
+between Ì†µÌ±¢ and Ì†µÌ±£, denoted by CP(Ì†µÌ±¢, Ì†µÌ±£), is defined as:
+
+                                         CP(Ì†µÌ±¢, Ì†µÌ±£) = {Ì†µÌ±Ü | Ì†µÌ±Ü is a cut-path between Ì†µÌ±¢ and Ì†µÌ±£}.
+
+Definition II.3 (Value of Minimum Cut-Path). Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a graph, and let Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â be two distinct vertices.
+The minimum size of a cut-path between Ì†µÌ±¢ and Ì†µÌ±£, denoted by cp(Ì†µÌ±¢, Ì†µÌ±£), is defined as:
+
+                                                 cp(Ì†µÌ±¢, Ì†µÌ±£) = min{|Ì†µÌ±Ü| | Ì†µÌ±Ü ‚àà CP(Ì†µÌ±¢, Ì†µÌ±£)}.
+
+    A cut-path Ì†µÌ±Ü ‚àà CP(Ì†µÌ±¢, Ì†µÌ±£) with |Ì†µÌ±Ü| = cp(Ì†µÌ±¢, Ì†µÌ±£) is called a minimum cut-path between Ì†µÌ±¢ and Ì†µÌ±£. The corresponding
+optimization problem is stated as follows.
+
+                                                                      3
+Problem: Min Cut-Path (Optimization Version)
+Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be an undirected graph and Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â distinct vertices; cut-paths are defined in Definition II.1. The
+optimization version of the Min Cut-Path problem is defined as follows:
+
+Input:   A graph Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) and vertices Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â.
+Output:  A minimum cut-path Ì†µÌ±Ü‚àó ‚äÜ Ì†µÌ∞∏ between Ì†µÌ±¢ and Ì†µÌ±£, together with its cardinality
+
+         cp(Ì†µÌ±¢, Ì†µÌ±£) = |Ì†µÌ±Ü‚àó|.
+
+    The following elementary bounds relate cp(Ì†µÌ±¢, Ì†µÌ±£) to the classical quantities Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) and Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£); they are used
+repeatedly in the subsequent sections.
+Lemma II.4 (Basic Bounds). Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a graph, and let Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â be two distinct vertices. Then
+
+                                    max{Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£), Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£)} ‚â§ cp(Ì†µÌ±¢, Ì†µÌ±£) ‚â§ Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1.
+
+In particular, if Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) = 1 or Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) = 1, then cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1.
+Proof. Every cut-path contains a Ì†µÌ±¢‚ÄìÌ†µÌ±£ cut, which has at least Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) edges, and a Ì†µÌ±¢‚ÄìÌ†µÌ±£ path, which has at least Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£)
+edges; this gives the lower bound. For the upper bound, let Ì†µÌ∞∂ be a minimum Ì†µÌ±¢‚ÄìÌ†µÌ±£ cut and let Ì†µÌ±É be a shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path.
+The set Ì†µÌ∞∂ ‚à™ Ì†µÌ±É is a cut-path. Since removing Ì†µÌ∞∂ disconnects Ì†µÌ±¢ from Ì†µÌ±£, the path Ì†µÌ±É contains at least one edge of Ì†µÌ∞∂, and
+hence |Ì†µÌ∞∂ ‚à™ Ì†µÌ±É| ‚â§ Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1. If Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) = 1 or Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) = 1, the lower and the upper bound coincide.
+
+    Before formalizing the notion of an average (1 + Ì†µÌºñ)-approximation scheme, we briefly explain the motivation behind
+this concept. In the context of Min Cut-Path, exact computation may be infeasible for large random graphs. However,
+many such graphs exhibit structural regularities that make near-optimal solutions achievable in polynomial time on
+almost all inputs. The following definition captures this idea by requiring that the algorithm performs within a factor of
+(1 + Ì†µÌºñ) of the optimum for almost every instance while still maintaining a polynomial running time.
+
+    To make the definition precise, let Ì†µÌ∞º (Ì†µÌ±õ) denote the set of all valid input instances of size Ì†µÌ±õ, and let OPT(Ì†µÌ±•) denote
+the optimal value of the objective function for a given instance Ì†µÌ±• ‚àà Ì†µÌ∞º (Ì†µÌ±õ). For minimization problems, OPT(Ì†µÌ±•) is the
+minimum achievable value, while for maximization problems, it is the maximum achievable value. Formally:
+Definition II.5 (Average (1 + Ì†µÌºñ)-Approximation Scheme). Let Ì†µÌºñ > 0. An algorithm Ì†µÌ∞¥ is called an average (1 + Ì†µÌºñ)-
+approximation scheme if it meets the following criteria:
+
+                                                                      4
+1) Ì†µÌ∞¥ is a polynomial-time algorithm, i.e., its running time is Ì†µÌ±Ç (Ì†µÌ±É(Ì†µÌ±õ)) for some polynomial Ì†µÌ±É(Ì†µÌ±õ).
+
+2) For each input size Ì†µÌ±õ, there exists a subset of inputs Ì†µÌ∞ºopt (Ì†µÌ±õ) ‚äÜ Ì†µÌ∞º (Ì†µÌ±õ) such that for every input Ì†µÌ±• ‚àà Ì†µÌ∞ºopt (Ì†µÌ±õ), the
+                                                       Ì†µÌ∞¥                                                Ì†µÌ∞¥
+
+value Ì†µÌ∞¥(Ì†µÌ±•) of the solution computed by Ì†µÌ∞¥ satisfies
+
+             Ì†µÌ∞¥(Ì†µÌ±•)
+           OPT(Ì†µÌ±•) < 1 + Ì†µÌºñ (for minimization problems)
+
+                                         OPT(Ì†µÌ±•) < 1 + Ì†µÌºñ (for maximization problems),
+                                           Ì†µÌ∞¥(Ì†µÌ±•)
+
+   where OPT(Ì†µÌ±•) denotes the optimal value for the input Ì†µÌ±•.
+3) In addition, the algorithm is average-case in the sense that
+
+                                                       |Ì†µÌ∞ºopt (Ì†µÌ±õ)|
+           lim Ì†µÌ∞¥                                                    = 1.
+           Ì†µÌ±õ‚Üí‚àû |Ì†µÌ∞º (Ì†µÌ±õ)|
+
+                          III. NP-completeness of the Min Cut-Path Problem
+
+    In this section, we show that the decision version of the Min Cut-Path problem is NP-complete. Our proof proceeds
+via a sequence of polynomial-time reductions. We begin with the well-known 3-SAT problem, which is formally defined
+as follows.
+
+Problem: 3-SAT
+Let Ì†µÌ±à = {Ì†µÌ±•1, Ì†µÌ±•2, . . . , Ì†µÌ±•Ì†µÌ±õ} be a finite set of Boolean variables, and let C = {Ì†µÌ∞∂1, Ì†µÌ∞∂2, . . . , Ì†µÌ∞∂Ì†µÌ±ö} be a collection of
+clauses, where each clause Ì†µÌ∞∂Ì†µÌ±ò is a disjunction of exactly three literals, and each literal is either a variable Ì†µÌ±•Ì†µÌ±ñ or its
+negation ¬¨Ì†µÌ±•Ì†µÌ±ñ.
+The 3-SAT decision problem is defined as follows:
+
+Input:     A finite set of Boolean variables Ì†µÌ±à and a collection C of clauses, each containing exactly
+Question:  three literals.
+           Does there exist a truth assignment Ì†µÌºè : Ì†µÌ±à ‚Üí {true, false} such that every clause Ì†µÌ∞∂Ì†µÌ±ò ‚àà C
+           evaluates to true under Ì†µÌºè?
+
+    It is well known that 3-SAT is NP-complete [7]. Throughout this section, Ì†µÌ±õ and Ì†µÌ±ö denote the numbers of variables
+and clauses of the 3-SAT instance under consideration.
+
+    Our approach is based on a two-step reduction. Instead of reducing 3-SAT to Min Cut-Path directly, we introduce
+an intermediate problem, the Separating Shortest Path problem. First, we show that this problem is NP-complete
+by a polynomial-time reduction from 3-SAT (Section III.A). Second, we reduce Separating Shortest Path to Min
+
+                                                                      5
+Cut-Path (Section III.B).
+
+A. The Separating Shortest Path Problem
+    In contrast to the Min Cut-Path problem, where the objective is to find a set of edges that simultaneously contains
+
+both a Ì†µÌ±¢‚ÄìÌ†µÌ±£ path and a Ì†µÌ±¢‚ÄìÌ†µÌ±£ cut, the Separating Shortest Path problem focuses solely on identifying a shortest path
+with a specific separation property. Namely, we ask whether, among all shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ paths in the graph, there exists one
+whose removal disconnects Ì†µÌ±¢ and Ì†µÌ±£.
+
+Problem: Separating Shortest Path
+Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be an undirected graph and let Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â be two distinct vertices. A shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path Ì†µÌ±É is called
+a separating shortest path if the graph Ì†µÌ∞∫ \ Ì†µÌ±É contains no Ì†µÌ±¢‚ÄìÌ†µÌ±£ path. The Separating Shortest Path decision
+problem is defined as follows:
+
+Input:     A graph Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) and two distinct vertices Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â.
+Question:  Does there exist a shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path in Ì†µÌ∞∫ that is a separating shortest path?
+
+    Note that, unlike Min Cut-Path, the Separating Shortest Path problem is not an optimization problem; it merely
+asks for the existence of a shortest path with a certain property. This distinction allows us to construct a more direct
+reduction from 3-SAT.
+
+1. Gadgets and Basic Operations for the Reduction
+    To establish the NP-completeness of Separating Shortest Path, we introduce a collection of gadgets and basic
+
+operations on them. These gadgets and operations are the elementary building blocks of our reduction from 3-SAT to
+Separating Shortest Path. They allow us to represent the logical structure of a formula within a graph in a modular
+way.
+
+    The construction consists of two parts:
+    1) the base structure, also referred to as the chain;
+    2) the threads, which are threaded through the base structure.
+    Figure 1 gives a schematic overview of the two types of gadgets and of the layout of the construction.
+
+           Fig. 1 Layout of the construction: the chain (black) and a thread (red)
+                                                        6
+    We now present the individual gadgets and operations in detail.
+
+Chain. We begin with the smallest component among the gadgets, the chain link. It is a cycle with two distinguished
+vertices Ì†µÌ±ù and Ì†µÌ±û that split it into two paths of equal length.
+Definition III.1 (Chain Link). Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a graph and let Ì†µÌ±ù, Ì†µÌ±û ‚àà Ì†µÌ±â be two distinct vertices. A ( Ì†µÌ±ù, Ì†µÌ±û)-chain link
+is a subgraph Ì†µÌ∞ø ‚äÜ Ì†µÌ∞∫ such that:
+
+    1) Ì†µÌ∞ø is a simple cycle in Ì†µÌ∞∫;
+    2) the vertices Ì†µÌ±ù and Ì†µÌ±û lie on Ì†µÌ∞ø and partition it into two internally disjoint Ì†µÌ±ù‚ÄìÌ†µÌ±û paths;
+    3) these two Ì†µÌ±ù‚ÄìÌ†µÌ±û paths have equal length.
+We refer to one of the two Ì†µÌ±ù‚ÄìÌ†µÌ±û paths as the positive path of the chain link and to the other as the negative path. When a
+chain link is used inside a chain, its boundary vertices are exactly Ì†µÌ±ù and Ì†µÌ±û, i.e., the points where the adjacent single
+edges of the chain are attached.
+
+                                                          Fig. 2 A chain link
+
+    The chain forms the backbone of the construction. Its defining feature is the strict alternation between single edges
+and chain links. The structure always begins with a single edge, continues with a chain link, then again with a single
+edge, and so on, and it finally ends with a single edge. Formally:
+Definition III.2 (Chain). Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a graph, and let Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â. We say that Ì†µÌ∞∫ is a Ì†µÌ±¢‚ÄìÌ†µÌ±£ chain with Ì†µÌ±ü chain links
+if it is the union of edge-disjoint subgraphs
+
+                                            Ì†µÌ∞∫ = Ì†µÌ∞ª1 ‚à™ Ì†µÌ∞ø1 ‚à™ Ì†µÌ∞ª2 ‚à™ Ì†µÌ∞ø2 ‚à™ ¬∑ ¬∑ ¬∑ ‚à™ Ì†µÌ∞øÌ†µÌ±ü ‚à™ Ì†µÌ∞ªÌ†µÌ±ü+1,
+
+where:
+    1) each Ì†µÌ∞ªÌ†µÌ±ñ consists of a single edge with end-vertices Ì†µÌ±ùÌ†µÌ±ñ, Ì†µÌ±ûÌ†µÌ±ñ;
+    2) each Ì†µÌ∞øÌ†µÌ±ñ is a (Ì†µÌ±ûÌ†µÌ±ñ, Ì†µÌ±ùÌ†µÌ±ñ+1)-chain link;
+    3) the first end-vertex Ì†µÌ±ù1 coincides with Ì†µÌ±¢ and the last end-vertex Ì†µÌ±ûÌ†µÌ±ü+1 coincides with Ì†µÌ±£;
+    4) two of these subgraphs share a vertex only if they are consecutive, and then they share exactly one vertex (Ì†µÌ±ûÌ†µÌ±ñ or
+        Ì†µÌ±ùÌ†µÌ±ñ+1).
+                                                                      7
+Every Ì†µÌ±¢‚ÄìÌ†µÌ±£ path in a chain traverses all single edges and, in each chain link, either its positive or its negative path.
+
+                                                             Fig. 3 A chain
+
+    In the reduction from 3-SAT to Separating Shortest Path, chain links have specific roles that reflect the structure
+of clauses and variables. Let Ì†µÌ∞∂1, Ì†µÌ∞∂2, . . . , Ì†µÌ∞∂Ì†µÌ±ö denote the clauses of the input formula and let Ì†µÌ±•1, Ì†µÌ±•2, . . . , Ì†µÌ±•Ì†µÌ±õ denote its
+variables. Each chain link is assigned to exactly one of the following three types:
+
+    1) Initialization chain link. For each variable Ì†µÌ±•Ì†µÌ±ñ we introduce an initialization chain link, denoted Ì†µÌ∞ºÌ†µÌ±ñ. This link
+        marks the beginning of the part of the chain that corresponds to the variable Ì†µÌ±•Ì†µÌ±ñ. The total number of initialization
+        chain links is Ì†µÌ±õ.
+
+    2) Terminal chain link. For each variable Ì†µÌ±•Ì†µÌ±ñ we also introduce a terminal chain link, denoted Ì†µÌ±áÌ†µÌ±ñ. This link marks
+        the end of the part of the chain associated with the variable Ì†µÌ±•Ì†µÌ±ñ. The total number of terminal chain links is Ì†µÌ±õ.
+
+    3) Literal chain link. For each clause Ì†µÌ∞∂Ì†µÌ±ò = (‚Ñì1 ‚à® ‚Ñì2 ‚à® ‚Ñì3) and each Ì†µÌ±ó ‚àà {1, 2, 3}, let Ì†µÌ±•Ì†µÌ±ñ be the variable of the literal
+        ‚ÑìÌ†µÌ±ó . We introduce a literal chain link, denoted Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ (or Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò for short). This link represents the occurrence of the
+        variable Ì†µÌ±•Ì†µÌ±ñ as the Ì†µÌ±ó-th literal of the clause Ì†µÌ∞∂Ì†µÌ±ò. The total number of literal chain links is 3Ì†µÌ±ö.
+
+    The chain links that belong to one variable are consecutive in the chain, as illustrated in Figure 4.
+
+         Fig. 4 Chain links of a variable Ì†µÌ±•Ì†µÌ±ñ: the initialization link, the literal links, and the terminal link
+
+    In total, the construction contains exactly 3Ì†µÌ±ö + 2Ì†µÌ±õ chain links, accounting for all initialization, terminal, and literal
+links.
+
+Threads and threading. Having defined the chain and its links, we now introduce the notion of threads, which are
+paths that pass through the chain links. The operation of inserting such paths into the chain is called threading. More
+precisely:
+Definition III.3 (Thread). Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a graph containing a Ì†µÌ±¢‚ÄìÌ†µÌ±£ chain with chain links Ì†µÌ∞ø1, Ì†µÌ∞ø2, . . . , Ì†µÌ∞øÌ†µÌ±ü . A thread
+is a Ì†µÌ±¢‚ÄìÌ†µÌ±£ path Ì†µÌ±É in Ì†µÌ∞∫ such that:
+
+    1) for each chain link Ì†µÌ∞øÌ†µÌ±ñ, the path Ì†µÌ±É shares at most one edge with Ì†µÌ∞øÌ†µÌ±ñ, and Ì†µÌ±É contains none of the single edges of the
+        chain;
+                                                                      8
+    2) Ì†µÌ±É is edge-disjoint from every other thread and shares only the vertices Ì†µÌ±¢ and Ì†µÌ±£ with it.
+    Thus, threads can be seen as edge-disjoint Ì†µÌ±¢‚ÄìÌ†µÌ±£ paths that ‚Äúpass through‚Äù the sequence of chain links, each touching
+a link in at most one edge.
+    Threads interact with chain links through the operation of threading. Intuitively, threading takes an edge of a chain
+link that has not yet been traversed by any existing thread, subdivides it into three consecutive edges, and then uses the
+middle edge as the unique crossing edge of the thread through that chain link. Formally:
+Definition III.4 (Threading). Let Ì†µÌ∞ø be a chain link in a Ì†µÌ±¢‚ÄìÌ†µÌ±£ chain, and let Ì†µÌ±É be a thread not yet passing through Ì†µÌ∞ø. The
+threading operation on (Ì†µÌ±É, Ì†µÌ∞ø) consists of the following elementary steps:
+    1) Select an edge Ì†µÌ±í = {Ì†µÌ±•, Ì†µÌ±¶} of Ì†µÌ∞ø that is not used by any existing thread.
+    2) Subdivide Ì†µÌ±í into a path Ì†µÌ±•‚ÄìÌ†µÌ±ß1‚ÄìÌ†µÌ±ß2‚ÄìÌ†µÌ±¶ of three edges, introducing two new vertices Ì†µÌ±ß1, Ì†µÌ±ß2.
+    3) Extend Ì†µÌ±É so that it traverses the middle edge {Ì†µÌ±ß1, Ì†µÌ±ß2}, called the crossing edge, as its unique crossing of the chain
+
+        link Ì†µÌ∞ø.
+If the selected edge Ì†µÌ±í belongs to the positive path of Ì†µÌ∞ø, we say that Ì†µÌ±É is positively threaded through Ì†µÌ∞ø; if Ì†µÌ±í belongs to
+the negative path of Ì†µÌ∞ø, we say that Ì†µÌ±É is negatively threaded through Ì†µÌ∞ø. In general, we say that the thread Ì†µÌ±É is threaded
+through Ì†µÌ∞ø at the edge Ì†µÌ±í.
+
+                                                  Fig. 5 The threading operation
+
+    To capture the logical structure of the 3-SAT formula, each thread is assigned a specific role. We distinguish three
+types of threads:
+
+    1) 2-synchronization thread. This thread passes through an initialization chain link Ì†µÌ∞ºÌ†µÌ±ñ and the corresponding
+        terminal chain link Ì†µÌ±áÌ†µÌ±ñ. Its purpose is to enforce synchronization, ensuring that every separating shortest path
+        traverses either the positive paths or the negative paths in both Ì†µÌ∞ºÌ†µÌ±ñ and Ì†µÌ±áÌ†µÌ±ñ.
+
+    2) 3-synchronization thread. This thread passes through the initialization chain link Ì†µÌ∞ºÌ†µÌ±ñ, a literal chain link Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ,
+        and the terminal chain link Ì†µÌ±áÌ†µÌ±ñ corresponding to the same variable Ì†µÌ±•Ì†µÌ±ñ. Its role is to synchronize the traversal of the
+        literal chain link with that of the initialization and terminal links of the variable Ì†µÌ±•Ì†µÌ±ñ.
+
+    3) Clause thread. For each clause Ì†µÌ∞∂Ì†µÌ±ò = (‚Ñì1 ‚à® ‚Ñì2 ‚à® ‚Ñì3), a clause thread is introduced that passes through the
+
+                                                                      9
+three literal chain links Ì†µÌ∞ø1,Ì†µÌ±ò, Ì†µÌ∞ø2,Ì†µÌ±ò, Ì†µÌ∞ø3,Ì†µÌ±ò corresponding to ‚Ñì1, ‚Ñì2, ‚Ñì3. This construction simulates the satisfaction
+requirement of the clause: for a separating shortest path to exist, at least one of the three literals must be satisfied.
+
+2. NP-completeness of Separating Shortest Path
+    We now prove that Separating Shortest Path is NP-complete by a polynomial-time reduction from 3-SAT. The
+
+reduction is constructive and relies on the chain and threading gadgets introduced above. Before presenting the full
+construction, we introduce a few auxiliary procedures and notational conventions that allow us to describe the reduction
+precisely and concisely.
+
+Auxiliary procedures. The reduction uses the following auxiliary procedures:
+    ‚Ä¢ BuildChain(Ì†µÌ±¢, Ì†µÌ±£, Ì†µÌ±ü): constructs a Ì†µÌ±¢‚ÄìÌ†µÌ±£ chain with Ì†µÌ±ü chain links, where each chain link is realized as a 4-cycle.
+    ‚Ä¢ Thread(Ì†µÌ±¢, Ì†µÌ±£, [(Ì†µÌ∞æ1, Ì†µÌºé1), . . . , (Ì†µÌ∞æÌ†µÌ±° , Ì†µÌºéÌ†µÌ±° )]): creates a new thread from Ì†µÌ±¢ to Ì†µÌ±£ that passes through the chain links
+       Ì†µÌ∞æ1, . . . , Ì†µÌ∞æÌ†µÌ±° in this order, where Ì†µÌºéÌ†µÌ±ñ ‚àà {+, ‚àí} specifies whether the thread is threaded through Ì†µÌ∞æÌ†µÌ±ñ positively or
+       negatively. The Ì†µÌ±° crossing edges are joined to each other and to the vertices Ì†µÌ±¢ and Ì†µÌ±£ by Ì†µÌ±° + 1 new, internally
+       vertex-disjoint paths, which we call the connecting paths of the thread.
+    ‚Ä¢ Calibrate(Ì†µÌ∞∫): equalizes the lengths of the relevant paths in two steps. First, in every chain link whose positive
+       and negative paths have different lengths, an edge of the shorter path that is not a crossing edge is subdivided
+       repeatedly until both paths have the same length. Second, let Œõ denote the number of edges of a Ì†µÌ±¢‚ÄìÌ†µÌ±£ path in the
+       resulting chain; every connecting path of every thread is subdivided until it has at least Œõ edges.
+
+Auxiliary notation. We also introduce the following notational conventions:
+    ‚Ä¢ Occurrences: for each variable Ì†µÌ±•Ì†µÌ±ñ, we denote by Ì†µÌ±ÇÌ†µÌ±ñ the set of all pairs ( Ì†µÌ±ó, Ì†µÌ±ò) such that the Ì†µÌ±ó-th literal of the clause
+       Ì†µÌ∞∂Ì†µÌ±ò is Ì†µÌ±•Ì†µÌ±ñ or ¬¨Ì†µÌ±•Ì†µÌ±ñ.
+    ‚Ä¢ Sign function: for each literal ‚Ñì we define
+
+        Ô£±     if ‚Ñì = Ì†µÌ±•Ì†µÌ±ñ for some variable Ì†µÌ±•Ì†µÌ±ñ,
+        Ô£¥Ô£¥Ô£¥+  if ‚Ñì = ¬¨Ì†µÌ±•Ì†µÌ±ñ for some variable Ì†µÌ±•Ì†µÌ±ñ.
+Ì†µÌ±†(‚Ñì) = Ô£¥Ô£≤
+        Ô£¥Ô£¥Ô£¥‚àí
+        Ô£¥
+        Ô£≥
+
+Theorem III.5. The Separating Shortest Path problem is NP-complete.
+
+Proof. We first describe the reduction, then prove its correctness, and finally bound its running time and show that the
+problem belongs to NP.
+
+Reduction from 3-SAT. Given an instance of 3-SAT, we describe how to construct a graph Ì†µÌ∞∫ with two distinguished
+vertices Ì†µÌ±¢, Ì†µÌ±£ such that Ì†µÌ∞∫ contains a separating shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path if and only if the given formula is satisfiable. The
+
+              10
+construction is summarized in Algorithm 1.
+
+Algorithm 1 Reduction from 3-SAT to Separating Shortest Path
+
+Require: Variables Ì†µÌ±à = {Ì†µÌ±•1, . . . , Ì†µÌ±•Ì†µÌ±õ}, clauses C = {Ì†µÌ∞∂1, . . . , Ì†µÌ∞∂Ì†µÌ±ö}
+
+Ensure: Graph Ì†µÌ∞∫, vertices Ì†µÌ±¢, Ì†µÌ±£
+
+1: Ì†µÌ∞∫ ‚Üê BuildChain(Ì†µÌ±¢, Ì†µÌ±£, 2Ì†µÌ±õ + 3Ì†µÌ±ö)
+
+2: for Ì†µÌ±ñ ‚Üê 1 to Ì†µÌ±õ do
+
+3: reserve the next 2 + |Ì†µÌ±ÇÌ†µÌ±ñ | free chain links
+
+4: label the first of them as Ì†µÌ∞ºÌ†µÌ±ñ and the last of them as Ì†µÌ±áÌ†µÌ±ñ
+
+5: for each ( Ì†µÌ±ó, Ì†µÌ±ò) ‚àà Ì†µÌ±ÇÌ†µÌ±ñ do
+
+6:   label the next free reserved link as Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ
+
+7: end for
+
+8: end for
+
+9: for Ì†µÌ±ñ ‚Üê 1 to Ì†µÌ±õ do
+
+10: Thread(Ì†µÌ±¢, Ì†µÌ±£, [(Ì†µÌ∞ºÌ†µÌ±ñ, +), (Ì†µÌ±áÌ†µÌ±ñ, ‚àí)])
+
+11: Thread(Ì†µÌ±¢, Ì†µÌ±£, [(Ì†µÌ∞ºÌ†µÌ±ñ, ‚àí), (Ì†µÌ±áÌ†µÌ±ñ, +)])
+
+12: for each ( Ì†µÌ±ó, Ì†µÌ±ò) ‚àà Ì†µÌ±ÇÌ†µÌ±ñ do
+
+13:  Thread(Ì†µÌ±¢, Ì†µÌ±£, [(Ì†µÌ∞ºÌ†µÌ±ñ, +), (Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ, ‚àí), (Ì†µÌ±áÌ†µÌ±ñ, +)])
+
+14:  Thread(Ì†µÌ±¢, Ì†µÌ±£, [(Ì†µÌ∞ºÌ†µÌ±ñ, ‚àí), (Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ, +), (Ì†µÌ±áÌ†µÌ±ñ, ‚àí)])
+
+15: end for
+
+16: end for
+17: for Ì†µÌ±ò ‚Üê 1 to Ì†µÌ±ö do
+18: ‚Ñì1, ‚Ñì2, ‚Ñì3 ‚Üê the literals of Ì†µÌ∞∂Ì†µÌ±ò
+19: Thread(Ì†µÌ±¢, Ì†µÌ±£, [(Ì†µÌ∞ø1,Ì†µÌ±ò, Ì†µÌ±†(‚Ñì1)), (Ì†µÌ∞ø2,Ì†µÌ±ò, Ì†µÌ±†(‚Ñì2)), (Ì†µÌ∞ø3,Ì†µÌ±ò, Ì†µÌ±†(‚Ñì3))])
+
+20: end for
+21: Calibrate(Ì†µÌ∞∫)
+22: return Ì†µÌ∞∫, Ì†µÌ±¢, Ì†µÌ±£
+
+    In words, the chain consists of Ì†µÌ±õ consecutive blocks, one for each variable; the block of Ì†µÌ±•Ì†µÌ±ñ starts with Ì†µÌ∞ºÌ†µÌ±ñ, ends with Ì†µÌ±áÌ†µÌ±ñ,
+and contains the literal chain links of all occurrences of Ì†µÌ±•Ì†µÌ±ñ in between. Each variable receives a pair of 2-synchronization
+threads, each occurrence of a variable receives a pair of 3-synchronization threads, and each clause receives one clause
+thread. The final calibration step guarantees that both paths of every chain link have the same length and that the
+connecting paths of the threads are sufficiently long.
+
+Correctness. We now show that the constructed instance of Separating Shortest Path is equivalent to the original
+3-SAT instance. We call the Ì†µÌ±¢‚ÄìÌ†µÌ±£ paths of the chain chain paths; a chain path is determined by choosing, in every
+chain link, either its positive or its negative path. We say that a chain path Ì†µÌ±É hits a thread if Ì†µÌ±É and the thread
+share an edge. Since a thread shares only its crossing edges with the chain, a chain path Ì†µÌ±É hits a thread created by
+Thread(Ì†µÌ±¢, Ì†µÌ±£, [(Ì†µÌ∞æ1, Ì†µÌºé1), . . . , (Ì†µÌ∞æÌ†µÌ±° , Ì†µÌºéÌ†µÌ±° )]) if and only if, for some Ì†µÌ±ñ, the path Ì†µÌ±É traverses the path of Ì†µÌ∞æÌ†µÌ±ñ with the sign Ì†µÌºéÌ†µÌ±ñ.
+
+Shortest paths. After the calibration, all chain paths have the same length Œõ. Every other Ì†µÌ±¢‚ÄìÌ†µÌ±£ path Ì†µÌ±Ñ in Ì†µÌ∞∫ contains
+an edge of some connecting path. Since the internal vertices of a connecting path have degree two, Ì†µÌ±Ñ contains the
+whole connecting path, which has at least Œõ edges, and at least one further edge, because no connecting path joins Ì†µÌ±¢ and
+Ì†µÌ±£ directly. Hence |Ì†µÌ±Ñ| > Œõ, and the shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ paths in Ì†µÌ∞∫ are exactly the chain paths.
+
+                                                                     11
+Synchronization of variable gadgets. Every thread is a Ì†µÌ±¢‚ÄìÌ†µÌ±£ path. Therefore, a chain path Ì†µÌ±É can be separating only if
+it hits every thread.
+
+    ‚Ä¢ 2-synchronization threads: the chain path Ì†µÌ±É hits both 2-synchronization threads of the variable Ì†µÌ±•Ì†µÌ±ñ if and only if
+       it traverses paths of the same sign in Ì†µÌ∞ºÌ†µÌ±ñ and in Ì†µÌ±áÌ†µÌ±ñ. Indeed, the first thread requires the positive path in Ì†µÌ∞ºÌ†µÌ±ñ or the
+       negative path in Ì†µÌ±áÌ†µÌ±ñ, and the second thread requires the negative path in Ì†µÌ∞ºÌ†µÌ±ñ or the positive path in Ì†µÌ±áÌ†µÌ±ñ.
+
+    ‚Ä¢ 3-synchronization threads: if Ì†µÌ±É traverses paths of the same sign in Ì†µÌ∞ºÌ†µÌ±ñ and Ì†µÌ±áÌ†µÌ±ñ, then it hits both 3-synchronization
+       threads of a literal link Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ if and only if it traverses the path of this sign in Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ as well. Indeed, one of the
+       two threads is hit exactly when Ì†µÌ±É uses the positive path in Ì†µÌ∞ºÌ†µÌ±ñ or Ì†µÌ±áÌ†µÌ±ñ or the negative path in Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ, and the other one
+       exactly when Ì†µÌ±É uses the negative path in Ì†µÌ∞ºÌ†µÌ±ñ or Ì†µÌ±áÌ†µÌ±ñ or the positive path in Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ.
+
+Consequently, a chain path hits all synchronization threads if and only if, for every variable Ì†µÌ±•Ì†µÌ±ñ, it traverses paths of the
+same sign in all chain links of the block of Ì†µÌ±•Ì†µÌ±ñ. We call such a chain path consistent. Consistent chain paths correspond
+to truth assignments: we set Ì†µÌºè(Ì†µÌ±•Ì†µÌ±ñ) = true if the path traverses the positive paths in the block of Ì†µÌ±•Ì†µÌ±ñ, and Ì†µÌºè(Ì†µÌ±•Ì†µÌ±ñ) = false
+otherwise.
+
+Clause threads. Let Ì†µÌ±É be a consistent chain path with the truth assignment Ì†µÌºè, and let Ì†µÌ∞∂Ì†µÌ±ò = (‚Ñì1 ‚à® ‚Ñì2 ‚à® ‚Ñì3) be a clause.
+The path Ì†µÌ±É hits the clause thread of Ì†µÌ∞∂Ì†µÌ±ò if and only if, for some Ì†µÌ±ó, it traverses the path of Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò with the sign Ì†µÌ±†(‚ÑìÌ†µÌ±ó ), i.e., if
+and only if Ì†µÌºè satisfies the literal ‚ÑìÌ†µÌ±ó . Thus a consistent chain path hits all clause threads if and only if its truth assignment
+satisfies every clause.
+
+Two-way correspondence. We complete the proof by establishing the equivalence:
+     (a) If there exists a separating shortest path Ì†µÌ±É in Ì†µÌ∞∫, then one can extract a satisfying assignment for the original
+          3-SAT instance.
+          Since Ì†µÌ±É is a shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path, it is a chain path, and since it is separating, it hits every thread. By the
+          synchronization property, Ì†µÌ±É is consistent, so it determines a truth assignment Ì†µÌºè. Moreover, Ì†µÌ±É hits every clause
+          thread, which means that Ì†µÌºè satisfies at least one literal in every clause. Thus, Ì†µÌºè is a satisfying assignment for
+          the original formula.
+     (b) If there exists a satisfying assignment for the 3-SAT instance, then one can construct a separating shortest path
+          in Ì†µÌ∞∫.
+          Given a satisfying assignment Ì†µÌºè, let Ì†µÌ±É be the consistent chain path that corresponds to Ì†µÌºè: in all chain links of
+          the block of Ì†µÌ±•Ì†µÌ±ñ, it traverses the positive path if Ì†µÌºè(Ì†µÌ±•Ì†µÌ±ñ) = true and the negative path if Ì†µÌºè(Ì†µÌ±•Ì†µÌ±ñ) = false. The path Ì†µÌ±É
+          is a shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path, and it hits every thread.
+          It remains to show that Ì†µÌ±É is separating, i.e., that Ì†µÌ∞∫ \ Ì†µÌ±É contains no Ì†µÌ±¢‚ÄìÌ†µÌ±£ path. In Ì†µÌ∞∫ \ Ì†µÌ±É, all single edges of the
+          chain are missing, and in every chain link Ì†µÌ∞æ only the path not traversed by Ì†µÌ±É remains; we call it the unused
+
+                                                                     12
+          path of Ì†µÌ∞æ. A crossing edge that lies on Ì†µÌ±É is removed together with the two edges of the chain link adjacent to it;
+          hence the two connecting paths that end at this crossing edge are dead ends in Ì†µÌ∞∫ \ Ì†µÌ±É. A crossing edge on an
+          unused path remains and joins its two adjacent connecting paths to this unused path. Consequently, a path
+          in Ì†µÌ∞∫ \ Ì†µÌ±É can move between connecting paths and unused paths only at crossing edges that are not on Ì†µÌ±É. We
+          analyze all ways in which a path starting at Ì†µÌ±¢ could progress in Ì†µÌ∞∫ \ Ì†µÌ±É:
+
+               1) Using a chain edge. The single edge of the chain incident to Ì†µÌ±¢ lies on Ì†µÌ±É, so this option is blocked
+                   immediately.
+
+               2) Using a synchronization thread. Such a thread first reaches Ì†µÌ∞ºÌ†µÌ±ñ. If it crosses the path of Ì†µÌ∞ºÌ†µÌ±ñ traversed by
+                   Ì†µÌ±É, it ends there. Otherwise, it reaches the unused path of Ì†µÌ∞ºÌ†µÌ±ñ. The threads that cross this unused path
+                   are one 2-synchronization thread, whose next crossing edge is in Ì†µÌ±áÌ†µÌ±ñ, and one 3-synchronization thread
+                   for each literal link Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ, whose next crossing edge is in Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ; all these next crossing edges lie on Ì†µÌ±É.
+                   Hence every continuation from the unused path of Ì†µÌ∞ºÌ†µÌ±ñ leads back to Ì†µÌ±¢ or to a dead end.
+
+               3) Using a clause thread. The clause thread of Ì†µÌ∞∂Ì†µÌ±ò passes through the literal links Ì†µÌ∞ø1,Ì†µÌ±ò, Ì†µÌ∞ø2,Ì†µÌ±ò, Ì†µÌ∞ø3,Ì†µÌ±ò. Since
+                   Ì†µÌºè satisfies Ì†µÌ∞∂Ì†µÌ±ò, at least one of its crossing edges lies on Ì†µÌ±É, so the clause thread itself is interrupted
+                   before it reaches Ì†µÌ±£. At a crossing edge that is not on Ì†µÌ±É, a path can leave the clause thread and enter the
+                   unused path of the literal link Ì†µÌ∞ø Ì†µÌ±ó,Ì†µÌ±ò,Ì†µÌ±ñ. Apart from the clause thread, this unused path is crossed only by a
+                   3-synchronization thread, and the two connecting paths of this thread that start there lead to crossing
+                   edges in Ì†µÌ∞ºÌ†µÌ±ñ and Ì†µÌ±áÌ†µÌ±ñ that lie on Ì†µÌ±É, i.e., to dead ends.
+
+          Since all possible continuations from Ì†µÌ±¢ are blocked in Ì†µÌ∞∫ \ Ì†µÌ±É, there is no Ì†µÌ±¢‚ÄìÌ†µÌ±£ path after removing Ì†µÌ±É; hence Ì†µÌ±É is
+          separating.
+
+Running time of the reduction. It remains to show that the reduction runs in polynomial time. The chain has 2Ì†µÌ±õ + 3Ì†µÌ±ö
+chain links, and the construction creates 2Ì†µÌ±õ + 7Ì†µÌ±ö threads, each of which has at most three crossing edges and at most
+four connecting paths. Before the calibration, the chain therefore has Ì†µÌ±Ç (Ì†µÌ±õ + Ì†µÌ±ö) edges. Balancing the two paths of a
+chain link adds at most two edges for each of its crossing edges, so Œõ = Ì†µÌ±Ç (Ì†µÌ±õ + Ì†µÌ±ö). Finally, each of the Ì†µÌ±Ç (Ì†µÌ±õ + Ì†µÌ±ö)
+connecting paths is subdivided until it has Œõ edges, which requires Ì†µÌ±Ç ((Ì†µÌ±õ + Ì†µÌ±ö)2) edges in total. Hence, the size of Ì†µÌ∞∫ and
+the running time of Algorithm 1 are polynomial in the input size.
+
+Membership in NP. Given a candidate path Ì†µÌ±É in Ì†µÌ∞∫, one can verify in polynomial time that it is a separating shortest
+path: first check that Ì†µÌ±É is indeed a shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path, and then remove Ì†µÌ±É from Ì†µÌ∞∫ and run a standard reachability test
+(e.g., BFS or DFS) to determine whether a Ì†µÌ±¢‚ÄìÌ†µÌ±£ path remains. Both steps are computable in polynomial time, so the
+Separating Shortest Path problem belongs to NP.
+
+                                                                     13
+B. From Separating Shortest Path to Min Cut-Path
+    In the previous subsection, we proved that Separating Shortest Path is NP-complete. We now use this result to
+
+show that our target problem, Min Cut-Path, is NP-complete as well. For this purpose, we state it in decision form.
+
+Problem: Min Cut-Path (Decision Version)
+Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be an undirected graph and Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â distinct vertices; cut-paths are defined in Definition II.1. The
+decision version of the Min Cut-Path problem is defined as follows:
+
+Input:     A graph Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏), vertices Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â, and an integer Ì†µÌ±ò.
+Question:  Does there exist a cut-path Ì†µÌ∞π ‚äÜ Ì†µÌ∞∏ between Ì†µÌ±¢ and Ì†µÌ±£ with |Ì†µÌ∞π | ‚â§ Ì†µÌ±ò?
+
+    We show that the decision version of the Min Cut-Path problem is NP-complete. As an immediate consequence,
+the corresponding optimization problem is NP-hard.
+
+Theorem III.6. The decision version of the Min Cut-Path problem is NP-complete.
+
+Proof. Reduction. Let Ì†µÌ∞∫ be an instance of Separating Shortest Path with distinguished vertices Ì†µÌ±¢, Ì†µÌ±£. We may
+assume that Ì†µÌ±¢ and Ì†µÌ±£ lie in the same connected component of Ì†µÌ∞∫, since otherwise the answer is trivially negative. We
+define Ì†µÌ∞∫‚Ä≤ := Ì†µÌ∞∫ and set the threshold Ì†µÌ±ò := Ì†µÌ±ëÌ†µÌ∞∫ (Ì†µÌ±¢, Ì†µÌ±£), the length of a shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path in Ì†µÌ∞∫. We then ask whether Ì†µÌ∞∫‚Ä≤
+admits a cut-path of size at most Ì†µÌ±ò.
+
+    Correctness. Suppose that Ì†µÌ∞∫ admits a separating shortest path Ì†µÌ±É. Then |Ì†µÌ±É| = Ì†µÌ±ëÌ†µÌ∞∫ (Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ò, and Ì†µÌ±É itself is a
+cut-path of size Ì†µÌ±ò, since (i) it is a Ì†µÌ±¢‚ÄìÌ†µÌ±£ path and (ii) its removal disconnects Ì†µÌ±¢ and Ì†µÌ±£, so Ì†µÌ±É is also a Ì†µÌ±¢‚ÄìÌ†µÌ±£ cut. Conversely,
+suppose that Ì†µÌ∞∫‚Ä≤ has a cut-path Ì†µÌ∞π with |Ì†µÌ∞π | ‚â§ Ì†µÌ±ò. Then Ì†µÌ∞π contains a Ì†µÌ±¢‚ÄìÌ†µÌ±£ path Ì†µÌ±É, which has at least Ì†µÌ±ëÌ†µÌ∞∫ (Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ò edges;
+hence Ì†µÌ∞π = Ì†µÌ±É and Ì†µÌ±É is a shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path in Ì†µÌ∞∫. Moreover, Ì†µÌ∞π contains a Ì†µÌ±¢‚ÄìÌ†µÌ±£ cut, so Ì†µÌ∞∫ \ Ì†µÌ±É contains no Ì†µÌ±¢‚ÄìÌ†µÌ±£ path. Hence
+Ì†µÌ±É is a separating shortest path, and the two instances are equivalent.
+
+    Membership in NP. A candidate cut-path Ì†µÌ∞π can be verified in polynomial time: check that |Ì†µÌ∞π | ‚â§ Ì†µÌ±ò, that Ì†µÌ∞π contains
+a Ì†µÌ±¢‚ÄìÌ†µÌ±£ path, and that Ì†µÌ∞∫ \ Ì†µÌ∞π contains no Ì†µÌ±¢‚ÄìÌ†µÌ±£ path (e.g., by BFS or DFS). All conditions can be tested in polynomial time.
+
+    Conclusion. By Theorem III.5, Separating Shortest Path is NP-complete, and it reduces to Min Cut-Path
+in polynomial time. Since Min Cut-Path is in NP (by polynomial verification), it follows that Min Cut-Path is
+NP-complete.
+
+                                         IV. Graphs of Diameter Two
+
+    Having established the complexity of the general Min Cut-Path problem, we now turn our attention to specific graph
+classes in which the problem admits efficient solutions. A natural first step in this direction is to consider a constraint on
+the maximum distance between vertices. Limiting all distances to at most two leads directly to the well-known class of
+
+                                                                     14
+graphs of diameter two, which have been extensively studied in algebraic graph theory [8]. We formally define this class
+as follows:
+Definition IV.1 (Diameter). A graph Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) has diameter at most Ì†µÌ±ò if for every pair of vertices Ì†µÌ±•, Ì†µÌ±¶ ‚àà Ì†µÌ±â, the
+distance between Ì†µÌ±• and Ì†µÌ±¶ is at most Ì†µÌ±ò. Formally:
+
+                                                        ‚àÄÌ†µÌ±•, Ì†µÌ±¶ ‚àà Ì†µÌ±â : Ì†µÌ±ë (Ì†µÌ±•, Ì†µÌ±¶) ‚â§ Ì†µÌ±ò,
+
+where Ì†µÌ±ë (Ì†µÌ±•, Ì†µÌ±¶) denotes the length of a shortest path between Ì†µÌ±• and Ì†µÌ±¶. The smallest such Ì†µÌ±ò is the diameter of Ì†µÌ∞∫, denoted
+by diam(Ì†µÌ∞∫).
+
+    Our objective in this section is to analyze the structure of graphs of diameter two and to use it to derive a closed
+formula for cp(Ì†µÌ±¢, Ì†µÌ±£). This formula immediately yields a simple and efficient algorithm for the Min Cut-Path problem
+in this class of graphs. As a first step, we describe a simple decomposition: in any graph, a cut Ì†µÌ∞∂ induces a partition of
+the vertex set into four subsets Ì†µÌ∞º, Ì†µÌ∞Ω, Ì†µÌ∞æ, Ì†µÌ∞ø.
+
+    The following observation is immediate from the definition of a cut. Each vertex belongs to one of the two sides
+Ì†µÌ∞¥1, Ì†µÌ∞¥2 of the cut, and it either is incident to an edge of the cut or not. Hence, the classification of the vertices into the
+subsets Ì†µÌ∞º, Ì†µÌ∞Ω, Ì†µÌ∞æ, Ì†µÌ∞ø is immediate and unambiguous:
+Lemma IV.2. Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a graph, and let Ì†µÌ∞∂ be a cut that divides Ì†µÌ∞∫ into two sets Ì†µÌ∞¥1 and Ì†µÌ∞¥2 (i.e., Ì†µÌ±â = Ì†µÌ∞¥1 ‚à™ Ì†µÌ∞¥2,
+Ì†µÌ∞¥1 ‚à© Ì†µÌ∞¥2 = ‚àÖ, and Ì†µÌ∞∂ is the set of all edges between Ì†µÌ∞¥1 and Ì†µÌ∞¥2). Then, there exists a unique decomposition of Ì†µÌ∞¥1 and Ì†µÌ∞¥2
+into subsets Ì†µÌ∞º, Ì†µÌ∞Ω, Ì†µÌ∞æ, Ì†µÌ∞ø such that:
+
+    ‚Ä¢ Ì†µÌ∞º ‚à™ Ì†µÌ∞Ω = Ì†µÌ∞¥1 and Ì†µÌ∞º ‚à© Ì†µÌ∞Ω = ‚àÖ,
+    ‚Ä¢ Ì†µÌ∞æ ‚à™ Ì†µÌ∞ø = Ì†µÌ∞¥2 and Ì†µÌ∞æ ‚à© Ì†µÌ∞ø = ‚àÖ,
+    ‚Ä¢ ‚àÄÌ†µÌ±• ‚àà Ì†µÌ∞Ω ‚à™ Ì†µÌ∞æ, ‚àÉÌ†µÌ±¶ ‚àà Ì†µÌ±â : {Ì†µÌ±•, Ì†µÌ±¶} ‚àà Ì†µÌ∞∂,
+    ‚Ä¢ ‚àÄÌ†µÌ±• ‚àà Ì†µÌ∞º ‚à™ Ì†µÌ∞ø, ‚àÑÌ†µÌ±¶ ‚àà Ì†µÌ±â : {Ì†µÌ±•, Ì†µÌ±¶} ‚àà Ì†µÌ∞∂.
+    In graphs of diameter two, the decomposition induced by a cut Ì†µÌ∞∂ is no longer arbitrary: the bounded distances
+restrict which of the subsets Ì†µÌ∞º, Ì†µÌ∞Ω, Ì†µÌ∞æ, Ì†µÌ∞ø can be non-empty.
+    The key observation is that if both Ì†µÌ∞º and Ì†µÌ∞ø were non-empty, then any vertex in Ì†µÌ∞º would be at distance at least three
+from any vertex in Ì†µÌ∞ø, since every path between these two sets must pass through the intermediate subsets Ì†µÌ∞Ω and Ì†µÌ∞æ. This
+directly contradicts the assumption that the graph has diameter two. Consequently, one of these sets must be empty.
+Lemma IV.3. Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a graph of diameter two, let Ì†µÌ∞∂ be a cut that divides Ì†µÌ∞∫ into two sets Ì†µÌ∞¥1 and Ì†µÌ∞¥2, and let
+Ì†µÌ∞º, Ì†µÌ∞Ω, Ì†µÌ∞æ, Ì†µÌ∞ø be the decomposition of Ì†µÌ∞¥1 and Ì†µÌ∞¥2 described in Lemma IV.2. Then at least one of the sets Ì†µÌ∞º and Ì†µÌ∞ø is empty:
+
+                                                           Ì†µÌ∞º = ‚àÖ or Ì†µÌ∞ø = ‚àÖ.
+
+                                                                     15
+    We also need the following general fact about the intersection of a cut and a path.
+Lemma IV.4. Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a graph, and let Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â be two distinct vertices. Let Ì†µÌ∞∂ be a cut that divides Ì†µÌ∞∫ into
+two sets Ì†µÌ∞¥1 and Ì†µÌ∞¥2 with Ì†µÌ±¢ ‚àà Ì†µÌ∞¥1 and Ì†µÌ±£ ‚àà Ì†µÌ∞¥2, and let Ì†µÌ±É be a path that connects Ì†µÌ±¢ and Ì†µÌ±£. Then the path Ì†µÌ±É contains an odd
+number of edges of Ì†µÌ∞∂:
+
+                                                         |Ì†µÌ∞∂ ‚à© Ì†µÌ±É| ‚â° 1 (mod 2).
+
+Proof. Let Ì†µÌ±Ü = Ì†µÌ∞∂ ‚à© Ì†µÌ±É be the set of edges in the intersection of the cut and the path. When we traverse the path Ì†µÌ±É from Ì†µÌ±¢
+to Ì†µÌ±£, each edge of Ì†µÌ±Ü changes the side of the cut (i.e., it switches between Ì†µÌ∞¥1 and Ì†µÌ∞¥2), while every other edge of Ì†µÌ±É stays
+on the same side. The path starts in Ì†µÌ∞¥1 and ends in Ì†µÌ∞¥2. If the path crossed the cut an even number of times, its first and
+its last vertex would lie on the same side, which contradicts the assumption that Ì†µÌ±¢ ‚àà Ì†µÌ∞¥1 and Ì†µÌ±£ ‚àà Ì†µÌ∞¥2. Therefore, the path
+crosses the cut an odd number of times, i.e., |Ì†µÌ±Ü| is odd.
+
+    Using Lemmas IV.3 and IV.4, we can now express the minimum cut-path value cp(Ì†µÌ±¢, Ì†µÌ±£) in graphs of diameter two
+directly in terms of the minimum cut-value Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) and the distance Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£). This is the central theorem of this section:
+Theorem IV.5. Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a connected graph of diameter two, and let Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â be two distinct vertices. Then
+the value of the minimum cut-path between Ì†µÌ±¢ and Ì†µÌ±£ is
+
+                                                   cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1.
+
+Proof. We distinguish two cases based on the values of Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) and Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£).
+    1) Case Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) = 1 or Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) = 1:
+        By Lemma II.4, in this case we have
+
+                                                       cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1.
+
+    2) Case Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) = 2 and Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) ‚â• 2:
+        By Lemma II.4,
+                                             Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) ‚â§ cp(Ì†µÌ±¢, Ì†µÌ±£) ‚â§ Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + 2 ‚àí 1 = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + 1.
+
+        Assume for contradiction that cp(Ì†µÌ±¢, Ì†µÌ±£) ‚â† Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + 1. Then cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£), i.e., a minimum cut-path Ì†µÌ±Ü has
+        the same size as a minimum cut. Since Ì†µÌ±Ü contains a Ì†µÌ±¢‚ÄìÌ†µÌ±£ cut, the set Ì†µÌ±Ü itself is a minimum cut, which we denote
+        by Ì†µÌ∞∂, and the Ì†µÌ±¢‚ÄìÌ†µÌ±£ path Ì†µÌ±É contained in Ì†µÌ±Ü is a subset of this cut.
+        By Lemma IV.4, the number of edges of Ì†µÌ±É is odd, and since Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) = 2, the path Ì†µÌ±É has length at least 3. Let
+        Ì†µÌ∞º, Ì†µÌ∞Ω, Ì†µÌ∞æ, Ì†µÌ∞ø be the decomposition induced by the cut Ì†µÌ∞∂. By Lemma IV.3 and by the symmetry between Ì†µÌ±¢ and Ì†µÌ±£, we
+
+                                                                     16
+        may assume that Ì†µÌ∞ø = ‚àÖ and Ì†µÌ±¢ ‚àà Ì†µÌ∞æ, so the graph is partitioned into the three sets Ì†µÌ∞º, Ì†µÌ∞Ω, Ì†µÌ∞æ. We observe that Ì†µÌ±£ ‚àà Ì†µÌ∞Ω:
+        the last edge of Ì†µÌ±É belongs to the cut and is incident to Ì†µÌ±£, so the vertex Ì†µÌ±£ cannot belong to the set Ì†µÌ∞º. This structure
+        is illustrated in Figure 6.
+
+Fig. 6 Structure of the cut Ì†µÌ∞∂ in the proof of Theorem IV.5; the edges counted in the estimate are drawn in red
+        We now estimate the size of the cut Ì†µÌ∞∂:
+                                    cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) = |Ì†µÌ∞∂ | ‚â• deg(Ì†µÌ±¢, Ì†µÌ∞º) + deg(Ì†µÌ±¢, Ì†µÌ∞Ω) + 2 + (|Ì†µÌ∞æ | ‚àí 2),
+        where the estimate is obtained by counting the edges of the cut according to their end-vertex in Ì†µÌ∞æ:
+             ‚Ä¢ deg(Ì†µÌ±¢, Ì†µÌ∞º) and deg(Ì†µÌ±¢, Ì†µÌ∞Ω) denote the numbers of edges that lead from the vertex Ì†µÌ±¢ to the opposite side of the
+               minimum cut,
+             ‚Ä¢ the path Ì†µÌ±É is contained in the cut and has length at least three, so its edges alternate between the two sides
+               of the cut; hence its third vertex is a vertex of Ì†µÌ∞æ other than Ì†µÌ±¢ that contributes at least two edges to the cut,
+             ‚Ä¢ each of the remaining |Ì†µÌ∞æ | ‚àí 2 vertices of the set Ì†µÌ∞æ contributes at least one edge to the cut.
+        The edges counted on the right-hand side are drawn in red in Figure 6.
+        Since deg(Ì†µÌ±¢, Ì†µÌ∞º) ‚â• 0 and deg(Ì†µÌ±¢, Ì†µÌ∞æ) ‚â§ |Ì†µÌ∞æ | ‚àí 1, we obtain
+               deg(Ì†µÌ±¢, Ì†µÌ∞º) + deg(Ì†µÌ±¢, Ì†µÌ∞Ω) + 2 + (|Ì†µÌ∞æ | ‚àí 2) ‚â• 0 + deg(Ì†µÌ±¢, Ì†µÌ∞Ω) + deg(Ì†µÌ±¢, Ì†µÌ∞æ) + 1 = deg(Ì†µÌ±¢) + 1 ‚â• Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + 1,
+        where the equality holds because Ì†µÌ±¢ has no neighbors in Ì†µÌ∞º, and the last inequality holds because the edges incident
+        to Ì†µÌ±¢ form a Ì†µÌ±¢‚ÄìÌ†µÌ±£ cut. This contradicts the assumption that cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£); hence cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + 1 =
+                                                                     17
+        Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1.
+Remark IV.6. Whenever cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1, the proof of Lemma II.4 shows that the union of an arbitrary
+minimum Ì†µÌ±¢‚ÄìÌ†µÌ±£ cut and an arbitrary shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path is a minimum cut-path. Hence, in graphs of diameter two, a
+minimum cut-path can be found by one minimum-cut computation and one breadth-first search.
+
+                                  V. Graphs with Cut-Value at Most Two
+
+    We now turn to another structural property that leads to the same simple formula. Specifically, we consider graphs in
+which the minimum cut-value of every pair of vertices is at most two. This condition restricts the connectivity structure
+of the graph in a very particular way.
+
+    Such graphs have the structure of a cactus graph (cf. [3]): they consist of cycles and single edges, any two of
+which share at most one vertex, an articulation point. Indeed, if two distinct cycles shared an edge, their union would
+contain two vertices joined by three edge-disjoint paths; separating these two vertices would require at least three edges,
+contradicting the assumption Ì†µÌ±ê(Ì†µÌ±•, Ì†µÌ±¶) ‚â§ 2. This structure leads to the following result.
+Theorem V.1. Let Ì†µÌ∞∫ = (Ì†µÌ±â, Ì†µÌ∞∏) be a connected graph such that Ì†µÌ±ê(Ì†µÌ±•, Ì†µÌ±¶) ‚â§ 2 for every pair of distinct vertices Ì†µÌ±•, Ì†µÌ±¶ ‚àà Ì†µÌ±â.
+Then, for any two distinct vertices Ì†µÌ±¢, Ì†µÌ±£ ‚àà Ì†µÌ±â, the value of the minimum cut-path is
+
+                                                   cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1.
+
+Proof. We distinguish two cases based on the values of Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) and Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£).
+    1) Case Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) = 1 or Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) = 1:
+        The formula holds by Lemma II.4.
+    2) Case Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚â• 2 and Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) = 2:
+        By Lemma II.4, we have
+                                                       Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚â§ cp(Ì†µÌ±¢, Ì†µÌ±£) ‚â§ Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) + 1.
+
+        Assume for contradiction that cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£). Then a minimum cut-path is a shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path Ì†µÌ±É that contains
+        a Ì†µÌ±¢‚ÄìÌ†µÌ±£ cut, so the graph Ì†µÌ∞∫ \ Ì†µÌ±É contains no Ì†µÌ±¢‚ÄìÌ†µÌ±£ path.
+        Since Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) = 2, no single edge separates Ì†µÌ±¢ from Ì†µÌ±£; hence no edge of Ì†µÌ±É is a bridge, and every edge of Ì†µÌ±É lies on
+        a cycle of the cactus graph Ì†µÌ∞∫. The path Ì†µÌ±É therefore passes through a sequence of cycles Ì†µÌ∞∂1, Ì†µÌ∞∂2, . . . , Ì†µÌ∞∂Ì†µÌ±° , and in
+        each cycle Ì†µÌ∞∂Ì†µÌ±ñ it follows one of the two arcs between the vertex where it enters Ì†µÌ∞∂Ì†µÌ±ñ and the vertex where it leaves
+        Ì†µÌ∞∂Ì†µÌ±ñ. The other arc of each cycle Ì†µÌ∞∂Ì†µÌ±ñ is edge-disjoint from Ì†µÌ±É, and the concatenation of these arcs connects Ì†µÌ±¢ and Ì†µÌ±£
+
+                                                                     18
+        in Ì†µÌ∞∫ \ Ì†µÌ±É. This is a contradiction. Therefore,
+                                               cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) + 1 = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1.
+
+    By Remark IV.6, a minimum cut-path in such a graph is again obtained as the union of a minimum cut and a shortest
+path.
+
+                                           VI. Erd≈ës‚ÄìR√©nyi Graphs
+
+    In this section, we study the Min Cut-Path problem in Erd≈ës‚ÄìR√©nyi random graphs Ì†µÌ∞∫ (Ì†µÌ±õ, Ì†µÌ±ù), in which each of
+the possible edges on Ì†µÌ±õ vertices is present independently with probability Ì†µÌ±ù. Throughout this section, log denotes the
+natural logarithm.
+
+    We first examine dense random graphs, i.e., those with a constant edge probability Ì†µÌ±ù. A well-known result in the
+theory of random graphs states that such graphs have diameter two with probability tending to one [9].
+
+Theorem VI.1 ([9]).  Let Ì†µÌ∞∫ (Ì†µÌ±õ, Ì†µÌ±ù) be an Erd≈ës‚ÄìR√©nyi random graph with Ì†µÌ±õ vertices and edge probability Ì†µÌ±ù              =   1   ,  where
+                                                                                                                              Ì†µÌªº
+
+Ì†µÌªº > 1 is a constant. Then the probability that Ì†µÌ∞∫ (Ì†µÌ±õ, Ì†µÌ±ù) has diameter two converges to 1 as Ì†µÌ±õ ‚Üí ‚àû:
+
+                                   lim P            diam  Ì†µÌ∞∫  Ì†µÌ±õ,  1   = 2 = 1.
+                                                                   Ì†µÌªº
+                                   Ì†µÌ±õ‚Üí‚àû
+
+    In the context of the Min Cut-Path problem, this property is particularly useful, as it allows us to apply the results of
+Section IV. By Theorem IV.5 and Remark IV.6, in a graph of diameter two the minimum cut-path value is given by the
+formula cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1, and a minimum cut-path can be computed in polynomial time. Consequently,
+for dense random graphs, the Min Cut-Path problem can be solved exactly in polynomial time on almost all inputs.
+
+    We now turn to sparse Erd≈ës‚ÄìR√©nyi random graphs Ì†µÌ∞∫ (Ì†µÌ±õ, Ì†µÌ±ù) with Ì†µÌ±ù = Ì†µÌªº log Ì†µÌ±õ , where Ì†µÌªº > 1 is a constant. We need
+
+                                                                                                                               Ì†µÌ±õ
+
+two fundamental results on the diameter and the edge connectivity of such graphs, which are well established in the
+literature [9, 10] and which we state without proof, and two simple consequences for the degrees and for the values
+Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£), which we prove.
+
+Theorem VI.2 (Diameter [9]).  Let Ì†µÌ∞∫ (Ì†µÌ±õ, Ì†µÌ±ù)                                        Ì†µÌ±ù =    Ì†µÌªº log  Ì†µÌ±õ                   1.
+                                                                                                Ì†µÌ±õ
+                                               be an Erd≈ës‚ÄìR√©nyi random graph with                       ,  where  Ì†µÌªº  >      Then:
+
+                                                                       log Ì†µÌ±õ
+                                   lim P            diam(Ì†µÌ∞∫) ‚â§                 = 1.
+                                                                  log log Ì†µÌ±õ
+                                   Ì†µÌ±õ‚Üí‚àû
+
+Theorem VI.3 (Connectivity [10]).  Let Ì†µÌ∞∫ (Ì†µÌ±õ, Ì†µÌ±ù)  be an Erd≈ës‚ÄìR√©nyi random graph with  Ì†µÌ±ù  =  Ì†µÌªº log Ì†µÌ±õ                 > 1.       Then:
+
+                                                                                                  Ì†µÌ±õ , where Ì†µÌªº
+
+                                   lim P [Ì†µÌ∞∫ is Ì†µÌ±ò-edge-connected] = 1,
+
+                                   Ì†µÌ±õ‚Üí‚àû
+
+                                                              19
+where Ì†µÌ±ò = Ì†µÌªø(Ì†µÌ∞∫) denotes the minimum degree of Ì†µÌ∞∫.
+
+Lemma VI.4 (Degree Bounds).      Let Ì†µÌ∞∫ (Ì†µÌ±õ, Ì†µÌ±ù) be an Erd≈ës‚ÄìR√©nyi random graph with                               Ì†µÌ±ù  =  Ì†µÌªº log Ì†µÌ±õ        > 1 is a fixed
+
+                                                                                                                            Ì†µÌ±õ , where Ì†µÌªº
+
+constant. Then there exist constants 0 < Ì†µÌªΩ1 < Ì†µÌªΩ2, depending only on Ì†µÌªº, such that
+
+                                 lim P ‚àÄÌ†µÌ±£ ‚àà Ì†µÌ±â (Ì†µÌ∞∫) :   Ì†µÌªΩ1 log Ì†µÌ±õ ‚â§ deg(Ì†µÌ±£) ‚â§ Ì†µÌªΩ2 log Ì†µÌ±õ                = 1.
+
+                                 Ì†µÌ±õ‚Üí‚àû
+
+Proof. The degree of a fixed vertex Ì†µÌ±£ has the binomial distribution with mean Ì†µÌºá = (Ì†µÌ±õ ‚àí 1) Ì†µÌ±ù = (1 ‚àí Ì†µÌ±ú(1)) Ì†µÌªº log Ì†µÌ±õ. For
+Ì†µÌ±é > 0, let ‚Ñé(Ì†µÌ±é) = Ì†µÌ±é log Ì†µÌ±é ‚àí Ì†µÌ±é + 1. By the Chernoff bounds (see, e.g., [10]),
+
+P deg(Ì†µÌ±£) ‚â§ Ì†µÌ±éÌ†µÌºá              ‚â§    ‚àí Ì†µÌºá‚Ñé (Ì†µÌ±é)  for 0 < Ì†µÌ±é < 1               and          P deg(Ì†µÌ±£) ‚â• Ì†µÌ±éÌ†µÌºá          ‚â§     ‚àí Ì†µÌºá ‚Ñé ( Ì†µÌ±é )  for Ì†µÌ±é > 1.
+
+                                 Ì†µÌ±í                                                                                    Ì†µÌ±í
+
+Since ‚Ñé(Ì†µÌ±é) ‚Üí 1 as Ì†µÌ±é ‚Üí 0, ‚Ñé(Ì†µÌ±é) ‚Üí ‚àû as Ì†µÌ±é ‚Üí ‚àû, and Ì†µÌªº > 1, we can fix constants 0 < Ì†µÌ±é1 < 1 < Ì†µÌ±é2 such that
+Ì†µÌªº‚Ñé(Ì†µÌ±é1) > 1 and Ì†µÌªº‚Ñé(Ì†µÌ±é2) > 1. For these constants, both probabilities above are Ì†µÌ±ú(1/Ì†µÌ±õ), and the union bound over all Ì†µÌ±õ
+vertices shows that, with probability tending to one, every degree lies between Ì†µÌ±é1Ì†µÌºá and Ì†µÌ±é2Ì†µÌºá. The claim follows, for
+instance, with Ì†µÌªΩ1 = Ì†µÌ±é1Ì†µÌªº/2 and Ì†µÌªΩ2 = 2Ì†µÌ±é2Ì†µÌªº.
+
+To make these results applicable to the Min Cut-Path problem, the following lemma bounds the values Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£):
+
+Lemma VI.5.  Let Ì†µÌ∞∫ (Ì†µÌ±õ, Ì†µÌ±ù)  be an Erd≈ës‚ÄìR√©nyi random graph with                        Ì†µÌ±ù       =  Ì†µÌªº log Ì†µÌ±õ            >  1, and let    Ì†µÌªΩ1, Ì†µÌªΩ2  be the
+
+                                                                                                       Ì†µÌ±õ , where Ì†µÌªº
+
+constants from Lemma VI.4. Then
+
+                                 lim P ‚àÄÌ†µÌ±¢ ‚â† Ì†µÌ±£ :        Ì†µÌªΩ1 log Ì†µÌ±õ ‚â§ Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) ‚â§ Ì†µÌªΩ2 log Ì†µÌ±õ             = 1.
+
+                                 Ì†µÌ±õ‚Üí‚àû
+
+Proof. By Theorem VI.3 and Lemma VI.4, with probability tending to one, the graph Ì†µÌ∞∫ (Ì†µÌ±õ, Ì†µÌ±ù) is Ì†µÌ±ò-edge-connected for
+Ì†µÌ±ò = Ì†µÌªø(Ì†µÌ∞∫) and all its degrees lie between Ì†µÌªΩ1 log Ì†µÌ±õ and Ì†µÌªΩ2 log Ì†µÌ±õ. In this case, all pairs of distinct vertices Ì†µÌ±¢, Ì†µÌ±£ satisfy
+
+                                 Ì†µÌ±ê (Ì†µÌ±¢,  Ì†µÌ±£)  ‚â•  min    Ì†µÌ±ê ( Ì†µÌ±• ,  Ì†µÌ±¶)  ‚â•   min         deg(Ì†µÌ±ß)  ‚â•  Ì†µÌªΩ1  log Ì†µÌ±õ.
+
+                                                  Ì†µÌ±•‚â†Ì†µÌ±¶                     Ì†µÌ±ß ‚ààÌ†µÌ±â (Ì†µÌ∞∫)
+
+    On the other hand, the edges incident to Ì†µÌ±¢ form a cut that separates Ì†µÌ±¢ from Ì†µÌ±£. This cut need not be a minimum one,
+but it gives the upper bound
+
+                                                      Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) ‚â§ deg(Ì†µÌ±¢) ‚â§ Ì†µÌªΩ2 log Ì†µÌ±õ.
+
+Combining these two inequalities, we obtain
+
+                                                  Ì†µÌªΩ1 log Ì†µÌ±õ ‚â§ Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) ‚â§ Ì†µÌªΩ2 log Ì†µÌ±õ.
+
+                                                                            20
+    These results allow us to estimate how far the union of a minimum cut and a shortest path is from an optimal solution.
+The diameter bound of Theorem VI.2 and the connectivity bound of Lemma VI.5 show that the approximation ratio
+stays below 1 + Ì†µÌºñ on almost all inputs, so this simple algorithm is an average (1 + Ì†µÌºñ)-approximation scheme.
+
+Theorem VI.6.  Let Ì†µÌ∞∫ (Ì†µÌ±õ, Ì†µÌ±ù) be an Erd≈ës‚ÄìR√©nyi random graph with          Ì†µÌ±ù  ‚â•  Ì†µÌªº log Ì†µÌ±õ        > 1.     Then, for every Ì†µÌºñ  >  0, the
+
+                                                                                     Ì†µÌ±õ , where Ì†µÌªº
+
+algorithm that returns the union of a minimum Ì†µÌ±¢‚ÄìÌ†µÌ±£ cut and a shortest Ì†µÌ±¢‚ÄìÌ†µÌ±£ path is an average (1 + Ì†µÌºñ)-approximation
+
+scheme for the Min Cut-Path problem.
+
+Proof. The algorithm runs in polynomial time, since both a minimum cut and a shortest path can be computed in
+
+polynomial time [4]. By Lemma II.4, its output Ì†µÌ±Ü is a cut-path with |Ì†µÌ±Ü| ‚â§ Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1.
+
+Adding edges to a graph can only decrease the distances and can only increase the values Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£). Hence, by the
+
+standard coupling of the random graphs Ì†µÌ∞∫ (Ì†µÌ±õ, Ì†µÌ±ù) for different edge probabilities, the bounds of Theorem VI.2 and
+
+Lemma VI.5, which are stated for Ì†µÌ±ù = Ì†µÌªº log Ì†µÌ±õ , remain valid for every Ì†µÌ±ù ‚â• Ì†µÌªº log Ì†µÌ±õ . Thus, with probability tending to one,
+                                               Ì†µÌ±õ                                      Ì†µÌ±õ
+
+all pairs of distinct vertices Ì†µÌ±¢, Ì†µÌ±£ satisfy
+
+                                                     log Ì†µÌ±õ
+                       Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚â§ diam(Ì†µÌ∞∫) ‚â§                        and         Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) ‚â• Ì†µÌªΩ1 log Ì†µÌ±õ.
+                                                 log log Ì†µÌ±õ
+
+Moreover, by Lemma II.4, the minimum cut is no larger than the minimum cut-path:
+
+                                                   Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) ‚â§ cp(Ì†µÌ±¢, Ì†µÌ±£) = OPT(Ì†µÌ±•).
+
+Combining these inequalities, we obtain
+
+               | Ì†µÌ±Ü |      Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£)       Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£)              log Ì†µÌ±õ                    1
+                                                                                                                     .
+                        ‚â§                            =1+               ‚â§1+         log log Ì†µÌ±õ  =1+
+
+               OPT(Ì†µÌ±•)     Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£)                     Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£)            Ì†µÌªΩ1 log Ì†µÌ±õ          Ì†µÌªΩ1 log log Ì†µÌ±õ
+
+The right-hand side is smaller than 1 + Ì†µÌºñ for all sufficiently large Ì†µÌ±õ. Thus, the algorithm achieves the approximation
+ratio 1 + Ì†µÌºñ on a set of inputs whose probability tends to one, i.e., it is an average (1 + Ì†µÌºñ)-approximation scheme.
+
+                                                 VII. Conclusion
+
+    In this paper, we introduced and studied the Min Cut-Path problem, which is based on a novel combinatorial
+structure that simultaneously captures communication and control within a single set of edges. We established the
+NP-completeness of the decision version of the problem by a two-step reduction from 3-SAT through the intermediate
+Separating Shortest Path problem. Furthermore, we identified two important classes of graphs in which the
+problem becomes polynomially solvable: graphs of diameter two and graphs whose minimum cut-value does not
+exceed two. For these classes, we derived a closed formula for the value of the minimum cut-path, showing that
+
+                                                                     21
+cp(Ì†µÌ±¢, Ì†µÌ±£) = Ì†µÌ±ê(Ì†µÌ±¢, Ì†µÌ±£) + Ì†µÌ±ë (Ì†µÌ±¢, Ì†µÌ±£) ‚àí 1. Finally, connecting these findings with the structural properties of random graphs,
+we showed that dense Erd≈ës‚ÄìR√©nyi graphs almost surely fall within this tractable regime and that, in sparser random
+graphs, a simple algorithm is an average-case approximation scheme; this provides a bridge between worst-case and
+probabilistic analysis.
+
+    Since the concept of a cut-path is new, there remain numerous promising directions for future research. One
+particularly appealing direction is the identification of additional islands of polynomial-time solvability. Expanding
+the frontier of tractable cases can help us better understand the structural boundary between efficiently solvable and
+intractable instances of the Min Cut-Path problem.
+
+    A natural starting point in this search is the class of graphs in which every pair of vertices is either at distance at
+most two or has a minimum cut of size at most two. This class is a common generalization of the two polynomial cases
+identified in this work‚Äîgraphs of diameter two and graphs with minimum cut-value at most two. By combining these
+two structural properties, the two polynomial islands could be merged into a single broader class of graphs in which the
+Min Cut-Path problem may remain tractable; partial results for this class were obtained in [5].
+
+    Another promising research direction concerns planar graphs. The motivation arises from the inherent duality
+between paths and cuts: in a planar graph, every minimal edge cut corresponds to a cycle in the dual graph and vice
+versa. This dual relationship suggests that the Min Cut-Path problem might admit more efficient formulations or
+reductions when restricted to planar graphs. Moreover, several classical problems involving cuts and flows are known to
+be solvable more efficiently in planar graphs than in general ones, owing to planar duality and to specialized algorithms
+for planar embeddings [11, 12]. Therefore, planar graphs form a natural candidate for further exploration of polynomial
+solvability.
+
+    Beyond theoretical developments, another potential avenue for progress lies in experimental analysis. As the present
+work is purely theoretical, an empirical evaluation could provide valuable insight into the average-case performance of
+algorithms for the Min Cut-Path problem. Studying the behavior of the problem on real-world networks or on synthetic
+random instances could reveal structural patterns that are not captured by worst-case analysis and could guide the design
+of practical heuristics or approximation methods.
+
+    Lastly, a deeper exploration of graphs with fixed cut-path values could reveal additional regularities. In particular,
+analyzing graphs with a fixed value of cp(Ì†µÌ±¢, Ì†µÌ±£) may uncover structural principles that further delineate the boundary
+between polynomially solvable and NP-hard instances, enriching the understanding of this newly introduced combinatorial
+framework.
+
+                                                Acknowledgment
+
+    The author would like to express his sincere gratitude to Prof. RNDr. Martin Loebl, CSc., who proposed the original
+idea of the Min Cut-Path problem and provided essential guidance and valuable discussions that greatly influenced the
+
+                                                                     22
+development and results of this work.
+
+                                                    References
+
+ [1] Gomory, R. E., and Hu, T. C., ‚ÄúMulti-Terminal Network Flows,‚Äù Journal of the Society for Industrial and Applied Mathematics,
+      Vol. 9, No. 4, 1961, pp. 551‚Äì570. https://doi.org/10.1137/0109047.
+
+ [2] Nagamochi, H., and Kameda, T., ‚ÄúConstructing Cactus Representation for All Minimum Cuts in an Undirected Network,‚Äù
+      Journal of the Operations Research Society of Japan, Vol. 39, No. 2, 1996, pp. 135‚Äì158.
+
+ [3] Mehlhorn, K., Neumann, A., and Schmidt, J. M., ‚ÄúCertifying 3-Edge-Connectivity,‚Äù Algorithmica, Vol. 77, No. 2, 2017, pp.
+      309‚Äì335. https://doi.org/10.1007/s00453-015-0075-x.
+
+ [4] Cormen, T. H., Leiserson, C. E., Rivest, R. L., and Stein, C., Introduction to Algorithms, 4th ed., MIT Press, Cambridge, MA,
+      2022.
+
+ [5] Micheƒæ, N., ‚ÄúMin Cut-Path,‚Äù Master‚Äôs thesis, Charles University, Faculty of Mathematics and Physics, Prague, 2025.
+ [6] Diestel, R., Graph Theory, 6th ed., No. 173 in Graduate Texts in Mathematics, Springer, Berlin, Heidelberg, 2025.
+ [7] Cook, S. A., ‚ÄúThe Complexity of Theorem-Proving Procedures,‚Äù Proceedings of the Third Annual ACM Symposium on Theory
+
+      of Computing (STOC ‚Äô71), ACM, New York, NY, USA, 1971, pp. 151‚Äì158. https://doi.org/10.1145/800157.805047.
+ [8] Godsil, C., and Royle, G., Algebraic Graph Theory, No. 207 in Graduate Texts in Mathematics, Springer, New York, 2001.
+ [9] Bollob√°s, B., Random Graphs, 2nd ed., No. 73 in Cambridge Studies in Advanced Mathematics, Cambridge University Press,
+
+      Cambridge, 2001.
+[10] Frieze, A., and Karo≈Ñski, M., Introduction to Random Graphs, Cambridge University Press, Cambridge, 2016. URL
+
+      https://www.math.cmu.edu/~af1p/BOOK.pdf.
+[11] Itai, A., and Shiloach, Y., ‚ÄúMaximum Flow in Planar Networks,‚Äù SIAM Journal on Computing, Vol. 8, No. 2, 1979, pp. 135‚Äì150.
+
+      https://doi.org/10.1137/0208012.
+[12] Henzinger, M. R., Klein, P. N., Rao, S., and Subramanian, S., ‚ÄúFaster Shortest-Path Algorithms for Planar Graphs,‚Äù Journal of
+
+      Computer and System Sciences, Vol. 55, No. 1, 1997, pp. 3‚Äì23. https://doi.org/10.1006/jcss.1997.1493.
+
+                                                                     23
+

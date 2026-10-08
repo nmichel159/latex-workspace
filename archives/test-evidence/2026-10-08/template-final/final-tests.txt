@@ -1,0 +1,43 @@
+﻿=== tmp\fixup\article-modular-test main.tex : exit 0, pages 2
+warnings/errors: 0
+bibtex warnings: 1
+   warning$ -- 0
+font types (column): yes
+article: 'Input:' found = True; 'Output:' found = True; 'Require' found = False
+   Algorithm 1 adds each edge in line 3.
+   Algorithm 1 Example procedure.
+   Input: graph G = (V, E), vertices u, v ∈ V
+   Output: set S ⊆ E
+undefined '??' in text: False
+=== tmp\fixup\thesis-numeric main.tex : exit 0, pages 21
+warnings/errors: 2
+   Package thesis Warning: Abstrakt: about 13 words, usually 100 to 500 (Dod. 4 Cl
+   Package thesis Warning: Abstract: about 13 words, usually 100 to 500 (Dod. 4 Cl
+bibtex warnings: 1
+   warning$ -- 0
+font types (column): yes
+   citation: is standard [1]. The preliminaries are in Chapter 1, the main result in Chapter 2.
+undefined '??' in text: False
+=== tmp\fixup\thesis-authordate main.tex : exit 0, pages 21
+warnings/errors: 2
+   Package thesis Warning: Abstrakt: about 13 words, usually 100 to 500 (Dod. 4 Cl
+   Package thesis Warning: Abstract: about 13 words, usually 100 to 500 (Dod. 4 Cl
+bibtex warnings: 1
+   warning$ -- 0
+font types (column): yes
+   citation: is standard (Cormen et al., 2022). The preliminaries are in Chapter 1, the main result in
+undefined '??' in text: False
+=== tmp\fixup\thesis-numeric exam.tex : exit 0, pages 19
+warnings/errors: 2
+   Package thesis Warning: Abstrakt: about 13 words, usually 100 to 500 (Dod. 4 Cl
+   Package thesis Warning: Abstract: about 13 words, usually 100 to 500 (Dod. 4 Cl
+bibtex warnings: 1
+   warning$ -- 0
+font types (column): yes
+=== tmp\fixup\thesis-authordate exam.tex : exit 0, pages 19
+warnings/errors: 2
+   Package thesis Warning: Abstrakt: about 13 words, usually 100 to 500 (Dod. 4 Cl
+   Package thesis Warning: Abstract: about 13 words, usually 100 to 500 (Dod. 4 Cl
+bibtex warnings: 1
+   warning$ -- 0
+font types (column): yes

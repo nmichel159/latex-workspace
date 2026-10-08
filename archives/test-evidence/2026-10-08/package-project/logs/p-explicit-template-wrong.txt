@@ -1,0 +1,13 @@
+﻿projects/clanok-1-min-cut-path/main.tex:18: [layout] \setstretch found: the venue's layout must not be changed; remove it or justify it in the project README.
+
+Project: clanok-1-min-cut-path (projects/clanok-1-min-cut-path, main file main.tex)
+Class: new-aiaa
+Template: templates/altacv (-Template)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+Excluded from the package (1): README.md (workspace-only)
+
+Findings: 1 (0 FAIL)
+  layout            1
+Verdict: PASS
+

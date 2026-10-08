@@ -1,0 +1,41 @@
+﻿package-project.ps1 test results, 2026-10-08 16:19, PowerShell 5.1.26100.9549
+Driver: archives/test-evidence/2026-10-08/package-project/run-tests.ps1; per-case output: logs/<case>.txt
+cats = finding categories other than [comment]; ok = exit code and categories as expected
+
+t1-default                         exit 0  Verdict: PASS                      cats [layout]  pages 23  183368 bytes, 23 entries  25 s  ok
+t1-flat                            exit 0  Verdict: PASS                      cats [layout]  pages 23  183083 bytes, 23 entries  25 s  ok
+t1-checkonly                       exit 0  Verdict: PASS                      cats [layout]  pages     0 s  ok
+t1-keepcomments                    exit 0  Verdict: PASS                      cats [layout]  pages 23  183923 bytes, 23 entries  25 s  ok
+t1-maxpages20                      exit 0  Verdict: PASS                      cats [layout,pages]  pages 23 (limit 20)  183368 bytes, 23 entries  25 s  ok
+t2-article-checkonly               exit 0  Verdict: PASS                      cats []  pages     0 s  ok
+t2-article-default                 exit 0  Verdict: PASS                      cats []  pages 2  5271 bytes, 13 entries  19 s  ok
+t2-article-flat                    exit 0  Verdict: PASS                      cats []  pages 2  5086 bytes, 13 entries  19 s  ok
+t2-var-a-outside                   exit 1  Verdict: FAIL (outside)            cats [outside]  pages     0 s  ok
+t2-var-b-case                      exit 0  Verdict: PASS                      cats [case]  pages 2  5272 bytes, 13 entries  19 s  ok
+t2-var-c-filename                  exit 0  Verdict: PASS                      cats [filename,unused]  pages 2  5394 bytes, 14 entries  18 s  ok
+t2-var-d-unused                    exit 0  Verdict: PASS                      cats [unused]  pages 2  5443 bytes, 14 entries  19 s  ok
+t2-var-e0-aiaa-unmodified          exit 0  Verdict: PASS                      cats []  pages 1  9756 bytes, 5 entries  13 s  ok
+t2-var-e-aiaa-modified-cls         exit 1  Verdict: FAIL (template-file)      cats [template-file]  pages     0 s  ok
+t2-var-f-verbatim                  exit 0  Verdict: PASS                      cats []  pages 2  5333 bytes, 13 entries  18 s  ok
+t2-var-g-workspace-only            exit 0  Verdict: PASS                      cats []  pages 2  5271 bytes, 13 entries  18 s  ok
+t2-var-h-missing-static            exit 1  Verdict: FAIL (outside, missing)   cats [missing,outside]  pages     0 s  ok
+t2-var-i-build-error               exit 1  Verdict: FAIL (build)              cats [build]  pages     2 s  ok
+t2-var-j-undefined-ref             exit 1  Verdict: FAIL (undefined)          cats [undefined]  pages 2    14 s  ok
+t2-var-k-text-diff                 exit 1  Verdict: FAIL (text-diff)          cats [text-diff]  pages 2    14 s  ok
+t3-thesis-checkonly                exit 0  Verdict: PASS                      cats []  pages     1 s  ok
+t3-thesis-default                  exit 0  Verdict: PASS                      cats [unused]  pages 21  15887 bytes, 38 entries  24 s  ok
+t3-thesis-exam                     exit 0  Verdict: PASS                      cats [unused]  pages 19  15887 bytes, 38 entries  23 s  ok
+t3-thesis-flat                     exit 1  Verdict: FAIL (flat)               cats [flat]  pages     0 s  ok
+t3-thesis-noexam-default           exit 0  Verdict: PASS                      cats [unused]  pages 21  13151 bytes, 29 entries  23 s  ok
+t3-thesis-noexam-flat              exit 0  Verdict: PASS                      cats [unused]  pages 21  12586 bytes, 29 entries  23 s  ok
+t4-cv-default                      exit 0  Verdict: PASS                      cats [layout,unused]  pages 2  14679 bytes, 8 entries  42 s  ok
+t4-cv-flat                         exit 0  Verdict: PASS                      cats [layout,unused]  pages 2  14679 bytes, 8 entries  42 s  ok
+p-no-project                       exit 2  (no verdict line)                  cats []  pages     0 s  ok
+p-bad-project                      exit 2  (no verdict line)                  cats []  pages     0 s  ok
+p-bad-template                     exit 2  (no verdict line)                  cats []  pages     0 s  ok
+p-bad-mainfile                     exit 2  (no verdict line)                  cats []  pages     0 s  ok
+p-bad-maxpages                     exit 2  (no verdict line)                  cats []  pages     0 s  ok
+p-excluded-main                    exit 2  (no verdict line)                  cats []  pages     0 s  ok
+p-explicit-template                exit 0  Verdict: PASS                      cats [layout]  pages     0 s  ok
+
+Cases that differ from the expectation: 0

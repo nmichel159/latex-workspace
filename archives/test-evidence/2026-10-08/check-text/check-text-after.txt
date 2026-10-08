@@ -1,0 +1,93 @@
+﻿projects/clanok-1-min-cut-path/sections/00-abstract.tex:1: [ai-tic] "In modern distributed systems" -> cut the scene-setting; open with the problem, or give a dated fact with a citation
+projects/clanok-1-min-cut-path/sections/00-abstract.tex:4: [filler] "simultaneously" -> delete unless two things must hold for the same object or at the same moment
+projects/clanok-1-min-cut-path/sections/00-abstract.tex:5: [ai-tic] "dual requirement" -> say what the two parts are
+projects/clanok-1-min-cut-path/sections/00-abstract.tex:5: [filler] "naturally" -> delete; if the reason matters, state it
+projects/clanok-1-min-cut-path/sections/00-abstract.tex:9: [filler] "simultaneously" -> delete unless two things must hold for the same object or at the same moment
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:4: [ai-tic] "a central challenge lies in" -> state the difficulty directly
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:6: [ai-tic] "tension between" -> name the relation
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:6: [filler] "naturally" -> delete; if the reason matters, state it
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:6: [filler] "simultaneously" -> delete unless two things must hold for the same object or at the same moment
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:7: [ai-tic] "interplay between" -> name the relation
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:7: [wordy] "serves as" -> is
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:7: [ai-tic] "conceptual foundation" -> delete; give the model
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:9: [hype] "elegant" -> delete; let the result speak
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:9: [ai-tic] "formal framework" -> delete; give the model
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:11: [long] "Within this model, ensuring communication between trusted servers while ..." -> 52 words (limit 40): split or shorten
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:12: [ai-tic] "hybrid structure" -> say what the two parts are
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:12: [wordy] "at the same time" -> delete, or 'and'; keep only for real simultaneity
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:17: [wordy] "in the context of" -> for / in
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:19: [ai-tic] "unified perspective" -> say what the framework is and what it covers
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:19: [filler] "inherently" -> delete; if the reason matters, state it
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:22: [filler] "simultaneously" -> delete unless two things must hold for the same object or at the same moment
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:23: [ai-tic] "dual optimization objective" -> say what the two parts are
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:23: [ai-tic] "reflects the balance" -> define the object; drop the gloss
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:25: [hedge] "To the best of our knowledge" -> at most once per paper, after a logged literature search
+projects/clanok-1-min-cut-path/sections/01-introduction.tex:35: [meta] "The remainder of this paper is structured as follows" -> once, at the end of the introduction, at most four sentences
+projects/clanok-1-min-cut-path/sections/02-fundamentals.tex:15: [ai-tic] "Furthermore," -> delete if the sentence stands alone; a connective must state a logical relation
+projects/clanok-1-min-cut-path/sections/02-fundamentals.tex:18: [ai-tic] "hybrid structure" -> say what the two parts are
+projects/clanok-1-min-cut-path/sections/02-fundamentals.tex:19: [filler] "simultaneously" -> delete unless two things must hold for the same object or at the same moment
+projects/clanok-1-min-cut-path/sections/02-fundamentals.tex:21: [meta] "Formally:" -> one sentence of intuition, then the environment; drop 'Formally:'
+projects/clanok-1-min-cut-path/sections/02-fundamentals.tex:89: [meta] "Before formalizing" -> delete the preamble; give the definition directly
+projects/clanok-1-min-cut-path/sections/02-fundamentals.tex:90: [wordy] "In the context of" -> for / in
+projects/clanok-1-min-cut-path/sections/02-fundamentals.tex:92: [meta] "The following definition captures" -> keep only if the sentence itself states the content
+projects/clanok-1-min-cut-path/sections/02-fundamentals.tex:96: [meta] "Formally:" -> one sentence of intuition, then the environment; drop 'Formally:'
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:3: [meta] "In this section, we show" -> state the content or the result instead of announcing it
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:27: [filler] "It is well known that" -> cite the source, or delete
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:37: [filler] "simultaneously" -> delete unless two things must hold for the same object or at the same moment
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:53: [filler] "Note that" -> delete unless the remark is easy to miss
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:71: [wordy] "gives a schematic overview of" -> use the verb: describe, define, explain, prove, survey
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:114: [meta] "Formally:" -> one sentence of intuition, then the environment; drop 'Formally:'
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:175: [meta] "Having defined" -> delete the transition; the heading does it
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:188: [hedge] "can be seen as" -> 'is' / 'we view X as'
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:191: [long] "Intuitively, threading takes an edge of a chain link ..." -> 43 words (limit 40): split or shorten
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:192: [meta] "Formally:" -> one sentence of intuition, then the environment; drop 'Formally:'
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:235: [meta] "Before presenting" -> delete the preamble; give the definition directly
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:346: [ai-tic] "Moreover," -> delete if the sentence stands alone; a connective must state a logical relation
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:384: [long] "Given a candidate path $..$ in $..$, one can ..." -> 47 words (limit 40): split or shorten
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:417: [filler] "trivially" -> give the reason, or delete
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex:426: [ai-tic] "Moreover," -> delete if the sentence stands alone; a connective must state a logical relation
+projects/clanok-1-min-cut-path/sections/04-diameter-two.tex:6: [meta] "Having established" -> delete the transition; the heading does it
+projects/clanok-1-min-cut-path/sections/04-diameter-two.tex:6: [meta] "we now turn our attention to" -> delete; the heading does the transition
+projects/clanok-1-min-cut-path/sections/04-diameter-two.tex:8: [ai-tic] "have been extensively studied" -> cite the works, or delete
+projects/clanok-1-min-cut-path/sections/04-diameter-two.tex:13: [meta] "Formally:" -> one sentence of intuition, then the environment; drop 'Formally:'
+projects/clanok-1-min-cut-path/sections/04-diameter-two.tex:22: [hype] "simple and efficient" -> keep one adjective and give the measure (time bound, number)
+projects/clanok-1-min-cut-path/sections/04-diameter-two.tex:82: [wordy] "in terms of" -> name the relation (by, in, as a function of)
+projects/clanok-1-min-cut-path/sections/04-diameter-two.tex:83: [hype] "central theorem" -> name the result; the reader judges its weight
+projects/clanok-1-min-cut-path/sections/04-diameter-two.tex:141: [long] "the path $..$ is contained in the cut and ..." -> 43 words (limit 40): split or shorten
+projects/clanok-1-min-cut-path/sections/05-cut-two.tex:4: [meta] "We now turn to" -> delete; the heading does the transition
+projects/clanok-1-min-cut-path/sections/05-cut-two.tex:6: [filler] "very" -> delete or quantify
+projects/clanok-1-min-cut-path/sections/06-random-graphs.tex:4: [meta] "In this section, we study" -> state the content or the result instead of announcing it
+projects/clanok-1-min-cut-path/sections/06-random-graphs.tex:19: [wordy] "In the context of" -> for / in
+projects/clanok-1-min-cut-path/sections/06-random-graphs.tex:24: [meta] "We now turn to" -> delete; the heading does the transition
+projects/clanok-1-min-cut-path/sections/06-random-graphs.tex:25: [long] "We need two fundamental results on the diameter and ..." -> 42 words (limit 40): split or shorten
+projects/clanok-1-min-cut-path/sections/06-random-graphs.tex:25: [hype] "fundamental results" -> name the result; the reader judges its weight
+projects/clanok-1-min-cut-path/sections/06-random-graphs.tex:127: [ai-tic] "Moreover," -> delete if the sentence stands alone; a connective must state a logical relation
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex:4: [hype] "novel" -> say what is new: the statement, the bound, the method
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex:4: [filler] "simultaneously" -> delete unless two things must hold for the same object or at the same moment
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex:6: [ai-tic] "Furthermore," -> delete if the sentence stands alone; a connective must state a logical relation
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex:6: [hype] "important classes" -> name the result; the reader judges its weight
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex:8: [long] "Finally, connecting these findings with the structural properties of ..." -> 48 words (limit 40): split or shorten
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex:10: [hype] "promising directions" -> state the result or the open problem
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex:11: [hype] "appealing direction" -> state the result or the open problem
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex:22: [ai-tic] "Moreover," -> delete if the sentence stands alone; a connective must state a logical relation
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex:25: [ai-tic] "potential avenue for progress" -> name the open problem
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex:26: [ai-tic] "valuable insight" -> state the insight
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex:29: [wordy] "Lastly" -> first / second / ... / finally
+projects/clanok-1-min-cut-path/sections/90-acknowledgment.tex:1: [long] "The author would like to express his sincere gratitude ..." -> 41 words (limit 40): split or shorten
+projects/clanok-1-min-cut-path/sections/90-acknowledgment.tex:1: [wordy] "would like to express" -> 'We thank X for Y.'
+
+Phrase list: C:\Users\norom\Documents\latex\knowledge\writing\phrase-list.tsv (192 rules)
+Sentence limit: 40 words. Words and sentences are approximate (commands, math and comments are not counted).
+
+File                                                             words  sent.    mean  long  filler  wordy  hype  hedge  meta  ai-tic  total
+projects/clanok-1-min-cut-path/main.tex                              0      0     0.0     0       0      0     0      0     0       0      0
+projects/clanok-1-min-cut-path/sections/00-abstract.tex            141      5    28.2     0       3      0     0      0     0       2      5
+projects/clanok-1-min-cut-path/sections/01-introduction.tex        665     31    21.5     1       4      3     1      1     1       9     20
+projects/clanok-1-min-cut-path/sections/02-fundamentals.tex        656     46    14.2     0       1      1     0      0     4       2      8
+projects/clanok-1-min-cut-path/sections/03-np-completeness.tex    3120    194    16.0     2       4      1     0      1     5       2     15
+projects/clanok-1-min-cut-path/sections/04-diameter-two.tex        959     56    17.0     1       0      1     2      0     3       1      8
+projects/clanok-1-min-cut-path/sections/05-cut-two.tex             288     18    15.7     0       1      0     0      0     1       0      2
+projects/clanok-1-min-cut-path/sections/06-random-graphs.tex       657     41    15.9     1       0      1     1      0     2       1      6
+projects/clanok-1-min-cut-path/sections/07-conclusion.tex          518     21    24.7     1       1      1     4      0     0       4     11
+projects/clanok-1-min-cut-path/sections/90-acknowledgment.tex       41      1    41.0     1       0      1     0      0     0       0      2
+TOTAL                                                             7045    413    17.0     7      14      9     8      2    16      21     77

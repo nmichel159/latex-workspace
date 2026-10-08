@@ -1,0 +1,34 @@
+\section{Results}
+\label{sec:results}
+% Statement first, then the proof; one section per main result when the paper has several.
+% Guidance: knowledge/writing/paper-structure.md, knowledge/writing/math-writing.md
+
+\begin{theorem}
+\label{thm:main}
+Statement of the main result.
+\end{theorem}
+
+\begin{proof}
+Proof of \cref{thm:main}.
+\end{proof}
+
+% --- Example (remove): algorithm with a referenced line ------------------------------------
+% Caption above, \label after \caption; \label inside algorithmic refers to the line number.
+% Lines: line~\ref{...}, not \cref (cleveref 0.21.4 reports "Algorithm 1" here, tested 2026-10-07).
+% \Require and \Ensure print "Input:" and "Output:" (preamble/environments.tex); state both in every algorithm.
+
+\begin{algorithm}[tb]
+  \caption{Example procedure.}
+  \label{alg:example}
+  \begin{algorithmic}[1]
+    \Require graph $G = (V, E)$, vertices $u, v \in V$
+    \Ensure set $S \subseteq E$
+    \State $S \gets \emptyset$
+    \For{$e \in E$} \Comment{any fixed order}
+      \State $S \gets S \cup \set{e}$ \label{line:example-add}
+    \EndFor
+    \State \Return $S$
+  \end{algorithmic}
+\end{algorithm}
+
+\Cref{alg:example} adds each edge in line~\ref{line:example-add}.

@@ -1,0 +1,33 @@
+% Notation macros. Fully portable: only amsmath/amssymb are assumed.
+% Project-specific notation: see knowledge/writing/latex-conventions.md (section 4) and add it below.
+
+% Number sets and expectation
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+
+% Operators
+\newcommand{\OPT}{\mathrm{OPT}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\poly}{\operatorname{poly}}
+
+% Paired delimiters: \abs{x}, \ceil{x}, \floor{x}, \set{x}.
+% With mathtools loaded (preamble/packages.tex) the starred forms \abs*{...} scale automatically;
+% without it the plain definitions give the same output as the unstarred mathtools forms.
+\makeatletter
+\@ifpackageloaded{mathtools}{%
+  \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}%
+  \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}%
+  \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}%
+  \DeclarePairedDelimiter{\set}{\{}{\}}%
+}{%
+  \newcommand{\abs}[1]{\lvert #1\rvert}%
+  \newcommand{\ceil}[1]{\lceil #1\rceil}%
+  \newcommand{\floor}[1]{\lfloor #1\rfloor}%
+  \newcommand{\set}[1]{\{#1\}}%
+}
+\makeatother
+
+% Names of computational problems in small caps: \problemname{Min Cut-Path}
+\newcommand{\problemname}[1]{\textsc{#1}}

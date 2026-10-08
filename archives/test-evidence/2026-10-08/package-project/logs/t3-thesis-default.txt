@@ -1,0 +1,133 @@
+﻿-- Staging _pkgtest-thesis into tmp/package-_pkgtest-thesis/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Round trip: extracting the zip and building it
+projects/_pkgtest-thesis/backmatter/cv.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/exam/00-theses.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/exam/01-introduction.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/exam/02-preliminaries.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/exam/03-state-of-the-art.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/exam/04-results-so-far.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/exam/05-methodology.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/exam/06-publication-plan.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/exam/07-timeline.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/exam.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/frontmatter/assignment.tex:4: [comment] end-of-line comment stays in the package: % % the list is a macro: expand it first
+projects/_pkgtest-thesis/frontmatter/declaration.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/frontmatter/glossary.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/_pkgtest-thesis/main.tex:20: [comment] end-of-line comment stays in the package: % numeric by default; author-date: settings.tex
+projects/_pkgtest-thesis/main.tex:26: [comment] end-of-line comment stays in the package: % after hyperref, before the theorem definitions
+projects/_pkgtest-thesis/main.tex:31: [comment] end-of-line comment stays in the package: % needs natbib and hyperref (\bibsection, \pdfbookmark)
+projects/_pkgtest-thesis/main.tex:43: [comment] end-of-line comment stays in the package: % Slovak labels unless \thesislabelsenglishtrue; cover: no number, no...
+projects/_pkgtest-thesis/main.tex:89: [comment] end-of-line comment stays in the package: % labels created from here on print "Appendix A", not "Chapter A"
+projects/_pkgtest-thesis/preamble/environments.tex:25: [comment] end-of-line comment stays in the package: % background color
+projects/_pkgtest-thesis/preamble/environments.tex:26: [comment] end-of-line comment stays in the package: % border color
+projects/_pkgtest-thesis/preamble/environments.tex:27: [comment] end-of-line comment stays in the package: % border thickness
+projects/_pkgtest-thesis/preamble/environments.tex:28: [comment] end-of-line comment stays in the package: % corner roundness
+projects/_pkgtest-thesis/preamble/layout.tex:23: [comment] end-of-line comment stays in the package: % inner = left margin with oneside
+projects/_pkgtest-thesis/preamble/layout.tex:25: [comment] end-of-line comment stays in the package: % line spacing 1.5 (\onehalfspacing stretches 1.241 at 12 pt)
+projects/_pkgtest-thesis/preamble/layout.tex:26: [comment] end-of-line comment stays in the package: % numbers down to 1.1.1 (three levels, STN ISO 2145)
+projects/_pkgtest-thesis/preamble/macros.tex:33: [comment] end-of-line comment stays in the package: % % hyperref absent: the ordinary footnote text
+projects/_pkgtest-thesis/preamble/macros.tex:34: [comment] end-of-line comment stays in the package: % % hyperref's saved original: no empty anchor (its \footnotetext war...
+projects/_pkgtest-thesis/preamble/packages.tex:10: [comment] end-of-line comment stays in the package: % \declaretheorem (preamble/environments.tex), restatable theorems
+projects/_pkgtest-thesis/preamble/packages.tex:11: [comment] end-of-line comment stays in the package: % \DeclarePairedDelimiter, \coloneqq; extends amsmath
+projects/_pkgtest-thesis/preamble/packages.tex:12: [comment] end-of-line comment stays in the package: % \ifblank, \forcsvlist (checks in preamble/thesis.tex)
+projects/_pkgtest-thesis/preamble/packages.tex:15: [comment] end-of-line comment stays in the package: % \toprule, \midrule, \bottomrule; no vertical rules
+projects/_pkgtest-thesis/preamble/packages.tex:16: [comment] end-of-line comment stays in the package: % list of abbreviations and symbols (frontmatter/abbreviations.tex)
+projects/_pkgtest-thesis/preamble/packages.tex:18: [comment] end-of-line comment stays in the package: % "problem" box, see preamble/environments.tex
+projects/_pkgtest-thesis/preamble/packages.tex:20: [comment] end-of-line comment stays in the package: % floating "algorithm" environment (loads float)
+projects/_pkgtest-thesis/preamble/packages.tex:21: [comment] end-of-line comment stays in the package: % \State, \For, \Require, \Ensure (part of algorithmicx)
+projects/_pkgtest-thesis/settings.tex:16: [comment] end-of-line comment stays in the package: % TODO(verify): exactly as in the AiS2 assignment
+projects/_pkgtest-thesis/settings.tex:17: [comment] end-of-line comment stays in the package: % empty: no subtitle
+projects/_pkgtest-thesis/settings.tex:18: [comment] end-of-line comment stays in the package: % without degrees: PDF metadata
+projects/_pkgtest-thesis/settings.tex:19: [comment] end-of-line comment stays in the package: % with degrees: cover and title page
+projects/_pkgtest-thesis/settings.tex:20: [comment] end-of-line comment stays in the package: % "v~" keeps the preposition off the end of a line
+projects/_pkgtest-thesis/settings.tex:22: [comment] end-of-line comment stays in the package: % study program
+projects/_pkgtest-thesis/settings.tex:23: [comment] end-of-line comment stays in the package: % name of the field only, no code (Dod. 4 Cl. 5 ods. 4 f)
+projects/_pkgtest-thesis/settings.tex:24: [comment] end-of-line comment stays in the package: % training department
+projects/_pkgtest-thesis/settings.tex:26: [comment] end-of-line comment stays in the package: % empty: the line is omitted
+projects/_pkgtest-thesis/settings.tex:28: [comment] end-of-line comment stays in the package: % registration number if assigned; empty: omitted
+projects/_pkgtest-thesis/settings.tex:29: [comment] end-of-line comment stays in the package: % 3-5 entries
+projects/_pkgtest-thesis/settings.tex:30: [comment] end-of-line comment stays in the package: % 3-5 entries, Slovak
+projects/_pkgtest-thesis/settings.tex:34: [comment] end-of-line comment stays in the package: % exam application within 24 months of the start of study
+projects/_pkgtest-thesis/settings.tex:41: [comment] end-of-line comment stays in the package: % dissertation due 3 months before 31 August of the last year
+projects/_pkgtest-thesis/settings.tex:66: [comment] end-of-line comment stays in the package: % acknowledgments (optional, Dod. 4 Cl. 5 ods. 5)
+projects/_pkgtest-thesis/settings.tex:67: [comment] end-of-line comment stays in the package: % assignment page (Dod. 4 Cl. 5 ods. 2 d)
+projects/_pkgtest-thesis/settings.tex:68: [comment] end-of-line comment stays in the package: % declaration of originality: not in Dod. 4, TODO(verify)
+projects/_pkgtest-thesis/settings.tex:69: [comment] end-of-line comment stays in the package: % AI-use statement page: recommended, default on (the statement is re...
+projects/_pkgtest-thesis/settings.tex:70: [comment] end-of-line comment stays in the package: % list of figures (optional)
+projects/_pkgtest-thesis/settings.tex:71: [comment] end-of-line comment stays in the package: % list of tables (optional)
+projects/_pkgtest-thesis/settings.tex:72: [comment] end-of-line comment stays in the package: % list of abbreviations and symbols
+projects/_pkgtest-thesis/settings.tex:73: [comment] end-of-line comment stays in the package: % glossary (optional)
+projects/_pkgtest-thesis/settings.tex:74: [comment] end-of-line comment stays in the package: % Slovak resume after the Conclusion (non-Slovak thesis)
+projects/_pkgtest-thesis/settings.tex:75: [comment] end-of-line comment stays in the package: % back matter: curriculum vitae (optional)
+projects/_pkgtest-thesis/settings.tex:76: [comment] end-of-line comment stays in the package: % index (optional, needs \index entries and makeindex)
+projects/_pkgtest-thesis/settings.tex:78: [comment] end-of-line comment stays in the package: % the exam paper has no assignment page
+projects/_pkgtest-thesis/settings.tex:79: [comment] end-of-line comment stays in the package: % TODO(verify): Slovak resume for the exam paper
+projects/_pkgtest-thesis/settings.tex:83: [comment] end-of-line comment stays in the package: % oneside | twoside (both allowed); twoside mirrors the margins
+projects/_pkgtest-thesis/settings.tex:84: [comment] end-of-line comment stays in the package: % left margin (inner margin with twoside)
+projects/_pkgtest-thesis/settings.tex:85: [comment] end-of-line comment stays in the package: % right margin (outer margin with twoside)
+projects/_pkgtest-thesis/settings.tex:88: [comment] end-of-line comment stays in the package: % \singlespacing | \onehalfspacing | \doublespacing (setspace)
+projects/_pkgtest-thesis/settings.tex:89: [comment] end-of-line comment stays in the package: % page number centered; right: \fancyfoot[R]{\thepage}, twoside \fanc...
+projects/_pkgtest-thesis/settings.tex:90: [comment] end-of-line comment stays in the package: % true: the cover is page 1 and the title page page 2 (default: title...
+projects/_pkgtest-thesis/settings.tex:91: [comment] end-of-line comment stays in the package: % pages of assignment.pdf to insert, comma-separated list
+projects/_pkgtest-thesis/settings.tex:92: [comment] end-of-line comment stays in the package: % numeric, in order of first citation; plainnat = alphabetical. ISO 6...
+projects/_pkgtest-thesis/settings.tex:96: [comment] end-of-line comment stays in the package: % options of natbib, read by main.tex
+
+Project: _pkgtest-thesis (projects/_pkgtest-thesis, main file main.tex)
+Class: report
+Template: none (standard class report)
+Layout: folders as in the project
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+Files in the zip (38, 24.4 kB uncompressed):
+        68  B  appendices/01-omitted-proofs.tex
+        78  B  appendices/02-additional-material.tex
+        61  B  backmatter/cv.tex
+       416  B  chapters/01-introduction.tex
+       185  B  chapters/02-preliminaries.tex
+       272  B  chapters/03-first-result.tex
+        64  B  chapters/04-second-result.tex
+        61  B  chapters/05-discussion.tex
+        49  B  chapters/06-conclusion.tex
+       100  B  chapters/07-resume.tex
+        48  B  exam.tex
+       228  B  exam/00-theses.tex
+       535  B  exam/01-introduction.tex
+       322  B  exam/02-preliminaries.tex
+       306  B  exam/03-state-of-the-art.tex
+       209  B  exam/04-results-so-far.tex
+       302  B  exam/05-methodology.tex
+       484  B  exam/06-publication-plan.tex
+       168  B  exam/07-timeline.tex
+       206  B  frontmatter/abbreviations.tex
+        90  B  frontmatter/abstract-en.tex
+        89  B  frontmatter/abstract-sk.tex
+        85  B  frontmatter/acknowledgments.tex
+       118  B  frontmatter/ai-statement.tex
+       292  B  frontmatter/assignment.tex
+       713  B  frontmatter/cover.tex
+       216  B  frontmatter/declaration.tex
+        74  B  frontmatter/glossary.tex
+       911  B  frontmatter/titlepage.tex
+       1.0 kB  main.bbl
+       2.7 kB  main.tex
+       1.0 kB  preamble/environments.tex
+       838  B  preamble/layout.tex
+       887  B  preamble/macros.tex
+       779  B  preamble/packages.tex
+       3.7 kB  preamble/thesis.tex
+       1.8 kB  references.bib
+       5.0 kB  settings.tex
+
+Findings: 71 (0 FAIL)
+  unused           12
+  comment          59
+Pages: 21
+Zip:  C:\Users\norom\Documents\latex\outputs\_pkgtest-thesis\package\_pkgtest-thesis-20261008.zip
+Link: outputs/_pkgtest-thesis/package/_pkgtest-thesis-20261008.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\_pkgtest-thesis\package\_pkgtest-thesis-20261008.pdf
+Link: outputs/_pkgtest-thesis/package/_pkgtest-thesis-20261008.pdf
+Verdict: PASS
+

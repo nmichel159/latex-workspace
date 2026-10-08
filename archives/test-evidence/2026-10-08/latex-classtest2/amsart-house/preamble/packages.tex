@@ -1,0 +1,25 @@
+% Portable packages: math, graphics, tables, algorithms, quotations.
+% Nothing here depends on the document class. Fonts, page layout, natbib, hyperref and cleveref
+% belong to main.tex. Load only what the manuscript uses; delete the rest.
+% Package reference: knowledge/writing/latex-guide.md
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{thmtools}         % \declaretheorem (preamble/environments.tex), restatable theorems
+\usepackage{mathtools}        % \DeclarePairedDelimiter, \coloneqq; extends amsmath
+
+\usepackage{graphicx}
+\usepackage{booktabs}         % \toprule, \midrule, \bottomrule; no vertical rules
+
+\usepackage[most]{tcolorbox}  % "problem" box, see preamble/environments.tex
+
+\usepackage{algorithm}        % floating "algorithm" environment (loads float)
+\usepackage{algpseudocode}    % \State, \For, \Require, \Ensure (part of algorithmicx)
+
+\usepackage{csquotes}         % \enquote{...} instead of hand-typed quotation marks
+
+% Enable when needed (all installed, see knowledge/writing/latex-guide.md):
+%\usepackage{siunitx}         % \num, \qty, S columns in tables
+%\usepackage{subcaption}      % subfigure environments
+%\usepackage{enumitem}        % list spacing and labels (forbidden by some classes, e.g. LIPIcs)
+%\usepackage{todonotes}       % \todo{...} while drafting; remove before submission

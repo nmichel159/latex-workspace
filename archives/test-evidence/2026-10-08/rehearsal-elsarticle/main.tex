@@ -1,0 +1,74 @@
+% Wrapper for the Elsevier class elsarticle (target: Discrete Applied Mathematics).
+% This is the only template-dependent file besides elsarticle.cls. The manuscript itself is in preamble/ and
+% sections/ and stays untouched when the class is replaced.
+% Written from the front-matter structure of Elsevier's elsarticle-template-num.tex.
+
+% The class loads natbib itself (numeric); options for it must be passed before \documentclass.
+\PassOptionsToPackage{sort&compress}{natbib}
+\documentclass[preprint,12pt]{elsarticle}
+
+% The class loads fontenc T1 only; without Latin Modern, T1 falls back to Type 3 bitmap fonts.
+\usepackage{lmodern}
+\usepackage{microtype}
+% Latin Modern has no bold small caps and no italic small caps (\textsc in the problem-box title and in
+% theorem statements): silent substitution instead of "Font shape undefined" warnings.
+\AtBeginDocument{%
+  \DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub*lmr/m/sc}{}%
+  \DeclareFontShape{T1}{lmr}{m}{scit}{<->ssub*lmr/m/scsl}{}}
+
+\input{preamble/packages}
+\usepackage[hidelinks]{hyperref}
+\input{preamble/environments}
+\input{preamble/macros}
+
+% elsarticle appends a period to the title of \paragraph; the sources already end each title with one.
+\makeatletter
+\def\els@aparagraph[#1]#2{\elsparagraph[#1]{#2}}
+\def\els@bparagraph#1{\elsparagraph*{#1}}
+\makeatother
+
+\journal{Discrete Applied Mathematics}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Min Cut-Path Problem}
+
+\author[upjs]{Norbert Micheľ}
+\ead{5344553@upjs.sk}
+
+% TODO(owner): street and postcode (addressline, postcode) are not in knowledge/author.md.
+\affiliation[upjs]{organization={Institute of Computer Science, Faculty of Science, Pavol Jozef Šafárik University in Košice},
+  city={Košice},
+  country={Slovakia}}
+
+\begin{abstract}
+\input{sections/00-abstract}
+\end{abstract}
+
+% TODO(owner): rehearsal placeholders; the article has no keywords or MSC codes yet. DAM asks for 1-7 keywords.
+\begin{keyword}
+Min Cut-Path \sep NP-completeness \sep Separating Shortest Path \sep graphs of diameter two \sep Erdős--Rényi random graphs
+\MSC[2020] 05C40 \sep 05C38 \sep 68Q17
+\end{keyword}
+
+\end{frontmatter}
+
+\input{sections/01-introduction}
+\input{sections/02-fundamentals}
+\input{sections/03-np-completeness}
+\input{sections/04-diameter-two}
+\input{sections/05-cut-two}
+\input{sections/06-random-graphs}
+\input{sections/07-conclusion}
+
+\section*{Acknowledgment}
+
+\input{sections/90-acknowledgment}
+
+% Stand-in for Elsevier's elsarticle-num.bst, which is not available here.
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

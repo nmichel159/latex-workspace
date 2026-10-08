@@ -1,0 +1,1002 @@
+﻿Initial Win CP for (console input, console output, system): (CP65001, CP65001, CP1252)
+I changed them all to CP1252
+Rc files read (in order):
+  NONE
+Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
+Latexmk: making output directory 'build'
+No existing .aux file, so I'll make a simple one, and require run of *latex.
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Category 'other':
+  Rerun of 'pdflatex' forced or previously required:
+    Reason or flag: 'Initial setup'
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex -disable-installer  -file-line-error -halt-on-error -recorder -output-directory="build"  "main.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12 Portable) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/base\article
+.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/base\size11.
+clo))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/base\fontenc
+.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\lmodern.s
+ty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mi
+crotype.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\key
+val.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/etoolbox\eto
+olbox.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mi
+crotype-pdftex.def)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mi
+crotype.cfg))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/geometry\geo
+metry.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/iftex\ifvt
+ex.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/iftex\ifte
+x.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/geometry\geo
+metry.cfg)) (preamble/packages.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amsm
+ath.sty
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amst
+ext.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amsg
+en.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amsb
+sy.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amso
+pn.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ams
+symb.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ams
+fonts.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amscls\amsth
+m.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+tools.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-patch.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\par
+seargs.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-kv.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/kvsetkeys\kv
+setkeys.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-autoref.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\ali
+asctr.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-listof.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-restate.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-amsthm.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/mathtools\ma
+thtools.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tools\calc.s
+ty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/mathtools\mh
+setup.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\gra
+phicx.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\gra
+phics.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\tri
+g.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics-cfg
+\graphics.cfg)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics-def
+\pdftex.def)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/booktabs\boo
+ktabs.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+olorbox.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/frontend
+layer\tikz.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/basiclay
+er\pgf.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/utilitie
+s\pgfrcs.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfutil-common.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfutil-latex.def)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfrcs.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf\pgf.re
+vision.tex)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/basiclay
+er\pgfcore.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/systemla
+yer\pgfsys.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgfsys.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfkeys.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfkeyslibraryfiltered.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgf.cfg)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgfsys-pdftex.def
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgfsys-common-pdf.def)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgfsyssoftpath.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgfsysprotocol.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/xcolor\xcolo
+r.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics-cfg
+\color.cfg)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\mat
+hcolor.ltx))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcore.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmath.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathutil.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathparser.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.basic.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.trigonometric.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.random.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.comparison.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.base.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.round.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.misc.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.integerarithmetics.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathcalc.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfloat.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfint.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorepoints.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorepathconstruct.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorepathusage.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorescopes.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoregraphicstate.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoretransformations.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorequick.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoreobjects.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorepathprocessing.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorearrows.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoreshade.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoreimage.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoreexternal.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorelayers.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoretransparency.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorepatterns.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorerdf.code.tex)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/module
+s\pgfmoduleshapes.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/module
+s\pgfmoduleplot.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/compatib
+ility\pgfcomp-version-0-65.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/compatib
+ility\pgfcomp-version-1-18.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/utilitie
+s\pgffor.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/utilitie
+s\pgfkeys.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfkeys.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/math\pgf
+math.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmath.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgffor.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/fronte
+ndlayer/tikz\tikz.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/librar
+ies\pgflibraryplothandlers.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/module
+s\pgfmodulematrix.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/fronte
+ndlayer/tikz/libraries\tikzlibrarytopaths.code.tex)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tools\verbat
+im.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/environ\envi
+ron.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/trimspaces\t
+rimspaces.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+braster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tikzfill\tik
+zfill.image.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tikzfill\tik
+zlibraryfill.image.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.9.0'
+))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pdfcol\pdfco
+l.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/ltxcmds\lt
+xcmds.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/infwarerr\
+infwarerr.sty)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+btheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bfitting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+blistingsutf8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+blistings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/listings\lis
+tings.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/listings\lst
+patch.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/listings\lst
+misc.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/listings\lis
+tings.cfg))
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+blistingscore.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bprocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.9.0'
+)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/listingsutf8
+\listingsutf8.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pdftexcmds
+\pdftexcmds.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/stringenc\
+stringenc.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pdfescape\
+pdfescape.sty))))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bexternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bmagazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bvignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/fronte
+ndlayer/tikz/libraries\tikzlibraryfadings.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/librar
+ies\pgflibraryfadings.code.tex)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bposter.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '6.9.0'
+))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/algorithms\a
+lgorithm.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/float\float.
+sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/base\ifthen.
+sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/algorithmicx
+\algpseudocode.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/algorithmicx
+\algorithmicx.sty
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/csquotes\csq
+uotes.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/csquotes\csq
+uotes.def)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/csquotes\csq
+uotes.cfg)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/natbib\natbi
+b.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\hyp
+erref.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/kvdefineke
+ys\kvdefinekeys.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hycolor\hyco
+lor.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\nam
+eref.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/refcount\ref
+count.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/gettitlest
+ring\gettitlestring.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/kvoptions\kv
+options.sty)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\pd1
+enc.def)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/intcalc\in
+tcalc.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\pue
+nc.def)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/url\url.sty)
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/bitset\bit
+set.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/bigintcalc
+\bigintcalc.sty)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\hpd
+ftex.def
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/rerunfileche
+ck\rerunfilecheck.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/uniquecoun
+ter\uniquecounter.sty)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/cleveref\cle
+veref.sty)
+==> First Aid for cleveref.sty applied!
+(preamble/environments.tex) (preamble/macros.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\t1lmr.fd)
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/l3backend\l3
+backend-pdftex.def)
+(C:\Users\norom\Documents\latex\tmp\latex-article-test4-plain\build\main.aux)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mt
+-cmr.cfg)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/context/base/mkii\
+supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/base\inputen
+c.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\ot1lmr.fd
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omllmm.fd
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omslmsy.f
+d)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omxlmex.f
+d)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
+a.fd)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mt
+-msa.cfg)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
+b.fd)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mt
+-msb.cfg)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\t1lmtt.fd
+) (sections/00-abstract.tex) (sections/01-introduction.tex
+
+LaTeX Warning: Reference `thm:main' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Reference `sec:results' on page 1 undefined on input line 7.
+
+) (sections/02-preliminaries.tex) (sections/03-results.tex
+
+LaTeX Warning: Reference `thm:main' on page 1 undefined on input line 12.
+
+) (sections/04-conclusion.tex) (sections/90-acknowledgments.tex)
+No file main.bbl.
+[1{C:/Users/norom/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdftex
+.map}{C:/Users/norom/scoop/apps/miktex/current/texmfs/install/fonts/enc/dvips/l
+m/lm-ec.enc}]
+(C:\Users\norom\Documents\latex\tmp\latex-article-test4-plain\build\main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )<C:/Users/norom/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/l
+m/lmbx10.pfb><C:/Users/norom/scoop/apps/miktex/current/texmfs/install/fonts/typ
+e1/public/lm/lmbx12.pfb><C:/Users/norom/scoop/apps/miktex/current/texmfs/instal
+l/fonts/type1/public/lm/lmr10.pfb><C:/Users/norom/scoop/apps/miktex/current/tex
+mfs/install/fonts/type1/public/lm/lmr12.pfb><C:/Users/norom/scoop/apps/miktex/c
+urrent/texmfs/install/fonts/type1/public/lm/lmr17.pfb><C:/Users/norom/scoop/app
+s/miktex/current/texmfs/install/fonts/type1/public/lm/lmri10.pfb><C:/Users/noro
+m/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmtt10.pfb>
+Output written on C:\Users\norom\Documents\latex\tmp\latex-article-test4-plain\
+build\main.pdf (1 page, 184451 bytes).
+Transcript written on C:\Users\norom\Documents\latex\tmp\latex-article-test4-pl
+ain\build\main.log.
+latexmk : pdflatex: major issue: So far, you have not checked for MiKTeX updates.
+At line:1 char:466
++ ... est4-plain; latexmk -pdf "-pdflatex=pdflatex -disable-installer %O %S ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (pdflatex: major...MiKTeX updates.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Latexmk: Getting log file 'build/main.log'
+Latexmk: Examining 'build/main.fls'
+Latexmk: Examining 'build/main.log'
+Latexmk: Missing bbl file 'build/main.bbl' in following:
+ No file main.bbl.
+Latexmk: References changed.
+Latexmk: References changed.
+Latexmk: Log file says output to 'build/main.pdf'
+Latexmk: Using bibtex to make bibliography file(s).
+  ===Source file 'build/main.bbl' for 'pdflatex'
+Create bibtex build/main
+kpsewhich: major issue: So far, you have not checked for MiKTeX updates.
+kpsewhich: major issue: So far, you have not checked for MiKTeX updates.
+Latexmk: Found bibliography file(s):
+  ./references.bib
+Latexmk: applying rule 'bibtex build/main'...
+Rule 'bibtex build/main':  Reasons for rerun
+Category 'other':
+  Rerun of 'bibtex build/main' forced or previously required:
+    Reason or flag: 'Initial set up of rule'
+
+------------
+Run number 1 of rule 'bibtex build/main'
+------------
+====== ENV{BIBINPUTS} changed to 'C:/Users/norom/Documents/latex/tmp/latex-article-test4-plain;build;C:\Users\norom\Documents\latex\tmp\latex-article-test4-plain\build;'
+Latexmk: Change directory to 'build/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='C:/Users/norom/Documents/latex/tmp/latex-article-test4-plain;build;C:\Users\norom\Documents\latex\tmp\latex-article-test4-plain\build;'
+  BSTINPUTS='C:/Users/norom/Documents/latex/tmp/latex-article-test4-plain;'.
+------------
+Running 'bibtex  "main.aux"'
+------------
+This is BibTeX, Version 0.99e (MiKTeX 25.12 Portable)
+The top-level auxiliary file: main.aux
+The style file: plainnat.bst
+I found no \citation commands---while reading file main.aux
+Database file #1: references.bib
+(There was 1 error message)
+bibtex: major issue: So far, you have not checked for MiKTeX updates.
+Latexmk: Change directory back to 'C:/Users/norom/Documents/latex/tmp/latex-article-test4-plain'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  build/main.aux
+  build/main.bbl
+  build/main.out
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex -disable-installer  -file-line-error -halt-on-error -recorder -output-directory="build"  "main.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12 Portable) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/base\article
+.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/base\size11.
+clo))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/base\fontenc
+.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\lmodern.s
+ty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mi
+crotype.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\key
+val.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/etoolbox\eto
+olbox.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mi
+crotype-pdftex.def)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mi
+crotype.cfg))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/geometry\geo
+metry.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/iftex\ifvt
+ex.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/iftex\ifte
+x.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/geometry\geo
+metry.cfg)) (preamble/packages.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amsm
+ath.sty
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amst
+ext.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amsg
+en.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amsb
+sy.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amso
+pn.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ams
+symb.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ams
+fonts.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amscls\amsth
+m.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+tools.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-patch.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\par
+seargs.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-kv.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/kvsetkeys\kv
+setkeys.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-autoref.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\ali
+asctr.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-listof.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-restate.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/thmtools\thm
+-amsthm.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/mathtools\ma
+thtools.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tools\calc.s
+ty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/mathtools\mh
+setup.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\gra
+phicx.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\gra
+phics.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\tri
+g.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics-cfg
+\graphics.cfg)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics-def
+\pdftex.def)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/booktabs\boo
+ktabs.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+olorbox.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/frontend
+layer\tikz.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/basiclay
+er\pgf.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/utilitie
+s\pgfrcs.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfutil-common.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfutil-latex.def)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfrcs.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf\pgf.re
+vision.tex)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/basiclay
+er\pgfcore.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/systemla
+yer\pgfsys.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgfsys.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfkeys.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfkeyslibraryfiltered.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgf.cfg)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgfsys-pdftex.def
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgfsys-common-pdf.def)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgfsyssoftpath.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/system
+layer\pgfsysprotocol.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/xcolor\xcolo
+r.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics-cfg
+\color.cfg)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\mat
+hcolor.ltx))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcore.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmath.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathutil.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathparser.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.basic.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.trigonometric.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.random.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.comparison.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.base.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.round.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.misc.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfunctions.integerarithmetics.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathcalc.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmathfloat.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfint.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorepoints.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorepathconstruct.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorepathusage.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorescopes.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoregraphicstate.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoretransformations.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorequick.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoreobjects.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorepathprocessing.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorearrows.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoreshade.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoreimage.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoreexternal.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorelayers.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcoretransparency.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorepatterns.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/basicl
+ayer\pgfcorerdf.code.tex)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/module
+s\pgfmoduleshapes.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/module
+s\pgfmoduleplot.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/compatib
+ility\pgfcomp-version-0-65.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/compatib
+ility\pgfcomp-version-1-18.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/utilitie
+s\pgffor.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/utilitie
+s\pgfkeys.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgfkeys.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pgf/math\pgf
+math.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/math\p
+gfmath.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/utilit
+ies\pgffor.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/fronte
+ndlayer/tikz\tikz.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/librar
+ies\pgflibraryplothandlers.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/module
+s\pgfmodulematrix.code.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/fronte
+ndlayer/tikz/libraries\tikzlibrarytopaths.code.tex)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tools\verbat
+im.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/environ\envi
+ron.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/trimspaces\t
+rimspaces.sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+braster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tikzfill\tik
+zfill.image.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tikzfill\tik
+zlibraryfill.image.code.tex))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.9.0'
+))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/pdfcol\pdfco
+l.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/ltxcmds\lt
+xcmds.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/infwarerr\
+infwarerr.sty)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+btheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bfitting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+blistingsutf8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+blistings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/listings\lis
+tings.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/listings\lst
+patch.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/listings\lst
+misc.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/listings\lis
+tings.cfg))
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+blistingscore.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bprocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.9.0'
+)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/listingsutf8
+\listingsutf8.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pdftexcmds
+\pdftexcmds.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/stringenc\
+stringenc.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pdfescape\
+pdfescape.sty))))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bexternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bmagazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.9.0'
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bvignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.9.0'
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/fronte
+ndlayer/tikz/libraries\tikzlibraryfadings.code.tex
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/pgf/librar
+ies\pgflibraryfadings.code.tex)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/tcolorbox\tc
+bposter.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '6.9.0'
+))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/algorithms\a
+lgorithm.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/float\float.
+sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/base\ifthen.
+sty))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/algorithmicx
+\algpseudocode.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/algorithmicx
+\algorithmicx.sty
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/csquotes\csq
+uotes.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/csquotes\csq
+uotes.def)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/csquotes\csq
+uotes.cfg)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/natbib\natbi
+b.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\hyp
+erref.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/kvdefineke
+ys\kvdefinekeys.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hycolor\hyco
+lor.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\nam
+eref.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/refcount\ref
+count.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/gettitlest
+ring\gettitlestring.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/kvoptions\kv
+options.sty)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\pd1
+enc.def)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/intcalc\in
+tcalc.sty)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\pue
+nc.def)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/url\url.sty)
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/bitset\bit
+set.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/bigintcalc
+\bigintcalc.sty)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\hpd
+ftex.def
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/rerunfileche
+ck\rerunfilecheck.sty
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/generic/uniquecoun
+ter\uniquecounter.sty)))
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/cleveref\cle
+veref.sty)
+==> First Aid for cleveref.sty applied!
+(preamble/environments.tex) (preamble/macros.tex)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\t1lmr.fd)
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/l3backend\l3
+backend-pdftex.def)
+(C:\Users\norom\Documents\latex\tmp\latex-article-test4-plain\build\main.aux)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mt
+-cmr.cfg)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/context/base/mkii\
+supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/base\inputen
+c.sty)
+(C:\Users\norom\Documents\latex\tmp\latex-article-test4-plain\build\main.out)
+(C:\Users\norom\Documents\latex\tmp\latex-article-test4-plain\build\main.out)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\ot1lmr.fd
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omllmm.fd
+)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omslmsy.f
+d)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omxlmex.f
+d)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
+a.fd)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mt
+-msa.cfg)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
+b.fd)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mt
+-msb.cfg)
+(C:\Users\norom\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\t1lmtt.fd
+) (sections/00-abstract.tex) (sections/01-introduction.tex)
+(sections/02-preliminaries.tex) (sections/03-results.tex)
+(sections/04-conclusion.tex) (sections/90-acknowledgments.tex)
+(C:\Users\norom\Documents\latex\tmp\latex-article-test4-plain\build\main.bbl
+
+Package natbib Warning: Empty `thebibliography' environment on input line 8.
+
+) [1{C:/Users/norom/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdft
+ex.map}{C:/Users/norom/scoop/apps/miktex/current/texmfs/install/fonts/enc/dvips
+/lm/lm-ec.enc}]
+(C:\Users\norom\Documents\latex\tmp\latex-article-test4-plain\build\main.aux) )
+<C:/Users/norom/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/
+lmbx10.pfb><C:/Users/norom/scoop/apps/miktex/current/texmfs/install/fonts/type1
+/public/lm/lmbx12.pfb><C:/Users/norom/scoop/apps/miktex/current/texmfs/install/
+fonts/type1/public/lm/lmr10.pfb><C:/Users/norom/scoop/apps/miktex/current/texmf
+s/install/fonts/type1/public/lm/lmr12.pfb><C:/Users/norom/scoop/apps/miktex/cur
+rent/texmfs/install/fonts/type1/public/lm/lmr17.pfb><C:/Users/norom/scoop/apps/
+miktex/current/texmfs/install/fonts/type1/public/lm/lmri10.pfb><C:/Users/norom/
+scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmtt10.pfb>
+Output written on C:\Users\norom\Documents\latex\tmp\latex-article-test4-plain\
+build\main.pdf (1 page, 186658 bytes).
+Transcript written on C:\Users\norom\Documents\latex\tmp\latex-article-test4-pl
+ain\build\main.log.
+pdflatex: major issue: So far, you have not checked for MiKTeX updates.
+Latexmk: Getting log file 'build/main.log'
+Latexmk: Examining 'build/main.fls'
+Latexmk: Examining 'build/main.log'
+Latexmk: Found input bbl file 'build/main.bbl'
+Latexmk: Log file says output to 'build/main.pdf'
+Latexmk: Using bibtex to make bibliography file(s).
+  ===Source file 'build/main.bbl' for 'pdflatex'
+kpsewhich: major issue: So far, you have not checked for MiKTeX updates.
+kpsewhich: major issue: So far, you have not checked for MiKTeX updates.
+Latexmk: Found bibliography file(s):
+  ./references.bib
+Latexmk: All targets (build/main.pdf) are up-to-date
+
+Reverting Windows console CPs to (in,out) = (65001,65001)
+latexmk: major issue: So far, you have not checked for MiKTeX updates.

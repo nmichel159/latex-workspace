@@ -1,0 +1,13 @@
+﻿projects/_pkgtest-article/sections/04-conclusion.tex:9: [outside] FAIL: \input{../other}: path with a .. segment; the file is not inside the project folder, so it is missing in the package. Copy it into the project.
+
+Project: _pkgtest-article (projects/_pkgtest-article, main file main.tex)
+Class: article
+Template: none (standard class article)
+Layout: folders as in the project
+Stopped: static FAIL findings (A, B): nothing was staged, built or packed
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+
+Findings: 1 (1 FAIL)
+  outside           1  FAIL
+Verdict: FAIL (outside)
+

@@ -1,0 +1,18 @@
+% Portable packages: math, graphics, tables, algorithms.
+% Nothing here depends on the document class. Fonts, page layout, natbib, hyperref and
+% cleveref belong to main.tex. Load only what the manuscript really uses.
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{graphicx}
+\usepackage{float}            % [H] placement of figures and algorithms
+
+\usepackage[most]{tcolorbox}  % "problem" box, see preamble/environments.tex
+
+\usepackage{algorithm}        % floating "algorithm" environment
+\usepackage{algpseudocode}    % \State, \For, \Require, \Ensure (part of algorithmicx)
+
+% Not installed in the workspace MiKTeX (checked 2026-10-07). Ask before installing, then enable:
+%\usepackage{mathtools}       % \DeclarePairedDelimiter; preamble/macros.tex picks it up by itself
+%\usepackage{booktabs}        % \toprule, \midrule, \bottomrule

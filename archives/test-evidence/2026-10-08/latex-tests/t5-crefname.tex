@@ -1,0 +1,13 @@
+\documentclass{article}
+\usepackage{amsthm}\usepackage{hyperref}\usepackage[capitalise,noabbrev]{cleveref}
+\theoremstyle{definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}\newtheorem{theorem}[definition]{Theorem}\newtheorem{lemma}[definition]{Lemma}
+\crefname{lemma}{Lemma}{Lemmas}
+\begin{document}
+\section{A}
+\begin{definition}\label{def:a}x\end{definition}
+\begin{lemma}\label{lem:a}x\end{lemma}
+\begin{lemma}\label{lem:b}x\end{lemma}
+\begin{theorem}\label{thm:a}x\end{theorem}
+REF: \cref{lem:a}; \cref{lem:a,lem:b}; \cref{def:a,thm:a}.
+\end{document}

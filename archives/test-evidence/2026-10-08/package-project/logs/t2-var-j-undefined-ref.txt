@@ -1,0 +1,32 @@
+﻿-- Staging _pkgtest-article into tmp/package-_pkgtest-article/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+projects/_pkgtest-article/main.tex:31: [comment] end-of-line comment stays in the package: % after hyperref, before any \newtheorem
+projects/_pkgtest-article/preamble/environments.tex:24: [comment] end-of-line comment stays in the package: % background color
+projects/_pkgtest-article/preamble/environments.tex:25: [comment] end-of-line comment stays in the package: % border color
+projects/_pkgtest-article/preamble/environments.tex:26: [comment] end-of-line comment stays in the package: % border thickness
+projects/_pkgtest-article/preamble/environments.tex:27: [comment] end-of-line comment stays in the package: % corner roundness
+projects/_pkgtest-article/preamble/packages.tex:8: [comment] end-of-line comment stays in the package: % \declaretheorem (preamble/environments.tex), restatable theorems
+projects/_pkgtest-article/preamble/packages.tex:9: [comment] end-of-line comment stays in the package: % \DeclarePairedDelimiter, \coloneqq; extends amsmath
+projects/_pkgtest-article/preamble/packages.tex:12: [comment] end-of-line comment stays in the package: % \toprule, \midrule, \bottomrule; no vertical rules
+projects/_pkgtest-article/preamble/packages.tex:14: [comment] end-of-line comment stays in the package: % "problem" box, see preamble/environments.tex
+projects/_pkgtest-article/preamble/packages.tex:16: [comment] end-of-line comment stays in the package: % floating "algorithm" environment (loads float)
+projects/_pkgtest-article/preamble/packages.tex:17: [comment] end-of-line comment stays in the package: % \State, \For, \Require, \Ensure (part of algorithmicx)
+projects/_pkgtest-article/preamble/packages.tex:19: [comment] end-of-line comment stays in the package: % \enquote{...} instead of hand-typed quotation marks
+projects/_pkgtest-article/sections/02-preliminaries.tex:19: [comment] end-of-line comment stays in the package: % vector PDF; file name lowercase-with-hyphens
+tmp/package-_pkgtest-article/stage/main.pdf:2: [undefined] FAIL: '??' on page 2: undefined reference or citation (text: See ??.)
+
+Project: _pkgtest-article (projects/_pkgtest-article, main file main.tex)
+Class: article
+Template: none (standard class article)
+Layout: folders as in the project
+Stopped: FAIL findings in the verification (E): no package written
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+
+Findings: 14 (1 FAIL)
+  undefined         1  FAIL
+  comment          13
+Pages: 2
+Verdict: FAIL (undefined)
+

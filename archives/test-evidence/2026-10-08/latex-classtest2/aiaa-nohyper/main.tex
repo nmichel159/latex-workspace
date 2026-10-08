@@ -1,0 +1,17 @@
+﻿\newcommand*{\DoNotLoadEpstopdf}{}
+\documentclass[journal]{new-aiaa}
+\let\openbox\relax
+\let\Bbbk\relax
+\input{preamble/packages}
+\usepackage[capitalise,noabbrev]{cleveref}
+\input{preamble/environments}
+\input{preamble/macros}
+\title{Test}
+\author{A. Author}
+\begin{document}
+\maketitle
+\input{body}
+\let\enquote\undefined
+\bibliography{references}
+\end{document}
+

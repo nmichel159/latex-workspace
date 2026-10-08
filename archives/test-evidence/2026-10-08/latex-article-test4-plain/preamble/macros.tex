@@ -1,0 +1,23 @@
+% Notation macros; independent of the document class (needs amsmath, amssymb, mathtools).
+% Project notation goes below; Min Cut-Path block: knowledge/writing/latex-conventions.md.
+
+% Number sets and expectation
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+
+% Operators: upright name, operator spacing
+\newcommand{\OPT}{\mathrm{OPT}}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\poly}{poly}
+
+% Paired delimiters: \abs{x}; \abs*{x} scales to its content; \abs[\big]{x} sets the size by hand
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\set}{\{}{\}}
+
+% Names of computational problems in small caps: \textproblem{Min Cut-Path}.
+% Not \problemname: llncs (and any class with a "problem" theorem environment) defines it.
+\newcommand{\textproblem}[1]{\textsc{#1}}

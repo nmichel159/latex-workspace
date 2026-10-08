@@ -1,70 +1,75 @@
 # LaTeX workspace
 
-Pracovný priestor na písanie článkov, záverečných prác a CV. Každý dokument má vlastný priečinok so zdrojmi,
-všetko sa kompiluje jedným skriptom a k písaniu je pripravená znalostná báza.
+Articles, theses and the CV of Norbert Micheľ: one source folder per document, one build script, a knowledge base behind
+the writing. Files are English; Slovak appears only as data (titles of Slovak documents, quotations, glossary columns);
+chat with the owner is Slovak. Rules for Claude Code: [CLAUDE.md](CLAUDE.md).
 
-## Projekty
+## Projects
 
-| Projekt | Dokument | Hlavný súbor | PDF | Stav |
+| Project | Document | Main file | PDF | Status |
 |---|---|---|---|---|
-| [cv](projects/cv/README.md) | životopis (AltaCV, EN) | `norbert-michel-cv.tex` | [outputs/cv/norbert-michel-cv.pdf](outputs/cv/norbert-michel-cv.pdf) | kompiluje sa (2 strany) |
-| [clanok-1-min-cut-path](projects/clanok-1-min-cut-path/README.md) | článok *Min Cut-Path Problem* (EN) | `main.tex` | [outputs/clanok-1-min-cut-path/main.pdf](outputs/clanok-1-min-cut-path/main.pdf) | po korektúre a štylistickej revízii, kompiluje sa bez varovaní (23 strán); obsahové zmeny čakajú na kontrolu autora; šablóna časopisu neskôr |
-| [clanok-2-min-cut-path](projects/clanok-2-min-cut-path/README.md) | článok 2 – bude sa pripravovať z diplomovej práce | – | – | prázdny, čaká na LaTeX zdroj diplomovky |
+| [cv](projects/cv/README.md) | CV (AltaCV, English, 2 pages) | `norbert-michel-cv.tex` | [outputs/cv/norbert-michel-cv.pdf](outputs/cv/norbert-michel-cv.pdf) | builds (2 pages) |
+| [clanok-1-min-cut-path](projects/clanok-1-min-cut-path/README.md) | article "Min Cut-Path Problem" (English); class `new-aiaa` is temporary, the target journal is undecided and the article will be ported to its template later | `main.tex` | [outputs/clanok-1-min-cut-path/main.pdf](outputs/clanok-1-min-cut-path/main.pdf) | proofread and stylistically revised, modular (`preamble/`, `sections/`), builds without warnings (23 pages); content changes await the author's review |
+| [clanok-2-min-cut-path](projects/clanok-2-min-cut-path/README.md) | second article, to be written from the master's thesis | – | – | empty, waiting for the LaTeX source of the master's thesis |
 
-## Štruktúra
+## Layout
 
 ```
-projects/     zdrojové súbory, jeden priečinok = jeden dokument (tu sa upravuje)
-outputs/      vygenerované PDF a pomocné súbory (needitovať, každá kompilácia ich prepíše)
-knowledge/    znalostná báza: autor, výskum, konvencie, bibliografia, pôvodné práce v PDF + text
-templates/    čisté šablóny pre nové projekty (článok new-aiaa, CV AltaCV)
-inbox/        sem patrí všetko nové a nespracované (zipy, PDF, šablóny)
-archives/     pôvodné zipy a súbory odložené z projektov
-scripts/      build-project.ps1 – jediný spôsob kompilácie
-tmp/          dočasné súbory (náhľady strán), dá sa kedykoľvek zmazať
-installers/   inštalátory MiKTeX a Strawberry Perl
-.latex-tools/ prenosná záložná kópia MiKTeX + Perl (na PATH je až za inštaláciou zo scoop)
-.claude/      skilly pre Claude Code
-CLAUDE.md     pravidlá pre Claude Code
+projects/     LaTeX sources, one folder = one document (edit here)
+outputs/      generated PDFs and auxiliary files (never edit; every build overwrites them)
+knowledge/    knowledge base: author, research maps, writing guides, venue cards, literature notes, bibliography, source theses
+templates/    pristine starting points (article-modular, thesis-modular, new-aiaa, altacv, venue templates)
+scripts/      build-project.ps1, check-text.ps1, check-bib.ps1, package-project.ps1
+inbox/        new, unprocessed material (zips, PDFs, templates, .bib files)
+archives/     original zips, files retired from projects, snapshots before bulk changes
+tmp/          scratch (previews, test builds); can be deleted at any time
+installers/, .latex-tools/   MiKTeX and Perl installers, portable fallback toolchain
+.claude/      skills for Claude Code
 ```
 
-## Kompilácia
+## Scripts
 
-Z koreňového priečinka v PowerShelli:
+Run from the workspace root in PowerShell.
 
-```powershell
-.\scripts\build-project.ps1 -Project cv
-```
-
-```powershell
-.\scripts\build-project.ps1 -Project clanok-1-min-cut-path
-```
-
-- Hlavný súbor sa nájde sám (`main.tex`, inak jediný `.tex` s `\documentclass`); dá sa zadať cez `-MainFile`.
-- Výsledok je v `outputs/<projekt>/`; skript na konci vypíše cestu k PDF.
-- Ak chýba LaTeX balík, kompilácia hneď skončí chybou. S prepínačom `-InstallMissing` si ho MiKTeX stiahne sám.
-
-## Nový dokument
-
-1. Skopíruj šablónu: `Copy-Item -Recurse templates\new-aiaa projects\clanok-2-<tema>`.
-2. Názov projektu: malé písmená a pomlčky (`clanok-<n>-<tema>`, `praca-<typ>-<tema>`).
-3. Skompiluj a doplň riadok do tabuľky projektov tu a v `CLAUDE.md`.
-
-Podrobné pravidlá (názvy súborov, preambula, labely, citácie): [knowledge/writing/latex-conventions.md](knowledge/writing/latex-conventions.md).
-
-## Znalostná báza
-
-Vstupný bod: [knowledge/README.md](knowledge/README.md).
-
-| Čo | Kde |
+| Script | Does |
 |---|---|
-| Autor, afiliácie, školitelia, plánované publikácie | [knowledge/author.md](knowledge/author.md) |
-| Min Cut-Path: definície, notácia, mapa výsledkov, otvorené problémy, slovník | [knowledge/research/min-cut-path.md](knowledge/research/min-cut-path.md) |
-| Bakalárska práca (mriežkové mnohosteny) | [knowledge/research/lattice-polytopes.md](knowledge/research/lattice-polytopes.md) |
-| Štýl odborného textu a kontrolný zoznam | [knowledge/writing/academic-style.md](knowledge/writing/academic-style.md) |
-| Overená bibliografia | [knowledge/bibliography/references.bib](knowledge/bibliography/references.bib) |
-| Bakalárska a diplomová práca (PDF + text) | [knowledge/sources/](knowledge/sources/README.md) |
+| `.\scripts\build-project.ps1 -Project <project> [-MainFile <file.tex>] [-InstallMissing]` | the only way to build; PDF lands in `outputs/<project>/`, its path is printed last; `-InstallMissing` lets MiKTeX download a missing package |
+| `.\scripts\check-text.ps1 -Project <project> [-Summary]` | style and hygiene findings in the `.tex` sources (phrase list, long sentences, LaTeX hygiene, TODO markers, spelling); changes nothing |
+| `.\scripts\check-bib.ps1 -Project <project> [-Summary]` | citations vs. `.bib`, project `.bib` vs. canonical `.bib`, entry hygiene; `-CanonicalOnly` checks the canonical file |
+| `.\scripts\package-project.ps1 -Project <project> [-Template <name>] [-MaxPages <n>] [-Flat] [-KeepComments] [-MainFile <file.tex>] [-CheckOnly]` | the only way to make what is sent: checks the venue files against `templates/<name>/` and that nothing refers outside the folder, builds a clean copy, writes `outputs/<project>/package/<project>-<date>.zip` with the PDF beside it and proves that the unpacked zip builds to the same text; last line `Verdict: PASS` or `FAIL`; `-CheckOnly` runs the static checks only |
 
-## Nové podklady
+Parameters and finding categories: the comment header of each script; bibliography rules:
+[knowledge/bibliography/README.md](knowledge/bibliography/README.md); the invariant behind the packager (a project
+follows its template and can be sent as it is):
+[knowledge/writing/latex-conventions.md](knowledge/writing/latex-conventions.md) §1.1.
 
-Zip z Overleafu, PDF alebo šablónu vlož do `inbox/` a napíš „spracuj inbox“ – obsah sa rozbalí, zaradí a doplní do znalostnej bázy.
+## Templates
+
+| Folder | Use |
+|---|---|
+| `article-modular/` | default for every new article |
+| `thesis-modular/` | dissertation (`main.tex`) and written work for the dissertation exam (`exam.tex`) |
+| `new-aiaa/` | temporary class of article 1 |
+| `altacv/` | CV |
+| `<venue>/` | journal or conference template from `inbox/`, unpacked pristine |
+
+Details and status: [templates/README.md](templates/README.md).
+
+## How to
+
+| Goal | Do |
+|---|---|
+| Write or revise text | read the "By task" table in [knowledge/README.md](knowledge/README.md) (skill `academic-writing`) |
+| New article | `Copy-Item -Recurse templates\article-modular projects\clanok-<n>-<topic>`, then build (skill `create-latex-pdf`) |
+| New dissertation or exam text | copy `templates\thesis-modular` to `projects\praca-<type>-<topic>`; rules: [knowledge/writing/thesis.md](knowledge/writing/thesis.md) |
+| New project, structure only | skill `new-latex-project` |
+| Add or check a citation | skill `cite-sources` |
+| Move an article into a journal template | put the template into `inbox/`, say "process the inbox" (Slovak: *spracuj inbox*), then skill `port-latex-template`: [knowledge/writing/template-porting.md](knowledge/writing/template-porting.md) |
+| Send the paper to a reviewer, a co-author or a journal | `.\scripts\package-project.ps1 -Project <project>`; send the zip from `outputs/<project>/package/` only when the last line is `Verdict: PASS`, never a hand-made archive |
+| Prepare a submission | skill `prepare-submission`: [knowledge/writing/submission.md](knowledge/writing/submission.md) |
+| Review a build or a PDF | skill `review-latex-pdf` |
+| Add material | drop it into `inbox/`, say "process the inbox" (skill `process-inbox`) |
+
+Every new project gets a row in the project table here and in `CLAUDE.md`.
+Knowledge base: [knowledge/README.md](knowledge/README.md). Project layout, preamble, labels, macros:
+[knowledge/writing/latex-conventions.md](knowledge/writing/latex-conventions.md).

@@ -1,0 +1,13 @@
+﻿projects/_pkgtest-aiaa/new-aiaa.cls:1: [template-file] FAIL: differs from templates/new-aiaa/new-aiaa.cls (SHA-256 FD82FEE71989 against AEAD59D4596B); the venue's files must not be edited. Restore the file from the template.
+
+Project: _pkgtest-aiaa (projects/_pkgtest-aiaa, main file main.tex)
+Class: new-aiaa
+Template: templates/new-aiaa (found by new-aiaa.cls)
+Venue files identical to the template: new-aiaa.bst
+Layout: folders as in the project
+Stopped: static FAIL findings (A, B): nothing was staged, built or packed
+
+Findings: 1 (1 FAIL)
+  template-file     1  FAIL
+Verdict: FAIL (template-file)
+

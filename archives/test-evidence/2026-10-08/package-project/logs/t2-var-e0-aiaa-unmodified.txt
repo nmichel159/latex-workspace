@@ -1,0 +1,26 @@
+﻿-- Staging _pkgtest-aiaa into tmp/package-_pkgtest-aiaa/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Round trip: extracting the zip and building it
+Project: _pkgtest-aiaa (projects/_pkgtest-aiaa, main file main.tex)
+Class: new-aiaa
+Template: templates/new-aiaa (found by new-aiaa.cls)
+Venue files identical to the template: new-aiaa.bst, new-aiaa.cls
+Layout: folders as in the project
+Files in the zip (5, 38.3 kB uncompressed):
+       409  B  main.bbl
+       1.7 kB  main.tex
+      33.2 kB  new-aiaa.bst
+       2.9 kB  new-aiaa.cls
+       119  B  references.bib
+
+Findings: 0
+Pages: 1
+Zip:  C:\Users\norom\Documents\latex\outputs\_pkgtest-aiaa\package\_pkgtest-aiaa-20261008.zip
+Link: outputs/_pkgtest-aiaa/package/_pkgtest-aiaa-20261008.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\_pkgtest-aiaa\package\_pkgtest-aiaa-20261008.pdf
+Link: outputs/_pkgtest-aiaa/package/_pkgtest-aiaa-20261008.pdf
+Verdict: PASS
+

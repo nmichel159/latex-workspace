@@ -1,0 +1,49 @@
+﻿-- Staging clanok-1-min-cut-path into tmp/package-clanok-1-min-cut-path/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Round trip: extracting the zip and building it
+projects/clanok-1-min-cut-path/main.tex:18: [layout] \setstretch found: the venue's layout must not be changed; remove it or justify it in the project README.
+
+Project: clanok-1-min-cut-path (projects/clanok-1-min-cut-path, main file main.tex)
+Class: new-aiaa
+Template: templates/new-aiaa (found by new-aiaa.cls)
+Venue files identical to the template: new-aiaa.bst, new-aiaa.cls
+Layout: folders as in the project; comments kept
+Excluded from the package (1): README.md (workspace-only)
+Files in the zip (23, 263.5 kB uncompressed):
+      25.3 kB  img/chain-link-types.png
+       8.6 kB  img/chain-link.png
+      40.5 kB  img/chain-threads.png
+      25.2 kB  img/chain.png
+      37.4 kB  img/diameter-two-structure.png
+      19.7 kB  img/threading.png
+       3.4 kB  main.bbl
+       1.4 kB  main.tex
+      33.2 kB  new-aiaa.bst
+       2.9 kB  new-aiaa.cls
+       920  B  preamble/environments.tex
+       511  B  preamble/macros.tex
+       480  B  preamble/packages.tex
+       4.1 kB  references.bib
+       1.1 kB  sections/00-abstract.tex
+       4.9 kB  sections/01-introduction.tex
+       6.3 kB  sections/02-fundamentals.tex
+      26.1 kB  sections/03-np-completeness.tex
+       8.1 kB  sections/04-diameter-two.tex
+       2.5 kB  sections/05-cut-two.tex
+       7.2 kB  sections/06-random-graphs.tex
+       3.6 kB  sections/07-conclusion.tex
+       274  B  sections/90-acknowledgment.tex
+
+Findings: 1 (0 FAIL)
+  layout            1
+Comments kept: 15 comment lines
+Pages: 23
+Zip:  C:\Users\norom\Documents\latex\outputs\clanok-1-min-cut-path\package\clanok-1-min-cut-path-20261008.zip
+Link: outputs/clanok-1-min-cut-path/package/clanok-1-min-cut-path-20261008.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\clanok-1-min-cut-path\package\clanok-1-min-cut-path-20261008.pdf
+Link: outputs/clanok-1-min-cut-path/package/clanok-1-min-cut-path-20261008.pdf
+Verdict: PASS
+

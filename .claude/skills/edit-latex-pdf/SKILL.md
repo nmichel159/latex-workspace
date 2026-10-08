@@ -11,8 +11,7 @@ Use this skill when the user asks to change something in an existing project.
 2. Make only the source changes the request needs. Follow `knowledge/writing/latex-conventions.md` for new labels,
    macros, file names and citations. Do not rewrite statements, proofs or wording that were not part of the request;
    list what you noticed instead.
-3. A new citation comes from `knowledge/bibliography/references.bib`; if the entry is missing, verify the data
-   (DOI, publisher page), add it there first, then copy it into the project's `.bib`.
+3. A substantial change of wording: skill `academic-writing`. A new or changed citation: skill `cite-sources`.
 4. Rebuild:
 
    ```powershell
@@ -20,7 +19,9 @@ Use this skill when the user asks to change something in an existing project.
    ```
 
 5. Verify the result in `outputs/<project>/`: no errors, no `??` or `[?]`, page count and layout as expected.
-   For the CV the document must stay on two pages.
-6. If the change fixes an item listed under "Známe problémy" in the project `README.md`, remove that item.
+   For the CV the document must stay on two pages. If the change added, renamed or moved a file, added a package or
+   touched class files, also run `.\scripts\package-project.ps1 -Project <project> -CheckOnly`
+   (`knowledge/writing/latex-conventions.md`, section 1.1); never edit a venue's `.cls` or `.bst`.
+6. If the change fixes an item listed under "Known problems" in the project `README.md`, remove that item.
 7. Report: which file and place changed, anything noticed but left alone, and the clickable PDF link
    `[outputs/<project>/<main>.pdf](outputs/<project>/<main>.pdf)`. Send the PDF with `SendUserFile` when available.

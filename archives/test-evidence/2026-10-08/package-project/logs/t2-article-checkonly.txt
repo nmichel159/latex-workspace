@@ -1,0 +1,10 @@
+﻿Project: _pkgtest-article (projects/_pkgtest-article, main file main.tex)
+Class: article
+Template: none (standard class article)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+
+Findings: 0
+Verdict: PASS
+

@@ -7,20 +7,30 @@ description: Start a new LaTeX document (article, thesis, CV, report, letter) fr
 
 Use this skill when the user asks for a new document.
 
-1. Choose the project name: lowercase, hyphens, no diacritics. Articles are `clanok-<n>-<tema>`, theses
-   `praca-<typ>-<tema>`, talks `prezentacia-<tema>`.
-2. Start from a template in `templates/` (see `templates/README.md`):
-   - article: copy `templates/new-aiaa/` to `projects/<project>/`;
-   - CV: copy `templates/altacv/`;
-   - no fitting template: build a minimal `main.tex` following `knowledge/writing/latex-conventions.md`
-     and tell the user which class you chose.
-3. Keep the layout uniform: `main.tex`, `references.bib`, images in `img/`, class and `.bst` inside the project.
-   Use UTF-8; load Slovak language support when the document is Slovak.
-4. Fill in author and affiliation from `knowledge/author.md`. For Min Cut-Path texts take definitions and notation
-   from `knowledge/research/min-cut-path.md`, and copy cited entries from `knowledge/bibliography/references.bib`.
-5. Write `projects/<project>/README.md` (model: `projects/clanok-1-min-cut-path/README.md`) and add the project
+1. Choose the project name (rules: `knowledge/writing/latex-conventions.md`, section 1).
+2. Start from a template in `templates/` (overview: `templates/README.md`):
+
+   | Document | Template |
+   |---|---|
+   | article | `article-modular` (default) |
+   | dissertation | `thesis-modular`, main file `main.tex` |
+   | written work for the dissertation exam | `thesis-modular`, main file `exam.tex` (`-MainFile exam.tex`) |
+   | CV | `altacv` |
+   | article for a venue whose template is in `templates/<venue>/` | `article-modular`, then skill `port-latex-template` |
+   | anything else | minimal `main.tex` per `latex-conventions.md`; tell the user which class you chose |
+
+   `new-aiaa` only when the owner asks for the class of article 1.
+3. Keep the layout of the template: wrapper `main.tex`, `preamble/`, `sections/` (thesis: `chapters/`),
+   `references.bib`, `img/`, class and `.bst` inside the project (`knowledge/writing/latex-conventions.md`, section 1).
+4. Article: write the four answers of `knowledge/writing/paper-structure.md` section 1 into the project `README.md`
+   ("Intent") before any text. Dissertation: follow `knowledge/writing/thesis.md`.
+5. Fill author and affiliation from `knowledge/author.md`. Take definitions and notation from the topic file in
+   `knowledge/research/`. Citations: skill `cite-sources`.
+6. Write `projects/<project>/README.md` (model: `projects/clanok-1-min-cut-path/README.md`) and add the project
    to the tables in `CLAUDE.md` and the root `README.md`.
-6. Build with `.\scripts\build-project.ps1 -Project <project>` and confirm `outputs/<project>/main.pdf` exists.
-7. Report the new project path and the clickable PDF link.
+7. Build with `.\scripts\build-project.ps1 -Project <project>` and confirm the PDF exists in `outputs/<project>/`.
+   Then `.\scripts\package-project.ps1 -Project <project> -CheckOnly`: the folder follows its template and can be
+   sent from the first day (`knowledge/writing/latex-conventions.md`, section 1.1).
+8. Report the new project path and the clickable PDF link.
 
 Ask about missing content, language, target venue or page format only when it materially affects the document.

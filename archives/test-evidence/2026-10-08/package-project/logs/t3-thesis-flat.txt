@@ -1,0 +1,14 @@
+﻿projects/_pkgtest-thesis/exam/01-introduction.tex:1: [flat] FAIL: name clash in the flat layout: chapters/01-introduction.tex and exam/01-introduction.tex both become '01-introduction.tex'. Rename one of the files.
+projects/_pkgtest-thesis/exam/02-preliminaries.tex:1: [flat] FAIL: name clash in the flat layout: chapters/02-preliminaries.tex and exam/02-preliminaries.tex both become '02-preliminaries.tex'. Rename one of the files.
+
+Project: _pkgtest-thesis (projects/_pkgtest-thesis, main file main.tex)
+Class: report
+Template: none (standard class report)
+Layout: flat (all files in one directory)
+Stopped: static FAIL findings (A, B): nothing was staged, built or packed
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+
+Findings: 2 (2 FAIL)
+  flat              2  FAIL
+Verdict: FAIL (flat)
+

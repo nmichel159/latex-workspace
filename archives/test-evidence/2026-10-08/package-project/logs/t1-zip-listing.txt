@@ -1,0 +1,52 @@
+﻿== clanok-1-min-cut-path-20261008.zip (183368 bytes, 23 entries)
+entries with a backslash: 0; with a leading slash: 0; folder entries (ending in /): 0
+   25875  img/chain-link-types.png
+    8767  img/chain-link.png
+   41433  img/chain-threads.png
+   25849  img/chain.png
+   38275  img/diameter-two-structure.png
+   20202  img/threading.png
+    3447  main.bbl
+     858  main.tex
+   34008  new-aiaa.bst
+    2938  new-aiaa.cls
+     726  preamble/environments.tex
+     372  preamble/macros.tex
+     295  preamble/packages.tex
+    4212  references.bib
+    1081  sections/00-abstract.tex
+    5027  sections/01-introduction.tex
+    6475  sections/02-fundamentals.tex
+   26738  sections/03-np-completeness.tex
+    8252  sections/04-diameter-two.tex
+    2535  sections/05-cut-two.tex
+    7362  sections/06-random-graphs.tex
+    3729  sections/07-conclusion.tex
+     274  sections/90-acknowledgment.tex
+== clanok-1-min-cut-path-20261008-flat.zip (183083 bytes, 23 entries)
+entries with a backslash: 0; with a leading slash: 0; folder entries (ending in /): 0
+    1081  00-abstract.tex
+    5027  01-introduction.tex
+    6475  02-fundamentals.tex
+   26718  03-np-completeness.tex
+    8248  04-diameter-two.tex
+    2535  05-cut-two.tex
+    7362  06-random-graphs.tex
+    3729  07-conclusion.tex
+     274  90-acknowledgment.tex
+   25875  chain-link-types.png
+    8767  chain-link.png
+   41433  chain-threads.png
+   25849  chain.png
+   38275  diameter-two-structure.png
+     726  environments.tex
+     372  macros.tex
+    3447  main.bbl
+     750  main.tex
+   34008  new-aiaa.bst
+    2938  new-aiaa.cls
+     295  packages.tex
+    4212  references.bib
+   20202  threading.png
+== flat zip extracted by hand (ZipFile.ExtractToDirectory) into C:\Users\norom\Documents\latex\tmp\pkgtest\flat-extract-by-hand-155653
+subfolders: 0; files: 23

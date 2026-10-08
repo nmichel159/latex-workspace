@@ -1,15 +1,21 @@
-# Archív
+# Archive
 
-Pôvodné súbory tak, ako prišli, a veci odložené z projektov. Nič odtiaľto sa nekompiluje a nič sa tu neupravuje.
+Original files as they arrived, files retired from projects, and snapshots taken before bulk changes.
+Nothing here is compiled and nothing here is edited.
 
-| Položka | Čo to je | Kam bol obsah rozbalený |
+| Item | What it is | Where the content was unpacked |
 |---|---|---|
-| `CV.zip` | šablóna AltaCV so vzorovým CV (25. 9. 2026) | `templates/altacv/` (čistá kópia); pracovné CV je `projects/cv/` |
-| `clanok_1_min_cut_path.zip` | export článku z Overleafu (7. 10. 2026) | `projects/clanok-1-min-cut-path/` |
-| `removed-from-projects/cv/` | pozostatky šablóny odložené z `projects/cv/`: upravený `sample.tex`, `sample.bib`, `pubs-authoryear.tex`, vzorové obrázky, logo `nieco2.jpg`, README a CHANGELOG triedy; v `outputs/` staré PDF a pomocné súbory zo `sample.tex` | – |
-| `removed-from-projects/clanok-1-min-cut-path/` | pôvodný `sample.bib` (so vzorovými AIAA záznamami) a nepoužitý `graph.jpg` | – |
+| `CV.zip` | AltaCV template with a sample CV (2026-09-25) | `templates/altacv/` (pristine copy); the working CV is `projects/cv/` |
+| `clanok_1_min_cut_path.zip` | Overleaf export of article 1 (2026-10-07) | `projects/clanok-1-min-cut-path/` |
+| `removed-from-projects/cv/` | template leftovers retired from `projects/cv/`: modified `sample.tex`, `sample.bib`, `pubs-authoryear.tex`, sample images, logo `nieco2.jpg`, class README and CHANGELOG; in `outputs/` the old PDF and auxiliary files from `sample.tex` | – |
+| `removed-from-projects/clanok-1-min-cut-path/` | original `sample.bib` (with sample AIAA entries) and unused `graph.jpg`; earlier versions of the article sources and bibliography: `main-before-revision-2026-10-07.tex`, `main-before-split-2026-10-07.tex`, `references-before-revision-2026-10-07.bib` | – |
+| `submissions/<project>/<YYYY-MM-DD>-<venue>-<stage>/` | frozen submission package: `upload/` (every uploaded file) and `source/` (copy of the project at that moment); stage `v1`, `r1`, `final`, `arxiv-v1` | created by the procedure in `knowledge/writing/submission.md` §3.2; none yet |
+| `test-evidence/2026-10-08/` | sources of the test builds that the guides, template READMEs and the article 1 README cite (package and counter tests, class-compatibility harness, template builds, thesis template variants, before/after hashes of the article 1 split); copied from the disposable `tmp/`; table of folders and citing documents in its `README.md` | – |
+| `before-translation-2026-10-07/` | snapshot of the workspace documents taken on 2026-10-07 before their translation into English, kept under the same relative paths (`CLAUDE.md`, `README.md`, `.claude/skills/`, `archives/README.md`, `inbox/README.md`, `knowledge/`, `projects/*/README.md`, `scripts/`, `templates/`); compare a current file with `before-translation-2026-10-07/<same path>` to check a translation | – |
 
-## Pravidlá
+## Rules
 
-- Zip, ktorý príde do `inbox/`, sa po rozbalení presunie sem pod pôvodným názvom.
-- Súbor, ktorý sa z projektu vyraďuje, sa nemaže – presunie sa do `removed-from-projects/<projekt>/`.
+- A zip that arrives in `inbox/` is moved here under its original name after unpacking.
+- A file retired from a project is not deleted – it moves to `removed-from-projects/<project>/`.
+- A snapshot folder such as `before-translation-2026-10-07/` is never edited or deleted; its files keep their pre-translation wording.
+- A submission package is frozen on the day of the upload and never edited; the next revision gets its own folder.

@@ -1,0 +1,17 @@
+﻿projects/_pkgtest-article/preamble/packages.tex:27: [missing] FAIL: \usepackage{nonexistentpkgxyz}: no such file in the project or in the TeX distribution.
+projects/_pkgtest-article/sections/04-conclusion.tex:9: [missing] FAIL: \input{no-such-file}: no such file in the project or in the TeX distribution.
+projects/_pkgtest-article/sections/04-conclusion.tex:11: [missing] FAIL: \includegraphics{img/nope}: no such file in the project (tried: img/nope.pdf, img/nope.png, img/nope.jpg, img/nope.jpeg, img/nope.eps).
+projects/_pkgtest-article/sections/04-conclusion.tex:12: [outside] FAIL: \input{C:/Users/someone/other}: absolute path; the file is not inside the project folder, so it is missing in the package. Copy it into the project.
+
+Project: _pkgtest-article (projects/_pkgtest-article, main file main.tex)
+Class: article
+Template: none (standard class article)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+
+Findings: 4 (4 FAIL)
+  outside           1  FAIL
+  missing           3  FAIL
+Verdict: FAIL (outside, missing)
+

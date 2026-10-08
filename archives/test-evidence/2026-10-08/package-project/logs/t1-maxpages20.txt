@@ -1,0 +1,59 @@
+﻿-- Staging clanok-1-min-cut-path into tmp/package-clanok-1-min-cut-path/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Round trip: extracting the zip and building it
+projects/clanok-1-min-cut-path/main.tex:18: [layout] \setstretch found: the venue's layout must not be changed; remove it or justify it in the project README.
+projects/clanok-1-min-cut-path/preamble/environments.tex:23: [comment] end-of-line comment stays in the package: % background color
+projects/clanok-1-min-cut-path/preamble/environments.tex:24: [comment] end-of-line comment stays in the package: % border color
+projects/clanok-1-min-cut-path/preamble/environments.tex:25: [comment] end-of-line comment stays in the package: % border thickness
+projects/clanok-1-min-cut-path/preamble/environments.tex:26: [comment] end-of-line comment stays in the package: % corner roundness
+projects/clanok-1-min-cut-path/preamble/macros.tex:5: [comment] end-of-line comment stays in the package: % value of a minimum cut-path
+projects/clanok-1-min-cut-path/preamble/macros.tex:6: [comment] end-of-line comment stays in the package: % set of all cut-paths
+projects/clanok-1-min-cut-path/preamble/packages.tex:4: [comment] end-of-line comment stays in the package: % [H] placement of figures and algorithms
+projects/clanok-1-min-cut-path/preamble/packages.tex:11: [comment] end-of-line comment stays in the package: % part of the algorithmicx package
+tmp/package-clanok-1-min-cut-path/stage/main.pdf:1: [pages] 23 pages, the limit is 20 (3 too many)
+
+Project: clanok-1-min-cut-path (projects/clanok-1-min-cut-path, main file main.tex)
+Class: new-aiaa
+Template: templates/new-aiaa (found by new-aiaa.cls)
+Venue files identical to the template: new-aiaa.bst, new-aiaa.cls
+Layout: folders as in the project
+Excluded from the package (1): README.md (workspace-only)
+Files in the zip (23, 262.4 kB uncompressed):
+      25.3 kB  img/chain-link-types.png
+       8.6 kB  img/chain-link.png
+      40.5 kB  img/chain-threads.png
+      25.2 kB  img/chain.png
+      37.4 kB  img/diameter-two-structure.png
+      19.7 kB  img/threading.png
+       3.4 kB  main.bbl
+       858  B  main.tex
+      33.2 kB  new-aiaa.bst
+       2.9 kB  new-aiaa.cls
+       726  B  preamble/environments.tex
+       372  B  preamble/macros.tex
+       295  B  preamble/packages.tex
+       4.1 kB  references.bib
+       1.1 kB  sections/00-abstract.tex
+       4.9 kB  sections/01-introduction.tex
+       6.3 kB  sections/02-fundamentals.tex
+      26.1 kB  sections/03-np-completeness.tex
+       8.1 kB  sections/04-diameter-two.tex
+       2.5 kB  sections/05-cut-two.tex
+       7.2 kB  sections/06-random-graphs.tex
+       3.6 kB  sections/07-conclusion.tex
+       274  B  sections/90-acknowledgment.tex
+
+Findings: 10 (0 FAIL)
+  layout            1
+  pages             1
+  comment           8
+Pages: 23 (limit 20)
+Zip:  C:\Users\norom\Documents\latex\outputs\clanok-1-min-cut-path\package\clanok-1-min-cut-path-20261008.zip
+Link: outputs/clanok-1-min-cut-path/package/clanok-1-min-cut-path-20261008.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\clanok-1-min-cut-path\package\clanok-1-min-cut-path-20261008.pdf
+Link: outputs/clanok-1-min-cut-path/package/clanok-1-min-cut-path-20261008.pdf
+Verdict: PASS
+

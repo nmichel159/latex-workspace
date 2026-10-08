@@ -1,0 +1,195 @@
+# Zoznam fráz pre scripts/check-text.ps1
+#
+# Formát: kategória 	 regulárny výraz (.NET, bez ohľadu na veľkosť písmen) 	 čo s tým
+# Riadky začínajúce # a prázdne riadky sa preskakujú. Výraz sa hľadá v každom riadku zdroja po odstránení komentárov.
+# Kategórie: filler (výplň), wordy (rozvláčne), hype (samochvála), hedge (zahmlievanie), meta (text o texte),
+#            ai-tic (obraty typické pre text písaný LLM), grammar (chyby slovenského autora v angličtine).
+# Pravidlá, z ktorých zoznam vychádza: knowledge/writing/academic-style.md.
+# Nález nie je automaticky chyba: skript ukazuje miesta, rozhoduje čitateľ. Nový zlozvyk = nový riadok.
+
+# --- filler: dá sa škrtnúť bez straty obsahu ---------------------------------------------------------------
+filler	\bit is (worth|important|interesting|crucial|essential|instructive) (to )?(not(e|ing)|mention(ing)?|point(ing)? out|observ(e|ing)|emphasi[sz](e|ing)|stress(ing)?|recall(ing)?)( that)?\b	delete; state the fact
+filler	\bit (should|must|can|may|has to) be (noted|mentioned|emphasi[sz]ed|pointed out|stressed|observed|remarked) that\b	delete; state the fact
+filler	\bwe (would like|want|wish) to (point out|note|mention|emphasi[sz]e|stress|remark|recall)( that)?\b	delete; state the fact
+filler	\bnote that\b	delete unless the remark is easy to miss
+filler	\bit is well[- ]known that\b	cite the source, or delete
+filler	\bit is (a )?well[- ]established (result|fact)?\b	cite the source, or delete
+filler	\bit is (clear|obvious|evident|easy to see|straightforward to (see|verify|check)|not (hard|difficult) to (see|verify|check)) that\b	give the reason in one clause, or delete
+filler	\b(clearly|obviously|trivially|evidently|of course|needless to say|it goes without saying)\b	give the reason, or delete
+filler	\b(simply|easily|straightforwardly)\b	delete, or give the argument
+filler	\bas (already )?(mentioned|stated|noted|discussed|described|explained|said|indicated) (above|earlier|before|previously)\b	refer by number (Section~X, Lemma~Y) or delete
+filler	\bit turns out that\b	delete
+filler	\b(we can see|it can be seen|one can (easily )?(see|observe|verify|check)) that\b	state it; give the reason if it is not immediate
+filler	\b(basically|really|quite|very|extremely|fairly|truly|literally)\b	delete or quantify
+filler	\b(naturally|inherently|intrinsically|fundamentally)\b	delete; if the reason matters, state it
+filler	\bin other words\b	say it once, precisely; keep only for intuition after a formal statement
+filler	\b(the )?(aforementioned|above-mentioned)\b	name it or use the reference
+filler	\b(more|most) importantly\b	delete; order shows importance
+filler	\bin a nutshell\b	delete
+filler	\bto put it (simply|differently|another way)\b	delete
+filler	\bso[- ]called\b	delete; use \emph at the first occurrence of a term
+
+# --- wordy: kratší výraz znamená to isté -------------------------------------------------------------------
+wordy	\bin order to\b	to
+wordy	\bso as to\b	to
+wordy	\bdue to the fact that\b	because
+wordy	\b(in spite of|despite) the fact that\b	although
+wordy	\bthe fact that\b	that / rephrase
+wordy	\ba (large |great |wide |vast |significant |considerable )?(number|variety|range|amount|series) of\b	many / several / the exact number
+wordy	\bin the (context|case|setting|framework|realm|field|area|domain) of\b	for / in
+wordy	\b(with regards? to|in regards? to|as regards|with reference to)\b	about / for
+wordy	\bfor the (purpose|purposes|sake) of\b	for / to
+wordy	\bin terms of\b	name the relation (by, in, as a function of)
+wordy	\b(is|are|was|were) able to\b	can / could
+wordy	\b(has|have) the (ability|capability|capacity|potential) to\b	can
+wordy	\b(make|makes|made|making) use of\b	use
+wordy	\butili[sz](e|es|ed|ing|ation)\b	use
+wordy	\b(perform|performs|performed|conduct|conducts|conducted|carry out|carries out|carried out) (an? |the )?(\w+ )?(analysis|evaluation|comparison|investigation|study|examination|computation|calculation|experiment|experiments)\b	use the verb: analyze, evaluate, compare, compute; "run experiments"
+wordy	\b(give|gives|gave|provide|provides|provided|present|presents|presented) (an? |the )?(\w+ )?(description|definition|explanation|proof|overview|introduction|illustration|characteri[sz]ation|discussion|summary) of\b	use the verb: describe, define, explain, prove, survey
+wordy	\b(at (this|the present) (point|moment)( in time)?|at the present time|currently at)\b	now
+wordy	\b(first|second|third|fourth|last)ly\b	first / second / ... / finally
+wordy	\bfirst of all\b	first
+wordy	\blast but not least\b	finally
+wordy	\bin an? \w+ (manner|fashion)\b	use the adverb (similarly, efficiently)
+wordy	\bit is (possible|necessary|important|essential|required|sufficient|enough) (for us )?to\b	we can / we must / it suffices to
+wordy	\bserves? as\b	is
+wordy	\bplays? an? (\w+ )?role( in)?\b	say what it does
+wordy	\bwhether or not\b	whether
+wordy	\bin (the )?(case|event) (that|when|where)\b	if / when
+wordy	\bprior to\b	before
+wordy	\bsubsequent to\b	after
+wordy	\bin (close )?proximity to\b	near
+wordy	\b(each and every|any and all)\b	each / every / all
+wordy	\b(all|both) of the\b	all the / both
+wordy	\b(a|the) total of\b	delete
+wordy	\bwe (are dealing|deal|dealt) with\b	we study / we consider
+wordy	\bis (based|built|founded) (up)?on the (idea|observation|fact|notion|concept) (that|of)\b	uses / follows from
+wordy	\bthe (process|task|act|concept|notion|idea) of (\w+ing)\b	use the -ing word alone
+wordy	\b(take|takes|took|taking) into (account|consideration)\b	consider / account for
+wordy	\b(come|comes|came) to the conclusion\b	conclude
+wordy	\b(has|have) (a|an) (\w+ )?(impact|effect|influence) on\b	affects / changes (and say how)
+wordy	\bis (dependent|reliant) (up)?on\b	depends on
+wordy	\bin (such )?a way that\b	so that
+wordy	\bby means of\b	by / with
+wordy	\bon the basis of\b	from / by
+wordy	\bin the (near )?vicinity of\b	near
+wordy	\bit is the case that\b	delete
+wordy	\bas well as\b	and
+wordy	\bthe reason (why |for this )?is (that|because)\b	because
+wordy	\bin the process of\b	while / delete
+wordy	\b(a|the) (vast |great |overwhelming )?majority of\b	most
+wordy	\bis in (agreement|accordance|line) with\b	agrees with / matches
+wordy	\bit (has|had) been (shown|proved|proven|demonstrated|observed|established|reported) that\b	name who showed it: 'Gomory and Hu~\cite{...} showed'
+wordy	\b(has|have) been shown to be\b	is (+ citation)
+wordy	\bat the same time\b	delete, or 'and'; keep only for real simultaneity
+wordy	\bin (the )?light of\b	because of / given
+wordy	\b(is|are) (referred to|known|denoted|called) as\b	is called / we call; 'denoted by'
+
+# --- hype: tvrdenie o kvalite namiesto dôkazu --------------------------------------------------------------
+hype	\b(novel|groundbreaking|ground-breaking|cutting-edge|revolutionary|unprecedented)\b	say what is new: the statement, the bound, the method
+hype	\bstate[- ]of[- ]the[- ]art\b	name the baselines and cite them
+hype	\bsignificant(ly)?\b	give the number; use the word only with a statistical test
+hype	\b(elegant(ly)?|powerful|sophisticated|remarkabl[ey]|striking(ly)?|impressive(ly)?|outstanding|excellent|tremendous(ly)?|dramatic(ally)?|superior|compelling)\b	delete; let the result speak
+hype	\b(comprehensive(ly)?|extensive(ly)?|thorough(ly)?|exhaustive(ly)?|in-depth)\b	state the scope: how many instances, runs, cases
+hype	\bsimple (yet|but) (effective|powerful|efficient)\b	describe the method; report the numbers
+hype	\b(greatly|vastly|substantially|considerably|drastically|hugely) (improv|outperform|reduc|increas|enhanc|exceed|simplif)\w*	give the factor or the difference
+hype	\b(outperform|outperforms|outperformed|outperforming)\b(?![^.]*\b(by|on|in|with|\d))	by how much, on which instances, against which baseline
+hype	\b(promising|encouraging|interesting|exciting|intriguing) (result|results|direction|directions|approach|avenue|avenues)\b	state the result or the open problem
+hype	\b(a|the) first\b(?= (to|work|paper|result|algorithm|study|approach|method))	only with a verified literature search; say "first" about a precise statement
+
+# --- hedge: neistota bez obsahu ----------------------------------------------------------------------------
+hedge	\b(may|might|could) (possibly|potentially|perhaps|conceivably)\b	one hedge is enough
+hedge	\b(seems?|appears?) to (suggest|indicate|imply|show)\b	"suggests" / "indicates"
+hedge	\bit (seems|appears) that\b	state the evidence, or mark as conjecture
+hedge	\b(somewhat|relatively|comparatively|arguably|presumably|conceivably|supposedly)\b	quantify or delete
+hedge	\bto (some|a certain|a large|a great|a lesser) (extent|degree)\b	quantify
+hedge	\b(we|I) (believe|think|feel|hope|suspect|expect) (that)?\b	"We conjecture" + reason, or state the evidence
+hedge	\bto the best of our knowledge\b	at most once per paper, after a real literature search
+hedge	\bin (a|some|a certain) sense\b	say in which sense
+hedge	\b(more or less|kind of|sort of)\b	delete
+hedge	\b(can|could|may|might) (potentially )?be (seen|viewed|regarded|considered|interpreted|thought of) as\b	"is" / "we view X as"
+
+# --- meta: text o texte --------------------------------------------------------------------------------------
+meta	\bin (this|the (following|next|previous|preceding|present)) (section|subsection|chapter|paragraph|part),? we (will |shall |are going to |now )?(first )?(discuss|describe|present|introduce|look at|focus on|deal with|explore|examine|investigate|consider|study|turn to|provide|give|review|outline|recall)\b	state the content or the result instead of announcing it
+meta	\b(this|the present) (section|subsection|chapter) (is devoted to|deals with|is concerned with|focuses on|discusses|describes|presents|introduces|provides|gives|covers)\b	state the content or the result instead of announcing it
+meta	\b(the )?(rest|remainder) of (this|the) (paper|article|section|chapter|thesis) is (organi[sz]ed|structured) as follows\b	once, at the end of the introduction, at most four sentences
+meta	\b(as|what) (we )?(will|shall) (see|show|discuss|prove|demonstrate|explain|become clear) (later|below|shortly|in the (following|sequel|next))\b	give the forward reference (Section~X) or delete
+meta	\bwe are now (ready|in a position|able|prepared) to\b	delete; state the theorem
+meta	\blet us (now )?(turn|move|proceed|begin|start|take a look|look|have a look|recall|consider|note|observe|mention|point out)\b	"Consider ...", "Recall that ...", or delete
+meta	\bbefore (we )?(proceed|proceeding|continuing|going further|moving on|stating|we state|we continue|presenting)\b	delete the preamble; give the definition directly
+meta	\bhaving (established|introduced|defined|proved|proven|shown|discussed|presented)\b	delete the transition
+meta	\bwith (this|these|the above) (definition|definitions|notation|preliminaries|preparation|tools?|results?|observations?) (in hand|in place|at hand|in mind)\b	delete the transition
+meta	\b(the )?(following|next) (theorem|lemma|result|proposition|claim|definition|corollary) (states|shows|says|formali[sz]es|summari[sz]es|gives|provides|captures|establishes)\b	keep only if the sentence itself states the content
+meta	\bthis (concludes|completes|finishes|ends) the (proof|argument|section|discussion)\b	the end-of-proof symbol says it
+meta	\b(for|to) (a )?better understanding\b	delete; "Figure~X shows ..."
+meta	\bwe (now )?(turn|move|proceed) (our attention )?to\b	delete; the heading does the transition
+meta	\bbuilding (up)?on (the|these|this|our) (\w+ )?(insights?|results?|observations?|ideas?|foundations?)\b	name the lemma: "By Lemma~X, ..."
+
+# --- ai-tic: obraty, podľa ktorých recenzent spozná text písaný LLM ------------------------------------------
+ai-tic	\bdelv(e|es|ed|ing)\b	study / examine
+ai-tic	\bleverag(e|es|ed|ing)\b	use
+ai-tic	\bharness(es|ed|ing)?\b	use
+ai-tic	\bunderscor(e|es|ed|ing)\b	show
+ai-tic	\bshowcas(e|es|ed|ing)\b	show
+ai-tic	\bshed(s|ding)? (new |some )?light on\b	explain
+ai-tic	\bpav(e|es|ed|ing) the way\b	say what becomes possible
+ai-tic	\b(landscape|realm|tapestry|testament|cornerstone|linchpin|plethora|myriad|multifaceted|intricate|intricacies|nuanced|holistic|synerg(y|ies|istic)|paradigm shift|game[- ]chang(er|ing)|ever[- ](evolving|growing|increasing|changing))\b	plain word, or delete
+ai-tic	\b(crucial|pivotal|vital|paramount|indispensable)\b	"important" + why, or delete
+ai-tic	\b(foster|fosters|fostering|bolster|bolsters|bolstering|facilitat(e|es|ed|ing)|streamlin(e|es|ed|ing)|empower(s|ed|ing)?)\b	help / enable / allow / simplify
+ai-tic	\b(seamless(ly)?|effortless(ly)?|meticulous(ly)?)\b	delete
+ai-tic	(^|[.!?:]\s+)(Notably|Importantly|Interestingly|Remarkably|Crucially|Intriguingly|Surprisingly|Strikingly|Significantly|Specifically|Essentially|Ultimately|Indeed),	delete the adverb; if it is surprising, say why
+ai-tic	(^|[.!?:]\s+)(Moreover|Furthermore|Additionally|In addition|Besides|Also|Likewise),	delete if the sentence stands alone; a connective must state a logical relation
+ai-tic	(^|[.!?:]\s+)(Overall|In summary|In conclusion|To summarize|To sum up|All in all|In essence|In short),	delete outside the Conclusion; do not summarize a paragraph at its end
+ai-tic	\bnot only\b.{0,90}\bbut (also)?\b	"A and B"
+ai-tic	\b(a|the) (wide|broad|rich|diverse|vast) (range|variety|spectrum|array|class|body) of\b	name them, or "many"
+ai-tic	\b(in recent years|over the (past|last) (few |several |two |three )?(years|decades?)|nowadays|in today's (world|era)|in the (modern|current|digital) (era|age|world)|in modern (\w+ )?(systems|networks|society|applications))\b	cut the scene-setting; open with the problem, or give a dated fact with a citation
+ai-tic	\bwith the (rapid |recent |fast |continuous )?(development|advancement|advancements|rise|advent|growth|emergence|proliferation|progress) of\b	cut the scene-setting; open with the problem
+ai-tic	\b(has|have) (attracted|received|gained|drawn|garnered|seen|witnessed) (considerable |significant |much |increasing |growing |great |a lot of |substantial |tremendous |widespread |extensive )?(attention|interest|popularity|traction|progress|success)\b	cite what was done, not that it is popular
+ai-tic	\b(is|are|has been|have been) (widely|extensively|intensively|well|heavily|thoroughly) (studied|used|investigated|adopted|recogni[sz]ed|explored|applied|researched)\b	cite the works, or delete
+ai-tic	\bthis (highlights|underscores|demonstrates|illustrates|emphasi[sz]es|reflects|showcases|underlines) the (importance|need|potential|power|significance|value|utility|effectiveness|versatility|necessity|relevance) of\b	state the consequence concretely
+ai-tic	\b(serves|serve|acts|act|functions|function|stands|stand) as (a|an|the) (\w+ )?(foundation|basis|cornerstone|backbone|bridge|stepping stone|building block|framework|testament)\b	say what depends on it
+ai-tic	\b(interplay|synergy|tension|dichotomy|duality) between\b	name the relation
+ai-tic	\bopen(s|ed|ing)? (up )?(new |several |many |promising )?(avenues|doors|possibilities|directions|horizons|perspectives|opportunities)\b	name the open problem
+ai-tic	\b(future|further|additional|more) (work|research|studies|investigation|analysis) (is|are|will be|remains) (needed|required|warranted|necessary)\b	name the specific open problem
+ai-tic	\b(deep|deeper|better|comprehensive|thorough|nuanced|clear|clearer) understanding\b	state what is now known
+ai-tic	\b(key|valuable|important|novel|new|useful|critical|deep|fresh|structural) insights?\b	state the insight
+ai-tic	\b(captur(e|es|ed|ing)|embod(y|ies|ied|ying)|encapsulat(e|es|ed|ing)|reflect(s|ed|ing)?) (both |the )?(essence|nature|spirit|notion|idea|balance|trade-off|interplay)\b	define the object; drop the gloss
+ai-tic	\b(unified|unifying|principled|flexible|versatile|scalable) (framework|perspective|approach|view|treatment|methodology)\b	say what the framework is and what it covers
+ai-tic	\b(elegant|natural|convenient|formal|rigorous|solid|theoretical|conceptual) (framework|foundation|basis|setting)\b	delete; give the model
+ai-tic	\b(a|the) (central|key|major|main|fundamental|significant|core|primary) (challenge|issue|difficulty|obstacle|question) (lies|is|resides|consists) in\b	state the difficulty directly
+ai-tic	\b(conceptual|theoretical|formal|solid|firm) foundation (of|for)\b	delete; say what is built
+
+# --- grammar: chyby typické pre slovenského autora -----------------------------------------------------------
+grammar	\b(allow|allows|allowed|allowing|enable|enables|enabled|enabling|permit|permits|permitted) to (?!be\b)\w+	"allows us to X" / "allows X-ing" (the verb needs an object)
+grammar	\b(informations|advices|knowledges|literatures|equipments|softwares|evidences|feedbacks|researches)\b	uncountable noun: no plural
+grammar	\b(previous|prior|related|existing|recent|earlier|other|several|many|these|those) works\b	'work' is uncountable: prior work / earlier papers / studies
+grammar	\bon the other side\b	on the other hand
+grammar	\bdiscuss(es|ed|ing)? about\b	discuss (no preposition)
+grammar	\b(depend|depends|depended|depending|dependent) (from|of)\b	depend on
+grammar	\bconsist(s|ed|ing)? (from|on)\b	consist of
+grammar	\bdifferent (than|to)\b	different from
+grammar	\ba (?=[ai]|e(?!u)|o(?!ne|nce))[a-z]{2,}	"an" before a vowel sound
+grammar	\b[Aa]n (?-i:[bcdfgjklmnpqrstvwxyz][a-z]{2,})	"a" before a consonant sound
+grammar	\b(the|a|an) (the|a|an)\b	double article
+grammar	\b(we|to|will|can|shall|cannot) proof\b	verb is "prove"; "proof" is the noun
+grammar	\b(the|a|this|our|its) prove\b	noun is "proof"
+grammar	\bless (vertices|edges|paths|cuts|graphs|nodes|steps|cases|instances|elements|iterations|calls|runs|variables|clauses)\b	fewer
+grammar	\bamount of (vertices|edges|paths|cuts|graphs|nodes|steps|cases|instances|elements|iterations|calls|runs|variables|clauses)\b	number of
+grammar	\bmuch (vertices|edges|paths|cuts|graphs|nodes|steps|cases|instances|elements|iterations|calls|runs)\b	many
+grammar	\bresp\.	not English usage: write "or", or two sentences; "respectively" goes at the end
+grammar	\bcca\b	about / approximately
+grammar	\beventually\b	false friend: "eventually" = nakoniec; SK "eventuálne" = possibly
+grammar	\bactual(ly)?\b	false friend: "actual" = skutočný; SK "aktuálny" = current
+grammar	\bcontrol(s|led|ling)? (if|whether|that)\b	check whether (SK "kontrolovať")
+grammar	\bon (the )?(figure|fig\.|picture|image|table)\b	"in Figure~X" / "in Table~X"
+grammar	\b(picture|image)(~| )\\ref	Figure~\ref
+grammar	\b[Ii]n~?\\cite[tp]?\{	citation is not a noun: "Gomory and Hu~\cite{...} show"
+grammar	\b(the )?authors? (of|in)~?\\cite	name the authors
+grammar	\\cite[tp]?\{[^}]*\}\s+(show|shows|showed|prove|proves|proved|introduce|introduces|introduced|define|defines|defined|study|studies|studied|consider|considers|considered|propose|proposes|proposed|present|presents|presented|give|gives|gave)\b	citation is not a noun: name the authors before \cite
+grammar	\bas (it )?(was|is) (already )?(said|told|written)\b	as stated in Section~X
+grammar	\b(is|are|was|were) (consist|depend|exist|occur|happen|belong)(s|ed)?\b	intransitive verb: no passive
+grammar	\b(explain|describe|mention|suggest|propose|say|prove) (us|me|him|them|you) (that|how|what|why|the)\b	"explain to us" / drop the pronoun
+grammar	\b(although|though|even though),? (.{3,60}),? but\b	double connective: keep one
+grammar	\b(in|on|at) (the )?(same|other|another|different|following|next) (way|manner) (like|as how)\b	"in the same way as"
+grammar	\b(the )?(most|more) (optimal|minimal|maximal|minimum|maximum|unique)\b	absolute adjective: no comparative
+grammar	\b(optimalization|optimalize|optimalized|polynomic|exponencial|algoritm|algoritmus|theoreme|kardinality|vertexes|matrixes|criterias|datas)\b	spelling borrowed from Slovak, or wrong plural

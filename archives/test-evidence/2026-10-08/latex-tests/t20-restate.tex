@@ -1,0 +1,14 @@
+\documentclass{article}
+\usepackage{amsthm}\usepackage{thmtools}
+\usepackage{hyperref}\usepackage[capitalise,noabbrev]{cleveref}
+\declaretheorem[name=Definition,style=definition,numberwithin=section]{definition}
+\declaretheorem[name=Lemma,style=plain,sibling=definition]{lemma}
+\declaretheorem[name=Theorem,style=plain,sibling=definition]{theorem}
+\begin{document}
+\section{A}
+\begin{restatable}{theorem}{mainthm}\label{thm:main}Statement.\end{restatable}
+\begin{lemma}\label{lem:a}x\end{lemma}\begin{lemma}\label{lem:b}x\end{lemma}\begin{lemma}\label{lem:c}x\end{lemma}
+\section{B}
+\mainthm*
+REF: \cref{thm:main}; \crefrange{lem:a}{lem:c}; \cref{lem:a,lem:b,lem:c}.
+\end{document}

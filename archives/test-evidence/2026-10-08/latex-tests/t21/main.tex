@@ -1,0 +1,73 @@
+\newcommand*{\DoNotLoadEpstopdf}{}
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage{lmodern}\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,thmtools,mathtools}
+\usepackage{graphicx,booktabs,siunitx,tabularx,longtable,subcaption,enumitem,csquotes,xurl}
+\usepackage{algorithm,algpseudocode}
+\usepackage{pgfplots}\pgfplotsset{compat=1.18}
+\newif\ifdraft \drafttrue
+\ifdraft \usepackage[colorinlistoftodos]{todonotes}\else \usepackage[disable]{todonotes}\fi
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Test}, pdfauthor={Norbert Mi\v{c}e\v{l}}, pdfkeywords={cut, shortest path}}
+\usepackage[capitalise,noabbrev]{cleveref}
+\declaretheorem[name=Theorem,style=plain,numberwithin=section]{theorem}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}\DeclarePairedDelimiter{\set}{\{}{\}}
+\DeclareMathOperator{\diam}{diam}
+\newcommand{\textproblem}[1]{\textsc{#1}}
+\definecolor{tolblue}{HTML}{4477AA}\definecolor{tolred}{HTML}{EE6677}
+\begin{document}
+\section{\texorpdfstring{$G(n,p)$}{G(n,p)}}
+$S \coloneqq \set{v \in V : \deg(v) \geq 2}$, \enquote{q}, P\@. e.g.\ x, \qty{2.5}{\second}, \num{12345}. \todo{check}
+\begin{restatable}{theorem}{mainthm}\label{thm:main}Every graph.\end{restatable}
+\begin{itemize}[nosep]\item a\item b\end{itemize}
+\begin{algorithm}[tb]
+  \caption{Reduction from \textproblem{3-SAT}.}
+  \label{alg:reduction}
+  \begin{algorithmic}[1]
+    \Require formula $\varphi$ with clauses $C_1, \dots, C_m$
+    \Ensure graph $G$ and vertices $u, v$
+    \Procedure{Reduce}{$\varphi$}
+      \State $G \gets \emptyset$
+      \For{$k \gets 1$ \textbf{to} $m$} \Comment{one gadget per clause}
+        \State \Call{AddGadget}{$G, C_k$} \label{line:gadget}
+      \EndFor
+      \State \Return $(G, u, v)$
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
+\begin{table}[tb]
+  \centering
+  \caption{Running time in seconds, mean of 10 runs.}
+  \label{tab:runtime}
+  \begin{tabular}{@{}l S[table-format=4.0] S[table-format=2.2]@{}}
+    \toprule
+    Instance & {$\abs{V}$} & {Time (s)} \\
+    \midrule
+    \texttt{grid-10} &  100 &  0.12 \\
+    \texttt{grid-50} & 2500 & 12.85 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{figure}[tb]
+  \centering
+  \begin{subfigure}{0.48\linewidth}\centering
+    \rule{2cm}{1cm}\caption{Before.}\label{fig:a}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.48\linewidth}\centering
+    \rule{2cm}{1cm}\caption{After.}\label{fig:b}
+  \end{subfigure}
+  \caption{Both states of the chain.}\label{fig:ab}
+\end{figure}
+\begin{figure}[tb]\centering
+  \begin{tikzpicture}
+    \begin{axis}[xlabel={$n$}, ylabel={time (s)}, ymode=log, legend pos=north west]
+      \addplot+[tolblue, mark=o] table[col sep=comma, x=n, y=exact]{data/runtime.csv};
+      \addplot+[tolred, mark=square] table[col sep=comma, x=n, y=heuristic]{data/runtime.csv};
+      \legend{exact, heuristic}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Plot.}\label{fig:plot}
+\end{figure}
+REF: \cref{thm:main}; \cref{alg:reduction}, line~\ref{line:gadget}; \cref{tab:runtime}; \cref{fig:a}; \cref{fig:ab}; \nameref{thm:main}.
+\section{B}\mainthm*
+\end{document}

@@ -1,0 +1,108 @@
+ .../clanok-1-min-cut-path/sections/03-np-completeness.tex  | 14 +++++++-------
+ .../clanok-1-min-cut-path/sections/04-diameter-two.tex     |  6 +++---
+ .../clanok-1-min-cut-path/sections/06-random-graphs.tex    |  6 +++---
+ 3 files changed, 13 insertions(+), 13 deletions(-)
+diff --git a/projects/clanok-1-min-cut-path/sections/03-np-completeness.tex b/tmp/rehearsal/ws/projects/clanok-1-min-cut-path/sections/03-np-completeness.tex
+index d30c938..5d57983 100644
+--- a/projects/clanok-1-min-cut-path/sections/03-np-completeness.tex
++++ b/tmp/rehearsal/ws/projects/clanok-1-min-cut-path/sections/03-np-completeness.tex
+@@ -16,7 +16,7 @@ $C_k$ is a disjunction of exactly three literals, and each literal is either a v
+ The \ThreeSAT{} decision problem is defined as follows:
+ 
+ \begin{center}
+-\begin{tabular}{p{0.12\linewidth}p{0.8\linewidth}}
++\begin{tabular}{p{0.18\linewidth}p{0.75\linewidth}}
+ \textbf{Input:} & A finite set of Boolean variables $U$ and a collection $\mathcal{C}$ of clauses, each containing exactly three literals.\\
+ \textbf{Question:} & Does there exist a truth assignment $\tau: U \rightarrow \{\mathsf{true}, \mathsf{false}\}$ such that every clause $C_k \in \mathcal{C}$ evaluates to \textsf{true} under $\tau$?
+ \end{tabular}
+@@ -43,7 +43,7 @@ A shortest $u$--$v$ path $P$ is called a \emph{separating shortest path} if the
+ The \SSP{} decision problem is defined as follows:
+ 
+ \begin{center}
+-\begin{tabular}{p{0.12\linewidth}p{0.8\linewidth}}
++\begin{tabular}{p{0.18\linewidth}p{0.75\linewidth}}
+ \textbf{Input:} & A graph $G = (V,E)$ and two distinct vertices $u,v \in V$.\\
+ \textbf{Question:} & Does there exist a shortest $u$--$v$ path in $G$ that is a separating shortest path?
+ \end{tabular}
+@@ -73,7 +73,7 @@ Figure~\ref{fig:chain-threads} gives a schematic overview of the two types of ga
+ 
+ \begin{figure}[H]
+     \centering
+-    \includegraphics[width=145mm]{img/chain-threads.png}
++    \includegraphics[width=\linewidth]{img/chain-threads.png}
+     \caption{Layout of the construction: the chain (black) and a thread (red)}
+     \label{fig:chain-threads}
+ \end{figure}
+@@ -132,7 +132,7 @@ Every $u$--$v$ path in a chain traverses all single edges and, in each chain lin
+ 
+ \begin{figure}[H]
+     \centering
+-    \includegraphics[width=145mm]{img/chain.png}
++    \includegraphics[width=\linewidth]{img/chain.png}
+     \caption{A chain}
+     \label{fig:chain}
+ \end{figure}
+@@ -164,7 +164,7 @@ The chain links that belong to one variable are consecutive in the chain, as ill
+ 
+ \begin{figure}[H]
+     \centering
+-    \includegraphics[width=145mm]{img/chain-link-types.png}
++    \includegraphics[width=\linewidth]{img/chain-link-types.png}
+     \caption{Chain links of a variable $x_i$: the initialization link, the literal links, and the terminal link}
+     \label{fig:chain-link-types}
+ \end{figure}
+@@ -206,7 +206,7 @@ In general, we say that the thread $P$ is \emph{threaded through $L$ at the edge
+ 
+ \begin{figure}[H]
+     \centering
+-    \includegraphics[width=145mm]{img/threading.png}
++    \includegraphics[width=\linewidth]{img/threading.png}
+     \caption{The threading operation}
+     \label{fig:threading}
+ \end{figure}
+@@ -396,7 +396,7 @@ Let $G=(V,E)$ be an undirected graph and $u,v \in V$ distinct vertices; cut-path
+ The decision version of the \MinCutPath{} problem is defined as follows:
+ 
+ \begin{center}
+-\begin{tabular}{p{0.12\linewidth}p{0.8\linewidth}}
++\begin{tabular}{p{0.18\linewidth}p{0.75\linewidth}}
+ \textbf{Input:} & A graph $G=(V,E)$, vertices $u,v \in V$, and an integer $k$. \\
+ \textbf{Question:} & Does there exist a cut-path $F \subseteq E$ between $u$ and $v$ with $|F|\leq k$?
+ \end{tabular}
+diff --git a/projects/clanok-1-min-cut-path/sections/04-diameter-two.tex b/tmp/rehearsal/ws/projects/clanok-1-min-cut-path/sections/04-diameter-two.tex
+index c68de40..df2f9db 100644
+--- a/projects/clanok-1-min-cut-path/sections/04-diameter-two.tex
++++ b/tmp/rehearsal/ws/projects/clanok-1-min-cut-path/sections/04-diameter-two.tex
+@@ -147,10 +147,10 @@ where the estimate is obtained by counting the edges of the cut according to the
+ The edges counted on the right-hand side are drawn in red in Figure~\ref{fig:diameter-two-structure}.
+ 
+ Since $\deg(u, I) \geq 0$ and $\deg(u, K) \leq |K| - 1$, we obtain
+-\[
+-\deg(u, I) + \deg(u, J) + 2 + (|K| - 2) \geq
++\begin{multline*}
++\deg(u, I) + \deg(u, J) + 2 + (|K| - 2) \geq \\
+ 0 + \deg(u, J) + \deg(u, K) + 1 = \deg(u) + 1 \geq c(u, v) + 1,
+-\]
++\end{multline*}
+ where the equality holds because $u$ has no neighbors in $I$, and the last inequality holds because the edges incident to $u$ form a $u$--$v$ cut.
+ This contradicts the assumption that $\cp(u, v) = c(u, v)$; hence $\cp(u, v) = c(u, v) + 1 = c(u, v) + d(u, v) - 1$.\qedhere
+ \end{enumerate}
+diff --git a/projects/clanok-1-min-cut-path/sections/06-random-graphs.tex b/tmp/rehearsal/ws/projects/clanok-1-min-cut-path/sections/06-random-graphs.tex
+index 0b2be93..0080254 100644
+--- a/projects/clanok-1-min-cut-path/sections/06-random-graphs.tex
++++ b/tmp/rehearsal/ws/projects/clanok-1-min-cut-path/sections/06-random-graphs.tex
+@@ -58,11 +58,11 @@ Then there exist constants $0 < \beta_1 < \beta_2$, depending only on $\alpha$,
+ The degree of a fixed vertex $v$ has the binomial distribution with mean $\mu = (n-1)p = (1-o(1))\,\alpha \log n$.
+ For $a > 0$, let $h(a) = a \log a - a + 1$.
+ By the Chernoff bounds (see, e.g.,~\cite{Frieze2016}),
+-\[
++\begin{gather*}
+ \mathbb{P}\bigl[\deg(v) \leq a\mu\bigr] \leq e^{-\mu h(a)} \ \text{ for } 0 < a < 1
+-\qquad\text{and}\qquad
++\qquad\text{and}\\
+ \mathbb{P}\bigl[\deg(v) \geq a\mu\bigr] \leq e^{-\mu h(a)} \ \text{ for } a > 1.
+-\]
++\end{gather*}
+ Since $h(a) \to 1$ as $a \to 0$, $h(a) \to \infty$ as $a \to \infty$, and $\alpha > 1$, we can fix constants $0 < a_1 < 1 < a_2$ such that $\alpha h(a_1) > 1$ and $\alpha h(a_2) > 1$.
+ For these constants, both probabilities above are $o(1/n)$, and the union bound over all $n$ vertices shows that, with probability tending to one, every degree lies between $a_1 \mu$ and $a_2 \mu$.
+ The claim follows, for instance, with $\beta_1 = a_1 \alpha / 2$ and $\beta_2 = 2 a_2 \alpha$.

@@ -1,0 +1,73 @@
+scripts/package-project.ps1 - test results, 2026-10-08 (Windows PowerShell 5.1, MiKTeX, latexmk)
+
+Driver:   run-tests.ps1 (re-runs everything; creates and removes projects/_pkgtest-*)
+Inputs:   inputs/_pkgtest-article (copy of templates/article-modular with the commented examples enabled, one
+          citation, img/example.pdf); the other test projects are copies of templates/new-aiaa and
+          templates/thesis-modular made by the driver; the negative variants are small edits listed in the driver
+Logs:     logs/<case>.txt (full output of every run); results-table.txt (generated table, 35 cases)
+Result:   35 cases, 0 differ from the expectation (exit code and set of finding categories other than [comment])
+
+Test 1  clanok-1-min-cut-path (new-aiaa, template folder templates/new-aiaa, BibTeX)
+  default      PASS  23 pages  zip 183368 bytes, 23 entries  [layout] 1 (\setstretch in main.tex:18), [comment] 8
+  -Flat        PASS  23 pages  zip 183083 bytes, 23 entries  (extracted by hand with ZipFile.ExtractToDirectory:
+                     23 files, 0 subfolders; no entry contains "/" or "\")
+  -CheckOnly   PASS  [layout] 1; nothing written
+  -KeepComments PASS 23 pages  zip 183923 bytes (comment lines kept)
+  -MaxPages 20 PASS  [pages] "23 pages, the limit is 20 (3 too many)" (+ [layout] 1)
+  Zip read back with System.IO.Compression.ZipArchive: 0 entries with a backslash, 0 with a leading slash,
+  0 folder entries, main.tex and main.bbl at the top level, README.md absent.
+  The venue files new-aiaa.cls and new-aiaa.bst are byte-identical to templates/new-aiaa (reported in the header).
+
+Test 2  copy of templates/article-modular (class article, no template folder)
+  -CheckOnly   PASS  "Template: none (standard class article)", 0 findings
+  default      PASS  2 pages, zip 5271 bytes, 13 entries      -Flat PASS  2 pages, zip 5086 bytes, 13 entries
+  (a) \input{../other}                     -> [outside] FAIL, exit 1, run stops before staging
+  (b) \includegraphics{img/Example}        -> [case] only, PASS (builds on Windows, breaks on Linux)
+  (c) file "my notes.tex"                  -> [filename] + [unused], PASS, file is in the zip
+  (d) unused sections/unused-section.tex   -> [unused] only, PASS
+  (e) new-aiaa.cls with one comment line   -> [template-file] FAIL (SHA-256 differs), exit 1
+      unmodified copy of templates/new-aiaa -> PASS, 0 findings
+  (f) "% ..." line inside verbatim         -> survives in the zip; a full-line comment after it is removed
+  (g) README.md, submission/reviews-r1.txt, experiments/run.py -> none in the zip (listed under "Excluded")
+  extra: missing package / \input / \includegraphics, absolute path -> [missing] x3 + [outside] (\input{glyphtounicode}
+         is found through kpsewhich and not reported); LaTeX error -> [build] FAIL with the log lines; \cref to a
+         missing label -> [undefined] FAIL; an environment built on \verbatim that the script does not know ->
+         [text-diff] FAIL (comment stripping changed the text; caught by the reference build)
+
+Test 3  copy of templates/thesis-modular (class report, \include, settings.tex read before \documentclass)
+  default             PASS  21 pages, zip 15887 bytes, 38 entries, [unused] 12 (exam/, exam.tex, cv, declaration, glossary)
+  -MainFile exam.tex  PASS  19 pages (class found through \input{main}), same zip name as the default run
+  -Flat               FAIL  [flat] name clash: chapters/01-introduction.tex and exam/01-introduction.tex
+                            (and 02-preliminaries); the interface makes a name clash a FAIL
+  copy without exam/, exam.tex and the exam branch of main.tex:
+    default PASS 21 pages;  -Flat PASS 21 pages, 29 entries (\include{chapters/..} and the path arguments of
+    \thesisfrontpart, \thesisinputlabels, \thesisabstractpage, \thesislistedpart are rewritten; text equal to the
+    reference build)
+
+Test 4  cv (altacv class identical to templates/altacv, biblatex + biber, own latexmkrc, pdfx)
+  default and -Flat   PASS  2 pages, zip 14679 bytes, 8 entries; [layout] 1 (\vspace{-...}), [unused] 1 (LICENSE.md);
+                      pdfa.xmpi left out; the .bbl of biber is kept in the zip
+
+Parameters: no -Project, unknown project, unknown -Template, missing -MainFile, -MaxPages 0, excluded -MainFile
+            (README.md) -> exit 2 with a one-line message.
+
+Protected folders: no file of projects/clanok-1-min-cut-path, projects/cv, templates/, knowledge/, archives/ (outside
+the evidence folder) was written by the script (checked by modification times). Test projects were moved to
+tmp/pkgtest/ (projects-_pkgtest-*, outputs-_pkgtest-*); projects/ and outputs/ hold no _pkgtest-* folder.
+
+Changes by the lead after the test run above (2026-10-08), each tested from PowerShell:
+- [case] now fails the verdict. Test: copy of templates/article-modular with img/chain.png and
+  \includegraphics{img/Chain}: "-CheckOnly" gives "[case] FAIL" and "Verdict: FAIL (case)", exit code 1.
+- A second main file beside main.tex adds its name to the package: thesis-modular copy, "-MainFile exam.tex" writes
+  <project>-exam-20261008.zip and .pdf (19 pages, PASS); the default run writes <project>-20261008.zip (21 pages, PASS);
+  both pairs exist side by side.
+- build-project.ps1 runs "package-project.ps1 -CheckOnly" after a successful build and prints
+  "Package check (static): Verdict: ..." before the PDF path (switch -NoPackageCheck skips it; the exit code of the
+  build is unchanged). Tested on clanok-1-min-cut-path and cv: PASS, 1 finding each.
+- Independent check of the flat zip of clanok-1-min-cut-path: extracted with tar.exe into a fresh folder (23 files,
+  no subfolder, no README.md, no comment lines), three pdflatex runs without BibTeX: exit code 0, 23 pages, no "??".
+- After the rehearsal (rehearsal-elsarticle/): [pages] now fails the verdict; the [layout] list gained spacing
+  commands, \fontsize, \titleformat, \titlespacing, \setlist, \newgeometry, \geometry, assignments of page lengths and
+  redefined \section ... \maketitle. Tests: clanok-1 with -MaxPages 20: "[pages] FAIL", "Verdict: FAIL (pages)", exit 1,
+  no zip written; default run: PASS, 23 pages, 1 [layout] finding as before; a copy with six such overrides appended
+  to preamble/packages.tex: six new [layout] findings.

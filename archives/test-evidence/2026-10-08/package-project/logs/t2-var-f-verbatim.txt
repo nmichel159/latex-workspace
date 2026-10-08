@@ -1,0 +1,49 @@
+﻿-- Staging _pkgtest-article into tmp/package-_pkgtest-article/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Round trip: extracting the zip and building it
+projects/_pkgtest-article/main.tex:31: [comment] end-of-line comment stays in the package: % after hyperref, before any \newtheorem
+projects/_pkgtest-article/preamble/environments.tex:24: [comment] end-of-line comment stays in the package: % background color
+projects/_pkgtest-article/preamble/environments.tex:25: [comment] end-of-line comment stays in the package: % border color
+projects/_pkgtest-article/preamble/environments.tex:26: [comment] end-of-line comment stays in the package: % border thickness
+projects/_pkgtest-article/preamble/environments.tex:27: [comment] end-of-line comment stays in the package: % corner roundness
+projects/_pkgtest-article/preamble/packages.tex:8: [comment] end-of-line comment stays in the package: % \declaretheorem (preamble/environments.tex), restatable theorems
+projects/_pkgtest-article/preamble/packages.tex:9: [comment] end-of-line comment stays in the package: % \DeclarePairedDelimiter, \coloneqq; extends amsmath
+projects/_pkgtest-article/preamble/packages.tex:12: [comment] end-of-line comment stays in the package: % \toprule, \midrule, \bottomrule; no vertical rules
+projects/_pkgtest-article/preamble/packages.tex:14: [comment] end-of-line comment stays in the package: % "problem" box, see preamble/environments.tex
+projects/_pkgtest-article/preamble/packages.tex:16: [comment] end-of-line comment stays in the package: % floating "algorithm" environment (loads float)
+projects/_pkgtest-article/preamble/packages.tex:17: [comment] end-of-line comment stays in the package: % \State, \For, \Require, \Ensure (part of algorithmicx)
+projects/_pkgtest-article/preamble/packages.tex:19: [comment] end-of-line comment stays in the package: % \enquote{...} instead of hand-typed quotation marks
+projects/_pkgtest-article/sections/02-preliminaries.tex:19: [comment] end-of-line comment stays in the package: % vector PDF; file name lowercase-with-hyphens
+
+Project: _pkgtest-article (projects/_pkgtest-article, main file main.tex)
+Class: article
+Template: none (standard class article)
+Layout: folders as in the project
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+Files in the zip (13, 7.1 kB uncompressed):
+       896  B  img/example.pdf
+       468  B  main.bbl
+       1.3 kB  main.tex
+       1.0 kB  preamble/environments.tex
+       439  B  preamble/macros.tex
+       680  B  preamble/packages.tex
+       528  B  references.bib
+        15  B  sections/00-abstract.tex
+       178  B  sections/01-introduction.tex
+       874  B  sections/02-preliminaries.tex
+       636  B  sections/03-results.tex
+       139  B  sections/04-conclusion.tex
+        21  B  sections/90-acknowledgments.tex
+
+Findings: 13 (0 FAIL)
+  comment          13
+Pages: 2
+Zip:  C:\Users\norom\Documents\latex\outputs\_pkgtest-article\package\_pkgtest-article-20261008.zip
+Link: outputs/_pkgtest-article/package/_pkgtest-article-20261008.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\_pkgtest-article\package\_pkgtest-article-20261008.pdf
+Link: outputs/_pkgtest-article/package/_pkgtest-article-20261008.pdf
+Verdict: PASS
+

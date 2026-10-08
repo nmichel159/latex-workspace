@@ -1,32 +1,55 @@
-# Článok 2 – Min Cut-Path (zatiaľ prázdny)
+# Article 2 - Min Cut-Path (empty so far)
+
+## Intent
 
 | | |
 |---|---|
-| Typ | článok do časopisu – rezervované miesto, zdroje ešte nie sú |
-| Zdroj obsahu | **diplomová práca *Min Cut-Path* (2025)** – rozhodnutie autora zo 7. 10. 2026 |
-| Hlavný súbor | – (po založení `main.tex`) |
-| Kompilácia | `.\scripts\build-project.ps1 -Project clanok-2-min-cut-path` (až keď tu bude `main.tex`) |
+| Type | journal article – placeholder, no sources yet |
+| Content source | **master's thesis *Min Cut-Path* (2025)** – the author's decision of 2026-10-07 |
+| Main file | – (`main.tex` once created) |
 | PDF | – |
-| Pôvod | prázdny priečinok `clanok_2 min cut-path`, 7. 10. 2026 premenovaný podľa konvencie |
+| Origin | empty folder `clanok_2 min cut-path`, renamed according to the convention on 2026-10-07 |
 
-## Čo treba pred začatím
+## Status
 
-1. **LaTeX zdroj diplomovej práce.** V repozitári je len PDF a extrahovaný text
-   (`knowledge/sources/diplomova-praca-2025-min-cut-path.*`). Ak zdroj existuje (Overleaf, disk), vlož zip do `inbox/` –
-   vzorce, algoritmy a obrázky sa potom preberú presne. Bez neho sa text prepisuje z PDF.
-2. **Rozsah a názov.** Článok 1 už z diplomovky použil: priemer 2, rez najviac 2, náhodné grafy (aproximačná schéma).
-   Nepoužité ostali (pozri [knowledge/research/min-cut-path.md](../../knowledge/research/min-cut-path.md), časť 4):
-   - kap. 2: tree-cut, 2-aproximácia, globálne minimum, partial path / partial cut property;
-   - kap. 3.3: trieda *diam or cut 2*, general square graph decomposition, polynomiálny a lineárny algoritmus;
-   - kap. 4.5: almost polynomial average-case algoritmus (Path-Cut);
-   - kap. 5: symetrický prípad `c = d = cp`, Filter-BFS, Local-Cut, nearly k-regular grafy.
-   CV uvádza dva pracovné názvy: *Polynomial-Time Solutions for Island Structures in the Min Cut-Path Problem* a
+Empty; waiting for the LaTeX source of the master's thesis.
+
+### Needed before starting
+
+1. **LaTeX source of the master's thesis.** The repository has only the PDF and the extracted text
+   (`knowledge/sources/diplomova-praca-2025-min-cut-path.*`). If the source exists (Overleaf, disk), put the zip into `inbox/` –
+   formulas, algorithms and figures can then be taken over exactly. Without it the text is transcribed from the PDF.
+2. **Scope and title.** Article 1 already used from the thesis: diameter 2, cut at most 2, random graphs (approximation scheme).
+   Left unused (see [knowledge/research/min-cut-path.md](../../knowledge/research/min-cut-path.md), Section 4):
+   - ch. 2: tree-cut, 2-approximation, global minimum, partial path / partial cut property;
+   - ch. 3.3: class *diam or cut 2*, general square graph decomposition, polynomial and linear algorithm;
+   - ch. 4.5: almost polynomial average-case algorithm (Path-Cut);
+   - ch. 5: symmetric case `c = d = cp`, Filter-BFS, Local-Cut, nearly k-regular graphs.
+
+   The CV lists two working titles: *Polynomial-Time Solutions for Island Structures in the Min Cut-Path Problem* and
    *Random Graph Models for the Min Cut-Path Problem*.
-3. **Šablóna.** Zatiaľ `templates/new-aiaa/` (rovnaká ako článok 1); cieľový časopis sa určí neskôr.
+3. **Template.** Start from `templates/article-modular/` (default for new articles, venue-neutral; see `templates/README.md`);
+   the target journal is decided later and the manuscript is then ported (`knowledge/writing/template-porting.md`).
+   Originally planned: `templates/new-aiaa/` (same as article 1).
 
-## Na čo si dať pozor pri preberaní z diplomovky
+## Build
 
-Zoznam chýb zistených v diplomovke je v [knowledge/research/min-cut-path.md](../../knowledge/research/min-cut-path.md), časť 5a
-(koncentrácia stupňov, `α > 1`, bibliografia, „NP-hardness is open“). Text treba prispôsobiť článku podľa
-[knowledge/writing/academic-style.md](../../knowledge/writing/academic-style.md): sekcie namiesto kapitol, `Lemma`/`Theorem`,
-notácia `\cp`, `\CP`, citovať článok 1 pre NP-úplnosť.
+```powershell
+.\scripts\build-project.ps1 -Project clanok-2-min-cut-path
+```
+
+Only once `main.tex` exists here. From then on the folder follows its template and stays sendable
+([latex-conventions.md](../../knowledge/writing/latex-conventions.md) §1.1): the static check after each structural
+change, the full run (without `-CheckOnly`) before anything is sent.
+
+```powershell
+.\scripts\package-project.ps1 -Project clanok-2-min-cut-path -CheckOnly
+```
+
+## Known problems
+
+Watch out when reusing text from the master's thesis. The list of errors found in the thesis is in
+[knowledge/research/min-cut-path.md](../../knowledge/research/min-cut-path.md), Section 5a
+(concentration of degrees, `α > 1`, bibliography, "NP-hardness is open"). Adapt the text to an article following
+[knowledge/writing/academic-style.md](../../knowledge/writing/academic-style.md): sections instead of chapters, `Lemma`/`Theorem`,
+notation `\cp`, `\CP`, cite article 1 for NP-completeness.

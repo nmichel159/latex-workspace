@@ -1,0 +1,32 @@
+% Theorem-like environments, the "problem" box and numbering.
+% Input after hyperref (and cleveref, when used): cleveref has to be loaded before \newtheorem,
+% otherwise environments sharing one counter are all referred to by the same name.
+
+% Numbering within sections
+\numberwithin{equation}{section}
+
+% One shared counter within a section: Definition 2.1, Theorem 2.2, Lemma 2.3, ...
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{claim}[definition]{Claim}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{proposition}[definition]{Proposition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{example}[definition]{Example}
+
+% "problem" environment: framed statement of a computational problem
+\newtcolorbox{problem}[1][]{%
+  enhanced,
+  colback=white,      % background color
+  colframe=black,     % border color
+  boxrule=0.8pt,      % border thickness
+  arc=2pt,            % corner roundness
+  left=6pt, right=6pt, top=6pt, bottom=6pt,
+  title=\textbf{Problem: #1},
+}

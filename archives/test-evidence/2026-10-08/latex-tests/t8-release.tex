@@ -1,0 +1,8 @@
+RequirePackage[2022-06-01]{latexrelease}
+\documentclass{article}
+\usepackage{amsthm}\usepackage[capitalise,noabbrev]{cleveref}
+\newtheorem{definition}{Definition}[section]\newtheorem{lemma}[definition]{Lemma}
+\begin{document}\section{A}
+\begin{definition}\label{def:a}x\end{definition}\begin{lemma}\label{lem:a}x\end{lemma}
+REF: \cref{lem:a}.
+\end{document}

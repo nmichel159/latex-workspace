@@ -1,16 +1,16 @@
 # Inbox
 
-Sem hoď čokoľvek nové a nespracované: zip z Overleafu, PDF práce alebo článku, šablónu, obrázky, poznámky.
-Potom stačí napísať „spracuj inbox“.
+Drop anything new and unprocessed here: an Overleaf zip, the PDF of a thesis or article, a template, images, notes.
+Then tell Claude "process the inbox" (Slovak: *spracuj inbox*).
 
-Čo sa s obsahom stane:
+What happens to the content:
 
-| Typ | Kam pôjde |
+| Type | Destination |
 |---|---|
-| zip s LaTeX projektom | rozbalí sa do `projects/<projekt>/`, zip do `archives/` |
-| zip so šablónou | rozbalí sa do `templates/<sablona>/`, zip do `archives/` |
-| PDF vlastnej práce alebo odborného zdroja | `knowledge/sources/` + extrahovaný text + prehľad v `knowledge/research/` |
-| bibliografia (`.bib`) | overené záznamy do `knowledge/bibliography/references.bib` |
-| ostatné | podľa obsahu; čo sa nedá zaradiť, ostane tu a spýtam sa |
+| zip with a LaTeX project | unpacked to `projects/<project>/`, zip to `archives/` |
+| zip with a template | unpacked to `templates/<template>/`, zip to `archives/` |
+| PDF of the author's own work or of a professional source | `knowledge/sources/` + extracted text + overview in `knowledge/research/` |
+| bibliography (`.bib`) | verified entries into `knowledge/bibliography/references.bib` |
+| anything else | by content; what cannot be filed stays here and Claude asks |
 
-Po spracovaní má byť tento priečinok prázdny (okrem tohto súboru).
+After processing, this folder must be empty (except this file).

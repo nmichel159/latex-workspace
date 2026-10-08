@@ -1,0 +1,52 @@
+\section{Preliminaries}
+\label{sec:preliminaries}
+% Definitions and notation used throughout the paper, known results with citations.
+% Guidance: knowledge/writing/paper-structure.md, knowledge/writing/math-writing.md
+
+Preliminaries text with a citation~\cite{Dummy2026}, \enquote{quoted} text, $\abs*{\frac{1}{2}}$, $\ceil{x}$, $\floor{x}$, $\set{1, 2}$, $\diam(G)$, $\poly(n)$, $\N, \Z, \R, \E$, $\OPT$, \textproblem{Min Cut-Path}.
+
+\begin{problem}[\textproblem{Min Cut-Path}]
+Input and question.
+\end{problem}
+
+\begin{lemma}\label{lem:test}Text.\end{lemma}
+\begin{lemma}\label{lem:test-two}Text.\end{lemma}
+\begin{claim}\label{clm:test}Text.\end{claim}
+\begin{corollary}\label{cor:test}Text.\end{corollary}
+\begin{proposition}\label{prop:test}Text.\end{proposition}
+\begin{remark}\label{rem:test}Text.\end{remark}
+\begin{example}\label{ex:test}Text.\end{example}
+\begin{equation}\label{eq:test} a = b \end{equation}
+References: \cref{lem:test,lem:test-two}; \cref{clm:test}; \cref{cor:test}; \cref{prop:test}; \cref{rem:test}; \cref{ex:test}; \cref{eq:test}; \cref{def:cut-path,thm:main}; \Cref{sec:results}.
+
+% --- Example (remove): definition, figure, table --------------------------------------------
+% Labels: prefix + lowercase words with hyphens; \label directly after \caption.
+
+\begin{definition}[Cut-path]
+\label{def:cut-path}
+Let $G = (V, E)$ be a graph and $u, v \in V$.
+A set $S \subseteq E$ is a \emph{cut-path} if \dots
+\end{definition}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.6\linewidth]{img/example}   % vector PDF; file name lowercase-with-hyphens
+  \caption{What the reader should see, in one sentence.}
+  \label{fig:example}
+\end{figure}
+
+\begin{table}[tb]
+  \centering
+  \caption{Caption above the table. Running time in seconds, mean of 10 runs.}
+  \label{tab:runtime}
+  \begin{tabular}{@{}lrr@{}}
+    \toprule
+    Instance & $\abs{V}$ & Time (s) \\
+    \midrule
+    \texttt{grid-10} & 100 & 0.12 \\
+    \texttt{grid-20} & 400 & 1.85 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\Cref{fig:example} shows \dots; \cref{tab:runtime} lists \dots

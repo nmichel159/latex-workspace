@@ -1,0 +1,13 @@
+\documentclass{article}
+\usepackage{algorithm}\usepackage{algpseudocode}
+\usepackage{hyperref}\usepackage[capitalise,noabbrev]{cleveref}
+\begin{document}
+\begin{algorithm}\caption{X}\label{alg:x}
+\begin{algorithmic}[1]
+\State $a$ \label{line:first}
+\State $b$
+\State $c$ \label{line:third}
+\end{algorithmic}
+\end{algorithm}
+REF: \cref{alg:x}; \cref{line:first}; \cref{line:third}; line~\ref{line:third}.
+\end{document}
