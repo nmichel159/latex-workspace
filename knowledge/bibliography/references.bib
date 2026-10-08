@@ -1,21 +1,27 @@
 % =============================================================================
-% Kanonicka bibliografia pracovneho priestoru.
-% Zdroj zaznamov: clanok 1 (projects/clanok-1-min-cut-path), diplomova praca (2025)
-% a bakalarska praca (2024). Do projektu sa kopiruju len citovane zaznamy; opravy sa robia najprv tu.
+% Canonical bibliography of the workspace.
+% Rules: knowledge/bibliography/README.md (status lines, keys, entry types and fields, sections, checker).
+% Sources of the entries: article 1 (projects/clanok-1-min-cut-path), the master's thesis (2025),
+% the bachelor's thesis (2024), the literature map of the dissertation (knowledge/research/llm-optimization.md)
+% and the writing guides (knowledge/writing/). A project copies only the entries it cites;
+% corrections are made here first.
 %
-% Stav kazdeho zaznamu je v komentari nad nim:
-%   OVERENE  - udaje skontrolovane podla DOI / stranky vydavatela / katalogu (datum v komentari)
-%   CIASTOCNE - overena len cast udajov, zvysok podla povodneho zaznamu
-%   TODO     - znamy problem, treba doriesit
-% Komentare su bez diakritiky, aby subor presiel aj cez 8-bitovy BibTeX.
+% The status of every entry is in the comment above it:
+%   VERIFIED <date> (<where>)  - every field compared with the primary record on that date
+%   PARTIAL <date>: <what>     - part of the data verified, the rest as in the source it was copied from
+%   TODO: <what>               - known problem
+% Entries dated 2026-10-07 whose status line names no source were checked against the DOI,
+% the publisher page or the catalogue record (the three sources named in the first version of this file).
+% Comments are ASCII only so that the file also passes 8-bit BibTeX.
 % =============================================================================
 
 % ----------------------------------------------------------------------------
-% Grafy, algoritmy, zlozitost
+% Graphs, algorithms and complexity
 % ----------------------------------------------------------------------------
 
-% OVERENE 2026-10-07. 6. vydanie vyslo v roku 2025 (v diplomovke a v povodnom .bib bol rok 2023
-% a ISBN 978-3-662-67631-2 s neplatnou kontrolnou cislicou).
+% VERIFIED 2026-10-07 (DOI, publisher page or catalogue).
+% The 6th edition appeared in 2025; the master's thesis and the original .bib had 2023 and
+% ISBN 978-3-662-67631-2, which has an invalid check digit.
 @book{Diestel2025,
   author    = {Diestel, Reinhard},
   title     = {Graph Theory},
@@ -28,7 +34,8 @@
   isbn      = {978-3-662-70106-5}
 }
 
-% OVERENE 2026-10-07 (pevna vazba). Povodne ISBN 978-0-262-53989-5 malo neplatnu kontrolnu cislicu.
+% VERIFIED 2026-10-07 (DOI, publisher page or catalogue; hardcover edition).
+% The original ISBN 978-0-262-53989-5 had an invalid check digit.
 @book{Cormen2022,
   author    = {Cormen, Thomas H. and Leiserson, Charles E. and Rivest, Ronald L. and Stein, Clifford},
   title     = {Introduction to Algorithms},
@@ -39,7 +46,8 @@
   isbn      = {978-0-262-04630-5}
 }
 
-% OVERENE 2026-10-07 (brozovane vydanie; pevna vazba 978-0-387-95241-3). Povodne ISBN koncilo na 9.
+% VERIFIED 2026-10-07 (DOI, publisher page or catalogue; paperback edition, hardcover is 978-0-387-95241-3).
+% The original ISBN ended in 9.
 @book{GodsilRoyle2001,
   author    = {Godsil, Chris and Royle, Gordon},
   title     = {Algebraic Graph Theory},
@@ -51,7 +59,7 @@
   isbn      = {978-0-387-95220-8}
 }
 
-% OVERENE 2026-10-07 (dblp, STOC '71, s. 151-158).
+% VERIFIED 2026-10-07 (dblp, STOC '71, pages 151-158).
 @inproceedings{Cook1971Complexity,
   author    = {Cook, Stephen A.},
   title     = {The Complexity of Theorem-Proving Procedures},
@@ -64,10 +72,11 @@
 }
 
 % ----------------------------------------------------------------------------
-% Rezy, toky, suvislost
+% Cuts, flows and connectivity
 % ----------------------------------------------------------------------------
 
-% OVERENE 2026-10-07. Povodne DOI 10.1137/0109045 bolo nespravne.
+% VERIFIED 2026-10-07 (DOI, publisher page or catalogue).
+% The original DOI 10.1137/0109045 was wrong.
 @article{GomoryHu1961,
   author    = {Gomory, Ralph E. and Hu, T. C.},
   title     = {Multi-Terminal Network Flows},
@@ -79,7 +88,10 @@
   doi       = {10.1137/0109047}
 }
 
-% OVERENE 2026-10-07 (archiv ORSJ: Vol. 39, No. 2, s. 135-158). DOI sa nepodarilo potvrdit.
+% VERIFIED 2026-10-08 (Crossref record of DOI 10.15807/jorsj.39.135; the DOI resolves to the J-STAGE article page).
+% Compared: title, journal, volume 39, issue 2, pages 135-158, 1996 and both authors.
+% Earlier check 2026-10-07 against the ORSJ archive (Vol. 39, No. 2, pages 135-158); the DOI could not
+% be confirmed then and was left out; it is now taken from the Crossref record.
 @article{NagamochiKameda1996,
   author    = {Nagamochi, Hiroshi and Kameda, Tiko},
   title     = {Constructing Cactus Representation for All Minimum Cuts in an Undirected Network},
@@ -87,12 +99,15 @@
   volume    = {39},
   number    = {2},
   pages     = {135--158},
-  year      = {1996}
+  year      = {1996},
+  doi       = {10.15807/jorsj.39.135}
 }
 
-% OVERENE 2026-10-07 podla DOI a arXiv:1211.6553: Algorithmica 77(2), 309--335.
-% V povodnom .bib bol pod klucom Mehlhorn2016Certifying uvedeny ACM Transactions on Algorithms 12(1), 2016.
-% CIASTOCNE: rok tlaceneho cisla 77(2) je 2017 (online 2015) - rok nebol vo vysledku overenia vyslovne uvedeny.
+% VERIFIED 2026-10-08 (Crossref record of the DOI; earlier check 2026-10-07 against the DOI and arXiv:1211.6553).
+% Algorithmica 77(2), pages 309-335; published online 2015-09-22, print issue 2017-02, so the year of
+% the printed issue is 2017 (the year of Crossref's issued date, 2015, is the online date).
+% The original .bib gave ACM Transactions on Algorithms 12(1), 2016 under the key Mehlhorn2016Certifying;
+% the DOI and arXiv:1211.6553 give Algorithmica 77(2).
 @article{Mehlhorn2017Certifying,
   author    = {Mehlhorn, Kurt and Neumann, Adrian and Schmidt, Jens M.},
   title     = {Certifying 3-Edge-Connectivity},
@@ -104,7 +119,7 @@
   doi       = {10.1007/s00453-015-0075-x}
 }
 
-% OVERENE 2026-10-07 (SIAM).
+% VERIFIED 2026-10-07 (SIAM).
 @article{itai1979maximum,
   author    = {Itai, Alon and Shiloach, Yossi},
   title     = {Maximum Flow in Planar Networks},
@@ -116,7 +131,7 @@
   doi       = {10.1137/0208012}
 }
 
-% OVERENE 2026-10-07.
+% VERIFIED 2026-10-07 (DOI, publisher page or catalogue).
 @article{henzinger1997faster,
   author    = {Henzinger, Monika R. and Klein, Philip N. and Rao, Satish and Subramanian, Sairam},
   title     = {Faster Shortest-Path Algorithms for Planar Graphs},
@@ -129,12 +144,12 @@
 }
 
 % ----------------------------------------------------------------------------
-% Nahodne grafy, pravdepodobnost, analyza v priemernom pripade
+% Random graphs and probability
 % ----------------------------------------------------------------------------
 
-% OVERENE 2026-10-07.
+% VERIFIED 2026-10-07 (DOI, publisher page or catalogue).
 @book{Bollobas2001,
-  author    = {Bollobás, Béla},
+  author    = {Bollob{\'a}s, B{\'e}la},
   title     = {Random Graphs},
   edition   = {2nd},
   series    = {Cambridge Studies in Advanced Mathematics},
@@ -145,9 +160,10 @@
   isbn      = {978-0-521-79722-1}
 }
 
-% OVERENE 2026-10-07. Povodne ISBN koncilo na 6 (neplatna kontrolna cislica).
+% VERIFIED 2026-10-07 (DOI, publisher page or catalogue).
+% The original ISBN ended in 6 (invalid check digit).
 @book{Frieze2016,
-  author    = {Frieze, Alan and Karoński, Michał},
+  author    = {Frieze, Alan and Karo{\'n}ski, Micha{\l}},
   title     = {Introduction to Random Graphs},
   publisher = {Cambridge University Press},
   address   = {Cambridge},
@@ -156,9 +172,10 @@
   url       = {https://www.math.cmu.edu/~af1p/BOOK.pdf}
 }
 
-% OVERENE 2026-10-07: zbornik, editor Tim Roughgarden, pevna vazba ISBN 978-1-108-49431-1.
-% V diplomovke (polozka 6) je Roughgarden uvedeny ako autor a ISBN 978-1-108-87803-4 je neplatne.
-% Pri citovani konkretnej kapitoly pouzit @incollection s autormi kapitoly.
+% VERIFIED 2026-10-07 (DOI, publisher page or catalogue): conference volume, editor Tim Roughgarden,
+% hardcover ISBN 978-1-108-49431-1.
+% The master's thesis (item 6) lists Roughgarden as the author and gives ISBN 978-1-108-87803-4, which is invalid.
+% To cite a specific chapter, use an incollection entry with the chapter authors.
 @book{Roughgarden2021,
   editor    = {Roughgarden, Tim},
   title     = {Beyond the Worst-Case Analysis of Algorithms},
@@ -168,11 +185,12 @@
   isbn      = {978-1-108-49431-1}
 }
 
-% OVERENE 2026-10-07: 4. vydanie vyslo v roku 2019, poradie autorov Diez, Cetinkaya-Rundel, Barr.
-% V diplomovke (polozka 3) je rok 2022 a ine poradie autorov.
+% VERIFIED 2026-10-07 (DOI, publisher page or catalogue): the 4th edition appeared in 2019,
+% author order Diez, Cetinkaya-Rundel, Barr.
+% The master's thesis (item 3) has the year 2022 and a different author order.
 @book{Diez2019OpenIntro,
   author    = {Diez, David M. and {\c{C}}etinkaya-Rundel, Mine and Barr, Christopher D.},
-  title     = {OpenIntro Statistics},
+  title     = {{OpenIntro} Statistics},
   edition   = {4th},
   publisher = {OpenIntro},
   year      = {2019},
@@ -180,52 +198,1354 @@
   url       = {https://www.openintro.org/book/os/}
 }
 
-% OVERENE 2026-10-07 podla arXiv:2109.00637: autori su Blanc, Lange, Qiao, Tan.
-% V diplomovke (polozka 7) je uvedeny len "Lange, Julian" - chyba. Zdroj pojmu "almost polynomial time".
+% VERIFIED 2026-10-07 (arXiv:2109.00637): the authors are Blanc, Lange, Qiao, Tan. The primary class cs.DS was
+% added 2026-10-08 from the arXiv API record.
+% The master's thesis (item 7) lists only "Lange, Julian", which is wrong.
+% Source of the notion "almost polynomial time".
+% Published version exists: Journal of the ACM 69(6), 2022, DOI 10.1145/3561047 (Crossref record, 2026-10-08).
+% Not adopted yet: it changes the entry type and the year in the key. Switch when the entry is next cited.
 @misc{Blanc2021ProperlyLearning,
   author        = {Blanc, Guy and Lange, Jane and Qiao, Mingda and Tan, Li-Yang},
   title         = {Properly learning decision trees in almost polynomial time},
   year          = {2021},
   eprint        = {2109.00637},
   archivePrefix = {arXiv},
+  primaryClass  = {cs.DS},
   note          = {arXiv preprint}
 }
 
-% CIASTOCNE (2026-10-07): autori, nazov, casopis, rocnik, strany a rok overene podla zoznamu publikacii
-% F. Chung; DOI neoverene, preto neuvedene. Presny zdroj pre priemer G(n,p): (1+o(1)) log n / log(np),
-% ak np -> nekonecno; pre np/log n = c > c0 je priemer sustredeny na konecne vela hodnot.
-% Odporucane citovat pri Theorem VI.2 clanku 1 (zatial sa tam cituje len Bollobas2001).
+% VERIFIED 2026-10-08 (Crossref record of DOI 10.1006/aama.2001.0720).
+% Compared: authors, title, journal, volume 26, issue 4, pages 257-279, May 2001. Earlier check 2026-10-07
+% against F. Chung's publication list (authors, title, journal, volume, pages, year; the DOI was not verified then
+% and was left out).
+% Exact source for the diameter of G(n,p) as recorded 2026-10-07: (1+o(1)) log n / log(np) if np tends
+% to infinity; for np/log n = c > c0 the diameter is concentrated on finitely many values.
+% Recommended for Theorem VI.2 of article 1 (so far only Bollobas2001 is cited there).
 @article{ChungLu2001,
   author  = {Chung, Fan and Lu, Linyuan},
   title   = {The Diameter of Sparse Random Graphs},
   journal = {Advances in Applied Mathematics},
   volume  = {26},
+  number  = {4},
   pages   = {257--279},
-  year    = {2001}
+  year    = {2001},
+  doi     = {10.1006/aama.2001.0720}
 }
 
 % ----------------------------------------------------------------------------
-% Pribuzne problemy (zatial necitovane; odporucane do casti o pribuznych pracach clanku 1)
+% Problems related to Min Cut-Path
+% (not cited yet; recommended for the related-work section of article 1)
 % ----------------------------------------------------------------------------
 
-% OVERENE 2026-10-07 podla arXiv:2101.03519. Non-separating st-path = cesta, po odstraneni
-% ktorej HRAN ostane graf suvisly; existencia je na vseobecnych grafoch NP-tazka, na chordalnych
-% grafoch sa najkratsia taka cesta najde v case O(n log n + m). Zrkadlovy pojem k Separating Shortest Path.
+% VERIFIED 2026-10-07 (arXiv:2101.03519). The primary class cs.DS was added 2026-10-08 from the arXiv API record.
+% A non-separating st-path is a path whose removal of EDGES leaves the graph connected; its existence is
+% NP-hard on general graphs; on chordal graphs a shortest such path is found in time O(n log n + m).
+% The mirror notion of Separating Shortest Path.
 @misc{Mao2021NonSeparating,
   author        = {Mao, Xiao},
   title         = {Shortest non-separating st-path on chordal graphs},
   year          = {2021},
   eprint        = {2101.03519},
   archivePrefix = {arXiv},
+  primaryClass  = {cs.DS},
   note          = {arXiv preprint}
 }
 
 % ----------------------------------------------------------------------------
-% Konvexna geometria (zdroje bakalarskej prace)
+% LLMs and optimization
+% Topic of the dissertation; map of the field: knowledge/research/llm-optimization.md
+%
+% Legend of the status lines in this section:
+%   arXiv <id>vN        = record of the arXiv API, latest version N;
+%   Crossref DOI record = api.crossref.org/works/<doi>;
+%   proceedings page    = citation_* metadata of the page in the url field.
+% "Also checked 2026-10-07" lines name further sources opened the day before.
 % ----------------------------------------------------------------------------
 
-% OVERENE 2026-10-07: Mathematics Magazine 62(2), 1989, 101--107.
-% V bakalarke je uvedeny datum 2018 a ISBN - oboje nespravne.
+% --- A. LLM-driven heuristic and algorithm design (evolutionary program search) ---
+
+% VERIFIED 2026-10-08 (Crossref DOI record; full text read, Europe PMC PMC10794145).
+% Online 2023-12-14, issue 7995 of January 2024 (Crossref issued date is the online date).
+@article{RomeraParedes2024FunSearch,
+  author        = {Romera-Paredes, Bernardino and Barekatain, Mohammadamin and Novikov, Alexander and Balog, Matej and Kumar, M. Pawan and Dupont, Emilien and Ruiz, Francisco J. R. and Ellenberg, Jordan S. and Wang, Pengming and Fawzi, Omar and Kohli, Pushmeet and Fawzi, Alhussein},
+  title         = {Mathematical discoveries from program search with large language models},
+  journal       = {Nature},
+  volume        = {625},
+  number        = {7995},
+  pages         = {468--475},
+  year          = {2024},
+  doi           = {10.1038/s41586-023-06924-6}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2206.08896v1).
+% Also checked 2026-10-07: Crossref chapter and book records; Springer chapter page.
+% Crossref: online 2023-11-02, print 2024. arXiv title: "Evolution through Large Models" (2022).
+@incollection{Lehman2024ELM,
+  author        = {Lehman, Joel and Gordon, Jonathan and Jain, Shawn and Ndousse, Kamal and Yeh, Cathy and Stanley, Kenneth O.},
+  title         = {Evolution Through Large Models},
+  booktitle     = {Handbook of Evolutionary Machine Learning},
+  editor        = {Banzhaf, Wolfgang and Machado, Penousal and Zhang, Mengjie},
+  series        = {Genetic and Evolutionary Computation},
+  publisher     = {Springer},
+  address       = {Singapore},
+  pages         = {331--366},
+  year          = {2024},
+  doi           = {10.1007/978-981-99-3814-8_11},
+  eprint        = {2206.08896},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% VERIFIED 2026-10-08 (PMLR proceedings page; arXiv 2401.02051v3).
+% PMLR BibTeX lists the second author as "Xialiang, Tong"; arXiv gives Xialiang Tong (surname Tong).
+@inproceedings{Liu2024EoH,
+  author        = {Liu, Fei and Tong, Xialiang and Yuan, Mingxuan and Lin, Xi and Luo, Fu and Wang, Zhenkun and Lu, Zhichao and Zhang, Qingfu},
+  title         = {Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model},
+  booktitle     = {Proceedings of the 41st International Conference on Machine Learning (ICML 2024)},
+  series        = {Proceedings of Machine Learning Research},
+  volume        = {235},
+  pages         = {32201--32223},
+  publisher     = {PMLR},
+  year          = {2024},
+  url           = {https://proceedings.mlr.press/v235/liu24bs.html},
+  eprint        = {2401.02051},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2402.01145v3).
+@inproceedings{Ye2024ReEvo,
+  author        = {Ye, Haoran and Wang, Jiarui and Cao, Zhiguang and Berto, Federico and Hua, Chuanbo and Kim, Haeyeon and Park, Jinkyoo and Song, Guojie},
+  title         = {{ReEvo}: Large Language Models as Hyper-Heuristics with Reflective Evolution},
+  booktitle     = {Advances in Neural Information Processing Systems 37 (NeurIPS 2024)},
+  pages         = {43571--43608},
+  publisher     = {Curran Associates, Inc.},
+  year          = {2024},
+  doi           = {10.52202/079017-1381},
+  eprint        = {2402.01145},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2405.20132v4).
+@article{VanStein2025LLaMEA,
+  author        = {van Stein, Niki and B{\"a}ck, Thomas},
+  title         = {{LLaMEA}: A Large Language Model Evolutionary Algorithm for Automatically Generating Metaheuristics},
+  journal       = {IEEE Transactions on Evolutionary Computation},
+  volume        = {29},
+  number        = {2},
+  pages         = {331--345},
+  year          = {2025},
+  doi           = {10.1109/TEVC.2024.3497793},
+  eprint        = {2405.20132},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% VERIFIED 2026-10-08 (PMLR proceedings page; arXiv 2501.08603v3).
+@inproceedings{Zheng2025MCTSAHD,
+  author        = {Zheng, Zhi and Xie, Zhuoliang and Wang, Zhenkun and Hooi, Bryan},
+  title         = {{M}onte {C}arlo Tree Search for Comprehensive Exploration in {LLM}-Based Automatic Heuristic Design},
+  booktitle     = {Proceedings of the 42nd International Conference on Machine Learning (ICML 2025)},
+  series        = {Proceedings of Machine Learning Research},
+  volume        = {267},
+  pages         = {78338--78373},
+  publisher     = {PMLR},
+  year          = {2025},
+  url           = {https://proceedings.mlr.press/v267/zheng25o.html},
+  eprint        = {2501.08603},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2506.13131v1).
+% No peer-reviewed version found (web search 2026-10-08; Crossref title search 2026-10-07,
+% web search); the PNAS 2026 abstract of Georgiev2026MathDiscovery cites it as a Google DeepMind technical report.
+@misc{Novikov2025AlphaEvolve,
+  author        = {Novikov, Alexander and V{\~u}, Ng{\^a}n and Eisenberger, Marvin and Dupont, Emilien and Huang, Po-Sen and Wagner, Adam Zsolt and Shirobokov, Sergey and Kozlovskii, Borislav and Ruiz, Francisco J. R. and Mehrabian, Abbas and Kumar, M. Pawan and See, Abigail and Chaudhuri, Swarat and Holland, George and Davies, Alex and Nowozin, Sebastian and Kohli, Pushmeet and Balog, Matej},
+  title         = {{AlphaEvolve}: A coding agent for scientific and algorithmic discovery},
+  year          = {2025},
+  eprint        = {2506.13131},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (ICLR proceedings page; arXiv 2509.19349v1).
+% arXiv lists the first author as Robert Tjarko Lange and capitalizes "And" in the title.
+@inproceedings{Lange2026ShinkaEvolve,
+  author        = {Lange, Robert and Imajuku, Yuki and Cetin, Edoardo},
+  title         = {{ShinkaEvolve}: Towards Open-Ended and Sample-Efficient Program Evolution},
+  booktitle     = {International Conference on Learning Representations (ICLR 2026)},
+  pages         = {74026--74078},
+  year          = {2026},
+  url           = {https://proceedings.iclr.cc/paper_files/paper/2026/hash/7886b9bafe76c52fd568db10ff9772df-Abstract-Conference.html},
+  eprint        = {2509.19349},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2504.05108v4).
+% Method name: EvoTune. Web search 2026-10-08 finds only an ICLR 2025 workshop listing (SSI-FM);
+% no archival venue found, so the arXiv version is cited.
+@misc{Surina2025EvoTune,
+  author        = {Surina, Anja and Mansouri, Amin and Quaedvlieg, Lars and Seddas, Amal and Viazovska, Maryna and Abbe, Emmanuel and Gulcehre, Caglar},
+  title         = {Algorithm Discovery With {LLMs}: Evolutionary Search Meets Reinforcement Learning},
+  year          = {2025},
+  eprint        = {2504.05108},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (PMLR proceedings page; arXiv 2511.23473v1).
+% ICML 2026 volume published 2026-09-29.
+@inproceedings{Wang2026ThetaEvolve,
+  author        = {Wang, Yiping and Su, Shao-Rong and Zeng, Zhiyuan and Xu, Eva and Ren, Liliang and Yang, Xinyu and Huang, Zeyi and He, Xuehai and Ma, Luyao and Peng, Baolin and Cheng, Hao and He, Pengcheng and Chen, Weizhu and Wang, Shuohang and Du, Simon Shaolei and Shen, Yelong},
+  title         = {{ThetaEvolve}: Test-time Learning on Open Problems},
+  booktitle     = {Proceedings of the 43rd International Conference on Machine Learning (ICML 2026)},
+  series        = {Proceedings of Machine Learning Research},
+  volume        = {306},
+  pages         = {129927--129958},
+  publisher     = {PMLR},
+  year          = {2026},
+  url           = {https://proceedings.mlr.press/v306/wang26ha.html},
+  eprint        = {2511.23473},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% VERIFIED 2026-10-08 (PMLR proceedings page; arXiv 2604.24043v1).
+% PMLR title "$A_2$DEPT: Large Language Model-Driven ..." (en dash in "Model-Driven"); arXiv title "A2DEPT: ...".
+@inproceedings{Chen2026A2DEPT,
+  author        = {Chen, Bin and Zhu, Shouliang and Liu, Beidan and Zhao, Yong and Pu, Tianle and Li, Huichun and Zhu, Zhengqiu},
+  title         = {$A_2${DEPT}: Large Language Model--Driven Automated Algorithm Design via Evolutionary Program Trees},
+  booktitle     = {Proceedings of the 43rd International Conference on Machine Learning (ICML 2026)},
+  series        = {Proceedings of Machine Learning Research},
+  volume        = {306},
+  pages         = {18654--18693},
+  publisher     = {PMLR},
+  year          = {2026},
+  url           = {https://proceedings.mlr.press/v306/chen26hb.html},
+  eprint        = {2604.24043},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (PMLR proceedings page; arXiv 2601.22896v2).
+% Method name: ASRO.
+@inproceedings{Ke2026ASRO,
+  author        = {Ke, Xinyi and Li, Kai and Xing, Junliang and Zhang, Yifan and Cheng, Jian},
+  title         = {Game-Theoretic Co-Evolution for {LLM}-Based Heuristic Discovery},
+  booktitle     = {Proceedings of the 43rd International Conference on Machine Learning (ICML 2026)},
+  series        = {Proceedings of Machine Learning Research},
+  volume        = {306},
+  pages         = {56499--56526},
+  publisher     = {PMLR},
+  year          = {2026},
+  url           = {https://proceedings.mlr.press/v306/ke26b.html},
+  eprint        = {2601.22896},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2608.03653v1). Preprint found by arXiv search 2026-10-08; no published version.
+@misc{Hu2026AutoSND,
+  author        = {Hu, Zhijing and Fan, Changjun and Deng, Yufan and Cao, Zhiguang},
+  title         = {{AutoSND}: From Execution Evidence to Structural Policies for Automated Network Dismantling Heuristic Discovery},
+  year          = {2026},
+  eprint        = {2608.03653},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% --- B. LLMs as optimizers and as search operators ---
+
+% VERIFIED 2026-10-08 (ICLR proceedings page; arXiv 2309.03409v3).
+% Method name: OPRO.
+@inproceedings{Yang2024OPRO,
+  author        = {Yang, Chengrun and Wang, Xuezhi and Lu, Yifeng and Liu, Hanxiao and Le, Quoc V. and Zhou, Denny and Chen, Xinyun},
+  title         = {Large Language Models as Optimizers},
+  booktitle     = {International Conference on Learning Representations (ICLR 2024)},
+  pages         = {12028--12068},
+  year          = {2024},
+  url           = {https://proceedings.iclr.cc/paper_files/paper/2024/hash/3339f19c5fcee3ad74502947a32be9e6-Abstract-Conference.html},
+  eprint        = {2309.03409},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2310.19046v3).
+% Method name: LMEA.
+@inproceedings{Liu2024LMEA,
+  author        = {Liu, Shengcai and Chen, Caishun and Qu, Xinghua and Tang, Ke and Ong, Yew-Soon},
+  title         = {Large Language Models as Evolutionary Optimizers},
+  booktitle     = {2024 IEEE Congress on Evolutionary Computation (CEC)},
+  pages         = {1--8},
+  publisher     = {IEEE},
+  year          = {2024},
+  doi           = {10.1109/CEC60901.2024.10611913},
+  eprint        = {2310.19046},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2302.12170v3).
+% Method name: LMX.
+@article{Meyerson2024LMX,
+  author        = {Meyerson, Elliot and Nelson, Mark J. and Bradley, Herbie and Gaier, Adam and Moradi, Arash and Hoover, Amy K. and Lehman, Joel},
+  title         = {Language Model Crossover: Variation through Few-Shot Prompting},
+  journal       = {ACM Transactions on Evolutionary Learning and Optimization},
+  volume        = {4},
+  number        = {4},
+  pages         = {1--40},
+  year          = {2024},
+  doi           = {10.1145/3694791},
+  eprint        = {2302.12170},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2402.18381v1).
+% Method name: EvoLLM.
+% arXiv lists the first author as Robert Tjarko Lange.
+@inproceedings{Lange2024EvoLLM,
+  author        = {Lange, Robert and Tian, Yingtao and Tang, Yujin},
+  title         = {Large Language Models As Evolution Strategies},
+  booktitle     = {Proceedings of the Genetic and Evolutionary Computation Conference Companion (GECCO '24 Companion)},
+  pages         = {579--582},
+  publisher     = {ACM},
+  year          = {2024},
+  doi           = {10.1145/3638530.3654238},
+  eprint        = {2402.18381},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2404.06290v2).
+% No published version found by Crossref title search.
+@misc{Huang2024BlackBoxLLM,
+  author        = {Huang, Beichen and Wu, Xingyu and Zhou, Yu and Wu, Jibin and Feng, Liang and Cheng, Ran and Tan, Kay Chen},
+  title         = {Exploring the True Potential: Evaluating the Black-box Optimization Capability of Large Language Models},
+  year          = {2024},
+  eprint        = {2404.06290},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% --- C. LLMs for optimization modeling (natural language to LP/MILP and solver code) ---
+
+% VERIFIED 2026-10-08 (PMLR proceedings page; arXiv 2303.08233v2).
+% PMLR gives year 2022 (competition year).
+@inproceedings{Ramamonjison2022NL4Opt,
+  author        = {Ramamonjison, Rindranirina and Yu, Timothy and Li, Raymond and Li, Haley and Carenini, Giuseppe and Ghaddar, Bissan and He, Shiqi and Mostajabdaveh, Mahdi and Banitalebi-Dehkordi, Amin and Zhou, Zirui and Zhang, Yong},
+  title         = {{NL4Opt} Competition: Formulating Optimization Problems Based on Their Natural Language Descriptions},
+  booktitle     = {Proceedings of the NeurIPS 2022 Competitions Track},
+  series        = {Proceedings of Machine Learning Research},
+  volume        = {220},
+  pages         = {189--203},
+  publisher     = {PMLR},
+  year          = {2022},
+  url           = {https://proceedings.mlr.press/v220/ramamonjison23a.html},
+  eprint        = {2303.08233},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+% VERIFIED 2026-10-08 (PMLR proceedings page; arXiv 2402.10172v1).
+% arXiv spells the first author AhmadiTeshnizi.
+@inproceedings{Ahmaditeshnizi2024OptiMUS,
+  author        = {Ahmaditeshnizi, Ali and Gao, Wenzhi and Udell, Madeleine},
+  title         = {{OptiMUS}: Scalable Optimization Modeling with ({MI}){LP} Solvers and Large Language Models},
+  booktitle     = {Proceedings of the 41st International Conference on Machine Learning (ICML 2024)},
+  series        = {Proceedings of Machine Learning Research},
+  volume        = {235},
+  pages         = {577--596},
+  publisher     = {PMLR},
+  year          = {2024},
+  url           = {https://proceedings.mlr.press/v235/ahmaditeshnizi24a.html},
+  eprint        = {2402.10172},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2405.17743v5).
+@article{Huang2025ORLM,
+  author        = {Huang, Chenyu and Tang, Zhengyang and Hu, Shixi and Jiang, Ruoqing and Zheng, Xin and Ge, Dongdong and Wang, Benyou and Wang, Zizhuo},
+  title         = {{ORLM}: A Customizable Framework in Training Large Models for Automated Optimization Modeling},
+  journal       = {Operations Research},
+  volume        = {73},
+  number        = {6},
+  pages         = {2986--3009},
+  year          = {2025},
+  doi           = {10.1287/opre.2024.1233},
+  eprint        = {2405.17743},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+% VERIFIED 2026-10-08 (PMLR proceedings page; arXiv 2601.19924v2, journal-ref "ICML 2026, PMLR 306").
+@inproceedings{Chen2026OPTEngine,
+  author        = {Chen, Yitian and Cheng, Cheng and Sun, Yinan and Ling, Zi and Ge, Dongdong},
+  title         = {{OPT}-Engine: Benchmarking the Limits of {LLMs} in Optimization Modeling via Complexity Scaling},
+  booktitle     = {Proceedings of the 43rd International Conference on Machine Learning (ICML 2026)},
+  series        = {Proceedings of Machine Learning Research},
+  volume        = {306},
+  pages         = {13807--13834},
+  publisher     = {PMLR},
+  year          = {2026},
+  url           = {https://proceedings.mlr.press/v306/chen26o.html},
+  eprint        = {2601.19924},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Also checked 2026-10-07: IJCAI proceedings page, Survey Track.
+% Crossref also holds a record 10.24963/ijcai.2024/1192 with the same title and pages; the IJCAI page
+% for that DOI path returns "Paper not found". Use the 2025 DOI only.
+@inproceedings{Xiao2025OptModelingSurvey,
+  author        = {Xiao, Ziyang and Xie, Jingrong and Xu, Lilin and Guan, Shisi and Zhu, Jingyan and Han, Xiongwei and Fu, Xiaojin and Yu, WingYin and Wu, Han and Shi, Wei and Kang, Qingcan and Duan, Jiahui and Zhong, Tao and Yuan, Mingxuan and Zeng, Jia and Wang, Yuan and Chen, Gang and Zhang, Dongxiang},
+  title         = {A Survey of Optimization Modeling Meets {LLMs}: Progress and Future Directions},
+  booktitle     = {Proceedings of the Thirty-Fourth International Joint Conference on Artificial Intelligence (IJCAI-25)},
+  pages         = {10742--10750},
+  publisher     = {International Joint Conferences on Artificial Intelligence Organization},
+  year          = {2025},
+  doi           = {10.24963/ijcai.2025/1192}
+}
+
+% --- D. Search for constructions and counterexamples (combinatorics, graph theory, complexity) ---
+
+% VERIFIED 2026-10-08 (arXiv 2104.14516v1).
+% No journal version found by Crossref title search.
+@misc{Wagner2021Constructions,
+  author        = {Wagner, Adam Zsolt},
+  title         = {Constructions in combinatorics via neural networks},
+  year          = {2021},
+  eprint        = {2104.14516},
+  archivePrefix = {arXiv},
+  primaryClass  = {math.CO}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2411.00566v1).
+% No journal version found by Crossref title search.
+@misc{Charton2024PatternBoost,
+  author        = {Charton, Fran{\c{c}}ois and Ellenberg, Jordan S. and Wagner, Adam Zsolt and Williamson, Geordie},
+  title         = {{PatternBoost}: Constructions in Mathematics with a Little Help from {AI}},
+  year          = {2024},
+  eprint        = {2411.00566},
+  archivePrefix = {arXiv},
+  primaryClass  = {math.CO}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2511.02864v3).
+% Also checked 2026-10-07: Crossref DOI record, online 2026-09-30.
+% Title changed: arXiv "Mathematical exploration and discovery at scale" -> PNAS "Mathematical discovery and exploration can be done at scale".
+@article{Georgiev2026MathDiscovery,
+  author        = {Georgiev, Bogdan and G{\'o}mez-Serrano, Javier and Tao, Terence and Wagner, Adam Zsolt},
+  title         = {Mathematical discovery and exploration can be done at scale},
+  journal       = {Proceedings of the National Academy of Sciences},
+  volume        = {123},
+  number        = {40},
+  pages         = {e2536158123},
+  year          = {2026},
+  doi           = {10.1073/pnas.2536158123},
+  eprint        = {2511.02864},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2509.18057v7).
+% No published version found by Crossref title search.
+@misc{Nagda2025Hardness,
+  author        = {Nagda, Ansh and Raghavan, Prabhakar and Thakurta, Abhradeep},
+  title         = {Reinforced Generation of Combinatorial Structures: Hardness of Approximation},
+  year          = {2025},
+  eprint        = {2509.18057},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2603.09172v5).
+% No published version found by Crossref title search.
+@misc{Nagda2026Ramsey,
+  author        = {Nagda, Ansh and Raghavan, Prabhakar and Thakurta, Abhradeep},
+  title         = {Reinforced Generation of Combinatorial Structures: {R}amsey Numbers},
+  year          = {2026},
+  eprint        = {2603.09172},
+  archivePrefix = {arXiv},
+  primaryClass  = {math.CO}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2605.01120v3).
+% No published version found by Crossref title search.
+@misc{Bhan2026Zarankiewicz,
+  author        = {Bhan, Jay and Nobili, Nicole and Langer, Patrick},
+  title         = {New Bounds for {Z}arankiewicz Numbers via Reinforced {LLM} Evolutionary Search},
+  year          = {2026},
+  eprint        = {2605.01120},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2609.03478v1).
+% arXiv comment: submitted to ITAT 2026 (CEUR Workshop Proceedings).
+@misc{Pastorek2026AutoGraphForge,
+  author        = {Pastorek, J{\'a}n},
+  title         = {{AutoGraphForge}: Towards Automated Graph Theory Discovery},
+  year          = {2026},
+  eprint        = {2609.03478},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2608.11211v2). arXiv comment: an earlier version was accepted to the first
+% Conference For AI Scientists (CAISc); venue details not verified.
+@misc{Thakkar2026Conway99,
+  author        = {Thakkar, Aalok and Severini, Simone},
+  title         = {A Forced-Structure Reduction and Verifiable Bounds for {C}onway's 99-Graph},
+  year          = {2026},
+  eprint        = {2608.11211},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% --- E. Critical and methodological studies of LLM-based search ---
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2407.10873v1).
+% Also checked 2026-10-07: Springer chapter page: LNCS 15149.
+@inproceedings{Zhang2024EvolutionarySearch,
+  author        = {Zhang, Rui and Liu, Fei and Lin, Xi and Wang, Zhenkun and Lu, Zhichao and Zhang, Qingfu},
+  title         = {Understanding the Importance of Evolutionary Search in Automated Heuristic Design with Large Language Models},
+  booktitle     = {Parallel Problem Solving from Nature -- PPSN XVIII},
+  series        = {Lecture Notes in Computer Science},
+  volume        = {15149},
+  pages         = {185--202},
+  publisher     = {Springer},
+  address       = {Cham},
+  year          = {2024},
+  doi           = {10.1007/978-3-031-70068-2_12},
+  eprint        = {2407.10873},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2501.11411v1).
+% Also checked 2026-10-07: Springer chapter page: LNCS 15613, EvoApplications 2025.
+@inproceedings{Sim2025BeyondHype,
+  author        = {Sim, Kevin and Renau, Quentin and Hart, Emma},
+  title         = {Beyond the Hype: Benchmarking {LLM}-Evolved Heuristics for Bin Packing},
+  booktitle     = {Applications of Evolutionary Computation (EvoApplications 2025)},
+  series        = {Lecture Notes in Computer Science},
+  volume        = {15613},
+  pages         = {386--402},
+  publisher     = {Springer},
+  address       = {Cham},
+  year          = {2025},
+  doi           = {10.1007/978-3-031-90065-5_24},
+  eprint        = {2501.11411},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2510.27353v2).
+% Also checked 2026-10-07: Crossref DOI record, online 2026-06-18, article 3821574.
+% Volume and issue not yet assigned in the Crossref record; add them when available.
+% Re-checked 2026-10-08: Crossref still has no volume, issue or page range; its article-number 3821574 is given as articleno.
+@article{Herrmann2026BinPacking,
+  author        = {Herrmann, Julien and Pallez, Guillaume},
+  title         = {An In-depth Study of {LLM} Contributions to the Bin Packing Problem},
+  journal       = {ACM Transactions on Evolutionary Learning and Optimization},
+  year          = {2026},
+  articleno     = {3821574},
+  doi           = {10.1145/3821574},
+  eprint        = {2510.27353},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2602.16805v1; sections 1-7 read in arXiv HTML).
+% No peer-reviewed version found (web search 2026-10-08).
+@misc{Gideoni2026SimpleBaselines,
+  author        = {Gideoni, Yonatan and Risi, Sebastian and Gal, Yarin},
+  title         = {Simple Baselines are Competitive with Code Evolution},
+  year          = {2026},
+  eprint        = {2602.16805},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2509.02297v1).
+% No published version found by Crossref title search.
+@misc{Quan2025ThreeDPacking,
+  author        = {Quan, Guorui and Sun, Mingfei and L{\'o}pez-Ib{\'a}{\~n}ez, Manuel},
+  title         = {Re-evaluating {LLM}-based Heuristic Search: A Case Study on the {3D} Packing Problem},
+  year          = {2025},
+  eprint        = {2509.02297},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2609.25510v2). Preprint found by arXiv search 2026-10-08; no published version.
+@misc{Beck2026HillSampling,
+  author        = {Beck, Jacob and Ogren, Philip V. and Kobren, Ari},
+  title         = {Hill Sampling for Test-Time Scaling: A Simple and Better Alternative to Repeated Sampling, Evolution, and Training},
+  year          = {2026},
+  eprint        = {2609.25510},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2503.16668v1).
+% Also checked 2026-10-07: abstract via OpenAlex.
+@inproceedings{VanStein2025CEG,
+  author        = {van Stein, Niki and Kononova, Anna V. and Kotthoff, Lars and B{\"a}ck, Thomas},
+  title         = {Code Evolution Graphs: Understanding Large Language Model Driven Design of Algorithms},
+  booktitle     = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO '25)},
+  pages         = {943--951},
+  publisher     = {ACM},
+  year          = {2025},
+  doi           = {10.1145/3712256.3726328},
+  eprint        = {2503.16668},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% --- F. Surveys, benchmarks and platforms ---
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2410.14716v5).
+% Author order differs: arXiv has Zhe Zhao before Xi Lin; the ACM record has Xi Lin before Zhe Zhao (used here).
+@article{Liu2026AlgorithmDesignSurvey,
+  author        = {Liu, Fei and Yao, Yiming and Guo, Ping and Yang, Zhiyuan and Lin, Xi and Zhao, Zhe and Tong, Xialiang and Mao, Kun and Lu, Zhichao and Wang, Zhenkun and Yuan, Mingxuan and Zhang, Qingfu},
+  title         = {A Systematic Survey on Large Language Models for Algorithm Design},
+  journal       = {ACM Computing Surveys},
+  volume        = {58},
+  number        = {8},
+  pages         = {1--32},
+  year          = {2026},
+  doi           = {10.1145/3787585},
+  eprint        = {2410.14716},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Also checked 2026-10-07: Crossref DOI record with abstract.
+@article{DaRos2026COReview,
+  author        = {Da Ros, Francesca and Soprano, Michael and Di Gaspero, Luca and Roitero, Kevin},
+  title         = {Large Language Models for Combinatorial Optimization: A Systematic Review},
+  journal       = {ACM Computing Surveys},
+  volume        = {58},
+  number        = {11},
+  pages         = {1--53},
+  year          = {2026},
+  doi           = {10.1145/3801961}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2412.17287v2).
+% No published version found by Crossref title search.
+@misc{Liu2024LLM4AD,
+  author        = {Liu, Fei and Zhang, Rui and Xie, Zhuoliang and Sun, Rui and Li, Kai and Hu, Qinglong and Guo, Ping and Lin, Xi and Tong, Xialiang and Yuan, Mingxuan and Wang, Zhenkun and Lu, Zhichao and Zhang, Qingfu},
+  title         = {{LLM4AD}: A Platform for Algorithm Design with Large Language Model},
+  year          = {2024},
+  eprint        = {2412.17287},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2504.20183v1).
+% Also checked 2026-10-07: arXiv 2504.20183v1, "accepted at GECCO Workshop 2025".
+@inproceedings{VanStein2025BLADE,
+  author        = {van Stein, Niki and Kononova, Anna V. and Yin, Haoran and B{\"a}ck, Thomas},
+  title         = {{BLADE}: Benchmark suite for {LLM}-driven Automated Design and Evolution of iterative optimisation heuristics},
+  booktitle     = {Proceedings of the Genetic and Evolutionary Computation Conference Companion (GECCO '25 Companion)},
+  pages         = {2336--2344},
+  publisher     = {ACM},
+  year          = {2025},
+  doi           = {10.1145/3712255.3734347},
+  eprint        = {2504.20183},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.SE}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2504.04310v3).
+% Crossref type journal-article (AAAI proceedings issue); entry type article avoids the volume+number clash in plain.bst.
+@article{Sun2026COBench,
+  author        = {Sun, Weiwei and Feng, Shengyu and Li, Shanda and Yang, Yiming},
+  title         = {{CO-Bench}: Benchmarking Language Model Agents in Algorithm Search for Combinatorial Optimization},
+  journal       = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume        = {40},
+  number        = {39},
+  pages         = {33126--33134},
+  year          = {2026},
+  doi           = {10.1609/aaai.v40i39.40596},
+  eprint        = {2504.04310},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+% VERIFIED 2026-10-08 (ICLR proceedings page; arXiv 2506.07972v2).
+% arXiv: Carla P. Gomes.
+@inproceedings{Chen2026HeuriGym,
+  author        = {Chen, Hongzheng and Wang, Yingheng and Cai, Yaohui and Hu, Hins and Li, Jiajie and Huang, Shirley and Deng, Chenhui and Liang, Rongjian and Kong, Shufeng and Ren, Haoxing and Samaranayake, Samitha and Gomes, Carla and Zhang, Zhiru},
+  title         = {{HeuriGym}: An Agentic Benchmark for {LLM}-Crafted Heuristics in Combinatorial Optimization},
+  booktitle     = {International Conference on Learning Representations (ICLR 2026)},
+  pages         = {27466--27520},
+  year          = {2026},
+  url           = {https://proceedings.iclr.cc/paper_files/paper/2026/hash/2e49934cac6cb8604b0c67cfa0828718-Abstract-Conference.html},
+  eprint        = {2506.07972},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% VERIFIED 2026-10-08 (ICLR proceedings page; arXiv 2505.16952v3).
+@inproceedings{Feng2026FrontierCO,
+  author        = {Feng, Shengyu and Sun, Weiwei and Li, Shanda and Talwalkar, Ameet and Yang, Yiming},
+  title         = {{FrontierCO}: Real-World and Large-Scale Evaluation of Machine Learning Solvers for Combinatorial Optimization},
+  booktitle     = {International Conference on Learning Representations (ICLR 2026)},
+  pages         = {118924--118948},
+  year          = {2026},
+  url           = {https://proceedings.iclr.cc/paper_files/paper/2026/hash/c131c8875c7b1133ffdad2b53cb10e91-Abstract-Conference.html},
+  eprint        = {2505.16952},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2506.09050v2).
+% Also checked 2026-10-07: arXiv 2506.09050v2, NeurIPS 2025 Datasets and Benchmarks Track.
+@inproceedings{Imajuku2025ALEBench,
+  author        = {Imajuku, Yuki and Horie, Kohki and Iwata, Yoichi and Aoki, Kensho and Takahashi, Naohiro and Akiba, Takuya},
+  title         = {{ALE-Bench}: A Benchmark for Long-Horizon Objective-Driven Algorithm Engineering},
+  booktitle     = {Advances in Neural Information Processing Systems 38 (NeurIPS 2025)},
+  pages         = {173630--173675},
+  publisher     = {Neural Information Processing Systems Foundation, Inc.},
+  year          = {2025},
+  doi           = {10.52202/085713-5226},
+  eprint        = {2506.09050},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (ICLR proceedings page; arXiv 2407.00379v2).
+@inproceedings{Tang2025GraphArena,
+  author        = {Tang, Jianheng and Zhang, Qifan and Li, Yuhan and Chen, Nuo and Li, Jia},
+  title         = {{GraphArena}: Evaluating and Exploring Large Language Models on Graph Computation},
+  booktitle     = {International Conference on Learning Representations (ICLR 2025)},
+  pages         = {48118--48145},
+  year          = {2025},
+  url           = {https://proceedings.iclr.cc/paper_files/paper/2025/hash/77fa8253adfc8b33209639f3e9985741-Abstract-Conference.html},
+  eprint        = {2407.00379},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% --- G. Classical background: hyper-heuristics, algorithm selection and configuration, predictions ---
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Also checked 2026-10-07: abstract via OpenAlex.
+@article{Burke2013HyperHeuristics,
+  author        = {Burke, Edmund K. and Gendreau, Michel and Hyde, Matthew and Kendall, Graham and Ochoa, Gabriela and {\"O}zcan, Ender and Qu, Rong},
+  title         = {Hyper-heuristics: a survey of the state of the art},
+  journal       = {Journal of the Operational Research Society},
+  volume        = {64},
+  number        = {12},
+  pages         = {1695--1724},
+  year          = {2013},
+  doi           = {10.1057/jors.2013.71}
+}
+
+% PARTIAL 2026-10-08: authors, title, volume 15, pages, publisher, year and DOI verified in the Crossref DOI record;
+% editors of the volume are not in the record, field omitted. Abstract not available; content cited at title level only.
+@incollection{Rice1976AlgorithmSelection,
+  author        = {Rice, John R.},
+  title         = {The Algorithm Selection Problem},
+  booktitle     = {Advances in Computers},
+  volume        = {15},
+  pages         = {65--118},
+  publisher     = {Elsevier},
+  year          = {1976},
+  doi           = {10.1016/S0065-2458(08)60520-3}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Also checked 2026-10-07: abstract via OpenAlex.
+@article{LopezIbanez2016Irace,
+  author        = {L{\'o}pez-Ib{\'a}{\~n}ez, Manuel and Dubois-Lacoste, J{\'e}r{\'e}mie and P{\'e}rez C{\'a}ceres, Leslie and Birattari, Mauro and St{\"u}tzle, Thomas},
+  title         = {The irace package: Iterated racing for automatic algorithm configuration},
+  journal       = {Operations Research Perspectives},
+  volume        = {3},
+  pages         = {43--58},
+  year          = {2016},
+  doi           = {10.1016/j.orp.2016.09.002}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+@article{Mitzenmacher2022Predictions,
+  author        = {Mitzenmacher, Michael and Vassilvitskii, Sergei},
+  title         = {Algorithms with predictions},
+  journal       = {Communications of the ACM},
+  volume        = {65},
+  number        = {7},
+  pages         = {33--35},
+  year          = {2022},
+  doi           = {10.1145/3528087}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; Springer article page metadata and abstract).
+% Crossref gives no pages; pages 87-112 from the Springer citation metadata.
+@article{Koza1994GeneticProgramming,
+  author        = {Koza, John R.},
+  title         = {Genetic programming as a means for programming computers by natural selection},
+  journal       = {Statistics and Computing},
+  volume        = {4},
+  number        = {2},
+  pages         = {87--112},
+  year          = {1994},
+  doi           = {10.1007/BF00175355}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 1811.06128v2).
+% arXiv title capitalizes "Machine Learning for Combinatorial Optimization: a Methodological Tour d'Horizon".
+@article{Bengio2021MLforCO,
+  author        = {Bengio, Yoshua and Lodi, Andrea and Prouvost, Antoine},
+  title         = {Machine learning for combinatorial optimization: A methodological tour d'horizon},
+  journal       = {European Journal of Operational Research},
+  volume        = {290},
+  number        = {2},
+  pages         = {405--421},
+  year          = {2021},
+  doi           = {10.1016/j.ejor.2020.07.063},
+  eprint        = {1811.06128},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% ----------------------------------------------------------------------------
+% Experimental methodology
+% Benchmarking, statistics and reporting of experiments; cited in
+% knowledge/writing/experiments-reporting.md
+% ----------------------------------------------------------------------------
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Also checked 2026-10-07: Springer landing page with abstract.
+@article{Barr1995Reporting,
+  author        = {Barr, Richard S. and Golden, Bruce L. and Kelly, James P. and Resende, Mauricio G. C. and Stewart, William R.},
+  title         = {Designing and reporting on computational experiments with heuristic methods},
+  journal       = {Journal of Heuristics},
+  volume        = {1},
+  number        = {1},
+  pages         = {9--32},
+  year          = {1995},
+  doi           = {10.1007/BF02430363}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Also checked 2026-10-07: Springer landing page with abstract.
+@article{Hooker1995Testing,
+  author        = {Hooker, J. N.},
+  title         = {Testing heuristics: We have it all wrong},
+  journal       = {Journal of Heuristics},
+  volume        = {1},
+  number        = {1},
+  pages         = {33--42},
+  year          = {1995},
+  doi           = {10.1007/BF02430364}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Also checked 2026-10-07: Springer landing page with abstract.
+@article{Rardin2001Tutorial,
+  author        = {Rardin, Ronald L. and Uzsoy, Reha},
+  title         = {Experimental Evaluation of Heuristic Optimization Algorithms: A Tutorial},
+  journal       = {Journal of Heuristics},
+  volume        = {7},
+  number        = {3},
+  pages         = {261--304},
+  year          = {2001},
+  doi           = {10.1023/A:1011319115230}
+}
+
+% PARTIAL 2026-10-08: authors, title, book title, series, pages, publisher, year, DOI and ISBN verified in the Crossref DOI record;
+% series volume number and editors are not in the record, fields omitted.
+@incollection{Johnson2002Guide,
+  author        = {Johnson, David S.},
+  title         = {A Theoretician's Guide to the Experimental Analysis of Algorithms},
+  booktitle     = {Data Structures, Near Neighbor Searches, and Methodology: Fifth and Sixth {DIMACS} Implementation Challenges},
+  series        = {DIMACS Series in Discrete Mathematics and Theoretical Computer Science},
+  pages         = {215--250},
+  publisher     = {American Mathematical Society},
+  year          = {2002},
+  isbn          = {978-0-8218-2892-2},
+  doi           = {10.1090/dimacs/059/11}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Also checked 2026-10-07: Crossref DOI record, Cambridge University Press, print 2012-01-30; ISBN check digit recomputed.
+@book{McGeoch2012Guide,
+  author        = {McGeoch, Catherine C.},
+  title         = {A Guide to Experimental Algorithmics},
+  publisher     = {Cambridge University Press},
+  address       = {Cambridge},
+  year          = {2012},
+  isbn          = {978-1-107-00173-2},
+  doi           = {10.1017/CBO9780511843747}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2007.03488v2).
+% No published version found by Crossref title search.
+@misc{BartzBeielstein2020Benchmarking,
+  author        = {Bartz-Beielstein, Thomas and Doerr, Carola and van den Berg, Daan and Bossek, Jakob and Chandrasekaran, Sowmya and Eftimov, Tome and Fischbach, Andreas and Kerschke, Pascal and La Cava, William and L{\'o}pez-Ib{\'a}{\~n}ez, Manuel and Malan, Katherine M. and Moore, Jason H. and Naujoks, Boris and Orzechowski, Patryk and Volz, Vanessa and Wagner, Markus and Weise, Thomas},
+  title         = {Benchmarking in Optimization: Best Practice and Open Issues},
+  year          = {2020},
+  eprint        = {2007.03488},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.NE}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Also checked 2026-10-07: Springer landing page with abstract.
+@article{Dolan2002Profiles,
+  author        = {Dolan, Elizabeth D. and Mor{\'e}, Jorge J.},
+  title         = {Benchmarking optimization software with performance profiles},
+  journal       = {Mathematical Programming},
+  volume        = {91},
+  number        = {2},
+  pages         = {201--213},
+  year          = {2002},
+  doi           = {10.1007/s101070100263}
+}
+
+% VERIFIED 2026-10-08 (JMLR paper page).
+% Also checked 2026-10-07: JMLR page jmlr.org/papers/v7/demsar06a.html with abstract.
+@article{Demsar2006Statistical,
+  author        = {Dem{\v{s}}ar, Janez},
+  title         = {Statistical Comparisons of Classifiers over Multiple Data Sets},
+  journal       = {Journal of Machine Learning Research},
+  volume        = {7},
+  pages         = {1--30},
+  year          = {2006},
+  url           = {https://jmlr.org/papers/v7/demsar06a.html}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Publisher page not reachable (HTTP 403); content cited at title level.
+@article{Derrac2011Tutorial,
+  author        = {Derrac, Joaqu{\'\i}n and Garc{\'\i}a, Salvador and Molina, Daniel and Herrera, Francisco},
+  title         = {A practical tutorial on the use of nonparametric statistical tests as a methodology for comparing evolutionary and swarm intelligence algorithms},
+  journal       = {Swarm and Evolutionary Computation},
+  volume        = {1},
+  number        = {1},
+  pages         = {3--18},
+  year          = {2011},
+  doi           = {10.1016/j.swevo.2011.02.002}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Also checked 2026-10-07: full text read, Section 9 "Practical guidelines".
+@inproceedings{Arcuri2011Guide,
+  author        = {Arcuri, Andrea and Briand, Lionel},
+  title         = {A Practical Guide for Using Statistical Tests to Assess Randomized Algorithms in Software Engineering},
+  booktitle     = {Proceedings of the 33rd International Conference on Software Engineering (ICSE '11)},
+  pages         = {1--10},
+  publisher     = {ACM},
+  year          = {2011},
+  doi           = {10.1145/1985793.1985795}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Also checked 2026-10-07: abstract via OpenAlex.
+@article{Vargha2000Effect,
+  author        = {Vargha, Andr{\'a}s and Delaney, Harold D.},
+  title         = {A Critique and Improvement of the {CL} Common Language Effect Size Statistics of {McGraw} and {Wong}},
+  journal       = {Journal of Educational and Behavioral Statistics},
+  volume        = {25},
+  number        = {2},
+  pages         = {101--132},
+  year          = {2000},
+  doi           = {10.3102/10769986025002101}
+}
+
+% VERIFIED 2026-10-08 (NeurIPS proceedings page metadata: volume 34, pages 29304-29320; arXiv 2108.13264v4).
+% arXiv comment: Outstanding Paper Award at NeurIPS 2021.
+@inproceedings{Agarwal2021Precipice,
+  author        = {Agarwal, Rishabh and Schwarzer, Max and Castro, Pablo Samuel and Courville, Aaron and Bellemare, Marc G.},
+  title         = {Deep Reinforcement Learning at the Edge of the Statistical Precipice},
+  booktitle     = {Advances in Neural Information Processing Systems 34 (NeurIPS 2021)},
+  pages         = {29304--29320},
+  year          = {2021},
+  url           = {https://proceedings.neurips.cc/paper/2021/hash/f514cec81cb148559cf475e7426eed5e-Abstract.html},
+  eprint        = {2108.13264},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% PARTIAL 2026-10-08: authors, title, journal, volume, number, year and DOI verified in the Crossref DOI record;
+% Crossref gives only the first page (80), so the pages field is omitted.
+@article{Wilcoxon1945Ranking,
+  author        = {Wilcoxon, Frank},
+  title         = {Individual Comparisons by Ranking Methods},
+  journal       = {Biometrics Bulletin},
+  volume        = {1},
+  number        = {6},
+  year          = {1945},
+  doi           = {10.2307/3001968}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record).
+% Crossref uses the current journal name; in 1995 the journal was
+% titled "Journal of the Royal Statistical Society. Series B (Methodological)".
+@article{Benjamini1995FDR,
+  author        = {Benjamini, Yoav and Hochberg, Yosef},
+  title         = {Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing},
+  journal       = {Journal of the Royal Statistical Society: Series B (Methodological)},
+  volume        = {57},
+  number        = {1},
+  pages         = {289--300},
+  year          = {1995},
+  doi           = {10.1111/j.2517-6161.1995.tb02031.x}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 1603.08785v4).
+% Also checked 2026-10-07: Crossref DOI record: online 2020-08-25, print 2021-01-02.
+@article{Hansen2021COCO,
+  author        = {Hansen, Nikolaus and Auger, Anne and Ros, Raymond and Mersmann, Olaf and Tu{\v{s}}ar, Tea and Brockhoff, Dimo},
+  title         = {{COCO}: a platform for comparing continuous optimizers in a black-box setting},
+  journal       = {Optimization Methods and Software},
+  volume        = {36},
+  number        = {1},
+  pages         = {114--144},
+  year          = {2021},
+  doi           = {10.1080/10556788.2020.1808977},
+  eprint        = {1603.08785},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2102.03380v2).
+@article{LopezIbanez2021Reproducibility,
+  author        = {L{\'o}pez-Ib{\'a}{\~n}ez, Manuel and Branke, Juergen and Paquete, Lu{\'\i}s},
+  title         = {Reproducibility in Evolutionary Computation},
+  journal       = {ACM Transactions on Evolutionary Learning and Optimization},
+  volume        = {1},
+  number        = {4},
+  pages         = {1--21},
+  year          = {2021},
+  doi           = {10.1145/3466624},
+  eprint        = {2102.03380},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+% VERIFIED 2026-10-08 (JMLR paper page).
+% Also checked 2026-10-07: JMLR page jmlr.org/papers/v22/20-303.html.
+% Names as in the JMLR metadata.
+@article{Pineau2021Reproducibility,
+  author        = {Pineau, Joelle and Vincent-Lamarre, Philippe and Sinha, Koustuv and Lariviere, Vincent and Beygelzimer, Alina and d'Alche-Buc, Florence and Fox, Emily and Larochelle, Hugo},
+  title         = {Improving Reproducibility in Machine Learning Research (A Report from the {NeurIPS} 2019 Reproducibility Program)},
+  journal       = {Journal of Machine Learning Research},
+  volume        = {22},
+  number        = {164},
+  pages         = {1--20},
+  year          = {2021},
+  url           = {https://jmlr.org/papers/v22/20-303.html}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2207.07048v1).
+% Title changed: arXiv "Leakage and the Reproducibility Crisis in ML-based Science".
+@article{Kapoor2023Leakage,
+  author        = {Kapoor, Sayash and Narayanan, Arvind},
+  title         = {Leakage and the reproducibility crisis in machine-learning-based science},
+  journal       = {Patterns},
+  volume        = {4},
+  number        = {9},
+  pages         = {100804},
+  year          = {2023},
+  doi           = {10.1016/j.patter.2023.100804},
+  eprint        = {2207.07048},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2308.07832v2).
+% Title changed: arXiv "REFORMS: Reporting Standards for Machine Learning Based Science".
+@article{Kapoor2024REFORMS,
+  author        = {Kapoor, Sayash and Cantrell, Emily M. and Peng, Kenny and Pham, Thanh Hien and Bail, Christopher A. and Gundersen, Odd Erik and Hofman, Jake M. and Hullman, Jessica and Lones, Michael A. and Malik, Momin M. and Nanayakkara, Priyanka and Poldrack, Russell A. and Raji, Inioluwa Deborah and Roberts, Michael and Salganik, Matthew J. and Serra-Garcia, Marta and Stewart, Brandon M. and Vandewiele, Gilles and Narayanan, Arvind},
+  title         = {{REFORMS}: Consensus-based Recommendations for Machine-learning-based Science},
+  journal       = {Science Advances},
+  volume        = {10},
+  number        = {18},
+  pages         = {eadk3452},
+  year          = {2024},
+  doi           = {10.1126/sciadv.adk3452},
+  eprint        = {2308.07832},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2402.03927v2).
+@inproceedings{Balloccu2024Leak,
+  author        = {Balloccu, Simone and Schmidtov{\'a}, Patr{\'\i}cia and Lango, Mateusz and Du{\v{s}}ek, Ond{\v{r}}ej},
+  title         = {Leak, Cheat, Repeat: Data Contamination and Evaluation Malpractices in Closed-Source {LLMs}},
+  booktitle     = {Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  pages         = {67--93},
+  publisher     = {Association for Computational Linguistics},
+  year          = {2024},
+  doi           = {10.18653/v1/2024.eacl-long.5},
+  eprint        = {2402.03927},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+% VERIFIED 2026-10-08 (arXiv 2408.04667v5).
+% No published version checked.
+@misc{Atil2024NonDeterminism,
+  author        = {Atil, Berk and Aykent, Sarp and Chittams, Alexa and Fu, Lisheng and Passonneau, Rebecca J. and Radcliffe, Evan and Rajagopal, Guru Rajan and Sloan, Adam and Tudrej, Tomasz and Ture, Ferhan and Wu, Zhe and Xu, Lixinyu and Baldwin, Breck},
+  title         = {Non-Determinism of ``Deterministic'' {LLM} Settings},
+  year          = {2024},
+  eprint        = {2408.04667},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+% ----------------------------------------------------------------------------
+% Writing and publishing
+% Guides on scientific and mathematical writing that the guides in knowledge/writing/ rely on
+% ----------------------------------------------------------------------------
+
+% --- Books ---
+
+% VERIFIED 2026-10-08 (author page cs.stanford.edu/~knuth/klr.html: authors, MAA, Washington DC, 1989, ii+115 pp, ISBN; MAA page maa.org/resource/notes-volumes-14-mathematical-writing: Notes Volume 14).
+@book{Knuth1989MathWriting,
+  author    = {Knuth, Donald E. and Larrabee, Tracy L. and Roberts, Paul M.},
+  title     = {Mathematical Writing},
+  series    = {MAA Notes},
+  number    = {14},
+  publisher = {Mathematical Association of America},
+  address   = {Washington, DC},
+  year      = {1989},
+  isbn      = {0-88385-063-X},
+  url       = {https://cs.stanford.edu/~knuth/klr.html},
+  note      = {Full text (without illustrations) available as TeX source at the URL}
+}
+
+% VERIFIED 2026-10-08 (author page nhigham.com/handbook-of-writing-for-the-mathematical-sciences-bib-entry: edition, publisher, address, year, ISBN; SIAM page epubs.siam.org/doi/book/10.1137/1.9781611976106: DOI, series). Series number not shown, omitted.
+@book{Higham2020Handbook,
+  author    = {Higham, Nicholas J.},
+  title     = {Handbook of Writing for the Mathematical Sciences},
+  edition   = {Third},
+  series    = {Other Titles in Applied Mathematics},
+  publisher = {Society for Industrial and Applied Mathematics},
+  address   = {Philadelphia, PA},
+  year      = {2020},
+  isbn      = {978-1-611976-09-0},
+  doi       = {10.1137/1.9781611976106}
+}
+
+% PARTIAL 2026-10-08: authors, title, 13th edition, Pearson, published 2021-07-14, copyright 2022 verified on pearson.com product page; ISBN not labelled on the page, omitted; year = copyright year.
+@book{WilliamsBizup2022Style,
+  author    = {Williams, Joseph M. and Bizup, Joseph},
+  title     = {Style: Lessons in Clarity and Grace},
+  edition   = {13th},
+  publisher = {Pearson},
+  year      = {2022}
+}
+
+% VERIFIED 2026-10-08 (Springer page link.springer.com/book/10.1007/978-1-4471-6639-9: edition 3, Springer London, softcover ISBN; Crossref record: issued 2014). Softcover published 2015-02-17; copyright year 2014.
+@book{Zobel2014Writing,
+  author    = {Zobel, Justin},
+  title     = {Writing for Computer Science},
+  edition   = {3rd},
+  publisher = {Springer},
+  address   = {London},
+  year      = {2014},
+  isbn      = {978-1-4471-6638-2},
+  doi       = {10.1007/978-1-4471-6639-9}
+}
+
+% VERIFIED 2026-10-08 (Princeton University Press page press.princeton.edu/isbn/9780691281070: 3rd edition, series Skills for Scholars, published 2026-08-04, 384 pp, ISBN field 9780691281070 = hardcover; paperback 9780691281087). Supersedes the 2nd edition (2022, ISBN 9780691219189). Address not shown, omitted.
+@book{Heard2026Guide,
+  author    = {Heard, Stephen B.},
+  title     = {The Scientist's Guide to Writing},
+  edition   = {3rd},
+  series    = {Skills for Scholars},
+  publisher = {Princeton University Press},
+  year      = {2026},
+  isbn      = {9780691281070}
+}
+
+% VERIFIED 2026-10-08 (Harvard University Press page hup.harvard.edu/books/9780674064485: hardcover, 2012-04-02, 240 pp, ISBN). Address not shown, omitted.
+@book{Sword2012Stylish,
+  author    = {Sword, Helen},
+  title     = {Stylish Academic Writing},
+  publisher = {Harvard University Press},
+  year      = {2012},
+  isbn      = {9780674064485}
+}
+
+% VERIFIED 2026-10-08 (penguinrandomhouse.com paperback page, ISBN 9780143127796: subtitle, 2015-09-22, 368 pp, publisher Penguin Random House). Paperback record; ebook dated 2014-09-30 on the same page; first hardcover edition not checked.
+@book{Pinker2015Sense,
+  author    = {Pinker, Steven},
+  title     = {The Sense of Style: The Thinking Person's Guide to Writing in the 21st Century},
+  publisher = {Penguin Random House},
+  year      = {2015},
+  isbn      = {9780143127796}
+}
+
+% VERIFIED 2026-10-08 (Oxford University Press page global.oup.com/academic/product/writing-science-9780199760244: subtitle, paperback published 2011-12-15, 240 pp, ISBN).
+@book{Schimel2011Writing,
+  author    = {Schimel, Joshua},
+  title     = {Writing Science: How to Write Papers That Get Cited and Proposals That Get Funded},
+  publisher = {Oxford University Press},
+  year      = {2011},
+  isbn      = {9780199760244}
+}
+
+% --- Articles ---
+
+% VERIFIED 2026-10-08 (DataCite record of DOI 10.5169/seals-43857: title, author, 1970, Fondation L'Enseignement Mathematique; e-periodica table of contents of Band 16 (1970): pages 123-152). Issue number omitted.
+@article{Halmos1970HowToWrite,
+  author    = {Halmos, Paul R.},
+  title     = {How to Write Mathematics},
+  journal   = {L'Enseignement Math{\'e}matique},
+  volume    = {16},
+  pages     = {123--152},
+  year      = {1970},
+  doi       = {10.5169/seals-43857}
+}
+
+% VERIFIED 2026-10-08 (JSTOR stable/29774235: authors, vol. 78, no. 6, Nov-Dec 1990, pp. 550-558; free reprint on americanscientist.org dated 2018-01-01). No DOI.
+@article{GopenSwan1990Science,
+  author    = {Gopen, George D. and Swan, Judith A.},
+  title     = {The Science of Scientific Writing},
+  journal   = {American Scientist},
+  volume    = {78},
+  number    = {6},
+  pages     = {550--558},
+  year      = {1990},
+  url       = {https://www.americanscientist.org/blog/the-long-view/the-science-of-scientific-writing}
+}
+
+% VERIFIED 2026-10-08 (Crossref record of DOI 10.1145/3317287.3328534: Queue 17(1):45-77, 2019; arXiv API 1807.03341: v1 2018-07-09, "Presented at ICML 2018: The Debates"; full text of arXiv v2 read). Also reprinted in Communications of the ACM 62(6):45-53, 2019, DOI 10.1145/3316774.
+@article{LiptonSteinhardt2019Troubling,
+  author        = {Lipton, Zachary C. and Steinhardt, Jacob},
+  title         = {Troubling Trends in Machine Learning Scholarship},
+  journal       = {Queue},
+  volume        = {17},
+  number        = {1},
+  pages         = {45--77},
+  year          = {2019},
+  doi           = {10.1145/3317287.3328534},
+  eprint        = {1807.03341},
+  archivePrefix = {arXiv}
+}
+
+% VERIFIED 2026-10-08 (PLOS page journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619: authors, 13(9), e1005619, 2017-09-28, DOI). Correction: e1005830. Outside the 2018+ quota; kept for the context-content-conclusion rule.
+@article{MenshKording2017TenRules,
+  author    = {Mensh, Brett and Kording, Konrad},
+  title     = {Ten Simple Rules for Structuring Papers},
+  journal   = {PLOS Computational Biology},
+  volume    = {13},
+  number    = {9},
+  pages     = {e1005619},
+  year      = {2017},
+  doi       = {10.1371/journal.pcbi.1005619}
+}
+
+% --- Web pages, slides, essays ---
+
+% VERIFIED 2026-10-08 (cs.stanford.edu/people/widom/paper-writing.html: author, "January 2006", talk 2006-01-27, revised 2009-12-04).
+@misc{Widom2006Tips,
+  author = {Widom, Jennifer},
+  title  = {Tips for Writing Technical Papers},
+  year   = {2006},
+  url    = {https://cs.stanford.edu/people/widom/paper-writing.html},
+  note   = {Notes of a Stanford InfoLab talk, January 2006, revised December 2009; accessed 2026-10-08}
+}
+
+% PARTIAL 2026-10-08: title and speaker verified on microsoft.com/en-us/research/academic-program/write-great-research-paper; slides undated, year = PDF creation date (2016-07-27) of the slides at the URL.
+@misc{PeytonJones2016GreatPaper,
+  author = {Peyton Jones, Simon},
+  title  = {How to Write a Great Research Paper},
+  year   = {2016},
+  url    = {https://www.microsoft.com/en-us/research/academic-program/write-great-research-paper/},
+  note   = {Talk slides and video; accessed 2026-10-08}
+}
+
+% VERIFIED 2026-10-08 (approximatelycorrect.com post: author, title, 2018-01-29, updated 2018-07-11).
+@misc{Lipton2018Heuristics,
+  author = {Lipton, Zachary C.},
+  title  = {Heuristics for Scientific Writing (a Machine Learning Perspective)},
+  year   = {2018},
+  url    = {https://www.approximatelycorrect.com/2018/01/29/heuristics-technical-scientific-writing-machine-learning-perspective/},
+  note   = {Blog post, Approximately Correct, 2018-01-29, updated 2018-07-11; accessed 2026-10-08}
+}
+
+% PARTIAL 2026-10-08: title and author verified (math.mit.edu/~poonen/papers/writing.pdf, PDF metadata and first page); document undated, year = PDF creation date of the current version (2026-01-08).
+@misc{Poonen2026Suggestions,
+  author = {Poonen, Bjorn},
+  title  = {Practical Suggestions for Mathematical Writing},
+  year   = {2026},
+  url    = {https://math.mit.edu/~poonen/papers/writing.pdf},
+  note   = {Undated; version of 2026-01-08; accessed 2026-10-08}
+}
+
+% PARTIAL 2026-10-08: title ("On writing") and author verified on terrytao.wordpress.com/advice-on-writing-papers; page undated, so the entry has no year and the key no year.
+@misc{TaoOnWriting,
+  author = {Tao, Terence},
+  title  = {On Writing},
+  url    = {https://terrytao.wordpress.com/advice-on-writing-papers/},
+  note   = {Undated collection of blog pages; accessed 2026-10-08}
+}
+
+% VERIFIED 2026-10-08 (wisdom.weizmann.ac.il/~oded/writing.html: title, author, current version revised March 2004, revision of "How NOT to write a paper" 1991/1996).
+@misc{Goldreich2004HowToWrite,
+  author = {Goldreich, Oded},
+  title  = {How to Write a Paper},
+  year   = {2004},
+  url    = {https://www.wisdom.weizmann.ac.il/~oded/writing.html},
+  note   = {Essay, revised and augmented version of How NOT to Write a Paper (1991, revised 1996); accessed 2026-10-08}
+}
+
+% VERIFIED 2026-10-08 (faculty.engineering.asu.edu/bertsekas/ten-simple-rules-for-mathematical-writing: from an April 2002 MIT lecture, edited later; linked PDF title slide "Dimitri Bertsekas M.I.T., April 2002", PDF metadata "Ten Rules_Updated_2019").
+@misc{Bertsekas2002TenRules,
+  author = {Bertsekas, Dimitri P.},
+  title  = {Ten Simple Rules for Mathematical Writing},
+  year   = {2002},
+  url    = {https://faculty.engineering.asu.edu/bertsekas/ten-simple-rules-for-mathematical-writing/},
+  note   = {Lecture slides, MIT, April 2002, later updated; accessed 2026-10-08}
+}
+
+% PARTIAL 2026-10-08: title and author from the PDF first page; no primary location, date or affiliation found; URL is a course copy at UC Davis (PDF generated 2001-09-21). No year.
+@misc{LeeGuideMath,
+  author = {Lee, Kevin P.},
+  title  = {A Guide to Writing Mathematics},
+  url    = {https://www.cs.ucdavis.edu/~amenta/w10/writingman.pdf},
+  note   = {Undated; copy hosted on a UC Davis course page; accessed 2026-10-08}
+}
+
+% VERIFIED 2026-10-08 (alignmentforum.org post eJGptPbbFPZGLpjsp: title, author, posted 2025-05-12).
+@misc{Nanda2025MLPapers,
+  author = {Nanda, Neel},
+  title  = {Highly Opinionated Advice on How to Write {ML} Papers},
+  year   = {2025},
+  url    = {https://www.alignmentforum.org/posts/eJGptPbbFPZGLpjsp/highly-opinionated-advice-on-how-to-write-ml-papers},
+  note   = {Alignment Forum post, 2025-05-12; accessed 2026-10-08}
+}
+
+% VERIFIED 2026-10-08 (sebastianfarquhar.com post: title, author, 2024-11-04).
+@misc{Farquhar2024MLPapers,
+  author = {Farquhar, Sebastian},
+  title  = {How to Write {ML} Papers},
+  year   = {2024},
+  url    = {https://sebastianfarquhar.com/on-research/2024/11/04/how_to_write_ml_papers/},
+  note   = {Blog post, 2024-11-04; accessed 2026-10-08}
+}
+
+% ----------------------------------------------------------------------------
+% Convex geometry (sources of the bachelor's thesis)
+% ----------------------------------------------------------------------------
+
+% VERIFIED 2026-10-07 (DOI, publisher page or catalogue): Mathematics Magazine 62(2), 1989, pages 101-107.
+% The bachelor's thesis gives the date 2018 and an ISBN; both are wrong.
+% The DOI was added 2026-10-08 from the Crossref record (title, volume 62, issue 2, pages 101-107, April 1989 match).
 @article{SmithVamanamurthy1989,
   author  = {Smith, David J. and Vamanamurthy, M. K.},
   title   = {How Small Is a Unit Ball?},
@@ -233,10 +1553,12 @@
   volume  = {62},
   number  = {2},
   pages   = {101--107},
-  year    = {1989}
+  year    = {1989},
+  doi     = {10.1080/0025570x.1989.11977419}
 }
 
-% OVERENE 2026-10-07 (Project Euclid). V bakalarke je navyse uvedene nespravne ISBN.
+% VERIFIED 2026-10-07 (Project Euclid).
+% The bachelor's thesis also gives a wrong ISBN.
 @article{HedayatWallis1978,
   author  = {Hedayat, A. and Wallis, W. D.},
   title   = {Hadamard Matrices and Their Applications},
@@ -248,7 +1570,7 @@
   doi     = {10.1214/aos/1176344370}
 }
 
-% OVERENE 2026-10-07 (Springer): tlacene vydanie 978-3-030-03866-3, e-kniha 978-3-030-03868-7.
+% VERIFIED 2026-10-07 (Springer): print edition 978-3-030-03866-3, e-book 978-3-030-03868-7.
 @book{MartiniMontejanoOliveros2019,
   author    = {Martini, Horst and Montejano, Luis and Oliveros, D{\'e}borah},
   title     = {Bodies of Constant Width: An Introduction to Convex Geometry with Applications},
@@ -259,22 +1581,28 @@
   doi       = {10.1007/978-3-030-03868-7}
 }
 
-% CIASTOCNE: autor, nazov, casopis, rocnik a rok sedia s citaciami v literature; strany sa nepodarilo potvrdit.
-% V bakalarke je navyse uvedene nespravne ISBN.
+% PARTIAL 2026-10-08: author, title, journal, volume and year agree with citations in the literature (2026-10-07);
+% the Crossref record of DOI 10.2307/2315353 confirms title, journal, volume 73, issue 3, March 1966 and the
+% first page 299 (Crossref and OpenAlex give no last page; JSTOR blocks automated access), so the page range is not verified and omitted.
+% The bachelor's thesis also gives a wrong ISBN.
 @article{Stein1966,
   author  = {Stein, P.},
   title   = {A Note on the Volume of a Simplex},
   journal = {The American Mathematical Monthly},
   volume  = {73},
   number  = {3},
-  year    = {1966}
+  year    = {1966},
+  doi     = {10.2307/2315353}
 }
 
 % ----------------------------------------------------------------------------
-% Vlastne prace
+% Author's own work
 % ----------------------------------------------------------------------------
 
-% Udaje z titulnej strany PDF (knowledge/sources/diplomova-praca-2025-min-cut-path.pdf).
+% VERIFIED 2026-10-08 (title page of knowledge/sources/diplomova-praca-2025-min-cut-path.pdf).
+% Compared: Faculty of Mathematics and Physics, Charles University; Master thesis; Min Cut-Path;
+% Department of Applied Mathematics; Prague 2025; agrees with knowledge/author.md.
+% The degree prefix "Bc." before the author's name on the title page is omitted.
 @mastersthesis{Michel2025MinCutPath,
   author  = {Miche{\v{l}}, Norbert},
   title   = {Min Cut-Path},
@@ -283,7 +1611,10 @@
   year    = {2025}
 }
 
-% Udaje z titulnej strany PDF (knowledge/sources/bakalarska-praca-2024-mriezkove-mnohosteny.pdf).
+% VERIFIED 2026-10-08 (title page of knowledge/sources/bakalarska-praca-2024-mriezkove-mnohosteny.pdf).
+% Compared: Pavol Jozef Safarik University in Kosice, Faculty of Science, Bakalarska praca, Kosice 2024;
+% agrees with knowledge/author.md.
+% The English title on the assignment sheet is "Lattice polytopes inside n-dimensional cube".
 @mastersthesis{Michel2024LatticePolytopes,
   author  = {Miche{\v{l}}, Norbert},
   title   = {Mre{\v{z}}ov{\'e} mnohosteny v n-rozmernej kocke},

@@ -1,42 +1,42 @@
-# Zdrojové dokumenty
+# Source documents
 
-Pôvodné práce a podklady v PDF. Ku každému PDF je `.txt` s extrahovaným textom (`pdftotext -layout`), v ktorom sa dá hľadať.
-Vzorce sú v `.txt` rozsypané – slúži na vyhľadanie miesta, presné znenie čítaj v PDF.
+Original theses and background material as PDF. Every PDF has a `.txt` with the extracted text (`pdftotext -layout`) that can be searched.
+Formulas are scrambled in the `.txt`: use it to locate a passage, read the exact wording in the PDF.
 
-| Súbor | Dokument | Rok | Jazyk | Strán | Prehľad |
+| File | Document | Year | Language | Pages | Overview |
 |---|---|---|---|---|---|
-| `bakalarska-praca-2024-mriezkove-mnohosteny.pdf` | Bakalárska práca *Mrežové mnohosteny v n-rozmernej kocke*, UPJŠ Košice, vedúci Mgr. Martin Vodička | 2024 | SK | 42 | [research/lattice-polytopes.md](../research/lattice-polytopes.md) |
-| `diplomova-praca-2025-min-cut-path.pdf` | Diplomová práca *Min Cut-Path*, Univerzita Karlova (MFF), vedúci prof. RNDr. Martin Loebl, CSc. | 2025 | EN | 77 | [research/min-cut-path.md](../research/min-cut-path.md) |
+| `bakalarska-praca-2024-mriezkove-mnohosteny.pdf` | Bachelor's thesis *Mrežové mnohosteny v n-rozmernej kocke* (Lattice polytopes inside the n-dimensional cube), UPJŠ Košice, supervisor Mgr. Martin Vodička | 2024 | SK | 42 | [research/lattice-polytopes.md](../research/lattice-polytopes.md) |
+| `diplomova-praca-2025-min-cut-path.pdf` | Master's thesis *Min Cut-Path*, Charles University (MFF), supervisor prof. RNDr. Martin Loebl, CSc. | 2025 | EN | 77 | [research/min-cut-path.md](../research/min-cut-path.md) |
 
-LaTeX zdroje týchto prác v repozitári nie sú (len PDF). Ak sa nájdu, patria do `projects/praca-bakalarska-…` a `projects/praca-diplomova-…`.
+The LaTeX sources of these theses are not in the repository (PDFs only). If found, they belong in `projects/praca-bakalarska-…` and `projects/praca-diplomova-…`.
 
-## Známe chyby v prácach (errata)
+## Known errors in the theses (errata)
 
-Práce sú odovzdané a v PDF sa nedajú opraviť. Pri preberaní textu do článkov treba tieto miesta opraviť.
+The theses are submitted and cannot be corrected in the PDF. Correct these places when reusing text in articles.
 
-**Diplomová práca (2025)** – podrobne v [research/min-cut-path.md](../research/min-cut-path.md), časť 5a:
-- Theorem 28 a Claim 29 (koncentrácia stupňov a `c(u,v)` v `(1 ± ε) α log n`) pre pevné `α` neplatia; správne sú konštantné hranice `β₁ log n`, `β₂ log n`.
-- Theorem 24: treba `α > 1`.
-- NP-ťažkosť je uvádzaná ako otvorený problém – vyriešené v článku 1.
-- Bibliografia: 5 neplatných ISBN, Diestel (6. vyd.) má rok 2025, OpenIntro Statistics (4. vyd.) rok 2019 a iné poradie autorov, položka 7 má autorov Blanc, Lange, Qiao, Tan; Roughgarden je editor zborníka.
+**Master's thesis (2025)** – details in [research/min-cut-path.md](../research/min-cut-path.md), Section 5a:
+- Theorem 28 and Claim 29 (concentration of degrees and of `c(u,v)` in `(1 ± ε) α log n`) do not hold for fixed `α`; the correct bounds are the constants `β₁ log n`, `β₂ log n`.
+- Theorem 24: `α > 1` is required.
+- NP-hardness is stated as an open problem – solved in article 1.
+- Bibliography: 5 invalid ISBNs, Diestel (6th ed.) is dated 2025, OpenIntro Statistics (4th ed.) 2019 with a different author order, entry 7 has authors Blanc, Lange, Qiao, Tan; Roughgarden is the editor of a collected volume.
 
-**Bakalárska práca (2024)**:
-- Bibliografia: pri položkách 2, 5 a 6 (časopisecké články) sú uvedené ISBN, ktoré k nim nepatria; položka 2 (Smith, Vamanamurthy) vyšla v roku 1989, nie 2018; mená autorov sú v nesprávnom poradí iniciálok (napr. „A. P. Christian Haase, Benjamin Nill“ = Haase, Nill, Paffenholz).
+**Bachelor's thesis (2024)**:
+- Bibliography: entries 2, 5 and 6 (journal articles) carry ISBNs that do not belong to them; entry 2 (Smith, Vamanamurthy) appeared in 1989, not 2018; author names have the initials in the wrong order (e.g. "A. P. Christian Haase, Benjamin Nill" = Haase, Nill, Paffenholz).
 
-Overené záznamy oboch prác sú v [bibliography/references.bib](../bibliography/references.bib).
+Verified entries for both theses are in [bibliography/references.bib](../bibliography/references.bib).
 
-## Pridanie nového zdroja
+## Adding a new source
 
-1. PDF pomenuj `<typ>-<rok>-<tema>.pdf` (malé písmená, pomlčky, bez diakritiky) a ulož sem.
-2. Vytvor text:
+1. Name the PDF `<type>-<year>-<topic>.pdf` (lowercase, hyphens, no diacritics) and store it here.
+2. Create the text:
    ```powershell
-   pdftotext -layout -enc UTF-8 knowledge\sources\<nazov>.pdf knowledge\sources\<nazov>.txt
+   pdftotext -layout -enc UTF-8 knowledge\sources\<name>.pdf knowledge\sources\<name>.txt
    ```
-   Prepínač `-enc UTF-8` je nutný, inak sa stratí diakritika.
-3. Doplň riadok do tabuľky vyššie.
-4. Ak ide o vlastnú prácu alebo kľúčový zdroj, napíš prehľad do `knowledge/research/`.
+   The `-enc UTF-8` switch is required, otherwise diacritics are lost.
+3. Add a row to the table above.
+4. For the author's own work or a key source, write an overview into `knowledge/research/`.
 
-## Hľadanie
+## Searching
 
-- Číslované tvrdenia diplomovky: `Definition 30`, `Theorem 22`, `Claim 36`, `Algorithm 8`.
-- Číslované tvrdenia bakalárky: `Definícia 2.1.1`, `Veta 4.2.2`.
+- Numbered statements of the master's thesis: `Definition 30`, `Theorem 22`, `Claim 36`, `Algorithm 8`.
+- Numbered statements of the bachelor's thesis (Slovak text; *Definícia* = definition, *Veta* = theorem): `Definícia 2.1.1`, `Veta 4.2.2`.

@@ -1,31 +1,35 @@
-# Mriežkové mnohosteny v n-rozmernej kocke – prehľad bakalárskej práce
+# Lattice polytopes inside the n-dimensional cube – overview of the bachelor's thesis
 
-Zdroj: *Mrežové mnohosteny v n-rozmernej kocke*, bakalárska práca, UPJŠ Košice 2024, vedúci Mgr. Martin Vodička,
-42 strán, po slovensky. Plný text: `knowledge/sources/bakalarska-praca-2024-mriezkove-mnohosteny.txt`.
+Source: *Mrežové mnohosteny v n-rozmernej kocke* (Lattice polytopes inside the n-dimensional cube), bachelor's thesis,
+UPJŠ Košice 2024, supervisor Mgr. Martin Vodička, 42 pages, in Slovak. Full text:
+`knowledge/sources/bakalarska-praca-2024-mriezkove-mnohosteny.txt`.
 
-Anglický názov v zadaní: *Lattice polytopes inside n-dimensional cube*.
-Kľúčové slová: mriežka, báza mriežky, konvexné mnohosteny, Stred-mnohosten, skosený mnohosten, zmiešaný objem.
+English title in the assignment: *Lattice polytopes inside n-dimensional cube*.
+Keywords: lattice, lattice basis, convex polytopes, centre-polytope, truncated polyhedron, mixed volume.
 
-## Téma
+## Topic
 
-Objemy konvexných mnohostenov, ktorých vrcholy ležia vo vrcholoch `n`-rozmernej kocky: priemerný objem
-náhodného mnohostena, objem konvexnej kombinácie dvoch mnohostenov a extrémne (maximálne a minimálne) objemy.
+Volumes of convex polytopes whose vertices lie at vertices of the `n`-dimensional cube: the average volume of a
+random polytope, the volume of a convex combination of two polytopes, and extreme (maximum and minimum) volumes.
 
-## Štruktúra a hlavné výsledky
+## Structure and main results
 
-| Kapitola | Obsah | Kľúčové tvrdenia |
+Numbered statements are labeled `Veta` (theorem) and `Definícia` (definition) in the Slovak text; search the `.txt`
+for e.g. `Veta 4.2.2`.
+
+| Chapter | Contents | Key statements |
 |---|---|---|
-| 1 Základy | mriežkový mnohosten, vrchol, mriežková báza, izomorfizmus, objem cez determinant; gama funkcia, Stirlingov vzťah, objem ihlana a gule | Veta 1.2.7: `V(M) ≤ ∏\|m₀ − mᵢ\| / n!` pre simplex |
-| 2 Priemerný objem mnohostena v kocke | Stred-mnohosten `M_{n,k}` (vrcholy so súradnicami 0, 1, 0.5; práve `k` súradníc je 0.5) | Veta 2.1.2: `M_{n,k+1} ⊆ M_{n,k}`; Veta 2.2.1: ak každý vrchol kocky vyberieme nezávisle s pravdepodobnosťou `p ∈ (0,1)`, tak `E[V(conv A)] → 1` pre `n → ∞` |
-| 3 Zmiešaný objem a konvexné kombinácie | Minkowského súčet, zmiešaný objem, skosený mnohosten (ihlan) | Veta 3.0.4: `c_k² ≥ c_{k−1}·c_{k+1}`; Veta 3.1.1: objem `conv(M, O)` nie je zhora ohraničený; Veta 3.2.2: vzorec pre objem skoseného mnohostena; Veta 3.4.1: minimálny objem `conv(M, N)` medzi rovnobežnými nadrovinami je objem skoseného ihlana |
-| 4 Extrémne objemy v kocke | maximum pri `k` vrcholoch, maximum pre simplex (súvis s Hadamardovým problémom maximálneho determinantu), minimum | Veta 4.1.1: pre `k ≥ 2^{n−1}` je `V ≤ 1 − (2ⁿ − k)/n!`; Veta 4.2.2: `V(M) ≤ √(n+1)^{n+1} · 0.5ⁿ / n!` pre simplex, rovnosť len ak `n + 1 = 4k`; Veta 4.2.3: konštrukcia extrémneho simplexu v dimenzii `2n + 1`; Hypotéza o rekurencii `D(n, m)` pre minimálne objemy; Veta 4.3.3: priemer minimálnych objemov `→ 1 + ln(1/2)` |
+| 1 Foundations | lattice polytope, vertex, lattice basis, isomorphism, volume via determinant; gamma function, Stirling's formula, volume of a pyramid and of a ball | Theorem 1.2.7: `V(M) ≤ ∏\|m₀ − mᵢ\| / n!` for a simplex |
+| 2 Average volume of a polytope in the cube | centre-polytope `M_{n,k}` (vertices with coordinates 0, 1, 0.5; exactly `k` coordinates equal 0.5) | Theorem 2.1.2: `M_{n,k+1} ⊆ M_{n,k}`; Theorem 2.2.1: if every vertex of the cube is chosen independently with probability `p ∈ (0,1)`, then `E[V(conv A)] → 1` as `n → ∞` |
+| 3 Mixed volume and convex combinations | Minkowski sum, mixed volume, truncated polyhedron (pyramid) | Theorem 3.0.4: `c_k² ≥ c_{k−1}·c_{k+1}`; Theorem 3.1.1: the volume of `conv(M, O)` is not bounded above; Theorem 3.2.2: formula for the volume of a truncated polyhedron; Theorem 3.4.1: the minimum volume of `conv(M, N)` between parallel hyperplanes is the volume of a truncated pyramid |
+| 4 Extreme volumes in the cube | maximum with `k` vertices, maximum for a simplex (connection to Hadamard's maximal determinant problem), minimum | Theorem 4.1.1: for `k ≥ 2^{n−1}`, `V ≤ 1 − (2ⁿ − k)/n!`; Theorem 4.2.2: `V(M) ≤ √(n+1)^{n+1} · 0.5ⁿ / n!` for a simplex, equality only if `n + 1 = 4k`; Theorem 4.2.3: construction of an extreme simplex in dimension `2n + 1`; Conjecture on the recurrence `D(n, m)` for minimum volumes; Theorem 4.3.3: the average of the minimum volumes `→ 1 + ln(1/2)` |
 
-Poznámka: vzorce v tabuľke sú prepísané z extrahovaného textu, kde sa sadzba zlomkov a odmocnín rozpadá. Pred citovaním
-over presné znenie v PDF (`knowledge/sources/bakalarska-praca-2024-mriezkove-mnohosteny.pdf`).
+Note: the formulas in the table were transcribed from the extracted text, where typeset fractions and roots break
+apart. Before citing, check the exact wording in the PDF (`knowledge/sources/bakalarska-praca-2024-mriezkove-mnohosteny.pdf`).
 
-## Terminológia zavedená v práci
+## Terminology introduced in the thesis
 
-| SK | EN (abstrakt) |
+| SK | EN (abstract) |
 |---|---|
 | mriežkový mnohosten | lattice polytope |
 | Stred-mnohosten | centre-polytope |
@@ -33,23 +37,23 @@ over presné znenie v PDF (`knowledge/sources/bakalarska-praca-2024-mriezkove-mn
 | zmiešaný objem | mixed volume |
 | minimálny rozdielový odhad `D(n, m)` | – |
 
-## Literatúra práce
+## References of the thesis
 
-Správne údaje (overené 7. 10. 2026, ak nie je uvedené inak); čo je v PDF inak, je v poslednom stĺpci.
+Correct data (verified 2026-10-07 unless stated otherwise); what is wrong in the PDF of the thesis is in the last column.
 
-| # | Zdroj | V PDF práce chybne |
+| # | Source | Wrong in the thesis PDF |
 |---|---|---|
-| 1 | Haase, Nill, Paffenholz: *Lecture Notes on Lattice Polytopes*, preprint TU Darmstadt, 2020 (neoverované) | poradie mien („A. P. Christian Haase, Benjamin Nill“) |
-| 2 | Smith, Vamanamurthy: *How Small Is a Unit Ball?*, Mathematics Magazine 62(2), 1989, 101–107 | rok 2018, uvedené ISBN |
-| 3 | Gubner: *The Gamma Function and Stirling's Formula*, poznámky, 2021 (neoverované) | – |
-| 4 | Martini, Montejano, Oliveros: *Bodies of Constant Width*, Birkhäuser 2019, ISBN 978-3-030-03866-3 (e-kniha 978-3-030-03868-7) | poradie mien |
-| 5 | Stein: *A Note on the Volume of a Simplex*, The American Mathematical Monthly 73(3), 1966 (strany neoverené) | uvedené ISBN |
-| 6 | Hedayat, Wallis: *Hadamard Matrices and Their Applications*, The Annals of Statistics 6(6), 1978, 1184–1238, DOI 10.1214/aos/1176344370 | poradie mien, uvedené ISBN |
-| 7 | Weisstein: *Hadamard's Maximum Determinant Problem*, MathWorld (neoverované) | – |
+| 1 | Haase, Nill, Paffenholz: *Lecture Notes on Lattice Polytopes*, preprint TU Darmstadt, 2020 (unverified) | name order ("A. P. Christian Haase, Benjamin Nill") |
+| 2 | Smith, Vamanamurthy: *How Small Is a Unit Ball?*, Mathematics Magazine 62(2), 1989, 101–107 | year 2018, an ISBN is given |
+| 3 | Gubner: *The Gamma Function and Stirling's Formula*, notes, 2021 (unverified) | – |
+| 4 | Martini, Montejano, Oliveros: *Bodies of Constant Width*, Birkhäuser 2019, ISBN 978-3-030-03866-3 (e-book 978-3-030-03868-7) | name order |
+| 5 | Stein: *A Note on the Volume of a Simplex*, The American Mathematical Monthly 73(3), 1966 (pages unverified) | an ISBN is given |
+| 6 | Hedayat, Wallis: *Hadamard Matrices and Their Applications*, The Annals of Statistics 6(6), 1978, 1184–1238, DOI 10.1214/aos/1176344370 | name order, an ISBN is given |
+| 7 | Weisstein: *Hadamard's Maximum Determinant Problem*, MathWorld (unverified) | – |
 
-Overené záznamy sú v `knowledge/bibliography/references.bib` (časť „Konvexná geometria“).
+Verified entries are in `knowledge/bibliography/references.bib` (section "Convex geometry").
 
-## Súvis s ďalšou prácou
+## Relation to other work
 
-Tematicky je bakalárka samostatná (konvexná geometria); s Min Cut-Path ju spája len spoločný aparát:
-pravdepodobnostné odhady a limitné správanie pre `n → ∞`.
+Thematically the bachelor's thesis stands alone (convex geometry); it shares only a common toolkit with Min Cut-Path:
+probabilistic estimates and limiting behavior as `n → ∞`.

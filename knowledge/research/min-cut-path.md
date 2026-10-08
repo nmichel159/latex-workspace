@@ -1,152 +1,151 @@
-# Min Cut-Path – výskumný prehľad
+# Min Cut-Path – research overview
 
-Zdroje: diplomová práca *Min Cut-Path* (UK Praha, 2025; ďalej **DP**) a rukopis článku 1
-(`projects/clanok-1-min-cut-path/main.tex`; ďalej **Č1**). Čísla definícií a viet z DP sa dajú dohľadať
-v `knowledge/sources/diplomova-praca-2025-min-cut-path.txt`.
+Sources: the master's thesis *Min Cut-Path* (Charles University, Prague, 2025; **MT**) and the manuscript of article 1
+(`projects/clanok-1-min-cut-path/main.tex` wrapper, text in `projects/clanok-1-min-cut-path/sections/`; **A1**). Definition and theorem numbers of MT can be located in
+`knowledge/sources/diplomova-praca-2025-min-cut-path.txt`.
 
-## 1. Problém
+## 1. Problem
 
-Graf `G = (V, E)` je neorientovaný a konečný, `u, v ∈ V` sú dva rôzne vrcholy.
+The graph `G = (V, E)` is undirected and finite; `u, v ∈ V` are two distinct vertices.
 
-- **Cut-path** medzi `u` a `v`: množina hrán `S ⊆ E`, ktorá obsahuje podmnožiny `P, C ⊆ S` také, že `P` je `u`–`v` cesta a `C` je rez oddeľujúci `u` a `v`.
-- **Min Cut-Path (optimalizácia):** nájsť cut-path s najmenším počtom hrán; hodnota je `cp(u, v)`.
-- **Min Cut-Path (rozhodovací):** vstup `G, u, v, k`; existuje cut-path `F` s `|F| ≤ k`?
-- Motivácia (Č1): komunikácia medzi dôveryhodnými servermi (cesta) a zároveň odrezanie protivníka (rez) – „communication and control“.
-- Autor myšlienky: prof. Martin Loebl.
+- **Cut-path** between `u` and `v`: a set of edges `S ⊆ E` that contains subsets `P, C ⊆ S` such that `P` is a `u`–`v` path and `C` is a cut separating `u` and `v`.
+- **Min Cut-Path (optimization):** find a cut-path with the fewest edges; its value is `cp(u, v)`.
+- **Min Cut-Path (decision):** input `G, u, v, k`; is there a cut-path `F` with `|F| ≤ k`?
+- Motivation (A1): communication between trusted servers (the path) while cutting off an adversary (the cut) – "communication and control".
+- Idea due to: prof. Martin Loebl.
 
-## 2. Notácia
+## 2. Notation
 
-| Symbol | Význam | Poznámka |
+| Symbol | Meaning | Note |
 |---|---|---|
-| `n = \|V\|`, `m = \|E\|` | počet vrcholov, hrán | v sekcii o NP-úplnosti sú `n`, `m` počty premenných a klauzúl; reťaz má `r` článkov |
-| `d(u, v)` | vzdialenosť (dĺžka najkratšej cesty) | „min path“ v DP, „shortest path“ v Č1 |
-| `c(u, v)` | veľkosť minimálneho `u`–`v` rezu | |
-| `cp(u, v)` | hodnota minimálneho cut-path | v Č1 makro `\cp` |
-| `CP(u, v)` | množina všetkých cut-paths | v DP `cut-path(u, v)`; v Č1 makro `\CP` |
-| `tc(u, v)`, `t(G)` | minimálny tree-cut, veľkosť kostry | len DP |
-| `deg(v)`, `deg(v, S)` | stupeň, počet susedov v množine `S` | |
-| `δ(S)`, `δ(G)` | rez určený množinou `S`; minimálny stupeň | |
-| `G ∖ P` | graf po odstránení hrán cesty `P` | |
-| `G(n, p)` | Erdős–Rényiho náhodný graf | |
-| `I, J, K, L` | rozklad vrcholov podľa rezu: `I ∪ J = A₁`, `K ∪ L = A₂`; `J, K` majú hranu v reze, `I, L` nie | |
-| `G_P` | max independent path graph | len DP, kap. 5 |
-| `OPT(x)`, `I(n)`, `I_A^opt(n)` | optimum, množina vstupov veľkosti `n`, vstupy s garanciou | definícia aproximačnej schémy |
+| `n = \|V\|`, `m = \|E\|` | number of vertices, edges | in the NP-completeness section `n`, `m` are the numbers of variables and clauses; the chain has `r` links |
+| `d(u, v)` | distance (length of a shortest path) | "min path" in MT, "shortest path" in A1 |
+| `c(u, v)` | size of a minimum `u`–`v` cut | |
+| `cp(u, v)` | value of a minimum cut-path | macro `\cp` in A1 |
+| `CP(u, v)` | set of all cut-paths | `cut-path(u, v)` in MT; macro `\CP` in A1 |
+| `tc(u, v)`, `t(G)` | minimum tree-cut, size of a spanning tree | MT only |
+| `deg(v)`, `deg(v, S)` | degree, number of neighbors in the set `S` | |
+| `δ(S)`, `δ(G)` | cut determined by the set `S`; minimum degree | |
+| `G ∖ P` | graph after removing the edges of the path `P` | |
+| `G(n, p)` | Erdős–Rényi random graph | |
+| `I, J, K, L` | partition of the vertices by a cut: `I ∪ J = A₁`, `K ∪ L = A₂`; `J, K` have an edge in the cut, `I, L` do not | |
+| `G_P` | max independent path graph | MT only, ch. 5 |
+| `OPT(x)`, `I(n)`, `I_A^opt(n)` | optimum, set of inputs of size `n`, inputs with a guarantee | definition of an approximation scheme |
 
-Názvy problémov sa sádžu kapitálkami: `\textsc{Min Cut-Path}`, `\textsc{Separating Shortest Path}`, `\textsc{3-SAT}`.
+Typeset problem names in small caps: `\textsc{Min Cut-Path}`, `\textsc{Separating Shortest Path}`, `\textsc{3-SAT}`.
 
-## 3. Mapa výsledkov
+## 3. Results map
 
-| Výsledok | DP 2025 | Č1 | Poznámka |
+| Result | MT 2025 | A1 | Note |
 |---|---|---|---|
-| Základný prípad: ak `c = 1` alebo `d = 1`, tak `cp = c + d − 1` | Claim 6 | Lemma `lem:basic-bounds` (II.4), druhá časť | |
-| Hranice `max(c, d) ≤ cp ≤ c + d − 1` | Claim 7 | Lemma `lem:basic-bounds` (II.4) | do Č1 doplnené 7. 10. 2026 |
-| Zjednotenie min. rezu a najkratšej cesty je 2-aproximácia | Claim 8 | – | |
-| `min cp(u,v) = min c(u,v)` cez hrany `{u,v} ∈ E` | Theorem 9 | – | |
-| Partial Path / Partial Cut Property (známa cesta resp. rez z optima ⇒ polynomiálne riešenie) | Theorem 10, 11 | – | základ algoritmu Path-Cut |
-| Tree-cut: `tc(u,v) = t(G)` v neváženom grafe; vo váženom neplatí | Theorem 4, 5 | – | |
-| Rozklad `I, J, K, L` podľa rezu | Claim 12 (+ Algorithm 1) | Lemma `lem:cut-decomposition` | |
-| Priemer 2 ⇒ `I = ∅` alebo `L = ∅` | Claim 13 | Lemma `lem:empty-i-or-l` | |
-| Každá `u`–`v` cesta pretína každý `u`–`v` rez v nepárnom počte hrán | Claim 14 | Lemma `lem:odd-intersection` | platí pre rez tvaru `δ(A₁)` |
-| **Priemer 2 ⇒ `cp = c + d − 1`** | Theorem 15 | Theorem `thm:diameter-two` (IV.5) | |
-| Priemer 2 ⇒ `c(u,v) = min(deg u, deg v)` | Theorem 16 | – | |
-| `c(x,y) ≤ 2` pre všetky páry ⇒ kaktusová štruktúra | Claim 17 | odsek pred vetou V.1 | |
-| **`c(x,y) ≤ 2` pre všetky páry ⇒ `cp = c + d − 1`** | Theorem 18 | Theorem `thm:cut-two` (V.1) | dôkaz doplnený 7. 10. 2026 |
-| Trieda *diam or cut 2*; vzorec `cp = c + d − 1` v nej neplatí (protipríklady) | Def. 37, obr. 3.3 | len v závere ako ďalší smer | |
+| Base case: if `c = 1` or `d = 1`, then `cp = c + d − 1` | Claim 6 | Lemma `lem:basic-bounds` (II.4), second part | |
+| Bounds `max(c, d) ≤ cp ≤ c + d − 1` | Claim 7 | Lemma `lem:basic-bounds` (II.4) | added to A1 on 2026-10-07 |
+| The union of a minimum cut and a shortest path is a 2-approximation | Claim 8 | – | |
+| `min cp(u,v) = min c(u,v)` over the edges `{u,v} ∈ E` | Theorem 9 | – | |
+| Partial Path / Partial Cut Property (a known path or cut of an optimum ⇒ polynomial solution) | Theorem 10, 11 | – | basis of the Path-Cut algorithm |
+| Tree-cut: `tc(u,v) = t(G)` in an unweighted graph; fails in a weighted one | Theorem 4, 5 | – | |
+| Decomposition `I, J, K, L` by a cut | Claim 12 (+ Algorithm 1) | Lemma `lem:cut-decomposition` | |
+| Diameter 2 ⇒ `I = ∅` or `L = ∅` | Claim 13 | Lemma `lem:empty-i-or-l` | |
+| Every `u`–`v` path intersects every `u`–`v` cut in an odd number of edges | Claim 14 | Lemma `lem:odd-intersection` | holds for a cut of the form `δ(A₁)` |
+| **Diameter 2 ⇒ `cp = c + d − 1`** | Theorem 15 | Theorem `thm:diameter-two` (IV.5) | |
+| Diameter 2 ⇒ `c(u,v) = min(deg u, deg v)` | Theorem 16 | – | |
+| `c(x,y) ≤ 2` for all pairs ⇒ cactus structure | Claim 17 | paragraph before Theorem V.1 | |
+| **`c(x,y) ≤ 2` for all pairs ⇒ `cp = c + d − 1`** | Theorem 18 | Theorem `thm:cut-two` (V.1) | proof added 2026-10-07 |
+| Class *diam or cut 2*; the formula `cp = c + d − 1` does not hold in it (counterexamples) | Def. 37, Fig. 3.3 | only in the conclusion as a further direction | |
 | General path, square graph, general square graph, pseudo-square graph | Def. 38–41 | – | |
-| Rozklad na general square graph pre `c(u,v) = 2` | Theorem 20 (Alg. 2–5) | – | |
-| Polynomiálny výpočet `cp` v *diam or cut 2* pre `c(u,v) = 2` | Theorem 22 (Alg. 6) | – | prípad `d(u,v) = 2` ostáva otvorený |
-| Lineárny `O(\|E\|)` výpočet pri danom rozklade | Theorem 23 (Alg. 7) | – | |
-| `G(n, 1/α)`, `α > 1`, má takmer iste priemer 2 | Theorem 24 (s dôkazom; v DP `α > 0`) | Theorem `thm:random-diameter-two` (VI.1), citácia Bollobás | |
-| Vlastnosti `G(n, α log n / n)`, `α > 1`: súvislosť, priemer | Theorem 25, 26 | `thm:random-connectivity`, `thm:random-diameter` | Theorem 27 (najväčší komponent) je len v DP |
-| Stupne vrcholov | Theorem 28: všetky v `(1 ± ε) α log n` – **neplatí** pre pevné `α` | Lemma `lem:degree-bounds` (VI.4): všetky v `[β₁ log n, β₂ log n]` | pozri časť 5a |
-| Hranice pre `c(u,v)` | Claim 29 (s `(1 ± ε) α log n`) | Lemma `lem:connectivity-bounds` (VI.5) s `β₁, β₂` | |
-| **Average (1+ε)-Approximation Scheme** pre `p ≥ α log n / n` | Theorem 30 | Theorem `thm:approximation-scheme` (VI.6) | v Č1 doplnený argument monotónnosti |
-| Almost polynomial average-case algoritmus (Path-Cut) | Theorem 31 (Alg. 8) | – | |
-| Pre `α < 1` je `cp(u,v)` definované s pravdepodobnosťou → 0 | Claim 32 | – | |
-| Symetrický prípad `c = d = cp`: symmetric cut-path graph, max independent path graph | Def. 47, 48; Claim 33–36 | – | až `2^{O(√n)}` rôznych optím (Claim 35) |
-| Filter-BFS, Local-Cut; polynomiálne pre nearly 5-regular grafy | Alg. 9–12; Theorem 37, 38 | – | |
-| **NP-úplnosť \textsc{Separating Shortest Path}** (redukcia z 3-SAT, reťaz a vlákna) | – | Theorem `thm:ssp-np-complete` (III.5), `alg:reduction` | nové oproti DP; dôkaz prepísaný 7. 10. 2026 |
-| **NP-úplnosť rozhodovacej verzie \textsc{Min Cut-Path}** | – (v DP otvorený problém) | Theorem `thm:mcp-np-complete` (III.6) | redukcia `G' = G`, `k = d_G(u,v)`; optimalizačná verzia je NP-hard |
+| Decomposition into a general square graph for `c(u,v) = 2` | Theorem 20 (Alg. 2–5) | – | |
+| Polynomial computation of `cp` in *diam or cut 2* for `c(u,v) = 2` | Theorem 22 (Alg. 6) | – | the case `d(u,v) = 2` remains open |
+| Linear `O(\|E\|)` computation given the decomposition | Theorem 23 (Alg. 7) | – | |
+| `G(n, 1/α)`, `α > 1`, has diameter 2 almost surely | Theorem 24 (with proof; `α > 0` in MT) | Theorem `thm:random-diameter-two` (VI.1), citing Bollobás | |
+| Properties of `G(n, α log n / n)`, `α > 1`: connectivity, diameter | Theorem 25, 26 | `thm:random-connectivity`, `thm:random-diameter` | Theorem 27 (largest component) is only in MT |
+| Vertex degrees | Theorem 28: all in `(1 ± ε) α log n` – **false** for fixed `α` | Lemma `lem:degree-bounds` (VI.4): all in `[β₁ log n, β₂ log n]` | see Section 5a |
+| Bounds for `c(u,v)` | Claim 29 (with `(1 ± ε) α log n`) | Lemma `lem:connectivity-bounds` (VI.5) with `β₁, β₂` | |
+| **Average (1+ε)-Approximation Scheme** for `p ≥ α log n / n` | Theorem 30 | Theorem `thm:approximation-scheme` (VI.6) | monotonicity argument added in A1 |
+| Almost polynomial average-case algorithm (Path-Cut) | Theorem 31 (Alg. 8) | – | |
+| For `α < 1`, `cp(u,v)` is defined with probability → 0 | Claim 32 | – | |
+| Symmetric case `c = d = cp`: symmetric cut-path graph, max independent path graph | Def. 47, 48; Claim 33–36 | – | up to `2^{O(√n)}` distinct optima (Claim 35) |
+| Filter-BFS, Local-Cut; polynomial for nearly 5-regular graphs | Alg. 9–12; Theorem 37, 38 | – | |
+| **NP-completeness of \textsc{Separating Shortest Path}** (reduction from 3-SAT, chain and threads) | – | Theorem `thm:ssp-np-complete` (III.5), `alg:reduction` | new relative to MT; proof rewritten 2026-10-07 |
+| **NP-completeness of the decision version of \textsc{Min Cut-Path}** | – (an open problem in MT) | Theorem `thm:mcp-np-complete` (III.6) | reduction `G' = G`, `k = d_G(u,v)`; the optimization version is NP-hard |
 
-## 4. Čo je v ktorom texte navyše
+## 4. What each text contains beyond the other
 
-**Len v DP** (materiál pre ďalšie články):
-- kapitola 2: tree-cut, 2-aproximácia, globálne minimum, partial path/cut property;
-- kapitola 3.3: celá teória *diam or cut 2* a rozkladu na general square graph;
-- kapitola 4.5: almost polynomial average-case algoritmus pre riedke náhodné grafy;
-- kapitola 5: symetrický prípad `c = d = cp`, algoritmy Filter-BFS a Local-Cut.
+**Only in MT** (material for further articles):
+- chapter 2: tree-cut, 2-approximation, global minimum, partial path/cut property;
+- chapter 3.3: the whole theory of *diam or cut 2* and of the decomposition into a general square graph;
+- chapter 4.5: almost polynomial average-case algorithm for sparse random graphs;
+- chapter 5: symmetric case `c = d = cp`, algorithms Filter-BFS and Local-Cut.
 
-**Len v Č1:**
-- NP-úplnosť cez medziproblém \textsc{Separating Shortest Path};
-- gadgety: chain link (cyklus s dvoma rovnako dlhými `p`–`q` cestami, kladná a záporná), chain s `r` článkami, thread, threading, crossing edge;
-- typy článkov reťaze: initialization `I_i`, terminal `T_i`, literal `L_{j,k,i}` (`j` = pozícia literálu, `k` = klauzula, `i` = premenná; spolu `3m + 2n`);
-- typy vlákien: 2-synchronization, 3-synchronization, clause thread;
-- pomocné procedúry `BuildChain(u, v, r)`, `Thread(u, v, [(L, σ), …])` (vytvára aj *connecting paths*) a `Calibrate(G)`;
-- pojmy dôkazu: *chain path*, chain path *hits* a thread, *consistent* chain path, *unused path* článku, *dead end*;
-- kostra dôkazu korektnosti: (1) po kalibrácii sú najkratšie `u`–`v` cesty práve chain paths, (2) oddeľujúca cesta musí zasiahnuť každé vlákno, (3) synchronizačné vlákna ⇒ konzistentné znamienka ⇒ pravdivostné ohodnotenie, (4) klauzulové vlákno je zasiahnuté ⇔ klauzula je splnená, (5) pre spĺňajúce ohodnotenie je komponent vrcholu `u` v `G ∖ P` bez `v`.
+**Only in A1:**
+- NP-completeness via the intermediate problem \textsc{Separating Shortest Path};
+- gadgets: chain link (a cycle with two equally long `p`–`q` paths, positive and negative), chain with `r` links, thread, threading, crossing edge;
+- chain link types: initialization `I_i`, terminal `T_i`, literal `L_{j,k,i}` (`j` = literal position, `k` = clause, `i` = variable; `3m + 2n` in total);
+- thread types: 2-synchronization, 3-synchronization, clause thread;
+- auxiliary procedures `BuildChain(u, v, r)`, `Thread(u, v, [(L, σ), …])` (also creates *connecting paths*) and `Calibrate(G)`;
+- proof concepts: *chain path*, a chain path *hits* a thread, *consistent* chain path, *unused path* of a link, *dead end*;
+- outline of the correctness proof: (1) after calibration the shortest `u`–`v` paths are exactly the chain paths, (2) a separating path must hit every thread, (3) synchronization threads ⇒ consistent signs ⇒ truth assignment, (4) a clause thread is hit ⇔ the clause is satisfied, (5) for a satisfying assignment the component of vertex `u` in `G ∖ P` does not contain `v`.
 
-## 5. Rozdiely medzi DP a Č1 (pozor pri preberaní textu)
+## 5. Differences between MT and A1 (watch out when reusing text)
 
-| Téma | DP | Č1 |
+| Topic | MT | A1 |
 |---|---|---|
-| Zložitosť všeobecného prípadu | NP-ťažkosť je otvorený problém | dokázaná NP-úplnosť |
-| Množina cut-paths | `cut-path(u, v)` | `CP(u, v)` |
-| Pomocné tvrdenia | `Claim` | `Lemma` (labely `lem:…`) |
-| Podmnožiny v definícii | `A` (rez), `B` (cesta) | `C` (rez), `P` (cesta) |
-| Členenie | kapitoly (`Chapter`) | sekcie |
-| Bibliografia | ISO 690, 8 položiek (viaceré s chybami, pozri `knowledge/sources/README.md`) | natbib číselne, 12 overených položiek vrátane DP |
-| Definícia cut-path | podmnožiny `A` (rez), `B` (cesta) | podmnožiny `C`, `P`; rámčeky problémov formulované rovnako ako definícia |
-| Stupne v `G(n, α log n / n)` | koncentrácia `(1 ± ε) α log n` | konštantné hranice `β₁ log n`, `β₂ log n` |
+| Complexity of the general case | NP-hardness is an open problem | NP-completeness proved |
+| Set of cut-paths | `cut-path(u, v)` | `CP(u, v)` |
+| Auxiliary statements | `Claim` | `Lemma` (labels `lem:…`) |
+| Subsets in the definition of a cut-path | `A` (cut), `B` (path) | `C` (cut), `P` (path); problem boxes worded the same as the definition |
+| Division | chapters (`Chapter`) | sections |
+| Bibliography | ISO 690, 8 entries (several with errors, see `knowledge/sources/README.md`) | natbib numeric, 12 verified entries including MT |
+| Degrees in `G(n, α log n / n)` | concentration `(1 ± ε) α log n` | constant bounds `β₁ log n`, `β₂ log n` |
 
-## 5a. Chyby zistené v DP (dôležité pre článok 2)
+## 5a. Errors found in MT (important for article 2)
 
-Článok 2 sa bude pripravovať z diplomovej práce. Tieto miesta sa nesmú preberať bez opravy:
+Article 2 will be prepared from the master's thesis. Do not reuse these places without correction:
 
-1. **Theorem 28 (Degree Concentration) a Claim 29**: tvrdenie, že pre `p = α log n / n` s pevným `α > 1` a ľubovoľným pevným `ε > 0` ležia všetky stupne v `(1 ± ε) α log n`, neplatí. Stupeň je binomický so strednou hodnotou `μ ≈ α log n`; `P[deg ≤ aμ] ≈ n^{−α h(a)}`, `h(a) = a ln a − a + 1`, takže po zjednotení cez `n` vrcholov to ide k nule len pre `α h(a) > 1`. Minimálny a maximálny stupeň sú preto `≈ a₁ α log n` a `≈ a₂ α log n` s konštantami `a₁ < 1 < a₂` závislými od `α`. Správna formulácia je v Č1 (`lem:degree-bounds`). Theorem 30 (aproximačná schéma) ostáva v platnosti, lebo potrebuje len `c(u,v) ≥ β₁ log n`.
-2. **Theorem 24**: `p = 1/α` vyžaduje `α > 1` (nie `α > 0`).
-3. **Theorem 27 (Largest Component)** je formulovaná pre `α > 1`, ale používa sa v Claim 32 pre `α < 1` – `TODO(overiť)` znenie aj zdroj.
-4. **Úvod a záver DP** uvádzajú NP-ťažkosť ako otvorený problém – po Č1 už neplatí.
-5. **Bibliografia DP**: nesprávne ISBN (Diestel, Cormen, Godsil–Royle, Frieze–Karoński, Roughgarden), Diestel 6. vydanie je z roku 2025, OpenIntro Statistics 4. vydanie je z roku 2019, položka 7 má autorov Blanc, Lange, Qiao, Tan. Opravené záznamy: `knowledge/bibliography/references.bib`.
-6. **Definície 44–46** (average-case) merajú vstupy rovnomerne (`|I_opt| / |I|`), kým vety sú o `G(n, p)` – treba formulovať cez pravdepodobnosť.
-7. Jazykové a formálne chyby rovnakého typu ako v pôvodnom Č1 (kontrolný zoznam: `knowledge/writing/academic-style.md`).
+1. **Theorem 28 (Degree Concentration) and Claim 29**: the claim that for `p = α log n / n` with fixed `α > 1` and any fixed `ε > 0` all degrees lie in `(1 ± ε) α log n` is false. A degree is binomial with mean `μ ≈ α log n`; `P[deg ≤ aμ] ≈ n^{−α h(a)}`, `h(a) = a ln a − a + 1`, so after a union bound over the `n` vertices the probability tends to zero only for `α h(a) > 1`. The minimum and maximum degrees are therefore `≈ a₁ α log n` and `≈ a₂ α log n` with constants `a₁ < 1 < a₂` depending on `α`. The correct formulation is in A1 (`lem:degree-bounds`). Theorem 30 (approximation scheme) remains valid because it needs only `c(u,v) ≥ β₁ log n`.
+2. **Theorem 24**: `p = 1/α` requires `α > 1` (not `α > 0`).
+3. **Theorem 27 (Largest Component)** is stated for `α > 1` but is used in Claim 32 for `α < 1` – `TODO(verify)` both the wording and the source.
+4. **Introduction and conclusion of MT** state NP-hardness as an open problem – no longer true after A1.
+5. **MT bibliography**: wrong ISBNs (Diestel, Cormen, Godsil–Royle, Frieze–Karoński, Roughgarden), Diestel 6th edition is from 2025, OpenIntro Statistics 4th edition is from 2019, entry 7 has authors Blanc, Lange, Qiao, Tan. Corrected entries: `knowledge/bibliography/references.bib`.
+6. **Definitions 44–46** (average-case) measure inputs uniformly (`|I_opt| / |I|`), whereas the theorems concern `G(n, p)` – formulate via probability.
+7. Language and formal errors of the same kinds as in the original A1 (checklist: `knowledge/writing/academic-style.md`, `knowledge/writing/checklist.md`).
 
-## 5b. Príbuzné problémy v literatúre
+## 5b. Related problems in the literature
 
-V Č1 ani v DP nie sú spomenuté; pri ďalšej úprave Č1 a v článku 2 ich treba uviesť (záznamy sú v `knowledge/bibliography/references.bib`).
+Mentioned neither in A1 nor in MT; cite them in the next revision of A1 and in article 2 (entries are in `knowledge/bibliography/references.bib`).
 
-| Problém | Vzťah k Min Cut-Path | Zdroj |
+| Problem | Relation to Min Cut-Path | Source |
 |---|---|---|
-| *Non-separating st-path*: `s`–`t` cesta, po odstránení ktorej hrán ostane graf súvislý; existencia NP-ťažká na všeobecných grafoch, polynomiálna na chordálnych | zrkadlový pojem k Separating Shortest Path (tam odstránenie cesty musí `u` a `v` oddeliť) | Mao, arXiv:2101.03519 (overené) |
-| Priemer riedkych náhodných grafov: `(1 + o(1)) log n / log(np)` | presný zdroj pre Theorem VI.2 v Č1 (Theorem 26 v DP) | Chung, Lu 2001 (čiastočne overené) |
-| Interdikcia najkratších ciest, „most vital edges“, Force Path Cut (odstraňovanie hrán tak, aby sa zmenila najkratšia cesta) | iná kombinácia rezov a najkratších ciest; treba dohľadať a overiť konkrétne práce | `TODO(overiť)` – zatiaľ len z výsledkov vyhľadávania |
+| *Non-separating st-path*: an `s`–`t` path whose edge removal leaves the graph connected; existence is NP-hard on general graphs, polynomial on chordal graphs | mirror notion to Separating Shortest Path (there removing the path must separate `u` and `v`) | Mao, arXiv:2101.03519 (verified) |
+| Diameter of sparse random graphs: `(1 + o(1)) log n / log(np)` | exact source for Theorem VI.2 in A1 (Theorem 26 in MT) | Chung, Lu 2001 (partially verified) |
+| Shortest-path interdiction, "most vital edges", Force Path Cut (removing edges so that the shortest path changes) | a different combination of cuts and shortest paths; find and verify specific papers | `TODO(verify)` – so far only from search results |
 
-Poznámka pre texty: ak platí `cp = c + d − 1`, zjednotenie ľubovoľného minimálneho rezu a ľubovoľnej najkratšej cesty je minimálny cut-path (Č1, Remark IV.6).
+Note for texts: if `cp = c + d − 1` holds, the union of any minimum cut and any shortest path is a minimum cut-path (A1, Remark IV.6).
 
-## 6. Otvorené problémy a smery
+## 6. Open problems and directions
 
-Z DP a zo záveru Č1:
-1. Trieda *diam or cut 2*: prípad `d(u, v) = 2` (DP rieši len `c(u, v) = 2`); v Č1 formulované ako zlúčenie dvoch polynomiálnych „ostrovov“.
-2. Rovinné grafy (dualita rez ↔ cyklus), grafy s ohraničenou stromovou šírkou.
-3. Aproximačné algoritmy s garanciou pre všeobecné grafy (známa je len triviálna 2-aproximácia).
-4. Vážené a orientované varianty.
-5. Experimentálne vyhodnotenie na reálnych a náhodných sieťach.
-6. Štruktúra grafov s pevnou hodnotou `cp(u, v)`.
-7. Ďalšie „islands of polynomial-time solvability“.
+From MT and the conclusion of A1:
+1. Class *diam or cut 2*: the case `d(u, v) = 2` (MT solves only `c(u, v) = 2`); in A1 phrased as merging two polynomial "islands".
+2. Planar graphs (cut ↔ cycle duality), graphs of bounded treewidth.
+3. Approximation algorithms with a guarantee for general graphs (only the trivial 2-approximation is known).
+4. Weighted and directed variants.
+5. Experimental evaluation on real and random networks.
+6. Structure of graphs with a fixed value `cp(u, v)`.
+7. Further "islands of polynomial-time solvability".
 
-## 7. Plánované rukopisy
+## 7. Planned manuscripts
 
-Rozhodnutie autora (7. 10. 2026): **článok 2 sa bude vyrábať z diplomovej práce** (projekt `projects/clanok-2-min-cut-path/`, zatiaľ prázdny). LaTeX zdroj DP v repozitári nie je – treba ho dodať do `inbox/`, inak sa text prepisuje z PDF. Článok 1 sa neskôr prepíše do šablóny cieľového časopisu (zatiaľ neurčený).
+Author's decision (2026-10-07): **article 2 will be produced from the master's thesis** (project `projects/clanok-2-min-cut-path/`, empty so far). The LaTeX source of MT is not in the repository – supply it in `inbox/`, otherwise the text is transcribed from the PDF. Article 1 will later be ported into the template of the target journal (not yet chosen).
 
-| Názov v CV | Pravdepodobný zdroj v DP (odhad, treba potvrdiť) |
+| Title in the CV | Likely source in MT (guess, to be confirmed) |
 |---|---|
-| *Polynomial-Time Solutions for Island Structures in the Min Cut-Path Problem* | kapitola 3 (prípadne aj 5) |
-| *Random Graph Models for the Min Cut-Path Problem* | kapitola 4 |
+| *Polynomial-Time Solutions for Island Structures in the Min Cut-Path Problem* | chapter 3 (possibly also 5) |
+| *Random Graph Models for the Min Cut-Path Problem* | chapter 4 |
 
-## 8. Slovník
+## 8. Glossary
 
-Anglické termíny sú z DP a Č1, české z českého abstraktu DP. Slovenské ekvivalenty sú návrh – ustálená slovenská terminológia pre tento problém neexistuje.
+English terms come from MT and A1, Czech ones from the Czech abstract of MT. The Slovak equivalents are proposals – no established Slovak terminology exists for this problem.
 
-| EN | CZ (abstrakt DP) | SK (návrh) |
+| EN | CZ (abstract of MT) | SK (proposal) |
 |---|---|---|
 | cut-path | řezo-cesta | rez-cesta |
 | Min Cut-Path | minimální řez-cesta | minimálna rez-cesta |

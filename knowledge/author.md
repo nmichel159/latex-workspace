@@ -1,63 +1,63 @@
-# Autor
+# Author
 
-Údaje sú prevzaté z `projects/cv/norbert-michel-cv.tex`, z článku 1 a z titulných strán záverečných prác.
-Osobné kontakty (telefón, súkromný e-mail) sú len v CV, sem sa nekopírujú.
+Data come from `projects/cv/norbert-michel-cv.tex`, from article 1 and from the title pages of the theses.
+Personal contacts (phone, private e-mail) are in the CV only; do not copy them here.
 
-## Meno
+## Name
 
-| Kontext | Zápis |
+| Context | Form |
 |---|---|
-| Plné meno | Norbert Micheľ |
-| LaTeX (pdfLaTeX, UTF-8 + T1) | `Norbert Micheľ` alebo `Norbert Miche\v{l}` |
+| Full name | Norbert Micheľ |
+| LaTeX (pdfLaTeX, UTF-8 + T1) | `Norbert Micheľ` or `Norbert Miche\v{l}` |
 | BibTeX (8-bit) | `Miche{\v{l}}, Norbert` |
-| biber (CV) | `Micheľ, N.` v UTF-8; zvýraznenie mena cez `\mynames{Micheľ/N.}` |
-| ASCII (názvy súborov, GitHub) | `norbert-michel`, `nmichel159` |
-| S titulom (stav podľa diplomovky, 2025) | Bc. Norbert Micheľ; po obhajobe Mgr. |
+| biber (CV) | `Micheľ, N.` in UTF-8; name highlighting via `\mynames{Micheľ/N.}` |
+| ASCII (file names, GitHub) | `norbert-michel`, `nmichel159` |
+| With title (as on the master's thesis, 2025) | Bc. Norbert Micheľ; Mgr. after the defense |
 
-## Afiliácia
+## Affiliation
 
-- **Súčasná (článok 1):** Institute of Computer Science, Faculty of Science, Pavol Jozef Šafárik University in Košice, Košice, Slovakia.
-- Univerzitný e-mail použitý v článku 1: `5344553@upjs.sk`.
-- Slovensky: Ústav informatiky, Prírodovedecká fakulta, Univerzita Pavla Jozefa Šafárika v Košiciach.
+- **Current (article 1):** Institute of Computer Science, Faculty of Science, Pavol Jozef Šafárik University in Košice, Košice, Slovakia.
+- University e-mail used in article 1: `5344553@upjs.sk`.
+- Slovak: Ústav informatiky, Prírodovedecká fakulta, Univerzita Pavla Jozefa Šafárika v Košiciach.
 
-## Štúdium a záverečné práce
+## Studies and theses
 
-| Stupeň | Škola, program | Roky | Práca | Vedúci |
+| Degree | School, program | Years | Thesis | Supervisor |
 |---|---|---|---|---|
-| PhD | UPJŠ Košice, informatika | 2025 – | *Optimisation Algorithms Powered by LLMs* (téma) | prof. RNDr. Gabriel Semanišin, PhD. |
-| Mgr. | Univerzita Karlova, MFF, Katedra aplikované matematiky; program Discrete Models and Algorithms | 2024 – 2025 | *Min Cut-Path* (EN, 77 s., Praha 2025) | prof. RNDr. Martin Loebl, CSc. |
-| Bc. | UPJŠ Košice, PF, Ústav matematiky; program Analýza dát a umelá inteligencia | 2021 – 2024 | *Mrežové mnohosteny v n-rozmernej kocke* (SK, 42 s., Košice 2024) | Mgr. Martin Vodička |
+| PhD | UPJŠ Košice, computer science | 2025 – | *Optimisation Algorithms Powered by LLMs* (topic) | prof. RNDr. Gabriel Semanišin, PhD. |
+| Mgr. | Charles University, MFF, Katedra aplikované matematiky (Department of Applied Mathematics); program Discrete Models and Algorithms | 2024 – 2025 | *Min Cut-Path* (EN, 77 pp., Prague 2025) | prof. RNDr. Martin Loebl, CSc. |
+| Bc. | UPJŠ Košice, PF, Ústav matematiky (Institute of Mathematics); program Analýza dát a umelá inteligencia (Data Analysis and Artificial Intelligence) | 2021 – 2024 | *Mrežové mnohosteny v n-rozmernej kocke* (Lattice polytopes inside the n-dimensional cube; SK, 42 pp., Košice 2024) | Mgr. Martin Vodička |
 
-- Diplomová práca bola nominovaná na Cenu Nadácie Bernarda Bolzana 2025 (podľa CV).
-- Názov diplomovky je podľa titulnej strany PDF *Min Cut-Path* (v CV opravené 7. 10. 2026; pôvodne *The Min Cut-Path Problem*).
-- Plné texty: [sources/](sources/README.md).
+- The master's thesis was nominated for the Bernard Bolzano Foundation Prize 2025 (per the CV).
+- The title of the master's thesis on the PDF title page is *Min Cut-Path* (corrected in the CV on 2026-10-07; originally *The Min Cut-Path Problem*).
+- Full texts: [sources/](sources/README.md).
 
-## Publikácie
+## Publications
 
-| Stav | Názov | Kde je zdroj |
+| Status | Title | Where the source is |
 |---|---|---|
-| Rukopis | *Min Cut-Path Problem* | `projects/clanok-1-min-cut-path/` |
-| Konferenčný abstrakt (nájdený na webe 7. 10. 2026, `TODO(overiť)` u autora: typ príspevku a dátum) | *Min cut-path problem*, CSGT 2026 (konferencia organizovaná na TUKE), <https://csgt2026.tuke.sk/pdfs/MICHEL.pdf> – rovnaký obsah ako článok 1 bez časti o náhodných grafoch (NP-úplnosť cez Separating Shortest Path, priemer 2, rez ≤ 2) | zdroj abstraktu v repozitári nie je |
-| V CV ako „in preparation“ (2026) | *Polynomial-Time Solutions for Island Structures in the Min Cut-Path Problem* | zatiaľ bez zdrojov |
-| V CV ako „in preparation“ (2026) | *Random Graph Models for the Min Cut-Path Problem* | zatiaľ bez zdrojov |
+| Manuscript | *Min Cut-Path Problem* | `projects/clanok-1-min-cut-path/` |
+| Conference abstract (found on the web 2026-10-07; `TODO(verify)` with the author: type of contribution and date) | *Min cut-path problem*, CSGT 2026 (conference organized at TUKE), <https://csgt2026.tuke.sk/pdfs/MICHEL.pdf> – same content as article 1 without the part on random graphs (NP-completeness via Separating Shortest Path, diameter 2, cut ≤ 2) | the source of the abstract is not in the repository |
+| "In preparation" in the CV (2026) | *Polynomial-Time Solutions for Island Structures in the Min Cut-Path Problem* | no sources yet |
+| "In preparation" in the CV (2026) | *Random Graph Models for the Min Cut-Path Problem* | no sources yet |
 
-Rozhodnutie autora (7. 10. 2026): článok 2 sa bude pripravovať z diplomovej práce (projekt `projects/clanok-2-min-cut-path/`, zatiaľ prázdny); ktorému z názvov v CV zodpovedá, ešte nie je určené. Článok 1 sa neskôr prepíše do šablóny cieľového časopisu.
+Author's decision (2026-10-07): article 2 will be prepared from the master's thesis (project `projects/clanok-2-min-cut-path/`, empty so far); which of the CV titles it corresponds to is not yet determined. Article 1 will later be ported into the template of the target journal.
 
-Otvorená otázka: článok 1 pokrýva NP-úplnosť aj polynomiálne „ostrovy“ aj náhodné grafy, kým CV uvádza dva rukopisy s inými názvami. Zoznam publikácií v CV treba zosúladiť, keď budú názvy článkov 1 a 2 definitívne.
+Open question: article 1 covers NP-completeness, the polynomial "islands" and random graphs, whereas the CV lists two manuscripts with other titles. Reconcile the publication list in the CV once the titles of articles 1 and 2 are final.
 
-## Poďakovania použité v textoch
+## Acknowledgments used in the texts
 
-- Článok 1: prof. RNDr. Martin Loebl, CSc. – navrhol pôvodnú myšlienku problému Min Cut-Path.
-- Diplomová práca: vedúci práce (návrh témy).
-- Bakalárska práca: školiteľ (Mgr. Martin Vodička).
+- Article 1: prof. RNDr. Martin Loebl, CSc. – proposed the original idea of the Min Cut-Path problem.
+- Master's thesis: the supervisor (suggested the topic).
+- Bachelor's thesis: the supervisor (Mgr. Martin Vodička).
 
-## Jazyk
+## Language
 
-Slovenčina materinská, čeština C1, angličtina B2 (podľa CV). Anglické texty preto pri každej úprave prejdi podľa
-[writing/academic-style.md](writing/academic-style.md) – opakujú sa v nich tie isté typy chýb.
+Slovak native, Czech C1, English B2 (per the CV). On every edit, review English texts against
+[writing/academic-style.md](writing/academic-style.md) – the same types of errors recur in them.
 
-## Chýba (doplní autor)
+## Missing (author to supply)
 
 - ORCID.
-- Oficiálna LaTeX šablóna UPJŠ pre dizertačnú prácu (ulož do `inbox/`).
-- Cieľový časopis alebo konferencia pre článok 1 (súčasná trieda `new-aiaa` je šablóna AIAA z Overleafu).
+- Official UPJŠ LaTeX template for the dissertation (put it into `inbox/`).
+- Target journal or conference for article 1 (the current class `new-aiaa` is an AIAA template from Overleaf).
