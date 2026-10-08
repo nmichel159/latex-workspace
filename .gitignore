@@ -1,15 +1,15 @@
-# Generovane vystupy a docasne subory
+# Generated outputs and temporary files
 outputs/
 tmp/
 
-# Nastroje a instalatory (velke binarky)
+# Tools and installers (large binaries)
 installers/
 .latex-tools/
 
-# pdfx zapisuje tento subor vedla zdroja pri kazdej kompilacii
+# pdfx writes this file next to the source on every compilation
 projects/**/pdfa.xmpi
 
-# Pomocne subory LaTeXu, ak by sa kompilovalo mimo scripts/build-project.ps1
+# LaTeX auxiliary files, in case of compilation outside scripts/build-project.ps1
 *.aux
 *.bbl
 *.bcf
@@ -26,11 +26,11 @@ projects/**/pdfa.xmpi
 *.nav
 *.snm
 
-# Lokalne poznamky a nastavenia, ktore do repozitara nepatria
+# Local notes and settings that do not belong in the repository
 archived-sessions.md
 .claude/settings.local.json
 
-# Systemove a editorove subory
+# System and editor files
 Thumbs.db
 desktop.ini
 .DS_Store
