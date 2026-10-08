@@ -1,0 +1,8 @@
+% Assignment (zadanie zaverecnej prace, Dod. 4 Cl. 5 ods. 2 d): put the AiS2 assignment as assignment.pdf next to main.tex,
+% without signatures (Dod. 2 Cl. 8 ods. 3 b). Pages to insert: \ThesisAssignmentPages in settings.tex. Without the file this page is a placeholder.
+\IfFileExists{assignment.pdf}{%
+  \expandafter\forcsvlist\expandafter\thesisassignmentpage\expandafter{\ThesisAssignmentPages}%   % the list is a macro: expand it first
+}{%
+  \frontheading{Assignment}%
+  Placeholder: put the unsigned AiS2 assignment as assignment.pdf next to main.tex.\par
+}

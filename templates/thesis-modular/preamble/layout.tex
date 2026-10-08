@@ -1,0 +1,40 @@
+% UPJS-dependent layout: type, language, page, line spacing, page numbers, text extraction.
+% Rules: Smernica 1/2011 Cl. 7 ods. 3 and 8 (recommendations, all adjustable in settings.tex), knowledge/writing/thesis.md section 7.
+% Loaded after preamble/packages.tex: newtxmath must follow amsmath, amssymb and amsthm.
+
+% --- Type: Times-like text and math (Smernica Cl. 7 ods. 3: one font, 12 pt) ----------------------------------
+% T1 encoding is required for text extraction: with the default OT1, Slovak letters are built from an accent and a base
+% letter and pdftotext returns "S" + caron instead of the letter (tested 2026-10-08). T1 has the precomposed glyphs.
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+% microtype before babel: with babel-slovak loaded first, microtype cannot patch \item (tested 2026-10-08).
+\usepackage{microtype}
+
+% --- Language: English main (last option), Slovak for the abstract, the resume and the title-page labels --------
+% T1 encoding: Slovak letters hyphenate and extract as text. csquotes follows the language: \enquote{...}.
+\usepackage[slovak,english]{babel}
+\usepackage[autostyle]{csquotes}
+
+% --- Page ---------------------------------------------------------------------------------------------------
+\usepackage[a4paper,
+  inner=\ThesisMarginInner, outer=\ThesisMarginOuter,
+  top=\ThesisMarginTop, bottom=\ThesisMarginBottom,
+  headheight=14.5pt]{geometry}                 % inner = left margin with oneside
+\usepackage{setspace}
+\ThesisSpacing                                 % line spacing 1.5 (\onehalfspacing stretches 1.241 at 12 pt)
+\setcounter{secnumdepth}{2}                    % numbers down to 1.1.1 (three levels, STN ISO 2145)
+\setcounter{tocdepth}{2}
+
+% --- Page numbers: Arabic, continuous, in the footer, same font and size as the text (Smernica Cl. 7 ods. 8) ------
+% The class style "plain" is used on every page, so chapter openers and ordinary pages look alike.
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \ThesisFooter
+  \renewcommand{\headrulewidth}{0pt}}
+\pagestyle{plain}
+
+% --- Text extraction: the PDF must give back its text (Dod. 2 Cl. 8 ods. 3 a; ANTIPLAG compares extracted text) ----
+\input{glyphtounicode}
+\ifdefined\pdfgentounicode \pdfgentounicode=1 \fi

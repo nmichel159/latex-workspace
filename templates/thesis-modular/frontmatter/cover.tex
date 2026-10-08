@@ -1,0 +1,27 @@
+% Cover (obal): layout of Smernica 1/2011 Priloha 1, content per Dod. 4 Cl. 5 ods. 3. All text comes from settings.tex.
+% The cover is not counted: it gets roman numbering, the title page starts Arabic numbering at 1 (\thesiscovercountstrue changes this).
+% No number is printed on the cover. knowledge/writing/thesis.md section 7 C.
+\ifthesiscovercounts\else\pagenumbering{roman}\fi
+\thispagestyle{empty}
+\pdfbookmark[0]{Cover}{thesiscover}
+\begin{singlespace}
+\begin{center}
+  {\Large\bfseries \MakeUppercase{\ThesisUniversity}\par
+   \MakeUppercase{\ThesisFaculty}\par}
+\end{center}
+\vspace{8mm}
+\ifdefempty{\ThesisRegNo}{}{\noindent{\small\ThesisLabelRegNo~\ThesisRegNo\par}}
+\vspace{30mm}
+\begin{center}
+  {\large\bfseries \MakeUppercase{\ThesisTitle}\par
+   \ifdefempty{\ThesisSubtitle}{}{\MakeUppercase{\ThesisSubtitle}\par}}
+  \vspace{30mm}
+  \ThesisType
+\end{center}
+\vfill
+{\parindent=0pt \bfseries \ThesisYear\par
+  \ThesisAuthorDegrees\par}
+\vspace{42mm}
+\end{singlespace}
+\clearpage
+\ifthesiscovercounts\else\pagenumbering{arabic}\fi

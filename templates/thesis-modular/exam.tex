@@ -1,0 +1,7 @@
+% Written work for the dissertation exam (pisomna praca k dizertacnej skuske): the variant of main.tex with the
+% type "Pisomna praca k dizertacnej skuske", no assignment page, no Slovak resume, the chapters of exam/ instead of chapters/.
+% Defining \ThesisExamVariant is the whole switch: settings.tex tests it (\ifthesisexam) before \documentclass.
+% Do not add \documentclass here; everything else is main.tex. Rules: knowledge/writing/thesis.md section 3.
+% Build: .\scripts\build-project.ps1 -Project <project> -MainFile exam.tex      (output: exam.pdf)
+\newcommand*{\ThesisExamVariant}{}
+\input{main}

@@ -1,0 +1,28 @@
+% Title page (titulny list): layout of Dod. 4 Priloha 2A, content and order per Dod. 4 Cl. 5 ods. 4. All text comes from settings.tex.
+% The title page counts as a page but prints no number (Smernica Cl. 7 ods. 8). knowledge/writing/thesis.md section 7 C.
+\thispagestyle{empty}
+\pdfbookmark[0]{Title page}{thesistitlepage}
+\begin{singlespace}
+\begin{center}
+  {\Large\bfseries \MakeUppercase{\ThesisUniversity}\par
+   \MakeUppercase{\ThesisFaculty}\par}
+  \vspace{35mm}
+  {\large\bfseries \MakeUppercase{\ThesisTitle}\par
+   \ifdefempty{\ThesisSubtitle}{}{\MakeUppercase{\ThesisSubtitle}\par}}
+  \vspace{8mm}
+  {\bfseries \ThesisType\par}
+\end{center}
+\vspace{38mm}
+\noindent
+\begin{tabular}{@{}p{40mm}@{}p{\dimexpr\linewidth-40mm\relax}@{}}
+  \ThesisLabelProgram    & \ThesisProgram \\[1.2ex]
+  \ThesisLabelField      & \ThesisField \\[1.2ex]
+  \ThesisLabelDepartment & \ThesisDepartment \\[1.2ex]
+  \ThesisLabelSupervisor & \ThesisSupervisor
+  \ifdefempty{\ThesisConsultant}{}{\\[1.2ex] \ThesisLabelConsultant & \ThesisConsultant}
+\end{tabular}
+\vfill
+{\parindent=0pt \bfseries \ThesisPlace\ \ThesisYear\par
+  \ThesisAuthorDegrees\par}
+\end{singlespace}
+\clearpage

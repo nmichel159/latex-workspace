@@ -1,0 +1,124 @@
+% Thesis macros: unnumbered divisions, front-matter parts, symbol lists, checks. Needs etoolbox, hyperref, setspace, booktabs, longtable.
+% Used by main.tex and frontmatter/*.tex; nothing here needs editing for a normal thesis.
+\makeatletter
+
+% --- Divisions ----------------------------------------------------------------------------------------------
+% Unnumbered chapter listed in the table of contents and in the PDF bookmarks (Introduction, Conclusion, Resume, References).
+% \chapter* starts a new page by itself; \phantomsection puts the hyperref anchor after the heading.
+\newcommand{\unnumberedchapter}[1]{%
+  \chapter*{#1}\phantomsection\addcontentsline{toc}{chapter}{#1}}
+
+% File with Slovak text (cover, title page): typeset in Slovak unless \thesislabelsenglishtrue (requirement 20).
+% The file may contain \clearpage and \pagenumbering: both act globally, so the group of otherlanguage is harmless.
+\newcommand{\thesisinputlabels}[1]{%
+  \ifthesislabelsenglish\input{#1}\else\begin{otherlanguage}{slovak}\input{#1}\end{otherlanguage}\fi}
+
+% Heading of a front-matter part: unnumbered, PDF bookmark, no table-of-contents entry (the part precedes the contents).
+\newcounter{thesisfront}
+\newcommand{\frontheading}[1]{%
+  \chapter*{#1}\stepcounter{thesisfront}\pdfbookmark[0]{#1}{thesisfront.\thethesisfront}}
+
+% Front-matter part from a text-only file: \thesisfrontpart{Heading}{frontmatter/file}
+\newcommand{\thesisfrontpart}[2]{\frontheading{#1}\input{#2}\par}
+
+% Same, but listed in the table of contents (parts after the contents: lists, glossary)
+\newcommand{\thesislistedpart}[2]{\unnumberedchapter{#1}\input{#2}\par}
+
+% Table of contents and lists of figures and tables, single-spaced
+\newcommand{\thesiscontents}{\frontheading{\contentsname}\begin{singlespace}\@starttoc{toc}\end{singlespace}}
+\newcommand{\thesislistoffigures}{\unnumberedchapter{\listfigurename}\begin{singlespace}\@starttoc{lof}\end{singlespace}}
+\newcommand{\thesislistoftables}{\unnumberedchapter{\listtablename}\begin{singlespace}\@starttoc{lot}\end{singlespace}}
+
+% References: natbib calls \bibsection before the list; single-spaced, entry in the table of contents.
+\renewcommand{\bibsection}{\unnumberedchapter{References}}
+\AtBeginEnvironment{thebibliography}{\singlespacing}
+
+% Index (switch \thesisindextrue; main.tex loads makeidx): the class heading of theindex stays, the table-of-contents
+% entry and its anchor are added at the top of the index page (tocbibind is not installed). Needs \index entries.
+\newcommand{\thesisprintindex}{%
+  \appto\theindex{\phantomsection\addcontentsline{toc}{chapter}{\indexname}}%
+  \printindex}
+
+% One page of the assignment PDF, scaled into the text block on a numbered page (frontmatter/assignment.tex).
+% graphicx key page: no pdfpages needed (pdfpages is not installed). The first page gets the PDF bookmark.
+\newcommand{\thesisassignmentpage}[1]{%
+  \clearpage
+  \ifdefined\thesisassignmentbookmarked\else
+    \pdfbookmark[0]{Assignment}{thesisassignment}\gdef\thesisassignmentbookmarked{}%
+  \fi
+  \noindent\includegraphics[page=#1,width=\textwidth,height=\textheight,keepaspectratio]{assignment.pdf}\par}
+
+% --- Lists of abbreviations and symbols (frontmatter/abbreviations.tex) -----------------------------------------
+% \symbolentry{symbol}{meaning}{label}: the page column holds \pageref{label}; put \label{abbr:...} where the
+% symbol or abbreviation is defined. Empty label: no page.
+\newenvironment{symbollist}{%
+  \begin{singlespace}\begin{longtable}{@{}p{0.2\linewidth}@{\hspace{1em}}p{0.62\linewidth}@{\hspace{1em}}r@{}}
+  \toprule Symbol & Meaning & Page \\ \midrule \endhead \bottomrule \endfoot}{%
+  \end{longtable}\end{singlespace}}
+\newcommand{\symbolentry}[3]{#1 & #2 & \ifblank{#3}{}{\pageref{#3}} \\}
+
+% --- Checks: warnings only, they never stop the build ---------------------------------------------------------
+% Keywords: 3-5 entries (Dod. 4 Cl. 5 ods. 7). The list argument is a macro such as \ThesisKeywords.
+\newcounter{thesis@kw}
+\newcommand{\thesis@countkw}[1]{\stepcounter{thesis@kw}}
+\newcommand{\thesis@checkkeywords}[2]{%
+  \setcounter{thesis@kw}{0}%
+  \expandafter\forcsvlist\expandafter\thesis@countkw\expandafter{#2}%
+  \ifnumcomp{\value{thesis@kw}}{<}{3}{\thesis@kwwarning{#1}}{}%
+  \ifnumcomp{\value{thesis@kw}}{>}{5}{\thesis@kwwarning{#1}}{}}
+\newcommand{\thesis@kwwarning}[1]{%
+  \PackageWarningNoLine{thesis}{#1: \arabic{thesis@kw} keywords, the rules ask for 3 to 5 (Dod. 4 Cl. 5 ods. 7)}}
+
+% Abstract: one paragraph, usually 100-500 words (Dod. 4 Cl. 5 ods. 7). The file is read line by line, comment lines
+% (first character %) are skipped; every other whitespace-separated item counts as a word, so commands and
+% inline math count too: the number is an estimate.
+\newread\thesis@read
+\newcount\thesis@words
+\newcount\thesis@paras
+\newif\ifthesis@inpara
+\def\thesis@cw#1 #2\relax{%
+  \ifblank{#1}{}{\global\advance\thesis@words by 1 }%
+  \ifblank{#2}{}{\thesis@cw#2\relax}}
+\def\thesis@scanline#1#2\relax{%
+  \ifx\relax#1%
+    \thesis@inparafalse
+  \else
+    \if\@percentchar#1%
+    \else
+      \ifthesis@inpara\else\global\advance\thesis@paras by 1 \thesis@inparatrue\fi
+      \thesis@cw#1#2 \relax
+    \fi
+  \fi}
+\def\thesis@readloop{%
+  \ifeof\thesis@read\else
+    \readline\thesis@read to \thesis@line
+    \expandafter\thesis@scanline\thesis@line\relax\relax
+    \expandafter\thesis@readloop
+  \fi}
+\newcommand{\thesis@countfile}[1]{%
+  \global\thesis@words=0 \global\thesis@paras=0
+  \begingroup
+  \endlinechar=-1
+  \thesis@inparafalse
+  \openin\thesis@read=#1.tex\relax
+  \ifeof\thesis@read\else\thesis@readloop\closein\thesis@read\fi
+  \endgroup}
+\newcommand{\thesis@checkabstract}[2]{%
+  \thesis@countfile{#2}%
+  \ifnum\thesis@words<100 \thesis@abstractwarning{#1}\fi
+  \ifnum\thesis@words>500 \thesis@abstractwarning{#1}\fi
+  \ifnum\thesis@paras>1
+    \PackageWarningNoLine{thesis}{#1: \number\thesis@paras\space paragraphs, one expected (Dod. 4 Cl. 5 ods. 7)}%
+  \fi}
+\newcommand{\thesis@abstractwarning}[1]{%
+  \PackageWarningNoLine{thesis}{#1: about \number\thesis@words\space words, usually 100 to 500 (Dod. 4 Cl. 5 ods. 7)}}
+
+% Abstract page: \thesisabstractpage{Heading}{Keywords label}{\KeywordsMacro}{frontmatter/file}
+\newcommand{\thesisabstractpage}[4]{%
+  \frontheading{#1}%
+  \thesis@checkabstract{#1}{#4}%
+  \input{#4}\par\bigskip
+  \noindent\textbf{#2}~#3\par
+  \thesis@checkkeywords{#1}{#3}}
+
+\makeatother

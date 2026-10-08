@@ -1,0 +1,98 @@
+% Dissertation wrapper (UPJS, English, pdfLaTeX): the default template for a dissertation.
+% Fields and switches live in settings.tex; layout in preamble/; the text in frontmatter/, chapters/, appendices/, backmatter/.
+% The written work for the dissertation exam is the same document: exam.tex defines \ThesisExamVariant and reads this file.
+% House rules: knowledge/writing/latex-conventions.md   UPJS rules: knowledge/writing/thesis.md section 7   README.md
+% Build: .\scripts\build-project.ps1 -Project <project> [-MainFile exam.tex]
+
+% Fields and switches first: settings.tex holds definitions only, so it may precede \documentclass.
+\input{settings}
+
+% No automatic EPS-to-PDF conversion (figures are PDF/PNG). Also avoids a failure in this MiKTeX:
+% cleveref with options makes epstopdf-base require grfext.sty, which is not installed.
+\newcommand*{\DoNotLoadEpstopdf}{}
+
+% \ThesisSides (oneside | twoside) is expanded inside the option list; twoside also mirrors the margins (preamble/layout.tex).
+\documentclass[12pt,a4paper,\ThesisSides]{report}
+
+% --- Load order: packages -> layout -> natbib -> hyperref -> cleveref -> environments -> macros -> thesis -------------
+\input{preamble/packages}
+\input{preamble/layout}
+\usepackage[\ThesisNatbibOptions]{natbib}     % numeric by default; author-date: settings.tex
+% plainpages=false: page anchors follow the printed number (roman cover "i", title page "1"); with the default
+% hyperref names both anchors page.1 and warns "destination with the same identifier". unicode: Slovak letters in bookmarks.
+\usepackage[unicode,hidelinks,plainpages=false]{hyperref}
+\hypersetup{pdftitle={\ThesisTitle}, pdfauthor={\ThesisAuthor}, pdfkeywords={\ThesisKeywords},
+  pdflang={en}, bookmarksnumbered}
+\usepackage[capitalise,noabbrev]{cleveref}   % after hyperref, before the theorem definitions
+% In author-date mode natbib's \cite is textual ("Author (2022)"); the sources use \cite for a parenthetical citation, so map it to \citep.
+\makeatletter\ifNAT@numbers\else\let\cite\citep\fi\makeatother
+\input{preamble/environments}
+\input{preamble/macros}
+\input{preamble/thesis}                      % needs natbib and hyperref (\bibsection, \pdfbookmark)
+
+\ifthesisindex
+  \usepackage{makeidx}
+  \makeindex
+\fi
+
+% \includeonly{chapters/03-first-result}     % draft: build only this chapter, numbers and references stay
+
+\begin{document}
+
+% === Front matter (thesis.md section 7 B): all pages Arabic, continuous; title page = page 1 without a number ==========
+\thesisinputlabels{frontmatter/cover}        % Slovak labels unless \thesislabelsenglishtrue; cover: no number, not counted
+\thesisinputlabels{frontmatter/titlepage}
+\ifthesisack         \thesisfrontpart{Acknowledgments}{frontmatter/acknowledgments}\fi
+\ifthesisassignment  \input{frontmatter/assignment}\fi
+\ifthesisaistatement \thesisfrontpart{Statement on the Use of AI Tools}{frontmatter/ai-statement}\fi
+\ifthesisdeclaration \thesisfrontpart{Declaration of Originality}{frontmatter/declaration}\fi
+
+\begin{otherlanguage}{slovak}
+  \thesisabstractpage{Abstrakt}{Kľúčové slová:}{\ThesisKeywordsSK}{frontmatter/abstract-sk}
+\end{otherlanguage}
+\thesisabstractpage{Abstract}{Keywords:}{\ThesisKeywords}{frontmatter/abstract-en}
+
+\thesiscontents
+\ifthesislof      \thesislistoffigures\fi
+\ifthesislot      \thesislistoftables\fi
+\ifthesisabbr     \thesislistedpart{List of Abbreviations and Symbols}{frontmatter/abbreviations}\fi
+\ifthesisglossary \thesislistedpart{Glossary}{frontmatter/glossary}\fi
+
+% === Main matter: Introduction (unnumbered), numbered chapters, Conclusion (unnumbered), Resume (Slovak) ================
+\ifthesisexam
+  % Written work for the dissertation exam: chapters of thesis.md section 3, no Conclusion, no appendices.
+  \include{exam/00-theses}
+  \include{exam/01-introduction}
+  \include{exam/02-preliminaries}
+  \include{exam/03-state-of-the-art}
+  \include{exam/04-results-so-far}
+  \include{exam/05-methodology}
+  \include{exam/06-publication-plan}
+  \include{exam/07-timeline}
+\else
+  \include{chapters/01-introduction}
+  \include{chapters/02-preliminaries}
+  \include{chapters/03-first-result}
+  \include{chapters/04-second-result}
+  \include{chapters/05-discussion}
+  \include{chapters/06-conclusion}
+  \ifthesisresume \include{chapters/07-resume}\fi
+\fi
+
+% === References: one technique throughout (numeric or author-date, settings.tex), every entry cited, no \nocite{*} =========
+\bibliographystyle{\ThesisBibStyle}
+\bibliography{references}
+
+% === Appendices A, B, ... (each on a new page, listed in the table of contents) =========================================
+\ifthesisexam\else
+  \appendix
+  \crefalias{chapter}{appendix}              % labels created from here on print "Appendix A", not "Chapter A"
+  \include{appendices/01-omitted-proofs}
+  \include{appendices/02-additional-material}
+\fi
+
+% === Back matter: curriculum vitae, index (optional) =====================================================================
+\ifthesisbackmatter \include{backmatter/cv}\fi
+\ifthesisindex      \thesisprintindex\fi
+
+\end{document}

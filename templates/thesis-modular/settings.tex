@@ -1,0 +1,96 @@
+% Fields and switches of the thesis: the one file to edit for the title page, the front matter and the layout options.
+% Read by main.tex BEFORE \documentclass, so it holds definitions only (no packages, no typesetting).
+% Rules behind every default: knowledge/writing/thesis.md sections 2 and 7. File roles and options: README.md
+
+% --- Variant ---------------------------------------------------------------------------------------
+% exam.tex defines \ThesisExamVariant before it reads main.tex: written work for the dissertation exam.
+\newif\ifthesisexam
+\ifdefined\ThesisExamVariant \thesisexamtrue \fi
+
+% --- Labels: Slovak as in the official models (Smernica Priloha 1, Dod. 4 Priloha 2A) ----------------
+% \thesislabelsenglishtrue switches the labels and the type to English (unofficial translation, acceptance TODO(verify)).
+\newif\ifthesislabelsenglish
+%\thesislabelsenglishtrue
+
+% --- Title page and cover fields ---------------------------------------------------------------------
+\newcommand{\ThesisTitle}{Optimisation Algorithms Powered by LLMs}   % TODO(verify): exactly as in the AiS2 assignment
+\newcommand{\ThesisSubtitle}{}                                        % empty: no subtitle
+\newcommand{\ThesisAuthor}{Norbert Micheľ}                            % without degrees: PDF metadata
+\newcommand{\ThesisAuthorDegrees}{Mgr. Norbert Micheľ}                % with degrees: cover and title page
+\newcommand{\ThesisUniversity}{Univerzita Pavla Jozefa Šafárika v~Košiciach}   % "v~" keeps the preposition off the end of a line
+\newcommand{\ThesisFaculty}{Prírodovedecká fakulta}
+\newcommand{\ThesisProgram}{Informatika}                              % study program
+\newcommand{\ThesisField}{informatika}                                % name of the field only, no code (Dod. 4 Cl. 5 ods. 4 f)
+\newcommand{\ThesisDepartment}{Ústav informatiky}                     % training department
+\newcommand{\ThesisSupervisor}{prof. RNDr. Gabriel Semanišin, PhD.}
+\newcommand{\ThesisConsultant}{}                                      % empty: the line is omitted
+\newcommand{\ThesisPlace}{Košice}
+\newcommand{\ThesisRegNo}{}                                           % registration number if assigned; empty: omitted
+\newcommand{\ThesisKeywords}{large language models, algorithm design, combinatorial optimization}  % 3-5 entries
+\newcommand{\ThesisKeywordsSK}{keyword one, keyword two, keyword three}                              % 3-5 entries, Slovak
+
+% Variant-dependent fields; the year assumes the study started 2025-09-01 (TODO(verify) in AiS2).
+\ifthesisexam
+  \newcommand{\ThesisYear}{2027}      % exam application within 24 months of the start of study
+  \ifthesislabelsenglish
+    \newcommand{\ThesisType}{Written work for the dissertation exam}
+  \else
+    \newcommand{\ThesisType}{Písomná práca k dizertačnej skúške}
+  \fi
+\else
+  \newcommand{\ThesisYear}{2029}      % dissertation due 3 months before 31 August of the last year
+  \ifthesislabelsenglish
+    \newcommand{\ThesisType}{Dissertation}
+  \else
+    \newcommand{\ThesisType}{Dizertačná práca}
+  \fi
+\fi
+
+\ifthesislabelsenglish
+  \newcommand{\ThesisLabelRegNo}{Registration number:}
+  \newcommand{\ThesisLabelProgram}{Study program:}
+  \newcommand{\ThesisLabelField}{Field of study:}
+  \newcommand{\ThesisLabelDepartment}{Training department:}
+  \newcommand{\ThesisLabelSupervisor}{Supervisor:}
+  \newcommand{\ThesisLabelConsultant}{Consultant:}
+\else
+  \newcommand{\ThesisLabelRegNo}{Evidenčné číslo:}
+  \newcommand{\ThesisLabelProgram}{Študijný program:}
+  \newcommand{\ThesisLabelField}{Študijný odbor:}
+  \newcommand{\ThesisLabelDepartment}{Školiace pracovisko:}
+  \newcommand{\ThesisLabelSupervisor}{Školiteľ:}
+  \newcommand{\ThesisLabelConsultant}{Konzultant:}
+\fi
+
+% --- Parts of the document (true/false); order of the parts: README.md -----------------------------------
+\newif\ifthesisack          \thesisacktrue           % acknowledgments (optional, Dod. 4 Cl. 5 ods. 5)
+\newif\ifthesisassignment   \thesisassignmenttrue    % assignment page (Dod. 4 Cl. 5 ods. 2 d)
+\newif\ifthesisdeclaration  \thesisdeclarationfalse  % declaration of originality: not in Dod. 4, TODO(verify)
+\newif\ifthesisaistatement  \thesisaistatementtrue   % AI-use statement page: recommended, default on (the statement is required, act 300/2025 par. 93 ods. 3 d)
+\newif\ifthesislof          \thesisloftrue           % list of figures (optional)
+\newif\ifthesislot          \thesislottrue           % list of tables (optional)
+\newif\ifthesisabbr         \thesisabbrtrue          % list of abbreviations and symbols
+\newif\ifthesisglossary     \thesisglossaryfalse     % glossary (optional)
+\newif\ifthesisresume       \thesisresumetrue        % Slovak resume after the Conclusion (non-Slovak thesis)
+\newif\ifthesisbackmatter   \thesisbackmatterfalse   % back matter: curriculum vitae (optional)
+\newif\ifthesisindex        \thesisindexfalse        % index (optional, needs \index entries and makeindex)
+\ifthesisexam
+  \thesisassignmentfalse    % the exam paper has no assignment page
+  \thesisresumefalse        % TODO(verify): Slovak resume for the exam paper
+\fi
+
+% --- Layout (recommendations of Smernica Cl. 7 ods. 3, 8; all optional) ------------------------------------
+\newcommand{\ThesisSides}{oneside}             % oneside | twoside (both allowed); twoside mirrors the margins
+\newcommand{\ThesisMarginInner}{35mm}          % left margin (inner margin with twoside)
+\newcommand{\ThesisMarginOuter}{20mm}          % right margin (outer margin with twoside)
+\newcommand{\ThesisMarginTop}{25mm}
+\newcommand{\ThesisMarginBottom}{25mm}
+\newcommand{\ThesisSpacing}{\onehalfspacing}   % \singlespacing | \onehalfspacing | \doublespacing (setspace)
+\newcommand{\ThesisFooter}{\fancyfoot[C]{\thepage}}   % page number centered; right: \fancyfoot[R]{\thepage}, twoside \fancyfoot[RO,LE]
+\newif\ifthesiscovercounts                     % true: the cover is page 1 and the title page page 2 (default: title page = 1)
+\newcommand{\ThesisAssignmentPages}{1}         % pages of assignment.pdf to insert, comma-separated list
+\newcommand{\ThesisBibStyle}{unsrtnat}         % numeric, in order of first citation; plainnat = alphabetical. ISO 690 conformity TODO(verify)
+% Citation mode: Smernica Cl. 6 ods. 2 leaves it to the field, one technique throughout; the examples of Priloha 6A (since Dod. 3) show author-date.
+% Numeric (default): \ThesisBibStyle = unsrtnat (or plainnat), \ThesisNatbibOptions = numbers,sort&compress.
+% Author-date alternative: \ThesisBibStyle = plainnat, \ThesisNatbibOptions = authoryear,round (the two always change together).
+\newcommand{\ThesisNatbibOptions}{numbers,sort&compress}   % options of natbib, read by main.tex

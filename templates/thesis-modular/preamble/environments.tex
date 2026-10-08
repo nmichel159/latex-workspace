@@ -1,0 +1,36 @@
+% Theorem-like environments, the "problem" box and numbering (numbered within chapters).
+% Input after cleveref: theorem definitions must follow cleveref, otherwise every environment that
+% shares a counter is referred to by the same name.
+% \declaretheorem (thmtools), not \newtheorem: with the LaTeX 2025-11-01 kernel and cleveref 0.21.4,
+% \cref names a lemma that shares the definition counter "Definition" (tested 2026-10-07);
+% sibling= gives each environment its own name and plural ("Lemmas 2.3 and 2.4").
+% Numbers of unnumbered chapters (Introduction, Conclusion) would start with 0: keep numbered environments out of them.
+
+% Numbering within chapters (figures and tables already restart in each chapter in the report class)
+\numberwithin{equation}{chapter}
+
+% One shared counter within a chapter: Definition 2.1, Theorem 2.2, Lemma 2.3, ...
+\declaretheorem[name=Definition,  style=definition, numberwithin=chapter]{definition}
+\declaretheorem[name=Theorem,     style=plain,      sibling=definition]{theorem}
+\declaretheorem[name=Lemma,       style=plain,      sibling=definition]{lemma}
+\declaretheorem[name=Claim,       style=plain,      sibling=definition]{claim}
+\declaretheorem[name=Corollary,   style=plain,      sibling=definition]{corollary}
+\declaretheorem[name=Proposition, style=plain,      sibling=definition]{proposition}
+\declaretheorem[name=Remark,      style=remark,     sibling=definition]{remark}
+\declaretheorem[name=Example,     style=remark,     sibling=definition]{example}
+
+% "problem" environment: framed statement of a computational problem
+\newtcolorbox{problem}[1][]{%
+  enhanced,
+  colback=white,      % background color
+  colframe=black,     % border color
+  boxrule=0.8pt,      % border thickness
+  arc=2pt,            % corner roundness
+  left=6pt, right=6pt, top=6pt, bottom=6pt,
+  title=\textbf{Problem: #1},
+}
+
+% Algorithm headers: an algorithm states Input and Output (knowledge/writing/math-writing.md section 6);
+% algpseudocode (loaded in preamble/packages.tex, before this file) would print "Require:" and "Ensure:".
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}

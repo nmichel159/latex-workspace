@@ -1,0 +1,37 @@
+% Notation macros shared by all chapters; independent of the document class (needs amsmath, amssymb, mathtools).
+% One notation for the whole thesis: add project notation below (Min Cut-Path block: knowledge/writing/latex-conventions.md).
+% Guidance: knowledge/writing/math-writing.md section 1
+
+% Number sets and expectation
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+
+% Operators: upright name, operator spacing
+\newcommand{\OPT}{\mathrm{OPT}}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\poly}{poly}
+
+% Paired delimiters: \abs{x}; \abs*{x} scales to its content; \abs[\big]{x} sets the size by hand
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\set}{\{}{\}}
+
+% Names of computational problems in small caps: \textproblem{Min Cut-Path}.
+\newcommand{\textproblem}[1]{\textsc{#1}}
+
+% Chapter based on a published paper (Smernica-compatible reuse, SP DS Cl. 19 ods. 3, 5; RR 21/2021 Cl. 2 ods. 5):
+% put it right after \chapter{...}. It prints an unnumbered footnote on the first page of the chapter.
+% knowledge/writing/thesis.md section 4. The key must exist in references.bib.
+\makeatletter
+\newcommand{\chapterbasedon}[1]{%
+  \begingroup
+  \renewcommand{\thefootnote}{}\protected@xdef\@thefnmark{}%
+  \@ifundefined{H@@footnotetext}%
+    {\footnotetext}%                    % hyperref absent: the ordinary footnote text
+    {\H@@footnotetext}%                 % hyperref's saved original: no empty anchor (its \footnotetext warns "Ignoring empty anchor")
+    {This chapter is based on~\cite{#1}.}%
+  \endgroup}
+\makeatother
