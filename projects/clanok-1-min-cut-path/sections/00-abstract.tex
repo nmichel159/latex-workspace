@@ -1,0 +1,11 @@
+In modern distributed systems, data exchange between servers must often balance two opposing objectives:
+\emph{enabling communication} within a trusted domain and \emph{preventing communication} by potential adversaries.
+When information flows through a network, it is desirable to establish a reliable path between authorized servers
+while simultaneously enforcing structural constraints that deny any alternative communication routes accessible to an opponent.
+This dual requirement leads naturally to the study of network configurations that combine
+\emph{communication} for legitimate participants with \emph{control} mechanisms that isolate or restrict hostile ones.
+In this context, one seeks structures that ensure communication only within a specified subnetwork while suppressing all competing connections.
+In this paper, we formalize this concept through the notion of a \emph{cut-path},
+a structure that simultaneously contains a connecting path and a separating cut,
+and we study the computational and structural properties of the corresponding \MinCutPath{} problem.
+

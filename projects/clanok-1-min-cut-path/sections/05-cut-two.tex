@@ -1,0 +1,50 @@
+\section{Graphs with Cut-Value at Most Two}
+\label{sec:cut-two}
+
+We now turn to another structural property that leads to the same simple formula.
+Specifically, we consider graphs in which the minimum cut-value of every pair of vertices is at most two.
+This condition restricts the connectivity structure of the graph in a very particular way.
+
+Such graphs have the structure of a \emph{cactus graph} (cf.~\cite{Mehlhorn2017Certifying}): they consist of cycles and single edges, any two of which share at most one vertex, an articulation point.
+Indeed, if two distinct cycles shared an edge, their union would contain two vertices joined by three edge-disjoint paths; separating these two vertices would require at least three edges, contradicting the assumption $c(x,y) \leq 2$.
+This structure leads to the following result.
+
+\begin{theorem}
+\label{thm:cut-two}
+Let $G = (V, E)$ be a connected graph such that $c(x, y) \leq 2$ for every pair of distinct vertices $x, y \in V$.
+Then, for any two distinct vertices $u,v \in V$, the value of the minimum cut-path is
+\[
+\cp(u, v) = c(u, v) + d(u, v) - 1.
+\]
+\end{theorem}
+
+\begin{proof}
+We distinguish two cases based on the values of $d(u, v)$ and $c(u, v)$.
+
+\begin{enumerate}
+    \item \textbf{Case} $d(u, v) = 1$ \textbf{or} $c(u, v) = 1$:
+
+    The formula holds by Lemma~\ref{lem:basic-bounds}.
+
+    \item \textbf{Case} $d(u, v) \geq 2$ \textbf{and} $c(u, v) = 2$:
+
+    By Lemma~\ref{lem:basic-bounds}, we have
+    \[
+    d(u, v) \leq \cp(u, v) \leq d(u, v) + 1.
+    \]
+    Assume for contradiction that $\cp(u, v) = d(u, v)$.
+    Then a minimum cut-path is a shortest $u$--$v$ path $P$ that contains a $u$--$v$ cut, so the graph $G \setminus P$ contains no $u$--$v$ path.
+
+    Since $c(u, v) = 2$, no single edge separates $u$ from $v$; hence no edge of $P$ is a bridge, and every edge of $P$ lies on a cycle of the cactus graph $G$.
+    The path $P$ therefore passes through a sequence of cycles $C_1, C_2, \dots, C_t$, and in each cycle $C_i$ it follows one of the two arcs between the vertex where it enters $C_i$ and the vertex where it leaves $C_i$.
+    The other arc of each cycle $C_i$ is edge-disjoint from $P$, and the concatenation of these arcs connects $u$ and $v$ in $G \setminus P$.
+    This is a contradiction.
+    Therefore,
+    \[
+    \cp(u, v) = d(u, v) + 1 = c(u, v) + d(u, v) - 1. \qedhere
+    \]
+\end{enumerate}
+\end{proof}
+
+By Remark~\ref{rem:algorithm}, a minimum cut-path in such a graph is again obtained as the union of a minimum cut and a shortest path.
+

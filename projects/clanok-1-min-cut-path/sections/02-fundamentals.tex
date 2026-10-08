@@ -1,0 +1,117 @@
+\section{Fundamentals}
+\label{sec:fundamentals}
+
+Throughout the paper, we use standard notation from graph theory and computational complexity, following the conventions of~\cite{Diestel2025,Cormen2022}.
+All graphs under consideration are undirected and finite, unless otherwise stated.
+For a graph $G = (V, E)$, we let $n = |V|$ denote the number of vertices and $m = |E|$ the number of edges.
+
+We often deal with two distinct vertices $u, v \in V$.
+The value $d(u, v)$ denotes the distance between $u$ and $v$, i.e., the length of a shortest $u$--$v$ path in $G$.
+Similarly, the value $c(u, v)$ denotes the minimum size of a cut that separates $u$ and $v$.
+All problems studied in this paper are defined with respect to these two distinguished vertices $u$ and $v$, which are assumed to lie in the same connected component of $G$.
+
+We identify a path with its set of edges.
+For any path $P \subseteq E$, we denote by $G \setminus P$ the graph obtained from $G$ by removing all edges of $P$.
+Furthermore, for a vertex $x \in V$ and a vertex subset $S \subseteq V$, we write $\deg(x, S)$ for the number of neighbors of $x$ that belong to $S$, that is, $\deg(x, S) = |\{\,y \in S : \{x, y\} \in E\,\}|$.
+
+
+The notion of a \emph{cut-path} captures a hybrid structure in a graph that combines two fundamental and seemingly opposing elements: a \emph{path} and a \emph{cut}.
+Intuitively, a cut-path between two vertices $u$ and $v$ is a set of edges that simultaneously contains a path connecting $u$ to $v$ and a cut that, if removed, would disconnect $u$ from $v$.
+In this sense, a cut-path ensures both \emph{communication} and \emph{control}.
+Formally:
+
+\begin{definition}[Cut-Path]
+\label{def:cut-path}
+Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
+A \emph{cut-path} between $u$ and $v$ is a set of edges $S \subseteq E$ for which there exist subsets $P, C \subseteq S$ such that:
+    \begin{enumerate}
+        \item $C$ is a cut separating $u$ and $v$ (i.e., removing $C$ disconnects $u$ from $v$),
+        \item $P$ is a path connecting $u$ and $v$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Cut-Paths]
+\label{def:cut-paths}
+Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
+The set of all cut-paths between $u$ and $v$, denoted by $\CP(u, v)$, is defined as:
+\[
+\CP(u, v) = \{ S \mid S \text{ is a cut-path between } u \text{ and } v \}.
+\]
+\end{definition}
+
+\begin{definition}[Value of Minimum Cut-Path]
+\label{def:cp-value}
+Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
+The minimum size of a cut-path between $u$ and $v$, denoted by $\cp(u, v)$, is defined as:
+\[
+\cp(u, v) = \min\{ |S| \mid S \in \CP(u, v) \}.
+\]
+\end{definition}
+
+A cut-path $S \in \CP(u, v)$ with $|S| = \cp(u, v)$ is called a \emph{minimum cut-path} between $u$ and $v$.
+The corresponding optimization problem is stated as follows.
+
+\begin{problem}[\MinCutPath{} (Optimization Version)]
+Let $G=(V,E)$ be an undirected graph and $u,v \in V$ distinct vertices; cut-paths are defined in Definition~\ref{def:cut-path}.
+The optimization version of the \MinCutPath{} problem is defined as follows:
+
+\begin{center}
+\begin{tabular}{p{0.18\linewidth}p{0.75\linewidth}}
+\textbf{Input:} & A graph $G=(V,E)$ and vertices $u,v \in V$. \\
+\textbf{Output:} & A minimum cut-path $S^* \subseteq E$ between $u$ and $v$, together with its cardinality
+\[
+\cp(u,v) = |S^*|.
+\]
+\end{tabular}
+\end{center}
+\end{problem}
+
+The following elementary bounds relate $\cp(u, v)$ to the classical quantities $c(u, v)$ and $d(u, v)$; they are used repeatedly in the subsequent sections.
+
+\begin{lemma}[Basic Bounds]
+\label{lem:basic-bounds}
+Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices. Then
+\[
+\max\{c(u, v), d(u, v)\} \leq \cp(u, v) \leq c(u, v) + d(u, v) - 1.
+\]
+In particular, if $c(u, v) = 1$ or $d(u, v) = 1$, then $\cp(u, v) = c(u, v) + d(u, v) - 1$.
+\end{lemma}
+
+\begin{proof}
+Every cut-path contains a $u$--$v$ cut, which has at least $c(u, v)$ edges, and a $u$--$v$ path, which has at least $d(u, v)$ edges; this gives the lower bound.
+For the upper bound, let $C$ be a minimum $u$--$v$ cut and let $P$ be a shortest $u$--$v$ path.
+The set $C \cup P$ is a cut-path.
+Since removing $C$ disconnects $u$ from $v$, the path $P$ contains at least one edge of $C$, and hence $|C \cup P| \leq c(u, v) + d(u, v) - 1$.
+If $c(u, v) = 1$ or $d(u, v) = 1$, the lower and the upper bound coincide.
+\end{proof}
+
+
+Before formalizing the notion of an average $(1+\epsilon)$-approximation scheme, we briefly explain the motivation behind this concept.
+In the context of \MinCutPath, exact computation may be infeasible for large random graphs.
+However, many such graphs exhibit structural regularities that make near-optimal solutions achievable in polynomial time on almost all inputs.
+The following definition captures this idea by requiring that the algorithm performs within a factor of $(1+\epsilon)$ of the optimum for almost every instance while still maintaining a polynomial running time.
+
+To make the definition precise, let $I(n)$ denote the set of all valid input instances of size $n$, and let $\OPT(x)$ denote the optimal value of the objective function for a given instance $x \in I(n)$.
+For minimization problems, $\OPT(x)$ is the minimum achievable value, while for maximization problems, it is the maximum achievable value.
+Formally:
+
+\begin{definition}[Average $(1+\epsilon)$-Approximation Scheme]
+\label{def:approximation-scheme}
+Let $\epsilon > 0$. An algorithm $A$ is called an \emph{average $(1+\epsilon)$-approximation scheme} if it meets the following criteria:
+\begin{enumerate}
+    \item $A$ is a polynomial-time algorithm, i.e., its running time is $O(P(n))$ for some polynomial $P(n)$.
+    \item For each input size $n$, there exists a subset of inputs $I_{A}^{\mathrm{opt}}(n) \subseteq I(n)$ such that for every input $x \in I_{A}^{\mathrm{opt}}(n)$, the value $A(x)$ of the solution computed by $A$ satisfies
+    \[
+    \frac{A(x)}{\OPT(x)} < 1+\epsilon \quad \text{(for minimization problems)}
+    \]
+    \[
+    \frac{\OPT(x)}{A(x)} < 1+\epsilon \quad \text{(for maximization problems)},
+    \]
+    where $\OPT(x)$ denotes the optimal value for the input $x$.
+    \item In addition, the algorithm is average-case in the sense that
+    \[
+    \lim_{n \to \infty} \frac{\lvert I_{A}^{\mathrm{opt}}(n) \rvert}{\lvert I(n) \rvert} = 1.
+    \]
+\end{enumerate}
+\end{definition}
+

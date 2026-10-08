@@ -1,0 +1,31 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+In this paper, we introduced and studied the \MinCutPath{} problem, which is based on a novel combinatorial structure that simultaneously captures communication and control within a single set of edges.
+We established the NP-completeness of the decision version of the problem by a two-step reduction from \ThreeSAT{} through the intermediate \SSP{} problem.
+Furthermore, we identified two important classes of graphs in which the problem becomes polynomially solvable: graphs of diameter two and graphs whose minimum cut-value does not exceed two.
+For these classes, we derived a closed formula for the value of the minimum cut-path, showing that $\cp(u, v) = c(u, v) + d(u, v) - 1$.
+Finally, connecting these findings with the structural properties of random graphs, we showed that dense Erdős–Rényi graphs almost surely fall within this tractable regime and that, in sparser random graphs, a simple algorithm is an average-case approximation scheme; this provides a bridge between worst-case and probabilistic analysis.
+
+Since the concept of a cut-path is new, there remain numerous promising directions for future research.
+One particularly appealing direction is the identification of additional \emph{islands of polynomial-time solvability}.
+Expanding the frontier of tractable cases can help us better understand the structural boundary between efficiently solvable and intractable instances of the \MinCutPath{} problem.
+
+A natural starting point in this search is the class of graphs in which every pair of vertices is either at distance at most two or has a minimum cut of size at most two.
+This class is a common generalization of the two polynomial cases identified in this work---graphs of diameter two and graphs with minimum cut-value at most two.
+By combining these two structural properties, the two polynomial islands could be merged into a single broader class of graphs in which the \MinCutPath{} problem may remain tractable; partial results for this class were obtained in~\cite{Michel2025MinCutPath}.
+
+
+Another promising research direction concerns \emph{planar graphs}.
+The motivation arises from the inherent duality between paths and cuts: in a planar graph, every minimal edge cut corresponds to a cycle in the dual graph and vice versa.
+This dual relationship suggests that the \MinCutPath{} problem might admit more efficient formulations or reductions when restricted to planar graphs.
+Moreover, several classical problems involving cuts and flows are known to be solvable more efficiently in planar graphs than in general ones, owing to planar duality and to specialized algorithms for planar embeddings~\cite{itai1979maximum,henzinger1997faster}.
+Therefore, planar graphs form a natural candidate for further exploration of polynomial solvability.
+
+Beyond theoretical developments, another potential avenue for progress lies in experimental analysis.
+As the present work is purely theoretical, an empirical evaluation could provide valuable insight into the average-case performance of algorithms for the \MinCutPath{} problem.
+Studying the behavior of the problem on real-world networks or on synthetic random instances could reveal structural patterns that are not captured by worst-case analysis and could guide the design of practical heuristics or approximation methods.
+
+Lastly, a deeper exploration of graphs with fixed cut-path values could reveal additional regularities.
+In particular, analyzing graphs with a fixed value of $\cp(u,v)$ may uncover structural principles that further delineate the boundary between polynomially solvable and NP-hard instances, enriching the understanding of this newly introduced combinatorial framework.
+

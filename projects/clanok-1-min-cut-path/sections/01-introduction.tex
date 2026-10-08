@@ -1,0 +1,41 @@
+\section{Introduction}
+\label{sec:introduction}
+
+In distributed communication systems, a central challenge lies in maintaining a secure but controlled flow of information between servers.
+Although authorized entities require uninterrupted communication channels, adversarial agents must be denied access to any possible route that would allow information transfer.
+This tension between enabling and restricting communication naturally motivates the study of graph structures that can simultaneously express both communication and isolation.
+The interplay between these two objectives---connectivity and control---serves as the conceptual foundation of the present work.
+
+Graph theory provides an elegant formal framework for representing such systems.
+Vertices correspond to servers or agents, and edges represent direct communication links between them.
+Within this model, ensuring communication between trusted servers while cutting off an opponent translates to identifying a set of edges that contains both a connecting path, which carries the communication, and a separating cut, which guarantees that every other route between the two servers uses at least one of the selected edges.
+This hybrid structure, which captures both connection and disconnection properties at the same time, will be formally introduced as a \emph{cut-path}.
+Such a structure allows the system to maintain communication within a trusted subnetwork while leaving an adversary no alternative route.
+
+Several classical problems in network theory combine notions of connectivity and separation from different perspectives.
+For example, the study of multi-terminal minimum cuts~\cite{GomoryHu1961}, of representations of all minimum cuts~\cite{NagamochiKameda1996}, and of small cuts and edge connectivity~\cite{Mehlhorn2017Certifying} explores the trade-off between maintaining essential communication routes and minimizing potential vulnerabilities.
+Similarly, the interaction between \emph{shortest paths} and \emph{minimum cuts} has been investigated in the context of the \emph{max-flow min-cut duality}~\cite{Cormen2022}.
+However, these formulations treat connectivity and separation as distinct or opposing properties, rather than unifying them within a single combinatorial object.
+In contrast, the present work adopts a unified perspective through the concept of a \emph{cut-path}, which inherently embodies both connectivity and disconnection within the same set of edges.
+
+
+The central problem studied in this paper, the \MinCutPath{} problem, seeks a smallest set of edges that simultaneously contains a path and a cut between two distinguished vertices.
+This dual optimization objective reflects the balance between maintaining minimal communication infrastructure and enforcing maximal control over connectivity.
+The problem was introduced in the author's master's thesis~\cite{Michel2025MinCutPath}, where several tractable cases were identified, but the complexity of the general problem was left open.
+To the best of our knowledge, the problem has not been studied elsewhere.
+We close this gap by settling the complexity of the problem and by presenting its basic structural properties.
+
+Our main contributions are as follows.
+First, we prove that the decision version of the \MinCutPath{} problem is NP-complete via a two-step reduction from \ThreeSAT{} through an intermediate problem called \SSP.
+Second, we identify two graph classes in which the problem becomes tractable.
+Namely, we show that for graphs of diameter two and for graphs with minimum cut-value at most two, the value of the minimum cut-path can be computed in polynomial time and is given by a simple closed formula.
+Finally, we connect these results with random graph theory, demonstrating that dense Erdős–Rényi graphs almost surely fall into the tractable regime and that, in sparser random graphs, a simple algorithm yields an efficient average-case approximation.
+The NP-completeness result is new; the results on special graph classes and on random graphs first appeared in~\cite{Michel2025MinCutPath}.
+
+The remainder of this paper is structured as follows.
+Section~\ref{sec:fundamentals} introduces the formal definitions, notation, and fundamental concepts used throughout the paper, including the definition of cut-paths and their basic properties.
+The NP-completeness of the \MinCutPath{} problem is established in Section~\ref{sec:np-completeness} through a two-step reduction from \ThreeSAT{} via the intermediate \SSP{} problem.
+Sections~\ref{sec:diameter-two} and~\ref{sec:cut-two} analyze two classes of graphs in which the problem becomes polynomially solvable: graphs of diameter two and graphs with minimum cut-value at most two.
+Section~\ref{sec:random-graphs} investigates Erdős–Rényi random graphs, with emphasis on their diameter and connectivity, and derives an average-case approximation result for the \MinCutPath{} problem.
+Finally, Section~\ref{sec:conclusion} concludes the paper and discusses directions for future research.
+

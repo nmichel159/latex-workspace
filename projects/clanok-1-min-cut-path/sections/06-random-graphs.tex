@@ -1,0 +1,140 @@
+\section{Erdős–Rényi Graphs}
+\label{sec:random-graphs}
+
+In this section, we study the \MinCutPath{} problem in Erdős–Rényi random graphs $G(n, p)$, in which each of the possible edges on $n$ vertices is present independently with probability $p$.
+Throughout this section, $\log$ denotes the natural logarithm.
+
+We first examine dense random graphs, i.e., those with a constant edge probability $p$.
+A well-known result in the theory of random graphs states that such graphs have diameter two with probability tending to one~\cite{Bollobas2001}.
+
+\begin{theorem}[\cite{Bollobas2001}]
+\label{thm:random-diameter-two}
+Let $G(n, p)$ be an Erdős–Rényi random graph with $n$ vertices and edge probability $p = \frac{1}{\alpha}$, where $\alpha > 1$ is a constant.
+Then the probability that $G(n, p)$ has diameter two converges to 1 as $n \to \infty$:
+\[
+\lim_{n \to \infty} \mathbb{P}\!\left[\diam\bigl(G\bigl(n, \tfrac{1}{\alpha}\bigr)\bigr) = 2\right] = 1.
+\]
+\end{theorem}
+
+In the context of the \MinCutPath{} problem, this property is particularly useful, as it allows us to apply the results of Section~\ref{sec:diameter-two}.
+By Theorem~\ref{thm:diameter-two} and Remark~\ref{rem:algorithm}, in a graph of diameter two the minimum cut-path value is given by the formula $\cp(u, v) = c(u, v) + d(u, v) - 1$, and a minimum cut-path can be computed in polynomial time.
+Consequently, for dense random graphs, the \MinCutPath{} problem can be solved exactly in polynomial time on almost all inputs.
+
+
+We now turn to sparse Erdős–Rényi random graphs $G(n, p)$ with $p = \frac{\alpha \log n}{n}$, where $\alpha > 1$ is a constant.
+We need two fundamental results on the diameter and the edge connectivity of such graphs, which are well established in the literature~\cite{Bollobas2001,Frieze2016} and which we state without proof, and two simple consequences for the degrees and for the values $c(u,v)$, which we prove.
+
+
+\begin{theorem}[Diameter~\cite{Bollobas2001}]
+\label{thm:random-diameter}
+Let $G(n, p)$ be an Erdős–Rényi random graph with $p = \frac{\alpha \log n}{n}$, where $\alpha > 1$. Then:
+\[
+\lim_{n\to\infty} \mathbb{P}\left[ \diam(G) \leq \frac{\log n}{\log \log n} \right] = 1.
+\]
+\end{theorem}
+
+
+\begin{theorem}[Connectivity~\cite{Frieze2016}]
+\label{thm:random-connectivity}
+Let $G(n, p)$ be an Erdős–Rényi random graph with $p = \frac{\alpha \log n}{n}$, where $\alpha > 1$. Then:
+\[
+\lim_{n\to\infty} \mathbb{P}\left[ G \text{ is } k\text{-edge-connected} \right] = 1,
+\]
+where $k = \delta(G)$ denotes the minimum degree of $G$.
+\end{theorem}
+
+
+
+\begin{lemma}[Degree Bounds]
+\label{lem:degree-bounds}
+Let $G(n, p)$ be an Erdős–Rényi random graph with $p = \frac{\alpha \log n}{n}$, where $\alpha > 1$ is a fixed constant.
+Then there exist constants $0 < \beta_1 < \beta_2$, depending only on $\alpha$, such that
+\[
+\lim_{n\to\infty} \mathbb{P}\Bigl( \forall v \in V(G): \ \beta_1 \log n \leq \deg(v) \leq \beta_2 \log n \Bigr) = 1.
+\]
+\end{lemma}
+
+\begin{proof}
+The degree of a fixed vertex $v$ has the binomial distribution with mean $\mu = (n-1)p = (1-o(1))\,\alpha \log n$.
+For $a > 0$, let $h(a) = a \log a - a + 1$.
+By the Chernoff bounds (see, e.g.,~\cite{Frieze2016}),
+\[
+\mathbb{P}\bigl[\deg(v) \leq a\mu\bigr] \leq e^{-\mu h(a)} \ \text{ for } 0 < a < 1
+\qquad\text{and}\qquad
+\mathbb{P}\bigl[\deg(v) \geq a\mu\bigr] \leq e^{-\mu h(a)} \ \text{ for } a > 1.
+\]
+Since $h(a) \to 1$ as $a \to 0$, $h(a) \to \infty$ as $a \to \infty$, and $\alpha > 1$, we can fix constants $0 < a_1 < 1 < a_2$ such that $\alpha h(a_1) > 1$ and $\alpha h(a_2) > 1$.
+For these constants, both probabilities above are $o(1/n)$, and the union bound over all $n$ vertices shows that, with probability tending to one, every degree lies between $a_1 \mu$ and $a_2 \mu$.
+The claim follows, for instance, with $\beta_1 = a_1 \alpha / 2$ and $\beta_2 = 2 a_2 \alpha$.
+\end{proof}
+
+
+To make these results applicable to the \MinCutPath{} problem, the following lemma bounds the values $c(u,v)$:
+
+\begin{lemma}
+\label{lem:connectivity-bounds}
+Let $G(n, p)$ be an Erdős–Rényi random graph with $p = \frac{\alpha \log n}{n}$, where $\alpha > 1$, and let $\beta_1, \beta_2$ be the constants from Lemma~\ref{lem:degree-bounds}.
+Then
+\[
+\lim_{n\to\infty} \mathbb{P}\Bigl( \forall u \neq v: \ \beta_1 \log n \leq c(u,v) \leq \beta_2 \log n \Bigr) = 1.
+\]
+\end{lemma}
+
+
+\begin{proof}
+By Theorem~\ref{thm:random-connectivity} and Lemma~\ref{lem:degree-bounds}, with probability tending to one, the graph $G(n, p)$ is $k$-edge-connected for $k = \delta(G)$ and all its degrees lie between $\beta_1 \log n$ and $\beta_2 \log n$.
+In this case, all pairs of distinct vertices $u, v$ satisfy
+\[
+c(u, v) \geq \min_{x \neq y} c(x, y) \geq \min_{z \in V(G)} \deg(z) \geq \beta_1 \log n.
+\]
+
+
+On the other hand, the edges incident to $u$ form a cut that separates $u$ from $v$.
+This cut need not be a minimum one, but it gives the upper bound
+\[
+c(u,v)\leq \deg(u) \leq \beta_2 \log n.
+\]
+
+Combining these two inequalities, we obtain
+\[
+\beta_1 \log n \leq c(u,v) \leq \beta_2 \log n. \qedhere
+\]
+\end{proof}
+
+
+
+These results allow us to estimate how far the union of a minimum cut and a shortest path is from an optimal solution.
+The diameter bound of Theorem~\ref{thm:random-diameter} and the connectivity bound of Lemma~\ref{lem:connectivity-bounds} show that the approximation ratio stays below $1+\epsilon$ on almost all inputs, so this simple algorithm is an average $(1+\epsilon)$-approximation scheme.
+
+\begin{theorem}
+\label{thm:approximation-scheme}
+Let $G(n, p)$ be an Erdős–Rényi random graph with $p \geq \frac{\alpha \log n}{n}$, where $\alpha > 1$.
+Then, for every $\epsilon > 0$, the algorithm that returns the union of a minimum $u$--$v$ cut and a shortest $u$--$v$ path is an average $(1+\epsilon)$-approximation scheme for the \MinCutPath{} problem.
+\end{theorem}
+
+\begin{proof}
+The algorithm runs in polynomial time, since both a minimum cut and a shortest path can be computed in polynomial time~\cite{Cormen2022}.
+By Lemma~\ref{lem:basic-bounds}, its output $S$ is a cut-path with $|S| \leq c(u,v) + d(u,v) - 1$.
+
+Adding edges to a graph can only decrease the distances and can only increase the values $c(u,v)$.
+Hence, by the standard coupling of the random graphs $G(n,p)$ for different edge probabilities, the bounds of Theorem~\ref{thm:random-diameter} and Lemma~\ref{lem:connectivity-bounds}, which are stated for $p = \frac{\alpha \log n}{n}$, remain valid for every $p \geq \frac{\alpha \log n}{n}$.
+Thus, with probability tending to one, all pairs of distinct vertices $u,v$ satisfy
+\[
+d(u,v) \leq \diam(G) \leq \frac{\log n}{\log \log n}
+\qquad\text{and}\qquad
+c(u,v) \geq \beta_1 \log n.
+\]
+Moreover, by Lemma~\ref{lem:basic-bounds}, the minimum cut is no larger than the minimum cut-path:
+\[
+c(u,v) \leq \cp(u,v) = \OPT(x).
+\]
+
+Combining these inequalities, we obtain
+\[
+\frac{|S|}{\OPT(x)} \leq \frac{c(u,v)+d(u,v)}{c(u,v)} = 1 + \frac{d(u,v)}{c(u,v)} \leq
+1+\frac{\frac{\log n}{\log \log n}}{\beta_1 \log n} = 1 + \frac{1}{\beta_1 \log \log n}.
+\]
+The right-hand side is smaller than $1+\epsilon$ for all sufficiently large $n$.
+Thus, the algorithm achieves the approximation ratio $1+\epsilon$ on a set of inputs whose probability tends to one, i.e., it is an average $(1+\epsilon)$-approximation scheme.
+\end{proof}
+
