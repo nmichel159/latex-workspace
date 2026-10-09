@@ -674,51 +674,39 @@ Then $P$ is a separating shortest $u$--$v$ path in $G$.
 \begin{proof}
 By Lemma~\ref{lem:chain-paths}, $P$ is a shortest $u$--$v$ path, so it remains to show that $G\setminus P$ contains no $u$--$v$ path.
 
-In $G \setminus P$, all single edges of the chain are missing, and in every chain link $K$ only the path not traversed by $P$ remains; we call it the \emph{unused path} of $K$.
-Unused paths of distinct chain links are vertex-disjoint and contain neither $u$ nor $v$, since consecutive chain links are separated by a single edge of the chain.
-A crossing edge that lies on $P$ is removed together with the two edges of the chain link adjacent to it.
-Each end-vertex of such a crossing edge has degree three in $G$, with two edges in the chain link and one in a connecting path, so in $G \setminus P$ it has degree one.
-Hence the two connecting paths that end at this crossing edge are \emph{dead ends} in $G \setminus P$.
-A crossing edge on an unused path remains and joins its two adjacent connecting paths to this unused path.
-Consequently, a path in $G \setminus P$ can move between connecting paths and unused paths only at crossing edges that are not on $P$.
+\emph{The graph $G \setminus P$.}
+All single edges of the chain lie on $P$, and in every chain link only the path not traversed by $P$ remains in $G \setminus P$; we call it the \emph{unused path} of the link.
+Unused paths of distinct chain links are vertex-disjoint and contain neither $u$ nor $v$.
+We call a crossing edge \emph{open} if it lies on an unused path, and \emph{closed} if it lies on $P$.
+Each end-vertex of a closed crossing edge has degree three in $G$ (two edges in the chain link, one in a connecting path) and degree one in $G \setminus P$.
+So no $u$--$v$ path of $G \setminus P$ passes through it: the connecting paths that end there are dead ends.
 
-Since $P$ is consistent, it traverses, in all chain links of the block of $x_i$, the path whose sign corresponds to $\tau(x_i)$.
-For every clause $C_k$, let $j_k$ be the smallest index such that $\tau$ satisfies the $j_k$-th literal of $C_k$.
-Let $X$ be the set of vertices that lie on one of the following parts of $G \setminus P$:
+\emph{Which connecting paths can be used.}
+Suppose that $Q$ is a $u$--$v$ path in $G \setminus P$.
+Since the internal vertices of a connecting path have degree two, $Q$ consists of whole connecting paths $D_0, D_1, \dots, D_r$, in this order, joined by segments of unused paths.
+The path $D_0$ starts at $u$, the path $D_r$ ends at $v$, and every other end of a path $D_a$ is an end-vertex of an open crossing edge.
+Since every thread has at least two crossing edges, no connecting path joins $u$ and $v$, so $r \geq 1$.
+For $0 \leq a < r$, the paths $D_a$ and $D_{a+1}$ meet on the unused path of one chain link, which we denote by $K_a$.
+We determine the possible paths $D_a$ by the type of their thread.
 \begin{itemize}
-  \item the vertex $u$;
-  \item the unused path of $I_i$, for every variable $x_i$;
-  \item the unused path of $L_{j,k}$, for every clause $C_k$ and every $j < j_k$;
-  \item every connecting path that has an end-vertex in one of the parts above.
+  \item \emph{Synchronization threads.}
+  Since $P$ is consistent, it traverses paths of one sign in all chain links of the block of $x_i$, so a crossing edge in this block is open exactly when its sign differs from that sign.
+  By Algorithm~\ref{alg:reduction}, consecutive crossing edges of a synchronization thread have opposite signs, so exactly one of them is open.
+  Hence a synchronization thread contributes to $Q$ at most its first connecting path, which ends in $I_i$, or its last one, which starts in $T_i$.
+  \item \emph{Clause threads.}
+  By the proof of Lemma~\ref{lem:clause-threads}, the crossing edge of the clause thread of $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$ in $L_{j,k}$ is open exactly when $\tau$ does not satisfy $\ell_j$.
+  Hence its first connecting path can be used only if $\ell_1$ is false, its last one only if $\ell_3$ is false, and the one between $L_{j,k}$ and $L_{j+1,k}$ only if $\ell_j$ and $\ell_{j+1}$ are both false.
 \end{itemize}
-We show that no edge of $G \setminus P$ joins a vertex of $X$ to a vertex outside $X$, and that $v \notin X$.
-Then the component of $u$ in $G \setminus P$ lies inside $X$, so $G \setminus P$ contains no $u$--$v$ path.
+Consequently, $D_0$ ends in some $I_i$ or $L_{1,k}$, $D_r$ starts in some $T_i$ or $L_{3,k}$, and every $D_a$ with $0 < a < r$ joins $L_{j,k}$ and $L_{j+1,k}$ for some clause $C_k$ and $j \in \{1, 2\}$.
 
-An internal vertex of a connecting path has degree two, and a vertex of an unused path is incident only to edges of this unused path and to connecting paths that end at its crossing edges.
-Hence it suffices to check that every connecting path in $X$ ends at $u$, on one of the listed unused paths, or at a dead end, and in particular never at $v$.
-There are three ways to leave $u$ or a listed unused path:
-\begin{enumerate}
-  \item \emph{Using a chain edge.}
-  The single edge of the chain incident to $u$ lies on $P$, so this option is blocked.
-  An unused path has no edge to another chain link, because all single edges of the chain lie on $P$.
-
-  \item \emph{Using a synchronization thread.}
-  Such a thread first reaches $I_i$.
-  If it crosses the path of $I_i$ traversed by $P$, it ends there in a dead end.
-  Otherwise, it reaches the unused path of $I_i$, which is listed.
-  The threads that cross this unused path are one 2-synchronization thread, whose next crossing edge is in $T_i$, and one 3-synchronization thread for each literal chain link $L_{j,k,i}$, whose next crossing edge is in $L_{j,k,i}$.
-  Each of these threads crosses its next chain link with the sign opposite to its sign in $I_i$, so its next crossing edge lies on $P$.
-  Hence every continuation from the unused path of $I_i$ leads back to $u$ or to a dead end.
-
-  \item \emph{Using a clause thread.}
-  The clause thread of $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$ passes through the literal chain links $L_{1,k}$, $L_{2,k}$, $L_{3,k}$.
-  By the proof of Lemma~\ref{lem:clause-threads}, its crossing edge in $L_{j,k}$ lies on $P$ if and only if $\tau$ satisfies $\ell_j$.
-  So the clause thread reaches, from $u$, the unused paths of $L_{1,k}, \dots, L_{j_k - 1,k}$, which are listed, and ends at the crossing edge in $L_{j_k,k}$, which is a dead end; it is interrupted before it reaches $v$.
-  At a crossing edge that is not on $P$, a path can leave the clause thread and enter the unused path of the literal chain link $L_{j,k,i}$.
-  Apart from the clause thread, this unused path is crossed only by a 3-synchronization thread, and the two connecting paths of this thread that start there lead to crossing edges in $I_i$ and $T_i$ that lie on $P$, that is, to dead ends.
-\end{enumerate}
-Every thread is a synchronization thread or a clause thread, so the three cases cover all edges of $G \setminus P$ at the listed parts.
-No connecting path in $X$ ends at $v$, so $v \notin X$, and $P$ is separating.
+\emph{No $u$--$v$ path.}
+If $r = 1$, then $K_0$ is both the link where $D_0$ ends and the link where $D_1$ starts, which is impossible, since no chain link is of the form $I_i$ or $L_{1,k}$ and also of the form $T_{i'}$ or $L_{3,k'}$.
+If $r \geq 2$, then $D_1$ starts in $K_0$, so $K_0$ is a literal chain link, and hence $K_0 = L_{1,k}$ for some clause $C_k$.
+The paths $D_1, \dots, D_{r-1}$ move only between the literal chain links $L_{1,k}$, $L_{2,k}$, $L_{3,k}$ of this clause, and $D_r$ starts in $L_{3,k}$.
+Only the clause thread of $C_k$ has its first crossing edge in $L_{1,k}$ and its last one in $L_{3,k}$.
+Hence $Q$ uses the first and the last connecting path of this thread and, on the way from $L_{1,k}$ to $L_{3,k}$, one of its connecting paths with an end in $L_{2,k}$.
+Hence $\ell_1$, $\ell_2$ and $\ell_3$ are all false under $\tau$, contradicting the assumption that $\tau$ satisfies $C_k$.
+Therefore $G \setminus P$ contains no $u$--$v$ path, and $P$ is separating.
 \end{proof}
 
 \begin{theorem}
