@@ -91,7 +91,8 @@ The count includes front matter, formulas (as private-use characters) and the bi
 
 Sending the sources (supervisor, co-author, Overleaf): `.\scripts\package-project.ps1 -Project <project>`, the exam work
 with `-MainFile exam.tex`; not `-Flat`, because `chapters/` and `exam/` hold files of the same name. Rule and findings:
-`knowledge/writing/latex-conventions.md` section 1.1 (tested 2026-10-08: both variants `Verdict: PASS`).
+`knowledge/writing/latex-conventions.md` section 1.1. As shipped, both variants fail on the four `TODO(verify)`
+comments in `settings.tex`; once they are resolved, both give `Verdict: PASS` (tested 2026-10-09).
 
 ## Requirement coverage (thesis.md section 7)
 

@@ -8,3 +8,15 @@
 *.png binary
 *.jpg binary
 *.zip binary
+
+# Publisher files are stored byte for byte, without line-ending conversion: package-project.ps1 compares
+# a project's venue files with templates/<venue>/ and that folder with its archived download by SHA-256.
+# The two house templates and the files directly in templates/ stay text.
+templates/** -text
+templates/*.md text
+templates/*.tsv text
+templates/article-modular/** text=auto
+templates/thesis-modular/** text=auto
+projects/**/*.cls -text
+projects/**/*.bst -text
+projects/**/*.sty -text
