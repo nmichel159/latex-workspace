@@ -5,3 +5,4 @@
 - Figure 10 redrawn in TikZ (figures/diameter-two-structure.tex), PDF in project, PNG moved by git mv to archives/.../2026-10-09-png-figures/
 - compile check passed (C with original A,B,D: 16 pages, no errors; current B breaks the build at its own line)
 - changes-C.md written
+- issues-C.md (13 items) and inventory 'where now' written; all units done

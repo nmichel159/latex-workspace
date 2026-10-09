@@ -415,7 +415,7 @@ The following three cases are therefore exhaustive; they also describe all ways 
   At a crossing edge that is not on $P$, a path can leave the clause thread and enter the unused path of the literal link $L_{j,k,i}$.
   Apart from the clause thread, this unused path is crossed only by a 3-synchronization thread, and the two connecting paths of this thread that start there lead to crossing edges in $I_i$ and $T_i$ that lie on $P$, i.e., to dead ends.
 
-  In $\Gamma$, this means the following: the crossing edge of the clause thread in $L_{j,k}$ lies on $P$ if and only if $\tau$ satisfies $\ell_j$ (proof of Lemma~\ref{lem:clause-threads}).
+  For the edges of $\Gamma$, recall from the proof of Lemma~\ref{lem:clause-threads} that the crossing edge of the clause thread in $L_{j,k}$ lies on $P$ if and only if $\tau$ satisfies $\ell_j$.
   Hence the four connecting paths of the clause thread give the edge $uL_{1,k}^{\circ}$ if $\ell_1$ is false, the edge $L_{j,k}^{\circ}L_{j+1,k}^{\circ}$ if $\ell_j$ and $\ell_{j+1}$ are false ($j=1,2$), and the edge $L_{3,k}^{\circ}v$ if $\ell_3$ is false, all under $\tau$.
 \end{enumerate}
 
