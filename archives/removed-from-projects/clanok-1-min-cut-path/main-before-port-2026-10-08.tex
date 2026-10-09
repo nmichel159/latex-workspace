@@ -1,0 +1,51 @@
+% Wrapper for the new-aiaa class (temporary: the target journal is undecided).
+% This is the only template-dependent file. The manuscript itself is in preamble/ and sections/
+% and stays untouched when the class is replaced.
+\documentclass[journal]{new-aiaa}
+%\documentclass[conf]{new-aiaa} for conference papers
+\usepackage[utf8]{inputenc}
+
+% newtxmath (loaded by the class) already defines \openbox and \Bbbk;
+% without the two \let lines, amsthm and amssymb stop with "Command already defined".
+\let\openbox\relax
+\let\Bbbk\relax
+
+\input{preamble/packages}
+\input{preamble/environments}
+\input{preamble/macros}
+
+% Single line spacing inside algorithms; \setstretch comes from setspace (loaded by the class).
+\AtBeginEnvironment{algorithmic}{\setstretch{1}}
+
+\title{Min Cut-Path Problem}
+
+\author{Norbert Micheľ\\
+Institute of Computer Science, Faculty of Science, Pavol Jozef Šafárik University in Košice\\
+Košice, Slovakia\\
+\texttt{5344553@upjs.sk}}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\input{sections/00-abstract}
+\end{abstract}
+
+\input{sections/01-introduction}
+\input{sections/02-fundamentals}
+\input{sections/03-np-completeness}
+\input{sections/04-diameter-two}
+\input{sections/05-cut-two}
+\input{sections/06-random-graphs}
+\input{sections/07-conclusion}
+
+\section*{Acknowledgment}
+
+\input{sections/90-acknowledgment}
+
+\bibliography{references}
+
+\end{document}

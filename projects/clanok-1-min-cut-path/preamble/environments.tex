@@ -27,3 +27,8 @@
   left=6pt, right=6pt, top=6pt, bottom=6pt,
   title=\textbf{Problem: #1},
 }
+
+% Algorithm headers: every algorithm states its Input and Output;
+% algpseudocode (loaded in preamble/packages.tex, before this file) would print "Require:" and "Ensure:".
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}

@@ -1,0 +1,31 @@
+% Draft of the declaration of generative AI use for the article "Min Cut-Path Problem"
+% (target journal: Discrete Applied Mathematics, Elsevier).
+%
+% Status: draft for the author. It is NOT part of the manuscript: nothing \input's this file, and the folder
+% submission/ never goes into the package. The author completes it and inserts it himself.
+%
+% Rule (DAM guide for authors, "Declaration of generative AI use", re-read 2026-10-08): when AI tools were used in
+% the manuscript preparation beyond basic grammar, spelling and reference checks, the statement is added at the
+% end of the manuscript at first submission, as a new section before the reference list; it appears in the
+% published article. Section title and statement follow Elsevier's template sentence. The same guide places the
+% acknowledgements "directly before the reference list", so the declaration goes before the acknowledgments.
+%
+% To complete before inserting:
+%   - replace [MODEL AND VERSION] by the exact model name and version that was used (the packager fails while the
+%     placeholder is in the manuscript);
+%   - check that the list of purposes matches the actual use, and add any other use (for example drafting text);
+%   - "corrections and completions of definitions, statements and proofs" covers items 1-12 under
+%     "Content changes to review" in the project README (among them the rewritten proof of the NP-completeness of
+%     Separating Shortest Path, the new lemma on basic bounds, the completed proof for graphs with cut-value at
+%     most two and the replaced degree lemma for sparse random graphs); name them in the sentence if the
+%     author prefers a detailed statement.
+%
+% To insert (house rule: the text in its own file, the heading in the wrapper; knowledge/writing/submission.md 1.3):
+%   1. save the paragraph below, without these comment lines, as sections/91-ai-declaration.tex;
+%   2. in main.tex, after \input{sections/07-conclusion} and before \section*{Acknowledgments}, add the two lines
+%        \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+%        \input{sections/91-ai-declaration}
+%   3. rebuild and run the packager again (it then reports the declaration in its line "AI declaration: ...").
+
+During the preparation of this work the author used Claude ([MODEL AND VERSION], Anthropic) in order to revise the language and the consistency of the text, to draft corrections and completions of definitions, statements and proofs, to check the bibliographic data against the publishers' records, and to restructure the LaTeX source and move it into the journal template.
+After using this tool, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.

@@ -1,11 +1,12 @@
-% Portable packages of the manuscript; nothing here depends on the document class.
-% The load order is the one of the former single-file main.tex. Class-specific lines are in main.tex.
+% Portable packages of the manuscript; class-specific lines are in main.tex.
+% graphicx, amsmath and amssymb are loaded although cas-sc loads them too (a repeated \usepackage without options
+% does nothing), so that preamble/ and sections/ also build under another class.
+% List labels use the [(a)] syntax, which cas-sc and elsarticle provide; under another class add \usepackage{enumerate}.
 \usepackage{graphicx}
-\usepackage{float}            % [H] placement of figures and algorithms
 \usepackage{amsmath}
-\usepackage[most]{tcolorbox}
-\usepackage{etoolbox}
-\usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{float}            % H placement of figures and algorithms
+\usepackage[most]{tcolorbox}
+\usepackage{amsthm}
 \usepackage{algorithm}
 \usepackage{algpseudocode}    % part of the algorithmicx package
