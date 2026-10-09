@@ -13,7 +13,8 @@ the same conventions, and is backed by a knowledge base of the author's research
 2. **Sources live only in `projects/<project>/`.** `outputs/` is generated; never edit it by hand.
 3. **Never delete the user's files.** Retire a file by moving it to `archives/removed-from-projects/<project>/`.
 4. **Do not change scientific content beyond the request** (statements, proofs, wording of a manuscript).
-   Problems noticed along the way go into the project's `README.md` under "Known problems" and into the report.
+   Problems noticed along the way go into the project's notes `projects/<project>.md` under "Known problems" and
+   into the report.
 5. **Read the knowledge base before writing or revising academic text** (table "What to read") and keep it current
    when a document introduces a new result, definition, notation or source.
 6. **Missing LaTeX packages:** the build fails fast with `File 'x.sty' not found`. Installing downloads from the
@@ -34,21 +35,33 @@ the same conventions, and is backed by a knowledge base of the author's research
 11. **Agents:** large multi-part work goes to subagents, at most 4 at a time, each owning its own files and saving
     as it goes. Opus for judgment-heavy work (style audits, regulations, expert guides, adversarial review);
     Sonnet for well-specified or mechanical work (translation, implementing a spec, sweeps, look-ups, integration).
-12. **Articles follow their template and stay sendable.** A project with a venue template uses the venue's files
-    unmodified, a wrapper `main.tex` written from the venue's sample, and no layout overrides. `projects/<project>/`
-    is self-contained at all times. What goes to a journal, reviewer or co-author is the zip made by
-    `scripts/package-project.ps1` with `Verdict: PASS`, never a hand-made archive; run it with `-CheckOnly` after
-    any structural change (new file, new package, class files touched). A venue template is only ever the
-    publisher's download from the official page the venue's guide links, fetched with the user's consent and
-    recorded in `templates/SOURCES.tsv`, never hand-made; the package must pass the no-trace check (nothing in it
-    names this workspace or an AI tool outside the venue's AI declaration). Full statement, switches and findings:
-    `knowledge/writing/latex-conventions.md` §1.1.
+12. **The project folder is what is sent.** `projects/<project>/` looks like the publisher's template filled in by
+    the author and holds nothing else:
+    - one main `.tex`: the template's sample file with the content filled in, no `\input` of own files;
+    - the template files the build needs (`.cls`, `.sty`, `.bst`) as byte-identical copies from
+      `templates/<template>/`;
+    - the `.bib` and the figures, all in the same folder, no sub-folders.
+
+    No README, `preamble/`, `sections/`, `img/`, `submission/`, no own "library" files (packages, macros,
+    environments), no copies of packages from the TeX distribution, no hidden files or build products; every file
+    in the folder is needed to build the PDF. What the text needs in addition (`\usepackage`, `\newtheorem`,
+    notation macros) is written in the main `.tex` at the place the sample provides, with no layout overrides.
+    The folder is sent as it is (zip its content), comments included: a comment in a `.tex` must not name this
+    workspace, its paths (`preamble/`, `sections/`, `knowledge/`, `scripts/`), a Markdown file or an AI tool.
+    What belongs to a project but is not sent lies beside the folder: `projects/<project>.md` (notes) and
+    `projects/<project>.submission/` (form metadata, reviews, drafts).
+    `scripts/package-project.ps1` is the check that must end with `Verdict: PASS` before the folder is sent (with
+    `-KeepComments`, because the comments go out too); run it with `-CheckOnly` after any structural change (new
+    file, new package, class files touched). A venue template is only ever the publisher's download from the
+    official page the venue's guide links, fetched with the user's consent and recorded in `templates/SOURCES.tsv`,
+    never hand-made. Switches and findings of the packager: `knowledge/writing/latex-conventions.md` §1.1.
 
 ## Map
 
 | Path | Contents | Editable |
 |---|---|---|
-| `projects/<project>/` | LaTeX sources, images, `.bib`, class files, project `README.md` | yes |
+| `projects/<project>/` | what is sent: the main `.tex` (the template's sample filled in), template files, `.bib`, figures; nothing else, no sub-folders | yes |
+| `projects/<project>.md`, `projects/<project>.submission/` | notes on the project (status, file list, known problems) and submission material; beside the folder, never sent | yes |
 | `outputs/<project>/` | generated PDF and auxiliary files | no (build output) |
 | `knowledge/` | knowledge base: author, research maps, writing and LaTeX rules, bibliography, literature notes, venue cards, source PDFs with extracted text | yes, keep current |
 | `templates/` | starting points for new projects; pristine venue templates | no (copy from) |
@@ -63,17 +76,19 @@ the same conventions, and is backed by a knowledge base of the author's research
 | Project | Document | Main file | PDF |
 |---|---|---|---|
 | `cv` | CV (AltaCV, English, 2 pages) | `norbert-michel-cv.tex` | `outputs/cv/norbert-michel-cv.pdf` |
-| `clanok-1-min-cut-path` | article "Min Cut-Path Problem" (English) for Discrete Applied Mathematics, modular (`preamble/`, `sections/`); class `cas-sc` from template `els-cas`; package with `-Template els-cas -Flat` | `main.tex` | `outputs/clanok-1-min-cut-path/main.pdf` |
-| `clanok-2-min-cut-path` | second article, to be written from the master's thesis, for Algorithmica; modular skeleton with placeholder text; class `sn-jnl` from template `sn-jnl`; package with `-Template sn-jnl -Flat` | `main.tex` | `outputs/clanok-2-min-cut-path/main.pdf` |
+| `clanok-1-min-cut-path` | article "Min Cut-Path Problem" (English) for Discrete Applied Mathematics; one-file `main.tex` written from `cas-sc-template.tex`; class `cas-sc` from template `els-cas`; package check with `-Template els-cas -Flat -KeepComments` | `main.tex` | `outputs/clanok-1-min-cut-path/main.pdf` |
+| `clanok-2-min-cut-path` | second article, to be written from the master's thesis, for Algorithmica; `main.tex` is the template's `sn-article.tex` filled in, placeholder text; class `sn-jnl` from template `sn-jnl`; package check with `-Template sn-jnl -Flat -KeepComments` | `main.tex` | `outputs/clanok-2-min-cut-path/main.pdf` |
 
-Each project has a `README.md` with its status, file list and known problems. Read it before editing the project
-and update it when the status changes. Add a row here and in the root `README.md` when a project is created.
+Each project has notes beside its folder, `projects/<project>.md`, with its status, file list and known problems.
+Read them before editing the project and update them when the status changes. Add a row here and in the root
+`README.md` when a project is created.
 
 ## Workflow
 
-1. Identify the project; read `projects/<project>/README.md`.
+1. Identify the project; read `projects/<project>.md`.
 2. For academic text, read the knowledge-base files for the task (table below) first.
-3. Change only files under `projects/<project>/` unless the user asks for an infrastructure change.
+3. Change only files under `projects/<project>/` (and the project's notes) unless the user asks for an
+   infrastructure change.
 4. Build from the workspace root:
 
    ```powershell
@@ -91,16 +106,16 @@ and update it when the status changes. Add a row here and in the root `README.md
    ```
 
    Every build ends with the static package verdict (`Package check (static): Verdict: ...`); a `FAIL` there is
-   fixed before anything else. Before anything is sent, the full run:
+   fixed before anything else. Before the folder is sent, the full run with `-KeepComments` must end with
+   `Verdict: PASS`:
 
    ```powershell
    .\scripts\package-project.ps1 -Project <project> [-MainFile <file.tex>] [-Template <name>] [-Flat] [-KeepComments] [-CheckOnly] [-MaxPages <n>]
    ```
 
-   It checks the venue files against `templates/<venue>/` and its row in `templates/SOURCES.tsv`, builds a clean
-   copy (no `*.md`, `submission/`, `experiments/`, comments), scans everything sent for traces, writes
-   `outputs/<project>/package/<project>-<date>.zip` with the PDF beside it and proves that the unzipped package
-   compiles to the same text.
+   It checks the venue files against `templates/<venue>/` and its row in `templates/SOURCES.tsv`, builds a copy
+   of the folder, scans everything sent for traces and proves that the copy compiles to the same text. The zip it
+   writes to `outputs/<project>/package/` is a by-product of the check; what is sent is the project folder.
 
 6. Report what changed (file and place), anything noticed but not changed, and the PDF link.
 
@@ -134,7 +149,8 @@ Full map with maintenance rules: `knowledge/README.md`. Paths below are relative
 
 | Template | Use |
 |---|---|
-| `templates/article-modular/` | default for every new article: venue-neutral wrapper `main.tex` + portable `preamble/`, `sections/` |
+| `templates/<venue>/` sample file | starting point of every new article: the article is created as a copy of the template's sample file (`cas-sc-template.tex`, `sn-article.tex`) named `main.tex`, with the template files the build needs beside it |
+| `templates/article-modular/` | former modular starting point (wrapper `main.tex`, `preamble/`, `sections/`); not used for new articles |
 | `templates/thesis-modular/` | dissertation (`main.tex`) and written work for the dissertation exam (`exam.tex`, build with `-MainFile exam.tex`) |
 | `templates/els-cas/` | official Elsevier CAS bundle 2.4 for Discrete Applied Mathematics (class `cas-sc`), from the DAM guide for authors; article 1 |
 | `templates/elsarticle/` | official Elsevier `elsarticle` bundle, for Elsevier journals without a CAS template |
@@ -145,13 +161,14 @@ Full map with maintenance rules: `knowledge/README.md`. Paths below are relative
 ## Conventions in one paragraph
 
 Project names are lowercase with hyphens (`clanok-<n>-<topic>`, `praca-<type>-<topic>`, `cv`). The main file is
-`main.tex`, the only template-dependent file; packages, environments and macros live in `preamble/`, text in
-`sections/NN-name.tex` (thesis: `chapters/`), the bibliography in `references.bib`, images in `img/`. A project is
-self-contained (class, `.bst` and all inputs inside its folder); `package-project.ps1` turns it into the zip for
-Overleaf, a journal or a reviewer.
+`main.tex`: the template's sample file filled in, holding the packages, environments, macros and the whole text,
+with no `\input` of own files; the bibliography is `references.bib` and the figures lie beside it, with no
+sub-folders. A project is self-contained (class, `.bst` and all inputs inside its folder) and is sent as it is, as
+a zip of the folder's content; `package-project.ps1` is the check that must end with `Verdict: PASS` before that.
 Labels use prefixes (`sec:`, `def:`, `thm:`, `lem:`, `fig:`, `tab:`, `alg:`, `eq:`); references use cleveref.
-New text is written one sentence per source line. Submission material that is not part of the paper (form metadata,
-reviews, rebuttal drafts) lives in `projects/<project>/submission/`. Details: `knowledge/writing/latex-conventions.md`.
+New text is written one sentence per source line. Notes on a project live in `projects/<project>.md`; submission
+material that is not part of the paper (form metadata, reviews, rebuttal drafts) lives in
+`projects/<project>.submission/`. Details: `knowledge/writing/latex-conventions.md`.
 
 ## Skills
 
