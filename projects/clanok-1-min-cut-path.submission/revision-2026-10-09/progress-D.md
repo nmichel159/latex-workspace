@@ -1,1 +1,7 @@
 - 2026-10-09T16:54:53Z started
+- 2026-10-09T16:56:53Z inventory-D.md written
+- 2026-10-09T16:57:44Z Section 6 edited and saved (language, w.h.p., P(), solidus, exp, ChungLu2001, made-explicit steps)
+- 2026-10-09T16:57:55Z Section 7 and Acknowledgments edited and saved
+- 2026-10-09T16:58:38Z test build OK (15 pages, no errors/undefined refs in fragment D)
+- 2026-10-09T16:59:16Z changes-D.md written
+- 2026-10-09T17:00:16Z issues-D.md written; all units done

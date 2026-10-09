@@ -1,1 +1,6 @@
 - started (2026-10-09)
+- inventory-A.md written
+- abstract done (symbols before formula, empty line removed, 'which are secured')
+- Section 1 Introduction done (motivation, related work, contributions with refs, reduction idea, roadmap)
+- Section 2 done
+- intro related work split into short paragraphs
