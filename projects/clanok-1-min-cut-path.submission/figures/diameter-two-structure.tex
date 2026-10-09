@@ -12,7 +12,8 @@
     set/.style={line width=0.8pt},
     edge/.style={line width=0.5pt, line cap=round},
     other/.style={edge, densely dashed},
-    counted/.style={line width=1.2pt, line cap=round, threadred}]
+    counted/.style={line width=1.2pt, line cap=round, threadred},
+    path/.style={line width=5pt, line cap=round, line join=round, blue!30!cyan!35!white}]
   \coordinate (I) at (2.6,4.6);
   \coordinate (J) at (2.6,2.6);
   \coordinate (K) at (2.6,0.3);
@@ -37,6 +38,9 @@
   \coordinate (y1) at (1.05,2.35);
   \coordinate (y2) at (1.85,2.3);
   \coordinate (v)  at (3.9,2.7);
+  % the u-v path P, which lies in the cut C, shaded under the edges
+  \draw[path] (u) -- (y1) -- (x) -- (y2) -- (k3) -- (v);
+  \node[blue!60!black] at (2.55,1.55) {$P$};
   % cut edges that are not counted
   \draw[other] (y2) -- (k3);
   \draw[other] (k4) -- ($(J)+(-74:2.6 and 0.6)$);
