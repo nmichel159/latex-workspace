@@ -105,16 +105,13 @@
 % The class writes the abstract body verbatim to a file and reads it back. The optional argument (the class's
 % own heading) is given explicitly, so the class does not look ahead for one.
 \begin{abstract}[\abstractname]
-In modern distributed systems, data exchange between servers must often balance two opposing objectives:
-\emph{enabling communication} within a trusted domain and \emph{preventing communication} by potential adversaries.
-When information flows through a network, it is desirable to establish a reliable path between authorized servers
-while simultaneously enforcing structural constraints that deny any alternative communication routes accessible to an opponent.
-This dual requirement leads naturally to the study of network configurations that combine
-\emph{communication} for legitimate participants with \emph{control} mechanisms that isolate or restrict hostile ones.
-In this context, one seeks structures that ensure communication only within a specified subnetwork while suppressing all competing connections.
-In this paper, we formalize this concept through the notion of a \emph{cut-path},
-a structure that simultaneously contains a connecting path and a separating cut,
-and we study the computational and structural properties of the corresponding \MinCutPath{} problem.
+A cut-path between two vertices $u$ and $v$ of a graph is a set of edges that contains both a $u$--$v$ path and a cut separating $u$ from $v$.
+It models two servers that communicate along the path while every other route between them uses one of the chosen edges.
+We study the \MinCutPath{} problem, which asks for a cut-path with the fewest edges.
+We prove that its decision version is NP-complete.
+In graphs of diameter two and in graphs in which every two vertices can be separated by at most two edges, a minimum cut-path has $c(u,v) + d(u,v) - 1$ edges.
+Here $c(u,v)$ is the size of a minimum cut and $d(u,v)$ is the distance.
+In Erdős–Rényi random graphs above the connectivity threshold, the union of a minimum cut and a shortest path is within a factor $1+\epsilon$ of the optimum, for every fixed $\epsilon > 0$, with probability tending to one.
 
 \end{abstract}
 
@@ -131,43 +128,31 @@ NP-completeness \sep edge connectivity \sep graph diameter \sep Erdős–Rényi 
 \section{Introduction}
 \label{sec:introduction}
 
-In distributed communication systems, a central challenge lies in maintaining a secure but controlled flow of information between servers.
-Although authorized entities require uninterrupted communication channels, adversarial agents must be denied access to any possible route that would allow information transfer.
-This tension between enabling and restricting communication naturally motivates the study of graph structures that can simultaneously express both communication and isolation.
-The interplay between these two objectives---connectivity and control---serves as the conceptual foundation of the present work.
+Suppose that two trusted servers in a network must communicate while an adversary is denied every other route between them.
+We model the network as a graph whose vertices are the servers and whose edges are the direct communication links.
+The task is to select a set of edges that contains a connecting path, which carries the communication, and a separating cut, which guarantees that every other route between the two servers uses at least one of the selected edges.
+We call such a set of edges a \emph{cut-path}.
 
-Graph theory provides an elegant formal framework for representing such systems.
-Vertices correspond to servers or agents, and edges represent direct communication links between them.
-Within this model, ensuring communication between trusted servers while cutting off an opponent translates to identifying a set of edges that contains both a connecting path, which carries the communication, and a separating cut, which guarantees that every other route between the two servers uses at least one of the selected edges.
-This hybrid structure, which captures both connection and disconnection properties at the same time, will be formally introduced as a \emph{cut-path}.
-Such a structure allows the system to maintain communication within a trusted subnetwork while leaving an adversary no alternative route.
-
-Several classical problems in network theory combine notions of connectivity and separation from different perspectives.
-For example, the study of multi-terminal minimum cuts~\cite{GomoryHu1961}, of representations of all minimum cuts~\cite{NagamochiKameda1996}, and of small cuts and edge connectivity~\cite{Mehlhorn2017Certifying} explores the trade-off between maintaining essential communication routes and minimizing potential vulnerabilities.
-Similarly, the interaction between \emph{shortest paths} and \emph{minimum cuts} has been investigated in the context of the \emph{max-flow min-cut duality}~\cite{Cormen2022}.
-However, these formulations treat connectivity and separation as distinct or opposing properties, rather than unifying them within a single combinatorial object.
-In contrast, the present work adopts a unified perspective through the concept of a \emph{cut-path}, which inherently embodies both connectivity and disconnection within the same set of edges.
+Connectivity and separation are classical topics: multi-terminal minimum cuts~\cite{GomoryHu1961}, representations of all minimum cuts~\cite{NagamochiKameda1996}, and small cuts and edge connectivity~\cite{Mehlhorn2017Certifying} have been studied in detail, and paths and cuts are related by the max-flow min-cut duality~\cite{Cormen2022}.
+These papers treat a path and a cut as separate objects.
+A cut-path requires both in the same set of edges.
 
 
-The central problem studied in this paper, the \MinCutPath{} problem, seeks a smallest set of edges that simultaneously contains a path and a cut between two distinguished vertices.
-This dual optimization objective reflects the balance between maintaining minimal communication infrastructure and enforcing maximal control over connectivity.
-The problem was introduced in the author's master's thesis~\cite{Michel2025MinCutPath}, where several tractable cases were identified, but the complexity of the general problem was left open.
-To the best of our knowledge, the problem has not been studied elsewhere.
-We close this gap by settling the complexity of the problem and by presenting its basic structural properties.
+The \MinCutPath{} problem asks for a cut-path with the fewest edges between two given vertices.
+To the best of our knowledge, the problem has not been studied before.
+We settle its complexity and prove its basic structural properties.
 
-Our main contributions are as follows.
-First, we prove that the decision version of the \MinCutPath{} problem is NP-complete via a two-step reduction from \ThreeSAT{} through an intermediate problem called \SSP.
-Second, we identify two graph classes in which the problem becomes tractable.
-Namely, we show that for graphs of diameter two and for graphs with minimum cut-value at most two, the value of the minimum cut-path can be computed in polynomial time and is given by a simple closed formula.
-Finally, we connect these results with random graph theory, demonstrating that dense Erdős–Rényi graphs almost surely fall into the tractable regime and that, in sparser random graphs, a simple algorithm yields an efficient average-case approximation.
-The NP-completeness result is new; the results on special graph classes and on random graphs first appeared in~\cite{Michel2025MinCutPath}.
+Our contributions are the following.
+First, we prove that the decision version of \MinCutPath{} is NP-complete, by a reduction from \ThreeSAT{} through an intermediate problem, \SSP.
+Second, we prove that $\cp(u,v) = c(u,v) + d(u,v) - 1$ in graphs of diameter two and in graphs with minimum cut-value at most two.
+Here $\cp(u,v)$ is the size of a minimum cut-path, $c(u,v)$ the size of a minimum cut, and $d(u,v)$ the distance; in both classes a minimum cut-path can be computed in polynomial time.
+Third, dense Erdős–Rényi random graphs have diameter two with probability tending to one, so the formula applies to them.
+For sparser random graphs, we show that the union of a minimum cut and a shortest path is within a factor of $1+\epsilon$ of the optimum on almost all inputs.
 
-The remainder of this paper is structured as follows.
-Section~\ref{sec:fundamentals} introduces the formal definitions, notation, and fundamental concepts used throughout the paper, including the definition of cut-paths and their basic properties.
-The NP-completeness of the \MinCutPath{} problem is established in Section~\ref{sec:np-completeness} through a two-step reduction from \ThreeSAT{} via the intermediate \SSP{} problem.
-Sections~\ref{sec:diameter-two} and~\ref{sec:cut-two} analyze two classes of graphs in which the problem becomes polynomially solvable: graphs of diameter two and graphs with minimum cut-value at most two.
-Section~\ref{sec:random-graphs} investigates Erdős–Rényi random graphs, with emphasis on their diameter and connectivity, and derives an average-case approximation result for the \MinCutPath{} problem.
-Finally, Section~\ref{sec:conclusion} concludes the paper and discusses directions for future research.
+Section~\ref{sec:fundamentals} defines cut-paths and proves $\max\{c(u,v), d(u,v)\} \leq \cp(u,v) \leq c(u,v) + d(u,v) - 1$.
+Section~\ref{sec:np-completeness} contains the NP-completeness proof.
+Sections~\ref{sec:diameter-two} and~\ref{sec:cut-two} treat graphs of diameter two and graphs with minimum cut-value at most two, and Section~\ref{sec:random-graphs} treats random graphs.
+Section~\ref{sec:conclusion} lists open problems.
 
 \section{Fundamentals}
 \label{sec:fundamentals}
@@ -183,13 +168,9 @@ All problems studied in this paper are defined with respect to these two disting
 
 We identify a path with its set of edges.
 For any path $P \subseteq E$, we denote by $G \setminus P$ the graph obtained from $G$ by removing all edges of $P$.
-Furthermore, for a vertex $x \in V$ and a vertex subset $S \subseteq V$, we write $\deg(x, S)$ for the number of neighbors of $x$ that belong to $S$, that is, $\deg(x, S) = |\{\,y \in S : \{x, y\} \in E\,\}|$.
+For a vertex $x \in V$ and a vertex subset $S \subseteq V$, we write $\deg(x, S)$ for the number of neighbors of $x$ that belong to $S$, that is, $\deg(x, S) = |\{\,y \in S : \{x, y\} \in E\,\}|$.
 
 
-The notion of a \emph{cut-path} captures a hybrid structure in a graph that combines two fundamental and seemingly opposing elements: a \emph{path} and a \emph{cut}.
-Intuitively, a cut-path between two vertices $u$ and $v$ is a set of edges that simultaneously contains a path connecting $u$ to $v$ and a cut that, if removed, would disconnect $u$ from $v$.
-In this sense, a cut-path ensures both \emph{communication} and \emph{control}.
-Formally:
 
 \begin{definition}[Cut-Path]
 \label{def:cut-path}
@@ -266,14 +247,8 @@ If $c(u, v) = 1$ or $d(u, v) = 1$, the lower and the upper bound coincide.
 \end{proof}
 
 
-Before formalizing the notion of an average $(1+\epsilon)$-approximation scheme, we briefly explain the motivation behind this concept.
-In the context of \MinCutPath, exact computation may be infeasible for large random graphs.
-However, many such graphs exhibit structural regularities that make near-optimal solutions achievable in polynomial time on almost all inputs.
-The following definition captures this idea by requiring that the algorithm performs within a factor of $(1+\epsilon)$ of the optimum for almost every instance while still maintaining a polynomial running time.
-
-To make the definition precise, let $I(n)$ denote the set of all valid input instances of size $n$, and let $\OPT(x)$ denote the optimal value of the objective function for a given instance $x \in I(n)$.
-For minimization problems, $\OPT(x)$ is the minimum achievable value, while for maximization problems, it is the maximum achievable value.
-Formally:
+For random graphs, we use the following notion of approximation: a polynomial-time algorithm that is within a factor of $1+\epsilon$ of the optimum on almost all inputs.
+Let $I(n)$ denote the set of all input instances of size $n$, and let $\OPT(x)$ denote the optimal value of the objective function for an instance $x \in I(n)$, i.e., the minimum for a minimization problem and the maximum for a maximization problem.
 
 \begin{definition}[Average $(1+\epsilon)$-Approximation Scheme]
 \label{def:approximation-scheme}
@@ -297,9 +272,7 @@ Let $\epsilon > 0$. An algorithm $A$ is called an \emph{average $(1+\epsilon)$-a
 
 \section{NP-completeness of the Min Cut-Path Problem}
 \label{sec:np-completeness}
-In this section, we show that the decision version of the \MinCutPath{} problem is NP-complete.
-Our proof proceeds via a sequence of polynomial-time reductions.
-We begin with the well-known \ThreeSAT{} problem, which is formally defined as follows.
+We prove that the decision version of the \MinCutPath{} problem is NP-complete, starting from the \ThreeSAT{} problem.
 
 
 
@@ -321,18 +294,16 @@ The \ThreeSAT{} decision problem is defined as follows:
 \end{problem}
 
 
-It is well known that \ThreeSAT{} is NP-complete~\cite{Cook1971Complexity}.
+\ThreeSAT{} is NP-complete~\cite{Cook1971Complexity}.
 Throughout this section, $n$ and $m$ denote the numbers of variables and clauses of the \ThreeSAT{} instance under consideration.
 
-Our approach is based on a two-step reduction.
-Instead of reducing \ThreeSAT{} to \MinCutPath{} directly, we introduce an intermediate problem, the \SSP{} problem.
+The proof has two steps and uses an intermediate problem, \SSP.
 First, we show that this problem is NP-complete by a polynomial-time reduction from \ThreeSAT{} (Section~\ref{sec:ssp}).
 Second, we reduce \SSP{} to \MinCutPath{} (Section~\ref{sec:ssp-to-mcp}).
 
 
 \subsection{The Separating Shortest Path Problem}\label{sec:ssp}
-In contrast to the \MinCutPath{} problem, where the objective is to find a set of edges that simultaneously contains both a $u$--$v$ path and a $u$--$v$ cut, the \SSP{} problem focuses solely on identifying a shortest path with a specific separation property.
-Namely, we ask whether, among all shortest $u$--$v$ paths in the graph, there exists one whose removal disconnects $u$ and $v$.
+The \SSP{} problem asks whether the removal of some shortest $u$--$v$ path disconnects $u$ from $v$.
 
 \begin{problem}[\SSP]
 Let $G = (V,E)$ be an undirected graph and let $u,v \in V$ be two distinct vertices.
@@ -347,17 +318,14 @@ The \SSP{} decision problem is defined as follows:
 \end{center}
 \end{problem}
 
-Note that, unlike \MinCutPath, the \SSP{} problem is not an optimization problem; it merely asks for the existence of a shortest path with a certain property.
-This distinction allows us to construct a more direct reduction from \ThreeSAT.
+Unlike \MinCutPath, \SSP{} is not an optimization problem, which makes the reduction from \ThreeSAT{} more direct.
 
 
 
 
 \subsubsection{Gadgets and Basic Operations for the Reduction}
 
-To establish the NP-completeness of \SSP, we introduce a collection of \emph{gadgets} and \emph{basic operations} on them.
-These gadgets and operations are the elementary building blocks of our reduction from \ThreeSAT{} to \SSP.
-They allow us to represent the logical structure of a formula within a graph in a modular way.
+The reduction from \ThreeSAT{} to \SSP{} is built from \emph{gadgets} and \emph{basic operations} on them.
 
 The construction consists of two parts:
 \begin{enumerate}
@@ -365,7 +333,7 @@ The construction consists of two parts:
     \item the \emph{threads}, which are threaded through the base structure.
 \end{enumerate}
 
-Figure~\ref{fig:chain-threads} gives a schematic overview of the two types of gadgets and of the layout of the construction.
+Figure~\ref{fig:chain-threads} shows both parts.
 
 
 \begin{figure}[H]
@@ -374,12 +342,10 @@ Figure~\ref{fig:chain-threads} gives a schematic overview of the two types of ga
     \caption{Layout of the construction: the chain (black) and a thread (red)}
     \label{fig:chain-threads}
 \end{figure}
-We now present the individual gadgets and operations in detail.
 
 
 \paragraph{Chain.}
-We begin with the smallest component among the gadgets, the \emph{chain link}.
-It is a cycle with two distinguished vertices $p$ and $q$ that split it into two paths of equal length.
+The smallest gadget is the \emph{chain link}, a cycle with two distinguished vertices $p$ and $q$ that split it into two paths of equal length.
 
 
 \begin{definition}[Chain Link]
@@ -405,10 +371,7 @@ When a chain link is used inside a chain, its boundary vertices are exactly $p$ 
 
 
 
-The chain forms the backbone of the construction.
-Its defining feature is the strict alternation between single edges and chain links.
-The structure always begins with a single edge, continues with a chain link, then again with a single edge, and so on, and it finally ends with a single edge.
-Formally:
+A chain alternates single edges and chain links; it begins and ends with a single edge.
 
 \begin{definition}[Chain]
 \label{def:chain}
@@ -436,9 +399,8 @@ Every $u$--$v$ path in a chain traverses all single edges and, in each chain lin
 
 
 
-In the reduction from \ThreeSAT{} to \SSP, chain links have specific roles that reflect the structure of clauses and variables.
 Let $C_1, C_2, \dots, C_m$ denote the clauses of the input formula and let $x_1, x_2, \dots, x_n$ denote its variables.
-Each chain link is assigned to exactly one of the following three types:
+In the reduction, every chain link has one of three types:
 
 \begin{enumerate}
     \item \textbf{Initialization chain link.}
@@ -466,11 +428,10 @@ The chain links that belong to one variable are consecutive in the chain, as ill
     \label{fig:chain-link-types}
 \end{figure}
 
-In total, the construction contains exactly $3m + 2n$ chain links, accounting for all initialization, terminal, and literal links.
+In total, the construction contains $3m + 2n$ chain links.
 
 \paragraph{Threads and threading.}
-Having defined the chain and its links, we now introduce the notion of \emph{threads}, which are paths that pass through the chain links.
-The operation of inserting such paths into the chain is called \emph{threading}. More precisely:
+\emph{Threads} are paths that pass through the chain links; inserting such a path into the chain is called \emph{threading}.
 
 \begin{definition}[Thread]
 \label{def:thread}
@@ -482,11 +443,8 @@ A \emph{thread} is a $u$--$v$ path $P$ in $G$ such that:
 \end{enumerate}
 \end{definition}
 
-Thus, threads can be seen as edge-disjoint $u$--$v$ paths that ``pass through'' the sequence of chain links, each touching a link in at most one edge.
 
-Threads interact with chain links through the operation of \emph{threading}.
-Intuitively, threading takes an edge of a chain link that has not yet been traversed by any existing thread, subdivides it into three consecutive edges, and then uses the middle edge as the unique crossing edge of the thread through that chain link.
-Formally:
+Threading subdivides an edge of a chain link that no thread uses yet into three edges and routes the thread through the middle one.
 
 \begin{definition}[Threading]
 \label{def:threading}
@@ -509,13 +467,12 @@ In general, we say that the thread $P$ is \emph{threaded through $L$ at the edge
 \end{figure}
 
 
-To capture the logical structure of the \ThreeSAT{} formula, each thread is assigned a specific role.
-We distinguish three types of threads:
+Every thread has one of three types:
 
 \begin{enumerate}
     \item \textbf{2-synchronization thread.}
     This thread passes through an initialization chain link $I_i$ and the corresponding terminal chain link $T_i$ (Figure~\ref{fig:two-synchronization}).
-    Its purpose is to enforce synchronization, ensuring that every separating shortest path traverses either the positive paths or the negative paths in both $I_i$ and $T_i$.
+    Threads of this type force every separating shortest path to traverse paths of the same sign in $I_i$ and $T_i$.
 
     \begin{figure}[H]
         \centering
@@ -526,7 +483,7 @@ We distinguish three types of threads:
 
     \item \textbf{3-synchronization thread.}
     This thread passes through the initialization chain link $I_i$, a literal chain link $L_{j,k,i}$, and the terminal chain link $T_i$ corresponding to the same variable $x_i$ (Figure~\ref{fig:three-synchronization}).
-    Its role is to synchronize the traversal of the literal chain link with that of the initialization and terminal links of the variable $x_i$.
+    Threads of this type force every separating shortest path to traverse the path of this sign in $L_{j,k,i}$ as well.
 
     \begin{figure}[H]
         \centering
@@ -537,7 +494,7 @@ We distinguish three types of threads:
 
     \item \textbf{Clause thread.}
     For each clause $C_k = (\ell_{1} \vee \ell_{2} \vee \ell_{3})$, a clause thread is introduced that passes through the three literal chain links $L_{1,k}$, $L_{2,k}$, $L_{3,k}$ corresponding to $\ell_{1}, \ell_{2}, \ell_{3}$ (Figure~\ref{fig:clause-thread}).
-    This construction simulates the satisfaction requirement of the clause: for a separating shortest path to exist, at least one of the three literals must be satisfied.
+    It encodes the clause: a separating shortest path exists only if at least one of the three literals is satisfied.
 
     \begin{figure}[H]
         \centering
@@ -548,9 +505,7 @@ We distinguish three types of threads:
 \end{enumerate}
 
 \subsubsection{NP-completeness of \textsc{Separating Shortest Path}}
-We now prove that \SSP{} is NP-complete by a polynomial-time reduction from \ThreeSAT.
-The reduction is constructive and relies on the chain and threading gadgets introduced above.
-Before presenting the full construction, we introduce a few auxiliary procedures and notational conventions that allow us to describe the reduction precisely and concisely.
+We prove that \SSP{} is NP-complete by a polynomial-time reduction from \ThreeSAT{} that uses the chain and the threads.
 
 \paragraph{Auxiliary procedures.}
 The reduction uses the following auxiliary procedures:
@@ -661,7 +616,7 @@ We complete the proof by establishing the equivalence:
 
     Since $P$ is a shortest $u$--$v$ path, it is a chain path, and since it is separating, it hits every thread.
     By the synchronization property, $P$ is consistent, so it determines a truth assignment $\tau$.
-    Moreover, $P$ hits every clause thread, which means that $\tau$ satisfies at least one literal in every clause.
+    Since $P$ also hits every clause thread, $\tau$ satisfies at least one literal in every clause.
     Thus, $\tau$ is a satisfying assignment for the original formula.
 
     \item If there exists a satisfying assignment for the \ThreeSAT{} instance, then one can construct a separating shortest path in $G$.
@@ -699,15 +654,12 @@ Finally, each of the $O(n+m)$ connecting paths is subdivided until it has $\Lamb
 Hence, the size of $G$ and the running time of Algorithm~\ref{alg:reduction} are polynomial in the input size.
 
 \paragraph{Membership in NP.}
-Given a candidate path $P$ in $G$, one can verify in polynomial time that it is a separating shortest path:
-first check that $P$ is indeed a shortest $u$--$v$ path, and then remove $P$ from $G$ and run a standard reachability test (e.g., BFS or DFS) to determine whether a $u$--$v$ path remains.
-Both steps are computable in polynomial time, so the \SSP{} problem belongs to NP.
+A candidate path $P$ is verified in polynomial time: check that $P$ is a shortest $u$--$v$ path, remove its edges from $G$, and test by breadth-first search whether a $u$--$v$ path remains.
+Hence \SSP{} belongs to NP.
 \end{proof}
 
 \subsection{From Separating Shortest Path to Min Cut-Path}\label{sec:ssp-to-mcp}
-In the previous subsection, we proved that \SSP{} is NP-complete.
-We now use this result to show that our target problem, \MinCutPath, is NP-complete as well.
-For this purpose, we state it in decision form.
+We now reduce \SSP{} to \MinCutPath, which we state in decision form.
 
 \begin{problem}[\MinCutPath{} (Decision Version)]
 Let $G=(V,E)$ be an undirected graph and $u,v \in V$ distinct vertices; cut-paths are defined in Definition~\ref{def:cut-path}.
@@ -721,8 +673,7 @@ The decision version of the \MinCutPath{} problem is defined as follows:
 \end{center}
 \end{problem}
 
-We show that the decision version of the \MinCutPath{} problem is NP-complete.
-As an immediate consequence, the corresponding optimization problem is NP-hard.
+The decision version is NP-complete, and hence the optimization version is NP-hard.
 
 \begin{theorem}
 \label{thm:mcp-np-complete}
@@ -732,7 +683,7 @@ The decision version of the \MinCutPath{} problem is NP-complete.
 \begin{proof}
 \textbf{Reduction.}
 Let $G$ be an instance of \SSP{} with distinguished vertices $u,v$.
-We may assume that $u$ and $v$ lie in the same connected component of $G$, since otherwise the answer is trivially negative.
+We may assume that $u$ and $v$ lie in the same connected component of $G$, since otherwise the answer is negative.
 We define $G' := G$ and set the threshold $k := d_G(u,v)$, the length of a shortest $u$--$v$ path in $G$.
 We then ask whether $G'$ admits a cut-path of size at most $k$.
 
@@ -741,7 +692,7 @@ Suppose that $G$ admits a separating shortest path $P$.
 Then $|P| = d_G(u,v) = k$, and $P$ itself is a cut-path of size $k$, since (i) it is a $u$--$v$ path and (ii) its removal disconnects $u$ and $v$, so $P$ is also a $u$--$v$ cut.
 Conversely, suppose that $G'$ has a cut-path $F$ with $|F| \leq k$.
 Then $F$ contains a $u$--$v$ path $P$, which has at least $d_G(u,v) = k$ edges; hence $F = P$ and $P$ is a shortest $u$--$v$ path in $G$.
-Moreover, $F$ contains a $u$--$v$ cut, so $G \setminus P$ contains no $u$--$v$ path.
+Since $F$ also contains a $u$--$v$ cut, $G \setminus P$ contains no $u$--$v$ path.
 Hence $P$ is a separating shortest path, and the two instances are equivalent.
 
 \textbf{Membership in NP.}
@@ -759,31 +710,20 @@ Since \MinCutPath{} is in NP (by polynomial verification), it follows that \MinC
 
 
 
-Having established the complexity of the general \MinCutPath{} problem, we now turn our attention to specific graph classes in which the problem admits efficient solutions.
-A natural first step in this direction is to consider a constraint on the maximum distance between vertices.
-Limiting all distances to at most two leads directly to the well-known class of graphs of diameter two, which have been extensively studied in algebraic graph theory~\cite{GodsilRoyle2001}.
-We formally define this class as follows:
+The first class in which the problem can be solved efficiently consists of the graphs of diameter two, a class studied in algebraic graph theory~\cite{GodsilRoyle2001}.
 
 \begin{definition}[Diameter]
 \label{def:diameter}
-A graph $G = (V, E)$ has \emph{diameter at most $k$} if for every pair of vertices $x, y \in V$, the distance between $x$ and $y$ is at most $k$. Formally:
-\[
-\forall x, y \in V: \, d(x, y) \leq k,
-\]
-where $d(x, y)$ denotes the length of a shortest path between $x$ and $y$.
+A graph $G = (V, E)$ has \emph{diameter at most $k$} if $d(x, y) \leq k$ for every pair of vertices $x, y \in V$.
 The smallest such $k$ is the \emph{diameter} of $G$, denoted by $\diam(G)$.
 \end{definition}
 
-Our objective in this section is to analyze the structure of graphs of diameter two and to use it to derive a closed formula for $\cp(u,v)$.
-This formula immediately yields a simple and efficient algorithm for the \MinCutPath{} problem in this class of graphs.
-As a first step, we describe a simple decomposition:
-in any graph, a cut $C$ induces a partition of the vertex set into four subsets $I, J, K, L$.
+We derive a formula for $\cp(u,v)$ in graphs of diameter two; it yields a polynomial-time algorithm (Remark~\ref{rem:algorithm}).
+The proof uses a decomposition: in any graph, a cut $C$ induces a partition of the vertex set into four subsets $I, J, K, L$.
 
 
 
-The following observation is immediate from the definition of a cut.
-Each vertex belongs to one of the two sides $A_1, A_2$ of the cut, and it either is incident to an edge of the cut or not.
-Hence, the classification of the vertices into the subsets $I, J, K, L$ is immediate and unambiguous:
+Each vertex belongs to one of the two sides $A_1, A_2$ of the cut, and it either is incident to an edge of the cut or not:
 
 \begin{lemma}
 \label{lem:cut-decomposition}
@@ -798,12 +738,7 @@ Then, there exists a unique decomposition of $A_1$ and $A_2$ into subsets $I, J,
 \end{lemma}
 
 
-In graphs of diameter two, the decomposition induced by a cut $C$ is no longer arbitrary:
-the bounded distances restrict which of the subsets $I, J, K, L$ can be non-empty.
-
-The key observation is that if both $I$ and $L$ were non-empty, then any vertex in $I$ would be at distance at least three from any vertex in $L$, since every path between these two sets must pass through the intermediate subsets $J$ and $K$.
-This directly contradicts the assumption that the graph has diameter two.
-Consequently, one of these sets must be empty.
+In a graph of diameter two, $I$ or $L$ is empty: otherwise a vertex of $I$ would be at distance at least three from a vertex of $L$, since every path between them passes through $J$ and $K$.
 
 
 \begin{lemma}
@@ -835,8 +770,7 @@ If the path crossed the cut an even number of times, its first and its last vert
 Therefore, the path crosses the cut an odd number of times, i.e., $|S|$ is odd.
 \end{proof}
 
-Using Lemmas~\ref{lem:empty-i-or-l} and~\ref{lem:odd-intersection}, we can now express the minimum cut-path value $\cp(u,v)$ in graphs of diameter two directly in terms of the minimum cut-value $c(u,v)$ and the distance $d(u,v)$.
-This is the central theorem of this section:
+Lemmas~\ref{lem:empty-i-or-l} and~\ref{lem:odd-intersection} give the value of $\cp(u,v)$ in graphs of diameter two.
 
 \begin{theorem}
 \label{thm:diameter-two}
@@ -921,13 +855,10 @@ Hence, in graphs of diameter two, a minimum cut-path can be found by one minimum
 \section{Graphs with Cut-Value at Most Two}
 \label{sec:cut-two}
 
-We now turn to another structural property that leads to the same simple formula.
-Specifically, we consider graphs in which the minimum cut-value of every pair of vertices is at most two.
-This condition restricts the connectivity structure of the graph in a very particular way.
+The same formula holds in graphs in which the minimum cut-value of every pair of vertices is at most two.
 
 Such graphs have the structure of a \emph{cactus graph} (cf.~\cite{Mehlhorn2017Certifying}): they consist of cycles and single edges, any two of which share at most one vertex, an articulation point.
 Indeed, if two distinct cycles shared an edge, their union would contain two vertices joined by three edge-disjoint paths; separating these two vertices would require at least three edges, contradicting the assumption $c(x,y) \leq 2$.
-This structure leads to the following result.
 
 \begin{theorem}
 \label{thm:cut-two}
@@ -971,11 +902,10 @@ By Remark~\ref{rem:algorithm}, a minimum cut-path in such a graph is again obtai
 \section{Erdős–Rényi Graphs}
 \label{sec:random-graphs}
 
-In this section, we study the \MinCutPath{} problem in Erdős–Rényi random graphs $G(n, p)$, in which each of the possible edges on $n$ vertices is present independently with probability $p$.
+We study the \MinCutPath{} problem in Erdős–Rényi random graphs $G(n, p)$, in which each of the possible edges on $n$ vertices is present independently with probability $p$.
 Throughout this section, $\log$ denotes the natural logarithm.
 
-We first examine dense random graphs, i.e., those with a constant edge probability $p$.
-A well-known result in the theory of random graphs states that such graphs have diameter two with probability tending to one~\cite{Bollobas2001}.
+Dense random graphs, i.e., those with a constant edge probability $p$, have diameter two with probability tending to one~\cite{Bollobas2001}.
 
 \begin{theorem}[\cite{Bollobas2001}]
 \label{thm:random-diameter-two}
@@ -986,13 +916,12 @@ Then the probability that $G(n, p)$ has diameter two converges to 1 as $n \to \i
 \]
 \end{theorem}
 
-In the context of the \MinCutPath{} problem, this property is particularly useful, as it allows us to apply the results of Section~\ref{sec:diameter-two}.
-By Theorem~\ref{thm:diameter-two} and Remark~\ref{rem:algorithm}, in a graph of diameter two the minimum cut-path value is given by the formula $\cp(u, v) = c(u, v) + d(u, v) - 1$, and a minimum cut-path can be computed in polynomial time.
+By Theorem~\ref{thm:diameter-two} and Remark~\ref{rem:algorithm}, a minimum cut-path in a graph of diameter two has $c(u, v) + d(u, v) - 1$ edges and can be computed in polynomial time.
 Consequently, for dense random graphs, the \MinCutPath{} problem can be solved exactly in polynomial time on almost all inputs.
 
 
-We now turn to sparse Erdős–Rényi random graphs $G(n, p)$ with $p = \frac{\alpha \log n}{n}$, where $\alpha > 1$ is a constant.
-We need two fundamental results on the diameter and the edge connectivity of such graphs, which are well established in the literature~\cite{Bollobas2001,Frieze2016} and which we state without proof, and two simple consequences for the degrees and for the values $c(u,v)$, which we prove.
+Consider now sparse Erdős–Rényi random graphs $G(n, p)$ with $p = \frac{\alpha \log n}{n}$, where $\alpha > 1$ is a constant.
+We state two known results on the diameter and the edge connectivity of such graphs~\cite{Bollobas2001,Frieze2016} and prove two consequences for the degrees and for the values $c(u,v)$.
 
 
 \begin{theorem}[Diameter~\cite{Bollobas2001}]
@@ -1039,7 +968,7 @@ The claim follows, for instance, with $\beta_1 = a_1 \alpha / 2$ and $\beta_2 = 
 \end{proof}
 
 
-To make these results applicable to the \MinCutPath{} problem, the following lemma bounds the values $c(u,v)$:
+The next lemma bounds the values $c(u,v)$.
 
 \begin{lemma}
 \label{lem:connectivity-bounds}
@@ -1094,7 +1023,7 @@ d(u,v) \leq \diam(G) \leq \frac{\log n}{\log \log n}
 \qquad\text{and}\qquad
 c(u,v) \geq \beta_1 \log n.
 \]
-Moreover, by Lemma~\ref{lem:basic-bounds}, the minimum cut is no larger than the minimum cut-path:
+By Lemma~\ref{lem:basic-bounds}, the minimum cut is no larger than the minimum cut-path:
 \[
 c(u,v) \leq \cp(u,v) = \OPT(x).
 \]
@@ -1111,38 +1040,27 @@ Thus, the algorithm achieves the approximation ratio $1+\epsilon$ on a set of in
 \section{Conclusion}
 \label{sec:conclusion}
 
-In this paper, we introduced and studied the \MinCutPath{} problem, which is based on a novel combinatorial structure that simultaneously captures communication and control within a single set of edges.
-We established the NP-completeness of the decision version of the problem by a two-step reduction from \ThreeSAT{} through the intermediate \SSP{} problem.
-Furthermore, we identified two important classes of graphs in which the problem becomes polynomially solvable: graphs of diameter two and graphs whose minimum cut-value does not exceed two.
-For these classes, we derived a closed formula for the value of the minimum cut-path, showing that $\cp(u, v) = c(u, v) + d(u, v) - 1$.
-Finally, connecting these findings with the structural properties of random graphs, we showed that dense Erdős–Rényi graphs almost surely fall within this tractable regime and that, in sparser random graphs, a simple algorithm is an average-case approximation scheme; this provides a bridge between worst-case and probabilistic analysis.
+We introduced the \MinCutPath{} problem and proved that its decision version is NP-complete.
+In graphs of diameter two and in graphs with minimum cut-value at most two, $\cp(u, v) = c(u, v) + d(u, v) - 1$, and the union of a minimum cut and a shortest path is a minimum cut-path.
+Dense Erdős–Rényi random graphs have diameter two with probability tending to one, and in sparser ones the same union is within a factor of $1+\epsilon$ of the optimum on almost all inputs.
 
-Since the concept of a cut-path is new, there remain numerous promising directions for future research.
-One particularly appealing direction is the identification of additional \emph{islands of polynomial-time solvability}.
-Expanding the frontier of tractable cases can help us better understand the structural boundary between efficiently solvable and intractable instances of the \MinCutPath{} problem.
+Several questions remain open.
+The first is to find further graph classes in which the problem can be solved in polynomial time.
+A natural candidate is the class of graphs in which every pair of vertices is at distance at most two or has a minimum cut of size at most two; it contains both classes treated in this paper.
 
-A natural starting point in this search is the class of graphs in which every pair of vertices is either at distance at most two or has a minimum cut of size at most two.
-This class is a common generalization of the two polynomial cases identified in this work---graphs of diameter two and graphs with minimum cut-value at most two.
-By combining these two structural properties, the two polynomial islands could be merged into a single broader class of graphs in which the \MinCutPath{} problem may remain tractable; partial results for this class were obtained in~\cite{Michel2025MinCutPath}.
+The second question concerns \emph{planar graphs}.
+In a planar graph, every minimal edge cut corresponds to a cycle in the dual graph and vice versa, and several problems on cuts and flows can be solved faster in planar graphs than in general ones~\cite{itai1979maximum,henzinger1997faster}.
+Whether this duality helps to solve \MinCutPath{} is open.
 
+Third, this work is purely theoretical.
+Experiments on real-world networks and on random instances would show how algorithms for \MinCutPath{} behave on average and could guide the design of heuristics.
 
-Another promising research direction concerns \emph{planar graphs}.
-The motivation arises from the inherent duality between paths and cuts: in a planar graph, every minimal edge cut corresponds to a cycle in the dual graph and vice versa.
-This dual relationship suggests that the \MinCutPath{} problem might admit more efficient formulations or reductions when restricted to planar graphs.
-Moreover, several classical problems involving cuts and flows are known to be solvable more efficiently in planar graphs than in general ones, owing to planar duality and to specialized algorithms for planar embeddings~\cite{itai1979maximum,henzinger1997faster}.
-Therefore, planar graphs form a natural candidate for further exploration of polynomial solvability.
-
-Beyond theoretical developments, another potential avenue for progress lies in experimental analysis.
-As the present work is purely theoretical, an empirical evaluation could provide valuable insight into the average-case performance of algorithms for the \MinCutPath{} problem.
-Studying the behavior of the problem on real-world networks or on synthetic random instances could reveal structural patterns that are not captured by worst-case analysis and could guide the design of practical heuristics or approximation methods.
-
-Lastly, a deeper exploration of graphs with fixed cut-path values could reveal additional regularities.
-In particular, analyzing graphs with a fixed value of $\cp(u,v)$ may uncover structural principles that further delineate the boundary between polynomially solvable and NP-hard instances, enriching the understanding of this newly introduced combinatorial framework.
+Finally, graphs with a fixed value of $\cp(u,v)$ deserve a closer study, which may clarify the boundary between polynomially solvable and NP-hard instances.
 
 
 \section*{Acknowledgments}
 
-The author would like to express his sincere gratitude to Prof.~RNDr.~Martin Loebl,~CSc., who proposed the original idea of the \MinCutPath{} problem and provided essential guidance and valuable discussions that greatly influenced the development and results of this work.
+The author thanks Prof.~RNDr.~Martin Loebl,~CSc., who proposed the \MinCutPath{} problem, for his guidance and for valuable discussions.
 
 
 \bibliographystyle{cas-model2-names}

@@ -106,7 +106,7 @@ Both graphs have the six vertices `t, a, v, u, b, s` and the edges `ta, tv, au, 
 | Auxiliary statements | `Claim` | `Lemma` (labels `lem:…`) |
 | Subsets in the definition of a cut-path | `A` (cut), `B` (path) | `C` (cut), `P` (path); problem boxes worded the same as the definition |
 | Division | chapters (`Chapter`) | sections |
-| Bibliography | ISO 690, 8 entries (several with errors, see `knowledge/sources/README.md`) | natbib numeric, 12 verified entries including MT |
+| Bibliography | ISO 690, 8 entries (several with errors, see `knowledge/sources/README.md`) | natbib numeric, 11 verified entries (MT itself is not cited since 2026-10-09, author's decision); before: 12 verified entries including MT |
 | Degrees in `G(n, α log n / n)` | concentration `(1 ± ε) α log n` | constant bounds `β₁ log n`, `β₂ log n` |
 
 ## 5a. Errors found in MT (important for article 2)

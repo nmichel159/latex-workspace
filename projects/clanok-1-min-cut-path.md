@@ -6,7 +6,7 @@ and the whole text are in it), `cas-sc.cls`, `cas-common.sty`, `cas-model2-names
 `templates/els-cas/`), `references.bib` and the ten figure files (seven PNG, three vector PDF; four figures were
 added from the author's talk on 2026-10-09, see "Change history").
 To send: zip the content of the folder and submit it, after `package-project.ps1 -Template els-cas -Flat
--KeepComments` ends with `Verdict: PASS` (2026-10-09, after the new figures: PASS, 17 pages).
+-KeepComments` ends with `Verdict: PASS` (2026-10-09, after the plain-style revision: PASS, 15 pages).
 Beside the folder: these notes and `projects/clanok-1-min-cut-path.submission/` (draft AI declaration).
 Still open: "Open items for the author" below (AI declaration, funding, highlights, figures, abstract) and "Content
 changes to review". "Change history" names `preamble/` and `sections/` files; their content is now in `main.tex`, the
@@ -22,7 +22,7 @@ files are in `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-be
 | Target journal | Discrete Applied Mathematics (Elsevier), article type *Contribution* (more than 10 pages); venue card [knowledge/venues/discrete-applied-mathematics.md](../knowledge/venues/discrete-applied-mathematics.md) |
 | Class | `cas-sc.cls` (Elsevier CAS bundle 2.4, single column; `\ProvidesClass`: `cas-sc 2024/05/04, 2.4`) with `cas-common.sty`; bibliography `cas-model2-names.bst` via `\usepackage[numbers,sort&compress]{natbib}` |
 | Template folder | `templates/els-cas/` (the official template the DAM guide for authors links; download URL and SHA-256 in `templates/SOURCES.tsv`); `cas-sc.cls`, `cas-common.sty` and `cas-model2-names.bst` here are byte-identical to it (SHA-256 compared 2026-10-08) and are never edited in the project; `main.tex` is written from `cas-sc-template.tex` |
-| Bibliography | `references.bib` (12 entries, all cited and verified) |
+| Bibliography | `references.bib` (11 entries, all cited and verified; the master's thesis is not cited since 2026-10-09, author's decision) |
 | Origin | Overleaf export `archives/clanok_1_min_cut_path.zip` (2026-10-07); class `new-aiaa` until 2026-10-08 |
 | Knowledge base | [knowledge/research/min-cut-path.md](../knowledge/research/min-cut-path.md) |
 
@@ -30,7 +30,7 @@ files are in `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-be
 
 Ported to the DAM template on 2026-10-08 and adjusted after the review of 2026-10-08 on 2026-10-09 (porting log and
 review fixes in "Change history"). Four figures (three from the author's talk, one new) were added on 2026-10-09 (10 figures in
-total). Builds with exit code 0: 17 pages (paper 192 x 262 mm, the class's own page
+total). Builds with exit code 0: 15 pages (paper 192 x 262 mm, the class's own page
 size), no undefined references or citations, no multiply defined labels, BibTeX without warnings, all fonts Type 1
 and embedded (`cm-super` installed 2026-10-08). Remaining build messages are the class's own (see "Known
 problems"). The flat package and the package with folders pass the packager, the no-trace check included
@@ -70,7 +70,8 @@ the open items below.
    decision: for example "(Figure~\ref{fig:chain-link})" at the definitions of chain link, chain and threading.
    (Found in the review of 2026-10-08; not changed. The author wants one-line captions, stated 2026-10-09: a
    bare title is fine with him; the figures added on that day are all cited and have one-line captions.)
-9. **Abstract** (DAM guide, "Abstract": state the purpose, the basic procedures, the main findings and the principal
+9. **Abstract: rewritten 2026-10-09** (it now states the three results; check it, "Content changes to review"
+   item 17). Before that: (DAM guide, "Abstract": state the purpose, the basic procedures, the main findings and the principal
    conclusions): the abstract gives only the motivation; NP-completeness, `cp = c + d − 1` for diameter two and
    cut-value at most two, and the random-graph results are missing (also "Known problems", Assessment item 3).
    Rewriting it is the author's decision.
@@ -192,8 +193,8 @@ its comments:
 .\scripts\package-project.ps1 -Project clanok-1-min-cut-path -Template els-cas -Flat -KeepComments              # before sending
 ```
 
-Send only on `Verdict: PASS`. Last run 2026-10-09, 09:34, with the four new figures (`-Template els-cas -Flat
--KeepComments`): `Verdict: PASS`, 17 pages, `Trace scan: 15 files, 0 hits (0 allowed); 3 files identical to the
+Send only on `Verdict: PASS`. Last run 2026-10-09, 09:47, after the plain-style revision (`-Template els-cas -Flat
+-KeepComments`): `Verdict: PASS`, 15 pages, `Trace scan: 15 files, 0 hits (0 allowed); 3 files identical to the
 template not scanned`, 22 comment lines kept, one finding `[ai-declaration]` (advisory). The run before it, after
 the move to the flat folder: `Verdict: PASS`, 16 pages, `Trace scan: 11 files, 0 hits (0 allowed); 3 files identical to the
 template not scanned`, 22 comment lines kept, one finding `[ai-declaration]` (the packager looks for the draft in
@@ -398,8 +399,28 @@ from the revision, but the author is responsible for them.
     - Drawings: Figures 7-9 are TikZ drawings: the threads run through crossing edges on the upper or lower
       path of a link (the talk's images end at the corners of the links), with dashed ends towards `u` and `v`
       and the signs `+`, `-` inside the links. Confirm that they show the construction as intended.
+17. **Plain-style revision and the thesis citation (2026-10-09, on the author's instruction).**
+    - Wording: formulaic passages were replaced by plain sentences in the whole text: abstract, introduction,
+      the sentences that lead into definitions, lemmas and theorems, conclusion, acknowledgments
+      (7128 -> 5625 words; `check-text.ps1` 77 -> 2 findings). Statements, proofs and algorithms are unchanged,
+      except the wording of Definition 4.1 (diameter), now one sentence without the displayed formula.
+    - Abstract: now states the results (NP-completeness, `cp = c + d - 1` in both classes, the random-graph
+      result); before, it gave only the motivation.
+    - Introduction: contributions and roadmap state the results; the conclusion lists four open questions.
+    - Thesis: the master's thesis is no longer cited (entry removed from `references.bib`). Gone with it: the
+      sentences that the problem was introduced there, that the results on graph classes and random graphs
+      first appeared there, and that partial results for the class "diam or cut 2" were obtained there. The
+      introduction now reads "To the best of our knowledge, the problem has not been studied before."
+      **Check this sentence against the thesis** and against the journal's question on prior publication.
 
 ## Change history
+
+**2026-10-09 - plain-style revision; thesis citation removed (09:40-09:50)**
+- `main.tex`: "Content changes to review", item 17. `references.bib`: entry `Michel2025MinCutPath` removed
+  (it stays in the canonical file); 11 entries, `check-bib.ps1` 0 findings.
+- Build: 15 pages, no undefined references; packager, full run: `Verdict: PASS`. `check-text.ps1`: 2 findings
+  (one "To the best of our knowledge", backed by the search of 2026-10-07; one long sentence in the proof of
+  Theorem 4.5, a proof step, left).
 
 **2026-10-09 - figures from the author's talk (09:10-09:35)**
 - Source: the beamer talk *Min Cut-Path Problem* in `knowledge/sources/Overleaf Projects (1 items) (11).zip`
