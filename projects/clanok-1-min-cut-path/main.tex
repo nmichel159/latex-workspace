@@ -543,7 +543,8 @@ The reduction uses the following auxiliary procedures:
 \paragraph{Auxiliary notation.}
 We use the following notation:
 \begin{itemize}
-    \item Occurrences: for each variable $x_i$, we denote by $O_i$ the set of all pairs $(j,k)$ such that the $j$-th literal of the clause $C_k$ is $x_i$ or $\neg x_i$.
+    \item Literals: every literal $\ell$ of the formula is identified with its position, $\ell[0] = j$ and $\ell[1] = k$ if $\ell$ is the $j$-th literal of the clause $C_k$; its literal chain link is $L_{\ell[0],\ell[1],i}$, where $x_i$ is the variable of $\ell$.
+    \item Literals of a variable: $\mathcal{M}$ maps every variable $x_i$ to the list $\mathcal{M}[x_i]$ of all literals of the formula whose variable is $x_i$, that is, of all occurrences of $x_i$ and $\neg x_i$.
     \item Sign function: for each literal $\ell$ we define
 \[
 s(\ell) =
@@ -564,25 +565,29 @@ From now on, $G$, $u$ and $v$ denote its output.
 \begin{algorithmic}[1]
 \Require Variables $U=\{x_1,\dots,x_n\}$, clauses $\mathcal{C}=\{C_1,\dots,C_m\}$
 \Ensure Graph $G$, vertices $u,v$
+\State $n \gets |U|$, $m \gets |\mathcal{C}|$
 \State $G \gets \textsc{BuildChain}(u,v,2n+3m)$
+\State $\mathcal{M} \gets$ map from each variable to the list of its literals
 \For{$i \gets 1$ to $n$}
-    \State reserve the next $2+|O_i|$ free chain links
-    \State label the first of them as $I_i$ and the last of them as $T_i$
-    \For{each $(j,k) \in O_i$}
-        \State label the next free reserved link as $L_{j,k,i}$
+    \State $\mathit{Lits} \gets \mathcal{M}[x_i]$
+    \State reserve the next $2+|\mathit{Lits}|$ free chain links
+    \State label the first of them as $I_i$ and the last as $T_i$
+    \For{each $\ell \in \mathit{Lits}$}
+        \State label the next free reserved link as $L_{\ell[0],\ell[1],i}$
     \EndFor
 \EndFor
 \For{$i \gets 1$ to $n$}
     \State $\textsc{Thread}(u,v,[(I_i,+),(T_i,-)])$
     \State $\textsc{Thread}(u,v,[(I_i,-),(T_i,+)])$
-    \For{each $(j,k) \in O_i$}
-        \State $\textsc{Thread}(u,v,[(I_i,+),(L_{j,k,i},-),(T_i,+)])$
-        \State $\textsc{Thread}(u,v,[(I_i,-),(L_{j,k,i},+),(T_i,-)])$
+    \State $\mathit{Lits} \gets \mathcal{M}[x_i]$
+    \For{each $\ell \in \mathit{Lits}$}
+        \State $\textsc{Thread}(u,v,[(I_i,+),(L_{\ell[0],\ell[1],i},-),(T_i,+)])$
+        \State $\textsc{Thread}(u,v,[(I_i,-),(L_{\ell[0],\ell[1],i},+),(T_i,-)])$
     \EndFor
 \EndFor
 \For{$k \gets 1$ to $m$}
     \State $\ell_1,\ell_2,\ell_3 \gets$ the literals of $C_k$
-    \State $\textsc{Thread}(u,v,[(L_{1,k},s(\ell_1)),(L_{2,k},s(\ell_2)),(L_{3,k},s(\ell_3))])$
+    \State $\textsc{Thread}(u,v,[(L_{\ell_1[0],\ell_1[1]},s(\ell_1)),(L_{\ell_2[0],\ell_2[1]},s(\ell_2)),(L_{\ell_3[0],\ell_3[1]},s(\ell_3))])$
 \EndFor
 \State $\textsc{Calibrate}(G)$
 \State \Return $G$, $u$, $v$
@@ -638,7 +643,7 @@ A chain path hits all synchronization threads if and only if it is consistent.
 
 \begin{proof}
 Let $P$ be a chain path and let $x_i$ be a variable.
-By Algorithm~\ref{alg:reduction}, the block of $x_i$ consists of $I_i$, the literal chain links $L_{j,k,i}$ with $(j,k) \in O_i$, and $T_i$.
+By Algorithm~\ref{alg:reduction}, the block of $x_i$ consists of $I_i$, the literal chain links $L_{\ell[0],\ell[1],i}$ with $\ell \in \mathcal{M}[x_i]$, and $T_i$.
 \begin{itemize}
     \item \emph{2-synchronization threads:} the chain path $P$ hits both 2-synchronization threads of the variable $x_i$ (Figure~\ref{fig:two-synchronization}) if and only if it traverses paths of the same sign in $I_i$ and in $T_i$.
     Indeed, the thread $[(I_i,+),(T_i,-)]$ requires the positive path in $I_i$ or the negative path in $T_i$, and the thread $[(I_i,-),(T_i,+)]$ requires the negative path in $I_i$ or the positive path in $T_i$.
