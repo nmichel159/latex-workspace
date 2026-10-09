@@ -5,3 +5,6 @@
 - 17:01 unit 3 done: 3.1.3 Correctness (sec:reduction-correctness): prose definitions, Lemmas chain-paths, synchronization, clause-threads, separating (auxiliary multigraph Gamma, three cases kept), Theorem 3.x with (a)/(b), running time, NP
 - 17:01 unit 4 done: 3.2 (paragraph headings, opening sentence, breadth-first search, NP-hard sentence moved after proof, BFS polynomial made explicit)
 - 17:02 style pass (check-text: long sentences split, 'In terms of' removed; 'exhaustive' kept as the mathematical term); build OK
+- 17:03 changes-B.md written
+- 17:04 issues-B.md written (26 items)
+- 17:04 inventory confirmed; integrated build OK (18 pp with all fragments; 17 pp with only B revised vs 15 original). DONE
