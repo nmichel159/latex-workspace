@@ -38,7 +38,10 @@ the same conventions, and is backed by a knowledge base of the author's research
     unmodified, a wrapper `main.tex` written from the venue's sample, and no layout overrides. `projects/<project>/`
     is self-contained at all times. What goes to a journal, reviewer or co-author is the zip made by
     `scripts/package-project.ps1` with `Verdict: PASS`, never a hand-made archive; run it with `-CheckOnly` after
-    any structural change (new file, new package, class files touched). Full statement, switches and findings:
+    any structural change (new file, new package, class files touched). A venue template is only ever the
+    publisher's download from the official page the venue's guide links, fetched with the user's consent and
+    recorded in `templates/SOURCES.tsv`, never hand-made; the package must pass the no-trace check (nothing in it
+    names this workspace or an AI tool outside the venue's AI declaration). Full statement, switches and findings:
     `knowledge/writing/latex-conventions.md` §1.1.
 
 ## Map
@@ -60,8 +63,8 @@ the same conventions, and is backed by a knowledge base of the author's research
 | Project | Document | Main file | PDF |
 |---|---|---|---|
 | `cv` | CV (AltaCV, English, 2 pages) | `norbert-michel-cv.tex` | `outputs/cv/norbert-michel-cv.pdf` |
-| `clanok-1-min-cut-path` | article "Min Cut-Path Problem" (English), modular (`preamble/`, `sections/`); class `new-aiaa` is temporary, the target journal is undecided and the article will be ported to its template later | `main.tex` | `outputs/clanok-1-min-cut-path/main.pdf` |
-| `clanok-2-min-cut-path` | second article, to be written from the master's thesis; no sources yet (only `README.md`) | – | – |
+| `clanok-1-min-cut-path` | article "Min Cut-Path Problem" (English) for Discrete Applied Mathematics, modular (`preamble/`, `sections/`); class `cas-sc` from template `els-cas`; package with `-Template els-cas -Flat` | `main.tex` | `outputs/clanok-1-min-cut-path/main.pdf` |
+| `clanok-2-min-cut-path` | second article, to be written from the master's thesis, for Algorithmica; modular skeleton with placeholder text; class `sn-jnl` from template `sn-jnl`; package with `-Template sn-jnl -Flat` | `main.tex` | `outputs/clanok-2-min-cut-path/main.pdf` |
 
 Each project has a `README.md` with its status, file list and known problems. Read it before editing the project
 and update it when the status changes. Add a row here and in the root `README.md` when a project is created.
@@ -94,9 +97,10 @@ and update it when the status changes. Add a row here and in the root `README.md
    .\scripts\package-project.ps1 -Project <project> [-MainFile <file.tex>] [-Template <name>] [-Flat] [-KeepComments] [-CheckOnly] [-MaxPages <n>]
    ```
 
-   It checks the venue files against `templates/<venue>/`, builds a clean copy (no `README.md`, `submission/`,
-   `experiments/`, comments), writes `outputs/<project>/package/<project>-<date>.zip` with the PDF beside it and
-   proves that the unzipped package compiles to the same text.
+   It checks the venue files against `templates/<venue>/` and its row in `templates/SOURCES.tsv`, builds a clean
+   copy (no `*.md`, `submission/`, `experiments/`, comments), scans everything sent for traces, writes
+   `outputs/<project>/package/<project>-<date>.zip` with the PDF beside it and proves that the unzipped package
+   compiles to the same text.
 
 6. Report what changed (file and place), anything noticed but not changed, and the PDF link.
 
@@ -132,8 +136,11 @@ Full map with maintenance rules: `knowledge/README.md`. Paths below are relative
 |---|---|
 | `templates/article-modular/` | default for every new article: venue-neutral wrapper `main.tex` + portable `preamble/`, `sections/` |
 | `templates/thesis-modular/` | dissertation (`main.tex`) and written work for the dissertation exam (`exam.tex`, build with `-MainFile exam.tex`) |
-| `templates/new-aiaa/`, `templates/altacv/` | class of article 1 (temporary); CV |
-| `templates/<venue>/` | venue template supplied by the user through `inbox/`; never edited, because the packager compares projects with it; the folder name is the value of `-Template` |
+| `templates/els-cas/` | official Elsevier CAS bundle 2.4 for Discrete Applied Mathematics (class `cas-sc`), from the DAM guide for authors; article 1 |
+| `templates/elsarticle/` | official Elsevier `elsarticle` bundle, for Elsevier journals without a CAS template |
+| `templates/sn-jnl/` | official Springer Nature journal article template 3.1 (class `sn-jnl`, `.bst` files in `bst/`), recommended by the Algorithmica submission guidelines; article 2 |
+| `templates/altacv/`, `templates/new-aiaa/` | CV; former class of article 1 (retired 2026-10-08) |
+| `templates/<venue>/` | venue template downloaded from the publisher's official page with the user's consent, archived zip and row in `templates/SOURCES.tsv` (skill `process-inbox`); never edited, because the packager compares projects with it; the folder name is the value of `-Template` |
 
 ## Conventions in one paragraph
 

@@ -29,6 +29,8 @@ Use this skill whenever a task creates, edits, compiles or diagnoses a LaTeX doc
    `.\scripts\check-bib.ps1 -Project <project>`.
 8. Structural change (new, renamed or moved file, new package, class files touched):
    `.\scripts\package-project.ps1 -Project <project> -CheckOnly`. Anything that is sent to anyone: the full run, and
-   only its zip with `Verdict: PASS` (`knowledge/writing/latex-conventions.md`, section 1.1).
+   only its zip with `Verdict: PASS` (`knowledge/writing/latex-conventions.md`, section 1.1). It fails on any trace
+   in what is sent: `TODO` markers, comments naming workspace files, local paths, AI tool names outside the AI
+   declaration (point 4 there); a venue template must be the publisher's recorded download (`templates/SOURCES.tsv`).
 9. End the reply with a clickable link to the PDF, `[outputs/<project>/<main>.pdf](outputs/<project>/<main>.pdf)`,
    and send the file with `SendUserFile` when available. This is required after every change.

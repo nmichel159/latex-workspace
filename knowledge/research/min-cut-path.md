@@ -134,7 +134,7 @@ From MT and the conclusion of A1:
 
 ## 7. Planned manuscripts
 
-Author's decision (2026-10-07): **article 2 will be produced from the master's thesis** (project `projects/clanok-2-min-cut-path/`, empty so far). The LaTeX source of MT is not in the repository – supply it in `inbox/`, otherwise the text is transcribed from the PDF. Article 1 will later be ported into the template of the target journal (not yet chosen).
+Author's decision (2026-10-07): **article 2 will be produced from the master's thesis** (project `projects/clanok-2-min-cut-path/`; target Algorithmica, Springer Nature template `sn-jnl` prepared 2026-10-08, placeholder text only). The LaTeX source of MT is not in the repository – supply it in `inbox/`, otherwise the text is transcribed from the PDF. Article 1 targets Discrete Applied Mathematics and was ported to its template on 2026-10-08 (class `cas-sc`).
 
 | Title in the CV | Likely source in MT (guess, to be confirmed) |
 |---|---|

@@ -57,7 +57,7 @@ The canonical file uses only the types and fields of classic BibTeX, so an entry
 |---|---|---|---|
 | `@article` | author, title, journal, year, volume, pages | number, doi | full journal name; `pages` may be `eid` or `articleno` |
 | `@inproceedings` | author, title, booktitle, year, pages | publisher, doi | `booktitle` in full with the abbreviation in parentheses; LNCS/LIPIcs also `series` and `volume`; an article number instead of pages as `12:1--12:17` |
-| `@book` | author or editor, title, publisher, year | isbn | `edition`, `series`, `number` where they exist |
+| `@book` | author or editor, title, publisher, year | isbn, doi | `edition`, `series`, `number` where they exist; `doi` whenever the publisher registered one (the Springer and Cambridge books of article 1 have one, checked 2026-10-09 on the publisher's book page and in the Crossref record `https://api.crossref.org/works/<doi>`, both of which must list the entry's ISBN), because journals such as Discrete Applied Mathematics ask for DOIs where available; `check-bib.ps1` does not report a missing book DOI |
 | `@incollection` | author, title, booktitle, publisher, year, pages | editor, doi | a chapter of a volume; cite the chapter, not the volume |
 | `@phdthesis`, `@mastersthesis` | author, title, school, year | | `type = {Bachelor's thesis}` for a bachelor's thesis; `address`, `url` |
 | `@misc`, preprint | author, title, year, eprint, archivePrefix | primaryClass | only until a published version exists |

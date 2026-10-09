@@ -20,8 +20,9 @@ list, not a recommendation. Which venue suits a manuscript is decided from the m
    Submission package, cover letter, response to reviewers, preprints and licenses:
    [../writing/submission.md](../writing/submission.md). Final tick list: [../writing/checklist.md](../writing/checklist.md).
 5. Never install a class to test a card. A class missing from MiKTeX (journal classes, `acmart`, `IEEEtran`) reaches a
-   project as a template the owner drops into `inbox/`
-   ([../writing/template-porting.md](../writing/template-porting.md) §1); the card records the download URL.
+   project as the publisher's download from the page the venue's guide links, fetched with the owner's consent (or
+   dropped into `inbox/` by the owner), archived and recorded in `templates/SOURCES.tsv` (skill `process-inbox`;
+   [../writing/template-porting.md](../writing/template-porting.md) §1); the card records the download URL.
 6. A card gives the packager its switches ([../writing/latex-conventions.md](../writing/latex-conventions.md) §1.1):
    *LaTeX* names the folder `templates/<name>/` once the template has arrived (`-Template`), *Limits* the page limit
    (`-MaxPages`), *Source files* whether the submission system builds from one directory (`-Flat`). A field that
@@ -34,12 +35,12 @@ cited page, without taxes.
 
 | Venue | Type | Publisher | Template / class | Citation style | Limit | OA model | Matches |
 |---|---|---|---|---|---|---|---|
-| [Discrete Applied Mathematics](discrete-applied-mathematics.md) | journal | Elsevier | `els-cas-templates`, `elsarticle` | alphabetical, then numbered | Note at most 10 pages; Contribution above 10; abstract 250 words | hybrid, APC USD 3460, CC BY, CC BY-NC or CC BY-NC-ND | Min Cut-Path (algorithms, complexity) |
+| [Discrete Applied Mathematics](discrete-applied-mathematics.md) | journal | Elsevier | `els-cas-templates` (`cas-sc`, `templates/els-cas/`), `elsarticle` | alphabetical, then numbered | Note at most 10 pages; Contribution above 10; abstract 250 words | hybrid, APC USD 3460, CC BY, CC BY-NC or CC BY-NC-ND | Min Cut-Path (algorithms, complexity); target of article 1, ported 2026-10-08 |
 | [Theoretical Computer Science](theoretical-computer-science.md) | journal | Elsevier | same | numbered | none; abstract 250 words | hybrid, APC USD 3190, CC BY, CC BY-NC or CC BY-NC-ND | complexity; section Natural Computing |
 | [Information Processing Letters](information-processing-letters.md) | journal | Elsevier | same | numbered | about 9 pages; highlights required | hybrid, APC USD 2880, CC BY, CC BY-NC or CC BY-NC-ND | one short result |
 | [Journal of Graph Theory](journal-of-graph-theory.md) | journal | Wiley | Wiley NJD / `WileyDesign` | numbered, alphabetical | none; no footnotes | hybrid, fee TODO(verify) | structural and algorithmic graph results |
 | [Networks](networks.md) | journal | Wiley | same | numbered, alphabetical | none; six keywords or more | hybrid, fee TODO(verify) | network optimization with algorithms |
-| [Algorithmica](algorithmica.md) | journal | Springer | Springer Nature template | numbered | none; abstract 150-250 words | hybrid, APC EUR 2790 / USD 3390 / GBP 2490 | algorithms, experimental algorithmics |
+| [Algorithmica](algorithmica.md) | journal | Springer | `sn-jnl` (`templates/sn-jnl/`), option `sn-mathphys-num` (inferred) | numbered | none; abstract 150-250 words, 4-6 keywords | hybrid, APC EUR 2790 / USD 3390 / GBP 2490 | algorithms, experimental algorithmics; target of article 2, template prepared 2026-10-08 |
 | [Discussiones Mathematicae Graph Theory](discussiones-mathematicae-graph-theory.md) | journal | Univ. of Zielona Gora | `dmgt` (after acceptance) | `\bibitem` | 30 pages requested | no APC | structural graph theory |
 | [Discrete Mathematics & Theoretical Computer Science](dmtcs.md) | journal | Episciences | `dmtcs_episciences` (after acceptance) | TODO(verify) | none | no fees, CC BY | discrete mathematics, theory |
 | [Journal of Combinatorial Optimization](journal-of-combinatorial-optimization.md) | journal | Springer | `svjour3`, `smallextended` | author-year | none; abstract 150-250 words | hybrid, APC EUR 2790 / USD 3390 / GBP 2390 | combinatorial optimization, ML-based design |
@@ -62,7 +63,9 @@ cited page, without taxes.
   double-anonymous venues (TEVC, TELO, GECCO, NeurIPS, ICML, ICLR) forbid author names and affiliations in the
   submitted file, and most also remove the acknowledgments (see the cards).
 - Classes not installed in MiKTeX on 2026-10-08: `elsarticle`, `acmart`, `IEEEtran`, `llncs`, `lipics-v2021`,
-  `svjour3`, `sn-jnl`, the INFORMS and Wiley classes, `dmgt`.
+  `svjour3`, the INFORMS and Wiley classes, `dmgt`. `sn-jnl` is filed as the template `templates/sn-jnl/` and builds
+  from a project folder after the MiKTeX package installs of 2026-10-08 (`threeparttable`, `jknappen`, `ncctools`);
+  `svjour3` is still not installed.
 - Conference calls seen on 2026-10-08 are mostly for 2026-2027 editions; their deadlines for 2027-2028 are
   `TODO(verify)` until the next call appears. STACS 2027 closes 2026-10-11.
 

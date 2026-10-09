@@ -68,7 +68,7 @@ Adapt per venue:
 
 | Venue | Change |
 |---|---|
-| Elsevier | heading *Declaration of generative AI and AI-assisted technologies in the manuscript preparation process*; place directly before the references |
+| Elsevier | heading *Declaration of generative AI and AI-assisted technologies in the manuscript preparation process*; a new section before the reference list; where the guide also wants the acknowledgements directly before the reference list (DAM), the declaration goes before the acknowledgements |
 | Springer Nature journals | keep the wording; Algorithmica: in the Methods section or a suitable alternative part ([guidelines](https://link.springer.com/journal/453/submission-guidelines), card checked 2026-10-08; the JOCO and MPC cards report the same text); other Springer journals: TODO(verify) |
 | IEEE | move the paragraph into Acknowledgments; add which sections were edited ("Sections 1-5") and that use was limited to language and typesetting |
 | ACM journals | optional for writing help; keep it in Acknowledgments if the venue asks (GECCO does) |
@@ -79,6 +79,21 @@ Adapt per venue:
 | ICLR | put the text into the mandatory AI disclosure section; list any required-category use |
 | NeurIPS, ICML | not required for language help; keep one sentence after the acknowledgments (camera-ready) or in the checklist |
 | Double-anonymous review | keep the statement, drop names of people and institutions from it |
+
+File convention (House rule):
+
+- Manuscript: the statement is text only in `sections/91-ai-declaration.tex`; the wrapper gives the venue's heading
+  (`\section*{...}`) and the `\input` line, after the last section and before the acknowledgments, so the
+  acknowledgments stay directly before the references (Elsevier, DAM card). A venue that wants the statement inside
+  the acknowledgments or the back matter (table above) gets it there instead.
+- Draft: until the owner inserts it, the statement stays in `projects/<p>/submission/ai-declaration.tex`, which is
+  never packaged. The owner decides whether and when it moves into `sections/`.
+- Packager: an AI tool name is allowed only in the text (not the comments) of a file named `*ai-declaration*.tex`
+  (the thesis: `*ai-statement*.tex`) that the main file reads, in the printed declaration of the staged PDF, or by
+  `submission/package-allow.txt`; anywhere else it fails as `[trace]`, and so does a placeholder of the template
+  (`[TOOL, VERSION]`, `[PROVIDER]`, `[MODEL AND VERSION]`, `[NAME OF TOOL / SERVICE]`, `[REASON]`). Every run prints `AI declaration: ...`
+  before the verdict, with a reminder when the manuscript has no such section
+  ([latex-conventions.md](latex-conventions.md) §1.1, point 4).
 
 ## 2. arXiv
 
@@ -211,7 +226,7 @@ Venue limits, anonymity, files and statements: the card in [../venues/](../venue
 | Item | Journal | Conference | arXiv (§2) |
 |---|---|---|---|
 | PDF | built locally; most Elsevier journals accept a PDF at initial submission (E), DAM asks for editable `.tex`; Algorithmica, JOCO: PDF plus all sources every time; IJOC: PDF, sources optional (cards) | the only review file; class, options and page or line limit of the call | refused when made from TeX |
-| Sources | `.tex`, `.cls`, `.bst`, own `.sty`, figures, `.bbl`, `.bib` in **one flat folder** (packager switch `-Flat`, §3.2 step 3): Editorial Manager cannot process sub-folders, compiles the sources itself and returns only an error log when the build fails (E). Springer: single directory; `.bbl` or `.bib` with `.bst`, most reliable is the `.bbl` pasted into the main file; no custom fonts; TeX Live 2018 (Editorial Manager), 2017 (eJP), 2021 (Article Processing Platform); Snapp needs pdfLaTeX and a `.zip` (S) | not at submission; camera-ready as the proceedings publisher asks (LIPIcs: `.bib` required, a `.bbl` alone is not enough: card) | sub-folders allowed; `.bbl` used as is |
+| Sources | `.tex`, `.cls`, `.bst`, own `.sty`, figures, `.bbl`, `.bib` in **one flat folder** (packager switch `-Flat`, §3.2 step 3): Editorial Manager cannot process sub-folders, compiles the sources itself and returns only an error log when the build fails (E). Springer: single directory; no custom fonts; diacritics as TeX code; TeX Live 2018 (Editorial Manager), 2017 (eJP), 2021 (Article Processing Platform, https://submission.nature.com/, which Algorithmica uses); `.bbl` or `.bib` with `.bst`, most reliable the `.bbl` pasted into the main file: stated for Editorial Manager and eJP only, no bibliography rule for the Article Processing Platform; "Snapp" needs pdfLaTeX and a `.zip`, but the page does not say which system Snapp is (S) | not at submission; camera-ready as the proceedings publisher asks (LIPIcs: `.bib` required, a `.bbl` alone is not enough: card) | sub-folders allowed; `.bbl` used as is |
 | Supplement | separate files, each cited in the text; code and data where the card demands release (IJOC, MPC) | appendix or one archive as the call says, anonymized like the paper | - |
 | Statements, extras | per card, in the manuscript or the form: competing interests, funding, data and code availability, author contributions ([CRediT](https://credit.niso.org/): 14 fixed roles), AI use (§1). Elsevier highlights (separate file, 3-5 bullets of at most 85 characters): required by IPL, encouraged by DAM and TCS (cards) | per call: AI statement (ICLR), paper checklist (NeurIPS) | AI statement kept (§1.2); `00README.json` (§2.3) |
 | Form: title, abstract, keywords, codes, authors | House rule: one file `projects/<p>/submission/metadata.txt`, pasted into every form, so form, PDF and arXiv agree. Abstract as plain text: no commands, citations or macros; formulas as text (`cp(u,v) = c(u,v) + d(u,v) - 1`). No title words among the keywords ([paper-structure.md](paper-structure.md) §3). MSC 2020 and ACM CCS from the official lists, never from memory ([template-porting.md](template-porting.md) §2). Name, affiliation, ORCID: §6.3 | same | TeX accents, no Unicode (§2.5) |
@@ -237,10 +252,13 @@ package is made and proved by the packager, never by hand (invariant, switches a
    `-Template`: the folder of the venue's template under `templates/`. `-MaxPages`: the limit on the card. `-Flat`:
    the system builds from one directory (Elsevier, Springer: §3.1); not for arXiv, which keeps sub-folders (§2.2).
    Continue only on `Verdict: PASS`; a finding is fixed in `projects/<p>/` and the script is run again. Read the
-   `[comment]` and `[unused]` lists even on PASS. Result: `outputs/<p>/package/<p>-<yyyyMMdd>.zip` (`-flat.zip`),
+   `[comment]` and `[unused]` lists and the allowed `[trace]` notes even on PASS, and check the line
+   `AI declaration:` against the venue's policy (§1.3). The zip carries no workspace or tool trace and the venue
+   template is a recorded download (`[trace]`, `[template-origin]`). Result: `outputs/<p>/package/<p>-<yyyyMMdd>.zip` (`-flat.zip`),
    `.bbl` inside, the PDF beside it. Not done by the script: the content of `main.bbl` in place of the
-   `\bibliography` line (Springer calls it the most reliable form (S); the zip carries the `.bbl`, which §3.1 lists
-   as accepted); one `.tex` file for sn-jnl ([template-porting.md](template-porting.md) §6.3).
+   `\bibliography` line (S calls it the most reliable form for Editorial Manager and eJP and states no rule for the
+   Article Processing Platform; the zip carries the `.bbl`); one `.tex` file, which the sn-jnl sample asks for and
+   Algorithmica's guide does not (open: [template-porting.md](template-porting.md) §6.3).
 4. Double-anonymous venue: §3.3, on the packager's PDF and zip. A hit is fixed in the project; then step 3 again.
 5. Upload set: the zip and the PDF from `outputs/<p>/package/`, plus the files the script does not make: cover
    letter (§4), highlights and supplement (§3.1), response letter and marked PDF in a revision (§5). Nothing is

@@ -78,7 +78,7 @@ Full list: [experiments-reporting.md](experiments-reporting.md) §9. At least:
 - [ ] ● Operators with a backslash (`\deg`, `\min`, `\max`, `\log`, `\lim`) (LC §6, LG §5).
 - [ ] ● `\[ ... \]` instead of `$$ ... $$`; no stray `\Bigr.` (LG §5).
 - [ ] ● Variables in running text are in math mode (`$p$`, not `(p)`) (LG §11).
-- [ ] ● Every figure has a `\caption` and is mentioned in the text (MW §7, LC §8).
+- [ ] ● Every figure has a `\caption` (a title and a description) and is cited in the text by its number (`Figure~\ref{fig:...}`), not only shown; a figure that appears only in its own caption is not cited (MW §7, LC §8).
 - [ ] ● The end-of-proof mark is not alone on a line (`\qedhere`) and "Proof." is not attached to an algorithm (LC §4, LG §6).
 - [ ] Tables without vertical rules (`booktabs`), numbers aligned on the decimal point (LG §9).
 - [ ] The PDF contains no `??`, no `[?]`, no line overflowing into the margin (LG §12, §17).
@@ -112,12 +112,14 @@ Rules and status tags: [../bibliography/README.md](../bibliography/README.md).
 ## Before submission
 
 - [ ] The venue card was re-opened and updated; template, length, citation style and mandatory statements match it (SB §3.2 step 1, `knowledge/venues/`).
+- [ ] ● The manuscript meets the card's rules on the abstract, figures, math and tables, checked in the PDF: the abstract states the main results; every figure is cited in the text and its caption has a title and a description; the venue's math conventions (DAM: solidus for small inline fractions, `\exp` for powers of e, consecutive equation numbers); tables without vertical rules and shading (`knowledge/venues/<venue>.md`).
 - [ ] The project meets the clean-build criteria (LC §2).
 - [ ] The author has checked the items under "Content changes to review" in the project `README.md`.
 - [ ] The AI-use statement follows the publisher's policy (SB §1).
 - [ ] No `TODO`, `\fillin`, commented-out old text or notes for co-authors are left in the source.
 - [ ] Form title, abstract, keywords and codes come from `projects/<project>/submission/metadata.txt` (SB §3.1).
 - [ ] `package-project.ps1` ends with `Verdict: PASS` for the venue's template, page limit and folder form; every `[layout]`, `[comment]` and `[unused]` line is resolved or justified; the uploaded zip is the one it wrote (LC §1.1, SB §3.2 step 3).
+- [ ] No trace of the workspace or of AI tools in the package: no `[trace]` FAIL; every allowed `[trace]` note is the AI declaration or a term in `submission/package-allow.txt` with a reason; `Template origin:` shows the venue's download; the `AI declaration:` line matches what was used and what the venue requires (LC §1.1 point 4, SB §1.3).
 - [ ] The PDF built by the submission system is compared with the one in `upload/` (SB §3.2 step 7).
 - [ ] Double-anonymous venue: the anonymization sweep is done (SB §3.3).
 - [ ] The cover letter is written where the venue asks for one (SB §4).

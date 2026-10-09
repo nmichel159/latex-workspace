@@ -19,7 +19,7 @@ Use this skill when the user asks for a new document.
    | article for a venue whose template is in `templates/<venue>/` | `article-modular`, then skill `port-latex-template` |
    | anything else | minimal `main.tex` per `latex-conventions.md`; tell the user which class you chose |
 
-   `new-aiaa` only when the owner asks for the class of article 1.
+   `new-aiaa` (the former class of article 1, which now uses `els-cas`) only when the owner asks for it.
 3. Keep the layout of the template: wrapper `main.tex`, `preamble/`, `sections/` (thesis: `chapters/`),
    `references.bib`, `img/`, class and `.bst` inside the project (`knowledge/writing/latex-conventions.md`, section 1).
 4. Article: write the four answers of `knowledge/writing/paper-structure.md` section 1 into the project `README.md`

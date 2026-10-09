@@ -14,10 +14,10 @@ Environment of the claims below: MiKTeX 25.12, LaTeX 2025-11-01, pdfTeX 1.40.28;
 - **LuaLaTeX** only when the document needs OpenType fonts (`fontspec`, installed) or tagged PDF with MathML
   (§16), and the venue accepts it. Never switch engines during a port without checking the venue.
 - Source files are UTF-8. UTF-8 is the default input encoding since LaTeX 2018-04-01 [ltnews28], so
-  `\usepackage[utf8]{inputenc}` is redundant (harmless; article 1 still has it).
+  `\usepackage[utf8]{inputenc}` is redundant (harmless).
 - `\usepackage[T1]{fontenc}`: hyphenation of accented words and searchable text. Combine it with an outline font
-  (`lmodern`, `newtx`): T1 with Computer Modern needs `cm-super`, which is not installed, and falls back to blurry
-  Type 3 bitmap fonts (seen in a test with `elsarticle`, 2026-10-07).
+  (`lmodern`, `newtx`): T1 with Computer Modern needs `cm-super` (installed 2026-10-08) and without it falls back to
+  blurry Type 3 bitmap fonts (seen with `elsarticle` 2026-10-07 and `cas-sc` 2026-10-08).
 
 ## 2. Fonts and microtype
 
@@ -52,8 +52,10 @@ Environment of the claims below: MiKTeX 25.12, LaTeX 2025-11-01, pdfTeX 1.40.28;
 ```
 
 1. cleveref with options leaves them in `\@curroptions`; `epstopdf-base` (loaded by `pdftex.def` at
-   `\begin{document}`) then requires `grfext.sty`, which this MiKTeX lacks: "File `grfext.sty' not found" (tested).
-   `\DoNotLoadEpstopdf` before `\documentclass` disables the EPS converter; figures are PDF/PNG anyway.
+   `\begin{document}`) then requires `grfext.sty`, which this MiKTeX lacked until 2026-10-08: "File `grfext.sty' not
+   found" (tested). `\DoNotLoadEpstopdf` before `\documentclass` disables the EPS converter. Since `grfext` was
+   installed (2026-10-08) the line is optional; never set it for a venue that wants EPS figures (Algorithmica), or
+   EPS figures stop building. Article 2 leaves it out and converts EPS with `epstopdf` (tested 2026-10-09).
 2. hyperref redefines many commands: load it after other packages [hyperref, §3].
 3. cleveref after every package that does not support it, including hyperref [cleveref, §2, §13].
 4. Theorem definitions after cleveref (cleveref requires `\newaliascnt` after itself [cleveref, §6]); use
@@ -184,13 +186,14 @@ S \coloneqq \set{v \in V : \deg(v) \geq 2}        % := with centered colon (math
   `\Comment`, `\Procedure`/`\Function`, `\Call`, `\Return` [algorithmicx]. `algorithm2e` is not installed.
 - Caption and label at the top of the float; reference lines with `line~\ref{line:gadget}` (§4).
 - Single line spacing inside `algorithmic` when the class sets double spacing:
-  `\AtBeginEnvironment{algorithmic}{\setstretch{1}}` (article 1, class `new-aiaa`).
+  `\AtBeginEnvironment{algorithmic}{\setstretch{1}}` (article 1 under its former class `new-aiaa`).
 - What the pseudocode contains: [math-writing.md](math-writing.md) §6.
 
 ## 8. Figures
 
 - Formats: vector PDF for drawings and plots, PNG for screenshots and raster images, JPG for photographs only.
-  EPS needs conversion and is off (§3).
+  EPS needs conversion: `epstopdf` does it during the pdfLaTeX build unless `\DoNotLoadEpstopdf` is set (§3); keep
+  EPS where the venue asks for it (Algorithmica).
 - Draw with TikZ in a standalone source next to the figure, compiled to PDF:
 
   ```latex
@@ -278,8 +281,8 @@ S \coloneqq \set{v \in V : \deg(v) \geq 2}        % := with centered colon (math
 - Caption above tables (reader meets the caption before the data), below figures.
 - Text columns that must fill the width: `tabularx` with `X` columns [tabularx]. Tables longer than a page: `longtable`
   (installed); `xltabular`, `ltablex` are not installed.
-- Table notes: `threeparttable` is not installed; put notes in a `\footnotesize` paragraph directly under the
-  `tabular`, inside the float.
+- Table notes: put notes in a `\footnotesize` paragraph directly under the `tabular`, inside the float.
+  `threeparttable` is installed since 2026-10-08 (the class `sn-jnl` loads it); its notes are untested here.
 - Units in the header (`Time (s)`), not in every cell.
 
 ## 10. Bibliography mechanics

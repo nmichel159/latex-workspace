@@ -17,7 +17,12 @@ Personal contacts (phone, private e-mail) are in the CV only; do not copy them h
 ## Affiliation
 
 - **Current (article 1):** Institute of Computer Science, Faculty of Science, Pavol Jozef Šafárik University in Košice, Košice, Slovakia.
+- Postal address of the institute: Institute of Computer Science, Faculty of Science, Pavol Jozef Šafárik University
+  in Košice, Jesenná 5, 040 01 Košice, Slovakia (official contact page <https://ics.science.upjs.sk/en/contact/>,
+  reached from `https://ics.upjs.sk/en/contact/`; read 2026-10-08). In `\affiliation` of `cas-sc`/`elsarticle`:
+  `addressline={Jesenná 5}`, `postcode={040 01}`, `city={Košice}`, `country={Slovakia}`.
 - University e-mail used in article 1: `5344553@upjs.sk`.
+- ORCID: none (the author stated 2026-10-08 that he has no ORCID iD); title pages carry no `orcid` key.
 - Slovak: Ústav informatiky, Prírodovedecká fakulta, Univerzita Pavla Jozefa Šafárika v Košiciach.
 
 ## Studies and theses
@@ -41,7 +46,7 @@ Personal contacts (phone, private e-mail) are in the CV only; do not copy them h
 | "In preparation" in the CV (2026) | *Polynomial-Time Solutions for Island Structures in the Min Cut-Path Problem* | no sources yet |
 | "In preparation" in the CV (2026) | *Random Graph Models for the Min Cut-Path Problem* | no sources yet |
 
-Author's decision (2026-10-07): article 2 will be prepared from the master's thesis (project `projects/clanok-2-min-cut-path/`, empty so far); which of the CV titles it corresponds to is not yet determined. Article 1 will later be ported into the template of the target journal.
+Author's decision (2026-10-07): article 2 will be prepared from the master's thesis (project `projects/clanok-2-min-cut-path/`); which of the CV titles it corresponds to is not yet determined. Its target is Algorithmica (Springer; the author's request of 2026-10-08): the project has the Springer Nature template (class `sn-jnl`, `templates/sn-jnl/`) with placeholder text since 2026-10-08. Article 1 targets Discrete Applied Mathematics (Elsevier) and was ported to the journal's template on 2026-10-08 (class `cas-sc`, `templates/els-cas/`).
 
 Open question: article 1 covers NP-completeness, the polynomial "islands" and random graphs, whereas the CV lists two manuscripts with other titles. Reconcile the publication list in the CV once the titles of articles 1 and 2 are final.
 
@@ -58,6 +63,4 @@ Slovak native, Czech C1, English B2 (per the CV). On every edit, review English 
 
 ## Missing (author to supply)
 
-- ORCID.
 - Official UPJŠ LaTeX template for the dissertation (put it into `inbox/`).
-- Target journal or conference for article 1 (the current class `new-aiaa` is an AIAA template from Overleaf).
