@@ -106,7 +106,7 @@
 % own heading) is given explicitly, so the class does not look ahead for one.
 \begin{abstract}[\abstractname]
 A cut-path between two vertices $u$ and $v$ of a graph is a set of edges that contains both a $u$--$v$ path and a cut separating $u$ from $v$.
-It models two servers that communicate along the path while every other route between them uses one of the chosen, secured edges.
+It models two servers that communicate along the path while every other route between them uses one of the secured edges.
 We study the \MinCutPath{} problem, which asks for a cut-path with the fewest edges.
 We prove that its decision version is NP-complete.
 Let $c(u,v)$ be the size of a minimum cut separating $u$ from $v$, and let $d(u,v)$ be the distance between $u$ and $v$.
@@ -130,8 +130,7 @@ NP-completeness \sep edge connectivity \sep graph diameter \sep Erdős–Rényi 
 Suppose that two trusted servers in a network must communicate while an adversary is denied every other route between them.
 We model the network as a graph whose vertices are the servers and whose edges are the direct communication links.
 The task is to select a set of edges that contains a connecting path and a separating cut.
-The path carries the communication, and the cut guarantees that every other route between the two servers uses at least one of the selected edges.
-The selected edges are the links that we secure; a route through one of them is closed to the adversary.
+The path carries the communication, and the cut guarantees that every other route between the two servers uses at least one of the selected edges, which are secured against the adversary.
 We call such a set of edges a \emph{cut-path}.
 The \MinCutPath{} problem asks for a cut-path with the fewest edges between two given vertices.
 
@@ -152,16 +151,16 @@ For unit edge lengths, the deleted edges form a length-bounded edge cut, and the
 Such an edge set destroys all short $u$--$v$ paths, whereas a cut-path meets every $u$--$v$ path and contains one of them.
 
 Other problems prescribe the structure of a cut.
-\textsc{Network Diversion} asks for a minimal $u$--$v$ cut that contains a prescribed edge.
+\textsc{Network Diversion} asks for a minimal $u$--$v$ cut of at most $k+1$ edges that contains a prescribed edge.
 Bentert et al.~\cite{Bentert2025NetworkDiversion} solved it in $O(n \log n)$ time on planar graphs with $n$ vertices and state that its complexity on general undirected graphs is open.
 A \emph{matching cut} is the set of all edges between the two sides of a vertex partition, provided that this set is a matching.
-Deciding whether a graph has a matching cut is polynomial on graphs of diameter two and NP-complete on graphs of diameter $d$ for every fixed $d \geq 3$~\cite{LeLe2019MatchingCut}.
+Deciding whether a graph has a matching cut is solvable in polynomial time on graphs of diameter two and NP-complete on graphs of diameter $d$ for every fixed $d \geq 3$~\cite{LeLe2019MatchingCut}.
 Komusiewicz et al.~\cite{Komusiewicz2020MatchingCut} gave kernels, single-exponential FPT algorithms and an exact exponential-time algorithm for this problem.
 
-In network diversion and matching cut the cut alone carries the condition, whereas in a cut-path the cut must fit into few edges together with a path.
-As for \textsc{Shortest Path Most Vital Edges} and matching cut, graphs of diameter two form a polynomial case of \MinCutPath{} (Theorem~\ref{thm:diameter-two}).
+In \textsc{Network Diversion} and \textsc{Matching Cut}, the cut alone carries the condition, whereas in a cut-path the cut must fit into few edges together with a path.
+As with \textsc{Shortest Path Most Vital Edges} and \textsc{Matching Cut}, graphs of diameter two form a polynomial case of \MinCutPath{} (Theorem~\ref{thm:diameter-two}).
 
-To the best of our knowledge, the problem has not been studied before.
+To the best of our knowledge, \MinCutPath{} has not been studied before.
 We settle its complexity and prove its basic structural properties.
 
 Our contributions are the following.
@@ -169,12 +168,14 @@ First, we prove that the decision version of \MinCutPath{} is NP-complete (Theor
 Second, let $\cp(u,v)$ be the size of a minimum cut-path, $c(u,v)$ the size of a minimum cut separating $u$ from $v$, and $d(u,v)$ the distance between $u$ and $v$.
 We prove that $\cp(u,v) = c(u,v) + d(u,v) - 1$ in graphs of diameter two (Theorem~\ref{thm:diameter-two}) and in graphs in which $c(x,y) \leq 2$ for every two distinct vertices $x$ and $y$ (Theorem~\ref{thm:cut-two}).
 In both classes, a minimum cut-path can be computed in polynomial time.
+
 Third, Erdős–Rényi random graphs with constant edge probability have diameter two with probability tending to one (Theorem~\ref{thm:random-diameter-two}), so the formula applies to them.
-For edge probabilities $p \geq \alpha \log n / n$ with $\alpha > 1$, where $n$ is the number of vertices, we show that the union of a minimum cut and a shortest path is within a factor of $1+\epsilon$ of the optimum on almost all inputs (Theorem~\ref{thm:approximation-scheme}).
+Let $n$ be the number of vertices and let $\alpha > 1$.
+For edge probabilities $p \geq \alpha \log n / n$, we show that the union of a minimum cut and a shortest path is within a factor of $1+\epsilon$ of the optimum on almost all inputs (Theorem~\ref{thm:approximation-scheme}).
 
 \SSP{} asks whether some shortest $u$--$v$ path separates $u$ from $v$ when its edges are removed.
 The reduction from \ThreeSAT{} builds a chain of cycles between $u$ and $v$.
-Its shortest $u$--$v$ paths choose one of the two halves of every cycle, and these choices encode truth values.
+The shortest $u$--$v$ paths of the chain choose one of the two halves of every cycle, and these choices encode truth values.
 Further $u$--$v$ paths, the threads, cross the cycles, and a separating shortest path must share an edge with every thread.
 Synchronization threads force the choices in all cycles of one variable to agree, and clause threads force the encoded truth assignment to satisfy every clause.
 \SSP{} then reduces to \MinCutPath{}, because a cut-path with at most $d(u,v)$ edges is exactly a separating shortest path.
@@ -344,7 +345,7 @@ The \SSP{} decision problem is defined as follows:
 \end{center}
 \end{problem}
 
-Unlike \MinCutPath, \SSP{} is not an optimization problem: a solution is a single shortest $u$--$v$ path, that is, a cut-path of size $d(u,v)$ (see the proof of Theorem~\ref{thm:mcp-np-complete}).
+Unlike \MinCutPath, \SSP{} is not an optimization problem: a solution is a single separating shortest $u$--$v$ path, which is a cut-path of size $d(u,v)$ (see the proof of Theorem~\ref{thm:mcp-np-complete}).
 This makes the reduction from \ThreeSAT{} more direct.
 
 \subsubsection{Gadgets and Basic Operations for the Reduction}
@@ -353,7 +354,7 @@ The reduction from \ThreeSAT{} to \SSP{} is built from \emph{gadgets} and \emph{
 The construction consists of two parts:
 \begin{enumerate}
     \item the \emph{base structure}, also referred to as the \emph{chain};
-    \item the \emph{threads}, which are threaded through the base structure.
+    \item the \emph{threads}, which are threaded through the chain.
 \end{enumerate}
 Figure~\ref{fig:chain-threads} shows both parts.
 
@@ -536,7 +537,7 @@ The reduction uses the following auxiliary procedures:
 \end{itemize}
 
 \paragraph{Auxiliary notation.}
-We also introduce the following notational conventions:
+We use the following notation:
 \begin{itemize}
     \item Occurrences: for each variable $x_i$, we denote by $O_i$ the set of all pairs $(j,k)$ such that the $j$-th literal of the clause $C_k$ is $x_i$ or $\neg x_i$.
     \item Sign function: for each literal $\ell$ we define
@@ -590,13 +591,15 @@ Every thread passes through at least two chain links, so it has at least two cro
 
 \paragraph{Lengths after the calibration.}
 The final calibration step guarantees that both paths of every chain link have the same length and that the connecting paths of the threads are sufficiently long.
-Hence the subdivided $4$-cycles are again chain links, the chain in $G$ is a $u$--$v$ chain in the sense of Definition~\ref{def:chain}, every $u$--$v$ path of this chain has exactly $\Lambda$ edges, and every connecting path has at least $\Lambda$ edges.
+Hence the subdivided $4$-cycles are again chain links, and the chain in $G$ is a $u$--$v$ chain in the sense of Definition~\ref{def:chain}.
+Every $u$--$v$ path of this chain has exactly $\Lambda$ edges, and every connecting path has at least $\Lambda$ edges.
 
 \subsubsection{Correctness of the Reduction}
 \label{sec:reduction-correctness}
 We call the $u$--$v$ paths of the chain in $G$ \emph{chain paths}; a chain path is determined by choosing, in every chain link, either its positive or its negative path.
 We say that a chain path $P$ \emph{hits} a thread if $P$ and the thread share an edge.
-Since a thread shares only its crossing edges with the chain, a chain path $P$ hits a thread created by $\textsc{Thread}(u,v,[(K_1,\sigma_1),\dots,(K_t,\sigma_t)])$ if and only if, for some $i$, the path $P$ traverses the path of $K_i$ with the sign $\sigma_i$.
+A thread shares only its crossing edges with the chain.
+Hence a chain path $P$ hits a thread created by $\textsc{Thread}(u,v,[(K_1,\sigma_1),\dots,(K_t,\sigma_t)])$ if and only if, for some $i$, the path $P$ traverses the path of $K_i$ with the sign $\sigma_i$.
 
 Every thread is a $u$--$v$ path in $G$.
 Therefore, a chain path $P$ can be separating only if it hits every thread.
@@ -606,7 +609,7 @@ Consistent chain paths correspond to truth assignments: we set $\tau(x_i)=\maths
 Conversely, every truth assignment $\tau$ determines a consistent chain path, which traverses, in all chain links of the block of $x_i$, the positive path if $\tau(x_i)=\mathsf{true}$ and the negative path if $\tau(x_i)=\mathsf{false}$.
 We call it the \emph{consistent chain path of~$\tau$}.
 
-\begin{lemma}[Shortest paths]
+\begin{lemma}[Shortest Paths]
 \label{lem:chain-paths}
 All chain paths have $\Lambda$ edges, and every other $u$--$v$ path in $G$ has more than $\Lambda$ edges.
 In particular, the shortest $u$--$v$ paths in $G$ are exactly the chain paths.
@@ -617,6 +620,7 @@ After the calibration, all chain paths have the same length $\Lambda$.
 Let $Q$ be a $u$--$v$ path in $G$ that is not a chain path.
 By Definition~\ref{def:chain}, every $u$--$v$ path that uses only edges of the chain is a chain path, and the edges of $G$ outside the chain are the edges of the connecting paths.
 Hence $Q$ contains an edge of some connecting path.
+
 The internal vertices of a connecting path have degree two in $G$, because the procedure $\textsc{Thread}$ creates the connecting paths as new, internally vertex-disjoint paths and $\textsc{Calibrate}$ subdivides them only by new vertices of degree two.
 Since $u$ and $v$ are not internal vertices of a connecting path, $Q$ contains the whole connecting path, which has at least $\Lambda$ edges.
 Every thread has at least two crossing edges, so every connecting path has an end-vertex on a crossing edge, and no connecting path joins $u$ and $v$ directly.
@@ -633,17 +637,18 @@ Let $P$ be a chain path and let $x_i$ be a variable.
 By Algorithm~\ref{alg:reduction}, the block of $x_i$ consists of $I_i$, the literal chain links $L_{j,k,i}$ with $(j,k) \in O_i$, and $T_i$.
 \begin{itemize}
     \item \emph{2-synchronization threads:} the chain path $P$ hits both 2-synchronization threads of the variable $x_i$ (Figure~\ref{fig:two-synchronization}) if and only if it traverses paths of the same sign in $I_i$ and in $T_i$.
-    Indeed, the first thread requires the positive path in $I_i$ or the negative path in $T_i$, and the second thread requires the negative path in $I_i$ or the positive path in $T_i$.
-    \item \emph{3-synchronization threads:} if $P$ traverses paths of the same sign in $I_i$ and $T_i$, then it hits both 3-synchronization threads of a literal link $L_{j,k,i}$ (Figure~\ref{fig:three-synchronization}) if and only if it traverses the path of this sign in $L_{j,k,i}$ as well.
-    Indeed, one of the two threads is hit exactly when $P$ uses the positive path in $I_i$ or $T_i$ or the negative path in $L_{j,k,i}$, and the other one exactly when $P$ uses the negative path in $I_i$ or $T_i$ or the positive path in $L_{j,k,i}$.
+    Indeed, the thread $[(I_i,+),(T_i,-)]$ requires the positive path in $I_i$ or the negative path in $T_i$, and the thread $[(I_i,-),(T_i,+)]$ requires the negative path in $I_i$ or the positive path in $T_i$.
+    \item \emph{3-synchronization threads:} if $P$ traverses paths of the same sign in $I_i$ and $T_i$, then it hits both 3-synchronization threads of a literal chain link $L_{j,k,i}$ (Figure~\ref{fig:three-synchronization}) if and only if it traverses the path of this sign in $L_{j,k,i}$ as well.
+    Indeed, the thread $[(I_i,+),(L_{j,k,i},-),(T_i,+)]$ is hit exactly when $P$ uses the positive path in $I_i$ or $T_i$ or the negative path in $L_{j,k,i}$.
+    The thread $[(I_i,-),(L_{j,k,i},+),(T_i,-)]$ is hit exactly when $P$ uses the negative path in $I_i$ or $T_i$ or the positive path in $L_{j,k,i}$.
 \end{itemize}
 Suppose that $P$ hits all synchronization threads.
 By the first item, $P$ traverses paths of the same sign in $I_i$ and $T_i$; by the second item, it traverses the path of this sign in every $L_{j,k,i}$ as well.
 Conversely, if $P$ traverses paths of the same sign in all chain links of the block of $x_i$, then both items show that $P$ hits all synchronization threads of $x_i$.
-Consequently, a chain path hits all synchronization threads if and only if, for every variable $x_i$, it traverses paths of the same sign in all chain links of the block of $x_i$, that is, if and only if it is consistent.
+Since this holds for every variable $x_i$, a chain path hits all synchronization threads if and only if it traverses paths of the same sign in all chain links of every block, that is, if and only if it is consistent.
 \end{proof}
 
-\begin{lemma}[Clause threads]
+\begin{lemma}[Clause Threads]
 \label{lem:clause-threads}
 Let $P$ be a consistent chain path with the truth assignment $\tau$.
 Then $P$ hits all clause threads if and only if $\tau$ satisfies every clause.
@@ -664,8 +669,9 @@ Then $P$ is a separating shortest $u$--$v$ path in $G$.
 
 \begin{proof}
 By Lemma~\ref{lem:chain-paths}, $P$ is a shortest $u$--$v$ path, so we have to show that $G\setminus P$ contains no $u$--$v$ path.
+We contract the parts of $G \setminus P$ that a $u$--$v$ path can use into an auxiliary multigraph $\Gamma$ and show that $\Gamma$ has no $u$--$v$ walk.
 
-\emph{The graph $G \setminus P$.}
+\paragraph{Step 1: the graph $G \setminus P$.}
 In $G \setminus P$, all single edges of the chain are missing, and in every chain link $K$ only the path not traversed by $P$ remains; we call it the \emph{unused path} of $K$ and denote it by $K^{\circ}$.
 A crossing edge that lies on $P$ is removed together with the two edges of the chain link adjacent to it; hence the two connecting paths that end at this crossing edge are \emph{dead ends} in $G \setminus P$.
 Indeed, each end-vertex of a crossing edge has degree three in $G$, with two edges in the chain link and one in a connecting path, so in $G \setminus P$ it has degree one.
@@ -673,35 +679,39 @@ As it is neither $u$ nor $v$, no $u$--$v$ path of $G \setminus P$ contains it.
 A crossing edge on an unused path remains and joins its two adjacent connecting paths to this unused path.
 Consequently, a path in $G \setminus P$ can move between connecting paths and unused paths only at crossing edges that are not on $P$.
 
-\emph{The auxiliary multigraph $\Gamma$.}
+\paragraph{Step 2: the multigraph $\Gamma$.}
 We record these moves in a multigraph $\Gamma$ whose nodes are $u$, $v$ and the unused paths $K^{\circ}$ of all chain links $K$.
-An end of a connecting path is \emph{open} if it is $u$, $v$, or an end-vertex of a crossing edge not on $P$; in the last case it lies on $K^{\circ}$, where $K$ is the chain link of this crossing edge.
+An end of a connecting path is \emph{open} if it is $u$, $v$, or an end-vertex of a crossing edge not on $P$.
+An open end of the last kind lies on $K^{\circ}$, where $K$ is the chain link of its crossing edge.
 Every connecting path with two open ends gives an edge of $\Gamma$ between the nodes of its ends.
 
-If $G \setminus P$ contains a $u$--$v$ path $Q$, then $\Gamma$ contains a $u$--$v$ walk.
-Indeed, every edge of $G \setminus P$ lies on an unused path or on a connecting path, because the single edges and the traversed paths of the chain links lie on $P$.
-Distinct unused paths are vertex-disjoint and contain neither $u$ nor $v$, because two chain links are never consecutive in the chain (Definition~\ref{def:chain}, item~4) and $u$, $v$ lie only on single edges of the chain.
+\paragraph{Step 3: a $u$--$v$ path in $G \setminus P$ gives a $u$--$v$ walk in $\Gamma$.}
+Let $Q$ be a $u$--$v$ path in $G \setminus P$.
+Every edge of $G \setminus P$ lies on an unused path or on a connecting path, because the single edges and the traversed paths of the chain links lie on $P$.
+Distinct unused paths are vertex-disjoint and contain neither $u$ nor $v$, because two chain links are never consecutive in the chain (Definition~\ref{def:chain}, item~4) and, among the subgraphs of the chain, $u$ and $v$ lie only on $H_1$ and $H_{r+1}$.
 If $Q$ uses an edge of a connecting path, it contains the whole connecting path, since the internal vertices of a connecting path have degree two (proof of Lemma~\ref{lem:chain-paths}).
-Both ends of this connecting path are open, since an end-vertex of a crossing edge on $P$ lies on no $u$--$v$ path of $G \setminus P$.
+Both ends of this connecting path are open, since, by Step~1, an end-vertex of a crossing edge on $P$ lies on no $u$--$v$ path of $G \setminus P$.
 Hence $Q$ consists of whole connecting paths with open ends and of segments between them, each segment inside a single unused path.
 Replacing every such connecting path by its edge of $\Gamma$ and every segment by its node gives a $u$--$v$ walk in $\Gamma$.
 
-\emph{The edges of $\Gamma$.}
+\paragraph{Step 4: the edges of $\Gamma$.}
 Every edge of $G$ belongs to the chain or to a connecting path of a thread, and every thread is a synchronization thread or a clause thread.
 The following three cases are therefore exhaustive; they also describe all ways in which a path starting at $u$ could progress in $G \setminus P$.
 \begin{enumerate}
-  \item \emph{Using a chain edge.}
-  The single edge of the chain incident to $u$ lies on $P$, so this option is blocked immediately.
-  More generally, all single edges of the chain lie on $P$, and the edges of an unused path $K^{\circ}$ belong to the node $K^{\circ}$ of $\Gamma$; the chain gives no edge of $\Gamma$.
+  \item \emph{Case 1: a chain edge.}
+  The single edge of the chain incident to $u$ lies on $P$, so this option is blocked.
+  The other edges of the chain lie on $P$ or on an unused path $K^{\circ}$, which is a node of $\Gamma$, so the chain gives no edge of $\Gamma$.
 
-  \item \emph{Using a synchronization thread.}
+  \item \emph{Case 2: a synchronization thread.}
   Such a thread first reaches $I_i$.
   If it crosses the path of $I_i$ traversed by $P$, it ends there.
   Otherwise, it reaches the unused path of $I_i$.
-  The threads that cross this unused path are one 2-synchronization thread, whose next crossing edge is in $T_i$, and one 3-synchronization thread for each literal link $L_{j,k,i}$, whose next crossing edge is in $L_{j,k,i}$; all these next crossing edges lie on $P$.
-  Hence every continuation from the unused path of $I_i$ leads back to $u$ or to a dead end.
+  The threads that cross this unused path are one 2-synchronization thread and one 3-synchronization thread for each literal chain link $L_{j,k,i}$.
+  The next crossing edge of the 2-synchronization thread is in $T_i$, that of the 3-synchronization thread of $L_{j,k,i}$ is in $L_{j,k,i}$, and all these next crossing edges lie on $P$.
+  Hence every continuation from the unused path of $I_i$ leads back to $u$ or to a dead end, so in $\Gamma$ the node $I_i^{\circ}$ is adjacent only to $u$.
 
-  To find the edges of $\Gamma$ given by these threads, suppose first that $\tau(x_i)=\mathsf{true}$.
+  The same check for all synchronization threads of $x_i$ gives their edges of $\Gamma$.
+  Suppose first that $\tau(x_i)=\mathsf{true}$.
   Then $P$ traverses the positive paths in the block of $x_i$, so a crossing edge in this block lies on $P$ if and only if its thread is threaded positively there.
   The four kinds of synchronization threads of $x_i$ give the following edges of $\Gamma$:
   \begin{itemize}
@@ -711,27 +721,29 @@ The following three cases are therefore exhaustive; they also describe all ways 
     \item $[(I_i,-),(L_{j,k,i},+),(T_i,-)]$: the first and the last connecting path give the edges $uI_i^{\circ}$ and $T_i^{\circ}v$; the other two end at the crossing edge in $L_{j,k,i}$, which lies on $P$.
   \end{itemize}
   If $\tau(x_i)=\mathsf{false}$, all signs are reversed: the first two threads exchange their roles, and so do the last two.
-  In both cases the synchronization threads of $x_i$ give only edges $uI_i^{\circ}$ and $T_i^{\circ}v$, and no edge at the unused path of a literal chain link.
+  In both cases the synchronization threads of $x_i$ give only edges $uI_i^{\circ}$ and $T_i^{\circ}v$.
 
-  \item \emph{Using a clause thread.}
-  The clause thread of $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$ passes through the literal links $L_{1,k}$, $L_{2,k}$, $L_{3,k}$.
-  Since $\tau$ satisfies $C_k$, at least one of its crossing edges lies on $P$, so the clause thread itself is interrupted before it reaches $v$.
-  At a crossing edge that is not on $P$, a path can leave the clause thread and enter the unused path of the literal link $L_{j,k,i}$.
-  Apart from the clause thread, this unused path is crossed only by a 3-synchronization thread, and the two connecting paths of this thread that start there lead to crossing edges in $I_i$ and $T_i$ that lie on $P$, i.e., to dead ends.
+  \item \emph{Case 3: a clause thread.}
+  The clause thread of $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$ passes through the literal chain links $L_{1,k}$, $L_{2,k}$, $L_{3,k}$.
+  By the proof of Lemma~\ref{lem:clause-threads}, the crossing edge of the clause thread in $L_{j,k}$ lies on $P$ if and only if $\tau$ satisfies $\ell_j$.
+  Since $\tau$ satisfies $C_k$, at least one of these crossing edges lies on $P$, so the clause thread itself is interrupted before it reaches $v$.
+  At a crossing edge that is not on $P$, a path can leave the clause thread and enter the unused path of the literal chain link $L_{j,k,i}$.
+  Apart from the clause thread, this unused path is crossed only by a 3-synchronization thread.
+  The two connecting paths of this thread that start there lead to crossing edges in $I_i$ and $T_i$ that lie on $P$, so they are dead ends.
 
-  For the edges of $\Gamma$, recall from the proof of Lemma~\ref{lem:clause-threads} that the crossing edge of the clause thread in $L_{j,k}$ lies on $P$ if and only if $\tau$ satisfies $\ell_j$.
-  Hence the four connecting paths of the clause thread give the edge $uL_{1,k}^{\circ}$ if $\ell_1$ is false, the edge $L_{j,k}^{\circ}L_{j+1,k}^{\circ}$ if $\ell_j$ and $\ell_{j+1}$ are false ($j=1,2$), and the edge $L_{3,k}^{\circ}v$ if $\ell_3$ is false, all under $\tau$.
+  Hence, with all literals evaluated under $\tau$, the four connecting paths of the clause thread give the edge $uL_{1,k}^{\circ}$ if $\ell_1$ is false, the edge $L_{j,k}^{\circ}L_{j+1,k}^{\circ}$ if $\ell_j$ and $\ell_{j+1}$ are false ($j=1,2$), and the edge $L_{3,k}^{\circ}v$ if $\ell_3$ is false.
 \end{enumerate}
 
-\emph{Conclusion.}
+\paragraph{Step 5: $\Gamma$ has no $u$--$v$ walk.}
 By the three cases, the node $I_i^{\circ}$ is adjacent in $\Gamma$ only to $u$, the node $T_i^{\circ}$ only to $v$, and the unused paths of literal chain links only through edges given by clause threads.
 No edge of $\Gamma$ joins $u$ and $v$, because every thread has at least two crossing edges.
-Suppose that $\Gamma$ contains a $u$--$v$ walk, and let $W$ be a shortest one; it is a path with at least one internal node.
+
+Suppose that $\Gamma$ contains a $u$--$v$ walk, and let $W$ be a shortest one.
+It is a path, and it has an internal node because no edge of $\Gamma$ joins $u$ and $v$.
 An internal node of $W$ has two distinct neighbors on $W$, so it is neither $I_i^{\circ}$ nor $T_i^{\circ}$; hence all internal nodes are unused paths of literal chain links.
 An edge between two such nodes joins $L_{j,k}^{\circ}$ and $L_{j+1,k}^{\circ}$ for the same clause $C_k$, the node $u$ is adjacent only to nodes $L_{1,k}^{\circ}$ among them, and $v$ only to nodes $L_{3,k}^{\circ}$.
 Therefore $W = u\,L_{1,k}^{\circ}\,L_{2,k}^{\circ}\,L_{3,k}^{\circ}\,v$ for some clause $C_k$, and by Case~3 all three literals of $C_k$ are false under $\tau$, a contradiction.
-Hence $\Gamma$ contains no $u$--$v$ walk, so all possible continuations from $u$ are blocked in $G\setminus P$.
-There is no $u$--$v$ path after removing $P$; hence $P$ is separating.
+Hence $\Gamma$ contains no $u$--$v$ walk, so all possible continuations from $u$ are blocked in $G\setminus P$, there is no $u$--$v$ path after removing $P$, and $P$ is separating.
 \end{proof}
 
 \begin{theorem}
@@ -754,9 +766,9 @@ The constructed instance of \SSP{} is equivalent to the original \ThreeSAT{} ins
 
     \item If there exists a satisfying assignment for the \ThreeSAT{} instance, then a separating shortest path in $G$ can be constructed from it.
 
-    Given a satisfying assignment $\tau$, let $P$ be the consistent chain path that corresponds to $\tau$: in all chain links of the block of $x_i$, it traverses the positive path if $\tau(x_i)=\mathsf{true}$ and the negative path if $\tau(x_i)=\mathsf{false}$.
+    Given a satisfying assignment $\tau$, let $P$ be the consistent chain path of $\tau$: in all chain links of the block of $x_i$, it traverses the positive path if $\tau(x_i)=\mathsf{true}$ and the negative path if $\tau(x_i)=\mathsf{false}$.
     The path $P$ is a shortest $u$--$v$ path (Lemma~\ref{lem:chain-paths}), and it hits every thread (Lemmas~\ref{lem:synchronization} and~\ref{lem:clause-threads}).
-    By Lemma~\ref{lem:separating}, $P$ is separating, i.e., $G\setminus P$ contains no $u$--$v$ path.
+    By Lemma~\ref{lem:separating}, $P$ is separating, so $G\setminus P$ contains no $u$--$v$ path.
 \end{enumerate}
 
 \paragraph{Running time of the reduction.}
@@ -804,7 +816,7 @@ The threshold $k$ is computed by breadth-first search, so the reduction runs in 
 
 \paragraph{Correctness.}
 Suppose that $G$ admits a separating shortest path $P$.
-Then $|P| = d_G(u,v) = k$, and $P$ itself is a cut-path of size $k$, since (i) it is a $u$--$v$ path and (ii) its removal disconnects $u$ and $v$, so $P$ is also a $u$--$v$ cut.
+Then $|P| = d_G(u,v) = k$, and $P$ itself is a cut-path of size $k$, since (i) it is a $u$--$v$ path and (ii) its removal disconnects $u$ from $v$, so $P$ is also a $u$--$v$ cut.
 Conversely, suppose that $G'$ has a cut-path $F$ with $|F| \leq k$.
 Then $F$ contains a $u$--$v$ path $P$, which has at least $d_G(u,v) = k$ edges; hence $F = P$ and $P$ is a shortest $u$--$v$ path in $G$.
 Since $F$ also contains a $u$--$v$ cut, $G \setminus P$ contains no $u$--$v$ path.
@@ -825,7 +837,7 @@ The decision version is NP-complete, and hence the optimization version is NP-ha
 \section{Graphs of Diameter Two}
 \label{sec:diameter-two}
 
-The first class in which the problem can be solved efficiently consists of the graphs of diameter two, a class studied in algebraic graph theory~\cite{GodsilRoyle2001}.
+The first class in which the problem can be solved in polynomial time consists of the graphs of diameter two, a class studied in algebraic graph theory~\cite{GodsilRoyle2001}.
 
 \begin{definition}[Diameter]
 \label{def:diameter}
@@ -864,11 +876,11 @@ I = \emptyset \quad\text{or}\quad L = \emptyset.
 Suppose, for a contradiction, that there are vertices $x \in I$ and $y \in L$.
 Since $x \in A_1$, $y \in A_2$ and $C$ is the set of all edges between $A_1$ and $A_2$, every $x$--$y$ path contains an edge $\{a, b\}$ of $C$ with $a \in A_1$ and $b \in A_2$.
 The vertices $a$ and $b$ are incident to an edge of $C$, so $a \in J$ and $b \in K$; in particular, $a \neq x$ and $b \neq y$, because $x$ and $y$ are not incident to any edge of $C$.
-Hence the path has at least one edge between $x$ and $a$, the edge $\{a, b\}$, and at least one edge between $b$ and $y$; that is, it passes through $J$ and $K$ and has at least three edges.
+Hence the path has at least one edge between $x$ and $a$, the edge $\{a, b\}$, and at least one edge between $b$ and $y$, so it passes through $J$ and $K$ and has at least three edges.
 Therefore $d(x, y) \geq 3$, which contradicts the assumption that $G$ has diameter two.
 \end{proof}
 
-The next lemma holds in every graph; it concerns the intersection of a cut and a path.
+The next lemma holds in every graph.
 
 \begin{lemma}
 \label{lem:odd-intersection}
@@ -885,7 +897,7 @@ Let $S = C \cap P$ be the set of edges in the intersection of the cut and the pa
 When we traverse the path $P$ from $u$ to $v$, each edge of $S$ changes the side of the cut (i.e., it switches between $A_1$ and $A_2$), while every other edge of $P$ stays on the same side.
 The path starts in $A_1$ and ends in $A_2$.
 If the path crossed the cut an even number of times, its first and its last vertex would lie on the same side, which contradicts the assumption that $u \in A_1$ and $v \in A_2$.
-Therefore, the path crosses the cut an odd number of times, i.e., $|S|$ is odd.
+Therefore, the path crosses the cut an odd number of times, so $|S|$ is odd.
 \end{proof}
 
 Lemmas~\ref{lem:empty-i-or-l} and~\ref{lem:odd-intersection} give the value of $\cp(u,v)$ in graphs of diameter two.
@@ -921,23 +933,23 @@ Then a minimum cut-path $S$ has the same size as a minimum cut.
 The set $S$ contains a $u$--$v$ cut, which has at least $c(u, v) = |S|$ edges, so this cut is all of $S$.
 Hence the set $S$ itself is a minimum cut, which we denote by $C$, and the $u$--$v$ path $P$ contained in $S$ is a subset of this cut.
 
-The cut $C$ is the set of all edges between two sides with $u$ and $v$ on different sides.
+The cut $C$ is the set of all edges between a vertex set and its complement, with $u$ and $v$ on different sides.
 Indeed, let $A$ be the vertex set of the component of $G \setminus C$ that contains $u$.
 Every edge between $A$ and $V \setminus A$ belongs to $C$, since otherwise its end outside $A$ would lie in the same component as $u$.
 These edges separate $u$ from $v$, because $v \notin A$; by the minimality of $C$, there are at least $|C|$ of them, so they form all of $C$.
-We denote the sides $A$ and $V \setminus A$ by $A_1$ and $A_2$.
+We denote the two sides $A$ and $V \setminus A$ by $A_1$ and $A_2$, in either order.
 
 By Lemma~\ref{lem:odd-intersection}, applied to $C$ and to the path $P \subseteq C$, the number of edges of $P$ is odd.
 Since $d(u,v) = 2$, the path $P$ has at least two edges, and hence at least three.
+
 Let $I, J, K, L$ be the decomposition induced by the cut $C$ (Lemma~\ref{lem:cut-decomposition}).
-Two exchanges do not affect the argument.
-The first exchanges the names $A_1$ and $A_2$, and with them $I$ with $L$ and $J$ with $K$.
-The second exchanges $u$ and $v$: the values $c(u, v)$, $d(u, v)$ and $\cp(u, v)$ do not depend on the order of $u$ and $v$, and $P$ read backwards is a $v$--$u$ path.
-By Lemma~\ref{lem:empty-i-or-l} and the first exchange, we may assume that $L = \emptyset$; by the second exchange, we may then assume that $u \in A_2$.
+Two renamings do not affect the argument.
+The first swaps the names $A_1$ and $A_2$, and with them $I$ with $L$ and $J$ with $K$.
+The second swaps $u$ and $v$: the values $c(u, v)$, $d(u, v)$ and $\cp(u, v)$ do not depend on the order of $u$ and $v$, and $P$ read backwards is a $v$--$u$ path.
+By Lemma~\ref{lem:empty-i-or-l} and the first renaming, we may assume that $L = \emptyset$; by the second renaming, we may then assume that $u \in A_2$.
 Since $A_2 = K \cup L = K$, we have $u \in K$, so the graph is partitioned into the three sets $I, J, K$.
-Moreover, $u$ is incident to an edge of the cut: the first edge of $P$ belongs to the cut and is incident to $u$.
 We observe that $v \in J$: the last edge of $P$ belongs to the cut and is incident to $v$, so the vertex $v$ cannot belong to the set $I$.
-This structure is illustrated in Figure~\ref{fig:diameter-two-structure}.
+Figure~\ref{fig:diameter-two-structure} shows this structure.
 
 \begin{figure}[H]
     \centering
@@ -951,7 +963,7 @@ Counting the edges of $C$ according to their end-vertex in $K$, we estimate the 
 \[
 \cp(u, v) = c(u,v) = |C| \geq \deg(u, I) + \deg(u, J) + 2 + (|K| - 2).
 \]
-Here $\deg(u, I) = 0$, because $u \in K$ has no neighbors in $I$: an edge between $u \in A_2$ and a vertex of $I \subseteq A_1$ would belong to $C$, but no vertex of $I$ is incident to an edge of $C$.
+Here $\deg(u, I) = 0$ (see below).
 The terms of the estimate count the following edges:
 \begin{itemize}
     \item The terms $\deg(u, I)$ and $\deg(u, J)$ denote the numbers of edges that lead from the vertex $u$ to the opposite side of the minimum cut.
@@ -969,7 +981,7 @@ Since $\deg(u, I) \geq 0$, and since $\deg(u, K) \leq |K| - 1$ because $u \in K$
 \deg(u, I) + \deg(u, J) + 2 + (|K| - 2) \geq
 0 + \deg(u, J) + \deg(u, K) + 1 = \deg(u) + 1 \geq c(u, v) + 1.
 \]
-The equality holds because $V = I \cup J \cup K$ and $u$ has no neighbors in $I$.
+The equality holds because $V = I \cup J \cup K$ and $u$ has no neighbors in $I$: an edge between $u \in A_2$ and a vertex of $I \subseteq A_1$ would belong to $C$, but no vertex of $I$ is incident to an edge of $C$.
 The last inequality holds because the edges incident to $u$ form a $u$--$v$ cut.
 This contradicts the assumption that $\cp(u, v) = c(u, v)$; hence $\cp(u, v) = c(u, v) + 1 = c(u, v) + d(u, v) - 1$.
 \end{proof}
@@ -985,9 +997,11 @@ Hence, in graphs of diameter two, a minimum cut-path can be found by one minimum
 
 The same formula holds in graphs in which the minimum cut-value of every pair of vertices is at most two.
 
-Such graphs have the structure of a \emph{cactus graph} (cf.~\cite{Mehlhorn2017Certifying}): they consist of cycles and single edges, any two of which share at most one vertex, an articulation point.
+Such graphs have the structure of a \emph{cactus graph} (see~\cite{Mehlhorn2017Certifying}): they consist of cycles and single edges, any two of which share at most one vertex, an articulation point.
 Indeed, suppose that two distinct cycles shared an edge.
 Then the second cycle contains a path whose ends $x \neq y$ lie on the first cycle and whose edges do not belong to the first cycle.
+To find it, take an edge of the second cycle that is not on the first, and follow the second cycle from it in both directions up to the first vertex of the first cycle.
+The two vertices reached are distinct, because the second cycle contains both ends of the shared edge.
 The union of the two cycles would then contain the two vertices $x$ and $y$ joined by three edge-disjoint paths: this path and the two $x$--$y$ paths along the first cycle.
 Separating $x$ from $y$ would require at least three edges, contradicting the assumption $c(x,y) \leq 2$.
 
@@ -1020,6 +1034,7 @@ Hence a minimum cut-path is a shortest $u$--$v$ path $P$ that contains a $u$--$v
 
 Since $c(u, v) = 2$, no single edge separates $u$ from $v$.
 A bridge of $G$ on the path $P$ would separate $u$ from $v$; hence no edge of $P$ is a bridge, and every edge of $P$ lies on a cycle of the cactus graph $G$.
+
 The path $P$ therefore passes through a sequence of cycles $Z_1, Z_2, \dots, Z_t$, and in each cycle $Z_i$ it follows one of the two arcs between the vertex where it enters $Z_i$ and the vertex where it leaves $Z_i$.
 The path $P$ enters $Z_1$ at $u$ and leaves $Z_t$ at $v$.
 For $i < t$, the vertex where $P$ leaves $Z_i$ is the vertex where it enters $Z_{i+1}$, since every edge of $P$ lies on one of these cycles.
@@ -1040,7 +1055,7 @@ We study the \MinCutPath{} problem in Erdős–Rényi random graphs $G(n, p)$, i
 Throughout this section, $\log$ denotes the natural logarithm.
 An event holds \emph{with high probability} if its probability tends to one as $n \to \infty$.
 
-Dense random graphs, i.e., those with a constant edge probability $p$, have diameter two with high probability~\cite{Bollobas2001}.
+Random graphs with a constant edge probability $p$, called dense, have diameter two with high probability~\cite{Bollobas2001}.
 
 \begin{theorem}[\cite{Bollobas2001}]
 \label{thm:random-diameter-two}
@@ -1097,6 +1112,7 @@ By the Chernoff bounds (see, e.g.,~\cite{Frieze2016}),
 \]
 Since $h(a) \to 1$ as $a \to 0$, $h(a) \to \infty$ as $a \to \infty$, and $\alpha > 1$, we can fix constants $0 < a_1 < 1 < a_2$ such that $\alpha h(a_1) > 1$ and $\alpha h(a_2) > 1$.
 For these constants, both probabilities above are $o(1/n)$, because $\exp(-\mu h(a_i)) = n^{-(1-o(1))\,\alpha h(a_i)}$ and $\alpha h(a_i) > 1$ for $i = 1, 2$.
+
 The union bound over all $n$ vertices shows that, with high probability, every degree lies between $a_1 \mu$ and $a_2 \mu$.
 Since $\mu = (1 - 1/n)\,\alpha \log n$, we have $\alpha \log n / 2 \leq \mu \leq \alpha \log n$ for $n \geq 2$.
 The claim follows, for instance, with $\beta_1 = a_1 \alpha / 2$ and $\beta_2 = 2 a_2 \alpha$.
@@ -1134,8 +1150,7 @@ Hence
 \]
 \end{proof}
 
-By Lemma~\ref{lem:basic-bounds} and its proof, the union of a minimum $u$--$v$ cut and a shortest $u$--$v$ path has at most $c(u,v) + d(u,v) - 1$ edges, and every cut-path has at least $c(u,v)$ edges.
-The diameter bound of Theorem~\ref{thm:random-diameter} and the connectivity bound of Lemma~\ref{lem:connectivity-bounds} keep the ratio of these two numbers below $1+\epsilon$ on almost all inputs.
+The diameter bound of Theorem~\ref{thm:random-diameter} and the connectivity bound of Lemma~\ref{lem:connectivity-bounds} keep the ratio $(c(u,v)+d(u,v)-1)/c(u,v)$ below $1+\epsilon$ on almost all inputs.
 
 \begin{theorem}
 \label{thm:approximation-scheme}
@@ -1148,7 +1163,8 @@ The algorithm runs in polynomial time, since both a minimum cut and a shortest p
 By the proof of Lemma~\ref{lem:basic-bounds}, its output $S$ is a cut-path with $|S| \leq c(u,v) + d(u,v) - 1$.
 
 Adding edges to a graph cannot increase the distances and cannot decrease the values $c(u,v)$.
-Hence, by the standard coupling of the random graphs $G(n,p)$ for different edge probabilities (see, e.g.,~\cite{Frieze2016}), the diameter bound of Theorem~\ref{thm:random-diameter} and the lower bound $c(u,v) \geq \beta_1 \log n$ of Lemma~\ref{lem:connectivity-bounds}, which are stated for $p = \alpha \log n / n$, remain valid for every $p \geq \alpha \log n / n$.
+The diameter bound of Theorem~\ref{thm:random-diameter} and the lower bound $c(u,v) \geq \beta_1 \log n$ of Lemma~\ref{lem:connectivity-bounds} are stated for $p = \alpha \log n / n$.
+Hence, by the standard coupling of the random graphs $G(n,p)$ for different edge probabilities (see, e.g.,~\cite{Frieze2016}), they remain valid for every $p \geq \alpha \log n / n$.
 Thus, with high probability, all pairs of distinct vertices $u,v$ satisfy
 \[
 d(u,v) \leq \diam(G) \leq \frac{\log n}{\log \log n}
@@ -1166,7 +1182,7 @@ Hence
 &\leq 1+\frac{\log n / \log \log n}{\beta_1 \log n} = 1 + \frac{1}{\beta_1 \log \log n}.
 \end{align*}
 The right-hand side is smaller than $1+\epsilon$ for all sufficiently large $n$.
-Thus, the algorithm achieves the approximation ratio $1+\epsilon$ on a set of inputs whose probability tends to one, i.e., it is an average $(1+\epsilon)$-approximation scheme.
+Thus, the algorithm achieves the approximation ratio $1+\epsilon$ on a set of inputs whose probability tends to one, so it is an average $(1+\epsilon)$-approximation scheme.
 \end{proof}
 
 \section{Conclusion}

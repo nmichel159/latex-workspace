@@ -123,7 +123,7 @@ Article 2 will be prepared from the master's thesis. Do not reuse these places w
 
 ## 5b. Related problems in the literature
 
-Mentioned neither in A1 nor in MT; cite them in the next revision of A1 and in article 2 (entries are in `knowledge/bibliography/references.bib`, reading notes in `knowledge/literature/`). Searched again 2026-10-09 (`knowledge/literature/searches.md`): the problem itself was not found elsewhere; no Discrete Applied Mathematics paper on a close problem was found.
+Cited in A1 since the preserving revision of 2026-10-09 (introduction; Chung-Lu at Theorem 6.2; diameter three as an open question in the conclusion); not in MT; cite them in article 2 too (entries are in `knowledge/bibliography/references.bib`, reading notes in `knowledge/literature/`). Searched again 2026-10-09 (`knowledge/literature/searches.md`): the problem itself was not found elsewhere; no Discrete Applied Mathematics paper on a close problem was found.
 
 | Problem | Relation to Min Cut-Path | Source |
 |---|---|---|

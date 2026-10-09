@@ -12,6 +12,15 @@ Still open: "Open items for the author" below (AI declaration, funding, highligh
 changes to review". "Change history" names `preamble/` and `sections/` files; their content is now in `main.tex`, the
 files are in `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-before-flat/`.
 
+**Preserving revision of 2026-10-09 (evening):** the whole text was tidied without removing content; Section 3
+is reorganized into construction (Algorithm 1 outside the proof) and Lemmas 3.5-3.8 before Theorem 3.9; seven
+verified references added (18 entries); Figure 10 is vector (all figures are vector now). 19 pages. Report, change
+logs and the open mathematical issues for the author:
+`projects/clanok-1-min-cut-path.submission/revision-2026-10-09/REPORT.md`. Original:
+`archives/removed-from-projects/clanok-1-min-cut-path/main-before-preserving-revision-2026-10-09.tex`.
+Label and numbering notes below that predate this revision (Theorem 3.5 = SSP, figure list, `.png`) are outdated:
+Theorem 3.9 is `thm:ssp-np-complete`, Theorem 3.10 `thm:mcp-np-complete`; Figure 10 is `diameter-two-structure.pdf`.
+
 ## Intent
 
 | | |
@@ -488,6 +497,18 @@ from the revision, but the author is responsible for them.
       **Check this sentence against the thesis** and against the journal's question on prior publication.
 
 ## Change history
+
+**2026-10-09 - preserving revision (cloud session, 16:50-17:20)**
+- Four editors (front matter and Sections 1-2; Section 3; Sections 4-5 and Figure 10; Sections 6-7 and sources) and
+  two reviewers (mathematics and preservation; style). Working files, inventories, change logs and issue lists:
+  `projects/clanok-1-min-cut-path.submission/revision-2026-10-09/`; summary in `REPORT.md` there.
+- `references.bib`: Abhinav2022NonSeparating, Bazgan2019MostVital, Bentert2025NetworkDiversion, ChungLu2001,
+  Komusiewicz2020MatchingCut, LeLe2019MatchingCut, Mao2021NonSeparating copied from the canonical file.
+- `diameter-two-structure.png` replaced by `diameter-two-structure.pdf` (TikZ source in
+  `projects/clanok-1-min-cut-path.submission/figures/`); PNG in `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-png-figures/`.
+- Build (TeX Live 2023 in the cloud container): 19 pages, no undefined references; static package check PASS.
+  The full packager run with `-KeepComments` was not repeated on Windows.
+
 
 **2026-10-09 - Figures 2-6 redrawn as vector graphics (10:55-11:00)**
 - On the author's request, `chain-threads`, `chain-link`, `chain`, `chain-link-types` and `threading` were redrawn
