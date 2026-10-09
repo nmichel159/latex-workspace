@@ -1,7 +1,7 @@
 # Min Cut-Path – research overview
 
 Sources: the master's thesis *Min Cut-Path* (Charles University, Prague, 2025; **MT**) and the manuscript of article 1
-(`projects/clanok-1-min-cut-path/main.tex` wrapper, text in `projects/clanok-1-min-cut-path/sections/`; **A1**). Definition and theorem numbers of MT can be located in
+(`projects/clanok-1-min-cut-path/main.tex`, the whole text in one file; **A1**). Definition and theorem numbers of MT can be located in
 `knowledge/sources/diplomova-praca-2025-min-cut-path.txt`.
 
 ## 1. Problem
@@ -51,7 +51,7 @@ Typeset problem names in small caps: `\textsc{Min Cut-Path}`, `\textsc{Separatin
 | Diameter 2 ⇒ `c(u,v) = min(deg u, deg v)` | Theorem 16 | – | |
 | `c(x,y) ≤ 2` for all pairs ⇒ cactus structure | Claim 17 | paragraph before Theorem V.1 | |
 | **`c(x,y) ≤ 2` for all pairs ⇒ `cp = c + d − 1`** | Theorem 18 | Theorem `thm:cut-two` (V.1) | proof added 2026-10-07 |
-| Class *diam or cut 2*; the formula `cp = c + d − 1` does not hold in it (counterexamples) | Def. 37, Fig. 3.3 | only in the conclusion as a further direction | |
+| Class *diam or cut 2*; the formula `cp = c + d − 1` does not hold in it (counterexamples) | Def. 37, Fig. 3.3 | only in the conclusion as a further direction, without the counterexamples | the two counterexamples are described below the table; the author decided on 2026-10-09 not to put them or the class diagram into A1 for now |
 | General path, square graph, general square graph, pseudo-square graph | Def. 38–41 | – | |
 | Decomposition into a general square graph for `c(u,v) = 2` | Theorem 20 (Alg. 2–5) | – | |
 | Polynomial computation of `cp` in *diam or cut 2* for `c(u,v) = 2` | Theorem 22 (Alg. 6) | – | the case `d(u,v) = 2` remains open |
@@ -67,6 +67,18 @@ Typeset problem names in small caps: `\textsc{Min Cut-Path}`, `\textsc{Separatin
 | Filter-BFS, Local-Cut; polynomial for nearly 5-regular graphs | Alg. 9–12; Theorem 37, 38 | – | |
 | **NP-completeness of \textsc{Separating Shortest Path}** (reduction from 3-SAT, chain and threads) | – | Theorem `thm:ssp-np-complete` (III.5), `alg:reduction` | new relative to MT; proof rewritten 2026-10-07 |
 | **NP-completeness of the decision version of \textsc{Min Cut-Path}** | – (an open problem in MT) | Theorem `thm:mcp-np-complete` (III.6) | reduction `G' = G`, `k = d_G(u,v)`; the optimization version is NP-hard |
+
+**Counterexamples in the class *diam or cut 2*** (MT Fig. 3.3; not in A1; checked by hand 2026-10-09; vector
+drawings with the path in red: TikZ sources in `projects/clanok-1-min-cut-path.submission/figures/`, PDFs in
+`archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-conclusion-figures/`).
+Both graphs have the six vertices `t, a, v, u, b, s` and the edges `ta, tv, au, ab, vb, us, sb`; graph (b) also has
+`av` and `ub`. The path `u–a–b–v` has three edges and its removal separates `{a, t, v}` from `{u, b, s}`.
+- (a): `c(u,v) = 2`, `d(u,v) = 3`, `cp(u,v) = 3 ≠ 4`; the path is a shortest path that is also a cut. The graph has
+  `d(u,v) = 3` and `c(a,b) = 3`, so it lies in neither of the two smaller classes.
+- (b): `d(u,v) = 2`, `c(u,v) = 3`, `cp(u,v) = 3 ≠ 4`; the path is a minimum cut that is also a path. The graph has
+  `d(t,s) = 3` and `c(u,v) = 3`, so it lies in neither of the two smaller classes.
+- In both, a minimum cut and a shortest path share exactly one edge (odd intersection, at most two), so no union of
+  a minimum cut and a shortest path is a minimum cut-path.
 
 ## 4. What each text contains beyond the other
 

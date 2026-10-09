@@ -201,6 +201,15 @@ A \emph{cut-path} between $u$ and $v$ is a set of edges $S \subseteq E$ for whic
     \end{enumerate}
 \end{definition}
 
+Figure~\ref{fig:cut-path} shows a cut-path schematically.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=80mm]{cut-path.png}
+    \caption{A cut-path between $u$ and $v$ (schematic)}
+    \label{fig:cut-path}
+\end{figure}
+
 \begin{definition}[Cut-Paths]
 \label{def:cut-paths}
 Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
@@ -505,16 +514,37 @@ We distinguish three types of threads:
 
 \begin{enumerate}
     \item \textbf{2-synchronization thread.}
-    This thread passes through an initialization chain link $I_i$ and the corresponding terminal chain link $T_i$.
+    This thread passes through an initialization chain link $I_i$ and the corresponding terminal chain link $T_i$ (Figure~\ref{fig:two-synchronization}).
     Its purpose is to enforce synchronization, ensuring that every separating shortest path traverses either the positive paths or the negative paths in both $I_i$ and $T_i$.
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{two-synchronization-threads.pdf}
+        \caption{The two 2-synchronization threads of a variable $x_i$}
+        \label{fig:two-synchronization}
+    \end{figure}
+
     \item \textbf{3-synchronization thread.}
-    This thread passes through the initialization chain link $I_i$, a literal chain link $L_{j,k,i}$, and the terminal chain link $T_i$ corresponding to the same variable $x_i$.
+    This thread passes through the initialization chain link $I_i$, a literal chain link $L_{j,k,i}$, and the terminal chain link $T_i$ corresponding to the same variable $x_i$ (Figure~\ref{fig:three-synchronization}).
     Its role is to synchronize the traversal of the literal chain link with that of the initialization and terminal links of the variable $x_i$.
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{three-synchronization-threads.pdf}
+        \caption{The two 3-synchronization threads of a literal chain link $L_{j,k,i}$}
+        \label{fig:three-synchronization}
+    \end{figure}
+
     \item \textbf{Clause thread.}
-    For each clause $C_k = (\ell_{1} \vee \ell_{2} \vee \ell_{3})$, a clause thread is introduced that passes through the three literal chain links $L_{1,k}$, $L_{2,k}$, $L_{3,k}$ corresponding to $\ell_{1}, \ell_{2}, \ell_{3}$.
+    For each clause $C_k = (\ell_{1} \vee \ell_{2} \vee \ell_{3})$, a clause thread is introduced that passes through the three literal chain links $L_{1,k}$, $L_{2,k}$, $L_{3,k}$ corresponding to $\ell_{1}, \ell_{2}, \ell_{3}$ (Figure~\ref{fig:clause-thread}).
     This construction simulates the satisfaction requirement of the clause: for a separating shortest path to exist, at least one of the three literals must be satisfied.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{clause-thread.pdf}
+        \caption{The clause thread of a clause $C_k = (x_1 \vee \neg x_2 \vee x_3)$}
+        \label{fig:clause-thread}
+    \end{figure}
 \end{enumerate}
 
 \subsubsection{NP-completeness of \textsc{Separating Shortest Path}}
@@ -610,9 +640,9 @@ Hence $|Q| > \Lambda$, and the shortest $u$--$v$ paths in $G$ are exactly the ch
 \paragraph{Synchronization of variable gadgets.}
 Every thread is a $u$--$v$ path. Therefore, a chain path $P$ can be separating only if it hits every thread.
 \begin{itemize}
-    \item \emph{2-synchronization threads:} the chain path $P$ hits both 2-synchronization threads of the variable $x_i$ if and only if it traverses paths of the same sign in $I_i$ and in $T_i$.
+    \item \emph{2-synchronization threads:} the chain path $P$ hits both 2-synchronization threads of the variable $x_i$ (Figure~\ref{fig:two-synchronization}) if and only if it traverses paths of the same sign in $I_i$ and in $T_i$.
     Indeed, the first thread requires the positive path in $I_i$ or the negative path in $T_i$, and the second thread requires the negative path in $I_i$ or the positive path in $T_i$.
-    \item \emph{3-synchronization threads:} if $P$ traverses paths of the same sign in $I_i$ and $T_i$, then it hits both 3-synchronization threads of a literal link $L_{j,k,i}$ if and only if it traverses the path of this sign in $L_{j,k,i}$ as well.
+    \item \emph{3-synchronization threads:} if $P$ traverses paths of the same sign in $I_i$ and $T_i$, then it hits both 3-synchronization threads of a literal link $L_{j,k,i}$ (Figure~\ref{fig:three-synchronization}) if and only if it traverses the path of this sign in $L_{j,k,i}$ as well.
     Indeed, one of the two threads is hit exactly when $P$ uses the positive path in $I_i$ or $T_i$ or the negative path in $L_{j,k,i}$, and the other one exactly when $P$ uses the negative path in $I_i$ or $T_i$ or the positive path in $L_{j,k,i}$.
 \end{itemize}
 Consequently, a chain path hits all synchronization threads if and only if, for every variable $x_i$, it traverses paths of the same sign in all chain links of the block of $x_i$.

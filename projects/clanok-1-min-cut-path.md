@@ -3,9 +3,10 @@
 **Layout since 2026-10-09: the folder is what is sent.** `projects/clanok-1-min-cut-path/` holds only what the build
 needs, with no sub-folders: `main.tex` (one file written from `cas-sc-template.tex`; packages, environments, macros
 and the whole text are in it), `cas-sc.cls`, `cas-common.sty`, `cas-model2-names.bst` (byte-identical to
-`templates/els-cas/`), `references.bib` and the six PNG figures.
+`templates/els-cas/`), `references.bib` and the ten figure files (seven PNG, three vector PDF; four figures were
+added from the author's talk on 2026-10-09, see "Change history").
 To send: zip the content of the folder and submit it, after `package-project.ps1 -Template els-cas -Flat
--KeepComments` ends with `Verdict: PASS` (2026-10-09: PASS, 16 pages, PDF text identical to the modular version).
+-KeepComments` ends with `Verdict: PASS` (2026-10-09, after the new figures: PASS, 17 pages).
 Beside the folder: these notes and `projects/clanok-1-min-cut-path.submission/` (draft AI declaration).
 Still open: "Open items for the author" below (AI declaration, funding, highlights, figures, abstract) and "Content
 changes to review". "Change history" names `preamble/` and `sections/` files; their content is now in `main.tex`, the
@@ -28,7 +29,8 @@ files are in `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-be
 ## Status
 
 Ported to the DAM template on 2026-10-08 and adjusted after the review of 2026-10-08 on 2026-10-09 (porting log and
-review fixes in "Change history"). Builds with exit code 0: 16 pages (paper 192 x 262 mm, the class's own page
+review fixes in "Change history"). Four figures (three from the author's talk, one new) were added on 2026-10-09 (10 figures in
+total). Builds with exit code 0: 17 pages (paper 192 x 262 mm, the class's own page
 size), no undefined references or citations, no multiply defined labels, BibTeX without warnings, all fonts Type 1
 and embedded (`cm-super` installed 2026-10-08). Remaining build messages are the class's own (see "Known
 problems"). The flat package and the package with folders pass the packager, the no-trace check included
@@ -55,16 +57,19 @@ the open items below.
 5. **Research data** (Option C): the article has no data set; a statement in the submission form saying so.
 6. **Highlights** (encouraged): a separate editable file with "highlights" in its name, 3-5 bullets of at most 85
    characters each; not written.
-7. **Figures:** DAM asks for vector drawings (EPS/PDF) or bitmapped line drawings of at least 1000 dpi; the six PNG
-   drawings have 146-226 dpi at their printed width (see "Known problems"). Redraw them as vector graphics, or
-   supply the originals at 1000 dpi or more; export without the embedded draw.io copy of the diagram, which the
-   current files carry (see "Known problems", figure metadata).
+7. **Figures:** DAM asks for vector drawings (EPS/PDF) or bitmapped line drawings of at least 1000 dpi; the seven
+   PNG drawings have 146-226 dpi at their printed width (see "Known problems"). Redraw them as vector graphics, or
+   supply the originals at 1000 dpi or more; export without the embedded draw.io copy of the diagram, which six of
+   the files carry (see "Known problems", figure metadata). The three figures added as PDF on 2026-10-09 are vector
+   drawings and meet the requirement; the same TikZ route (sources in
+   `projects/clanok-1-min-cut-path.submission/figures/`) would do for the seven PNG drawings.
 8. **Figure citations and captions** (DAM guide, "Figures, images and other artwork" and "Captions": cite all images
-   in the text; a caption is a brief title and a description of the image): Figures 2, 3 and 5 (`fig:chain-link`,
-   `fig:chain`, `fig:threading` in Section 3 of `main.tex`) are never cited in the text, only shown, and
-   their captions are a bare title ("A chain link", "A chain", "The threading operation"). Wording is the author's
-   decision: for example "(Figure~\ref{fig:chain-link})" at the definitions of chain link, chain and threading, and
-   one descriptive clause per caption. (Found in the review of 2026-10-08; not changed.)
+   in the text; a caption is a brief title and a description of the image): Figures 3, 4 and 6 (`fig:chain-link`,
+   `fig:chain`, `fig:threading` in Section 3 of `main.tex`) are never cited in the text, only shown, and their
+   captions are a bare title ("A chain link", "A chain", "The threading operation"). Wording is the author's
+   decision: for example "(Figure~\ref{fig:chain-link})" at the definitions of chain link, chain and threading.
+   (Found in the review of 2026-10-08; not changed. The author wants one-line captions, stated 2026-10-09: a
+   bare title is fine with him; the figures added on that day are all cited and have one-line captions.)
 9. **Abstract** (DAM guide, "Abstract": state the purpose, the basic procedures, the main findings and the principal
    conclusions): the abstract gives only the motivation; NP-completeness, `cp = c + d − 1` for diameter two and
    cut-value at most two, and the random-graph results are missing (also "Known problems", Assessment item 3).
@@ -77,6 +82,24 @@ the open items below.
 11. **Year of Frieze–Karoński** (bibliography): the publisher's page (`citation_publication_date` 2015/10) and
     Crossref (print 2015-10-26) date *Introduction to Random Graphs* 2015; the entry keeps 2016 (note in the
     canonical `.bib`). Confirm the year from the book's imprint page.
+12. **AI use in the figures** (since 2026-10-09): Figures 7, 8 and 9 (`fig:two-synchronization`,
+    `fig:three-synchronization`, `fig:clause-thread`) are TikZ drawings written by the AI assistant; 7 and 8
+    follow the author's drawings in the talk, 9 is new (asked for by the author, drawn like 8). The talk's own versions of these images were made with an image generator (their files say so:
+    `knowledge/sources/README.md`, "AI-generated images") and are not in the manuscript.
+    Elsevier allows AI-created explanatory images only with a disclosure in the caption
+    (`knowledge/writing/submission.md` §1.1): decide whether the three captions need the sentence and name the
+    figures in the AI declaration (open item 2; the draft lists them). Check the drawings against the construction
+    before submission.
+13. **Parked: class diagram and counterexamples for the class "diam or cut 2"** (author's decision 2026-10-09: not
+    in the article for now). They were in the conclusion for one build and were taken out again; the conclusion has
+    its text of before. Files: `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-conclusion-figures/`
+    (`graph-classes.png`, `counterexample-cut-two.pdf`, `counterexample-distance-two.pdf`); TikZ sources of the two
+    counterexamples: `projects/clanok-1-min-cut-path.submission/figures/`; the two graphs and their values:
+    `knowledge/research/min-cut-path.md`, below the results map. If they return: the counterexamples fit the end of
+    Section 5 (they bound Theorems 4.5 and 5.1) better than the conclusion, and the class would then be defined
+    there. In the class diagram the label "NP" names a complexity class while the regions are graph classes, and
+    "diameter 2" and "cut 2" are drawn disjoint although the classes overlap (the cycle on four vertices is in
+    both): redraw it or explain both points in the caption.
 
 Settled, no action: the postal address of the affiliation is verified (institute's contact page, 2026-10-08); the
 author has no ORCID (stated 2026-10-08), so the title page carries no `orcid` key (the empty "ORCID(s):" line: see
@@ -100,6 +123,13 @@ Theorem III.5 is Theorem 3.5, Lemma II.4 is Lemma 2.4, and so on; the order is u
 numbers: the reference list is now alphabetical, so the old [9] (Bollobás) is [1], [10] (Frieze–Karoński) is [5],
 [3] (Mehlhorn et al.) is [10] and [5] (master's thesis) is [11].
 
+Figures (number on 2026-10-09, label, file, section): 1 `fig:cut-path` `cut-path.png` (2); 2 `fig:chain-threads`
+`chain-threads.png`, 3 `fig:chain-link` `chain-link.png`, 4 `fig:chain` `chain.png`, 5 `fig:chain-link-types`
+`chain-link-types.png`, 6 `fig:threading` `threading.png`, 7 `fig:two-synchronization`
+`two-synchronization-threads.pdf`, 8 `fig:three-synchronization` `three-synchronization-threads.pdf`,
+9 `fig:clause-thread` `clause-thread.pdf` (all 3; Figures 7-9 stand inside the numbered list of thread types);
+10 `fig:diameter-two-structure` `diameter-two-structure.png` (4).
+
 Labels of statements: `lem:basic-bounds`, `thm:ssp-np-complete`, `alg:reduction`, `thm:mcp-np-complete`, `lem:cut-decomposition`,
 `lem:empty-i-or-l`, `lem:odd-intersection`, `thm:diameter-two`, `rem:algorithm`, `thm:cut-two`, `thm:random-diameter-two`, `thm:random-diameter`,
 `thm:random-connectivity`, `lem:degree-bounds`, `lem:connectivity-bounds`, `thm:approximation-scheme`.
@@ -122,10 +152,18 @@ cas-sc.cls                  document class (Elsevier CAS bundle 2.4), pristine c
 cas-common.sty              macros of the CAS classes, pristine copy
 cas-model2-names.bst        bibliography style of the CAS bundle, pristine copy
 chain.png, chain-link.png, chain-link-types.png, chain-threads.png, threading.png, diameter-two-structure.png   figures
+cut-path.png                figure from the author's talk (bitmap, unchanged copy; since 2026-10-09)
+two-synchronization-threads.pdf, three-synchronization-threads.pdf, clause-thread.pdf
+                            vector figures (since 2026-10-09)
 
 beside the folder (never sent)
 projects/clanok-1-min-cut-path.md                              these notes
 projects/clanok-1-min-cut-path.submission/ai-declaration.tex   draft AI declaration for the author
+projects/clanok-1-min-cut-path.submission/figures/*.tex        TikZ sources of the three vector figures and of the
+                                                               two parked counterexample drawings (class
+                                                               standalone, STIX fonts as in the article); build
+                                                               each with pdflatex --miktex-disable-installer
+                                                               into tmp/ and copy the PDF into the project folder
 ```
 
 No `thumbnails/` folder: `main.tex` sets the class key `nologo` (see "Build").
@@ -154,8 +192,10 @@ its comments:
 .\scripts\package-project.ps1 -Project clanok-1-min-cut-path -Template els-cas -Flat -KeepComments              # before sending
 ```
 
-Send only on `Verdict: PASS`. Last run 2026-10-09 after the move to the flat folder (`-Template els-cas -Flat
--KeepComments`): `Verdict: PASS`, 16 pages, `Trace scan: 11 files, 0 hits (0 allowed); 3 files identical to the
+Send only on `Verdict: PASS`. Last run 2026-10-09, 09:34, with the four new figures (`-Template els-cas -Flat
+-KeepComments`): `Verdict: PASS`, 17 pages, `Trace scan: 15 files, 0 hits (0 allowed); 3 files identical to the
+template not scanned`, 22 comment lines kept, one finding `[ai-declaration]` (advisory). The run before it, after
+the move to the flat folder: `Verdict: PASS`, 16 pages, `Trace scan: 11 files, 0 hits (0 allowed); 3 files identical to the
 template not scanned`, 22 comment lines kept, one finding `[ai-declaration]` (the packager looks for the draft in
 `projects/clanok-1-min-cut-path/submission/`; it is now in `projects/clanok-1-min-cut-path.submission/`).
 Runs of the modular layout earlier that day, 08:05-08:08, with the packager as changed after the review:
@@ -245,8 +285,12 @@ from each other, and I found no error in the proofs in their current wording (I 
   1293 x 155 px at 145 mm (226 dpi), `chain-link-types.png` 1219 x 155 px at 145 mm (214 dpi), `threading.png`
   835 x 200 px at 145 mm (146 dpi), `chain-link.png` 290 x 156 px at 50 mm (147 dpi),
   `diameter-two-structure.png` 351 x 429 px at 60 mm (149 dpi). The images are the author's and were not changed
-  (open item 7).
-- **Figure metadata:** each of the six PNG files carries the draw.io source of the drawing in a `tEXt` chunk
+  (open item 7). Added 2026-10-09: `cut-path.png`, 555 x 366 px at 80 mm (176 dpi), a freehand bitmap from the
+  author's talk, unchanged copy. The three PDF figures are vector drawings.
+- **Figure metadata of the files added 2026-10-09:** `cut-path.png` carries only an XMP packet
+  with `tiff:Orientation`; the three PDF figures have Creator "TeX" and Producer "MiKTeX pdfTeX-1.40.28", no date and
+  no other key (`pdfinfo -custom`); fonts STIXMath, Type 1, embedded.
+- **Figure metadata:** each of the six older PNG files carries the draw.io source of the drawing in a `tEXt` chunk
   `mxfile` (decoded 2026-10-08: the diagram, the editor host `app.diagrams.net`, the browser's user agent string,
   the page name "Stránka-1" and browser-translated Slovak style names). It names no AI tool and no workspace path,
   so the packager's trace scan, which decodes it, passes; but it travels with the zip. A redraw or re-export without "Include a copy of
@@ -343,8 +387,49 @@ from the revision, but the author is responsible for them.
     "Output:" (two `\algrenewcommand` lines in `preamble/environments.tex`; house rule of
     `knowledge/writing/math-writing.md`, not a DAM requirement; `sections/03-np-completeness.tex` still writes
     `\Require`/`\Ensure`). Confirm, or delete the two lines to get the old headers back.
+16. **Figures added on 2026-10-09 and the text that cites them.** Captions are one line and the text is the
+    minimum, on the author's instruction of that day (longer captions and lead-in sentences were cut).
+    - Section 2, after Definition 2.1: one new sentence, "Figure 1 shows a cut-path schematically."
+    - Section 3, list of thread types: Figures 7, 8 and 9 stand inside the three items; each item cites its
+      figure in brackets. The proof of Theorem 3.5 ("Synchronization of variable gadgets") cites Figures 7 and 8.
+    - Figure 9 shows the clause thread for the example clause `C_k = (x_1 ∨ ¬x_2 ∨ x_3)`, i.e., signs `+, -, +`
+      in `L_{1,k}, L_{2,k}, L_{3,k}`; the example clause appears only in the caption.
+    - Section 7 (conclusion): unchanged (open item 13).
+    - Drawings: Figures 7-9 are TikZ drawings: the threads run through crossing edges on the upper or lower
+      path of a link (the talk's images end at the corners of the links), with dashed ends towards `u` and `v`
+      and the signs `+`, `-` inside the links. Confirm that they show the construction as intended.
 
 ## Change history
+
+**2026-10-09 - figures from the author's talk (09:10-09:35)**
+- Source: the beamer talk *Min Cut-Path Problem* in `knowledge/sources/Overleaf Projects (1 items) (11).zip`
+  (table of its images: `knowledge/sources/README.md`, "Other material"). Five of its images are the figures the
+  article already had (same SHA-256).
+- Added as an unchanged copy: `cut-path.png` (talk: `figures/obrazok_cut-path.png`) as Figure 1 in Section 2.
+- Redrawn in TikZ as vector PDF, on the author's decision (2026-10-09), because the talk's files `2-sych.png` and
+  `3-sych.png` are marked by their own metadata as made by an image generator: `two-synchronization-threads.pdf`
+  (Figure 7), `three-synchronization-threads.pdf` (Figure 8), both in Section 3. Sources:
+  `projects/clanok-1-min-cut-path.submission/figures/`; included at their natural size (137 mm).
+- Added and removed again on the same day, on the author's decision ("not in the article for now"): the class
+  diagram `graph-classes.png` (talk: `figures/triedy_zlozitosti_diam_or_cut-2.png`) and the two counterexamples
+  `counterexample-cut-two.pdf`, `counterexample-distance-two.pdf` (TikZ redraws of the talk's `example_cut2c.png`
+  and `example_diam2c.png`, which are also image-generator files), with a paragraph in the conclusion stating that
+  `cp = c + d - 1` fails in the class "diam or cut 2". The three files are in
+  `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-conclusion-figures/`; the conclusion is
+  identical to the committed text again (open item 13).
+- Not added: `figures/triedy_zlozitosti.png` (the class diagram without the class "diam or cut 2");
+  `general_square_graph.png` and `Transformation_A/B/C.png` (general square graphs are not defined in this
+  article; material for article 2).
+- New drawing, asked for by the author: `clause-thread.pdf` (Figure 9), the clause thread of an example clause.
+- Placement and length, on the author's instruction: Figures 7-9 stand inside the numbered list of thread types;
+  all new captions are one line; the explanatory sentences first written around the figures were cut.
+- Text: "Content changes to review", item 16. The old figures are now Figures 2-6 and 10.
+- Build: 17 pages (16 before), no undefined references, the class's overfull 117 pt box and the underfull line in
+  the reference list as before, all fonts Type 1 and embedded. `check-text.ps1`: 77 findings, the number before
+  the change. Packager, full run `-Template els-cas -Flat -KeepComments`: `Verdict: PASS`, 17 pages,
+  `Trace scan: 15 files, 0 hits`.
+- Draft AI declaration (`projects/clanok-1-min-cut-path.submission/ai-declaration.tex`): the three drawings added
+  to the purposes and to the list of points to complete. Open items 12 and 13 are new; items 7 and 8 updated.
 
 **2026-10-09 - fixes after the review of 2026-10-08 (DAM conformance, packager, regression)**
 - `references.bib` (canonical file first, with new status lines): DOIs added to the four books that have one,
