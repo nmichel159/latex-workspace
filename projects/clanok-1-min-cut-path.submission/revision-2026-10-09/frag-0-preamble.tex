@@ -1,0 +1,83 @@
+% Written from cas-sc-template.tex of the Elsevier CAS bundle 2.4 (class cas-sc, single column).
+
+% float (for the [H] figures and the [H] algorithm) is loaded before the class: the class loads hyperref,
+% which adapts its float anchors only to a float package loaded before it (otherwise each figure anchor is
+% written twice). \usepackage{float} in the package list below is then a no-op.
+\RequirePackage{float}
+\documentclass[a4paper,fleqn]{cas-sc}
+
+\usepackage[numbers,sort&compress]{natbib}
+
+% Packages the text needs beyond those the class loads.
+\usepackage{float}            % H placement of figures and algorithms
+\usepackage[most]{tcolorbox}
+\usepackage{amsthm}
+\usepackage{algorithm}
+\usepackage{algpseudocode}    % part of the algorithmicx package
+
+% Theorem-like environments, the "problem" box and numbering; independent of the document class.
+
+% Numbering within sections
+\numberwithin{equation}{section}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{claim}[definition]{Claim}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{proposition}[definition]{Proposition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{example}[definition]{Example}
+
+% "problem" environment: framed statement of a computational problem
+\newtcolorbox{problem}[1][]{%
+  enhanced,
+  colback=white,      % background color
+  colframe=black,     % border color
+  boxrule=0.8pt,      % border thickness
+  arc=2pt,            % corner roundness
+  left=6pt, right=6pt, top=6pt, bottom=6pt,
+  title=\textbf{Problem: #1},
+}
+
+% Algorithm headers: every algorithm states its Input and Output;
+% algpseudocode would print "Require:" and "Ensure:".
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+
+% Notation macros; independent of the document class.
+
+% Notation
+\newcommand{\cp}{\operatorname{cp}}                  % value of a minimum cut-path
+\newcommand{\CP}{\operatorname{CP}}                  % set of all cut-paths
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\OPT}{\mathrm{OPT}}
+\newcommand{\MinCutPath}{\textsc{Min Cut-Path}}
+\newcommand{\SSP}{\textsc{Separating Shortest Path}}
+\newcommand{\ThreeSAT}{\textsc{3-SAT}}
+
+% The class sets the text in STIX, which has no italic small caps: \textsc inside italic text takes the
+% upright small caps that the font selection substitutes anyway; declared here so that it gives no warning.
+\AtBeginDocument{%
+  \DeclareFontShape{T1}{stix}{m}{scit}{<->ssub*stix/m/sc}{}%
+  \DeclareFontShape{T1}{stix}{b}{scit}{<->ssub*stix/b/sc}{}}
+
+% Key nologo of the class: the e-mail address is labelled "Email address:" instead of the icon
+% thumbnails/cas-email.jpeg, so the manuscript also builds from one folder without sub-folders.
+% Key H: the class's figure takes key-value options and would lose a plain [H] (it stores an empty placement);
+% H is declared as a short form of the class's own key pos=H, so the figures keep the standard \begin{figure}[H].
+\ExplSyntaxOn
+\keys_set:nn { stm / mktitle } { nologo }
+\keys_define:nn { cas / fig } { H .meta:n = { pos = H } }
+\ExplSyntaxOff
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+

@@ -1,0 +1,194 @@
+\section{Graphs of Diameter Two}
+\label{sec:diameter-two}
+
+
+
+The first class in which the problem can be solved efficiently consists of the graphs of diameter two, a class studied in algebraic graph theory~\cite{GodsilRoyle2001}.
+
+\begin{definition}[Diameter]
+\label{def:diameter}
+A graph $G = (V, E)$ has \emph{diameter at most $k$} if $d(x, y) \leq k$ for every pair of vertices $x, y \in V$.
+The smallest such $k$ is the \emph{diameter} of $G$, denoted by $\diam(G)$.
+\end{definition}
+
+We derive a formula for $\cp(u,v)$ in graphs of diameter two; it yields a polynomial-time algorithm (Remark~\ref{rem:algorithm}).
+The proof uses a decomposition: in any graph, a cut $C$ induces a partition of the vertex set into four subsets $I, J, K, L$.
+
+
+
+Each vertex belongs to one of the two sides $A_1, A_2$ of the cut, and it either is incident to an edge of the cut or not:
+
+\begin{lemma}
+\label{lem:cut-decomposition}
+Let $G = (V, E)$ be a graph, and let $C$ be a cut that divides $G$ into two sets $A_1$ and $A_2$ (i.e., $V = A_1 \cup A_2$, $A_1 \cap A_2 = \emptyset$, and $C$ is the set of all edges between $A_1$ and $A_2$).
+Then, there exists a unique decomposition of $A_1$ and $A_2$ into subsets $I, J, K, L$ such that:
+\begin{itemize}
+    \item $I \cup J = A_1$ and $I \cap J = \emptyset$,
+    \item $K \cup L = A_2$ and $K \cap L = \emptyset$,
+    \item $\forall x \in J \cup K, \, \exists y \in V: \{x, y\} \in C,$
+    \item $\forall x \in I \cup L, \, \nexists y \in V: \{x, y\} \in C.$
+\end{itemize}
+\end{lemma}
+
+
+In a graph of diameter two, $I$ or $L$ is empty: otherwise a vertex of $I$ would be at distance at least three from a vertex of $L$, since every path between them passes through $J$ and $K$.
+
+
+\begin{lemma}
+\label{lem:empty-i-or-l}
+Let $G = (V, E)$ be a graph of diameter two, let $C$ be a cut that divides $G$ into two sets $A_1$ and $A_2$, and let $I, J, K, L$ be the decomposition of $A_1$ and $A_2$ described in Lemma~\ref{lem:cut-decomposition}.
+Then at least one of the sets $I$ and $L$ is empty:
+\[
+I = \emptyset \quad\text{or}\quad L = \emptyset.
+\]
+\end{lemma}
+
+We also need the following general fact about the intersection of a cut and a path.
+
+\begin{lemma}
+\label{lem:odd-intersection}
+Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
+Let $C$ be a cut that divides $G$ into two sets $A_1$ and $A_2$ with $u \in A_1$ and $v \in A_2$, and let $P$ be a path that connects $u$ and $v$.
+Then the path $P$ contains an odd number of edges of $C$:
+\[
+|C \cap P| \equiv 1 \pmod{2}.
+\]
+\end{lemma}
+
+\begin{proof}
+Let $S = C \cap P$ be the set of edges in the intersection of the cut and the path.
+When we traverse the path $P$ from $u$ to $v$, each edge of $S$ changes the side of the cut (i.e., it switches between $A_1$ and $A_2$), while every other edge of $P$ stays on the same side.
+The path starts in $A_1$ and ends in $A_2$.
+If the path crossed the cut an even number of times, its first and its last vertex would lie on the same side, which contradicts the assumption that $u \in A_1$ and $v \in A_2$.
+Therefore, the path crosses the cut an odd number of times, i.e., $|S|$ is odd.
+\end{proof}
+
+Lemmas~\ref{lem:empty-i-or-l} and~\ref{lem:odd-intersection} give the value of $\cp(u,v)$ in graphs of diameter two.
+
+\begin{theorem}
+\label{thm:diameter-two}
+Let $G = (V, E)$ be a connected graph of diameter two, and let $u, v \in V$ be two distinct vertices.
+Then the value of the minimum cut-path between $u$ and $v$ is
+\[
+\cp(u, v) = c(u, v) + d(u, v) - 1.
+\]
+\end{theorem}
+
+
+\begin{proof}
+
+We distinguish two cases based on the values of $d(u, v)$ and $c(u, v)$.
+
+\begin{enumerate}
+    \item \textbf{Case} $d(u, v) = 1$ \textbf{or} $c(u, v) = 1$:
+
+    By Lemma~\ref{lem:basic-bounds}, in this case we have
+    \[
+    \cp(u, v) = c(u, v) + d(u, v) - 1.
+    \]
+
+    \item \textbf{Case} $d(u, v) = 2$ \textbf{and} $c(u, v) \geq 2$:
+
+    By Lemma~\ref{lem:basic-bounds},
+    \[
+    c(u, v) \leq \cp(u, v) \leq c(u, v) + 2 - 1 = c(u, v) + 1.
+    \]
+
+Assume for contradiction that $\cp(u, v) \neq c(u, v)+1$.
+Then $\cp(u, v) = c(u, v)$, i.e., a minimum cut-path $S$ has the same size as a minimum cut.
+Since $S$ contains a $u$--$v$ cut, the set $S$ itself is a minimum cut, which we denote by $C$, and the $u$--$v$ path $P$ contained in $S$ is a subset of this cut.
+
+By Lemma~\ref{lem:odd-intersection}, the number of edges of $P$ is odd, and since $d(u,v) = 2$, the path $P$ has length at least 3.
+Let $I, J, K, L$ be the decomposition induced by the cut $C$.
+By Lemma~\ref{lem:empty-i-or-l} and by the symmetry between $u$ and $v$, we may assume that $L = \emptyset$ and $u \in K$, so the graph is partitioned into the three sets $I, J, K$.
+We observe that $v \in J$: the last edge of $P$ belongs to the cut and is incident to $v$, so the vertex $v$ cannot belong to the set $I$.
+This structure is illustrated in Figure~\ref{fig:diameter-two-structure}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=60mm]{diameter-two-structure.png}
+    \caption{Structure of the cut $C$ in the proof of Theorem~\ref{thm:diameter-two}; the edges counted in the estimate are drawn in red}
+    \label{fig:diameter-two-structure}
+\end{figure}
+
+
+
+We now estimate the size of the cut $C$:
+\[
+\cp(u, v) = c(u,v) = |C| \geq \deg(u, I) + \deg(u, J) + 2 + (|K| - 2),
+\]
+where the estimate is obtained by counting the edges of the cut according to their end-vertex in $K$:
+\begin{itemize}
+    \item $\deg(u, I)$ and $\deg(u, J)$ denote the numbers of edges that lead from the vertex $u$ to the opposite side of the minimum cut,
+
+    \item the path $P$ is contained in the cut and has length at least three, so its edges alternate between the two sides of the cut; hence its third vertex is a vertex of $K$ other than $u$ that contributes at least two edges to the cut,
+
+    \item each of the remaining $|K| - 2$ vertices of the set $K$ contributes at least one edge to the cut.
+\end{itemize}
+
+
+The edges counted on the right-hand side are drawn in red in Figure~\ref{fig:diameter-two-structure}.
+
+Since $\deg(u, I) \geq 0$ and $\deg(u, K) \leq |K| - 1$, we obtain
+\[
+\deg(u, I) + \deg(u, J) + 2 + (|K| - 2) \geq
+0 + \deg(u, J) + \deg(u, K) + 1 = \deg(u) + 1 \geq c(u, v) + 1,
+\]
+where the equality holds because $u$ has no neighbors in $I$, and the last inequality holds because the edges incident to $u$ form a $u$--$v$ cut.
+This contradicts the assumption that $\cp(u, v) = c(u, v)$; hence $\cp(u, v) = c(u, v) + 1 = c(u, v) + d(u, v) - 1$.\qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{remark}
+\label{rem:algorithm}
+Whenever $\cp(u, v) = c(u, v) + d(u, v) - 1$, the proof of Lemma~\ref{lem:basic-bounds} shows that the union of an arbitrary minimum $u$--$v$ cut and an arbitrary shortest $u$--$v$ path is a minimum cut-path.
+Hence, in graphs of diameter two, a minimum cut-path can be found by one minimum-cut computation and one breadth-first search.
+\end{remark}
+
+\section{Graphs with Cut-Value at Most Two}
+\label{sec:cut-two}
+
+The same formula holds in graphs in which the minimum cut-value of every pair of vertices is at most two.
+
+Such graphs have the structure of a \emph{cactus graph} (cf.~\cite{Mehlhorn2017Certifying}): they consist of cycles and single edges, any two of which share at most one vertex, an articulation point.
+Indeed, if two distinct cycles shared an edge, their union would contain two vertices joined by three edge-disjoint paths; separating these two vertices would require at least three edges, contradicting the assumption $c(x,y) \leq 2$.
+
+\begin{theorem}
+\label{thm:cut-two}
+Let $G = (V, E)$ be a connected graph such that $c(x, y) \leq 2$ for every pair of distinct vertices $x, y \in V$.
+Then, for any two distinct vertices $u,v \in V$, the value of the minimum cut-path is
+\[
+\cp(u, v) = c(u, v) + d(u, v) - 1.
+\]
+\end{theorem}
+
+\begin{proof}
+We distinguish two cases based on the values of $d(u, v)$ and $c(u, v)$.
+
+\begin{enumerate}
+    \item \textbf{Case} $d(u, v) = 1$ \textbf{or} $c(u, v) = 1$:
+
+    The formula holds by Lemma~\ref{lem:basic-bounds}.
+
+    \item \textbf{Case} $d(u, v) \geq 2$ \textbf{and} $c(u, v) = 2$:
+
+    By Lemma~\ref{lem:basic-bounds}, we have
+    \[
+    d(u, v) \leq \cp(u, v) \leq d(u, v) + 1.
+    \]
+    Assume for contradiction that $\cp(u, v) = d(u, v)$.
+    Then a minimum cut-path is a shortest $u$--$v$ path $P$ that contains a $u$--$v$ cut, so the graph $G \setminus P$ contains no $u$--$v$ path.
+
+    Since $c(u, v) = 2$, no single edge separates $u$ from $v$; hence no edge of $P$ is a bridge, and every edge of $P$ lies on a cycle of the cactus graph $G$.
+    The path $P$ therefore passes through a sequence of cycles $C_1, C_2, \dots, C_t$, and in each cycle $C_i$ it follows one of the two arcs between the vertex where it enters $C_i$ and the vertex where it leaves $C_i$.
+    The other arc of each cycle $C_i$ is edge-disjoint from $P$, and the concatenation of these arcs connects $u$ and $v$ in $G \setminus P$.
+    This is a contradiction.
+    Therefore,
+    \[
+    \cp(u, v) = d(u, v) + 1 = c(u, v) + d(u, v) - 1. \qedhere
+    \]
+\end{enumerate}
+\end{proof}
+
+By Remark~\ref{rem:algorithm}, a minimum cut-path in such a graph is again obtained as the union of a minimum cut and a shortest path.
+
