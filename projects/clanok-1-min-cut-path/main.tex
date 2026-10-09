@@ -189,13 +189,17 @@ Section~\ref{sec:conclusion} lists open problems.
 \label{sec:fundamentals}
 
 We use standard notation from graph theory and computational complexity and follow the conventions of~\cite{Diestel2025,Cormen2022}.
-All graphs under consideration are undirected and finite, unless otherwise stated.
+All graphs under consideration are finite, simple and undirected.
 For a graph $G = (V, E)$, we let $n = |V|$ denote the number of vertices and $m = |E|$ the number of edges.
 
 Most statements concern two distinct vertices $u, v \in V$.
 The distance $d(u, v)$ is the length of a shortest $u$--$v$ path in $G$.
 A set of edges whose removal disconnects $u$ from $v$ is a \emph{cut separating $u$ and $v$}, or a \emph{$u$--$v$ cut}.
-The value $c(u, v)$ denotes the minimum size of a $u$--$v$ cut.
+The value $c(u, v)$ denotes the minimum size of a $u$--$v$ cut; we call it the \emph{cut-value} of $u$ and $v$.
+For a vertex set $A \subseteq V$, let $\delta(A)$ denote the set of edges with exactly one end-vertex in $A$.
+If $u \in A$ and $v \notin A$, then $\delta(A)$ is a $u$--$v$ cut.
+Conversely, a minimum $u$--$v$ cut $C$ equals $\delta(A)$ for the vertex set $A$ of the component of $G \setminus C$ that contains $u$ (see the proof of Theorem~\ref{thm:diameter-two}).
+Hence $c(u,v) = \min\{|\delta(A)| : u \in A,\ v \notin A\}$.
 All problems studied in this paper are defined with respect to these two distinguished vertices $u$ and $v$, and we assume that $u$ and $v$ lie in the same connected component of $G$.
 
 We identify a path with its set of edges.
@@ -530,10 +534,10 @@ The reduction uses the following auxiliary procedures:
 \begin{itemize}
     \item $\textsc{BuildChain}(u,v,r)$: constructs a $u$--$v$ chain with $r$ chain links, where each chain link is realized as a $4$-cycle.
     \item $\textsc{Thread}(u,v,[(K_1,\sigma_1),\dots,(K_t,\sigma_t)])$: creates a new thread from $u$ to $v$ that passes through the chain links $K_1,\dots,K_t$ in this order, where $\sigma_i \in \{+,-\}$ specifies whether the thread is threaded through $K_i$ positively or negatively.
-    The $t$ crossing edges are joined to each other and to the vertices $u$ and $v$ by $t+1$ new, internally vertex-disjoint paths, which we call the \emph{connecting paths} of the thread.
+    The $t$ crossing edges are joined to each other and to the vertices $u$ and $v$ by $t+1$ new, internally vertex-disjoint paths of one edge each, which we call the \emph{connecting paths} of the thread; $\textsc{Calibrate}$ subdivides them later.
     \item $\textsc{Calibrate}(G)$: equalizes the lengths of the relevant paths in two steps.
     First, in every chain link whose positive and negative paths have different lengths, an edge of the shorter path that is not a crossing edge is subdivided repeatedly until both paths have the same length.
-    Second, let $\Lambda$ denote the number of edges of a $u$--$v$ path in the resulting chain; every connecting path of every thread is subdivided until it has at least $\Lambda$ edges.
+    Second, let $\Lambda$ denote the number of edges of a $u$--$v$ path in the resulting chain; every connecting path of every thread is subdivided until it has exactly $\Lambda$ edges.
 \end{itemize}
 
 \paragraph{Auxiliary notation.}
@@ -885,7 +889,7 @@ The next lemma holds in every graph.
 \begin{lemma}
 \label{lem:odd-intersection}
 Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
-Let $C$ be a cut that divides $G$ into two sets $A_1$ and $A_2$ with $u \in A_1$ and $v \in A_2$, and let $P$ be a path that connects $u$ and $v$.
+Let $C$ be the set of all edges between two sets $A_1$ and $A_2$ that partition $V$, with $u \in A_1$ and $v \in A_2$, and let $P$ be a path that connects $u$ and $v$.
 Then the path $P$ contains an odd number of edges of $C$:
 \[
 |C \cap P| \equiv 1 \pmod{2}.
@@ -995,7 +999,7 @@ Hence, in graphs of diameter two, a minimum cut-path can be found by one minimum
 \section{Graphs with Cut-Value at Most Two}
 \label{sec:cut-two}
 
-The same formula holds in graphs in which the minimum cut-value of every pair of vertices is at most two.
+The same formula holds in graphs in which the cut-value of every pair of vertices is at most two.
 
 Such graphs have the structure of a \emph{cactus graph} (see~\cite{Mehlhorn2017Certifying}): they consist of cycles and single edges, any two of which share at most one vertex, an articulation point.
 Indeed, suppose that two distinct cycles shared an edge.
@@ -1004,6 +1008,7 @@ To find it, take an edge of the second cycle that is not on the first, and follo
 The two vertices reached are distinct, because the second cycle contains both ends of the shared edge.
 The union of the two cycles would then contain the two vertices $x$ and $y$ joined by three edge-disjoint paths: this path and the two $x$--$y$ paths along the first cycle.
 Separating $x$ from $y$ would require at least three edges, contradicting the assumption $c(x,y) \leq 2$.
+Similarly, two edge-disjoint cycles cannot share two vertices $x \neq y$: they would contain four edge-disjoint $x$--$y$ paths.
 
 \begin{theorem}
 \label{thm:cut-two}
@@ -1036,6 +1041,7 @@ Since $c(u, v) = 2$, no single edge separates $u$ from $v$.
 A bridge of $G$ on the path $P$ would separate $u$ from $v$; hence no edge of $P$ is a bridge, and every edge of $P$ lies on a cycle of the cactus graph $G$.
 
 The path $P$ therefore passes through a sequence of cycles $Z_1, Z_2, \dots, Z_t$, and in each cycle $Z_i$ it follows one of the two arcs between the vertex where it enters $Z_i$ and the vertex where it leaves $Z_i$.
+The path $P$ does not return to a cycle $Z_i$ after leaving it: otherwise the part of $P$ from the vertex where it leaves $Z_i$ to the next vertex of $Z_i$ on $P$, together with an arc of $Z_i$, would be a cycle that shares an edge with $Z_i$.
 The path $P$ enters $Z_1$ at $u$ and leaves $Z_t$ at $v$.
 For $i < t$, the vertex where $P$ leaves $Z_i$ is the vertex where it enters $Z_{i+1}$, since every edge of $P$ lies on one of these cycles.
 The other arc of each cycle $Z_i$ is edge-disjoint from $P$, and consecutive arcs share these vertices, so the concatenation of these arcs connects $u$ and $v$ in $G \setminus P$.
@@ -1087,9 +1093,9 @@ Then
 Let $G(n, p)$ be an Erdős–Rényi random graph with $p = \alpha \log n / n$, where $\alpha > 1$.
 Then
 \[
-\lim_{n\to\infty} \mathbb{P}\bigl( G \text{ is } k\text{-edge-connected} \bigr) = 1,
+\lim_{n\to\infty} \mathbb{P}\bigl( \lambda(G) = \delta(G) \bigr) = 1,
 \]
-where $k = \delta(G)$ denotes the minimum degree of $G$.
+where $\lambda(G)$ denotes the edge connectivity and $\delta(G)$ the minimum degree of $G$.
 \end{theorem}
 
 \begin{lemma}[Degree Bounds]
@@ -1130,9 +1136,9 @@ Then
 \end{lemma}
 
 \begin{proof}
-By Theorem~\ref{thm:random-connectivity} and Lemma~\ref{lem:degree-bounds}, with high probability, the graph $G(n, p)$ is $k$-edge-connected for $k = \delta(G)$ and all its degrees lie between $\beta_1 \log n$ and $\beta_2 \log n$.
+By Theorem~\ref{thm:random-connectivity} and Lemma~\ref{lem:degree-bounds}, with high probability, the edge connectivity of $G(n, p)$ equals its minimum degree $\delta(G)$ and all its degrees lie between $\beta_1 \log n$ and $\beta_2 \log n$.
 Suppose that both events hold.
-Since $G$ is $\delta(G)$-edge-connected, every cut separating two distinct vertices has at least $\delta(G)$ edges.
+Since $\lambda(G) = \delta(G)$, every cut separating two distinct vertices has at least $\delta(G)$ edges.
 Hence all pairs of distinct vertices $u, v$ satisfy
 \[
 c(u, v) \geq \min_{x \neq y} c(x, y) \geq \min_{z \in V(G)} \deg(z) \geq \beta_1 \log n.
@@ -1189,7 +1195,7 @@ Thus, the algorithm achieves the approximation ratio $1+\epsilon$ on a set of in
 \label{sec:conclusion}
 
 We introduced the \MinCutPath{} problem and proved that its decision version is NP-complete.
-In graphs of diameter two and in graphs with minimum cut-value at most two, $\cp(u, v) = c(u, v) + d(u, v) - 1$, and the union of a minimum cut and a shortest path is a minimum cut-path.
+In graphs of diameter two and in graphs in which every cut-value is at most two, $\cp(u, v) = c(u, v) + d(u, v) - 1$, and the union of a minimum cut and a shortest path is a minimum cut-path.
 Dense Erdős–Rényi random graphs have diameter two with high probability, and in sparser ones with $p \geq \alpha \log n / n$, $\alpha > 1$, the same union is within a factor of $1+\epsilon$ of the optimum on almost all inputs.
 
 Several questions remain open.
