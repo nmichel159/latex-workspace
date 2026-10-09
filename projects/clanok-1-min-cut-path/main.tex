@@ -935,7 +935,7 @@ The first exchanges the names $A_1$ and $A_2$, and with them $I$ with $L$ and $J
 The second exchanges $u$ and $v$: the values $c(u, v)$, $d(u, v)$ and $\cp(u, v)$ do not depend on the order of $u$ and $v$, and $P$ read backwards is a $v$--$u$ path.
 By Lemma~\ref{lem:empty-i-or-l} and the first exchange, we may assume that $L = \emptyset$; by the second exchange, we may then assume that $u \in A_2$.
 Since $A_2 = K \cup L = K$, we have $u \in K$, so the graph is partitioned into the three sets $I, J, K$.
-Accordingly, $u$ is incident to an edge of the cut: the first edge of $P$ belongs to the cut and is incident to $u$.
+Moreover, $u$ is incident to an edge of the cut: the first edge of $P$ belongs to the cut and is incident to $u$.
 We observe that $v \in J$: the last edge of $P$ belongs to the cut and is incident to $v$, so the vertex $v$ cannot belong to the set $I$.
 This structure is illustrated in Figure~\ref{fig:diameter-two-structure}.
 
@@ -1016,7 +1016,7 @@ d(u, v) \leq \cp(u, v) \leq d(u, v) + 1.
 \]
 Suppose, for a contradiction, that $\cp(u, v) = d(u, v)$.
 A minimum cut-path $S$ then has $d(u, v)$ edges and contains a $u$--$v$ path, which has at least $d(u, v)$ edges, so $S$ is this path.
-Then a minimum cut-path is a shortest $u$--$v$ path $P$ that contains a $u$--$v$ cut, so the graph $G \setminus P$ contains no $u$--$v$ path.
+Hence a minimum cut-path is a shortest $u$--$v$ path $P$ that contains a $u$--$v$ cut, so the graph $G \setminus P$ contains no $u$--$v$ path.
 
 Since $c(u, v) = 2$, no single edge separates $u$ from $v$.
 A bridge of $G$ on the path $P$ would separate $u$ from $v$; hence no edge of $P$ is a bridge, and every edge of $P$ lies on a cycle of the cactus graph $G$.
@@ -1032,6 +1032,7 @@ Therefore,
 \end{proof}
 
 By Remark~\ref{rem:algorithm}, a minimum cut-path in such a graph is again obtained as the union of a minimum cut and a shortest path.
+
 \section{Erdős–Rényi Graphs}
 \label{sec:random-graphs}
 
@@ -1147,7 +1148,7 @@ The algorithm runs in polynomial time, since both a minimum cut and a shortest p
 By the proof of Lemma~\ref{lem:basic-bounds}, its output $S$ is a cut-path with $|S| \leq c(u,v) + d(u,v) - 1$.
 
 Adding edges to a graph cannot increase the distances and cannot decrease the values $c(u,v)$.
-Hence, by the standard coupling of the random graphs $G(n,p)$ for different edge probabilities (see, e.g.,~\cite{Frieze2016}), the bounds of Theorem~\ref{thm:random-diameter} and Lemma~\ref{lem:connectivity-bounds}, which are stated for $p = \alpha \log n / n$, remain valid for every $p \geq \alpha \log n / n$.
+Hence, by the standard coupling of the random graphs $G(n,p)$ for different edge probabilities (see, e.g.,~\cite{Frieze2016}), the diameter bound of Theorem~\ref{thm:random-diameter} and the lower bound $c(u,v) \geq \beta_1 \log n$ of Lemma~\ref{lem:connectivity-bounds}, which are stated for $p = \alpha \log n / n$, remain valid for every $p \geq \alpha \log n / n$.
 Thus, with high probability, all pairs of distinct vertices $u,v$ satisfy
 \[
 d(u,v) \leq \diam(G) \leq \frac{\log n}{\log \log n}
