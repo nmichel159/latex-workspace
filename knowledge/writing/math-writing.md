@@ -133,7 +133,8 @@ Fixed outlines:
 ## 7. Figures for constructions
 
 - One figure per construction or gadget; labels in the figure are the symbols of the text.
-- The caption says what the reader should see (*A chain link: the two $p$–$q$ paths have equal length.*), not only what
-  the figure is.
+- The caption is one line: a title, at most one short clause on what the reader should see (*A chain link: the two
+  $p$–$q$ paths have equal length.*). Never several sentences; the owner rejected paragraph-long captions on
+  2026-10-09 ([academic-style.md](academic-style.md) §1.1).
 - Vector graphics (TikZ or PDF) and the document font; formats and tools: [latex-guide.md](latex-guide.md) §8.
 - Every figure is mentioned in the text before the place where it appears.

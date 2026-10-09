@@ -13,6 +13,20 @@ Test: delete the sentence. If the reader lost nothing, it stays deleted.
 Priority in a conflict: correctness > unambiguity > brevity > polish.
 Brevity never removes a hypothesis, a proof step, a definition or a detail needed to repeat an experiment.
 
+### 1.1 Add the minimum (owner's rule, 2026-10-09)
+
+The owner rejects long text. When something is added to a document, add the fewest words that do the job.
+
+- **No elaboration.** Do not explain what a figure, a formula or the previous sentence already shows. Do not add a
+  remark, a reading guide or a consequence that nobody asked for.
+- **Figure caption: one line.** A title, at most one short clause; never several sentences, never a paragraph.
+  ✗ a caption that explains every color, restates the definition and adds an equivalence.
+  ✓ *The two 2-synchronization threads of a variable $x_i$*.
+- **Introducing a figure: one sentence**, or a bracketed reference in a sentence that is already there.
+- **A sentence where a paragraph was planned; nothing where a sentence adds nothing.** When unsure whether to add
+  text, do not add it.
+- The same holds for notes, reports and replies to the owner: the result first, in a few lines.
+
 ## 2. Language
 
 | Item | Rule |
@@ -149,7 +163,9 @@ House rule (no external source; derived from the author's drafts, §9). Do not w
 - dashes as the main way to build a sentence: at most one dash parenthesis per paragraph;
 - abstract subjects (*the interplay*, *the tension*, *this perspective*) with *serves as*, *embodies*, *captures*,
   *reflects*;
-- a conclusion that promises *promising avenues for future research* instead of specific open problems.
+- a conclusion that promises *promising avenues for future research* instead of specific open problems;
+- captions and lead-ins that explain: several sentences under a figure, or a paragraph that tells the reader how to
+  read it (§1.1).
 
 Machine check: `.\scripts\check-text.ps1 -Project <project>` finds these patterns from [phrase-list.tsv](phrase-list.tsv).
 Disclosure of AI use: [submission.md](submission.md) §1.

@@ -78,7 +78,7 @@ Full list: [experiments-reporting.md](experiments-reporting.md) §9. At least:
 - [ ] ● Operators with a backslash (`\deg`, `\min`, `\max`, `\log`, `\lim`) (LC §6, LG §5).
 - [ ] ● `\[ ... \]` instead of `$$ ... $$`; no stray `\Bigr.` (LG §5).
 - [ ] ● Variables in running text are in math mode (`$p$`, not `(p)`) (LG §11).
-- [ ] ● Every figure has a `\caption` (a title and a description) and is cited in the text by its number (`Figure~\ref{fig:...}`), not only shown; a figure that appears only in its own caption is not cited (MW §7, LC §8).
+- [ ] ● Every figure has a one-line `\caption` (a title, at most one short clause; AS §1.1) and is cited in the text by its number (`Figure~\ref{fig:...}`), not only shown; a figure that appears only in its own caption is not cited (MW §7, LC §8).
 - [ ] ● The end-of-proof mark is not alone on a line (`\qedhere`) and "Proof." is not attached to an algorithm (LC §4, LG §6).
 - [ ] Tables without vertical rules (`booktabs`), numbers aligned on the decimal point (LG §9).
 - [ ] The PDF contains no `??`, no `[?]`, no line overflowing into the margin (LG §12, §17).
