@@ -1,10 +1,6 @@
 \section{NP-completeness of the Min Cut-Path Problem}
 \label{sec:np-completeness}
-We prove that the decision version of the \MinCutPath{} problem is NP-complete, starting from the \ThreeSAT{} problem.
-
-
-
-
+We prove that the decision version of the \MinCutPath{} problem is NP-complete by a reduction from the \ThreeSAT{} problem.
 
 \begin{problem}[\ThreeSAT]
 Let $U = \{x_1, x_2, \dots, x_n\}$ be a finite set of Boolean variables, and let
@@ -21,14 +17,12 @@ The \ThreeSAT{} decision problem is defined as follows:
 \end{center}
 \end{problem}
 
-
 \ThreeSAT{} is NP-complete~\cite{Cook1971Complexity}.
 Throughout this section, $n$ and $m$ denote the numbers of variables and clauses of the \ThreeSAT{} instance under consideration.
 
 The proof has two steps and uses an intermediate problem, \SSP.
-First, we show that this problem is NP-complete by a polynomial-time reduction from \ThreeSAT{} (Section~\ref{sec:ssp}).
+First, we show that \SSP{} is NP-complete by a polynomial-time reduction from \ThreeSAT{} (Section~\ref{sec:ssp}).
 Second, we reduce \SSP{} to \MinCutPath{} (Section~\ref{sec:ssp-to-mcp}).
-
 
 \subsection{The Separating Shortest Path Problem}\label{sec:ssp}
 The \SSP{} problem asks whether the removal of some shortest $u$--$v$ path disconnects $u$ from $v$.
@@ -46,23 +40,18 @@ The \SSP{} decision problem is defined as follows:
 \end{center}
 \end{problem}
 
-Unlike \MinCutPath, \SSP{} is not an optimization problem, which makes the reduction from \ThreeSAT{} more direct.
-
-
-
+Unlike \MinCutPath, \SSP{} is not an optimization problem: a solution is a single shortest $u$--$v$ path, that is, a cut-path of size $d(u,v)$ (see the proof of Theorem~\ref{thm:mcp-np-complete}).
+This makes the reduction from \ThreeSAT{} more direct.
 
 \subsubsection{Gadgets and Basic Operations for the Reduction}
 
 The reduction from \ThreeSAT{} to \SSP{} is built from \emph{gadgets} and \emph{basic operations} on them.
-
 The construction consists of two parts:
 \begin{enumerate}
     \item the \emph{base structure}, also referred to as the \emph{chain};
     \item the \emph{threads}, which are threaded through the base structure.
 \end{enumerate}
-
 Figure~\ref{fig:chain-threads} shows both parts.
-
 
 \begin{figure}[H]
     \centering
@@ -71,10 +60,8 @@ Figure~\ref{fig:chain-threads} shows both parts.
     \label{fig:chain-threads}
 \end{figure}
 
-
 \paragraph{Chain.}
 The smallest gadget is the \emph{chain link}, a cycle with two distinguished vertices $p$ and $q$ that split it into two paths of equal length.
-
 
 \begin{definition}[Chain Link]
 \label{def:chain-link}
@@ -89,6 +76,7 @@ We refer to one of the two $p$--$q$ paths as the \emph{positive path} of the cha
 When a chain link is used inside a chain, its boundary vertices are exactly $p$ and~$q$, i.e., the points where the adjacent single edges of the chain are attached.
 \end{definition}
 
+Figure~\ref{fig:chain-link} shows a chain link.
 
 \begin{figure}[H]
     \centering
@@ -96,8 +84,6 @@ When a chain link is used inside a chain, its boundary vertices are exactly $p$ 
     \caption{A chain link}
     \label{fig:chain-link}
 \end{figure}
-
-
 
 A chain alternates single edges and chain links; it begins and ends with a single edge.
 
@@ -118,6 +104,8 @@ where:
 Every $u$--$v$ path in a chain traverses all single edges and, in each chain link, either its positive or its negative path.
 \end{definition}
 
+Figure~\ref{fig:chain} shows a chain.
+
 \begin{figure}[H]
     \centering
     \includegraphics{chain.pdf}
@@ -125,28 +113,26 @@ Every $u$--$v$ path in a chain traverses all single edges and, in each chain lin
     \label{fig:chain}
 \end{figure}
 
-
-
 Let $C_1, C_2, \dots, C_m$ denote the clauses of the input formula and let $x_1, x_2, \dots, x_n$ denote its variables.
 In the reduction, every chain link has one of three types:
-
 \begin{enumerate}
     \item \textbf{Initialization chain link.}
     For each variable $x_i$ we introduce an initialization chain link, denoted $I_i$.
-    This link marks the beginning of the part of the chain that corresponds to the variable $x_i$. The total number of initialization chain links is $n$.
+    This link marks the beginning of the part of the chain that corresponds to the variable $x_i$.
+    The total number of initialization chain links is $n$.
 
     \item \textbf{Terminal chain link.}
     For each variable $x_i$ we also introduce a terminal chain link, denoted $T_i$.
-    This link marks the end of the part of the chain associated with the variable $x_i$. The total number of terminal chain links is $n$.
+    This link marks the end of the part of the chain associated with the variable $x_i$.
+    The total number of terminal chain links is $n$.
 
     \item \textbf{Literal chain link.}
     For each clause $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$ and each $j \in \{1,2,3\}$, let $x_i$ be the variable of the literal $\ell_j$.
     We introduce a literal chain link, denoted $L_{j,k,i}$ (or $L_{j,k}$ for short).
     This link represents the occurrence of the variable $x_i$ as the $j$-th literal of the clause $C_k$.
     The total number of literal chain links is $3m$.
-
 \end{enumerate}
-
+In total, the construction contains $3m + 2n$ chain links.
 The chain links that belong to one variable are consecutive in the chain, as illustrated in Figure~\ref{fig:chain-link-types}.
 
 \begin{figure}[H]
@@ -155,8 +141,6 @@ The chain links that belong to one variable are consecutive in the chain, as ill
     \caption{Chain links of a variable $x_i$: the initialization link, the literal links, and the terminal link}
     \label{fig:chain-link-types}
 \end{figure}
-
-In total, the construction contains $3m + 2n$ chain links.
 
 \paragraph{Threads and threading.}
 \emph{Threads} are paths that pass through the chain links; inserting such a path into the chain is called \emph{threading}.
@@ -170,7 +154,6 @@ A \emph{thread} is a $u$--$v$ path $P$ in $G$ such that:
     \item $P$ is edge-disjoint from every other thread and shares only the vertices $u$ and $v$ with it.
 \end{enumerate}
 \end{definition}
-
 
 Threading subdivides an edge of a chain link that no thread uses yet into three edges and routes the thread through the middle one.
 
@@ -187,6 +170,8 @@ If the selected edge $e$ belongs to the positive path of $L$, we say that $P$ is
 In general, we say that the thread $P$ is \emph{threaded through $L$ at the edge $e$}.
 \end{definition}
 
+Figure~\ref{fig:threading} shows the threading operation.
+
 \begin{figure}[H]
     \centering
     \includegraphics{threading.pdf}
@@ -194,46 +179,46 @@ In general, we say that the thread $P$ is \emph{threaded through $L$ at the edge
     \label{fig:threading}
 \end{figure}
 
-
 Every thread has one of three types:
-
 \begin{enumerate}
     \item \textbf{2-synchronization thread.}
     This thread passes through an initialization chain link $I_i$ and the corresponding terminal chain link $T_i$ (Figure~\ref{fig:two-synchronization}).
-    Threads of this type force every separating shortest path to traverse paths of the same sign in $I_i$ and $T_i$.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics{two-synchronization-threads.pdf}
-        \caption{The two 2-synchronization threads of a variable $x_i$}
-        \label{fig:two-synchronization}
-    \end{figure}
+    Threads of this type force every separating shortest path to traverse paths of the same sign in $I_i$ and $T_i$ (Lemmas~\ref{lem:chain-paths} and~\ref{lem:synchronization}).
 
     \item \textbf{3-synchronization thread.}
     This thread passes through the initialization chain link $I_i$, a literal chain link $L_{j,k,i}$, and the terminal chain link $T_i$ corresponding to the same variable $x_i$ (Figure~\ref{fig:three-synchronization}).
-    Threads of this type force every separating shortest path to traverse the path of this sign in $L_{j,k,i}$ as well.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics{three-synchronization-threads.pdf}
-        \caption{The two 3-synchronization threads of a literal chain link $L_{j,k,i}$}
-        \label{fig:three-synchronization}
-    \end{figure}
+    Threads of this type force every separating shortest path to traverse the path of this sign in $L_{j,k,i}$ as well (Lemma~\ref{lem:synchronization}).
 
     \item \textbf{Clause thread.}
     For each clause $C_k = (\ell_{1} \vee \ell_{2} \vee \ell_{3})$, a clause thread is introduced that passes through the three literal chain links $L_{1,k}$, $L_{2,k}$, $L_{3,k}$ corresponding to $\ell_{1}, \ell_{2}, \ell_{3}$ (Figure~\ref{fig:clause-thread}).
-    It encodes the clause: a separating shortest path exists only if at least one of the three literals is satisfied.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics{clause-thread.pdf}
-        \caption{The clause thread of a clause $C_k = (x_1 \vee \neg x_2 \vee x_3)$}
-        \label{fig:clause-thread}
-    \end{figure}
+    It encodes the clause: a separating shortest path exists only if at least one of the three literals is satisfied (Lemma~\ref{lem:clause-threads}).
 \end{enumerate}
 
-\subsubsection{NP-completeness of \textsc{Separating Shortest Path}}
-We prove that \SSP{} is NP-complete by a polynomial-time reduction from \ThreeSAT{} that uses the chain and the threads.
+\begin{figure}[H]
+    \centering
+    \includegraphics{two-synchronization-threads.pdf}
+    \caption{The two 2-synchronization threads of a variable $x_i$}
+    \label{fig:two-synchronization}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{three-synchronization-threads.pdf}
+    \caption{The two 3-synchronization threads of a literal chain link $L_{j,k,i}$}
+    \label{fig:three-synchronization}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{clause-thread.pdf}
+    \caption{The clause thread of a clause $C_k = (x_1 \vee \neg x_2 \vee x_3)$}
+    \label{fig:clause-thread}
+\end{figure}
+
+\subsubsection{The Construction}
+\label{sec:reduction-construction}
+We prove that \SSP{} is NP-complete (Theorem~\ref{thm:ssp-np-complete}) by a polynomial-time reduction from \ThreeSAT{} that uses the chain and the threads.
+Given an instance of \ThreeSAT, we construct a graph $G$ with two distinguished vertices $u,v$ such that $G$ contains a separating shortest $u$--$v$ path if and only if the given formula is satisfiable.
 
 \paragraph{Auxiliary procedures.}
 The reduction uses the following auxiliary procedures:
@@ -260,18 +245,9 @@ s(\ell) =
 \]
 \end{itemize}
 
-\begin{theorem}
-\label{thm:ssp-np-complete}
-The \SSP{} problem is NP-complete.
-\end{theorem}
-
-\begin{proof}
-We first describe the reduction, then prove its correctness, and finally bound its running time and show that the problem belongs to NP.
-
-\paragraph{Reduction from 3-SAT.}
-Given an instance of \ThreeSAT, we describe how to construct a graph $G$ with two distinguished vertices $u,v$ such that $G$ contains a separating shortest $u$--$v$ path if and only if the given formula is satisfiable.
-The construction is summarized in Algorithm~\ref{alg:reduction}.
-
+\paragraph{The graph of the reduction.}
+Algorithm~\ref{alg:reduction} constructs the graph $G$ and the vertices $u,v$.
+From now on, $G$, $u$ and $v$ denote its output.
 
 \begin{algorithm}[H]
 \caption{Reduction from \ThreeSAT{} to \SSP}
@@ -306,8 +282,18 @@ The construction is summarized in Algorithm~\ref{alg:reduction}.
 
 In words, the chain consists of $n$ consecutive blocks, one for each variable; the block of $x_i$ starts with $I_i$, ends with $T_i$, and contains the literal chain links of all occurrences of $x_i$ in between.
 Each variable receives a pair of 2-synchronization threads, each occurrence of a variable receives a pair of 3-synchronization threads, and each clause receives one clause thread.
-The final calibration step guarantees that both paths of every chain link have the same length and that the connecting paths of the threads are sufficiently long.
+Every thread passes through at least two chain links, so it has at least two crossing edges.
 
+\paragraph{Lengths after the calibration.}
+The final calibration step guarantees that both paths of every chain link have the same length and that the connecting paths of the threads are sufficiently long.
+Hence every $u$--$v$ path of the chain in $G$ has exactly $\Lambda$ edges, and every connecting path has at least $\Lambda$ edges.
+
+\begin{theorem}
+\label{thm:ssp-np-complete}
+The \SSP{} problem is NP-complete.
+\end{theorem}
+
+\begin{proof}
 \paragraph{Correctness.}
 We now show that the constructed instance of \SSP{} is equivalent to the original \ThreeSAT{} instance.
 We call the $u$--$v$ paths of the chain \emph{chain paths}; a chain path is determined by choosing, in every chain link, either its positive or its negative path.
@@ -432,4 +418,3 @@ All conditions can be tested in polynomial time.
 By Theorem~\ref{thm:ssp-np-complete}, \SSP{} is NP-complete, and it reduces to \MinCutPath{} in polynomial time.
 Since \MinCutPath{} is in NP (by polynomial verification), it follows that \MinCutPath{} is NP-complete.
 \end{proof}
-

@@ -1,1 +1,4 @@
 - 16:54 started
+- 16:57 inventory-B.md written (54 items)
+- 16:58 unit 1 done: section intro, 3-SAT box, plan, 3.1 SSP box + rephrased sentence, 3.1.1 gadgets (figs 3,4,6 cited; figs 7-9 moved out of the list; lemma pointers)
+- 16:59 unit 2 done: 3.1.2 The Construction (sec:reduction-construction): procedures, notation, Algorithm 1 moved out of the proof, In words, lengths after calibration; old proof body from 'Correctness' still in place
