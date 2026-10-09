@@ -1,0 +1,189 @@
+\shorttitle{Min Cut-Path Problem}
+
+\shortauthors{N. Micheľ}
+
+\title[mode = title]{Min Cut-Path Problem}
+
+\author[1]{Norbert Micheľ}
+
+\cormark[1]
+
+\ead{5344553@upjs.sk}
+
+\affiliation[1]{organization={Institute of Computer Science, Faculty of Science, Pavol Jozef Šafárik University in Košice},
+            addressline={Jesenná 5},
+            postcode={040 01},
+            postcodesep={},
+            city={Košice},
+            country={Slovakia}}
+
+\cortext[1]{Corresponding author}
+
+% The class writes the abstract body verbatim to a file and reads it back. The optional argument (the class's
+% own heading) is given explicitly, so the class does not look ahead for one.
+\begin{abstract}[\abstractname]
+A cut-path between two vertices $u$ and $v$ of a graph is a set of edges that contains both a $u$--$v$ path and a cut separating $u$ from $v$.
+It models two servers that communicate along the path while every other route between them uses one of the chosen edges.
+We study the \MinCutPath{} problem, which asks for a cut-path with the fewest edges.
+We prove that its decision version is NP-complete.
+In graphs of diameter two and in graphs in which every two vertices can be separated by at most two edges, a minimum cut-path has $c(u,v) + d(u,v) - 1$ edges.
+Here $c(u,v)$ is the size of a minimum cut and $d(u,v)$ is the distance.
+In Erdős–Rényi random graphs above the connectivity threshold, the union of a minimum cut and a shortest path is within a factor $1+\epsilon$ of the optimum, for every fixed $\epsilon > 0$, with probability tending to one.
+
+\end{abstract}
+
+\begin{keywords}
+NP-completeness \sep edge connectivity \sep graph diameter \sep Erdős–Rényi graphs \sep average-case approximation
+\end{keywords}
+
+\maketitle
+
+% PDF author field: \maketitle of the class fills it with the author list followed by ", ", which the
+% PDF shows as a stray character; set after \maketitle, before the first page is written.
+\hypersetup{pdfauthor={Norbert Micheľ}}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Suppose that two trusted servers in a network must communicate while an adversary is denied every other route between them.
+We model the network as a graph whose vertices are the servers and whose edges are the direct communication links.
+The task is to select a set of edges that contains a connecting path, which carries the communication, and a separating cut, which guarantees that every other route between the two servers uses at least one of the selected edges.
+We call such a set of edges a \emph{cut-path}.
+
+Connectivity and separation are classical topics: multi-terminal minimum cuts~\cite{GomoryHu1961}, representations of all minimum cuts~\cite{NagamochiKameda1996}, and small cuts and edge connectivity~\cite{Mehlhorn2017Certifying} have been studied in detail, and paths and cuts are related by the max-flow min-cut duality~\cite{Cormen2022}.
+These papers treat a path and a cut as separate objects.
+A cut-path requires both in the same set of edges.
+
+
+The \MinCutPath{} problem asks for a cut-path with the fewest edges between two given vertices.
+To the best of our knowledge, the problem has not been studied before.
+We settle its complexity and prove its basic structural properties.
+
+Our contributions are the following.
+First, we prove that the decision version of \MinCutPath{} is NP-complete, by a reduction from \ThreeSAT{} through an intermediate problem, \SSP.
+Second, we prove that $\cp(u,v) = c(u,v) + d(u,v) - 1$ in graphs of diameter two and in graphs with minimum cut-value at most two.
+Here $\cp(u,v)$ is the size of a minimum cut-path, $c(u,v)$ the size of a minimum cut, and $d(u,v)$ the distance; in both classes a minimum cut-path can be computed in polynomial time.
+Third, dense Erdős–Rényi random graphs have diameter two with probability tending to one, so the formula applies to them.
+For sparser random graphs, we show that the union of a minimum cut and a shortest path is within a factor of $1+\epsilon$ of the optimum on almost all inputs.
+
+Section~\ref{sec:fundamentals} defines cut-paths and proves $\max\{c(u,v), d(u,v)\} \leq \cp(u,v) \leq c(u,v) + d(u,v) - 1$.
+Section~\ref{sec:np-completeness} contains the NP-completeness proof.
+Sections~\ref{sec:diameter-two} and~\ref{sec:cut-two} treat graphs of diameter two and graphs with minimum cut-value at most two, and Section~\ref{sec:random-graphs} treats random graphs.
+Section~\ref{sec:conclusion} lists open problems.
+
+\section{Fundamentals}
+\label{sec:fundamentals}
+
+Throughout the paper, we use standard notation from graph theory and computational complexity, following the conventions of~\cite{Diestel2025,Cormen2022}.
+All graphs under consideration are undirected and finite, unless otherwise stated.
+For a graph $G = (V, E)$, we let $n = |V|$ denote the number of vertices and $m = |E|$ the number of edges.
+
+We often deal with two distinct vertices $u, v \in V$.
+The value $d(u, v)$ denotes the distance between $u$ and $v$, i.e., the length of a shortest $u$--$v$ path in $G$.
+Similarly, the value $c(u, v)$ denotes the minimum size of a cut that separates $u$ and $v$.
+All problems studied in this paper are defined with respect to these two distinguished vertices $u$ and $v$, which are assumed to lie in the same connected component of $G$.
+
+We identify a path with its set of edges.
+For any path $P \subseteq E$, we denote by $G \setminus P$ the graph obtained from $G$ by removing all edges of $P$.
+For a vertex $x \in V$ and a vertex subset $S \subseteq V$, we write $\deg(x, S)$ for the number of neighbors of $x$ that belong to $S$, that is, $\deg(x, S) = |\{\,y \in S : \{x, y\} \in E\,\}|$.
+
+
+
+\begin{definition}[Cut-Path]
+\label{def:cut-path}
+Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
+A \emph{cut-path} between $u$ and $v$ is a set of edges $S \subseteq E$ for which there exist subsets $P, C \subseteq S$ such that:
+    \begin{enumerate}
+        \item $C$ is a cut separating $u$ and $v$ (i.e., removing $C$ disconnects $u$ from $v$),
+        \item $P$ is a path connecting $u$ and $v$.
+    \end{enumerate}
+\end{definition}
+
+Figure~\ref{fig:cut-path} shows a cut-path schematically.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{cut-path.pdf}
+    \caption{A cut-path between $u$ and $v$ (schematic)}
+    \label{fig:cut-path}
+\end{figure}
+
+\begin{definition}[Cut-Paths]
+\label{def:cut-paths}
+Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
+The set of all cut-paths between $u$ and $v$, denoted by $\CP(u, v)$, is defined as:
+\[
+\CP(u, v) = \{ S \mid S \text{ is a cut-path between } u \text{ and } v \}.
+\]
+\end{definition}
+
+\begin{definition}[Value of Minimum Cut-Path]
+\label{def:cp-value}
+Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
+The minimum size of a cut-path between $u$ and $v$, denoted by $\cp(u, v)$, is defined as:
+\[
+\cp(u, v) = \min\{ |S| \mid S \in \CP(u, v) \}.
+\]
+\end{definition}
+
+A cut-path $S \in \CP(u, v)$ with $|S| = \cp(u, v)$ is called a \emph{minimum cut-path} between $u$ and $v$.
+The corresponding optimization problem is stated as follows.
+
+\begin{problem}[\MinCutPath{} (Optimization Version)]
+Let $G=(V,E)$ be an undirected graph and $u,v \in V$ distinct vertices; cut-paths are defined in Definition~\ref{def:cut-path}.
+The optimization version of the \MinCutPath{} problem is defined as follows:
+
+\begin{center}
+\begin{tabular}{p{0.18\linewidth}p{0.75\linewidth}}
+\textbf{Input:} & A graph $G=(V,E)$ and vertices $u,v \in V$. \\
+\textbf{Output:} & A minimum cut-path $S^* \subseteq E$ between $u$ and $v$, together with its cardinality
+\[
+\cp(u,v) = |S^*|.
+\]
+\end{tabular}
+\end{center}
+\end{problem}
+
+The following elementary bounds relate $\cp(u, v)$ to the classical quantities $c(u, v)$ and $d(u, v)$; they are used repeatedly in the subsequent sections.
+
+\begin{lemma}[Basic Bounds]
+\label{lem:basic-bounds}
+Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices. Then
+\[
+\max\{c(u, v), d(u, v)\} \leq \cp(u, v) \leq c(u, v) + d(u, v) - 1.
+\]
+In particular, if $c(u, v) = 1$ or $d(u, v) = 1$, then $\cp(u, v) = c(u, v) + d(u, v) - 1$.
+\end{lemma}
+
+\begin{proof}
+Every cut-path contains a $u$--$v$ cut, which has at least $c(u, v)$ edges, and a $u$--$v$ path, which has at least $d(u, v)$ edges; this gives the lower bound.
+For the upper bound, let $C$ be a minimum $u$--$v$ cut and let $P$ be a shortest $u$--$v$ path.
+The set $C \cup P$ is a cut-path.
+Since removing $C$ disconnects $u$ from $v$, the path $P$ contains at least one edge of $C$, and hence $|C \cup P| \leq c(u, v) + d(u, v) - 1$.
+If $c(u, v) = 1$ or $d(u, v) = 1$, the lower and the upper bound coincide.
+\end{proof}
+
+
+For random graphs, we use the following notion of approximation: a polynomial-time algorithm that is within a factor of $1+\epsilon$ of the optimum on almost all inputs.
+Let $I(n)$ denote the set of all input instances of size $n$, and let $\OPT(x)$ denote the optimal value of the objective function for an instance $x \in I(n)$, i.e., the minimum for a minimization problem and the maximum for a maximization problem.
+
+\begin{definition}[Average $(1+\epsilon)$-Approximation Scheme]
+\label{def:approximation-scheme}
+Let $\epsilon > 0$. An algorithm $A$ is called an \emph{average $(1+\epsilon)$-approximation scheme} if it meets the following criteria:
+\begin{enumerate}
+    \item $A$ is a polynomial-time algorithm, i.e., its running time is $O(P(n))$ for some polynomial $P(n)$.
+    \item For each input size $n$, there exists a subset of inputs $I_{A}^{\mathrm{opt}}(n) \subseteq I(n)$ such that for every input $x \in I_{A}^{\mathrm{opt}}(n)$, the value $A(x)$ of the solution computed by $A$ satisfies
+    \[
+    \frac{A(x)}{\OPT(x)} < 1+\epsilon \quad \text{(for minimization problems)}
+    \]
+    \[
+    \frac{\OPT(x)}{A(x)} < 1+\epsilon \quad \text{(for maximization problems)},
+    \]
+    where $\OPT(x)$ denotes the optimal value for the input $x$.
+    \item In addition, the algorithm is average-case in the sense that
+    \[
+    \lim_{n \to \infty} \frac{\lvert I_{A}^{\mathrm{opt}}(n) \rvert}{\lvert I(n) \rvert} = 1.
+    \]
+\end{enumerate}
+\end{definition}
+
