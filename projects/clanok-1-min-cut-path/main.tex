@@ -54,7 +54,6 @@
 
 % Notation
 \newcommand{\cp}{\operatorname{cp}}                  % value of a minimum cut-path
-\newcommand{\CP}{\operatorname{CP}}                  % set of all cut-paths
 \newcommand{\diam}{\operatorname{diam}}
 \newcommand{\OPT}{\mathrm{OPT}}
 \newcommand{\MinCutPath}{\textsc{Min Cut-Path}}
@@ -190,21 +189,16 @@ Section~\ref{sec:conclusion} lists open problems.
 
 We use standard notation from graph theory and computational complexity and follow the conventions of~\cite{Diestel2025,Cormen2022}.
 All graphs under consideration are finite, simple and undirected.
-For a graph $G = (V, E)$, we let $n = |V|$ denote the number of vertices and $m = |E|$ the number of edges.
 
 Most statements concern two distinct vertices $u, v \in V$.
 The distance $d(u, v)$ is the length of a shortest $u$--$v$ path in $G$.
 A set of edges whose removal disconnects $u$ from $v$ is a \emph{cut separating $u$ and $v$}, or a \emph{$u$--$v$ cut}.
 The value $c(u, v)$ denotes the minimum size of a $u$--$v$ cut; we call it the \emph{cut-value} of $u$ and $v$.
-For a vertex set $A \subseteq V$, let $\delta(A)$ denote the set of edges with exactly one end-vertex in $A$.
-If $u \in A$ and $v \notin A$, then $\delta(A)$ is a $u$--$v$ cut.
-Conversely, a minimum $u$--$v$ cut $C$ equals $\delta(A)$ for the vertex set $A$ of the component of $G \setminus C$ that contains $u$ (see the proof of Theorem~\ref{thm:diameter-two}).
-Hence $c(u,v) = \min\{|\delta(A)| : u \in A,\ v \notin A\}$.
+For a vertex set $A$ with $u \in A$ and $v \notin A$, the set of all edges between $A$ and $V \setminus A$ is a $u$--$v$ cut, and every minimum $u$--$v$ cut is of this form (see the proof of Theorem~\ref{thm:diameter-two}).
 All problems studied in this paper are defined with respect to these two distinguished vertices $u$ and $v$, and we assume that $u$ and $v$ lie in the same connected component of $G$.
 
 We identify a path with its set of edges.
 For a path $P \subseteq E$, we denote by $G \setminus P$ the graph obtained from $G$ by removing all edges of $P$.
-For a vertex $x \in V$ and a vertex subset $S \subseteq V$, we write $\deg(x, S)$ for the number of neighbors of $x$ that belong to $S$, that is, $\deg(x, S) = |\{\,y \in S : \{x, y\} \in E\,\}|$.
 
 \begin{definition}[Cut-Path]
 \label{def:cut-path}
@@ -225,27 +219,18 @@ Figure~\ref{fig:cut-path} shows a cut-path schematically.
     \label{fig:cut-path}
 \end{figure}
 
-\begin{definition}[Cut-Paths]
-\label{def:cut-paths}
-Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
-The set of all cut-paths between $u$ and $v$ is denoted by $\CP(u, v)$:
-\[
-\CP(u, v) = \{ S \mid S \text{ is a cut-path between } u \text{ and } v \}.
-\]
-\end{definition}
-
 \begin{definition}[Value of Minimum Cut-Path]
 \label{def:cp-value}
 Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
 The minimum size of a cut-path between $u$ and $v$ is denoted by $\cp(u, v)$:
 \[
-\cp(u, v) = \min\{ |S| \mid S \in \CP(u, v) \}.
+\cp(u, v) = \min\{ |S| \mid S \text{ is a cut-path between } u \text{ and } v \}.
 \]
 \end{definition}
 
 Since $u$ and $v$ lie in the same connected component, the edge set $E$ contains a $u$--$v$ path, and removing all edges of $E$ disconnects $u$ from $v$ because $u \neq v$.
-Hence $E \in \CP(u, v)$, and the minimum in Definition~\ref{def:cp-value} exists.
-A cut-path $S \in \CP(u, v)$ with $|S| = \cp(u, v)$ is called a \emph{minimum cut-path} between $u$ and $v$.
+Hence $E$ is a cut-path, and the minimum in Definition~\ref{def:cp-value} exists.
+A cut-path $S$ with $|S| = \cp(u, v)$ is called a \emph{minimum cut-path} between $u$ and $v$.
 
 \begin{problem}[\MinCutPath{} (Optimization Version)]
 Let $G=(V,E)$ be an undirected graph and $u,v \in V$ distinct vertices; cut-paths are defined in Definition~\ref{def:cut-path}.
@@ -254,15 +239,10 @@ The optimization version of the \MinCutPath{} problem is defined as follows:
 \begin{center}
 \begin{tabular}{p{0.18\linewidth}p{0.75\linewidth}}
 \textbf{Input:} & A graph $G=(V,E)$ and vertices $u,v \in V$. \\
-\textbf{Output:} & A minimum cut-path $S^* \subseteq E$ between $u$ and $v$, together with its cardinality
-\[
-\cp(u,v) = |S^*|.
-\]
+\textbf{Output:} & A minimum cut-path between $u$ and $v$ and its size $\cp(u,v)$.
 \end{tabular}
 \end{center}
 \end{problem}
-
-The following elementary bounds relate $\cp(u, v)$ to the classical quantities $c(u, v)$ and $d(u, v)$.
 
 \begin{lemma}[Basic Bounds]
 \label{lem:basic-bounds}
@@ -283,23 +263,22 @@ If $c(u, v) = 1$, the lower bound gives $\cp(u, v) \geq d(u, v) = c(u, v) + d(u,
 In both cases the lower and the upper bound coincide.
 \end{proof}
 
-For random graphs (Section~\ref{sec:random-graphs}), we use the following notion of approximation: a polynomial-time algorithm that is within a factor of $1+\epsilon$ of the optimum on almost all inputs.
+For random graphs (Section~\ref{sec:random-graphs}), we use the following notion of approximation.
 Let $I(n)$ denote the set of all input instances of size $n$.
-For an instance $x \in I(n)$, let $\OPT(x)$ denote the optimal value of the objective function, that is, the minimum for a minimization problem and the maximum for a maximization problem.
+For an instance $X \in I(n)$, let $\OPT(X)$ denote the optimal value of the objective function, that is, the minimum for a minimization problem and the maximum for a maximization problem.
 
 \begin{definition}[Average $(1+\epsilon)$-Approximation Scheme]
 \label{def:approximation-scheme}
 Let $\epsilon > 0$. An algorithm $A$ is called an \emph{average $(1+\epsilon)$-approximation scheme} if the following three conditions hold.
 \begin{enumerate}
-    \item $A$ is a polynomial-time algorithm, i.e., its running time is $O(P(n))$ for some polynomial $P(n)$.
-    \item For each input size $n$, there exists a subset of inputs $I_{A}^{\mathrm{opt}}(n) \subseteq I(n)$ such that for every input $x \in I_{A}^{\mathrm{opt}}(n)$, the value $A(x)$ of the solution computed by $A$ satisfies
+    \item $A$ is a polynomial-time algorithm, i.e., its running time is bounded by a polynomial in $n$.
+    \item For each input size $n$, there exists a subset of inputs $I_{A}^{\mathrm{opt}}(n) \subseteq I(n)$ such that for every input $X \in I_{A}^{\mathrm{opt}}(n)$, the value $A(X)$ of the solution computed by $A$ satisfies
     \[
-    \frac{A(x)}{\OPT(x)} < 1+\epsilon \quad \text{(for minimization problems)}
+    \frac{A(X)}{\OPT(X)} < 1+\epsilon \quad \text{(for minimization problems)}
     \]
     \[
-    \frac{\OPT(x)}{A(x)} < 1+\epsilon \quad \text{(for maximization problems)},
+    \frac{\OPT(X)}{A(X)} < 1+\epsilon \quad \text{(for maximization problems)},
     \]
-    where $\OPT(x)$ denotes the optimal value for the input $x$.
     \item In addition, the algorithm is average-case in the sense that
     \[
     \lim_{n \to \infty} \frac{\lvert I_{A}^{\mathrm{opt}}(n) \rvert}{\lvert I(n) \rvert} = 1.
