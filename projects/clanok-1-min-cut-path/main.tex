@@ -106,7 +106,7 @@
 % own heading) is given explicitly, so the class does not look ahead for one.
 \begin{abstract}[\abstractname]
 A cut-path between two vertices $u$ and $v$ of a graph is a set of edges that contains both a $u$--$v$ path and a cut separating $u$ from $v$.
-It models two servers that communicate along the path while every other route between them uses one of the chosen edges, which are secured.
+It models two servers that communicate along the path while every other route between them uses one of the chosen, secured edges.
 We study the \MinCutPath{} problem, which asks for a cut-path with the fewest edges.
 We prove that its decision version is NP-complete.
 Let $c(u,v)$ be the size of a minimum cut separating $u$ from $v$, and let $d(u,v)$ be the distance between $u$ and $v$.
@@ -137,7 +137,7 @@ The \MinCutPath{} problem asks for a cut-path with the fewest edges between two 
 
 Connectivity and separation are classical topics: multi-terminal minimum cuts~\cite{GomoryHu1961}, representations of all minimum cuts~\cite{NagamochiKameda1996}, and small cuts and edge connectivity~\cite{Mehlhorn2017Certifying} have been studied in detail.
 Paths and cuts are related by the max-flow min-cut theorem~\cite{Cormen2022}.
-These works treat a path and a cut as separate objects.
+This literature treats a path and a cut as separate objects.
 A cut-path requires both in the same set of edges.
 
 The problems closest to \MinCutPath{} put a condition on a single $u$--$v$ path or on a single cut.
@@ -148,8 +148,7 @@ For the vertex version, in which the removal of the vertices of the path must le
 Such a path models a private channel whose removal keeps the rest of the network connected; a cut-path asks for the opposite, since the removal of its edges separates $u$ from $v$.
 
 Bazgan et al.~\cite{Bazgan2019MostVital} studied \textsc{Shortest Path Most Vital Edges}, the deletion of at most $k$ edges such that every remaining $u$--$v$ path has at least a given length.
-For unit edge lengths, the deleted edges form a length-bounded edge cut.
-With unit edge lengths, this problem is NP-hard on graphs of diameter three and solvable in linear time on graphs of diameter at most two.
+For unit edge lengths, the deleted edges form a length-bounded edge cut, and the problem is NP-hard on graphs of diameter three and solvable in linear time on graphs of diameter at most two.
 Such an edge set destroys all short $u$--$v$ paths, whereas a cut-path meets every $u$--$v$ path and contains one of them.
 
 Other problems prescribe the structure of a cut.
@@ -159,9 +158,8 @@ A \emph{matching cut} is the set of all edges between the two sides of a vertex 
 Deciding whether a graph has a matching cut is polynomial on graphs of diameter two and NP-complete on graphs of diameter $d$ for every fixed $d \geq 3$~\cite{LeLe2019MatchingCut}.
 Komusiewicz et al.~\cite{Komusiewicz2020MatchingCut} gave kernels, single-exponential FPT algorithms and an exact exponential-time algorithm for this problem.
 
-In both problems the cut alone carries the condition, whereas in a cut-path the cut must fit into few edges together with a path.
-\textsc{Shortest Path Most Vital Edges} with unit edge lengths and the matching cut problem are polynomial on graphs of diameter two and NP-hard on graphs of diameter three.
-For \MinCutPath{}, Theorem~\ref{thm:diameter-two} gives a polynomial case on graphs of diameter two as well.
+In network diversion and matching cut the cut alone carries the condition, whereas in a cut-path the cut must fit into few edges together with a path.
+As for \textsc{Shortest Path Most Vital Edges} and matching cut, graphs of diameter two form a polynomial case of \MinCutPath{} (Theorem~\ref{thm:diameter-two}).
 
 To the best of our knowledge, the problem has not been studied before.
 We settle its complexity and prove its basic structural properties.
@@ -823,6 +821,7 @@ Since \MinCutPath{} is in NP (by polynomial verification), it follows that \MinC
 \end{proof}
 
 The decision version is NP-complete, and hence the optimization version is NP-hard.
+
 \section{Graphs of Diameter Two}
 \label{sec:diameter-two}
 
