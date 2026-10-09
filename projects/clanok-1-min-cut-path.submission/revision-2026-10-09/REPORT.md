@@ -35,6 +35,17 @@ Two wording corrections touch the meaning of an existing sentence and need your 
 2. Section 3.1: the sentence after the SSP box now says that a solution is a *separating* shortest path, i.e., a
    cut-path of size `d(u,v)`.
 
+## Second pass (author's approval of the notation and redundancy list)
+
+Applied: no global `n = |V|`, `m = |E|`; no `delta(A)`, `lambda(G)`, `CP(u,v)` (Definition 2.2 removed, Definition 2.3
+takes the minimum over cut-paths), `S*`, `P(n)`; `deg(x,S)` defined in the proof of Theorem 4.5; instance `X` instead of
+`x`; literal chain links written `L_{j,k}` only (`L_{l[0],l[1]}` in Algorithm 1); index `r` in `Thread`; `G'` and `d_G`
+gone; Theorem 6.1 for constant `p` (no `alpha`); `beta_2`, the upper Chernoff tail and the upper bound of Lemma 6.5
+removed; the setting of Section 6 stated once; the Godsil-Royle and Mehlhorn citations at loose places removed
+(Godsil-Royle no longer cited); lead-ins and repeated sentences removed in all sections. 17 pages.
+Not applied (symbol clashes that need a global rename): `C` cut vs clauses, `k` threshold vs clause index, `F` vs `S`,
+`I, J, K, L` vs `I_i, T_i, L_{j,k}`, `A` (algorithm) vs `A_1, A_2`.
+
 ## Decisions for the author (not applied)
 
 Full lists with exact proposed LaTeX: `issues-A.md` (front matter, Sections 1-2), `issues-B.md` (Section 3),
