@@ -3,3 +3,5 @@
 - Section 4 text revised (Lemma 4.3 proof, Theorem 4.5 cases and made-explicit steps); figure line points to PDF (PDF not yet built)
 - Section 5 text revised (cases as Section 4, cactus argument with named x,y, Z_i rename, made-explicit steps)
 - Figure 10 redrawn in TikZ (figures/diameter-two-structure.tex), PDF in project, PNG moved by git mv to archives/.../2026-10-09-png-figures/
+- compile check passed (C with original A,B,D: 16 pages, no errors; current B breaks the build at its own line)
+- changes-C.md written

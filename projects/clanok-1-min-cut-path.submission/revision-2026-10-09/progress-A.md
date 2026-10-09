@@ -4,3 +4,6 @@
 - Section 1 Introduction done (motivation, related work, contributions with refs, reduction idea, roadmap)
 - Section 2 done
 - intro related work split into short paragraphs
+- changes-A.md written
+- issues-A.md written
+- inventory confirmed; test build OK (with original frag-B substituted, B mid-edit); DONE

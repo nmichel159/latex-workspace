@@ -2,3 +2,6 @@
 - 16:57 inventory-B.md written (54 items)
 - 16:58 unit 1 done: section intro, 3-SAT box, plan, 3.1 SSP box + rephrased sentence, 3.1.1 gadgets (figs 3,4,6 cited; figs 7-9 moved out of the list; lemma pointers)
 - 16:59 unit 2 done: 3.1.2 The Construction (sec:reduction-construction): procedures, notation, Algorithm 1 moved out of the proof, In words, lengths after calibration; old proof body from 'Correctness' still in place
+- 17:01 unit 3 done: 3.1.3 Correctness (sec:reduction-correctness): prose definitions, Lemmas chain-paths, synchronization, clause-threads, separating (auxiliary multigraph Gamma, three cases kept), Theorem 3.x with (a)/(b), running time, NP
+- 17:01 unit 4 done: 3.2 (paragraph headings, opening sentence, breadth-first search, NP-hard sentence moved after proof, BFS polynomial made explicit)
+- 17:02 style pass (check-text: long sentences split, 'In terms of' removed; 'exhaustive' kept as the mathematical term); build OK
