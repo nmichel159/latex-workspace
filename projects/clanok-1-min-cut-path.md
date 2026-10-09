@@ -7,7 +7,7 @@ and the whole text are in it), `cas-sc.cls`, `cas-common.sty`, `cas-model2-names
 added from the author's talk on 2026-10-09 and Figures 2-6 were redrawn as vector PDF the same day, see "Change history").
 To send: zip the content of the folder and submit it, after `package-project.ps1 -Template els-cas -Flat
 -KeepComments` ends with `Verdict: PASS` (2026-10-09, after the plain-style revision: PASS, 15 pages).
-Beside the folder: these notes and `projects/clanok-1-min-cut-path.submission/` (draft AI declaration).
+Beside the folder: these notes and `projects/clanok-1-min-cut-path.submission/` (draft AI declaration; plan for the next session: `NEXT-TASK.md`).
 Still open: "Open items for the author" below (AI declaration, funding, highlights, figures, abstract) and "Content
 changes to review". "Change history" names `preamble/` and `sections/` files; their content is now in `main.tex`, the
 files are in `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-before-flat/`.
