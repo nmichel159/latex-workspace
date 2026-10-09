@@ -672,82 +672,53 @@ Then $P$ is a separating shortest $u$--$v$ path in $G$.
 \end{lemma}
 
 \begin{proof}
-By Lemma~\ref{lem:chain-paths}, $P$ is a shortest $u$--$v$ path, so we have to show that $G\setminus P$ contains no $u$--$v$ path.
-We contract the parts of $G \setminus P$ that a $u$--$v$ path can use into an auxiliary multigraph $\Gamma$ and show that $\Gamma$ has no $u$--$v$ walk.
+By Lemma~\ref{lem:chain-paths}, $P$ is a shortest $u$--$v$ path, so it remains to show that $G\setminus P$ contains no $u$--$v$ path.
 
-\paragraph{Step 1: the graph $G \setminus P$.}
-In $G \setminus P$, all single edges of the chain are missing, and in every chain link $K$ only the path not traversed by $P$ remains; we call it the \emph{unused path} of $K$ and denote it by $K^{\circ}$.
-A crossing edge that lies on $P$ is removed together with the two edges of the chain link adjacent to it; hence the two connecting paths that end at this crossing edge are \emph{dead ends} in $G \setminus P$.
-Indeed, each end-vertex of a crossing edge has degree three in $G$, with two edges in the chain link and one in a connecting path, so in $G \setminus P$ it has degree one.
-As it is neither $u$ nor $v$, no $u$--$v$ path of $G \setminus P$ contains it.
+In $G \setminus P$, all single edges of the chain are missing, and in every chain link $K$ only the path not traversed by $P$ remains; we call it the \emph{unused path} of $K$.
+Unused paths of distinct chain links are vertex-disjoint and contain neither $u$ nor $v$, since consecutive chain links are separated by a single edge of the chain.
+A crossing edge that lies on $P$ is removed together with the two edges of the chain link adjacent to it.
+Each end-vertex of such a crossing edge has degree three in $G$, with two edges in the chain link and one in a connecting path, so in $G \setminus P$ it has degree one.
+Hence the two connecting paths that end at this crossing edge are \emph{dead ends} in $G \setminus P$.
 A crossing edge on an unused path remains and joins its two adjacent connecting paths to this unused path.
 Consequently, a path in $G \setminus P$ can move between connecting paths and unused paths only at crossing edges that are not on $P$.
 
-\paragraph{Step 2: the multigraph $\Gamma$.}
-We record these moves in a multigraph $\Gamma$ whose nodes are $u$, $v$ and the unused paths $K^{\circ}$ of all chain links $K$.
-An end of a connecting path is \emph{open} if it is $u$, $v$, or an end-vertex of a crossing edge not on $P$.
-An open end of the last kind lies on $K^{\circ}$, where $K$ is the chain link of its crossing edge.
-Every connecting path with two open ends gives an edge of $\Gamma$ between the nodes of its ends.
+Since $P$ is consistent, it traverses, in all chain links of the block of $x_i$, the path whose sign corresponds to $\tau(x_i)$.
+For every clause $C_k$, let $j_k$ be the smallest index such that $\tau$ satisfies the $j_k$-th literal of $C_k$.
+Let $X$ be the set of vertices that lie on one of the following parts of $G \setminus P$:
+\begin{itemize}
+  \item the vertex $u$;
+  \item the unused path of $I_i$, for every variable $x_i$;
+  \item the unused path of $L_{j,k}$, for every clause $C_k$ and every $j < j_k$;
+  \item every connecting path that has an end-vertex in one of the parts above.
+\end{itemize}
+We show that no edge of $G \setminus P$ joins a vertex of $X$ to a vertex outside $X$, and that $v \notin X$.
+Then the component of $u$ in $G \setminus P$ lies inside $X$, so $G \setminus P$ contains no $u$--$v$ path.
 
-\paragraph{Step 3: a $u$--$v$ path in $G \setminus P$ gives a $u$--$v$ walk in $\Gamma$.}
-Let $Q$ be a $u$--$v$ path in $G \setminus P$.
-Every edge of $G \setminus P$ lies on an unused path or on a connecting path, because the single edges and the traversed paths of the chain links lie on $P$.
-Distinct unused paths are vertex-disjoint and contain neither $u$ nor $v$, because two chain links are never consecutive in the chain (Definition~\ref{def:chain}, item~4) and, among the subgraphs of the chain, $u$ and $v$ lie only on $H_1$ and $H_{r+1}$.
-If $Q$ uses an edge of a connecting path, it contains the whole connecting path, since the internal vertices of a connecting path have degree two (proof of Lemma~\ref{lem:chain-paths}).
-Both ends of this connecting path are open, since, by Step~1, an end-vertex of a crossing edge on $P$ lies on no $u$--$v$ path of $G \setminus P$.
-Hence $Q$ consists of whole connecting paths with open ends and of segments between them, each segment inside a single unused path.
-Replacing every such connecting path by its edge of $\Gamma$ and every segment by its node gives a $u$--$v$ walk in $\Gamma$.
-
-\paragraph{Step 4: the edges of $\Gamma$.}
-Every edge of $G$ belongs to the chain or to a connecting path of a thread, and every thread is a synchronization thread or a clause thread.
-The following three cases are therefore exhaustive; they also describe all ways in which a path starting at $u$ could progress in $G \setminus P$.
+An internal vertex of a connecting path has degree two, and a vertex of an unused path is incident only to edges of this unused path and to connecting paths that end at its crossing edges.
+Hence it suffices to check that every connecting path in $X$ ends at $u$, on one of the listed unused paths, or at a dead end, and in particular never at $v$.
+There are three ways to leave $u$ or a listed unused path:
 \begin{enumerate}
-  \item \emph{Case 1: a chain edge.}
+  \item \emph{Using a chain edge.}
   The single edge of the chain incident to $u$ lies on $P$, so this option is blocked.
-  The other edges of the chain lie on $P$ or on an unused path $K^{\circ}$, which is a node of $\Gamma$, so the chain gives no edge of $\Gamma$.
+  An unused path has no edge to another chain link, because all single edges of the chain lie on $P$.
 
-  \item \emph{Case 2: a synchronization thread.}
+  \item \emph{Using a synchronization thread.}
   Such a thread first reaches $I_i$.
-  If it crosses the path of $I_i$ traversed by $P$, it ends there.
-  Otherwise, it reaches the unused path of $I_i$.
-  The threads that cross this unused path are one 2-synchronization thread and one 3-synchronization thread for each literal chain link $L_{j,k,i}$.
-  The next crossing edge of the 2-synchronization thread is in $T_i$, that of the 3-synchronization thread of $L_{j,k,i}$ is in $L_{j,k,i}$, and all these next crossing edges lie on $P$.
-  Hence every continuation from the unused path of $I_i$ leads back to $u$ or to a dead end, so in $\Gamma$ the node $I_i^{\circ}$ is adjacent only to $u$.
+  If it crosses the path of $I_i$ traversed by $P$, it ends there in a dead end.
+  Otherwise, it reaches the unused path of $I_i$, which is listed.
+  The threads that cross this unused path are one 2-synchronization thread, whose next crossing edge is in $T_i$, and one 3-synchronization thread for each literal chain link $L_{j,k,i}$, whose next crossing edge is in $L_{j,k,i}$.
+  Each of these threads crosses its next chain link with the sign opposite to its sign in $I_i$, so its next crossing edge lies on $P$.
+  Hence every continuation from the unused path of $I_i$ leads back to $u$ or to a dead end.
 
-  The same check for all synchronization threads of $x_i$ gives their edges of $\Gamma$.
-  Suppose first that $\tau(x_i)=\mathsf{true}$.
-  Then $P$ traverses the positive paths in the block of $x_i$, so a crossing edge in this block lies on $P$ if and only if its thread is threaded positively there.
-  The four kinds of synchronization threads of $x_i$ give the following edges of $\Gamma$:
-  \begin{itemize}
-    \item $[(I_i,+),(T_i,-)]$: only the last connecting path has two open ends; it gives the edge $T_i^{\circ}v$;
-    \item $[(I_i,-),(T_i,+)]$: only the first connecting path has two open ends; it gives the edge $uI_i^{\circ}$;
-    \item $[(I_i,+),(L_{j,k,i},-),(T_i,+)]$: each of the four connecting paths ends at a crossing edge in $I_i$ or $T_i$ that lies on $P$; no edge;
-    \item $[(I_i,-),(L_{j,k,i},+),(T_i,-)]$: the first and the last connecting path give the edges $uI_i^{\circ}$ and $T_i^{\circ}v$; the other two end at the crossing edge in $L_{j,k,i}$, which lies on $P$.
-  \end{itemize}
-  If $\tau(x_i)=\mathsf{false}$, all signs are reversed: the first two threads exchange their roles, and so do the last two.
-  In both cases the synchronization threads of $x_i$ give only edges $uI_i^{\circ}$ and $T_i^{\circ}v$.
-
-  \item \emph{Case 3: a clause thread.}
+  \item \emph{Using a clause thread.}
   The clause thread of $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$ passes through the literal chain links $L_{1,k}$, $L_{2,k}$, $L_{3,k}$.
-  By the proof of Lemma~\ref{lem:clause-threads}, the crossing edge of the clause thread in $L_{j,k}$ lies on $P$ if and only if $\tau$ satisfies $\ell_j$.
-  Since $\tau$ satisfies $C_k$, at least one of these crossing edges lies on $P$, so the clause thread itself is interrupted before it reaches $v$.
+  By the proof of Lemma~\ref{lem:clause-threads}, its crossing edge in $L_{j,k}$ lies on $P$ if and only if $\tau$ satisfies $\ell_j$.
+  So the clause thread reaches, from $u$, the unused paths of $L_{1,k}, \dots, L_{j_k - 1,k}$, which are listed, and ends at the crossing edge in $L_{j_k,k}$, which is a dead end; it is interrupted before it reaches $v$.
   At a crossing edge that is not on $P$, a path can leave the clause thread and enter the unused path of the literal chain link $L_{j,k,i}$.
-  Apart from the clause thread, this unused path is crossed only by a 3-synchronization thread.
-  The two connecting paths of this thread that start there lead to crossing edges in $I_i$ and $T_i$ that lie on $P$, so they are dead ends.
-
-  Hence, with all literals evaluated under $\tau$, the four connecting paths of the clause thread give the edge $uL_{1,k}^{\circ}$ if $\ell_1$ is false, the edge $L_{j,k}^{\circ}L_{j+1,k}^{\circ}$ if $\ell_j$ and $\ell_{j+1}$ are false ($j=1,2$), and the edge $L_{3,k}^{\circ}v$ if $\ell_3$ is false.
+  Apart from the clause thread, this unused path is crossed only by a 3-synchronization thread, and the two connecting paths of this thread that start there lead to crossing edges in $I_i$ and $T_i$ that lie on $P$, that is, to dead ends.
 \end{enumerate}
-
-\paragraph{Step 5: $\Gamma$ has no $u$--$v$ walk.}
-By the three cases, the node $I_i^{\circ}$ is adjacent in $\Gamma$ only to $u$, the node $T_i^{\circ}$ only to $v$, and the unused paths of literal chain links only through edges given by clause threads.
-No edge of $\Gamma$ joins $u$ and $v$, because every thread has at least two crossing edges.
-
-Suppose that $\Gamma$ contains a $u$--$v$ walk, and let $W$ be a shortest one.
-It is a path, and it has an internal node because no edge of $\Gamma$ joins $u$ and $v$.
-An internal node of $W$ has two distinct neighbors on $W$, so it is neither $I_i^{\circ}$ nor $T_i^{\circ}$; hence all internal nodes are unused paths of literal chain links.
-An edge between two such nodes joins $L_{j,k}^{\circ}$ and $L_{j+1,k}^{\circ}$ for the same clause $C_k$, the node $u$ is adjacent only to nodes $L_{1,k}^{\circ}$ among them, and $v$ only to nodes $L_{3,k}^{\circ}$.
-Therefore $W = u\,L_{1,k}^{\circ}\,L_{2,k}^{\circ}\,L_{3,k}^{\circ}\,v$ for some clause $C_k$, and by Case~3 all three literals of $C_k$ are false under $\tau$, a contradiction.
-Hence $\Gamma$ contains no $u$--$v$ walk, so all possible continuations from $u$ are blocked in $G\setminus P$, there is no $u$--$v$ path after removing $P$, and $P$ is separating.
+Every thread is a synchronization thread or a clause thread, so the three cases cover all edges of $G \setminus P$ at the listed parts.
+No connecting path in $X$ ends at $v$, so $v \notin X$, and $P$ is separating.
 \end{proof}
 
 \begin{theorem}
