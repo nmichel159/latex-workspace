@@ -1,0 +1,14 @@
+projects/zz-review-handmade/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; no draft in projects/zz-review-handmade/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+
+Project: zz-review-handmade (projects/zz-review-handmade, main file main.tex)
+Class: article
+Template: none (standard class article)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+
+Findings: 1 (0 FAIL)
+  ai-declaration    1
+Trace scan: 12 files, 0 hits (0 allowed)
+AI declaration: none in the manuscript; no draft in projects/zz-review-handmade/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: PASS

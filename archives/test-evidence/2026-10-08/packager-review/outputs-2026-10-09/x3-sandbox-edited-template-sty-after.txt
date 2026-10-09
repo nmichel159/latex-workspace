@@ -1,0 +1,22 @@
+projects/zz-cas/cas-common.sty:1: [template-origin] FAIL: identical to the file of the same name in templates/els-cas, but to no file of the recorded archive archives/els-cas-templates.zip (nor to a generated file whose SHA-256 the row's note records): templates/els-cas was changed after filing. Restore the folder from the archive (templates/README.md, Provenance)
+projects/zz-cas/cas-common.sty:2643: [trace] FAIL: user profile path 'C:\Users\norom' in comment: ...Patched with Claude Code, see C:\Users\norom\Documents\latex\CLAUDE.md; remove it in the project (workspace traces cannot be allowed)
+projects/zz-cas/cas-common.sty:2643: [trace] FAIL: AI tool configuration path 'CLAUDE.md' in comment: ...:\Users\norom\Documents\latex\CLAUDE.md; remove it in the project (workspace traces cannot be allowed)
+projects/zz-cas/cas-common.sty:2643: [trace] FAIL: AI tool name 'Claude Code' in comment: % Patched with Claude Code, see C:\Users\norom\Documents...; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-cas/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; no draft in projects/zz-cas/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+templates/els-cas/cas-common.sty:1: [template-origin] FAIL: differs from the entry els-cas-templates/cas-common.sty of the recorded archive archives/els-cas-templates.zip (row 2 of templates/SOURCES.tsv): the folder was changed after filing. Restore the file from the archive (templates/README.md, Provenance)
+
+Project: zz-cas (projects/zz-cas, main file main.tex)
+Class: cas-sc
+Template: templates/els-cas (found by cas-sc.cls)
+Venue files identical to the template: cas-common.sty, cas-model2-names.bst, cas-sc.cls
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+
+Findings: 6 (5 FAIL)
+  template-origin    2  FAIL
+  trace             3  FAIL
+  ai-declaration    1
+Trace scan: 3 files, 3 hits (0 allowed); 8 files identical to the template not scanned
+AI declaration: none in the manuscript; no draft in projects/zz-cas/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: FAIL (template-origin, trace)

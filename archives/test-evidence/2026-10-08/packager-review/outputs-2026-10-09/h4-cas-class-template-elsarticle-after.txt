@@ -1,0 +1,19 @@
+projects/zz-review-wrong-template/cas-sc.cls:1: [template-origin] FAIL: the class cas-sc.cls is a file of the project, but templates/elsarticle (-Template) does not ship it (templates/els-cas does): the project does not use the named template. Pass the folder that ships the class, or port the project to the named template
+projects/zz-review-wrong-template/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; a draft exists at projects/zz-review-wrong-template/submission/ai-declaration.tex and was not packaged (if AI tools were used, insert it as its comment block says: the text in sections/91-ai-declaration.tex, the heading and the \input in the wrapper, before the references; Elsevier: before the acknowledgments, which stay directly before the reference list); venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+projects/zz-review-wrong-template/main.tex:86: [template-bst] \bibliographystyle{cas-model2-names}: the template ships elsarticle-harv, elsarticle-num-names, elsarticle-num.bst; use the venue's style.
+
+Project: zz-review-wrong-template (projects/zz-review-wrong-template, main file main.tex)
+Class: cas-sc
+Template: templates/elsarticle (-Template)
+Note: the template does not contain cas-sc.cls (the class comes from the project or from the TeX distribution)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+Excluded from the package (1): submission/ (workspace-only)
+
+Findings: 3 (1 FAIL)
+  template-origin    1  FAIL
+  template-bst      1
+  ai-declaration    1
+Trace scan: 23 files, 0 hits (0 allowed)
+AI declaration: none in the manuscript; a draft exists at projects/zz-review-wrong-template/submission/ai-declaration.tex and was not packaged (if AI tools were used, insert it as its comment block says: the text in sections/91-ai-declaration.tex, the heading and the \input in the wrapper, before the references; Elsevier: before the acknowledgments, which stay directly before the reference list); venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: FAIL (template-origin)

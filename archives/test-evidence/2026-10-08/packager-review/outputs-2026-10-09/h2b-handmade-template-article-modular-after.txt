@@ -1,0 +1,19 @@
+projects/zz-review-handmade/journalx.cls:1: [template-origin] FAIL: the class journalx.cls is a file of the project, but no folder of templates/ ships it, so its origin is not recorded. File the publisher's download under templates/<venue>/ with its row in templates/SOURCES.tsv (skill process-inbox)
+projects/zz-review-handmade/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; no draft in projects/zz-review-handmade/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+projects/zz-review-handmade/main.tex:17: [layout] \usepackage{geometry} found: the venue's layout must not be changed; remove it or justify it in the project README.
+
+Project: zz-review-handmade (projects/zz-review-handmade, main file main.tex)
+Class: journalx
+Template: templates/article-modular (-Template)
+Note: the template does not contain journalx.cls (the class comes from the project or from the TeX distribution)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+
+Findings: 3 (1 FAIL)
+  template-origin    1  FAIL
+  layout            1
+  ai-declaration    1
+Trace scan: 12 files, 0 hits (0 allowed)
+AI declaration: none in the manuscript; no draft in projects/zz-review-handmade/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: FAIL (template-origin)

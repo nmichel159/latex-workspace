@@ -1,0 +1,68 @@
+-- Staging zz-review-unread into tmp/package-zz-review-unread/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Trace scan of the staged files
+-- Round trip: extracting the zip and building it
+projects/zz-review-unread/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; a draft exists at projects/zz-review-unread/submission/ai-declaration.tex and was not packaged (if AI tools were used, insert it as sections/91-ai-declaration.tex, directly before the references); venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+projects/zz-review-unread/preamble/environments.tex:23: [comment] end-of-line comment stays in the package: % background color
+projects/zz-review-unread/preamble/environments.tex:24: [comment] end-of-line comment stays in the package: % border color
+projects/zz-review-unread/preamble/environments.tex:25: [comment] end-of-line comment stays in the package: % border thickness
+projects/zz-review-unread/preamble/environments.tex:26: [comment] end-of-line comment stays in the package: % corner roundness
+projects/zz-review-unread/preamble/macros.tex:4: [comment] end-of-line comment stays in the package: % value of a minimum cut-path
+projects/zz-review-unread/preamble/macros.tex:5: [comment] end-of-line comment stays in the package: % set of all cut-paths
+projects/zz-review-unread/preamble/packages.tex:8: [comment] end-of-line comment stays in the package: % H placement of figures and algorithms
+projects/zz-review-unread/preamble/packages.tex:12: [comment] end-of-line comment stays in the package: % part of the algorithmicx package
+projects/zz-review-unread/sections/notes-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI tool name 'Claude' in text: ...ssion; section 3 rewritten by Claude (Anthropic).
+projects/zz-review-unread/sections/notes-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI tool name 'Claude Code' in text: Drafted with Claude Code in the workspace session; sec...
+projects/zz-review-unread/sections/notes-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI tool name 'Anthropic' in text: ...ection 3 rewritten by Claude (Anthropic).
+projects/zz-review-unread/sections/notes-ai-declaration.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+
+Project: zz-review-unread (projects/zz-review-unread, main file main.tex)
+Class: cas-sc
+Template: templates/els-cas (-Template)
+Venue files identical to the template: cas-common.sty, cas-model2-names.bst, cas-sc.cls
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Layout: flat (all files in one directory)
+Excluded from the package (1): submission/ (workspace-only)
+Files in the zip (25, 339.7 kB uncompressed):
+       1.1 kB  00-abstract.tex
+       4.9 kB  01-introduction.tex
+       6.4 kB  02-fundamentals.tex
+      26.1 kB  03-np-completeness.tex
+       8.1 kB  04-diameter-two.tex
+       2.5 kB  05-cut-two.tex
+       7.3 kB  06-random-graphs.tex
+       3.7 kB  07-conclusion.tex
+       276  B  90-acknowledgments.tex
+      74.9 kB  cas-common.sty
+      31.1 kB  cas-model2-names.bst
+       4.3 kB  cas-sc.cls
+      25.3 kB  chain-link-types.png
+       8.6 kB  chain-link.png
+      40.5 kB  chain-threads.png
+      25.2 kB  chain.png
+      37.4 kB  diameter-two-structure.png
+       862  B  environments.tex
+       372  B  macros.tex
+       5.5 kB  main.bbl
+       1.6 kB  main.tex
+        94  B  notes-ai-declaration.tex
+       271  B  packages.tex
+       3.9 kB  references.bib
+      19.7 kB  threading.png
+
+Findings: 13 (0 FAIL)
+  trace             3
+  unused            1
+  comment           8
+  ai-declaration    1
+Pages: 16
+Zip:  C:\Users\norom\Documents\latex\outputs\zz-review-unread\package\zz-review-unread-20261009-flat.zip
+Link: outputs/zz-review-unread/package/zz-review-unread-20261009-flat.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\zz-review-unread\package\zz-review-unread-20261009.pdf
+Link: outputs/zz-review-unread/package/zz-review-unread-20261009.pdf
+Trace scan: 24 files, 3 hits (3 allowed); 3 files identical to the template not scanned
+AI declaration: none in the manuscript; a draft exists at projects/zz-review-unread/submission/ai-declaration.tex and was not packaged (if AI tools were used, insert it as sections/91-ai-declaration.tex, directly before the references); venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: PASS

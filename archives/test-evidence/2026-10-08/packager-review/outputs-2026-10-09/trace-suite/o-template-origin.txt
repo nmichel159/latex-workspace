@@ -1,0 +1,47 @@
+== O1 venue row, archive and hash correct (exit 0)
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Verdict: PASS
+== O2 no row for the folder (exit 1)
+templates/SOURCES.tsv:1: [template-origin] FAIL: no row for templates/els-cas: its origin is not recorded. A venue template is the publisher's download, recorded with URL, archive and SHA-256 (templates/README.md, section Provenance)
+Verdict: FAIL (template-origin)
+== O3 official_url is not https (exit 1)
+templates/SOURCES.tsv:2: [template-origin] FAIL: templates/els-cas: official_url 'http://example.org/els-cas-templates.zip' is not an https address of the publisher's download
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, http://example.org/els-cas-templates.zip)
+Verdict: FAIL (template-origin)
+== O4 archive file missing (exit 1)
+templates/SOURCES.tsv:2: [template-origin] FAIL: templates/els-cas: the archive archives/missing.zip does not exist; the download cannot be proved
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Verdict: FAIL (template-origin)
+== O5 archive with another SHA-256 (exit 1)
+templates/SOURCES.tsv:2: [template-origin] FAIL: templates/els-cas: SHA-256 of archives/other.zip is d883200f265f7c9b..., the row records '36d97da01c6bbd134...'; the archive is not the recorded download
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Verdict: FAIL (template-origin)
+== O6 archive outside the workspace (exit 1)
+templates/SOURCES.tsv:2: [template-origin] FAIL: templates/els-cas: archive '../els-cas-templates.zip' must be a path inside the workspace (relative, no ..)
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Verdict: FAIL (template-origin)
+== O7 kind other (exit 0)
+templates/SOURCES.tsv:2: [template-origin] templates/els-cas is not a publisher template (other): test row of kind other
+Template origin: els-cas (other, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Verdict: PASS
+== O8 kind house (exit 1)
+projects/zz-cas/cas-sc.cls:1: [template-origin] FAIL: the class cas-sc.cls comes from templates/els-cas, a house template (kind house in templates/SOURCES.tsv): a house template has no class of its own. A class is the publisher's download (kind venue) or a recorded third-party file (kind other)
+templates/els-cas/cas-common.sty:1: [template-origin] FAIL: templates/els-cas is a house template (kind house in templates/SOURCES.tsv), which has no class or style of its own: a class or style is the publisher's download (kind venue) or a recorded third-party file (kind other). Retire the file, or file its download under its own folder with a row of kind venue or other
+templates/els-cas/cas-model2-names.bst:1: [template-origin] FAIL: templates/els-cas is a house template (kind house in templates/SOURCES.tsv), which has no class or style of its own: a class or style is the publisher's download (kind venue) or a recorded third-party file (kind other). Retire the file, or file its download under its own folder with a row of kind venue or other
+templates/els-cas/cas-sc.cls:1: [template-origin] FAIL: templates/els-cas is a house template (kind house in templates/SOURCES.tsv), which has no class or style of its own: a class or style is the publisher's download (kind venue) or a recorded third-party file (kind other). Retire the file, or file its download under its own folder with a row of kind venue or other
+Template origin: els-cas (house, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Verdict: FAIL (template-origin)
+== O9 unknown kind (exit 1)
+templates/SOURCES.tsv:2: [template-origin] FAIL: templates/els-cas: unknown kind 'vendor' (venue, house or other)
+Template origin: els-cas (vendor, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Verdict: FAIL (template-origin)
+== O10 header lacks sha256 (exit 1)
+templates/SOURCES.tsv:1: [template-origin] FAIL: the header lacks the column(s) sha256: the origin of templates/els-cas cannot be checked
+Verdict: FAIL (template-origin)
+== O11 SOURCES.tsv missing (exit 1)
+templates/SOURCES.tsv:1: [template-origin] FAIL: the file is missing, so the origin of templates/els-cas is not recorded; a venue template must be the publisher's download (templates/README.md, section Provenance)
+Verdict: FAIL (template-origin)
+== O12 class file only in the project (exit 1)
+projects/zz-local/localclass.cls:1: [template-origin] FAIL: the class localclass.cls is a file of the project, but no folder of templates/ ships it, so its origin is not recorded. File the publisher's download under templates/<venue>/ with its row in templates/SOURCES.tsv (skill process-inbox)
+Template: none (class localclass is a file of the project; no folder of templates/ ships it)
+Verdict: FAIL (template-origin)

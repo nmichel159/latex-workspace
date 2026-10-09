@@ -1,0 +1,17 @@
+projects/zz-cas/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; no draft in projects/zz-cas/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+templates/els-cas/extra-notes.sty:1: [template-origin] FAIL: is not in the recorded archive archives/els-cas-templates.zip (row 2 of templates/SOURCES.tsv), and the row's note records no SHA-256 for it (a file generated from the archive): its origin is not recorded. Remove it from the folder, or record the SHA-256 of the generated file in the note
+
+Project: zz-cas (projects/zz-cas, main file main.tex)
+Class: cas-sc
+Template: templates/els-cas (found by cas-sc.cls)
+Venue files identical to the template: cas-common.sty, cas-model2-names.bst, cas-sc.cls
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+
+Findings: 2 (1 FAIL)
+  template-origin    1  FAIL
+  ai-declaration    1
+Trace scan: 2 files, 0 hits (0 allowed); 9 files identical to the template not scanned
+AI declaration: none in the manuscript; no draft in projects/zz-cas/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: FAIL (template-origin)

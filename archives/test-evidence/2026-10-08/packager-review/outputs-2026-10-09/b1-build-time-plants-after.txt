@@ -1,0 +1,39 @@
+-- Staging zz-review-build into tmp/package-zz-review-build/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+projects/zz-review-build/preamble/environments.tex:23: [comment] end-of-line comment stays in the package: % background color
+projects/zz-review-build/preamble/environments.tex:24: [comment] end-of-line comment stays in the package: % border color
+projects/zz-review-build/preamble/environments.tex:25: [comment] end-of-line comment stays in the package: % border thickness
+projects/zz-review-build/preamble/environments.tex:26: [comment] end-of-line comment stays in the package: % corner roundness
+projects/zz-review-build/preamble/macros.tex:4: [comment] end-of-line comment stays in the package: % value of a minimum cut-path
+projects/zz-review-build/preamble/macros.tex:5: [comment] end-of-line comment stays in the package: % set of all cut-paths
+projects/zz-review-build/preamble/packages.tex:8: [comment] end-of-line comment stays in the package: % H placement of figures and algorithms
+projects/zz-review-build/preamble/packages.tex:12: [comment] end-of-line comment stays in the package: % part of the algorithmicx package
+projects/zz-review-build/sections/91-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI tool name 'Claude' in text: ...of this work the author used Claude (Claude Opus 4.5, Anthropic)...
+projects/zz-review-build/sections/91-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI model name 'Claude Opus 4' in text: ...work the author used Claude (Claude Opus 4.5, Anthropic) in order to rev...
+projects/zz-review-build/sections/91-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI tool name 'Anthropic' in text: ...used Claude (Claude Opus 4.5, Anthropic) in order to revise the langu...
+tmp/package-zz-review-build/stage/main.pdf:1: [trace] FAIL: AI tool name 'Gemini' in PDF info Tool: Gemini; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+tmp/package-zz-review-build/stage/main.pdf:1: [trace] FAIL: AI tool name 'Copilot' in PDF info Generator: Copilot; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+tmp/package-zz-review-build/stage/main.pdf:16: [trace] allowed by the AI declaration (printed): AI model name 'Claude Opus 4' in PDF text (page 16): ...work the author used Claude (Claude Opus 4.5, Anthropic) in order to rev...
+tmp/package-zz-review-build/stage/main.pdf:16: [trace] allowed by the AI declaration (printed): AI tool name 'Anthropic' in PDF text (page 16): ...used Claude (Claude Opus 4.5, Anthropic) in order to revise
+tmp/package-zz-review-build/stage/main.pdf:16: [trace] allowed by the AI declaration (printed): AI tool name 'Claude' in PDF text (page 16): ...of this work the author used Claude (Claude Opus 4.5, Anthropic)...
+tmp/package-zz-review-build/stage/main.pdf:16: [trace] FAIL: AI tool name 'ChatGPT' in PDF text (page 16): ...ld assembles from two macros, ChatGPT. Plant twelve: a name built f...; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+tmp/package-zz-review-build/stage/main.pdf:16: [trace] FAIL: AI tool name 'Claude' in PDF text (page 16): character code, Claude. Plant thirteen: a bookmark w...; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+
+Project: zz-review-build (projects/zz-review-build, main file main.tex)
+Class: cas-sc
+Template: templates/els-cas (-Template)
+Venue files identical to the template: cas-common.sty, cas-model2-names.bst, cas-sc.cls
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Layout: flat (all files in one directory)
+Stopped: FAIL findings in the verification (E): no package written
+Excluded from the package (1): submission/ (workspace-only)
+
+Findings: 18 (4 FAIL)
+  trace            10  FAIL
+  comment           8
+Pages: 17
+Trace scan: 23 files, 10 hits (6 allowed); 3 files identical to the template not scanned
+AI declaration: 'Declaration of generative AI and AI-assisted technologies...' in projects/zz-review-build/main.tex:84 (packaged)
+Verdict: FAIL (trace)

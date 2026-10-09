@@ -1,0 +1,2 @@
+=> Trace scan: 37 files, 0 hits (0 allowed)
+=> AI declaration: 'Statement on the Use of AI Tools' in projects/zz-packager-test-thesis/main.tex:47 (packaged)

@@ -1,0 +1,64 @@
+-- Staging zz-packager-test-pass into tmp/package-zz-packager-test-pass/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Trace scan of the staged files
+-- Round trip: extracting the zip and building it
+projects/zz-packager-test-pass/img/berge-diagram.pdf:1: [trace] allowed by submission/package-allow.txt line 2 (graph theorist, not a tool): AI tool name 'Claude' in PDF info Creator: Claude Berge diagram
+projects/zz-packager-test-pass/img/berge-sketch.png:1: [trace] allowed by submission/package-allow.txt line 2 (graph theorist, not a tool): AI tool name 'Claude' in PNG tEXt chunk 'Software': Software: Drawn after Claude Berge
+projects/zz-packager-test-pass/main.tex:31: [comment] end-of-line comment stays in the package: % after hyperref, before any \newtheorem
+projects/zz-packager-test-pass/preamble/environments.tex:24: [comment] end-of-line comment stays in the package: % background color
+projects/zz-packager-test-pass/preamble/environments.tex:25: [comment] end-of-line comment stays in the package: % border color
+projects/zz-packager-test-pass/preamble/environments.tex:26: [comment] end-of-line comment stays in the package: % border thickness
+projects/zz-packager-test-pass/preamble/environments.tex:27: [comment] end-of-line comment stays in the package: % corner roundness
+projects/zz-packager-test-pass/preamble/packages.tex:8: [comment] end-of-line comment stays in the package: % \declaretheorem (preamble/environments.tex), restatable theorems
+projects/zz-packager-test-pass/preamble/packages.tex:9: [comment] end-of-line comment stays in the package: % \DeclarePairedDelimiter, \coloneqq; extends amsmath
+projects/zz-packager-test-pass/preamble/packages.tex:12: [comment] end-of-line comment stays in the package: % \toprule, \midrule, \bottomrule; no vertical rules
+projects/zz-packager-test-pass/preamble/packages.tex:14: [comment] end-of-line comment stays in the package: % "problem" box, see preamble/environments.tex
+projects/zz-packager-test-pass/preamble/packages.tex:16: [comment] end-of-line comment stays in the package: % floating "algorithm" environment (loads float)
+projects/zz-packager-test-pass/preamble/packages.tex:17: [comment] end-of-line comment stays in the package: % \State, \For, \Require, \Ensure (part of algorithmicx)
+projects/zz-packager-test-pass/preamble/packages.tex:19: [comment] end-of-line comment stays in the package: % \enquote{...} instead of hand-typed quotation marks
+projects/zz-packager-test-pass/references.bib:8: [trace] allowed by submission/package-allow.txt line 2 (graph theorist, not a tool): AI tool name 'Claude' in text: author = {Berge, Claude},
+projects/zz-packager-test-pass/sections/01-introduction.tex:11: [trace] allowed by submission/package-allow.txt line 2 (graph theorist, not a tool): AI tool name 'Claude' in text: ...g perfect graph conjecture of Claude Berge~\cite{Berge1961} is a t...
+projects/zz-packager-test-pass/sections/01-introduction.tex:16: [trace] allowed by submission/package-allow.txt line 2 (graph theorist, not a tool): AI tool name 'Claude' in text: ...o figures whose metadata name Claude Berge.}
+projects/zz-packager-test-pass/sections/91-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI tool name 'Claude Code' in text: ...of this work the author used Claude Code (Anthropic) in order to types...
+projects/zz-packager-test-pass/sections/91-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI tool name 'Anthropic' in text: ...the author used Claude Code (Anthropic) in order to typeset the manu...
+tmp/package-zz-packager-test-pass/stage/main.pdf:1: [trace] allowed by submission/package-allow.txt line 2 (graph theorist, not a tool): AI tool name 'Claude' in PDF text (page 1): ...g perfect graph conjecture of Claude Berge [1] is a theorem.
+tmp/package-zz-packager-test-pass/stage/main.pdf:2: [trace] allowed by the AI declaration (printed): AI tool name 'Anthropic' in PDF text (page 2): ...the author used Claude Code (Anthropic) in order to typeset
+tmp/package-zz-packager-test-pass/stage/main.pdf:2: [trace] allowed by the AI declaration (printed): AI tool name 'Claude Code' in PDF text (page 2): ...of this work the author used Claude Code (Anthropic) in order to types...
+tmp/package-zz-packager-test-pass/stage/main.bbl:9: [trace] allowed by submission/package-allow.txt line 2 (graph theorist, not a tool): AI tool name 'Claude' in text: Claude Berge.
+
+Project: zz-packager-test-pass (projects/zz-packager-test-pass, main file main.tex)
+Class: article
+Template: none (standard class article)
+Layout: folders as in the project
+Excluded from the package (3): img/.gitkeep (name starts with a dot), README.md (workspace-only), submission/ (workspace-only)
+Files in the zip (15, 14.9 kB uncompressed):
+       9.3 kB  img/berge-diagram.pdf
+       112  B  img/berge-sketch.png
+       552  B  main.bbl
+       1.4 kB  main.tex
+       1.1 kB  preamble/environments.tex
+       455  B  preamble/macros.tex
+       696  B  preamble/packages.tex
+       295  B  references.bib
+        16  B  sections/00-abstract.tex
+       437  B  sections/01-introduction.tex
+        77  B  sections/02-preliminaries.tex
+       182  B  sections/03-results.tex
+        66  B  sections/04-conclusion.tex
+        22  B  sections/90-acknowledgments.tex
+       260  B  sections/91-ai-declaration.tex
+
+Findings: 23 (0 FAIL)
+  trace            11
+  comment          12
+Pages: 2
+Zip:  C:\Users\norom\Documents\latex\outputs\zz-packager-test-pass\package\zz-packager-test-pass-20261009.zip
+Link: outputs/zz-packager-test-pass/package/zz-packager-test-pass-20261009.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\zz-packager-test-pass\package\zz-packager-test-pass-20261009.pdf
+Link: outputs/zz-packager-test-pass/package/zz-packager-test-pass-20261009.pdf
+Trace scan: 17 files, 11 hits (11 allowed)
+AI declaration: 'Declaration of generative AI and AI-assisted technologies...' in projects/zz-packager-test-pass/main.tex:61 (packaged)
+Verdict: PASS

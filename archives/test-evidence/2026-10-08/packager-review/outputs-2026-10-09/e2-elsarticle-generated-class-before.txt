@@ -1,0 +1,43 @@
+-- Staging zz-review-elsarticle into tmp/package-zz-review-elsarticle/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Trace scan of the staged files
+-- Round trip: extracting the zip and building it
+projects/zz-review-elsarticle/elsarticle-num.bst:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-elsarticle/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; no draft in projects/zz-review-elsarticle/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+projects/zz-review-elsarticle/main.tex:101: [comment] end-of-line comment stays in the package: % % Author name
+projects/zz-review-elsarticle/main.tex:104: [comment] end-of-line comment stays in the package: % Department and Organization
+projects/zz-review-elsarticle/main.tex:191: [comment] end-of-line comment stays in the package: % % If equation numbering is not needed for a row use \nonumber.
+projects/zz-review-elsarticle/main.tex:213: [comment] end-of-line comment stays in the package: % % placement specifier
+projects/zz-review-elsarticle/main.tex:216: [comment] end-of-line comment stays in the package: % % For centre alignment of tabular.
+projects/zz-review-elsarticle/main.tex:217: [comment] end-of-line comment stays in the package: % % Table column specifiers
+projects/zz-review-elsarticle/main.tex:219: [comment] end-of-line comment stays in the package: % % A tabular row ends with \\
+projects/zz-review-elsarticle/main.tex:231: [comment] end-of-line comment stays in the package: % % placement specifier
+projects/zz-review-elsarticle/main.tex:234: [comment] end-of-line comment stays in the package: % % For centre alignment of image.
+
+Project: zz-review-elsarticle (projects/zz-review-elsarticle, main file main.tex)
+Class: elsarticle
+Template: templates/elsarticle (-Template)
+Venue files identical to the template: elsarticle.cls, elsarticle-num.bst
+Template origin: elsarticle (venue, elsarticle 2024/04/04, 3.4, https://assets.ctfassets.net/o78em1y1w4i4/4MpsJHO0MOJ2xZuwGTAbOZ/7bc64af36477c5d6cfce335a1f872363/elsarticle.zip)
+Layout: flat (all files in one directory)
+Files in the zip (4, 83.7 kB uncompressed):
+      28.8 kB  elsarticle-num.bst
+      44.3 kB  elsarticle.cls
+       8.6 kB  example-image-a.jpg
+       2.1 kB  main.tex
+
+Findings: 11 (0 FAIL)
+  unused            1
+  comment           9
+  ai-declaration    1
+Pages: 4
+Zip:  C:\Users\norom\Documents\latex\outputs\zz-review-elsarticle\package\zz-review-elsarticle-20261009-flat.zip
+Link: outputs/zz-review-elsarticle/package/zz-review-elsarticle-20261009-flat.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\zz-review-elsarticle\package\zz-review-elsarticle-20261009.pdf
+Link: outputs/zz-review-elsarticle/package/zz-review-elsarticle-20261009.pdf
+Trace scan: 4 files, 0 hits (0 allowed); 2 files identical to the template not scanned
+AI declaration: none in the manuscript; no draft in projects/zz-review-elsarticle/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: PASS

@@ -1,0 +1,46 @@
+-- Staging zz-packager-test-article into tmp/package-zz-packager-test-article/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Round trip: extracting the zip and building it
+projects/zz-packager-test-article/main.tex:31: [comment] end-of-line comment stays in the package: % after hyperref, before any \newtheorem
+projects/zz-packager-test-article/preamble/environments.tex:24: [comment] end-of-line comment stays in the package: % background color
+projects/zz-packager-test-article/preamble/environments.tex:25: [comment] end-of-line comment stays in the package: % border color
+projects/zz-packager-test-article/preamble/environments.tex:26: [comment] end-of-line comment stays in the package: % border thickness
+projects/zz-packager-test-article/preamble/environments.tex:27: [comment] end-of-line comment stays in the package: % corner roundness
+projects/zz-packager-test-article/preamble/packages.tex:8: [comment] end-of-line comment stays in the package: % \declaretheorem (preamble/environments.tex), restatable theorems
+projects/zz-packager-test-article/preamble/packages.tex:9: [comment] end-of-line comment stays in the package: % \DeclarePairedDelimiter, \coloneqq; extends amsmath
+projects/zz-packager-test-article/preamble/packages.tex:12: [comment] end-of-line comment stays in the package: % \toprule, \midrule, \bottomrule; no vertical rules
+projects/zz-packager-test-article/preamble/packages.tex:14: [comment] end-of-line comment stays in the package: % "problem" box, see preamble/environments.tex
+projects/zz-packager-test-article/preamble/packages.tex:16: [comment] end-of-line comment stays in the package: % floating "algorithm" environment (loads float)
+projects/zz-packager-test-article/preamble/packages.tex:17: [comment] end-of-line comment stays in the package: % \State, \For, \Require, \Ensure (part of algorithmicx)
+projects/zz-packager-test-article/preamble/packages.tex:19: [comment] end-of-line comment stays in the package: % \enquote{...} instead of hand-typed quotation marks
+
+Project: zz-packager-test-article (projects/zz-packager-test-article, main file main.tex)
+Class: article
+Template: none (standard class article)
+Layout: folders as in the project
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+Files in the zip (12, 4.6 kB uncompressed):
+       283  B  main.bbl
+       1.3 kB  main.tex
+       1.1 kB  preamble/environments.tex
+       455  B  preamble/macros.tex
+       696  B  preamble/packages.tex
+       335  B  references.bib
+        16  B  sections/00-abstract.tex
+       130  B  sections/01-introduction.tex
+        77  B  sections/02-preliminaries.tex
+       182  B  sections/03-results.tex
+        66  B  sections/04-conclusion.tex
+        22  B  sections/90-acknowledgments.tex
+
+Findings: 12 (0 FAIL)
+  comment          12
+Pages: 1
+Zip:  C:\Users\norom\Documents\latex\outputs\zz-packager-test-article\package\zz-packager-test-article-20261009.zip
+Link: outputs/zz-packager-test-article/package/zz-packager-test-article-20261009.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\zz-packager-test-article\package\zz-packager-test-article-20261009.pdf
+Link: outputs/zz-packager-test-article/package/zz-packager-test-article-20261009.pdf
+Verdict: PASS

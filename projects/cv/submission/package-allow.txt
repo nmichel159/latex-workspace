@@ -1,0 +1,4 @@
+# AI tool names that the CV lists as skills of the owner; they are content, not traces of how the CV was made.
+# One case-insensitive regex per line; the text after " #" is the reason (scripts/package-project.ps1, finding [trace]).
+Claude\s+Code    # skill tag in the Skills section
+OpenAI\s+API     # skill tag in the Skills section

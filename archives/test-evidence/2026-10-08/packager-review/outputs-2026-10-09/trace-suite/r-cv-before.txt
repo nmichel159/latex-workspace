@@ -1,0 +1,42 @@
+-- Staging cv into tmp/package-cv/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Round trip: extracting the zip and building it
+projects/cv/LICENSE.md:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/cv/norbert-michel-cv.tex:10: [layout] \geometry found: the venue's layout must not be changed; remove it or justify it in the project README.
+projects/cv/norbert-michel-cv.tex:16: [comment] end-of-line comment stays in the package: % jemnejšia sadzba: menej pretečených riadkov, rovnomernejší text
+projects/cv/norbert-michel-cv.tex:17: [comment] end-of-line comment stays in the package: % QR kód v hlavičke
+projects/cv/norbert-michel-cv.tex:18: [comment] end-of-line comment stays in the package: % položka sa nerozdelí medzi stranami
+projects/cv/norbert-michel-cv.tex:37: [layout] \fontsize found: the venue's layout must not be changed; remove it or justify it in the project README.
+projects/cv/norbert-michel-cv.tex:86: [layout] \vspace{-...} found: the venue's layout must not be changed; remove it or justify it in the project README.
+projects/cv/norbert-michel-cv.tex:137: [comment] end-of-line comment stays in the package: % dnes (október 2026)
+projects/cv/norbert-michel-cv.tex:139: [comment] end-of-line comment stays in the package: % {y}{od}{do}{text}{farba výplne}{farba textu}
+
+Project: cv (projects/cv, main file norbert-michel-cv.tex)
+Class: altacv
+Template: templates/altacv (found by altacv.cls)
+Venue files identical to the template: altacv.cls
+Layout: folders as in the project
+Excluded from the package (3): pdfa.xmpi (pdfx scratch file), README.md (workspace-only), submission/ (workspace-only)
+Files in the zip (8, 37.5 kB uncompressed):
+       460  B  LICENSE.md
+      17.3 kB  altacv.cls
+        93  B  latexmkrc
+       2.8 kB  norbert-michel-cv.bbl
+      15.7 kB  norbert-michel-cv.tex
+       298  B  norbert-michel-cv.xmpdata
+       452  B  publications.bib
+       368  B  pubs-num.tex
+
+Findings: 9 (0 FAIL)
+  layout            3
+  unused            1
+  comment           5
+Pages: 2
+Zip:  C:\Users\norom\Documents\latex\outputs\cv\package\cv-20261009.zip
+Link: outputs/cv/package/cv-20261009.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\cv\package\cv-20261009.pdf
+Link: outputs/cv/package/cv-20261009.pdf
+Verdict: PASS

@@ -1,0 +1,28 @@
+b2-bookmark-and-catalog-strings-before   exit 0  Verdict: PASS  Trace scan: 14 files, 0 hits (0 allowed)
+    Template: none (standard class article)
+b2-bookmark-and-catalog-strings-after    exit 1  Verdict: FAIL (trace)  Trace scan: 12 files, 2 hits (0 allowed)
+    tmp/package-zz-review-build-b/stage/main.pdf:1: [trace] FAIL: AI tool name 'OpenAI' in PDF objects, strings decoded: OpenAI; name a tool only in the text of the AI declaration (sections/91-ai-declarat
+    tmp/package-zz-review-build-b/stage/main.pdf:1: [trace] FAIL: AI tool name 'Anthropic' in PDF objects, strings decoded: Anthropic; name a tool only in the text of the AI declaration (sections/91-ai-de
+    Template: none (standard class article)
+h1b-handmade-auto-before                 exit 1  Verdict: FAIL (template-origin)  Trace scan: 12 files, 0 hits (0 allowed)
+    projects/zz-review-handmade/journalx.cls:1: [template-origin] FAIL: the class journalx.cls is a file of the project, but no folder of templates/ ships it, so its origin is not recorded. File the publi
+    Template: none (standard class journalx)
+h1b-handmade-auto-after                  exit 1  Verdict: FAIL (template-origin)  Trace scan: 12 files, 0 hits (0 allowed)
+    projects/zz-review-handmade/journalx.cls:1: [template-origin] FAIL: the class journalx.cls is a file of the project, but no folder of templates/ ships it, so its origin is not recorded. File the publi
+    Template: none (class journalx is a file of the project; no folder of templates/ ships it)
+h2b-handmade-template-article-modular-before exit 0  Verdict: PASS  Trace scan: 12 files, 0 hits (0 allowed)
+    Template: templates/article-modular (-Template)
+h2b-handmade-template-article-modular-after exit 1  Verdict: FAIL (template-origin)  Trace scan: 12 files, 0 hits (0 allowed)
+    projects/zz-review-handmade/journalx.cls:1: [template-origin] FAIL: the class journalx.cls is a file of the project, but no folder of templates/ ships it, so its origin is not recorded. File the publi
+    Template: templates/article-modular (-Template)
+h3b-handmade-template-els-cas-before     exit 0  Verdict: PASS  Trace scan: 12 files, 0 hits (0 allowed)
+    Template: templates/els-cas (-Template)
+h3b-handmade-template-els-cas-after      exit 1  Verdict: FAIL (template-origin)  Trace scan: 12 files, 0 hits (0 allowed)
+    projects/zz-review-handmade/journalx.cls:1: [template-origin] FAIL: the class journalx.cls is a file of the project, but no folder of templates/ ships it, so its origin is not recorded. File the publi
+    Template: templates/els-cas (-Template)
+e2-elsarticle-generated-class-before     exit 0  Verdict: PASS  Trace scan: 4 files, 0 hits (0 allowed); 2 files identical to the template not scanned
+    Template: templates/elsarticle (-Template)
+    Template origin: elsarticle (venue, elsarticle 2024/04/04, 3.4, https://assets.ctfassets.net/o78em1y1w4i4/4MpsJHO0MOJ2xZuwGTAbOZ/7bc64af36477c5d6cfce335a1f872363/elsarticle.zip)
+e2-elsarticle-generated-class-after      exit 0  Verdict: PASS  Trace scan: 4 files, 0 hits (0 allowed); 2 files identical to the template not scanned
+    Template: templates/elsarticle (-Template)
+    Template origin: elsarticle (venue, elsarticle 2024/04/04, 3.4, https://assets.ctfassets.net/o78em1y1w4i4/4MpsJHO0MOJ2xZuwGTAbOZ/7bc64af36477c5d6cfce335a1f872363/elsarticle.zip)

@@ -1,0 +1,20 @@
+projects/zz-review-declaration-draft/sections/91-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI tool name 'Anthropic' in text: ...Claude ([MODEL AND VERSION], Anthropic) in order to [REASON]. % word...
+projects/zz-review-declaration-draft/sections/91-ai-declaration.tex:1: [trace] FAIL: AI tool name 'Claude' in comment: ...ASON]. % wording suggested by Claude; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt (a comment of the AI declaration file is not part of the declaration)
+projects/zz-review-declaration-draft/sections/91-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI tool name 'Claude' in text: ...of this work the author used Claude ([MODEL AND VERSION], Anthrop...
+projects/zz-review-declaration-draft/sections/91-ai-declaration.tex:1: [trace] FAIL: unfilled placeholder '[MODEL AND VERSION]' in text: ...work the author used Claude ([MODEL AND VERSION], Anthropic) in order to [REAS...; remove it in the project (workspace traces cannot be allowed)
+projects/zz-review-declaration-draft/sections/91-ai-declaration.tex:1: [trace] FAIL: unfilled placeholder '[REASON]' in text: ...SION], Anthropic) in order to [REASON]. % wording suggested by Claud...; remove it in the project (workspace traces cannot be allowed)
+
+Project: zz-review-declaration-draft (projects/zz-review-declaration-draft, main file main.tex)
+Class: cas-sc
+Template: templates/els-cas (-Template)
+Venue files identical to the template: cas-common.sty, cas-model2-names.bst, cas-sc.cls
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+Excluded from the package (1): submission/ (workspace-only)
+
+Findings: 5 (3 FAIL)
+  trace             5  FAIL
+Trace scan: 21 files, 5 hits (2 allowed); 3 files identical to the template not scanned
+AI declaration: 'Declaration of generative AI and AI-assisted technologies...' in projects/zz-review-declaration-draft/main.tex:82 (packaged)
+Verdict: FAIL (trace)

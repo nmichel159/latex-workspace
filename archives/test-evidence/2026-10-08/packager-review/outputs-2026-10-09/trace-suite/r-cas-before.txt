@@ -1,0 +1,46 @@
+-- Staging zz-packager-test-cas into tmp/package-zz-packager-test-cas/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Round trip: extracting the zip and building it
+projects/zz-packager-test-cas/main.tex:80: [comment] end-of-line comment stays in the package: % [<options>]
+projects/zz-packager-test-cas/main.tex:107: [comment] end-of-line comment stays in the package: % []
+projects/zz-packager-test-cas/main.tex:141: [comment] end-of-line comment stays in the package: % % Remove this line from your manuscript.
+projects/zz-packager-test-cas/main.tex:191: [comment] end-of-line comment stays in the package: % %Remove this from your manuscript
+projects/zz-packager-test-cas/main.tex:195: [comment] end-of-line comment stays in the package: % []
+projects/zz-packager-test-cas/main.tex:202: [comment] end-of-line comment stays in the package: % []
+projects/zz-packager-test-cas/main.tex:206: [comment] end-of-line comment stays in the package: % Table header row
+projects/zz-packager-test-cas/thumbnails/cas-facebook.jpeg:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-packager-test-cas/thumbnails/cas-gplus.jpeg:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-packager-test-cas/thumbnails/cas-linkedin.jpeg:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-packager-test-cas/thumbnails/cas-twitter.jpeg:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+
+Project: zz-packager-test-cas (projects/zz-packager-test-cas, main file main.tex)
+Class: cas-sc
+Template: templates/els-cas (found by cas-sc.cls)
+Venue files identical to the template: cas-common.sty, cas-model2-names.bst, cas-sc.cls
+Layout: folders as in the project
+Files in the zip (12, 170.6 kB uncompressed):
+      74.9 kB  cas-common.sty
+      31.1 kB  cas-model2-names.bst
+       8.1 kB  cas-refs.bib
+       4.3 kB  cas-sc.cls
+      12.7 kB  main.bbl
+       1.5 kB  main.tex
+       8.6 kB  thumbnails/cas-email.jpeg
+       3.6 kB  thumbnails/cas-facebook.jpeg
+       7.8 kB  thumbnails/cas-gplus.jpeg
+       6.0 kB  thumbnails/cas-linkedin.jpeg
+       4.5 kB  thumbnails/cas-twitter.jpeg
+       7.6 kB  thumbnails/cas-url.jpeg
+
+Findings: 11 (0 FAIL)
+  unused            4
+  comment           7
+Pages: 4
+Zip:  C:\Users\norom\Documents\latex\outputs\zz-packager-test-cas\package\zz-packager-test-cas-20261009.zip
+Link: outputs/zz-packager-test-cas/package/zz-packager-test-cas-20261009.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\zz-packager-test-cas\package\zz-packager-test-cas-20261009.pdf
+Link: outputs/zz-packager-test-cas/package/zz-packager-test-cas-20261009.pdf
+Verdict: PASS

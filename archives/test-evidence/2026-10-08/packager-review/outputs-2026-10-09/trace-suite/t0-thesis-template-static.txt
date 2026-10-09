@@ -1,0 +1,17 @@
+projects/zz-packager-test-thesis-orig/settings.tex:16: [trace] FAIL: unfinished-work marker 'TODO' in comment: ...gorithms Powered by LLMs} % TODO(verify): exactly as in the Ai...; remove it in the project (workspace traces cannot be allowed)
+projects/zz-packager-test-thesis-orig/settings.tex:68: [trace] FAIL: unfinished-work marker 'TODO' in comment: ...f originality: not in Dod. 4, TODO(verify); remove it in the project (workspace traces cannot be allowed)
+projects/zz-packager-test-thesis-orig/settings.tex:79: [trace] FAIL: unfinished-work marker 'TODO' in comment: \thesisresumefalse % TODO(verify): Slovak resume for th...; remove it in the project (workspace traces cannot be allowed)
+projects/zz-packager-test-thesis-orig/settings.tex:92: [trace] FAIL: unfinished-work marker 'TODO' in comment: ...habetical. ISO 690 conformity TODO(verify); remove it in the project (workspace traces cannot be allowed)
+
+Project: zz-packager-test-thesis-orig (projects/zz-packager-test-thesis-orig, main file main.tex)
+Class: report
+Template: none (standard class report)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+
+Findings: 4 (4 FAIL)
+  trace             4  FAIL
+Trace scan: 37 files, 4 hits (0 allowed)
+AI declaration: 'Statement on the Use of AI Tools' in projects/zz-packager-test-thesis-orig/main.tex:47 (packaged)
+Verdict: FAIL (trace)

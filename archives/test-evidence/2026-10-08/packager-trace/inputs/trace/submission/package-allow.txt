@@ -1,0 +1,3 @@
+# Allowed AI tool names of this test project; the text after " #" is the reason.
+Claude\s+Berge  # graph theorist, not a tool
+foo(   # invalid on purpose

@@ -1,0 +1,20 @@
+projects/zz-cas/cas-sc.cls:1: [template-origin] FAIL: the class cas-sc.cls comes from templates/els-cas, a house template (kind house in templates/SOURCES.tsv): a house template has no class of its own. A class is the publisher's download (kind venue) or a recorded third-party file (kind other)
+projects/zz-cas/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; no draft in projects/zz-cas/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+templates/els-cas/cas-common.sty:1: [template-origin] FAIL: templates/els-cas is a house template (kind house in templates/SOURCES.tsv), which has no class or style of its own: a class or style is the publisher's download (kind venue) or a recorded third-party file (kind other). Retire the file, or file its download under its own folder with a row of kind venue or other
+templates/els-cas/cas-model2-names.bst:1: [template-origin] FAIL: templates/els-cas is a house template (kind house in templates/SOURCES.tsv), which has no class or style of its own: a class or style is the publisher's download (kind venue) or a recorded third-party file (kind other). Retire the file, or file its download under its own folder with a row of kind venue or other
+templates/els-cas/cas-sc.cls:1: [template-origin] FAIL: templates/els-cas is a house template (kind house in templates/SOURCES.tsv), which has no class or style of its own: a class or style is the publisher's download (kind venue) or a recorded third-party file (kind other). Retire the file, or file its download under its own folder with a row of kind venue or other
+
+Project: zz-cas (projects/zz-cas, main file main.tex)
+Class: cas-sc
+Template: templates/els-cas (found by cas-sc.cls)
+Venue files identical to the template: cas-common.sty, cas-model2-names.bst, cas-sc.cls
+Template origin: els-cas (house, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+
+Findings: 5 (4 FAIL)
+  template-origin    4  FAIL
+  ai-declaration    1
+Trace scan: 11 files, 0 hits (0 allowed)
+AI declaration: none in the manuscript; no draft in projects/zz-cas/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: FAIL (template-origin)

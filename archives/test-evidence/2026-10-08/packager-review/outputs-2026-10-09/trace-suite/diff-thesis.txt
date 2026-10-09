@@ -1,0 +1,7 @@
+=> -- Trace scan of the staged files
+=> Files in the zip (38, 24.1 kB uncompressed):
+=>        921  B  references.bib
+=> Trace scan: 40 files, 0 hits (0 allowed)
+=> AI declaration: 'Statement on the Use of AI Tools' in projects/zz-packager-test-thesis/main.tex:47 (packaged)
+<= Files in the zip (38, 25.0 kB uncompressed):
+<=        1.8 kB  references.bib

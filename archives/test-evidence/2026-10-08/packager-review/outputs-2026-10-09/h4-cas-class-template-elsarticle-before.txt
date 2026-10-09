@@ -1,0 +1,17 @@
+projects/zz-review-wrong-template/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; a draft exists at projects/zz-review-wrong-template/submission/ai-declaration.tex and was not packaged (if AI tools were used, insert it as sections/91-ai-declaration.tex, directly before the references); venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+projects/zz-review-wrong-template/main.tex:86: [template-bst] \bibliographystyle{cas-model2-names}: the template ships elsarticle-harv, elsarticle-num-names, elsarticle-num.bst; use the venue's style.
+
+Project: zz-review-wrong-template (projects/zz-review-wrong-template, main file main.tex)
+Class: cas-sc
+Template: templates/elsarticle (-Template)
+Note: the template does not contain cas-sc.cls (the class comes from the project or from the TeX distribution)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+Excluded from the package (1): submission/ (workspace-only)
+
+Findings: 2 (0 FAIL)
+  template-bst      1
+  ai-declaration    1
+Trace scan: 23 files, 0 hits (0 allowed)
+AI declaration: none in the manuscript; a draft exists at projects/zz-review-wrong-template/submission/ai-declaration.tex and was not packaged (if AI tools were used, insert it as sections/91-ai-declaration.tex, directly before the references); venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: PASS

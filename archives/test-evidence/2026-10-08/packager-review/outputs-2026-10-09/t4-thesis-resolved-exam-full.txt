@@ -1,0 +1,136 @@
+-- Staging zz-review-thesis into tmp/package-zz-review-thesis/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Trace scan of the staged files
+-- Round trip: extracting the zip and building it
+projects/zz-review-thesis/appendices/01-omitted-proofs.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/appendices/02-additional-material.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/backmatter/cv.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/chapters/01-introduction.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/chapters/02-preliminaries.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/chapters/03-first-result.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/chapters/04-second-result.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/chapters/05-discussion.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/chapters/06-conclusion.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/chapters/07-resume.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/frontmatter/assignment.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/frontmatter/assignment.tex:4: [comment] end-of-line comment stays in the package: % % the list is a macro: expand it first
+projects/zz-review-thesis/frontmatter/declaration.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/frontmatter/glossary.tex:1: [unused] not read by the build, but part of the package; it would confuse a submission system. Remove it from the project or keep it out of the package.
+projects/zz-review-thesis/main.tex:20: [comment] end-of-line comment stays in the package: % numeric by default; author-date: settings.tex
+projects/zz-review-thesis/main.tex:26: [comment] end-of-line comment stays in the package: % after hyperref, before the theorem definitions
+projects/zz-review-thesis/main.tex:31: [comment] end-of-line comment stays in the package: % needs natbib and hyperref (\bibsection, \pdfbookmark)
+projects/zz-review-thesis/main.tex:43: [comment] end-of-line comment stays in the package: % Slovak labels unless \thesislabelsenglishtrue; cover: no number, no...
+projects/zz-review-thesis/main.tex:89: [comment] end-of-line comment stays in the package: % labels created from here on print "Appendix A", not "Chapter A"
+projects/zz-review-thesis/preamble/environments.tex:25: [comment] end-of-line comment stays in the package: % background color
+projects/zz-review-thesis/preamble/environments.tex:26: [comment] end-of-line comment stays in the package: % border color
+projects/zz-review-thesis/preamble/environments.tex:27: [comment] end-of-line comment stays in the package: % border thickness
+projects/zz-review-thesis/preamble/environments.tex:28: [comment] end-of-line comment stays in the package: % corner roundness
+projects/zz-review-thesis/preamble/layout.tex:23: [comment] end-of-line comment stays in the package: % inner = left margin with oneside
+projects/zz-review-thesis/preamble/layout.tex:25: [comment] end-of-line comment stays in the package: % line spacing 1.5 (\onehalfspacing stretches 1.241 at 12 pt)
+projects/zz-review-thesis/preamble/layout.tex:26: [comment] end-of-line comment stays in the package: % numbers down to 1.1.1 (three levels, STN ISO 2145)
+projects/zz-review-thesis/preamble/macros.tex:33: [comment] end-of-line comment stays in the package: % % hyperref absent: the ordinary footnote text
+projects/zz-review-thesis/preamble/macros.tex:34: [comment] end-of-line comment stays in the package: % % hyperref's saved original: no empty anchor (its \footnotetext war...
+projects/zz-review-thesis/preamble/packages.tex:10: [comment] end-of-line comment stays in the package: % \declaretheorem (preamble/environments.tex), restatable theorems
+projects/zz-review-thesis/preamble/packages.tex:11: [comment] end-of-line comment stays in the package: % \DeclarePairedDelimiter, \coloneqq; extends amsmath
+projects/zz-review-thesis/preamble/packages.tex:12: [comment] end-of-line comment stays in the package: % \ifblank, \forcsvlist (checks in preamble/thesis.tex)
+projects/zz-review-thesis/preamble/packages.tex:15: [comment] end-of-line comment stays in the package: % \toprule, \midrule, \bottomrule; no vertical rules
+projects/zz-review-thesis/preamble/packages.tex:16: [comment] end-of-line comment stays in the package: % list of abbreviations and symbols (frontmatter/abbreviations.tex)
+projects/zz-review-thesis/preamble/packages.tex:18: [comment] end-of-line comment stays in the package: % "problem" box, see preamble/environments.tex
+projects/zz-review-thesis/preamble/packages.tex:20: [comment] end-of-line comment stays in the package: % floating "algorithm" environment (loads float)
+projects/zz-review-thesis/preamble/packages.tex:21: [comment] end-of-line comment stays in the package: % \State, \For, \Require, \Ensure (part of algorithmicx)
+projects/zz-review-thesis/settings.tex:16: [comment] end-of-line comment stays in the package: % to be verified: exactly as in the AiS2 assignment
+projects/zz-review-thesis/settings.tex:17: [comment] end-of-line comment stays in the package: % empty: no subtitle
+projects/zz-review-thesis/settings.tex:18: [comment] end-of-line comment stays in the package: % without degrees: PDF metadata
+projects/zz-review-thesis/settings.tex:19: [comment] end-of-line comment stays in the package: % with degrees: cover and title page
+projects/zz-review-thesis/settings.tex:20: [comment] end-of-line comment stays in the package: % "v~" keeps the preposition off the end of a line
+projects/zz-review-thesis/settings.tex:22: [comment] end-of-line comment stays in the package: % study program
+projects/zz-review-thesis/settings.tex:23: [comment] end-of-line comment stays in the package: % name of the field only, no code (Dod. 4 Cl. 5 ods. 4 f)
+projects/zz-review-thesis/settings.tex:24: [comment] end-of-line comment stays in the package: % training department
+projects/zz-review-thesis/settings.tex:26: [comment] end-of-line comment stays in the package: % empty: the line is omitted
+projects/zz-review-thesis/settings.tex:28: [comment] end-of-line comment stays in the package: % registration number if assigned; empty: omitted
+projects/zz-review-thesis/settings.tex:29: [comment] end-of-line comment stays in the package: % 3-5 entries
+projects/zz-review-thesis/settings.tex:30: [comment] end-of-line comment stays in the package: % 3-5 entries, Slovak
+projects/zz-review-thesis/settings.tex:34: [comment] end-of-line comment stays in the package: % exam application within 24 months of the start of study
+projects/zz-review-thesis/settings.tex:41: [comment] end-of-line comment stays in the package: % dissertation due 3 months before 31 August of the last year
+projects/zz-review-thesis/settings.tex:66: [comment] end-of-line comment stays in the package: % acknowledgments (optional, Dod. 4 Cl. 5 ods. 5)
+projects/zz-review-thesis/settings.tex:67: [comment] end-of-line comment stays in the package: % assignment page (Dod. 4 Cl. 5 ods. 2 d)
+projects/zz-review-thesis/settings.tex:68: [comment] end-of-line comment stays in the package: % declaration of originality: not in Dod. 4, to be verified
+projects/zz-review-thesis/settings.tex:69: [comment] end-of-line comment stays in the package: % AI-use statement page: recommended, default on (the statement is re...
+projects/zz-review-thesis/settings.tex:70: [comment] end-of-line comment stays in the package: % list of figures (optional)
+projects/zz-review-thesis/settings.tex:71: [comment] end-of-line comment stays in the package: % list of tables (optional)
+projects/zz-review-thesis/settings.tex:72: [comment] end-of-line comment stays in the package: % list of abbreviations and symbols
+projects/zz-review-thesis/settings.tex:73: [comment] end-of-line comment stays in the package: % glossary (optional)
+projects/zz-review-thesis/settings.tex:74: [comment] end-of-line comment stays in the package: % Slovak resume after the Conclusion (non-Slovak thesis)
+projects/zz-review-thesis/settings.tex:75: [comment] end-of-line comment stays in the package: % back matter: curriculum vitae (optional)
+projects/zz-review-thesis/settings.tex:76: [comment] end-of-line comment stays in the package: % index (optional, needs \index entries and makeindex)
+projects/zz-review-thesis/settings.tex:78: [comment] end-of-line comment stays in the package: % the exam paper has no assignment page
+projects/zz-review-thesis/settings.tex:79: [comment] end-of-line comment stays in the package: % to be verified: Slovak resume for the exam paper
+projects/zz-review-thesis/settings.tex:83: [comment] end-of-line comment stays in the package: % oneside | twoside (both allowed); twoside mirrors the margins
+projects/zz-review-thesis/settings.tex:84: [comment] end-of-line comment stays in the package: % left margin (inner margin with twoside)
+projects/zz-review-thesis/settings.tex:85: [comment] end-of-line comment stays in the package: % right margin (outer margin with twoside)
+projects/zz-review-thesis/settings.tex:88: [comment] end-of-line comment stays in the package: % \singlespacing | \onehalfspacing | \doublespacing (setspace)
+projects/zz-review-thesis/settings.tex:89: [comment] end-of-line comment stays in the package: % page number centered; right: \fancyfoot[R]{\thepage}, twoside \fanc...
+projects/zz-review-thesis/settings.tex:90: [comment] end-of-line comment stays in the package: % true: the cover is page 1 and the title page page 2 (default: title...
+projects/zz-review-thesis/settings.tex:91: [comment] end-of-line comment stays in the package: % pages of assignment.pdf to insert, comma-separated list
+projects/zz-review-thesis/settings.tex:92: [comment] end-of-line comment stays in the package: % numeric, in order of first citation; plainnat = alphabetical. ISO 6...
+projects/zz-review-thesis/settings.tex:96: [comment] end-of-line comment stays in the package: % options of natbib, read by main.tex
+
+Project: zz-review-thesis (projects/zz-review-thesis, main file exam.tex)
+Class: report
+Template: none (standard class report)
+Layout: folders as in the project
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+Files in the zip (38, 24.1 kB uncompressed):
+        72  B  appendices/01-omitted-proofs.tex
+        82  B  appendices/02-additional-material.tex
+        64  B  backmatter/cv.tex
+       424  B  chapters/01-introduction.tex
+       191  B  chapters/02-preliminaries.tex
+       286  B  chapters/03-first-result.tex
+        68  B  chapters/04-second-result.tex
+        65  B  chapters/05-discussion.tex
+        52  B  chapters/06-conclusion.tex
+       105  B  chapters/07-resume.tex
+       1.0 kB  exam.bbl
+        50  B  exam.tex
+       235  B  exam/00-theses.tex
+       550  B  exam/01-introduction.tex
+       333  B  exam/02-preliminaries.tex
+       316  B  exam/03-state-of-the-art.tex
+       220  B  exam/04-results-so-far.tex
+       312  B  exam/05-methodology.tex
+       502  B  exam/06-publication-plan.tex
+       175  B  exam/07-timeline.tex
+       214  B  frontmatter/abbreviations.tex
+        91  B  frontmatter/abstract-en.tex
+        90  B  frontmatter/abstract-sk.tex
+        86  B  frontmatter/acknowledgments.tex
+       119  B  frontmatter/ai-statement.tex
+       298  B  frontmatter/assignment.tex
+       737  B  frontmatter/cover.tex
+       220  B  frontmatter/declaration.tex
+        77  B  frontmatter/glossary.tex
+       937  B  frontmatter/titlepage.tex
+       2.8 kB  main.tex
+       1.1 kB  preamble/environments.tex
+       865  B  preamble/layout.tex
+       914  B  preamble/macros.tex
+       795  B  preamble/packages.tex
+       3.8 kB  preamble/thesis.tex
+       921  B  references.bib
+       5.1 kB  settings.tex
+
+Findings: 72 (0 FAIL)
+  unused           13
+  comment          59
+Pages: 19
+Zip:  C:\Users\norom\Documents\latex\outputs\zz-review-thesis\package\zz-review-thesis-exam-20261009.zip
+Link: outputs/zz-review-thesis/package/zz-review-thesis-exam-20261009.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\zz-review-thesis\package\zz-review-thesis-exam-20261009.pdf
+Link: outputs/zz-review-thesis/package/zz-review-thesis-exam-20261009.pdf
+Trace scan: 40 files, 0 hits (0 allowed)
+AI declaration: 'Statement on the Use of AI Tools' in projects/zz-review-thesis/main.tex:47 (packaged)
+Verdict: PASS

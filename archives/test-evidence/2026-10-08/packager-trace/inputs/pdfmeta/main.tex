@@ -1,0 +1,66 @@
+% Venue-neutral article wrapper: the default template for new articles.
+% This is the ONLY template-dependent file. To move the manuscript to a journal template, replace this
+% file and add the journal's .cls/.bst. sections/, references.bib and img/ stay unchanged; preamble/ loses
+% the lines the class already provides (amsthm, hyperref, cleveref, natbib, theorem environments).
+% House rules: knowledge/writing/latex-conventions.md   Porting: knowledge/writing/template-porting.md
+% Build: .\scripts\build-project.ps1 -Project <project>
+
+% No automatic EPS-to-PDF conversion (figures are PDF/PNG). Also avoids a failure in this MiKTeX:
+% cleveref with options makes epstopdf-base require grfext.sty, which is not installed.
+\newcommand*{\DoNotLoadEpstopdf}{}
+\documentclass[11pt,a4paper]{article}
+
+% --- Fonts and page layout (template-dependent) ------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=2.5cm]{geometry}
+% Latin Modern has no bold small caps (T1/lmr/bx/sc). Use medium small caps in bold contexts
+% (problem-box titles, headings) instead of LaTeX's bold-upright fallback and its font warning.
+\AtBeginDocument{\DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub*lmr/m/sc}{}}
+
+% --- Title and author: defined once, used by \title, \author and the PDF metadata --------------
+\newcommand{\PaperTitle}{Title of the Paper}
+\newcommand{\PaperAuthor}{Norbert Micheľ}
+
+% --- Load order: packages -> natbib -> hyperref -> cleveref -> environments -> macros ----------
+\input{preamble/packages}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\ToolA}{Cla}\newcommand{\ToolB}{ude}
+\hypersetup{pdftitle={\PaperTitle}, pdfauthor={\PaperAuthor}, pdfcreator={\ToolA\ToolB}}
+\usepackage[capitalise,noabbrev]{cleveref}   % after hyperref, before any \newtheorem
+\input{preamble/environments}
+\input{preamble/macros}
+
+\title{\PaperTitle}
+\author{\PaperAuthor\\[0.5ex]
+  {\normalsize Institute of Computer Science, Faculty of Science}\\
+  {\normalsize Pavol Jozef Šafárik University in Košice, Košice, Slovakia}\\
+  {\normalsize\texttt{5344553@upjs.sk}}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/00-abstract}
+\end{abstract}
+
+% The article class has no \keywords command; journal classes bring their own.
+\noindent\textbf{Keywords:} first keyword, second keyword, third keyword
+
+\input{sections/01-introduction}
+\input{sections/02-preliminaries}
+\input{sections/03-results}
+\input{sections/04-conclusion}
+
+\section*{Acknowledgments}
+\input{sections/90-acknowledgments}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

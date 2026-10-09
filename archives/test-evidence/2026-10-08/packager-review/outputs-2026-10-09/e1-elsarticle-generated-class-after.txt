@@ -1,0 +1,17 @@
+projects/zz-review-elsarticle/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; no draft in projects/zz-review-elsarticle/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+projects/zz-review-elsarticle/main.tex:235: [missing] FAIL: \includegraphics{example-image-a}: no such file in the project or in the TeX distribution (tried: example-image-a.pdf, example-image-a.png, example-image-a.jpg, example-image-a.jpeg, example-image-a.eps).
+
+Project: zz-review-elsarticle (projects/zz-review-elsarticle, main file main.tex)
+Class: elsarticle
+Template: templates/elsarticle (found by elsarticle.cls)
+Venue files identical to the template: elsarticle.cls, elsarticle-num.bst
+Template origin: elsarticle (venue, elsarticle 2024/04/04, 3.4, https://assets.ctfassets.net/o78em1y1w4i4/4MpsJHO0MOJ2xZuwGTAbOZ/7bc64af36477c5d6cfce335a1f872363/elsarticle.zip)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+
+Findings: 2 (1 FAIL)
+  missing           1  FAIL
+  ai-declaration    1
+Trace scan: 1 files, 0 hits (0 allowed); 2 files identical to the template not scanned
+AI declaration: none in the manuscript; no draft in projects/zz-review-elsarticle/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: FAIL (missing)

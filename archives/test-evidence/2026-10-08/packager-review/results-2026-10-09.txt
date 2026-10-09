@@ -1,0 +1,42 @@
+s1-static-plants-before                  exit 0  Verdict: PASS  Trace scan: 25 files, 0 hits (0 allowed); 3 files identical to the template not scanned
+s1-static-plants-after                   exit 1  Verdict: FAIL (trace)  Trace scan: 25 files, 16 hits (0 allowed); 3 files identical to the template not scanned
+s2-static-plants-b-before                exit 1  Verdict: FAIL (trace)  Trace scan: 27 files, 9 hits (2 allowed); 3 files identical to the template not scanned
+s2-static-plants-b-after                 exit 1  Verdict: FAIL (trace)  Trace scan: 27 files, 9 hits (0 allowed); 3 files identical to the template not scanned
+b1-build-time-plants-before              exit 0  Verdict: PASS  Trace scan: 25 files, 2 hits (2 allowed); 3 files identical to the template not scanned
+b1-build-time-plants-after               exit 1  Verdict: FAIL (trace)  Trace scan: 23 files, 10 hits (6 allowed); 3 files identical to the template not scanned
+u1-unread-declaration-before             exit 0  Verdict: PASS  Trace scan: 24 files, 3 hits (3 allowed); 3 files identical to the template not scanned
+u1-unread-declaration-after              exit 1  Verdict: FAIL (trace)  Trace scan: 21 files, 3 hits (0 allowed); 3 files identical to the template not scanned
+d1-declaration-complete-before           exit 0  Verdict: PASS  Trace scan: 24 files, 2 hits (2 allowed); 3 files identical to the template not scanned
+d1-declaration-complete-after            exit 0  Verdict: PASS  Trace scan: 24 files, 6 hits (6 allowed); 3 files identical to the template not scanned
+d2-declaration-unfinished-before         exit 0  Verdict: PASS  Trace scan: 21 files, 2 hits (2 allowed); 3 files identical to the template not scanned
+d2-declaration-unfinished-after          exit 1  Verdict: FAIL (trace)  Trace scan: 21 files, 5 hits (2 allowed); 3 files identical to the template not scanned
+h1-handmade-auto-before                  exit 0  Verdict: PASS  Trace scan: 12 files, 0 hits (0 allowed)
+h1-handmade-auto-after                   exit 0  Verdict: PASS  Trace scan: 12 files, 0 hits (0 allowed)
+h2-handmade-template-article-modular-before exit 0  Verdict: PASS  Trace scan: 12 files, 0 hits (0 allowed)
+h2-handmade-template-article-modular-after exit 0  Verdict: PASS  Trace scan: 12 files, 0 hits (0 allowed)
+h3-handmade-template-els-cas-before      exit 0  Verdict: PASS  Trace scan: 12 files, 0 hits (0 allowed)
+h3-handmade-template-els-cas-after       exit 0  Verdict: PASS  Trace scan: 12 files, 0 hits (0 allowed)
+h4-cas-class-template-elsarticle-before  exit 0  Verdict: PASS  Trace scan: 23 files, 0 hits (0 allowed)
+h4-cas-class-template-elsarticle-after   exit 1  Verdict: FAIL (template-origin)  Trace scan: 23 files, 0 hits (0 allowed)
+e1-elsarticle-generated-class-before     exit 1  Verdict: FAIL (missing)  Trace scan: 1 files, 0 hits (0 allowed); 2 files identical to the template not scanned
+e1-elsarticle-generated-class-after      exit 1  Verdict: FAIL (missing)  Trace scan: 1 files, 0 hits (0 allowed); 2 files identical to the template not scanned
+t1-thesis-as-shipped-main-static         exit 1  Verdict: FAIL (trace)  Trace scan: 37 files, 4 hits (0 allowed)
+t2-thesis-as-shipped-exam-static         exit 1  Verdict: FAIL (trace)  Trace scan: 37 files, 4 hits (0 allowed)
+t3-thesis-resolved-main-full             exit 0  Verdict: PASS  Trace scan: 40 files, 0 hits (0 allowed)
+t4-thesis-resolved-exam-full             exit 0  Verdict: PASS  Trace scan: 40 files, 0 hits (0 allowed)
+x1-sandbox-baseline-before               exit 0  Verdict: PASS  Trace scan: 2 files, 0 hits (0 allowed); 9 files identical to the template not scanned
+x1-sandbox-baseline-after                exit 0  Verdict: PASS  Trace scan: 2 files, 0 hits (0 allowed); 9 files identical to the template not scanned
+x2-sandbox-kind-house-before             exit 0  Verdict: PASS  Trace scan: 11 files, 0 hits (0 allowed)
+x2-sandbox-kind-house-after              exit 1  Verdict: FAIL (template-origin)  Trace scan: 11 files, 0 hits (0 allowed)
+x3-sandbox-edited-template-sty-before    exit 0  Verdict: PASS  Trace scan: 2 files, 0 hits (0 allowed); 9 files identical to the template not scanned
+x3-sandbox-edited-template-sty-after     exit 1  Verdict: FAIL (template-origin, trace)  Trace scan: 3 files, 3 hits (0 allowed); 8 files identical to the template not scanned
+x4-sandbox-edited-template-cls-before    exit 0  Verdict: PASS  Trace scan: 2 files, 0 hits (0 allowed); 9 files identical to the template not scanned
+x4-sandbox-edited-template-cls-after     exit 1  Verdict: FAIL (template-origin)  Trace scan: 3 files, 0 hits (0 allowed); 8 files identical to the template not scanned
+x5-sandbox-edited-unused-template-file-before exit 0  Verdict: PASS  Trace scan: 2 files, 0 hits (0 allowed); 9 files identical to the template not scanned
+x5-sandbox-edited-unused-template-file-after exit 1  Verdict: FAIL (template-origin)  Trace scan: 2 files, 0 hits (0 allowed); 9 files identical to the template not scanned
+x6-sandbox-file-not-in-archive-before    exit 0  Verdict: PASS  Trace scan: 2 files, 0 hits (0 allowed); 9 files identical to the template not scanned
+x6-sandbox-file-not-in-archive-after     exit 1  Verdict: FAIL (template-origin)  Trace scan: 2 files, 0 hits (0 allowed); 9 files identical to the template not scanned
+x7-sandbox-house-folder-style-before     exit 0  Verdict: PASS  Trace scan: 2 files, 0 hits (0 allowed)
+x7-sandbox-house-folder-style-after      exit 1  Verdict: FAIL (template-origin)  Trace scan: 2 files, 0 hits (0 allowed)
+x8-sandbox-house-folder-class-before     exit 0  Verdict: PASS  Trace scan: 2 files, 0 hits (0 allowed)
+x8-sandbox-house-folder-class-after      exit 1  Verdict: FAIL (template-origin)  Trace scan: 2 files, 0 hits (0 allowed)

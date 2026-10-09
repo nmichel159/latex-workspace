@@ -1,0 +1,5 @@
+drawio-before  exit 0  Verdict: PASS  Trace scan: 21 files, 0 hits (0 allowed); 3 files identical to the template not scanned
+drawio-after   exit 1  Verdict: FAIL (trace)  Trace scan: 21 files, 3 hits (0 allowed); 3 files identical to the template not scanned
+    projects/zz-packager-drawio-test/img/chain.png:1: [trace] FAIL: AI tool name 'Anthropic' in PNG tEXt chunk 'mxfile', decoded: ...d="2" value="sketch made with A
+    projects/zz-packager-drawio-test/img/chain-link.png:1: [trace] FAIL: AI tool name 'Claude' in PNG tEXt chunk 'mxfile', decoded: ...grams.net" agent="Mozilla/5.0
+    projects/zz-packager-drawio-test/img/drawio-test.svg:1: [trace] FAIL: AI tool name 'ChatGPT' in SVG, decoded: ...id="0"/><mxCell id="2" value="ChatGPT draft" ve

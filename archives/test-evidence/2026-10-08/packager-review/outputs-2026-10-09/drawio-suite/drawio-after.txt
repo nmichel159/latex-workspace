@@ -1,0 +1,20 @@
+projects/zz-packager-drawio-test/img/chain.png:1: [trace] FAIL: AI tool name 'Anthropic' in PNG tEXt chunk 'mxfile', decoded: ...d="2" value="sketch made with Anthropic tools" vertex="1"/></root></m...; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-packager-drawio-test/img/chain-link.png:1: [trace] FAIL: AI tool name 'Claude' in PNG tEXt chunk 'mxfile', decoded: ...grams.net" agent="Mozilla/5.0 Claude-Desktop/1.0" version="28.1.0"...; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-packager-drawio-test/img/drawio-test.svg:1: [trace] FAIL: AI tool name 'ChatGPT' in SVG, decoded: ...id="0"/><mxCell id="2" value="ChatGPT draft" vertex="1"/></root></m...; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-packager-drawio-test/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; a draft exists at projects/zz-packager-drawio-test/submission/ai-declaration.tex and was not packaged (if AI tools were used, insert it as its comment block says: the text in sections/91-ai-declaration.tex, the heading and the \input in the wrapper, before the references; Elsevier: before the acknowledgments, which stay directly before the reference list); venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+
+Project: zz-packager-drawio-test (projects/zz-packager-drawio-test, main file main.tex)
+Class: cas-sc
+Template: templates/els-cas (-Template)
+Venue files identical to the template: cas-common.sty, cas-model2-names.bst, cas-sc.cls
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+Excluded from the package (2): README.md (workspace-only), submission/ (workspace-only)
+
+Findings: 4 (3 FAIL)
+  trace             3  FAIL
+  ai-declaration    1
+Trace scan: 21 files, 3 hits (0 allowed); 3 files identical to the template not scanned
+AI declaration: none in the manuscript; a draft exists at projects/zz-packager-drawio-test/submission/ai-declaration.tex and was not packaged (if AI tools were used, insert it as its comment block says: the text in sections/91-ai-declaration.tex, the heading and the \input in the wrapper, before the references; Elsevier: before the acknowledgments, which stay directly before the reference list); venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: FAIL (trace)

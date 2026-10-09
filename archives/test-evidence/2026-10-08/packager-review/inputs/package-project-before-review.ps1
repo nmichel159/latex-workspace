@@ -24,23 +24,11 @@
                            FAIL: no row for the folder (or no SOURCES.tsv); a row of kind venue whose official_url is
                            not https, whose archive file does not exist in the workspace, or whose archive has another
                            SHA-256 than the recorded one; an unknown kind; a class file in the project that no folder
-                           of templates/ ships (its origin is not recorded at all), searched in every folder whether
-                           or not -Template is given; a class file in the project that the -Template folder does not
-                           ship; a class file in the project that a folder of kind house ships, and any class or style
-                           file (.cls .bst .sty ...) in the folder of kind house that the project is compared with (a
-                           house template has no class or style of its own); for kind venue and other whose archive
-                           matches its SHA-256, the folder against the archive, file by file: kind venue, every file
-                           of the folder, kind other, every .cls .bst .sty ... of the folder (the rest may be a
-                           workspace skeleton) must be byte-identical to an entry of the archive with the same file
-                           name (a file that differs, or that the archive lacks, means the folder was changed after
-                           filing), and a venue file of the project that is identical to the folder must be identical
-                           to a file of the archive. A file that is generated from the archive (elsarticle.cls from
-                           elsarticle.dtx) counts as recorded when its SHA-256 is written in the row's note. Note: kind
-                           other ("not a publisher template"). The report prints
+                           of templates/ ships (its origin is not recorded at all). Note: kind other ("not a publisher
+                           template"). Kind house: nothing. The report prints
                            "Template origin: <folder> (<kind>, <version>, <official_url>)".
        A standard class (no X.cls in the project or in templates/, but found in the TeX distribution) has no
-       template folder: "Template: none (standard class X)" and A3-A5 are skipped. A class that only the project has
-       is reported as "Template: none (class X is a file of the project, ...)".
+       template folder: "Template: none (standard class X)" and A3-A5 are skipped.
     B. Self-containedness (static). \input \include \includegraphics \bibliography \addbibresource \documentclass
        \usepackage \RequirePackage \bibliographystyle \graphicspath are read from the .tex files (comments, verbatim
        and \verb removed):
@@ -56,46 +44,30 @@
        would be packaged, as it will be staged (comment lines that staging removes are skipped), and its path;
        (b) before the zip is written, every staged file as it will be zipped, the .bbl included; (c) metadata of
        images, in (a) and (b): PNG tEXt, zTXt, iTXt, eXIf chunks and the iCCP name (also URL-decoded, and the
-       compressed pages of an embedded draw.io diagram inflated), the printable runs of every other ancillary
-       chunk (private chunks such as prVt) and of any bytes after IEND; JPEG APPn segments (EXIF, XMP), COM and
-       any bytes after the last EOI; EPS comment lines, pdfmark lines and XMP packet; SVG as text (draw.io pages
-       inflated as for PNG); PDF figures through pdfinfo -custom (every key of the info dictionary, custom keys
-       included), pdfinfo -meta, the page text (pdftotext; a word hyphenated at a line end is also joined), and a
-       byte search of the PDF objects outside streams, of object streams and of metadata streams, with hex, octal
-       and UTF-16BE strings decoded; (d) the staged PDF the same way, so a name that TeX assembles at build time
-       and prints is found in the page text; (e) the zip entry names. Other binary files: printable runs in ASCII,
-       UTF-16 and UTF-32. A file identical to a file of the recorded template archive (the publisher's class,
-       style, icons; see [template-origin]) is not scanned when the folder's row in templates/SOURCES.tsv is of
-       kind venue or other, unless it is a .tex or .bib file; a file that is only identical to the template folder
-       is scanned. Every text line is also scanned with TeX's invisible separators removed ({}, \-, \/, soft
-       hyphen U+00AD, zero-width characters) and ^^xx decoded, so Cl{}aude counts as Claude. Patterns are
-       case-insensitive and match whole words only:
-         workspace traces (always FAIL): TODO, FIXME (also TODO(verify), \todo{...}); the placeholders of a
-           statement template ([MODEL AND VERSION], [NAME OF TOOL / SERVICE], [REASON], [TOOL, VERSION],
-           [PROVIDER]; upper case); claude.ai, claude.com, anthropic.com; Co-Authored-By; "Generated with [" and
-           "Generated with Claude" (the commit trailer; plain "generated with" is ordinary prose); noreply@;
-           CLAUDE.md, .claude/; the name of a Markdown file (README.md, notes.md; never packaged, so a mention of
-           one is workspace information; a name inside a URL or a path after / is not counted); the Windows user
-           name of this machine (from USERNAME, at least 4 characters and not a generic name) and its profile path
-           (USERPROFILE); an absolute Windows path (X:/dir/ anywhere; X:\dir\ everywhere except TeX code, where
-           f:\R\to\R is math, so in TeX files only in comments and verbatim lines, and with $...$ masked); a path
-           into this workspace (knowledge/, archives/, outputs/, inbox/, scripts/, tmp/, projects/ followed by a
-           name that exists there)
+       compressed pages of an embedded draw.io diagram inflated); JPEG APPn segments (EXIF, XMP)
+       and COM; EPS comment lines, pdfmark lines and XMP packet; SVG as text (draw.io pages inflated as for PNG); PDF figures through pdfinfo, pdfinfo
+       -meta and a byte search of the PDF objects outside streams, of object streams and of metadata streams;
+       (d) the staged PDF the same way; (e) the zip entry names. A file identical to a file of the template folder
+       (the publisher's class, style, icons) is not scanned when the folder's row in templates/SOURCES.tsv is of
+       kind venue or other, unless it is a .tex or .bib file. Patterns are case-insensitive and match whole words
+       only:
+         workspace traces (always FAIL): TODO, FIXME (also TODO(verify), \todo{...}); claude.ai, claude.com,
+           anthropic.com; Co-Authored-By; "Generated with [" and "Generated with Claude" (the commit trailer; plain
+           "generated with" is ordinary prose); noreply@; CLAUDE.md, .claude/; the Windows user name of this machine
+           (from USERNAME, at least 4 characters and not a generic name) and its profile path (USERPROFILE); an
+           absolute Windows path (X:/dir/ anywhere; X:\dir\ everywhere except TeX code, where f:\R\to\R is math, so
+           in TeX files only in comments and verbatim lines, and with $...$ masked); a path into this workspace
+           (knowledge/, archives/, outputs/, inbox/, scripts/, tmp/, projects/ followed by a name that exists there)
          AI tool and vendor names: Claude (and "Claude Code"), Anthropic, ChatGPT, OpenAI, Copilot, Gemini,
-           GPT-<digit>, the Claude model names Opus, Sonnet and Haiku followed by a version number, glued and
-           camelCase forms (ClaudeCode, claudeNote, OpenAIClient), the plural Claudes, a TeX macro whose name
-           starts with \claude, "AI-generated", "generated by AI"
-         [trace]      FAIL: a workspace trace, or an AI tool name that neither exemption covers: (i) the hit is in the
-                      text (not in a comment) of a .tex file whose name matches *ai-declaration*.tex or
-                      *ai-statement*.tex and that the main file reads (an \input, \include or a macro argument names
-                      it; the disclosure the venue requires; articles: sections/91-ai-declaration.tex), or in the page
-                      text of the staged PDF that this file prints (from its heading "Declaration of generative
-                      AI ...", "Use of AI tools" or "... AI-assisted technologies ..." on, for the length of its
-                      text); (ii) a regular expression in projects/<Project>/submission/package-allow.txt matches a
-                      span of the same line that overlaps the hit (one regex per line, case-insensitive; a line
-                      starting with # and the text after " #" are comments giving the reason; for papers whose
-                      research uses LLMs, or a name such as Claude Berge). An invalid regex there fails as well.
-                      Hits allowed by (i) or (ii) are listed as [trace] notes, so they stay visible.
+           GPT-<digit>, "AI-generated", "generated by AI"
+         [trace]      FAIL: a workspace trace, or an AI tool name that neither exemption covers: (i) the hit is in a
+                      .tex file whose name matches *ai-declaration*.tex or *ai-statement*.tex (the disclosure the venue
+                      requires; articles: sections/91-ai-declaration.tex); (ii) a regular expression in
+                      projects/<Project>/submission/package-allow.txt matches a span of the same line that overlaps
+                      the hit (one regex per line, case-insensitive; a line starting with # and the text after
+                      " #" are comments giving the reason; for papers whose research uses LLMs, or a name such as
+                      Claude Berge). An invalid regex there fails as well. Hits allowed by (i) or (ii) are listed
+                      as [trace] notes, so they stay visible.
        Duplicates are reported once: a hit already reported for the project file is not repeated for its staged
        copy, and a binary file reports each term once. The report gives "Trace scan: <n> files, <m> hits (<k>
        allowed)", where a project file and its staged copy count as one file and the staged PDF and the zip as
@@ -105,8 +77,7 @@
                       packaged .tex files is a heading with "Declaration of generative AI", "Use of AI tools" or
                       "AI-assisted technologies"; the note says whether projects/<Project>/submission/
                       *ai-declaration*.tex holds a draft (never packaged) and where the venue policies are. The
-                      line "AI declaration: ..." just before the verdict repeats it on every run. A declaration
-                      that still holds a placeholder of the statement template fails as [trace] (see T).
+                      line "AI declaration: ..." just before the verdict repeats it on every run.
     C. Staging (not with -CheckOnly). The project is copied to tmp/package-<Project>/stage/ without the
        workspace-only material listed under LEFT OUT below. Unless -KeepComments, full-line
        comments of the .tex files are removed (not inside verbatim, Verbatim, lstlisting, minted, comment,
@@ -183,8 +154,7 @@
     are then part of the package and are scanned for traces like the rest.
 
 .PARAMETER CheckOnly
-    Run only the static checks: A (A6 [template-origin] included), B, T (a) and I [ai-declaration]; no staging, no
-    build, no zip, nothing written. The staged PDF and the .bbl are therefore not scanned (T b, d, e).
+    Run only the static checks (A and B): no staging, no build, no zip, nothing written.
 
 .PARAMETER MaxPages
     Page limit of the venue; the staged PDF is checked against it.
@@ -268,7 +238,6 @@ catch {
 }
 
 $ErrorActionPreference = 'Stop'
-Add-Type -AssemblyName System.IO.Compression      # zip reading (template archive, A6) and writing (F)
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -652,9 +621,8 @@ else {
         }
     }
     if ($null -eq $templateDirectory) {
-        # No template folder: a standard class of the TeX distribution, or a class that only the project has.
-        if ($classIsLocal) { $templateNote = "class $className is a file of the project; no folder of templates/ ships it" }
-        else { $standardClass = $true }
+        # No template folder: a standard class of the TeX distribution (or a class that only the project has).
+        $standardClass = $true
     }
 }
 if ($null -ne $templateDirectory) {
@@ -935,7 +903,7 @@ elseif ($null -ne $classInfo -and $distributionClass) {
     $standardClass = $true
 }
 elseif ($null -ne $classInfo -and $classIsLocal) {
-    $templateNote = "class $className is a file of the project; no folder of templates/ ships it"
+    $templateNote = "class $className is a file of the project, no template folder contains it"
 }
 elseif ($null -ne $classInfo) {
     # not local, not in a template, not in the distribution: already reported as [missing] above
@@ -967,84 +935,11 @@ if ($Flat) { [void](Test-FlatClashes) }
 
 $script:templateOrigin = $null          # report line "Template origin: ..."
 $originKind = $null                     # kind of the row in SOURCES.tsv (venue, house, other)
-$script:trustedHashes = $null           # SHA-256 of the files of the recorded archive (and of generated files the note records)
 $templateShipsClass = ($null -ne $templateDirectory -and $null -ne $classLeafName -and
     @($templateFiles | Where-Object { $_.Name -ieq $classLeafName }).Count -gt 0)
-
-# SHA-256 of every file in a zip (upper case): Hashes (all of them) and ByLeaf (file name, case-insensitive ->
-# list of [entry path, SHA-256]); $null when the file cannot be read as a zip.
-function Get-ArchiveIndex([string]$ZipFile) {
-    $set = New-StringSet @()
-    $byLeaf = New-Object 'System.Collections.Generic.Dictionary[string,object]' ([System.StringComparer]::OrdinalIgnoreCase)
-    $sha = [System.Security.Cryptography.SHA256]::Create()
-    try {
-        $stream = [System.IO.File]::OpenRead($ZipFile)
-        try {
-            $archive = New-Object System.IO.Compression.ZipArchive($stream, [System.IO.Compression.ZipArchiveMode]::Read, $false)
-            try {
-                foreach ($entry in $archive.Entries) {
-                    if ($entry.FullName.EndsWith('/')) { continue }
-                    $entryStream = $entry.Open()
-                    try { $digest = $sha.ComputeHash($entryStream) } finally { $entryStream.Dispose() }
-                    $hash = ([BitConverter]::ToString($digest) -replace '-', '')
-                    [void]$set.Add($hash)
-                    $leaf = [IO.Path]::GetFileName($entry.FullName)
-                    if (-not $byLeaf.ContainsKey($leaf)) { $byLeaf[$leaf] = New-Object System.Collections.Generic.List[string[]] }
-                    $byLeaf[$leaf].Add([string[]]@($entry.FullName, $hash))
-                }
-            }
-            finally { $archive.Dispose() }
-        }
-        finally { $stream.Dispose() }
-    }
-    catch { return $null }
-    return [pscustomobject]@{ Hashes = $set; ByLeaf = $byLeaf }
-}
-
-# Kind of the row of a templates/ folder in templates/SOURCES.tsv; $null when there is no such row (or no file).
-function Get-SourcesKind([string]$Folder) {
-    $path = Join-Path $templatesRoot "SOURCES.tsv"
-    if (-not (Test-Path -LiteralPath $path -PathType Leaf)) { return $null }
-    $lines = [System.IO.File]::ReadAllLines($path, $utf8)
-    if ($lines.Count -eq 0) { return $null }
-    $names = @($lines[0].Split("`t") | ForEach-Object { $_.Trim() })
-    $folderColumn = [Array]::IndexOf($names, "folder")
-    $kindColumn = [Array]::IndexOf($names, "kind")
-    if ($folderColumn -lt 0 -or $kindColumn -lt 0) { return $null }
-    for ($k = 1; $k -lt $lines.Count; $k++) {
-        $cells = $lines[$k].Split("`t")
-        if ($cells.Count -gt [Math]::Max($folderColumn, $kindColumn) -and $cells[$folderColumn].Trim() -ieq $Folder) { return $cells[$kindColumn].Trim() }
-    }
-    return $null
-}
-
-# A house template (kind house) is written in this workspace and has no class or style of its own: a class or style
-# file in its folder would be a hand-made venue file filed under a kind that is never checked against a download.
-function Test-HouseFolder([string]$Directory) {
-    $folder = Split-Path -Leaf $Directory
-    if ((Get-SourcesKind $folder) -ne "house") { return }
-    foreach ($file in @(Get-ChildItem -LiteralPath $Directory -Recurse -File -ErrorAction SilentlyContinue | Sort-Object FullName)) {
-        if (-not $venueFileExtensions.Contains($file.Extension)) { continue }
-        Add-Finding (Get-DisplayPath $file.FullName) 1 "template-origin" "templates/$folder is a house template (kind house in templates/SOURCES.tsv), which has no class or style of its own: a class or style is the publisher's download (kind venue) or a recorded third-party file (kind other). Retire the file, or file its download under its own folder with a row of kind venue or other"
-    }
-}
-
-# A class file of the project must come from a folder of templates/ (any folder, whether or not -Template is given),
-# and from the -Template folder when one is named.
-if ($null -ne $classInfo -and $classIsLocal) {
-    $classDisplay = $fileIndex[$classRelative]
-    $shippingFolders = New-Object System.Collections.Generic.List[string]
-    foreach ($directory in @(Get-ChildItem -LiteralPath $templatesRoot -Directory | Sort-Object Name)) {
-        if (@(Get-ChildItem -LiteralPath $directory.FullName -Recurse -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -ieq $classLeafName }).Count -gt 0) { $shippingFolders.Add($directory.Name) }
-    }
-    if ($shippingFolders.Count -eq 0) {
-        # nothing records where it came from (a hand-made or unfiled template)
-        Add-ProjectFinding $classDisplay 1 "template-origin" "the class $classLeafName is a file of the project, but no folder of templates/ ships it, so its origin is not recorded. File the publisher's download under templates/<venue>/ with its row in templates/SOURCES.tsv (skill process-inbox)"
-    }
-    elseif (-not $templateShipsClass) {
-        $where = "templates/" + ($shippingFolders -join ", templates/")
-        Add-ProjectFinding $classDisplay 1 "template-origin" "the class $classLeafName is a file of the project, but $(Get-DisplayPath $templateDirectory) (-Template) does not ship it ($where does): the project does not use the named template. Pass the folder that ships the class, or port the project to the named template"
-    }
+# A class that only the project has: nothing records where it came from (a hand-made or unfiled template).
+if ($null -eq $templateDirectory -and $classIsLocal) {
+    Add-ProjectFinding $fileIndex[$classRelative] 1 "template-origin" "the class $classLeafName is a file of the project, but no folder of templates/ ships it, so its origin is not recorded. File the publisher's download under templates/<venue>/ with its row in templates/SOURCES.tsv (skill process-inbox)"
 }
 if ($templateShipsClass) {
     $originFolder = Split-Path -Leaf $templateDirectory
@@ -1075,104 +970,50 @@ if ($templateShipsClass) {
                 Add-Finding $sourcesDisplay 1 "template-origin" "no row for templates/${originFolder}: its origin is not recorded. A venue template is the publisher's download, recorded with URL, archive and SHA-256 (templates/README.md, section Provenance)"
             }
             else {
-                $cell = { param($name) if ($columns.ContainsKey($name) -and $row.Count -gt $columns[$name]) { return $row[$columns[$name]].Trim() } return "" }
+                $cell = { param($name) if ($row.Count -gt $columns[$name]) { return $row[$columns[$name]].Trim() } return "" }
                 $kind = & $cell "kind"
                 $version = & $cell "version"
                 $officialUrl = & $cell "official_url"
                 $archive = & $cell "archive"
                 $recordedHash = & $cell "sha256"
-                $note = & $cell "note"
                 $script:templateOrigin = "$originFolder ($kind, $version, $officialUrl)"
                 $originKind = $kind
-                $isVenue = ($kind -eq "venue")
-                # The archive: required and checked for kind venue; for kind other it is used when present (notes only).
-                $archiveFull = $null
-                $archiveMatches = $false
-                if ($kind -eq "venue" -or $kind -eq "other") {
-                    if ($archive -eq "" -or $archive -eq "-") {
-                        if ($isVenue) { Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: no archive recorded; keep the downloaded zip under archives/ and record its path and SHA-256" }
-                    }
-                    elseif ($archive -match '^[A-Za-z]:|^[\\/]' -or ($archive -split '[\\/]') -contains '..') {
-                        Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: archive '$archive' must be a path inside the workspace (relative, no ..)" $isVenue
-                    }
-                    else {
-                        $archiveFull = Join-Path $workspace $archive.Replace('/', '\')
-                        if (-not (Test-Path -LiteralPath $archiveFull -PathType Leaf)) {
-                            Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: the archive $archive does not exist; the download cannot be proved" $isVenue
-                        }
-                        else {
-                            $actualHash = (Get-FileHash -LiteralPath $archiveFull -Algorithm SHA256).Hash
-                            if ($actualHash -ine $recordedHash) {
-                                Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: SHA-256 of $archive is $($actualHash.ToLowerInvariant().Substring(0, 16))..., the row records '$(Format-Short $recordedHash 20)'; the archive is not the recorded download" $isVenue
-                            }
-                            else { $archiveMatches = $true }
-                        }
-                    }
-                }
                 switch ($kind) {
                     "venue" {
                         if ($officialUrl -notmatch '^https://\S+$') {
                             Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: official_url '$officialUrl' is not an https address of the publisher's download"
                         }
-                    }
-                    "other" {
-                        Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/$originFolder is not a publisher template (other): $(Format-Short $note 90)" $false
-                    }
-                    "house" {
-                        if ($classIsLocal) {
-                            Add-ProjectFinding $fileIndex[$classRelative] 1 "template-origin" "the class $classLeafName comes from templates/$originFolder, a house template (kind house in templates/SOURCES.tsv): a house template has no class of its own. A class is the publisher's download (kind venue) or a recorded third-party file (kind other)"
+                        $archiveFull = $null
+                        if ($archive -eq "" -or $archive -eq "-") {
+                            Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: no archive recorded; keep the downloaded zip under archives/ and record its path and SHA-256"
                         }
-                        Test-HouseFolder $templateDirectory
-                    }
-                    default {
-                        Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: unknown kind '$kind' (venue, house or other)"
-                    }
-                }
-                # The folder must still hold the archive's bytes, file by file: kind venue, every file of the folder is
-                # byte-identical to an entry of the archive with the same file name; kind other, every venue file
-                # (.cls .bst .sty ...; the rest of such a folder may be a workspace skeleton, as the note says). A file
-                # generated from the archive (elsarticle.cls from elsarticle.dtx) counts when the row's note records its
-                # SHA-256. So "identical to the template" is never "identical to an edited template".
-                if ($archiveMatches) {
-                    $archiveIndex = Get-ArchiveIndex $archiveFull
-                    if ($null -eq $archiveIndex) {
-                        Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: the archive $archive cannot be read as a zip, so the folder cannot be compared with it" $isVenue
-                    }
-                    else {
-                        $script:trustedHashes = $archiveIndex.Hashes
-                        $noteHashes = New-StringSet @()
-                        foreach ($m in [regex]::Matches($note, '(?<![0-9A-Fa-f])[0-9A-Fa-f]{64}(?![0-9A-Fa-f])')) { [void]$noteHashes.Add($m.Value.ToUpperInvariant()); [void]$script:trustedHashes.Add($m.Value.ToUpperInvariant()) }
-                        foreach ($templateFile in @($templateFiles | Sort-Object FullName)) {
-                            if ($kind -ne "venue" -and -not $venueFileExtensions.Contains($templateFile.Extension)) { continue }
-                            $templateRel = $templateFile.FullName.Substring($templateDirectory.TrimEnd('\').Length + 1).Replace('\', '/')
-                            $hash = (Get-FileHash -LiteralPath $templateFile.FullName -Algorithm SHA256).Hash
-                            $entries = $null
-                            if ($archiveIndex.ByLeaf.ContainsKey($templateFile.Name)) { $entries = $archiveIndex.ByLeaf[$templateFile.Name] }
-                            if ($null -ne $entries -and @($entries | Where-Object { $_[1] -eq $hash }).Count -gt 0) { continue }
-                            if ($noteHashes.Contains($hash)) { continue }
-                            if ($null -ne $entries) {
-                                Add-Finding "templates/$originFolder/$templateRel" 1 "template-origin" "differs from the entry $($entries[0][0]) of the recorded archive $archive (row $rowLine of templates/SOURCES.tsv): the folder was changed after filing. Restore the file from the archive (templates/README.md, Provenance)"
+                        elseif ($archive -match '^[A-Za-z]:|^[\\/]' -or ($archive -split '[\\/]') -contains '..') {
+                            Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: archive '$archive' must be a path inside the workspace (relative, no ..)"
+                        }
+                        else {
+                            $archiveFull = Join-Path $workspace $archive.Replace('/', '\')
+                            if (-not (Test-Path -LiteralPath $archiveFull -PathType Leaf)) {
+                                Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: the archive $archive does not exist; the download cannot be proved"
                             }
                             else {
-                                Add-Finding "templates/$originFolder/$templateRel" 1 "template-origin" "is not in the recorded archive $archive (row $rowLine of templates/SOURCES.tsv), and the row's note records no SHA-256 for it (a file generated from the archive): its origin is not recorded. Remove it from the folder, or record the SHA-256 of the generated file in the note"
+                                $actualHash = (Get-FileHash -LiteralPath $archiveFull -Algorithm SHA256).Hash
+                                if ($actualHash -ine $recordedHash) {
+                                    Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: SHA-256 of $archive is $($actualHash.ToLowerInvariant().Substring(0, 16))..., the row records '$(Format-Short $recordedHash 20)'; the archive is not the recorded download"
+                                }
                             }
                         }
-                        foreach ($rel in $templateFilesIdentical) {
-                            $hash = (Get-FileHash -LiteralPath (Join-Path $projectDirectory $rel.Replace('/', '\')) -Algorithm SHA256).Hash
-                            if (-not $script:trustedHashes.Contains($hash)) {
-                                Add-ProjectFinding $rel 1 "template-origin" "identical to the file of the same name in templates/$originFolder, but to no file of the recorded archive $archive (nor to a generated file whose SHA-256 the row's note records): templates/$originFolder was changed after filing. Restore the folder from the archive (templates/README.md, Provenance)"
-                            }
-                        }
+                    }
+                    "other" {
+                        Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/$originFolder is not a publisher template (other): $(Format-Short (& $cell 'note') 90)" $false
+                    }
+                    "house" { }
+                    default {
+                        Add-Finding $sourcesDisplay $rowLine "template-origin" "templates/${originFolder}: unknown kind '$kind' (venue, house or other)"
                     }
                 }
             }
         }
     }
-}
-elseif ($null -ne $templateDirectory) {
-    # The template folder does not ship the class (a house template over a standard class): a house folder must not
-    # hold a class or style either.
-    Test-HouseFolder $templateDirectory
 }
 
 # ---------------------------------------------------------------------------
@@ -1205,7 +1046,7 @@ else {
         $draftNames = @(Get-ChildItem -LiteralPath $submissionDirectory -File -Filter '*ai-declaration*.tex' | Sort-Object Name | ForEach-Object { "projects/$Project/submission/$($_.Name)" })
     }
     if ($draftNames.Count -gt 0) {
-        $draftText = "a draft exists at $($draftNames -join ', ') and was not packaged (if AI tools were used, insert it as its comment block says: the text in sections/91-ai-declaration.tex, the heading and the \input in the wrapper, before the references; Elsevier: before the acknowledgments, which stay directly before the reference list)"
+        $draftText = "a draft exists at $($draftNames -join ', ') and was not packaged (if AI tools were used, insert it as sections/91-ai-declaration.tex, directly before the references)"
     }
     else { $draftText = "no draft in projects/$Project/submission/" }
     Add-ProjectFinding $MainFile 1 "ai-declaration" "no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; $draftText; $aiPolicyText"
@@ -1226,60 +1067,15 @@ $script:traceAllowedCount = 0
 $script:allowRules = New-Object System.Collections.Generic.List[object]
 $script:workspaceEntryCache = @{}
 
-# .tex files that the main file reads: an \input, an \include or any brace group that names a .tex file of the
-# project (the thesis inputs its front-matter files through \thesisfrontpart{...}{frontmatter/x}); comments do not
-# count. Only a declaration file that is read is exempt from the AI-name rule.
-$script:reachableTex = New-StringSet @()
-$rxBraceArgument = [regex]::new('\{([^{}]+)\}', $rxNone)
-$readQueue = New-Object System.Collections.Generic.Queue[string]
-[void]$script:reachableTex.Add($MainFile)
-$readQueue.Enqueue($MainFile)
-while ($readQueue.Count -gt 0) {
-    $model = $texModels[$readQueue.Dequeue()]
-    if ($null -eq $model) { continue }
-    foreach ($m in $rxBraceArgument.Matches($model.CodeText)) {
-        foreach ($item in $m.Groups[1].Value.Split(',')) {
-            $name = $item.Trim().Replace('\', '/')
-            while ($name.StartsWith('./')) { $name = $name.Substring(2) }
-            if ($name.Length -eq 0) { continue }
-            foreach ($candidate in @($name, ($name + ".tex"))) {
-                if ($candidate -like '*.tex' -and $fileIndex.ContainsKey($candidate)) {
-                    $actual = $fileIndex[$candidate]
-                    if ($script:reachableTex.Add($actual)) { $readQueue.Enqueue($actual) }
-                }
-            }
-        }
-    }
-}
-# Declaration files: the ones the main file does not read get a hint in their [trace] findings; the text length of
-# the ones it reads bounds the stretch of the staged PDF's page text that is exempt (from the heading on).
-$script:unreadDeclarations = New-StringSet @()
-$script:declarationTextLength = 0
-foreach ($file in $texFiles) {
-    $leaf = [IO.Path]::GetFileName($file.Rel)
-    if (-not ($leaf -like '*ai-declaration*' -or $leaf -like '*ai-statement*')) { continue }
-    if ($script:reachableTex.Contains($file.Rel)) {
-        $model = $texModels[$file.Rel]
-        if ($null -ne $model) { $script:declarationTextLength += ($model.CodeText -replace '\s+', ' ').Trim().Length }
-    }
-    else { [void]$script:unreadDeclarations.Add($file.Rel) }
-}
-if ($script:declarationTextLength -gt 0) { $script:declarationTextLength = [int]($script:declarationTextLength * 1.2) + 200 }
-
 # Check: "" = everywhere; "backslash" = not in TeX code, $...$ masked; "exists" = groups 1 and 2 name an entry of the workspace
 function Add-TraceRule([string]$Id, [string]$Group, [string]$Label, [string]$Pattern, [string]$Check) {
     $script:traceRules.Add([pscustomobject]@{ Id = $Id; Group = $Group; Label = $Label; Regex = [regex]::new($Pattern, $rxIgnoreCase); Check = $Check })
 }
 
 Add-TraceRule "todo" "workspace" "unfinished-work marker" '(?<![A-Za-z0-9])(?:todo|fixme)s?(?![A-Za-z])' ""
-# Placeholders of a statement template (Elsevier's AI declaration, submission.md section 1.3); upper case only.
-Add-TraceRule "placeholder" "workspace" "unfilled placeholder" '(?-i:\[(?:MODEL AND VERSION|NAME OF TOOL(?:\s*/\s*SERVICE)?|REASON|TOOL, VERSION|PROVIDER)\])' ""
 Add-TraceRule "vendor-address" "workspace" "AI vendor address" '(?<![A-Za-z0-9])(?:claude\.(?:ai|com)|anthropic\.com)(?![A-Za-z0-9])' ""
 Add-TraceRule "trailer" "workspace" "tool trailer" '(?<![A-Za-z0-9])(?:co-authored-by|generated\s+with\s+(?:\[|claude(?![A-Za-z]))|noreply@)' ""
 Add-TraceRule "tool-config" "workspace" "AI tool configuration path" '(?<![A-Za-z0-9])claude\.md(?![A-Za-z0-9])|(?<![A-Za-z0-9])\.claude[\\/]' ""
-# A Markdown file is never packaged, so naming one (README.md, latex-conventions.md) is workspace information; a name
-# after / or \ (a URL or a path) is not counted here (paths into the workspace have their own rule).
-Add-TraceRule "md-file" "workspace" "name of a workspace Markdown file" '(?<![A-Za-z0-9_./\\-])(?!claude\.md(?![A-Za-z0-9]))[A-Za-z0-9_][A-Za-z0-9_.-]*\.md(?![A-Za-z0-9])' ""
 $traceUser = ("" + $env:USERNAME).Trim()
 $genericUsers = New-StringSet @("user", "users", "admin", "administrator", "owner", "guest", "home", "test", "default", "public", "student", "author")
 if ($traceUser.Length -ge 4 -and -not $genericUsers.Contains($traceUser)) {
@@ -1296,10 +1092,6 @@ Add-TraceRule "abs-path" "workspace" "absolute Windows path" '(?:(?<=file:///)|(
 Add-TraceRule "abs-path" "workspace" "absolute Windows path" '(?<![A-Za-z0-9_./\\-])[A-Za-z]:\\{1,2}(?=[A-Za-z0-9_.~-])[^\s/\\:*?"<>|{}%$]{1,64}\\' "backslash"
 Add-TraceRule "workspace-path" "workspace" "path into this workspace" '(?<![A-Za-z0-9_.\-])(knowledge|archives|outputs|inbox|scripts|tmp|projects)[\\/]{1,2}([A-Za-z0-9_.\-]+)' "exists"
 Add-TraceRule "ai-name" "ai" "AI tool name" '(?<![A-Za-z0-9])(?:claude(?:\s+code)?|anthropic|chat-?gpt|openai|copilot|gemini)(?![A-Za-z])|(?<![A-Za-z0-9])gpt-?\d' ""
-# Glued and camelCase forms (ClaudeCode, claudeNote, OpenAIClient), the plural, TeX macros named \claude...
-Add-TraceRule "ai-name" "ai" "AI tool name" '(?<![A-Za-z0-9])(?-i:[Cc]laude|[Aa]nthropic|[Oo]pen[Aa][Ii]|[Cc]hat[Gg][Pp][Tt]|[Cc]opilot|[Gg]emini)(?=(?-i:[A-Z]))|(?<![A-Za-z0-9])claudes(?![A-Za-z])|(?<=\\)claude[A-Za-z@]*' ""
-# Claude model names with a version (Opus 4, Sonnet 4.5, claude-haiku-4-5); without a number they are ordinary words.
-Add-TraceRule "ai-name" "ai" "AI model name" '(?<![A-Za-z0-9])(?:claude[- ]?)?(?:opus|sonnet|haiku)[- ]?\d' ""
 Add-TraceRule "ai-generated" "ai" "AI-generation statement" '(?<![A-Za-z0-9])(?:ai[- ]generated|generated\s+by\s+(?:an?\s+)?ai)(?![A-Za-z])' ""
 
 $rxMathSpan = [regex]::new('\$[^$\r\n]*\$', $rxNone)
@@ -1316,47 +1108,8 @@ function Test-WorkspaceEntry([string]$Folder, [string]$Name) {
     return $script:workspaceEntryCache[$key]
 }
 
-# A line with TeX's invisible separators removed ({} \- \/, soft hyphen, zero-width characters) and ^^xx decoded,
-# so that Cl{}aude or ^^43laude reads as Claude. Returns $null when the line has none; otherwise Text and the
-# segments that map an index of Text back to the line (NormStart, OrigStart, Length).
-$rxTraceNoise = [regex]::new('\{\}|\\[-/]|\^\^[0-9a-f]{2}|[\u00AD\u200B\u200C\u200D\u2060\uFEFF]', $rxNone)
-function Get-TraceVariant([string]$Text) {
-    if (-not $rxTraceNoise.IsMatch($Text)) { return $null }
-    $builder = New-Object System.Text.StringBuilder
-    $segments = New-Object System.Collections.Generic.List[int[]]
-    $position = 0
-    foreach ($m in $rxTraceNoise.Matches($Text)) {
-        if ($m.Index -gt $position) {
-            $segments.Add([int[]]@($builder.Length, $position, ($m.Index - $position)))
-            [void]$builder.Append($Text, $position, $m.Index - $position)
-        }
-        if ($m.Value.StartsWith('^^')) {
-            $segments.Add([int[]]@($builder.Length, $m.Index, 1))
-            [void]$builder.Append([char][Convert]::ToInt32($m.Value.Substring(2), 16))
-        }
-        $position = $m.Index + $m.Length
-    }
-    if ($position -lt $Text.Length) {
-        $segments.Add([int[]]@($builder.Length, $position, ($Text.Length - $position)))
-        [void]$builder.Append($Text, $position, $Text.Length - $position)
-    }
-    return [pscustomobject]@{ Text = $builder.ToString(); Segments = $segments }
-}
-
-# Index in the line of the character at index $At of the variant.
-function Get-TraceVariantIndex($Variant, [int]$At) {
-    $result = 0
-    foreach ($segment in $Variant.Segments) {
-        if ($segment[0] -gt $At) { break }
-        $result = $segment[1] + [Math]::Min($At - $segment[0], $segment[2] - 1)
-    }
-    return $result
-}
-
 # Hits of all rules in one line of text; overlapping hits: a workspace trace wins over an AI name, then the
 # earlier and the longer hit. The "backslash" rule only counts from $BackslashPathFrom on (TeX: the comment).
-# The line is also matched with TeX's invisible separators removed (Get-TraceVariant); such a hit reports the
-# span of the line it covers (Value "Cl{}aude").
 function Find-TraceHits([string]$Text, [int]$BackslashPathFrom) {
     $found = New-Object System.Collections.Generic.List[object]
     $accepted = New-Object System.Collections.Generic.List[object]
@@ -1373,19 +1126,6 @@ function Find-TraceHits([string]$Text, [int]$BackslashPathFrom) {
             if ($rule.Check -eq "backslash" -and $m.Index -lt $BackslashPathFrom) { continue }
             if ($rule.Check -eq "exists" -and -not (Test-WorkspaceEntry $m.Groups[1].Value $m.Groups[2].Value)) { continue }
             $found.Add([pscustomobject]@{ Rule = $rule; Index = $m.Index; Length = $m.Length; Value = $Text.Substring($m.Index, $m.Length) })
-        }
-    }
-    $variant = Get-TraceVariant $Text
-    if ($null -ne $variant -and $variant.Text.Length -gt 0) {
-        foreach ($rule in $script:traceRules) {
-            if ($rule.Check -eq "backslash") { continue }
-            foreach ($m in $rule.Regex.Matches($variant.Text)) {
-                if ($rule.Check -eq "exists" -and -not (Test-WorkspaceEntry $m.Groups[1].Value $m.Groups[2].Value)) { continue }
-                $start = Get-TraceVariantIndex $variant $m.Index
-                $end = (Get-TraceVariantIndex $variant ($m.Index + $m.Length - 1)) + 1
-                if ($end -le $start) { continue }
-                $found.Add([pscustomobject]@{ Rule = $rule; Index = $start; Length = ($end - $start); Value = $Text.Substring($start, $end - $start) })
-            }
         }
     }
     if ($found.Count -eq 0) { return , $accepted }
@@ -1411,8 +1151,7 @@ function Get-TraceSnippet([string]$Text, [int]$Index, [int]$Length) {
 
 # Scans one line and records its hits. $CommentFrom >= 0: hits from there on are in a TeX comment.
 # $KeySource and $KeyText identify the place across the phases (project file and its staged copy are one place),
-# so a hit is reported once. $Once (binary files, PDF text) reports each term once per file and decision, so an
-# allowed occurrence (the printed declaration) never hides a failing one elsewhere in the same file.
+# so a hit is reported once. $Once (binary files) reports each term once per file.
 function Register-TraceText([string]$File, [int]$Line, [string]$Text, [int]$BackslashPathFrom, [int]$CommentFrom,
     [string]$Where, [string]$KeySource, [string]$KeyText, [bool]$Declaration, [hashtable]$Once) {
     $hits = Find-TraceHits $Text $BackslashPathFrom
@@ -1421,10 +1160,19 @@ function Register-TraceText([string]$File, [int]$Line, [string]$Text, [int]$Back
     if ([string]::IsNullOrEmpty($context)) { $context = ($Text -replace '\s+', ' ').Trim() }
     foreach ($hit in $hits) {
         $valueKey = ($hit.Value -replace '\s+', ' ').ToLowerInvariant()
-        $inComment = ($CommentFrom -ge 0 -and $hit.Index -ge $CommentFrom)
+        if ($null -ne $Once) {
+            $onceKey = $hit.Rule.Id + "|" + $valueKey
+            if ($Once.ContainsKey($onceKey)) { continue }
+            $Once[$onceKey] = $true
+        }
+        if (-not $script:traceSeen.Add("$KeySource|$($hit.Rule.Id)|$valueKey|$context")) { continue }
+        $script:traceHitCount++
+        $place = $Where
+        if ($CommentFrom -ge 0 -and $hit.Index -ge $CommentFrom) { $place = "comment" }
+        $snippet = Get-TraceSnippet $Text $hit.Index $hit.Length
         $allowedBy = $null
         if ($hit.Rule.Group -eq "ai") {
-            if ($Declaration -and -not $inComment) { $allowedBy = $(if ($Where -like 'PDF text*') { "the AI declaration (printed)" } else { "the AI declaration file" }) }
+            if ($Declaration) { $allowedBy = "the AI declaration file" }
             else {
                 foreach ($allow in $script:allowRules) {
                     foreach ($m in $allow.Regex.Matches($Text)) {
@@ -1438,18 +1186,6 @@ function Register-TraceText([string]$File, [int]$Line, [string]$Text, [int]$Back
                 }
             }
         }
-        if ($null -ne $Once) {
-            $onceKey = $hit.Rule.Id + "|" + $valueKey + "|" + ($null -ne $allowedBy)
-            if ($Once.ContainsKey($onceKey)) { continue }
-            $Once[$onceKey] = $true
-        }
-        # the decision is part of the key: an allowed occurrence never hides a failing one on the same line (the
-        # declaration's text and a comment after it that names the tool)
-        if (-not $script:traceSeen.Add("$KeySource|$($hit.Rule.Id)|$valueKey|$context|$($null -ne $allowedBy)")) { continue }
-        $script:traceHitCount++
-        $place = $Where
-        if ($inComment) { $place = "comment" }
-        $snippet = Get-TraceSnippet $Text $hit.Index $hit.Length
         if ($null -ne $allowedBy) {
             $script:traceAllowedCount++
             Add-Finding $File $Line "trace" "allowed by ${allowedBy}: $($hit.Rule.Label) '$($hit.Value)' in ${place}: $snippet" $false
@@ -1458,10 +1194,7 @@ function Register-TraceText([string]$File, [int]$Line, [string]$Text, [int]$Back
             Add-Finding $File $Line "trace" "$($hit.Rule.Label) '$($hit.Value)' in ${place}: $snippet; remove it in the project (workspace traces cannot be allowed)"
         }
         else {
-            $hint = ""
-            if ($script:unreadDeclarations.Contains($KeySource)) { $hint = " (this file is named like the AI declaration, but the main file does not read it, so the exemption does not apply)" }
-            elseif ($Declaration -and $inComment) { $hint = " (a comment of the AI declaration file is not part of the declaration)" }
-            Add-Finding $File $Line "trace" "$($hit.Rule.Label) '$($hit.Value)' in ${place}: $snippet; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt$hint"
+            Add-Finding $File $Line "trace" "$($hit.Rule.Label) '$($hit.Value)' in ${place}: $snippet; name a tool only in the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt"
         }
     }
 }
@@ -1475,27 +1208,15 @@ function Register-TraceBlock([string]$File, [string]$Where, [string]$Text, [stri
     }
 }
 
-# Printable runs (ASCII, UTF-16 and UTF-32, both byte orders) of a byte range, as lines.
-$utf16BigEndian = New-Object System.Text.UnicodeEncoding($true, $false)
-$utf32LittleEndian = New-Object System.Text.UTF32Encoding($false, $false)
-$utf32BigEndian = New-Object System.Text.UTF32Encoding($true, $false)
+# Printable runs (ASCII and UTF-16LE) of a byte range, as lines.
 function Get-PrintableRuns([byte[]]$Bytes, [int]$Offset, [int]$Count) {
     $runs = New-Object System.Text.StringBuilder
     $text = $latin1.GetString($Bytes, $Offset, $Count)
     [void]$runs.Append(([regex]::Replace($text, '[^\x20-\x7E\t]+', "`n")))
-    # UTF-16 and UTF-32 put NUL bytes between the characters of ASCII text; without NUL bytes there is nothing to find.
-    if ([Array]::IndexOf($Bytes, [byte]0, $Offset, $Count) -ge 0) {
-        foreach ($width in @(2, 4)) {
-            for ($shift = 0; $shift -lt $width; $shift++) {
-                $usable = ($Count - $shift) - (($Count - $shift) % $width)
-                if ($usable -lt 4 * $width) { continue }
-                $encodings = $(if ($width -eq 2) { @([System.Text.Encoding]::Unicode, $utf16BigEndian) } else { @($utf32LittleEndian, $utf32BigEndian) })
-                foreach ($encoding in $encodings) {
-                    $wide = $encoding.GetString($Bytes, $Offset + $shift, $usable)
-                    [void]$runs.Append("`n").Append(([regex]::Replace($wide, '[^\x20-\x7E\t]+', "`n")))
-                }
-            }
-        }
+    foreach ($shift in @(0, 1)) {
+        if ($Count - $shift -lt 8) { continue }
+        $wide = [System.Text.Encoding]::Unicode.GetString($Bytes, $Offset + $shift, ($Count - $shift) - (($Count - $shift) % 2))
+        [void]$runs.Append("`n").Append(([regex]::Replace($wide, '[^\x20-\x7E\t]+', "`n")))
     }
     return (($runs.ToString() -split "`n") | Where-Object { $_.Trim().Length -ge 4 }) -join "`n"
 }
@@ -1554,12 +1275,6 @@ function Get-BigEndian32([byte[]]$Bytes, [int]$At) {
     return ([int]$Bytes[$At] -shl 24) -bor ([int]$Bytes[$At + 1] -shl 16) -bor ([int]$Bytes[$At + 2] -shl 8) -bor [int]$Bytes[$At + 3]
 }
 
-# PNG chunks that hold image data or fixed binary fields only (case-sensitive chunk names); every other chunk is
-# searched for printable runs.
-$pngImageChunks = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
-foreach ($name in @("IHDR", "PLTE", "IDAT", "IEND", "tRNS", "cHRM", "gAMA", "sBIT", "sRGB", "bKGD", "hIST", "pHYs", "sPLT",
-        "tIME", "acTL", "fcTL", "fdAT", "cICP", "mDCv", "cLLi")) { [void]$pngImageChunks.Add($name) }
-
 function Invoke-TracePng([byte[]]$Bytes, [string]$File, [string]$KeySource) {
     $once = @{}
     $signature = @(137, 80, 78, 71, 13, 10, 26, 10)
@@ -1601,15 +1316,8 @@ function Invoke-TracePng([byte[]]$Bytes, [string]$File, [string]$KeySource) {
             Register-TraceBlock $File $where $value $KeySource $once
             Register-TraceBlock $File "$where, decoded" (Get-HiddenTraceText $value) $KeySource $once
         }
-        elseif (-not $pngImageChunks.Contains($type) -and $length -gt 0) {
-            # any other chunk (private ones such as prVt, unknown public ones) can carry text
-            Register-TraceBlock $File "PNG chunk '$type'" (Get-PrintableRuns $Bytes $start $length) $KeySource $once
-        }
-        $position = $start + $length + 4
         if ($type -eq "IEND") { break }
-    }
-    if ($position -lt $Bytes.Length) {
-        Register-TraceBlock $File "PNG, bytes after the image data" (Get-PrintableRuns $Bytes $position ($Bytes.Length - $position)) $KeySource $once
+        $position = $start + $length + 4
     }
 }
 
@@ -1634,147 +1342,22 @@ function Invoke-TraceJpeg([byte[]]$Bytes, [string]$File, [string]$KeySource) {
         }
         $position += 2 + $length
     }
-    # Bytes after the last end-of-image marker (FF D9; inside the entropy-coded data FF is always stuffed)
-    $at = $Bytes.Length - 1
-    while ($at -ge 3) {
-        $at = [Array]::LastIndexOf($Bytes, [byte]0xD9, $at)
-        if ($at -lt 3) { break }
-        if ($Bytes[$at - 1] -eq 0xFF) {
-            if ($at + 1 -lt $Bytes.Length) {
-                Register-TraceBlock $File "JPEG, bytes after the image data" (Get-PrintableRuns $Bytes ($at + 1) ($Bytes.Length - $at - 1)) $KeySource $once
-            }
-            break
-        }
-        $at--
-    }
 }
 
 $rxPdfStream = [regex]::new('(?<![A-Za-z])stream(?:\r\n|\n|\r)', $rxNone)
-$rxPdfHexString = [regex]::new('(?<!<)<([0-9A-Fa-f\s]{6,})>(?!>)', $rxNone)
-$rxPdfLiteralString = [regex]::new('\((?:[^()\\]|\\.|\((?:[^()\\]|\\.)*\))*\)', $rxNone)
-
-# Bytes of a PDF string to text: UTF-16BE after the BOM FE FF (UTF-16LE after FF FE), else PDFDocEncoding read as Latin-1.
-function ConvertFrom-PdfStringBytes([byte[]]$Bytes) {
-    if ($Bytes.Length -ge 2 -and $Bytes[0] -eq 0xFE -and $Bytes[1] -eq 0xFF) { return $utf16BigEndian.GetString($Bytes, 2, $Bytes.Length - 2) }
-    if ($Bytes.Length -ge 2 -and $Bytes[0] -eq 0xFF -and $Bytes[1] -eq 0xFE) { return [System.Text.Encoding]::Unicode.GetString($Bytes, 2, $Bytes.Length - 2) }
-    return $latin1.GetString($Bytes)
-}
-
-# The body of a PDF literal string (between the parentheses, read as Latin-1) with its escapes resolved, as bytes.
-function ConvertFrom-PdfEscapes([string]$Body) {
-    $out = New-Object System.Collections.Generic.List[byte]
-    $k = 0
-    while ($k -lt $Body.Length) {
-        $ch = $Body[$k]
-        if ($ch -ne [char]'\' -or $k + 1 -ge $Body.Length) { $out.Add([byte]([int]$ch -band 0xFF)); $k++; continue }
-        $next = $Body[$k + 1]
-        if ($next -ge [char]'0' -and $next -le [char]'7') {
-            $digits = [regex]::Match($Body.Substring($k + 1, [Math]::Min(3, $Body.Length - $k - 1)), '^[0-7]{1,3}').Value
-            $out.Add([byte]([Convert]::ToInt32($digits, 8) -band 0xFF))
-            $k += 1 + $digits.Length
-            continue
-        }
-        switch -CaseSensitive ([string]$next) {
-            'n' { $out.Add(10) }
-            'r' { $out.Add(13) }
-            't' { $out.Add(9) }
-            'b' { $out.Add(8) }
-            'f' { $out.Add(12) }
-            "`r" { }
-            "`n" { }
-            default { $out.Add([byte]([int]$next -band 0xFF)) }
-        }
-        $k += 2
-    }
-    return , $out.ToArray()
-}
-
-# Text that PDF strings hide from a byte search: hex strings (<436C61756465>), literal strings with escapes
-# ((\103laude)) and UTF-16 strings. Plain literal strings are visible to the byte search already.
-function Get-PdfStringText([string]$Raw) {
-    $parts = New-Object System.Collections.Generic.List[string]
-    foreach ($m in $rxPdfHexString.Matches($Raw)) {
-        $hex = $m.Groups[1].Value -replace '\s', ''
-        if ($hex.Length % 2 -eq 1) { $hex += '0' }
-        $bytes = New-Object byte[] ($hex.Length / 2)
-        for ($k = 0; $k -lt $bytes.Length; $k++) { $bytes[$k] = [Convert]::ToByte($hex.Substring(2 * $k, 2), 16) }
-        $parts.Add((ConvertFrom-PdfStringBytes $bytes))
-    }
-    foreach ($m in $rxPdfLiteralString.Matches($Raw)) {
-        $body = $m.Value.Substring(1, $m.Value.Length - 2)
-        if ($body.IndexOf([char]'\') -lt 0 -and -not $body.StartsWith([string][char]0xFE + [char]0xFF)) { continue }
-        $parts.Add((ConvertFrom-PdfStringBytes (ConvertFrom-PdfEscapes $body)))
-    }
-    return ($parts -join "`n")
-}
-
-# Page text of a PDF (pdftotext), line by line; a word hyphenated at a line end is also read joined. The printed AI
-# declaration is exempt: from its heading on, for about the length of the declaration's source text
-# ($script:declarationTextLength; 0 when the package has no declaration that the main file reads).
-function Register-PdfText([string]$File, [string]$Text, [string]$KeySource, [hashtable]$Once) {
-    if ([string]::IsNullOrEmpty($Text)) { return }
-    $pages = ($Text -replace "`r`n", "`n") -split [char]12
-    $carry = 0                                   # characters of a declaration window that continue on the next page
-    for ($p = 0; $p -lt $pages.Count; $p++) {
-        $page = $pages[$p]
-        $windows = New-Object System.Collections.Generic.List[int[]]      # [start, end) offsets in the page
-        if ($carry -gt 0) { $windows.Add([int[]]@(0, $carry)); $carry = 0 }
-        if ($script:declarationTextLength -gt 0) {
-            foreach ($heading in $rxDeclarationTitle.Matches($page)) {
-                $end = $heading.Index + $heading.Length + $script:declarationTextLength
-                $windows.Add([int[]]@($heading.Index, $end))
-                if ($end -gt $page.Length) { $carry = [Math]::Max($carry, $end - $page.Length) }
-            }
-        }
-        $lines = $page -split "`n"
-        $offset = 0
-        for ($i = 0; $i -lt $lines.Count; $i++) {
-            $line = $lines[$i]
-            $lineEnd = $offset + $line.Length
-            $joinEnd = $lineEnd
-            if ($i + 1 -lt $lines.Count) { $joinEnd = $lineEnd + 1 + $lines[$i + 1].Length }
-            $inWindow = $false
-            $joinInWindow = $false
-            foreach ($window in $windows) {
-                if ($lineEnd -gt $window[0] -and $offset -lt $window[1]) { $inWindow = $true }
-                if ($joinEnd -gt $window[0] -and $offset -lt $window[1]) { $joinInWindow = $true }
-            }
-            $where = "PDF text (page $($p + 1))"
-            if ($line.Trim().Length -ge 3) { Register-TraceText $File ($p + 1) $line 0 -1 $where $KeySource "" $inWindow $Once }
-            if ($line.EndsWith('-') -and $i + 1 -lt $lines.Count) {
-                $joined = $line.Substring(0, $line.Length - 1) + $lines[$i + 1]
-                Register-TraceText $File ($p + 1) $joined 0 -1 "$where, hyphenated word joined" $KeySource "" $joinInWindow $Once
-            }
-            $offset = $lineEnd + 1
-        }
-    }
-}
-
 function Invoke-TracePdf([string]$Full, [byte[]]$Bytes, [string]$File, [string]$KeySource) {
     $once = @{}
-    # Every key of the info dictionary, custom keys included (pdfinfo -custom, poppler 21 and later)
-    $info = Invoke-Tool "pdfinfo" @("-custom", "-enc", "UTF-8", $Full) $workspace
-    $custom = ($info.ExitCode -eq 0)
-    if (-not $custom) { $info = Invoke-Tool "pdfinfo" @("-enc", "UTF-8", $Full) $workspace }
+    $info = Invoke-Tool "pdfinfo" @("-enc", "UTF-8", $Full) $workspace
     if ($info.ExitCode -eq 0) {
         foreach ($line in ($info.Output -split "`r?`n")) {
-            if ($line -match '^([^:]+):\s*(.*)$') {
-                $key = $Matches[1].Trim()
-                $value = $Matches[2]
-                if ($key -match '^(CreationDate|ModDate)$') { continue }
-                if (-not $custom -and $key -notmatch '^(Title|Author|Subject|Keywords|Creator|Producer)$') { continue }
-                Register-TraceBlock $File ("PDF info " + $key) $value $KeySource $once
+            if ($line -match '^(Title|Author|Subject|Keywords|Creator|Producer):\s*(.*)$') {
+                Register-TraceBlock $File ("PDF info " + $Matches[1]) $Matches[2] $KeySource $once
             }
         }
         $meta = Invoke-Tool "pdfinfo" @("-meta", $Full) $workspace
         if ($meta.ExitCode -eq 0) { Register-TraceBlock $File "XMP metadata" $meta.Output $KeySource $once }
     }
-    # Page text: what the PDF prints, however the source assembled it
-    $pageText = Invoke-Tool "pdftotext" @("-enc", "UTF-8", $Full, "-") $workspace
-    if ($pageText.ExitCode -eq 0) { Register-PdfText $File $pageText.Output $KeySource $once }
-    else { Add-Finding $File 1 "trace" "pdftotext could not read the page text (exit code $($pageText.ExitCode)); nothing proves that the pages carry no trace" }
-    # Byte search: the objects outside streams, object streams and metadata streams (Flate or unfiltered), with
-    # the hex, octal and UTF-16 strings in them decoded.
+    # Byte search: the objects outside streams, object streams and metadata streams (Flate or unfiltered).
     $raw = $latin1.GetString($Bytes)
     $outside = New-Object System.Text.StringBuilder
     $previous = 0
@@ -1801,18 +1384,13 @@ function Invoke-TracePdf([string]$Full, [byte[]]$Bytes, [string]$File, [string]$
                     try { $decoded = $utf8Strict.GetString($inflated) } catch { $decoded = $latin1.GetString($inflated) }
                 }
             }
-            if ($null -ne $decoded) {
-                Register-TraceBlock $File $kind $decoded $KeySource $once
-                if ($kind -eq "PDF object stream") { Register-TraceBlock $File "$kind, strings decoded" (Get-PdfStringText $decoded) $KeySource $once }
-            }
+            if ($null -ne $decoded) { Register-TraceBlock $File $kind $decoded $KeySource $once }
         }
         $previous = $dataEnd
         $search = $dataEnd + 9
     }
     if ($previous -lt $raw.Length) { [void]$outside.Append($raw, $previous, $raw.Length - $previous) }
-    $outsideText = $outside.ToString()
-    Register-TraceBlock $File "PDF objects" $outsideText $KeySource $once
-    Register-TraceBlock $File "PDF objects, strings decoded" (Get-PdfStringText $outsideText) $KeySource $once
+    Register-TraceBlock $File "PDF objects" $outside.ToString() $KeySource $once
 }
 
 function Invoke-TraceEps([byte[]]$Bytes, [string]$File, [string]$KeySource) {
@@ -1953,8 +1531,7 @@ function Invoke-TraceFileContent([string]$Full, [string]$Rel, [string]$File, [st
     $valid = $true
     try { $text = $utf8Strict.GetString($bytes) } catch { $text = $latin1.GetString($bytes); $valid = $false }
     if ($text.Length -gt 0 -and $text[0] -eq [char]0xFEFF) { $text = $text.Substring(1) }
-    # exempt only when the main file reads it ($KeySource is the project path, also for a staged copy)
-    $declaration = ($extension -eq ".tex" -and ($leaf -like '*ai-declaration*' -or $leaf -like '*ai-statement*') -and $script:reachableTex.Contains($KeySource))
+    $declaration = ($extension -eq ".tex" -and ($leaf -like '*ai-declaration*' -or $leaf -like '*ai-statement*'))
     if ($extension -eq ".tex" -or $texLikeExtensions.Contains($extension)) {
         $strip = ($PredictStage -and $extension -eq ".tex" -and $valid -and -not $KeepComments)
         $model = Get-TexModel $text
@@ -2023,10 +1600,9 @@ if (Test-Path -LiteralPath $allowFile -PathType Leaf) {
 # T (a): every file that would be packaged, as it will be staged, and its path
 foreach ($file in $script:included) {
     $extension = [IO.Path]::GetExtension($file.Rel).ToLowerInvariant()
-    # files of a publisher or third-party template (venue, other) are theirs, but only as the recorded archive holds
-    # them (A6): a copy that is merely identical to the template folder is scanned; files of a house template are ours
-    if ($null -ne $script:trustedHashes -and ($originKind -eq "venue" -or $originKind -eq "other") -and $extension -ne ".tex" -and $extension -ne ".bib") {
-        if ($script:trustedHashes.Contains((Get-FileHash -LiteralPath $file.Full -Algorithm SHA256).Hash)) { [void]$script:traceSkipped.Add($file.Rel); continue }
+    # files of a publisher or third-party template (venue, other) are theirs; files of a house template are ours
+    if ($null -ne $templateHashes -and ($originKind -eq "venue" -or $originKind -eq "other") -and $extension -ne ".tex" -and $extension -ne ".bib") {
+        if ($templateHashes.Contains((Get-FileHash -LiteralPath $file.Full -Algorithm SHA256).Hash)) { [void]$script:traceSkipped.Add($file.Rel); continue }
     }
     if ($extension -eq ".bib" -and -not $KeepComments -and $null -eq (Read-SourceText $file.Full)) {
         Add-ProjectFinding $file.Rel 1 "encoding" "not valid UTF-8: copied unchanged (comment lines are not removed)"

@@ -1,0 +1,24 @@
+r-cv-before                        exit 0  Verdict: PASS  
+r-cv-after                         exit 0  Verdict: PASS  Trace scan: 7 files, 2 hits (2 allowed); 2 files identical to the template not scanned
+diff-cv                            22 differing lines (diff-cv.txt)
+r-article-before                   exit 0  Verdict: PASS  
+r-article-after                    exit 0  Verdict: PASS  Trace scan: 14 files, 0 hits (0 allowed)
+diff-article                       11 differing lines (diff-article.txt)
+r-thesis-before                    exit 0  Verdict: PASS  
+r-thesis-after                     exit 0  Verdict: PASS  Trace scan: 40 files, 0 hits (0 allowed)
+diff-thesis                        7 differing lines (diff-thesis.txt)
+r-thesis-exam-static-before        exit 0  Verdict: PASS  
+r-thesis-exam-static-after         exit 0  Verdict: PASS  Trace scan: 37 files, 0 hits (0 allowed)
+diff-thesis-exam-static            2 differing lines (diff-thesis-exam-static.txt)
+r-cas-before                       exit 0  Verdict: PASS  
+r-cas-after                        exit 0  Verdict: PASS  Trace scan: 5 files, 0 hits (0 allowed); 9 files identical to the template not scanned
+diff-cas                           8 differing lines (diff-cas.txt)
+t0-thesis-template-static          exit 1  Verdict: FAIL (trace)  Trace scan: 37 files, 4 hits (0 allowed)
+t1-planted-static                  exit 1  Verdict: FAIL (trace)  Trace scan: 26 files, 52 hits (5 allowed)
+t2-planted-static-keepcomments     exit 1  Verdict: FAIL (trace)  Trace scan: 26 files, 68 hits (5 allowed)
+t3-term-only-in-bbl                exit 1  Verdict: FAIL (trace)  Trace scan: 13 files, 1 hits (0 allowed)
+t4-term-only-in-pdf-metadata       exit 1  Verdict: FAIL (trace)  Trace scan: 12 files, 1 hits (0 allowed)
+t5-allowed-only                    exit 0  Verdict: PASS  Trace scan: 17 files, 9 hits (9 allowed)
+t5-allowed-only-flat               exit 0  Verdict: PASS  Trace scan: 17 files, 9 hits (9 allowed)
+o-template-origin                  see outputs\o-template-origin.txt
+b-build-project-parse (cv)         Package check (static): Verdict: PASS; 7 finding(s), 0 FAIL line(s)

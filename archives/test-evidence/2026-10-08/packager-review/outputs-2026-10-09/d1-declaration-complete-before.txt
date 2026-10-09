@@ -1,0 +1,63 @@
+-- Staging zz-review-declaration into tmp/package-zz-review-declaration/stage
+-- Building the stage (latexmk, installer disabled)
+-- Building the reference copy of the untouched project
+-- Verifying the staged PDF
+-- Packing
+-- Trace scan of the staged files
+-- Round trip: extracting the zip and building it
+projects/zz-review-declaration/preamble/environments.tex:23: [comment] end-of-line comment stays in the package: % background color
+projects/zz-review-declaration/preamble/environments.tex:24: [comment] end-of-line comment stays in the package: % border color
+projects/zz-review-declaration/preamble/environments.tex:25: [comment] end-of-line comment stays in the package: % border thickness
+projects/zz-review-declaration/preamble/environments.tex:26: [comment] end-of-line comment stays in the package: % corner roundness
+projects/zz-review-declaration/preamble/macros.tex:4: [comment] end-of-line comment stays in the package: % value of a minimum cut-path
+projects/zz-review-declaration/preamble/macros.tex:5: [comment] end-of-line comment stays in the package: % set of all cut-paths
+projects/zz-review-declaration/preamble/packages.tex:8: [comment] end-of-line comment stays in the package: % H placement of figures and algorithms
+projects/zz-review-declaration/preamble/packages.tex:12: [comment] end-of-line comment stays in the package: % part of the algorithmicx package
+projects/zz-review-declaration/sections/91-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI tool name 'Claude' in text: ...of this work the author used Claude (Claude Opus 4.5, Anthropic)...
+projects/zz-review-declaration/sections/91-ai-declaration.tex:1: [trace] allowed by the AI declaration file: AI tool name 'Anthropic' in text: ...used Claude (Claude Opus 4.5, Anthropic) in order to revise the langu...
+
+Project: zz-review-declaration (projects/zz-review-declaration, main file main.tex)
+Class: cas-sc
+Template: templates/els-cas (-Template)
+Venue files identical to the template: cas-common.sty, cas-model2-names.bst, cas-sc.cls
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Layout: flat (all files in one directory)
+Excluded from the package (1): submission/ (workspace-only)
+Files in the zip (25, 340.1 kB uncompressed):
+       1.1 kB  00-abstract.tex
+       4.9 kB  01-introduction.tex
+       6.4 kB  02-fundamentals.tex
+      26.1 kB  03-np-completeness.tex
+       8.1 kB  04-diameter-two.tex
+       2.5 kB  05-cut-two.tex
+       7.3 kB  06-random-graphs.tex
+       3.7 kB  07-conclusion.tex
+       276  B  90-acknowledgments.tex
+       281  B  91-ai-declaration.tex
+      74.9 kB  cas-common.sty
+      31.1 kB  cas-model2-names.bst
+       4.3 kB  cas-sc.cls
+      25.3 kB  chain-link-types.png
+       8.6 kB  chain-link.png
+      40.5 kB  chain-threads.png
+      25.2 kB  chain.png
+      37.4 kB  diameter-two-structure.png
+       862  B  environments.tex
+       372  B  macros.tex
+       5.5 kB  main.bbl
+       1.7 kB  main.tex
+       271  B  packages.tex
+       3.9 kB  references.bib
+      19.7 kB  threading.png
+
+Findings: 10 (0 FAIL)
+  trace             2
+  comment           8
+Pages: 17
+Zip:  C:\Users\norom\Documents\latex\outputs\zz-review-declaration\package\zz-review-declaration-20261009-flat.zip
+Link: outputs/zz-review-declaration/package/zz-review-declaration-20261009-flat.zip
+PDF:  C:\Users\norom\Documents\latex\outputs\zz-review-declaration\package\zz-review-declaration-20261009.pdf
+Link: outputs/zz-review-declaration/package/zz-review-declaration-20261009.pdf
+Trace scan: 24 files, 2 hits (2 allowed); 3 files identical to the template not scanned
+AI declaration: 'Declaration of generative AI and AI-assisted technologies...' in projects/zz-review-declaration/main.tex:82 (packaged)
+Verdict: PASS

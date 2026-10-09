@@ -1,0 +1,11 @@
+=> -- Trace scan of the staged files
+=> projects/zz-packager-test-article/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; no draft in projects/zz-packager-test-article/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+=> Files in the zip (12, 4.3 kB uncompressed):
+=>          0  B  references.bib
+=> Findings: 13 (0 FAIL)
+=>   ai-declaration    1
+=> Trace scan: 14 files, 0 hits (0 allowed)
+=> AI declaration: none in the manuscript; no draft in projects/zz-packager-test-article/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+<= Files in the zip (12, 4.6 kB uncompressed):
+<=        335  B  references.bib
+<= Findings: 12 (0 FAIL)

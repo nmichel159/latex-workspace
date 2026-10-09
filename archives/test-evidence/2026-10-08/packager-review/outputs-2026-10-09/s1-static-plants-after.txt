@@ -1,0 +1,33 @@
+projects/zz-review-static/img/plant-after-iend.png:1: [trace] FAIL: AI tool name 'Claude Code' in PNG, bytes after the image data: Drawn in a Claude Code session; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/img/plant-fig.pdf:1: [trace] FAIL: AI tool name 'Claude' in PDF text (page 1): Figure drawn by Claude; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/img/plant-private-chunk.png:1: [trace] FAIL: AI tool name 'Claude Code' in PNG chunk 'prVt': Drawn in a Claude Code session; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; a draft exists at projects/zz-review-static/submission/ai-declaration.tex and was not packaged (if AI tools were used, insert it as its comment block says: the text in sections/91-ai-declaration.tex, the heading and the \input in the wrapper, before the references; Elsevier: before the acknowledgments, which stay directly before the reference list); venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+projects/zz-review-static/main.tex:73: [trace] FAIL: AI model name 'Sonnet 4' in text: \hypersetup{pdfsubject={Sonnet 4.5 draft}}; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/notes-utf32.txt:1: [trace] FAIL: AI tool name 'Claude Code' in binary content: Notes written by Claude Code; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/references.bib:13: [trace] FAIL: AI model name 'Sonnet 4' in text: annote = {Sonnet 4.5 check},; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/sections/95-plants.tex:2: [trace] FAIL: AI tool name 'Cl{}aude' in text: Plant one: Cl{}aude.; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/sections/95-plants.tex:3: [trace] FAIL: AI tool name '^^43laude' in text: Plant two: ^^43laude.; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/sections/95-plants.tex:4: [trace] FAIL: AI tool name 'Cla­ude' in text: Plant three: Cla­ude.; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/sections/95-plants.tex:5: [trace] FAIL: AI tool name 'claude' in text: \newcommand{\claudeNote}[1]{#1}; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/sections/95-plants.tex:6: [trace] FAIL: AI tool name 'claude' in text: \claudeNote{Plant four.}; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/sections/95-plants.tex:7: [trace] FAIL: AI tool name 'Claude' in comment: Plant five. % ClaudeCode session; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/sections/95-plants.tex:8: [trace] FAIL: AI model name 'Opus 4' in comment: ...lant six. % Sonnet 4.5 sweep, Opus 4 review; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/sections/95-plants.tex:8: [trace] FAIL: AI model name 'Sonnet 4' in comment: Plant six. % Sonnet 4.5 sweep, Opus 4 review; name a tool only in the text of the AI declaration (sections/91-ai-declaration.tex), or allow the term with a reason in submission/package-allow.txt
+projects/zz-review-static/sections/95-plants.tex:9: [trace] FAIL: name of a workspace Markdown file 'README.md' in comment: ...-conventions.md section 7 and README.md Known problems; remove it in the project (workspace traces cannot be allowed)
+projects/zz-review-static/sections/95-plants.tex:9: [trace] FAIL: name of a workspace Markdown file 'latex-conventions.md' in comment: Plant seven. % layout per latex-conventions.md section 7 and README.md Known...; remove it in the project (workspace traces cannot be allowed)
+
+Project: zz-review-static (projects/zz-review-static, main file main.tex)
+Class: cas-sc
+Template: templates/els-cas (-Template)
+Venue files identical to the template: cas-common.sty, cas-model2-names.bst, cas-sc.cls
+Template origin: els-cas (venue, CAS bundle 2.4; cas-sc 2024/05/04, 2.4, https://assets.ctfassets.net/o78em1y1w4i4/5uFmLZJTPDMAUjFnHRpjj8/6f19a979146eb93263763d87a894ab0d/els-cas-templates.zip)
+Layout: flat (all files in one directory)
+Mode: static checks only (-CheckOnly)
+Excluded from the package (1): submission/ (workspace-only)
+
+Findings: 17 (16 FAIL)
+  trace            16  FAIL
+  ai-declaration    1
+Trace scan: 25 files, 16 hits (0 allowed); 3 files identical to the template not scanned
+AI declaration: none in the manuscript; a draft exists at projects/zz-review-static/submission/ai-declaration.tex and was not packaged (if AI tools were used, insert it as its comment block says: the text in sections/91-ai-declaration.tex, the heading and the \input in the wrapper, before the references; Elsevier: before the acknowledgments, which stay directly before the reference list); venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: FAIL (trace)

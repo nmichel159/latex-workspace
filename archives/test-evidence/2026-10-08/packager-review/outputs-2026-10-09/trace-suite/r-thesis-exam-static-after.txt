@@ -1,0 +1,11 @@
+Project: zz-packager-test-thesis (projects/zz-packager-test-thesis, main file exam.tex)
+Class: report
+Template: none (standard class report)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+Excluded from the package (2): img/.gitkeep (name starts with a dot), README.md (workspace-only)
+
+Findings: 0
+Trace scan: 37 files, 0 hits (0 allowed)
+AI declaration: 'Statement on the Use of AI Tools' in projects/zz-packager-test-thesis/main.tex:47 (packaged)
+Verdict: PASS

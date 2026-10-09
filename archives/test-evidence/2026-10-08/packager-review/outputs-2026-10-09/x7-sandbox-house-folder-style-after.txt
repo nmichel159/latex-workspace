@@ -1,0 +1,17 @@
+projects/zz-house/main.tex:1: [ai-declaration] no section 'Declaration of generative AI ...', 'Use of AI tools' or '... AI-assisted technologies ...' in the packaged .tex files; no draft in projects/zz-house/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+templates/house-x/house-style.sty:1: [template-origin] FAIL: templates/house-x is a house template (kind house in templates/SOURCES.tsv), which has no class or style of its own: a class or style is the publisher's download (kind venue) or a recorded third-party file (kind other). Retire the file, or file its download under its own folder with a row of kind venue or other
+
+Project: zz-house (projects/zz-house, main file main.tex)
+Class: article
+Template: templates/house-x (-Template)
+Venue files identical to the template: house-style.sty
+Note: the template does not contain article.cls (the class comes from the project or from the TeX distribution)
+Layout: folders as in the project
+Mode: static checks only (-CheckOnly)
+
+Findings: 2 (1 FAIL)
+  template-origin    1  FAIL
+  ai-declaration    1
+Trace scan: 2 files, 0 hits (0 allowed)
+AI declaration: none in the manuscript; no draft in projects/zz-house/submission/; venue policy: knowledge/writing/submission.md §1 - Elsevier, Springer Nature, SIAM, Wiley and others require the statement in the manuscript when AI tools were used beyond grammar checking
+Verdict: FAIL (template-origin)
