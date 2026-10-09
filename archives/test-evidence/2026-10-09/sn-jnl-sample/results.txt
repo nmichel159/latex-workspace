@@ -1,0 +1,42 @@
+Pristine sample of templates/sn-jnl, built 2026-10-08 in tmp/sn-jnl-sample-test/ (copy of templates/sn-jnl/ plus bst/sn-mathphys-num.bst next to sn-article.tex).
+Command (PowerShell): latexmk -pdf -g "-pdflatex=pdflatex -enable-installer %O %S" -interaction=nonstopmode -file-line-error -halt-on-error sn-article.tex
+
+== exit code: 0
+== pdfinfo
+Pages:           12
+Page size:       595.276 x 841.89 pts (A4)
+== pdffonts (type counts)
+     32 Type 1
+== log: warnings, overfull, duplicate destinations
+1010:LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.43146> not available
+1016:LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available
+1034:LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
+1038:LaTeX Warning: `h' float specifier changed to `ht'.
+1044:pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
+1051:LaTeX Warning: No positions in optional float specifier.
+1073:pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
+1080:pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+1090:pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+1102:LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
+1123:Overfull \hbox (7.55843pt too wide) in paragraph at lines 395--407
+1170:Package hyperref Warning: Difference (4) between bookmark levels is greater 
+1178:Package hyperref Warning: Difference (3) between bookmark levels is greater 
+1196:LaTeX Font Warning: Size substitutions with differences
+1200:LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+== BibTeX
+while$ -- 339
+width$ -- 0
+write$ -- 302
+== MiKTeX packages installed during this build (MiKTeX log)
+2026-10-08 22:58:09,319+0200 INFO  pdflatex - installing package threeparttable triggered by tex/latex/threeparttable\threeparttable.sty
+2026-10-08 22:58:13,257+0200 INFO  pdflatex - installing package jknappen triggered by tex/latex/jknappen\mathrsfs.sty
+2026-10-08 22:58:15,727+0200 INFO  pdflatex - installing package ncctools triggered by tex/latex/ncctools\manyfoot.sty
+== text of the publisher's sn-article.pdf vs this build (first difference)
+23,25c23,25
+< The Introduction section, of referenced text Campbell and Gear (1995) expands on
+< the background of the work (some overlap with the Abstract is acceptable). The
+< introduction should not include subheadings.
+---
+> The Introduction section, of referenced text [1] expands on the background of the work
+> (some overlap with the Abstract is acceptable). The introduction should not include
+> subheadings.

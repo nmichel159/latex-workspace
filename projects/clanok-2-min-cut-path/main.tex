@@ -1,0 +1,86 @@
+% Wrapper written from sn-article.tex (Version 3.1, December 2024) of the Springer Nature journal article
+% template, class sn-jnl. The manuscript is in preamble/ and sections/; besides this file, only the theorem style
+% names in preamble/environments.tex (thmstyleone, thmstyletwo, thmstylethree) belong to the class.
+% No \DoNotLoadEpstopdf: EPS figures, which Algorithmica prefers, are converted by epstopdf.
+
+% Class options of the sample's active line: pdflatex and the Math and Physical Sciences Numbered Reference Style
+% (numbered citations in square brackets). The class loads natbib with numbers,sort&compress and sets
+% \bibliographystyle{sn-mathphys-num} itself; it also loads hyperref, amsthm and geometry.
+% float (loaded by algorithm.sty in the sample's package block) is loaded before the class: the class loads
+% hyperref, which adapts its float anchors only to a float package loaded before it (otherwise every figure and
+% table anchor is written twice, "destination with the same identifier"; the pristine sample shows it too).
+\RequirePackage{float}
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}
+
+% Standard packages of the sample, unchanged (the template's user manual lists them as packages the class
+% depends on).
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+
+% Font encoding only; the typeface stays Computer Modern (Type 1 from cm-super). With the class default OT1,
+% \v{l} in the author's surname is set as l with a caron above instead of the Slovak letter, and the PDF text
+% loses every accent. The class source carries the same line, commented out.
+\usepackage[T1]{fontenc}
+
+% --- Title: defined once, used by \title and the PDF metadata ------------------------------------
+\newcommand{\PaperTitle}{Title of the Paper}
+
+% --- Load order: packages -> cleveref -> environments -> macros (hyperref comes with the class) ---
+\input{preamble/packages}
+\usepackage[capitalise,noabbrev]{cleveref}   % after hyperref, before any theorem definition
+\input{preamble/environments}
+\input{preamble/macros}
+
+% The class sets no PDF metadata.
+\hypersetup{pdftitle={\PaperTitle}, pdfauthor={Norbert Miche\v{l}}}
+
+\raggedbottom
+
+\begin{document}
+
+\title{\PaperTitle}
+
+% Single author and address: no affiliation numbers (user manual). \author* keeps the e-mail under
+% "Corresponding author(s)"; the unstarred \affil prints no asterisk, which would point to nothing here.
+% Diacritics as TeX code (Springer Nature LaTeX author support).
+\author*{\fnm{Norbert} \sur{Miche\v{l}}}\email{5344553@upjs.sk}
+
+\affil{\orgdiv{Institute of Computer Science, Faculty of Science}, \orgname{Pavol Jozef \v{S}af\'arik University in Ko\v{s}ice}, \orgaddress{\street{Jesenn\'a 5}, \city{Ko\v{s}ice}, \postcode{040 01}, \country{Slovakia}}}
+
+\abstract{\input{sections/00-abstract}}
+
+% Algorithmica asks for 4 to 6 keywords.
+\keywords{first keyword, second keyword, third keyword, fourth keyword}
+
+\maketitle
+
+\input{sections/01-introduction}
+\input{sections/02-preliminaries}
+\input{sections/03-results}
+\input{sections/04-conclusion}
+
+\backmatter
+
+\bmhead{Acknowledgments}
+
+\input{sections/90-acknowledgments}
+
+\section*{Declarations}
+
+\input{sections/92-declarations}
+
+\bibliography{references}
+
+\end{document}

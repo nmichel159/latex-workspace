@@ -1,0 +1,39 @@
+% Theorem-like environments, the "problem" box and numbering.
+% Input after cleveref: theorem definitions must follow cleveref, otherwise every environment that
+% shares a counter is referred to by the same name.
+% \declaretheorem (thmtools), not \newtheorem: with the LaTeX 2025-11-01 kernel and cleveref 0.21.4,
+% \cref names a lemma that shares the definition counter "Definition" (tested 2026-10-07);
+% sibling= gives each environment its own name and plural ("Lemmas 2.3 and 2.4").
+% Styles are the theorem styles of the class sn-jnl, assigned as in its sample sn-article.tex:
+% thmstyleone for theorem and proposition (and the other statements), thmstyletwo for example and remark,
+% thmstylethree for definition. These style names exist only in sn-jnl (amsthm falls back to plain with a warning
+% under another class): a port to another class sets them back to definition, plain and remark.
+
+% Numbering within sections
+\numberwithin{equation}{section}
+
+% One shared counter within a section: Definition 2.1, Theorem 2.2, Lemma 2.3, ...
+\declaretheorem[name=Definition,  style=thmstylethree, numberwithin=section]{definition}
+\declaretheorem[name=Theorem,     style=thmstyleone,   sibling=definition]{theorem}
+\declaretheorem[name=Lemma,       style=thmstyleone,   sibling=definition]{lemma}
+\declaretheorem[name=Claim,       style=thmstyleone,   sibling=definition]{claim}
+\declaretheorem[name=Corollary,   style=thmstyleone,   sibling=definition]{corollary}
+\declaretheorem[name=Proposition, style=thmstyleone,   sibling=definition]{proposition}
+\declaretheorem[name=Remark,      style=thmstyletwo,   sibling=definition]{remark}
+\declaretheorem[name=Example,     style=thmstyletwo,   sibling=definition]{example}
+
+% "problem" environment: framed statement of a computational problem
+\newtcolorbox{problem}[1][]{%
+  enhanced,
+  colback=white,      % background color
+  colframe=black,     % border color
+  boxrule=0.8pt,      % border thickness
+  arc=2pt,            % corner roundness
+  left=6pt, right=6pt, top=6pt, bottom=6pt,
+  title=\textbf{Problem: #1},
+}
+
+% Algorithm headers: an algorithm states Input and Output.
+% algpseudocode (loaded in main.tex, before this file) would print "Require:" and "Ensure:".
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}

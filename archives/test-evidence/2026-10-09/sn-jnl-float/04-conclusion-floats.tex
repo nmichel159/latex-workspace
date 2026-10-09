@@ -1,0 +1,27 @@
+﻿\section{Floats}
+\label{sec:floats}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=0.4\linewidth]{img/fig}
+\caption{A figure.}
+\label{fig:a}
+\end{figure}
+\begin{table}[tb]
+\caption{A table.}
+\label{tab:a}
+\begin{tabular}{@{}ll@{}}
+\toprule
+a & b \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{algorithm}[tb]
+\caption{An algorithm.}
+\label{alg:a}
+\begin{algorithmic}[1]
+\Require $x$
+\Ensure $y$
+\State $y \gets x$
+\end{algorithmic}
+\end{algorithm}
+\Cref{fig:a,tab:a,alg:a}.

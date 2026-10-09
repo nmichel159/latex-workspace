@@ -1,0 +1,12 @@
+Float anchors under sn-jnl, 2026-10-09: copies of projects/clanok-2-min-cut-path with sections/04-conclusion.tex replaced by 04-conclusion-floats.tex (a figure from the template's fig.eps in img/, a table, an algorithm, one \Cref).
+a-asis: main.tex of the project before the float fix; b-requirefloat: plus \RequirePackage{float} before \documentclass (main-a-vs-b.diff).
+== a-asis: duplicate destinations
+2
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
+== b-requirefloat: duplicate destinations
+0
+== b-requirefloat: cross-references
+Fig. 1 A figure.
+Algorithm 1 An algorithm. Input: x Output: y
+Figure 1, Table 1, and Algorithm 1. Acknowledgments. Acknowledgment text.

@@ -1,0 +1,19 @@
+% Packages of the manuscript.
+% The first block repeats packages that main.tex already loads in the sample's standard package block of sn-jnl
+% (or that the class loads): without options they are no-ops here, and they keep preamble/ complete when the
+% manuscript moves to another class. The class also loads hyperref and natbib.
+% The template's user manual asks not to add packages without need: load only what the text uses.
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}         % \toprule, \midrule, \bottomrule; no vertical rules
+\usepackage{algorithm}        % floating "algorithm" environment (loads float)
+\usepackage{algpseudocode}    % \State, \For, \Require, \Ensure (part of algorithmicx)
+
+\usepackage{thmtools}         % \declaretheorem (preamble/environments.tex), restatable theorems
+\usepackage{mathtools}        % \DeclarePairedDelimiter, \coloneqq; extends amsmath
+
+\usepackage[most]{tcolorbox}  % "problem" box, see preamble/environments.tex
+
+\usepackage{csquotes}         % \enquote{...} instead of hand-typed quotation marks
