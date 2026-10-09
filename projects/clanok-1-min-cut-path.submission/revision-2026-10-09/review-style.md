@@ -199,7 +199,7 @@ like" and "why a walk cannot exist" are separate paragraphs. Step 1 (l. 669-674,
 
 - [MERGE] M5, l. 733-734: two sentences, both "hence", one idea.
   Replace: "Hence $\Gamma$ contains no $u$--$v$ walk, so all possible continuations from $u$ are blocked in $G\setminus P$, there is no $u$--$v$ path after removing $P$, and $P$ is separating."
-  (keeps every clause of the original l. 645 sentence and the new $\Gamma$ step.)
+  (keeps every clause of the original sentence, archived file l. 645, and the new $\Gamma$ step.)
 
 - Not a merge: l. 685 repeats the dead-end fact of l. 671-672 as a reason; keep it but point back:
   "Both ends of this connecting path are open, since, by Step 1, an end-vertex of a crossing edge on $P$ lies on no $u$--$v$ path of $G \setminus P$."
@@ -243,3 +243,62 @@ make l. 643 the conclusion instead of a second statement:
 | 1137 | "By Lemma~\ref{lem:basic-bounds} and its proof, the union ... has at least $c(u,v)$ edges." | repeated in the proof (l. 1148, 1158); see 2.9 |
 | 714 (second half) | "and no edge at the unused path of a literal chain link" | see M3 |
 | 695 | (shorten) | see M4 |
+
+## 6. Markup, terminology and notation
+
+6.1. **Run-in headings inside proofs are mixed**: `\paragraph{...}` in the proofs of Theorems 3.9 and 3.10
+(l. 745, 762, 770, 798, 805, 813, 818), `\emph{...}` in the proof of Lemma 3.8 (l. 668, 676, 689, 726), `\emph{Case n: ...}`
+in Theorems 4.5 and 5.1, enumerate items `(a)`, `(b)` in Theorem 3.9. Proposal: `\paragraph` for steps of a proof
+(Lemma 3.8 as in 5.1(b)), `\emph{Case n: ...}` for cases (Lemma 3.8 as in 5.1(c)). Items (a)/(b) of Theorem 3.9 may stay.
+
+6.2. **Names of environments: case style.** Existing names are title case (`[Cut-Path]`, `[Basic Bounds]`,
+`[Degree Bounds]`, `[Chain Link]`); the four new lemmas use sentence case. Replace:
+- l. 609 `\begin{lemma}[Shortest paths]` -> `\begin{lemma}[Shortest Paths]`
+- l. 646 `\begin{lemma}[Clause threads]` -> `\begin{lemma}[Clause Threads]`
+  (`[Synchronization]`, `[Separation]` are single words.)
+- l. 305 section title "NP-completeness of the Min Cut-Path Problem": title case would be "NP-Completeness of the Min Cut-Path Problem" (other titles: "Graphs with Cut-Value at Most Two"). Optional.
+
+6.3. **"literal link" vs "literal chain link"** (one concept, one word, rule 3.9). "literal link" at l. 637, 701, 717,
+719 and in the caption at l. 445 ("the initialization link, the literal links, and the terminal link"); "literal chain
+link" elsewhere (l. 433-437, 493, 511, 587, 633, 714, 727, 730). Replace "literal link" by "literal chain link" at
+l. 637, 701, 717, 719. The caption at l. 445 may keep the short form (one line).
+
+6.4. **Problem names** (academic-style §2: small caps, identical everywhere): see 2.4 (`\textsc{Network Diversion}`,
+`\textsc{Matching Cut}` at l. 161-162).
+
+6.5. **$d_G(u,v)$** appears only in the proof of Theorem 3.10 (l. 801, 806, 809); everywhere else $d(u,v)$. Since
+$G' := G$, the subscript can go: "set the threshold $k := d(u,v)$". Optional.
+
+6.6. **$\epsilon$ vs $\varepsilon$**: the paper uses `\epsilon` 12 times and never `\varepsilon`; it is consistent.
+math-writing §1 prefers `\varepsilon`; change all 12 or none.
+
+6.7. **"cut separating $u$ and $v$" vs "separating $u$ from $v$"**: l. 196 defines "cut separating $u$ and $v$";
+the abstract and the introduction (l. 112, 169) say "separating $u$ from $v$". Both are clear; if one form is
+wanted, use "separating $u$ from $v$" and change l. 196 and l. 209 ("a cut separating $u$ and $v$") accordingly.
+
+6.8. **Terms defined twice** (original; for information): *threads* (l. 450, `\emph`) and *thread* (Definition 3.3);
+*threading* (l. 450) and *threading operation* (Definition 3.4); *chain link* (l. 368 and Definition 3.1). The
+`\emph` before the definition environments could become plain text (l. 368 `\emph{chain link}`, l. 450
+`\emph{Threads}` / `\emph{threading}` -> no `\emph`), so each term is emphasized once.
+
+6.9. Notation clashes are logged by editor B (issues-B items 1-6, 12) and not repeated here; add l. 289 ($P(n)$ vs
+path $P$, see §3).
+
+## 7. Grammar and wording (other)
+
+| Line | Quote | Replace |
+|---|---|---|
+| 177 | "Its shortest $u$--$v$ paths choose one of the two halves of every cycle" | "The shortest $u$--$v$ paths of the chain choose one of the two halves of every cycle" ("Its" can refer to the reduction) |
+| 924 (added) | "The cut $C$ is the set of all edges between two sides with $u$ and $v$ on different sides." | "The cut $C$ is the set of all edges between a vertex set and its complement, with $u$ and $v$ on different sides." |
+| 691 | "The following three cases are therefore exhaustive; they also describe all ways in which a path starting at $u$ could progress in $G \setminus P$." | keep; with the case labels of 5.1(c) the reference "Case~3" at l. 732 becomes correct |
+| 729 | "let $W$ be a shortest one; it is a path with at least one internal node." | "let $W$ be a shortest one. It is a path, and it has an internal node because no edge of $\Gamma$ joins $u$ and $v$." (makes the reason of l. 728 explicit at the place where it is used; optional) |
+| 807 | "its removal disconnects $u$ and $v$" | "its removal disconnects $u$ from $v$" (as everywhere else) |
+| 1048 | "converges to 1 as $n \to \infty$" | consistent with l. 1041 would be "tends to one as $n \to \infty$"; optional (theorem statement) |
+| 1188-1189 | "This work is purely theoretical. Experiments ... would answer this question and could guide the design of heuristics." | "Experiments on real-world networks and on random instances would answer this question and could guide the design of heuristics." (drop "This work is purely theoretical."; optional, original text) |
+
+## 8. Not found
+
+No dash parentheses (`---`), no *Formally:*, no *crucial / notably / pivotal / leverage / delve / underscore /
+robust / seamless*, no *not only ... but also*, no *In summary / Overall*, no future tense for the text, no
+contractions, no *thanks to / it holds that*. Captions are one line each. Paragraph-level "Moreover" opens only
+l. 938 (proposed for deletion).
