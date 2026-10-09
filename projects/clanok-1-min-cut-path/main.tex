@@ -672,40 +672,74 @@ Then $P$ is a separating shortest $u$--$v$ path in $G$.
 \end{lemma}
 
 \begin{proof}
-By Lemma~\ref{lem:chain-paths}, $P$ is a shortest $u$--$v$ path, so it remains to show that $G\setminus P$ contains no $u$--$v$ path.
+By Lemma~\ref{lem:chain-paths}, $P$ is a shortest $u$--$v$ path.
+It remains to show that $G \setminus P$ contains no $u$--$v$ path.
+We first describe the graph $G \setminus P$, then determine which connecting paths a $u$--$v$ path of $G \setminus P$ could use, and finally show that these connecting paths cannot be combined into a $u$--$v$ path.
 
-\emph{The graph $G \setminus P$.}
-All single edges of the chain lie on $P$, and in every chain link only the path not traversed by $P$ remains in $G \setminus P$; we call it the \emph{unused path} of the link.
+\paragraph{The graph $G \setminus P$.}
+All single edges of the chain lie on $P$.
+In every chain link, only the path not traversed by $P$ remains in $G \setminus P$; we call it the \emph{unused path} of the chain link.
 Unused paths of distinct chain links are vertex-disjoint and contain neither $u$ nor $v$.
-We call a crossing edge \emph{open} if it lies on an unused path, and \emph{closed} if it lies on $P$.
-Each end-vertex of a closed crossing edge has degree three in $G$ (two edges in the chain link, one in a connecting path) and degree one in $G \setminus P$.
-So no $u$--$v$ path of $G \setminus P$ passes through it: the connecting paths that end there are dead ends.
+A crossing edge is \emph{open} if it lies on an unused path, and \emph{closed} if it lies on $P$.
+Each end-vertex of a closed crossing edge has degree three in $G$, with two edges in the chain link and one in a connecting path.
+In $G \setminus P$ it has degree one, so no $u$--$v$ path of $G \setminus P$ passes through it.
 
-\emph{Which connecting paths can be used.}
-Suppose that $Q$ is a $u$--$v$ path in $G \setminus P$.
-Since the internal vertices of a connecting path have degree two, $Q$ consists of whole connecting paths $D_0, D_1, \dots, D_r$, in this order, joined by segments of unused paths.
-The path $D_0$ starts at $u$, the path $D_r$ ends at $v$, and every other end of a path $D_a$ is an end-vertex of an open crossing edge.
-Since every thread has at least two crossing edges, no connecting path joins $u$ and $v$, so $r \geq 1$.
-For $0 \leq a < r$, the paths $D_a$ and $D_{a+1}$ meet on the unused path of one chain link, which we denote by $K_a$.
-We determine the possible paths $D_a$ by the type of their thread.
-\begin{itemize}
-  \item \emph{Synchronization threads.}
-  Since $P$ is consistent, it traverses paths of one sign in all chain links of the block of $x_i$, so a crossing edge in this block is open exactly when its sign differs from that sign.
-  By Algorithm~\ref{alg:reduction}, consecutive crossing edges of a synchronization thread have opposite signs, so exactly one of them is open.
-  Hence a synchronization thread contributes to $Q$ at most its first connecting path, which ends in $I_i$, or its last one, which starts in $T_i$.
-  \item \emph{Clause threads.}
-  By the proof of Lemma~\ref{lem:clause-threads}, the crossing edge of the clause thread of $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$ in $L_{j,k}$ is open exactly when $\tau$ does not satisfy $\ell_j$.
-  Hence its first connecting path can be used only if $\ell_1$ is false, its last one only if $\ell_3$ is false, and the one between $L_{j,k}$ and $L_{j+1,k}$ only if $\ell_j$ and $\ell_{j+1}$ are both false.
-\end{itemize}
-Consequently, $D_0$ ends in some $I_i$ or $L_{1,k}$, $D_r$ starts in some $T_i$ or $L_{3,k}$, and every $D_a$ with $0 < a < r$ joins $L_{j,k}$ and $L_{j+1,k}$ for some clause $C_k$ and $j \in \{1, 2\}$.
+Let $Q$ be a $u$--$v$ path in $G \setminus P$.
+Every edge of $G \setminus P$ lies on an unused path or on a connecting path.
+The internal vertices of a connecting path have degree two, so if $Q$ uses an edge of a connecting path, it uses the whole connecting path.
+We call a connecting path \emph{usable} if each of its two ends is $u$, $v$, or an end-vertex of an open crossing edge.
+By the previous paragraph, $Q$ uses only usable connecting paths.
+Hence $Q$ starts at $u$ with a usable connecting path, ends at $v$ with a usable connecting path, and passes from one usable connecting path to the next along a segment of a single unused path.
 
-\emph{No $u$--$v$ path.}
-If $r = 1$, then $K_0$ is both the link where $D_0$ ends and the link where $D_1$ starts, which is impossible, since no chain link is of the form $I_i$ or $L_{1,k}$ and also of the form $T_{i'}$ or $L_{3,k'}$.
-If $r \geq 2$, then $D_1$ starts in $K_0$, so $K_0$ is a literal chain link, and hence $K_0 = L_{1,k}$ for some clause $C_k$.
-The paths $D_1, \dots, D_{r-1}$ move only between the literal chain links $L_{1,k}$, $L_{2,k}$, $L_{3,k}$ of this clause, and $D_r$ starts in $L_{3,k}$.
-Only the clause thread of $C_k$ has its first crossing edge in $L_{1,k}$ and its last one in $L_{3,k}$.
-Hence $Q$ uses the first and the last connecting path of this thread and, on the way from $L_{1,k}$ to $L_{3,k}$, one of its connecting paths with an end in $L_{2,k}$.
-Hence $\ell_1$, $\ell_2$ and $\ell_3$ are all false under $\tau$, contradicting the assumption that $\tau$ satisfies $C_k$.
+\paragraph{Open crossing edges.}
+Recall that $P$ traverses, in all chain links of the block of $x_i$, the positive path if $\tau(x_i)=\mathsf{true}$ and the negative path if $\tau(x_i)=\mathsf{false}$.
+\begin{enumerate}[(a)]
+  \item A crossing edge in the block of $x_i$ is open if and only if its sign differs from the sign of the paths that $P$ traverses in this block.
+  \item The crossing edge of the clause thread of $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$ in $L_{j,k}$ is open if and only if $\tau$ does not satisfy $\ell_j$ (proof of Lemma~\ref{lem:clause-threads}).
+\end{enumerate}
+
+\paragraph{Usable connecting paths.}
+By Algorithm~\ref{alg:reduction}, any two consecutive crossing edges of a synchronization thread have opposite signs and lie in the same block.
+By~(a), exactly one of them is open, so the connecting path between them is not usable.
+Hence a synchronization thread of $x_i$ has at most two usable connecting paths: its first one, from $u$ to $I_i$, and its last one, from $T_i$ to $v$.
+For a clause thread, (b) decides which connecting paths are usable.
+Table~\ref{tab:usable} lists all usable connecting paths.
+
+\begin{table}[pos=H]
+\centering
+\caption{The connecting paths that can be usable in $G \setminus P$; literals are evaluated under $\tau$}
+\label{tab:usable}
+\begin{tabular}{lll}
+\hline
+Thread & Connecting path & Usable if \\
+\hline
+synchronization thread of $x_i$ & from $u$ to $I_i$ & its crossing edge in $I_i$ is open \\
+ & from $T_i$ to $v$ & its crossing edge in $T_i$ is open \\
+clause thread of $C_k$ & from $u$ to $L_{1,k}$ & $\ell_1$ is false \\
+ & between $L_{1,k}$ and $L_{2,k}$ & $\ell_1$ and $\ell_2$ are false \\
+ & between $L_{2,k}$ and $L_{3,k}$ & $\ell_2$ and $\ell_3$ are false \\
+ & from $L_{3,k}$ to $v$ & $\ell_3$ is false \\
+\hline
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:usable} shows which usable connecting paths end on a given unused path:
+on the unused path of $I_i$, only paths to $u$; on the unused path of $T_i$, only paths to $v$; on the unused path of $L_{j,k}$, only paths of the clause thread of $C_k$.
+
+\paragraph{No $u$--$v$ path.}
+We follow $Q$ from $u$.
+By Table~\ref{tab:usable}, its first connecting path ends on the unused path of some $I_i$ or of some $L_{1,k}$.
+
+Suppose first that it ends on the unused path of $I_i$.
+To continue, $Q$ needs a second usable connecting path with an end on this unused path.
+Every such path leads to $u$, which $Q$ has already visited, a contradiction.
+
+Suppose now that the first connecting path ends on the unused path of $L_{1,k}$; then $\ell_1$ is false.
+From here on, $Q$ can use only connecting paths of the clause thread of $C_k$, so it moves between the unused paths of $L_{1,k}$, $L_{2,k}$ and $L_{3,k}$ until it reaches $v$.
+It reaches $v$ only along the connecting path from $L_{3,k}$, so $\ell_3$ is false.
+On the way from $L_{1,k}$ to $L_{3,k}$, it uses the connecting paths between $L_{1,k}$ and $L_{2,k}$ and between $L_{2,k}$ and $L_{3,k}$, so $\ell_2$ is false.
+Then $\tau$ does not satisfy $C_k$, a contradiction.
+
 Therefore $G \setminus P$ contains no $u$--$v$ path, and $P$ is separating.
 \end{proof}
 
