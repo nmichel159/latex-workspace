@@ -793,7 +793,7 @@ The decision version is NP-complete, and hence the optimization version is NP-ha
 \section{Graphs of Diameter Two}
 \label{sec:diameter-two}
 
-The first class in which the problem can be solved in polynomial time consists of the graphs of diameter two, a class studied in algebraic graph theory~\cite{GodsilRoyle2001}.
+The first class in which the problem can be solved in polynomial time consists of the graphs of diameter two.
 
 \begin{definition}[Diameter]
 \label{def:diameter}
@@ -836,8 +836,6 @@ Hence the path has at least one edge between $x$ and $a$, the edge $\{a, b\}$, a
 Therefore $d(x, y) \geq 3$, which contradicts the assumption that $G$ has diameter two.
 \end{proof}
 
-The next lemma holds in every graph.
-
 \begin{lemma}
 \label{lem:odd-intersection}
 Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices.
@@ -856,11 +854,9 @@ If the path crossed the cut an even number of times, its first and its last vert
 Therefore, the path crosses the cut an odd number of times, so $|S|$ is odd.
 \end{proof}
 
-Lemmas~\ref{lem:empty-i-or-l} and~\ref{lem:odd-intersection} give the value of $\cp(u,v)$ in graphs of diameter two.
-
 \begin{theorem}
 \label{thm:diameter-two}
-Let $G = (V, E)$ be a connected graph of diameter two, and let $u, v \in V$ be two distinct vertices.
+Let $G = (V, E)$ be a graph of diameter two, and let $u, v \in V$ be two distinct vertices.
 Then a minimum cut-path between $u$ and $v$ has
 \[
 \cp(u, v) = c(u, v) + d(u, v) - 1
@@ -870,7 +866,7 @@ edges.
 
 \begin{proof}
 We distinguish two cases based on the values of $d(u, v)$ and $c(u, v)$.
-Since $G$ has diameter two, $d(u, v) \in \{1, 2\}$; since $G$ is connected, $c(u, v) \geq 1$.
+Since $G$ has diameter two, it is connected and $d(u, v) \in \{1, 2\}$; hence $c(u, v) \geq 1$.
 Hence the two cases below cover all pairs $u, v$.
 
 \emph{Case 1: $d(u, v) = 1$ or $c(u, v) = 1$.}
@@ -899,10 +895,8 @@ By Lemma~\ref{lem:odd-intersection}, applied to $C$ and to the path $P \subseteq
 Since $d(u,v) = 2$, the path $P$ has at least two edges, and hence at least three.
 
 Let $I, J, K, L$ be the decomposition induced by the cut $C$ (Lemma~\ref{lem:cut-decomposition}).
-Two renamings do not affect the argument.
-The first swaps the names $A_1$ and $A_2$, and with them $I$ with $L$ and $J$ with $K$.
-The second swaps $u$ and $v$: the values $c(u, v)$, $d(u, v)$ and $\cp(u, v)$ do not depend on the order of $u$ and $v$, and $P$ read backwards is a $v$--$u$ path.
-By Lemma~\ref{lem:empty-i-or-l} and the first renaming, we may assume that $L = \emptyset$; by the second renaming, we may then assume that $u \in A_2$.
+By Lemma~\ref{lem:empty-i-or-l}, after exchanging the names $A_1$ and $A_2$ (and with them $I$ with $L$ and $J$ with $K$) if necessary, we may assume that $L = \emptyset$.
+Since $c(u, v)$, $d(u, v)$ and $\cp(u, v)$ do not depend on the order of $u$ and $v$, we may also assume, after exchanging $u$ and $v$ if necessary, that $u \in A_2$.
 Since $A_2 = K \cup L = K$, we have $u \in K$, so the graph is partitioned into the three sets $I, J, K$.
 We observe that $v \in J$: the last edge of $P$ belongs to the cut and is incident to $v$, so the vertex $v$ cannot belong to the set $I$.
 Figure~\ref{fig:diameter-two-structure} shows this structure.
@@ -915,6 +909,7 @@ Figure~\ref{fig:diameter-two-structure} shows this structure.
 \end{figure}
 
 Every edge of $C$ has exactly one end in $K$, because $C$ is the set of all edges between $A_1 = I \cup J$ and $A_2 = K$.
+For a vertex $x$ and a vertex set $S$, let $\deg(x, S)$ denote the number of neighbors of $x$ in $S$.
 Counting the edges of $C$ according to their end-vertex in $K$, we estimate the size of the cut $C$:
 \[
 \cp(u, v) = c(u,v) = |C| \geq \deg(u, I) + \deg(u, J) + 2 + (|K| - 2).
@@ -930,9 +925,8 @@ The terms of the estimate count the following edges:
 
     \item Each of the remaining $|K| - 2$ vertices of the set $K$ is incident to an edge of $C$ by the definition of $K$, so it contributes at least one edge to the cut.
 \end{itemize}
-The edges counted on the right-hand side are drawn in red in Figure~\ref{fig:diameter-two-structure}.
 
-Since $\deg(u, I) \geq 0$, and since $\deg(u, K) \leq |K| - 1$ because $u \in K$ is not its own neighbor, we obtain
+Since $\deg(u, I) = 0$, and since $\deg(u, K) \leq |K| - 1$ because $u \in K$ is not its own neighbor, we obtain
 \[
 \deg(u, I) + \deg(u, J) + 2 + (|K| - 2) \geq
 0 + \deg(u, J) + \deg(u, K) + 1 = \deg(u) + 1 \geq c(u, v) + 1.
@@ -953,7 +947,7 @@ Hence, in graphs of diameter two, a minimum cut-path can be found by one minimum
 
 The same formula holds in graphs in which the cut-value of every pair of vertices is at most two.
 
-Such graphs have the structure of a \emph{cactus graph} (see~\cite{Mehlhorn2017Certifying}): they consist of cycles and single edges, any two of which share at most one vertex, an articulation point.
+Such graphs have the structure of a \emph{cactus graph}: they consist of cycles and single edges, any two of which share at most one vertex, an articulation point.
 Indeed, suppose that two distinct cycles shared an edge.
 Then the second cycle contains a path whose ends $x \neq y$ lie on the first cycle and whose edges do not belong to the first cycle.
 To find it, take an edge of the second cycle that is not on the first, and follow the second cycle from it in both directions up to the first vertex of the first cycle.
