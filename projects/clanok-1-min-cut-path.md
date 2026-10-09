@@ -3,8 +3,8 @@
 **Layout since 2026-10-09: the folder is what is sent.** `projects/clanok-1-min-cut-path/` holds only what the build
 needs, with no sub-folders: `main.tex` (one file written from `cas-sc-template.tex`; packages, environments, macros
 and the whole text are in it), `cas-sc.cls`, `cas-common.sty`, `cas-model2-names.bst` (byte-identical to
-`templates/els-cas/`), `references.bib` and the ten figure files (seven PNG, three vector PDF; four figures were
-added from the author's talk on 2026-10-09, see "Change history").
+`templates/els-cas/`), `references.bib` and the ten figure files (one PNG, nine vector PDF; Figure 1 redrawn 2026-10-09; four figures were
+added from the author's talk on 2026-10-09 and Figures 2-6 were redrawn as vector PDF the same day, see "Change history").
 To send: zip the content of the folder and submit it, after `package-project.ps1 -Template els-cas -Flat
 -KeepComments` ends with `Verdict: PASS` (2026-10-09, after the plain-style revision: PASS, 15 pages).
 Beside the folder: these notes and `projects/clanok-1-min-cut-path.submission/` (draft AI declaration).
@@ -57,7 +57,8 @@ the open items below.
 5. **Research data** (Option C): the article has no data set; a statement in the submission form saying so.
 6. **Highlights** (encouraged): a separate editable file with "highlights" in its name, 3-5 bullets of at most 85
    characters each; not written.
-7. **Figures:** DAM asks for vector drawings (EPS/PDF) or bitmapped line drawings of at least 1000 dpi; the seven
+7. **Figures (Figures 2-6 redrawn as vector PDF on 2026-10-09; open only for
+   `diameter-two-structure.png`; Figure 1 `cut-path` was redrawn too):** DAM asks for vector drawings (EPS/PDF) or bitmapped line drawings of at least 1000 dpi; the seven
    PNG drawings have 146-226 dpi at their printed width (see "Known problems"). Redraw them as vector graphics, or
    supply the originals at 1000 dpi or more; export without the embedded draw.io copy of the diagram, which six of
    the files carry (see "Known problems", figure metadata). The three figures added as PDF on 2026-10-09 are vector
@@ -83,7 +84,9 @@ the open items below.
 11. **Year of Frieze–Karoński** (bibliography): the publisher's page (`citation_publication_date` 2015/10) and
     Crossref (print 2015-10-26) date *Introduction to Random Graphs* 2015; the entry keeps 2016 (note in the
     canonical `.bib`). Confirm the year from the book's imprint page.
-12. **AI use in the figures** (since 2026-10-09): Figures 7, 8 and 9 (`fig:two-synchronization`,
+12. **AI use in the figures** (since 2026-10-09; Figures 2-6 (`chain-threads`, `chain-link`, `chain`,
+    `chain-link-types`, `threading`) are since that day also TikZ drawings written by the AI assistant, redrawn
+    from the author's PNG drawings, and are not yet named in the draft declaration): Figures 7, 8 and 9 (`fig:two-synchronization`,
     `fig:three-synchronization`, `fig:clause-thread`) are TikZ drawings written by the AI assistant; 7 and 8
     follow the author's drawings in the talk, 9 is new (asked for by the author, drawn like 8). The talk's own versions of these images were made with an image generator (their files say so:
     `knowledge/sources/README.md`, "AI-generated images") and are not in the manuscript.
@@ -124,9 +127,9 @@ Theorem III.5 is Theorem 3.5, Lemma II.4 is Lemma 2.4, and so on; the order is u
 numbers: the reference list is now alphabetical, so the old [9] (Bollobás) is [1], [10] (Frieze–Karoński) is [5],
 [3] (Mehlhorn et al.) is [10] and [5] (master's thesis) is [11].
 
-Figures (number on 2026-10-09, label, file, section): 1 `fig:cut-path` `cut-path.png` (2); 2 `fig:chain-threads`
-`chain-threads.png`, 3 `fig:chain-link` `chain-link.png`, 4 `fig:chain` `chain.png`, 5 `fig:chain-link-types`
-`chain-link-types.png`, 6 `fig:threading` `threading.png`, 7 `fig:two-synchronization`
+Figures (number on 2026-10-09, label, file, section): 1 `fig:cut-path` `cut-path.pdf` (2); 2 `fig:chain-threads`
+`chain-threads.pdf`, 3 `fig:chain-link` `chain-link.pdf`, 4 `fig:chain` `chain.pdf`, 5 `fig:chain-link-types`
+`chain-link-types.pdf`, 6 `fig:threading` `threading.pdf`, 7 `fig:two-synchronization`
 `two-synchronization-threads.pdf`, 8 `fig:three-synchronization` `three-synchronization-threads.pdf`,
 9 `fig:clause-thread` `clause-thread.pdf` (all 3; Figures 7-9 stand inside the numbered list of thread types);
 10 `fig:diameter-two-structure` `diameter-two-structure.png` (4).
@@ -152,15 +155,16 @@ references.bib              bibliography
 cas-sc.cls                  document class (Elsevier CAS bundle 2.4), pristine copy of templates/els-cas/
 cas-common.sty              macros of the CAS classes, pristine copy
 cas-model2-names.bst        bibliography style of the CAS bundle, pristine copy
-chain.png, chain-link.png, chain-link-types.png, chain-threads.png, threading.png, diameter-two-structure.png   figures
-cut-path.png                figure from the author's talk (bitmap, unchanged copy; since 2026-10-09)
+chain.pdf, chain-link.pdf, chain-link-types.pdf, chain-threads.pdf, threading.pdf   vector figures (since 2026-10-09)
+diameter-two-structure.png  figure (bitmap)
+cut-path.pdf                vector figure, redrawn from the talk's bitmap (since 2026-10-09)
 two-synchronization-threads.pdf, three-synchronization-threads.pdf, clause-thread.pdf
                             vector figures (since 2026-10-09)
 
 beside the folder (never sent)
 projects/clanok-1-min-cut-path.md                              these notes
 projects/clanok-1-min-cut-path.submission/ai-declaration.tex   draft AI declaration for the author
-projects/clanok-1-min-cut-path.submission/figures/*.tex        TikZ sources of the three vector figures and of the
+projects/clanok-1-min-cut-path.submission/figures/*.tex        TikZ sources of the eight vector figures and of the
                                                                two parked counterexample drawings (class
                                                                standalone, STIX fonts as in the article); build
                                                                each with pdflatex --miktex-disable-installer
@@ -330,6 +334,76 @@ from each other, and I found no error in the proofs in their current wording (I 
   list (a)-(b); `new-aiaa` printed 1)-3). If the author wants other labels there, `\begin{enumerate}[1.]` on that line
   would do it (markup only; not changed, because it was not requested).
 
+### Review of 2026-10-09 (read-through of `main.tex`, nothing changed)
+
+Build clean (15 pages), `check-text.ps1` 2 findings, `check-bib.ps1` 0. New findings, line numbers of `main.tex`:
+
+- **Proofs missing:** Lemma 4.2 (l.728) and Lemma 4.3 (l.744) have no `proof`; the argument for 4.3 is the
+  sentence before it (l.741).
+- **Proof of Theorem 4.5 (l.825-844):** the estimate carries `\deg(u, I)` and the first bullet calls it edges to
+  the opposite side, but `u \in K` has no neighbor in `I` (said only at l.844); drop the term from the start.
+  "connected graph of diameter two" (l.777) is redundant.
+- **"Cut" has two meanings:** any separating edge set (Definition 2.1, l.180) and the edge boundary of a vertex
+  partition (Lemmas 4.2-4.4). Lemma 4.4 needs the second. "Cut-value" (title of Section 5, l.147, l.858) is never
+  defined; Section 2 says "minimum size of a cut".
+- **Theorem 6.2 (l.931):** the exact bound `\diam \leq \log n / \log\log n` needs checking against the source
+  (the known asymptotics is `(1+o(1)) \log n / \log(np)`); the proof of Theorem 6.6 only needs
+  `O(\log n / \log\log n)`. **Theorem 6.3 (l.940):** "k-edge-connected where k = δ(G)" is better stated as
+  edge connectivity equal to minimum degree. Theorems 6.1-6.3 and the Chernoff bound cite whole books; add
+  theorem or page numbers (`\cite[Theorem~x]{...}`).
+- **Sources:** `Cook1971Complexity` for the NP-completeness of 3-SAT (l.297): TODO(verify) that the paper
+  states it for 3-SAT in this form (commonly cited: Karp 1972 or Garey-Johnson). `GodsilRoyle2001` for
+  "diameter two" (l.713) and "cf." `Mehlhorn2017Certifying` for the cactus structure (l.860) are loose. "These
+  papers" (l.137) includes a textbook. `Frieze2016` prints a DOI and a URL to the author's PDF.
+- **Symbol clashes:** `n, m` (graph, l.162; formula, l.298), `C` / `C_k` / `C_i` (cut, clause, cycle l.890),
+  `I, K, L` (sets of Section 4; links `I_i`, `K_i`, `L_i`; instances `I(n)`), `P` (path; polynomial l.257), `k`
+  (threshold l.670, clause index, diameter l.717, connectivity l.942).
+- **Language and consistency:** "the value of the minimum cut-path" (l.778, l.866) -> "a minimum cut-path";
+  "at least 3" (l.808) vs "at least three" (l.831); "converges to 1" (l.913) vs "tending to one"; "Then:" before
+  a display (l.929, l.938); `\textbf{Reduction.}` etc. in the proof of Theorem 3.6 (l.684-703) vs `\paragraph` in
+  Theorem 3.5; "BFS or DFS" (l.700) vs "breadth-first search" (l.657); "unless otherwise stated" (l.161) with no
+  exception later; `G' := G` (l.687) is not needed; l.686 repeats the assumption of l.167; l.1006 states
+  Theorem 6.6 before the theorem; "Third, this work is purely theoretical" (l.1055) is not a question;
+  Definition 3.1 (l.361) speaks of a chain before Definition 3.2; Definition 3.3 item 2 (l.442) defines a thread
+  through "every other thread".
+- **Front and back matter:** academic titles in the acknowledgments (l.1063; English journals print the name
+  only); the e-mail is a student-number address (l.94); unused environments `claim`, `corollary`, `proposition`,
+  `example` (l.29-35).
+
+Full review with all findings by section and an order of work:
+`projects/clanok-1-min-cut-path.submission/review-2026-10-09.md`.
+
+Rewrite proposals of the same day (second pass, nothing changed; the author decides):
+
+- **Section 3.1, construction and proof of Theorem 3.5.** The construction is spread over five places (thread
+  types l.470-505, which already assert what the threads force; procedures l.510-519; Algorithm 1 inside the
+  `proof`, l.548; "In words", l.579; `Calibrate`). Proposal: one static "Construction" of the graph before the
+  theorem, then four lemmas (shortest paths are exactly the chain paths; hits all synchronization threads iff
+  consistent; hits all clause threads iff the assignment satisfies; consistent and satisfying implies separating),
+  and a proof of the theorem of a few lines. Algorithm 1 either goes or stays outside the proof as a summary.
+  The "separating" step (l.627-645) follows a walk from `u` case by case; a set argument is tighter: name the
+  set `X` of vertices (first connecting paths, unused paths of the `I_i`, unused paths of the literal links before
+  the first satisfied literal of each clause, the dead ends attached to them), show that no edge of `G \setminus P`
+  leaves `X` and that `v \notin X`.
+- **Section 3.2.** \textsc{Separating Shortest Path} is the question `cp(u,v) = d(u,v)`; saying so makes
+  Theorem 3.6 a corollary of a few lines and gives the sharper statement that deciding whether the lower bound of
+  Lemma 2.4 is attained is NP-complete.
+- **Section 2.** `CP(u,v)` is used only at l.197-212 (Definitions 2.2, 2.3 can be one sentence);
+  `\deg(x,S)` is used only in Section 4 and Definition 2.5 only in Section 6; no example shows a cut-path smaller
+  than a minimum cut plus a shortest path (the parked counterexamples would do). Lemma 2.4 gives
+  `|C \cup P| < 2\,cp(u,v)`, a 2-approximation, which the article never states.
+- **Section 4.** Lemma 4.2 is a definition; Lemma 4.3 can read "for every cut, all vertices of one side are
+  incident to a cut edge", which removes `I, J, K, L`; the count in Theorem 4.5 then is
+  `|C| \geq \deg(u, A_1) + 2 + (|A_2| - 2) \geq \deg(u) + 1`. Remark 4.6 is used as a result in Sections 5 and 6:
+  a corollary.
+- **Section 6.** The upper bound `\beta_2` (Lemma 6.4, Lemma 6.5, the upper Chernoff tail) is never used;
+  Theorem 6.6 needs only `c(u,v) \geq \beta_1 \log n`. Stating Theorem 6.6 as "with high probability, for all
+  `u, v`, `|C \cup P| \leq (1 + 1/(\beta_1 \log\log n))\,cp(u,v)`" removes Definition 2.5 and its mismatch with
+  `G(n,p)`. The setting "Let `G(n,p)` be ... `\alpha > 1`" is repeated five times; `\mathbb{P}[\,]` (l.915, l.931)
+  and `\mathbb{P}(\,)` (l.952, l.978) are mixed.
+- **Introduction.** It does not say what selecting an edge means in the model (protected, monitored); the
+  contributions carry no theorem numbers; the roadmap repeats them; no paragraph gives the idea of the reduction.
+
 ## Content changes to review
 
 These edits change the mathematical content or claims about the literature. They were made on the basis of findings
@@ -414,6 +488,18 @@ from the revision, but the author is responsible for them.
       **Check this sentence against the thesis** and against the journal's question on prior publication.
 
 ## Change history
+
+**2026-10-09 - Figures 2-6 redrawn as vector graphics (10:55-11:00)**
+- On the author's request, `chain-threads`, `chain-link`, `chain`, `chain-link-types` and `threading` were redrawn
+  in TikZ in the style of Figures 7-9 (same line widths, link size, thread color, thick crossing edge, STIX
+  fonts) and are included as PDF at their natural size. Sources:
+  `projects/clanok-1-min-cut-path.submission/figures/`. The five PNG files are in
+  `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-png-figures/`.
+- Differences from the PNG drawings: the links of Figures 3, 5 and 6 carry the signs `+`, `-` inside (as in
+  Figures 7-9); in Figure 6 the links are larger than in the other figures (half-width 1.5 cm instead of 1.1 cm), the vertices `x`, `y`, `z_1`, `z_2` (inner vertices of the positive path) are labelled and the thread ends are dashed. Captions and text
+  unchanged. `main.tex`: the five `\includegraphics` lines only.
+- Build: 15 pages, no undefined references; packager `-CheckOnly`: `Verdict: PASS`. Still bitmap:
+  `diameter-two-structure.png` (Figure 10). Figure 1 (`cut-path`) was redrawn in TikZ later that day (11:10), PNG in the same archive folder.
 
 **2026-10-09 - plain-style revision; thesis citation removed (09:40-09:50)**
 - `main.tex`: "Content changes to review", item 17. `references.bib`: entry `Michel2025MinCutPath` removed
