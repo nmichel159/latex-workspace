@@ -246,6 +246,15 @@ Not found in the author's texts, still checked by the `grammar` entries of [phra
 
 ## 11. Revision procedure
 
+**Owner's rule (2026-10-09): revising the owner's manuscript means tidying, not compressing.** Every Definition,
+Lemma, Theorem, Remark, algorithm, auxiliary procedure, proof step and figure stays; a formal definition is never
+turned into a sentence of prose; an argument is never replaced by a shorter one. Allowed: English, clarity, order
+inside a section, consistent notation, implicit steps made explicit, a proof environment for an argument already in
+the text. Deletions, restructurings and mathematical corrections are listed in a report with a precise proposal and
+applied only after the owner approves. (The owner rejected a compressed revision of article 1 that removed
+Algorithm 1, its procedures and several definitions.) The cutting order below applies to the author's own new
+drafts and to text the owner asks to shorten.
+
 Cut from the top down; polishing sentences in a paragraph that will be deleted is wasted work.
 
 1. **Claim.** Can the main result be said in one sentence? If not, the problem is not style.

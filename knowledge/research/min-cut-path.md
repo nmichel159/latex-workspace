@@ -123,13 +123,19 @@ Article 2 will be prepared from the master's thesis. Do not reuse these places w
 
 ## 5b. Related problems in the literature
 
-Mentioned neither in A1 nor in MT; cite them in the next revision of A1 and in article 2 (entries are in `knowledge/bibliography/references.bib`).
+Mentioned neither in A1 nor in MT; cite them in the next revision of A1 and in article 2 (entries are in `knowledge/bibliography/references.bib`, reading notes in `knowledge/literature/`). Searched again 2026-10-09 (`knowledge/literature/searches.md`): the problem itself was not found elsewhere; no Discrete Applied Mathematics paper on a close problem was found.
 
 | Problem | Relation to Min Cut-Path | Source |
 |---|---|---|
-| *Non-separating st-path*: an `s`–`t` path whose edge removal leaves the graph connected; existence is NP-hard on general graphs, polynomial on chordal graphs | mirror notion to Separating Shortest Path (there removing the path must separate `u` and `v`) | Mao, arXiv:2101.03519 (verified) |
-| Diameter of sparse random graphs: `(1 + o(1)) log n / log(np)` | exact source for Theorem VI.2 in A1 (Theorem 26 in MT) | Chung, Lu 2001 (partially verified) |
-| Shortest-path interdiction, "most vital edges", Force Path Cut (removing edges so that the shortest path changes) | a different combination of cuts and shortest paths; find and verify specific papers | `TODO(verify)` – so far only from search results |
+| *Non-disconnecting* (Mao: non-separating, edge version) s-t path: `G - E(P)` connected; existence NP-hard; shortest one FPT in its length; polynomial on chordal graphs | opposite requirement to Separating Shortest Path; same "private channel" motivation | `Mao2021NonSeparating` (preprint), `Abhinav2022NonSeparating` (MFCS 2022) |
+| Shortest Path Most Vital Edges (= length-bounded edge cut, unit lengths): delete `k` edges so that `d(s,t) >= l` | cuts that destroy short paths; NP-hard, NP-hard on diameter three, linear time on diameter two | `Bazgan2019MostVital` (Theorem 4, Proposition 1 of arXiv v1); Baier et al. 2010 read, not added |
+| Network Diversion: minimal s-t cut containing a prescribed edge | a cut with prescribed content; open on undirected graphs, polynomial on planar graphs | `Bentert2025NetworkDiversion` |
+| Matching Cut: an edge cut that is a matching | a cut with prescribed structure; polynomial on diameter two, NP-complete on every fixed diameter `>= 3` | `LeLe2019MatchingCut`, `Komusiewicz2020MatchingCut` (DAM) |
+| Diameter of `G(n, p)` for `p >= c log n / n`, `c` constant | exact source for Theorem 6.2 of A1: with `c = alpha > 1`, `diam <= log n / log log n` w.h.p. | `ChungLu2001`, Theorem 4 (authors' PDF; journal numbering not compared) |
+| Edge connectivity = minimum degree w.h.p. in `G(n, p)` | Theorem 6.3 of A1 | not verified first-hand: Bollobas, Thomason 1985 and Section 7.2 of `Bollobas2001` according to secondary sources |
+| Chernoff tails `P(X <= a mu) <= exp(-mu h(a))`, `h(a) = a log a - a + 1`, and the upper tail with the same `h` | Lemma 6.4 of A1 | Frieze-Karonski, free PDF 2026: (34.19) and (34.17), Section 34.4, p. 707 (`phi(a - 1) = h(a)`); printed numbering (Ch. 21) not verified |
+
+Diameter two is the boundary of tractability for Most Vital Edges and for Matching Cut. Whether Min Cut-Path is NP-hard on graphs of diameter three is open (the reduction of A1 produces graphs of large diameter).
 
 Note for texts: if `cp = c + d − 1` holds, the union of any minimum cut and any shortest path is a minimum cut-path (A1, Remark IV.6).
 

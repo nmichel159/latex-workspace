@@ -22,6 +22,11 @@
 % VERIFIED 2026-10-09 (DOI on the publisher page link.springer.com, eBook ISBN 978-3-662-70107-2, and in its Crossref record with the entry's ISBN; other fields 2026-10-07: publisher page or catalogue).
 % The 6th edition appeared in 2025; the master's thesis and the original .bib had 2023 and
 % ISBN 978-3-662-67631-2, which has an invalid check digit.
+% Locations checked 2026-10-09 in the author's free preview of the 6th edition (diestel-graph-theory.com/basic.html,
+% Chapter 3 PDF): Proposition 3.1.1, p. 63 (2-connected iff built from a cycle by adding H-paths, the ear
+% construction); Lemma 3.1.2, p. 64 (cycles and bonds lie in single blocks); Lemma 3.1.3, p. 65 (two edges lie in
+% a common block iff in a common cycle iff in a common bond); Lemma 3.1.4, p. 66 (the block graph of a connected
+% graph is a tree; stated without proof, Exercise 7 of Chapter 3).
 @book{Diestel2025,
   author    = {Diestel, Reinhard},
   title     = {Graph Theory},
@@ -62,6 +67,13 @@
 }
 
 % VERIFIED 2026-10-07 (dblp, STOC '71, pages 151-158).
+% Crossref record rechecked 2026-10-09 (title, author, pages 151-158, 1971, ACM Press, New York).
+% Content read 2026-10-09 (scan on the author's page cs.toronto.edu/~sacook): Theorem 1 (p. 152) reduces every set
+% accepted in nondeterministic polynomial time to DNF tautologies; Theorem 2 (p. 153) shows that {tautologies},
+% {DNF tautologies}, D3 (DNF tautologies with at most three conjuncts per disjunct) and {subgraph pairs} are
+% P-reducible to each other. The complement of D3 is satisfiability of CNF formulas with at most three literals
+% per clause. P-reducible is polynomial-time reducibility with an oracle (query machine), not the many-one
+% reducibility of NP-completeness; the term NP-complete does not occur.
 @inproceedings{Cook1971Complexity,
   author    = {Cook, Stephen A.},
   title     = {The Complexity of Theorem-Proving Procedures},
@@ -71,6 +83,25 @@
   address   = {New York, NY, USA},
   year      = {1971},
   doi       = {10.1145/800157.805047}
+}
+
+% VERIFIED 2026-10-09 (Crossref records of the chapter DOI and of the book DOI 10.1007/978-1-4684-2001-2).
+% Compared: title, author, book title, the three editors, pages 85-103, 1972, publisher Springer US, Boston, MA.
+% The 1972 printing was published by Plenum Press, New York (IBM Research Symposia Series) according to
+% secondary listings; the entry follows the Crossref record.
+% Content not read on 2026-10-09: the free scan (cgi.di.uoa.gr/~sgk/teaching/grad/handouts/karp.pdf) exceeds the
+% fetch limit. Secondary sources attribute to it the NP-completeness (many-one reductions) of satisfiability with
+% at most three literals per clause; open pp. 85-103 before the citation goes into a manuscript.
+@incollection{Karp1972Reducibility,
+  author    = {Karp, Richard M.},
+  title     = {Reducibility among Combinatorial Problems},
+  booktitle = {Complexity of Computer Computations},
+  editor    = {Miller, Raymond E. and Thatcher, James W. and Bohlinger, Jean D.},
+  pages     = {85--103},
+  publisher = {Springer US},
+  address   = {Boston, MA},
+  year      = {1972},
+  doi       = {10.1007/978-1-4684-2001-2_9}
 }
 
 % ----------------------------------------------------------------------------
@@ -167,6 +198,13 @@
 % The original ISBN ended in 6 (invalid check digit).
 % Note 2026-10-08: Crossref (published-print 2015-10-26) and the publisher page (citation_publication_date
 % 2015/10) date the book 2015; the entry keeps 2016 until the owner confirms the year.
+% Note 2026-10-09: the PDF at the url field is a revised version dated 2026-08-07 (854 pages, 38 chapters); the
+% printed book has 22 chapters (cambridge.org contents: Ch. 1 pp. 3-18, Ch. 4 Connectivity pp. 63-70, Ch. 7
+% Extreme Characteristics pp. 110-137, Ch. 21 Inequalities pp. 386-409). Locations in the 2026 PDF:
+% coupling (1.3) and monotonicity (1.7) in Sec. 1.1, pp. 5-7; Theorem 7.1 (diameter d for fixed d), p. 121;
+% Theorem 7.2 (diameter for p = omega log n / n, omega to infinity), p. 125; Theorem 4.3 (k-connectivity, k fixed),
+% p. 71; Chernoff bounds (34.17), (34.19), Theorem 34.6, Sec. 34.4, pp. 705-708. The printed numbering is not
+% verified (Inequalities is Ch. 21 in print, Ch. 34 in the PDF); cite the printed book only with checked numbers.
 @book{Frieze2016,
   author    = {Frieze, Alan and Karo{\'n}ski, Micha{\l}},
   title     = {Introduction to Random Graphs},
@@ -226,6 +264,11 @@
 % and was left out).
 % Exact source for the diameter of G(n,p) as recorded 2026-10-07: (1+o(1)) log n / log(np) if np tends
 % to infinity; for np/log n = c > c0 the diameter is concentrated on finitely many values.
+% Corrected 2026-10-09 after reading the authors' PDF (fanchung.ucsd.edu/dia.pdf, Section 4, p. 15):
+% (1+o(1)) log n / log(np) is Theorem 5 and needs log n > np -> infinity (below the connectivity threshold).
+% For p >= c log n / n with a constant c, Theorem 4 gives almost surely
+% ceil(log(cn/11)/log(np)) <= diam <= ceil(log(33 c^2 n log n / 400)/log(np)) + 2 floor(1/c) + 2.
+% The journal numbering was not compared (ScienceDirect refused the request). Note: knowledge/literature/ChungLu2001.md.
 % Recommended for Theorem VI.2 of article 1 (so far only Bollobas2001 is cited there).
 @article{ChungLu2001,
   author  = {Chung, Fan and Lu, Linyuan},
@@ -243,10 +286,12 @@
 % (not cited yet; recommended for the related-work section of article 1)
 % ----------------------------------------------------------------------------
 
-% VERIFIED 2026-10-07 (arXiv:2101.03519). The primary class cs.DS was added 2026-10-08 from the arXiv API record.
-% A non-separating st-path is a path whose removal of EDGES leaves the graph connected; its existence is
-% NP-hard on general graphs; on chordal graphs a shortest such path is found in time O(n log n + m).
-% The mirror notion of Separating Shortest Path.
+% VERIFIED 2026-10-09 (arXiv abstract page of 2101.03519, v3 of 2021-02-09: title, author, year of v1, cs.DS).
+% A non-separating st-path is a path whose removal of EDGES leaves the graph connected (Definition 1.1); its
+% existence is NP-hard on general graphs (Theorem 1.6, Section 9, reduction from 3-SAT); on chordal graphs a
+% shortest such path is found in time O(n log n + m) (Theorem 1.4). The mirror notion of Separating Shortest Path.
+% No published version found 2026-10-09 (arXiv page lists no journal reference; Crossref title search; web search);
+% Abhinav2022NonSeparating (MFCS 2022) cites it as a CoRR preprint. Note: knowledge/literature/Mao2021NonSeparating.md.
 @misc{Mao2021NonSeparating,
   author        = {Mao, Xiao},
   title         = {Shortest non-separating st-path on chordal graphs},
@@ -255,6 +300,84 @@
   archivePrefix = {arXiv},
   primaryClass  = {cs.DS},
   note          = {arXiv preprint}
+}
+
+% VERIFIED 2026-10-09 (DROPS page and its BibTeX export for DOI 10.4230/LIPIcs.MFCS.2022.6).
+% Compared: authors, title, booktitle, editors, series, volume 241, pages 6:1-6:15, publisher, 2022. Crossref has
+% no record (LIPIcs DOIs are registered with DataCite). Full text read 2026-10-09.
+% Note: knowledge/literature/Abhinav2022NonSeparating.md.
+@inproceedings{Abhinav2022NonSeparating,
+  author    = {Abhinav, Ankit and Bandopadhyay, Susobhan and Banik, Aritra and Kobayashi, Yasuaki and Nagano, Shunsuke and Otachi, Yota and Saurabh, Saket},
+  title     = {Parameterized Complexity of Non-Separating and Non-Disconnecting Paths and Sets},
+  booktitle = {47th International Symposium on Mathematical Foundations of Computer Science (MFCS 2022)},
+  editor    = {Szeider, Stefan and Ganian, Robert and Silva, Alexandra},
+  series    = {Leibniz International Proceedings in Informatics (LIPIcs)},
+  volume    = {241},
+  pages     = {6:1--6:15},
+  publisher = {Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  address   = {Dagstuhl, Germany},
+  year      = {2022},
+  doi       = {10.4230/LIPIcs.MFCS.2022.6}
+}
+
+% VERIFIED 2026-10-09 (Crossref record of the DOI).
+% Compared: authors, title, Networks 73, issue 1, pages 23-37, print issue 2019-01 (online 2018-08-25).
+% Read 2026-10-09 in the preprint arXiv:1804.09155v1 (the journal text was not reachable); theorem numbers in the
+% note refer to the preprint. Note: knowledge/literature/Bazgan2019MostVital.md.
+@article{Bazgan2019MostVital,
+  author  = {Bazgan, Cristina and Fluschnik, Till and Nichterlein, Andr{\'e} and Niedermeier, Rolf and Stahlberg, Maximilian},
+  title   = {A more fine-grained complexity analysis of finding the most vital edges for undirected shortest paths},
+  journal = {Networks},
+  volume  = {73},
+  number  = {1},
+  pages   = {23--37},
+  year    = {2019},
+  doi     = {10.1002/net.21832}
+}
+
+% VERIFIED 2026-10-09 (DROPS page and its BibTeX export for DOI 10.4230/LIPIcs.SEA.2025.6).
+% Compared: authors, title, booktitle, editors, series, volume 338, pages 6:1-6:14, publisher, 2025.
+% Section 1 of the full text read 2026-10-09. Note: knowledge/literature/Bentert2025NetworkDiversion.md.
+@inproceedings{Bentert2025NetworkDiversion,
+  author    = {Bentert, Matthias and Drange, P{\r{a}}l Gr{\o}n{\r{a}}s and Fomin, Fedor V. and Simonnes, Steinar},
+  title     = {Planar Network Diversion},
+  booktitle = {23rd International Symposium on Experimental Algorithms (SEA 2025)},
+  editor    = {Mutzel, Petra and Prezza, Nicola},
+  series    = {Leibniz International Proceedings in Informatics (LIPIcs)},
+  volume    = {338},
+  pages     = {6:1--6:14},
+  publisher = {Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  address   = {Dagstuhl, Germany},
+  year      = {2025},
+  doi       = {10.4230/LIPIcs.SEA.2025.6}
+}
+
+% VERIFIED 2026-10-09 (Crossref record of the DOI).
+% Compared: authors, title, Theoretical Computer Science 770, pages 69-78, 2019-05; no issue number in the record.
+% Read 2026-10-09 in the accepted version arXiv:1804.11102v2 (Sections 1-2, 4.2).
+% Note: knowledge/literature/LeLe2019MatchingCut.md.
+@article{LeLe2019MatchingCut,
+  author  = {Le, Hoang-Oanh and Le, Van Bang},
+  title   = {A complexity dichotomy for matching cut in (bipartite) graphs of fixed diameter},
+  journal = {Theoretical Computer Science},
+  volume  = {770},
+  pages   = {69--78},
+  year    = {2019},
+  doi     = {10.1016/j.tcs.2018.10.029}
+}
+
+% VERIFIED 2026-10-09 (Crossref record of the DOI).
+% Compared: authors, title, Discrete Applied Mathematics 283, pages 44-58, 2020-09; no issue number in the record.
+% Read 2026-10-09 in the accepted version from the Marburg group's page (abstract, Section 1).
+% Note: knowledge/literature/Komusiewicz2020MatchingCut.md.
+@article{Komusiewicz2020MatchingCut,
+  author  = {Komusiewicz, Christian and Kratsch, Dieter and Le, Van Bang},
+  title   = {Matching cut: Kernelization, single-exponential time {FPT}, and exact exponential algorithms},
+  journal = {Discrete Applied Mathematics},
+  volume  = {283},
+  pages   = {44--58},
+  year    = {2020},
+  doi     = {10.1016/j.dam.2019.12.010}
 }
 
 % ----------------------------------------------------------------------------
