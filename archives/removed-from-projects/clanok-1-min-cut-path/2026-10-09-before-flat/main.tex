@@ -1,0 +1,90 @@
+% Wrapper written from cas-sc-template.tex of the Elsevier CAS bundle 2.4 (class cas-sc, single column).
+% This is the only template-dependent file; the manuscript is in preamble/ and sections/, which use standard
+% LaTeX markup (list labels [(a)]: see preamble/packages.tex) and build under another class too.
+
+% float (for the [H] figures and the [H] algorithm) is loaded before the class: the class loads hyperref,
+% which adapts its float anchors only to a float package loaded before it (otherwise each figure anchor is
+% written twice). preamble/packages.tex loads float again, which is then a no-op.
+\RequirePackage{float}
+\documentclass[a4paper,fleqn]{cas-sc}
+
+\usepackage[numbers,sort&compress]{natbib}
+
+\input{preamble/packages}
+\input{preamble/environments}
+\input{preamble/macros}
+
+% The class sets the text in STIX, which has no italic small caps: \textsc inside italic text takes the
+% upright small caps that the font selection substitutes anyway; declared here so that it gives no warning.
+\AtBeginDocument{%
+  \DeclareFontShape{T1}{stix}{m}{scit}{<->ssub*stix/m/sc}{}%
+  \DeclareFontShape{T1}{stix}{b}{scit}{<->ssub*stix/b/sc}{}}
+
+% Key nologo of the class: the e-mail address is labelled "Email address:" instead of the icon
+% thumbnails/cas-email.jpeg, so the manuscript also builds from one folder without sub-folders.
+% Key H: the class's figure takes key-value options and would lose a plain [H] (it stores an empty placement);
+% H is declared as a short form of the class's own key pos=H, so sections/ keep the standard \begin{figure}[H].
+\ExplSyntaxOn
+\keys_set:nn { stm / mktitle } { nologo }
+\keys_define:nn { cas / fig } { H .meta:n = { pos = H } }
+\ExplSyntaxOff
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+
+\shorttitle{Min Cut-Path Problem}
+
+\shortauthors{N. Micheľ}
+
+\title[mode = title]{Min Cut-Path Problem}
+
+\author[1]{Norbert Micheľ}
+
+\cormark[1]
+
+\ead{5344553@upjs.sk}
+
+\affiliation[1]{organization={Institute of Computer Science, Faculty of Science, Pavol Jozef Šafárik University in Košice},
+            addressline={Jesenná 5},
+            postcode={040 01},
+            postcodesep={},
+            city={Košice},
+            country={Slovakia}}
+
+\cortext[1]{Corresponding author}
+
+% The class writes the abstract body verbatim to a file and reads it back. The optional argument (the class's
+% own heading) is given explicitly: without it, the class looks ahead for one and the \input command is lost.
+\begin{abstract}[\abstractname]
+\input{sections/00-abstract}
+\end{abstract}
+
+\begin{keywords}
+NP-completeness \sep edge connectivity \sep graph diameter \sep Erdős–Rényi graphs \sep average-case approximation
+\end{keywords}
+
+\maketitle
+
+% PDF author field: \maketitle of the class fills it with the author list followed by ", ", which the
+% PDF shows as a stray character; set after \maketitle, before the first page is written.
+\hypersetup{pdfauthor={Norbert Micheľ}}
+
+\input{sections/01-introduction}
+\input{sections/02-fundamentals}
+\input{sections/03-np-completeness}
+\input{sections/04-diameter-two}
+\input{sections/05-cut-two}
+\input{sections/06-random-graphs}
+\input{sections/07-conclusion}
+
+\section*{Acknowledgments}
+
+\input{sections/90-acknowledgments}
+
+\bibliographystyle{cas-model2-names}
+
+\bibliography{references}
+
+\end{document}

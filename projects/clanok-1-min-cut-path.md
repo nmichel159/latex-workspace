@@ -1,18 +1,29 @@
 # Article 1 - Min Cut-Path Problem
 
+**Layout since 2026-10-09: the folder is what is sent.** `projects/clanok-1-min-cut-path/` holds only what the build
+needs, with no sub-folders: `main.tex` (one file written from `cas-sc-template.tex`; packages, environments, macros
+and the whole text are in it), `cas-sc.cls`, `cas-common.sty`, `cas-model2-names.bst` (byte-identical to
+`templates/els-cas/`), `references.bib` and the six PNG figures.
+To send: zip the content of the folder and submit it, after `package-project.ps1 -Template els-cas -Flat
+-KeepComments` ends with `Verdict: PASS` (2026-10-09: PASS, 16 pages, PDF text identical to the modular version).
+Beside the folder: these notes and `projects/clanok-1-min-cut-path.submission/` (draft AI declaration).
+Still open: "Open items for the author" below (AI declaration, funding, highlights, figures, abstract) and "Content
+changes to review". "Change history" names `preamble/` and `sections/` files; their content is now in `main.tex`, the
+files are in `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-before-flat/`.
+
 ## Intent
 
 | | |
 |---|---|
 | Type | journal article (manuscript) |
 | Language | English (American spelling) |
-| Main file | `main.tex` (wrapper; text in `sections/`) |
-| Target journal | Discrete Applied Mathematics (Elsevier), article type *Contribution* (more than 10 pages); venue card [knowledge/venues/discrete-applied-mathematics.md](../../knowledge/venues/discrete-applied-mathematics.md) |
+| Main file | `main.tex` (the whole manuscript in one file, written from `cas-sc-template.tex`) |
+| Target journal | Discrete Applied Mathematics (Elsevier), article type *Contribution* (more than 10 pages); venue card [knowledge/venues/discrete-applied-mathematics.md](../knowledge/venues/discrete-applied-mathematics.md) |
 | Class | `cas-sc.cls` (Elsevier CAS bundle 2.4, single column; `\ProvidesClass`: `cas-sc 2024/05/04, 2.4`) with `cas-common.sty`; bibliography `cas-model2-names.bst` via `\usepackage[numbers,sort&compress]{natbib}` |
-| Template folder | `templates/els-cas/` (the official template the DAM guide for authors links; download URL and SHA-256 in `templates/SOURCES.tsv`); `cas-sc.cls`, `cas-common.sty` and `cas-model2-names.bst` here are byte-identical to it (SHA-256 compared 2026-10-08) and are never edited in the project; the wrapper `main.tex` is written from `cas-sc-template.tex` |
+| Template folder | `templates/els-cas/` (the official template the DAM guide for authors links; download URL and SHA-256 in `templates/SOURCES.tsv`); `cas-sc.cls`, `cas-common.sty` and `cas-model2-names.bst` here are byte-identical to it (SHA-256 compared 2026-10-08) and are never edited in the project; `main.tex` is written from `cas-sc-template.tex` |
 | Bibliography | `references.bib` (12 entries, all cited and verified) |
 | Origin | Overleaf export `archives/clanok_1_min_cut_path.zip` (2026-10-07); class `new-aiaa` until 2026-10-08 |
-| Knowledge base | [knowledge/research/min-cut-path.md](../../knowledge/research/min-cut-path.md) |
+| Knowledge base | [knowledge/research/min-cut-path.md](../knowledge/research/min-cut-path.md) |
 
 ## Status
 
@@ -32,9 +43,9 @@ the open items below.
 1. **Keywords** (DAM: 1-7, required): proposed in `main.tex`, confirm or change (see "Content changes to review",
    item 13).
 2. **AI declaration** (Elsevier requires it in the manuscript when AI tools were used beyond grammar, spelling and
-   reference checks): drafted in `submission/ai-declaration.tex`, not in the manuscript. Fill in the model and
-   version, check the purposes, then insert it as the comment block of that file describes: the text as
-   `sections/91-ai-declaration.tex`, the heading and the `\input` line in `main.tex` before
+   reference checks): drafted in `projects/clanok-1-min-cut-path.submission/ai-declaration.tex`, not in the
+   manuscript. Fill in the model and version, check the purposes, then insert it as the comment block of that file
+   describes: the heading and the paragraph directly in `main.tex` before
    `\section*{Acknowledgments}` (DAM wants the acknowledgments directly before the reference list and the declaration
    before the reference list). The packager fails while `[MODEL AND VERSION]` is in the manuscript.
 3. **Funding:** list the funders in the form the guide gives ("Funding: This work was supported by ... [grant
@@ -50,7 +61,7 @@ the open items below.
    current files carry (see "Known problems", figure metadata).
 8. **Figure citations and captions** (DAM guide, "Figures, images and other artwork" and "Captions": cite all images
    in the text; a caption is a brief title and a description of the image): Figures 2, 3 and 5 (`fig:chain-link`,
-   `fig:chain`, `fig:threading` in `sections/03-np-completeness.tex`) are never cited in the text, only shown, and
+   `fig:chain`, `fig:threading` in Section 3 of `main.tex`) are never cited in the text, only shown, and
    their captions are a bare title ("A chain link", "A chain", "The threading operation"). Wording is the author's
    decision: for example "(Figure~\ref{fig:chain-link})" at the definitions of chain link, chain and threading, and
    one descriptive clause per caption. (Found in the review of 2026-10-08; not changed.)
@@ -59,8 +70,8 @@ the open items below.
    cut-value at most two, and the random-graph results are missing (also "Known problems", Assessment item 3).
    Rewriting it is the author's decision.
 10. **Math notation** (DAM guide, "Math formulae": the solidus for small fractional terms, powers of e written with
-    exp): inline `\frac` in `sections/06-random-graphs.tex` (`$p = \frac{1}{\alpha}$`, `$p = \frac{\alpha \log n}{n}$`
-    and the same fraction in running text) and `e^{-\mu h(a)}` in two displays of the same file. Possible forms:
+    exp): inline `\frac` in Section 6 of `main.tex` (`$p = \frac{1}{\alpha}$`, `$p = \frac{\alpha \log n}{n}$`
+    and the same fraction in running text) and `e^{-\mu h(a)}` in two displays of the same section. Possible forms:
     `1/\alpha`, `\alpha\log n/n`, `\exp(-\mu h(a))`; notation changes are the author's decision. Elsevier typesets
     accepted articles itself, so this is a style point, not a blocker.
 11. **Year of Frieze–Karoński** (bibliography): the publisher's page (`citation_publication_date` 2015/10) and
@@ -96,34 +107,34 @@ Labels of statements: `lem:basic-bounds`, `thm:ssp-np-complete`, `alg:reduction`
 ## Files
 
 ```
-main.tex                    wrapper written from cas-sc-template.tex, the only class-dependent file: \RequirePackage{float},
-                            \documentclass[a4paper,fleqn]{cas-sc}, natbib, small-caps font shapes, key nologo, key alias H
-                            for figures, front matter (\shorttitle, \shortauthors, \title, \author, \cormark, \ead,
-                            \affiliation, \cortext, abstract, keywords), \maketitle, \hypersetup{pdfauthor}, \input of the
-                            parts, Acknowledgments heading, \bibliographystyle{cas-model2-names}, \bibliography
-preamble/packages.tex       graphicx, amsmath, amssymb (the class loads them too; kept so that preamble/ stays portable),
-                            float, tcolorbox, amsthm, algorithm, algpseudocode; the class loads etoolbox and hyperref
-preamble/environments.tex   equation numbering, theorem environments (\newtheorem, shared counter), problem box,
-                            algorithm headers Input/Output
-preamble/macros.tex         notation macros \cp, \CP, \diam, \OPT, \MinCutPath, \SSP, \ThreeSAT
-sections/00-abstract.tex    abstract text
-sections/01-introduction.tex, 02-fundamentals.tex, 03-np-completeness.tex, 04-diameter-two.tex,
-sections/05-cut-two.tex, 06-random-graphs.tex, 07-conclusion.tex
-sections/90-acknowledgments.tex  acknowledgment text (heading in main.tex)
+projects/clanok-1-min-cut-path/     (everything in it is sent; no sub-folders)
+main.tex                    the whole manuscript, written from cas-sc-template.tex: \RequirePackage{float},
+                            \documentclass[a4paper,fleqn]{cas-sc}, natbib; packages float, tcolorbox, amsthm, algorithm,
+                            algpseudocode (the class loads graphicx, amsmath, amssymb, etoolbox and hyperref); equation
+                            numbering, theorem environments (\newtheorem, shared counter), problem box, algorithm
+                            headers Input/Output; notation macros \cp, \CP, \diam, \OPT, \MinCutPath, \SSP, \ThreeSAT;
+                            small-caps font shapes, key nologo, key alias H for figures; front matter (\shorttitle,
+                            \shortauthors, \title, \author, \cormark, \ead, \affiliation, \cortext, abstract, keywords),
+                            \maketitle, \hypersetup{pdfauthor}; Sections 1-7; Acknowledgments;
+                            \bibliographystyle{cas-model2-names}, \bibliography
 references.bib              bibliography
 cas-sc.cls                  document class (Elsevier CAS bundle 2.4), pristine copy of templates/els-cas/
 cas-common.sty              macros of the CAS classes, pristine copy
 cas-model2-names.bst        bibliography style of the CAS bundle, pristine copy
-img/                        chain.png, chain-link.png, chain-link-types.png, chain-threads.png, threading.png, diameter-two-structure.png
-submission/ai-declaration.tex   draft AI declaration for the author (workspace-only, never packaged, not \input)
+chain.png, chain-link.png, chain-link-types.png, chain-threads.png, threading.png, diameter-two-structure.png   figures
+
+beside the folder (never sent)
+projects/clanok-1-min-cut-path.md                              these notes
+projects/clanok-1-min-cut-path.submission/ai-declaration.tex   draft AI declaration for the author
 ```
 
-No `thumbnails/` folder: the wrapper sets the class key `nologo` (see "Build").
+No `thumbnails/` folder: `main.tex` sets the class key `nologo` (see "Build").
 
 Version before the revision: `archives/removed-from-projects/clanok-1-min-cut-path/main-before-revision-2026-10-07.tex`
-(compare with the single-file version `main-before-split-2026-10-07.tex` in the same folder, or with `sections/`).
+(compare with the single-file version `main-before-split-2026-10-07.tex` in the same folder).
 Wrapper before the port: `main-before-port-2026-10-08.tex` in the same folder, together with `new-aiaa.cls` and
-`new-aiaa.bst`.
+`new-aiaa.bst`. Modular version of 2026-10-08 (wrapper `main.tex`, `preamble/`, `sections/`): sub-folder
+`2026-10-09-before-flat/` of the same folder.
 
 ## Build
 
@@ -131,18 +142,23 @@ Wrapper before the port: `main-before-port-2026-10-08.tex` in the same folder, t
 .\scripts\build-project.ps1 -Project clanok-1-min-cut-path
 ```
 
-PDF: [outputs/clanok-1-min-cut-path/main.pdf](../../outputs/clanok-1-min-cut-path/main.pdf)
+PDF: [outputs/clanok-1-min-cut-path/main.pdf](../outputs/clanok-1-min-cut-path/main.pdf)
 
-Package (the only form in which the article is sent to a reviewer, a co-author or a journal; rule:
-[latex-conventions.md](../../knowledge/writing/latex-conventions.md) §1.1). Editorial Manager cannot process
-sub-folders, hence `-Flat`; DAM states no page limit for a Contribution, hence no `-MaxPages`:
+Package check (what is sent is the project folder itself, zipped; the packager is the check that must end with
+`Verdict: PASS` before sending). Editorial Manager cannot process sub-folders, hence the flat folder and `-Flat`;
+DAM states no page limit for a Contribution, hence no `-MaxPages`; `-KeepComments` because the folder is sent with
+its comments:
 
 ```powershell
-.\scripts\package-project.ps1 -Project clanok-1-min-cut-path -Template els-cas -Flat -CheckOnly   # after a new file, a new package, a touched class file
-.\scripts\package-project.ps1 -Project clanok-1-min-cut-path -Template els-cas -Flat              # before sending: zip and PDF in outputs/clanok-1-min-cut-path/package/
+.\scripts\package-project.ps1 -Project clanok-1-min-cut-path -Template els-cas -Flat -KeepComments -CheckOnly   # after a new file, a new package, a touched class file
+.\scripts\package-project.ps1 -Project clanok-1-min-cut-path -Template els-cas -Flat -KeepComments              # before sending
 ```
 
-Send only on `Verdict: PASS`. Last runs 2026-10-09, 08:05-08:08, with the packager as changed after the review:
+Send only on `Verdict: PASS`. Last run 2026-10-09 after the move to the flat folder (`-Template els-cas -Flat
+-KeepComments`): `Verdict: PASS`, 16 pages, `Trace scan: 11 files, 0 hits (0 allowed); 3 files identical to the
+template not scanned`, 22 comment lines kept, one finding `[ai-declaration]` (the packager looks for the draft in
+`projects/clanok-1-min-cut-path/submission/`; it is now in `projects/clanok-1-min-cut-path.submission/`).
+Runs of the modular layout earlier that day, 08:05-08:08, with the packager as changed after the review:
 `-Template els-cas -CheckOnly`: `Verdict: PASS` (`Trace scan: 20 files, 0 hits (0 allowed); 3 files identical to
 the template not scanned`); `-Template els-cas -Flat`: `Verdict: PASS`, 24 files in
 `outputs/clanok-1-min-cut-path/package/clanok-1-min-cut-path-20261009-flat.zip`, PDF beside it
@@ -157,12 +173,13 @@ packages; harmless, kept), `[ai-declaration]` 1 (the advisory note, open item 2)
 PDF has Type 1 fonts only, all embedded). The packages of 2026-10-08 (17 pages, no book DOIs) were moved out of
 `outputs/clanok-1-min-cut-path/package/` to `tmp/review-fix/superseded-packages/`. The staged `references.bib` has no header comment (the packager
 strips `.bib` comment lines); the draw.io copies inside the six PNG files are decoded and scanned as well (no hit).
-Upload to Editorial Manager: the files of the `-flat` zip, the
-`.tex`, `.bbl`, `.bst`, `.sty`, `.cls` and `.bib` files as Manuscript items, the six PNG files as Figure items
-(Elsevier LaTeX instructions).
+Upload to Editorial Manager: the files of the folder, the
+`.tex`, `.bst`, `.sty`, `.cls` and `.bib` files as Manuscript items, the six PNG files as Figure items
+(Elsevier LaTeX instructions). The folder holds no `main.bbl` (a build product; the packager's zip adds one):
+TODO(verify) whether Editorial Manager needs the `.bbl` beside the `.bib`.
 
-Lines of the wrapper that the template's sample does not have, each needed by the class (details:
-[template-porting.md](../../knowledge/writing/template-porting.md) §6.3):
+Lines of `main.tex` that the template's sample does not have, each needed by the class (details:
+[template-porting.md](../knowledge/writing/template-porting.md) §6.3):
 
 - `\RequirePackage{float}` before `\documentclass`: the class loads hyperref, which writes every figure anchor twice
   when float comes later.
@@ -170,9 +187,9 @@ Lines of the wrapper that the template's sample does not have, each needed by th
   icon `thumbnails/cas-email.jpeg`, which needs a sub-folder that Editorial Manager cannot process.
 - `\keys_define:nn { cas / fig } { H .meta:n = { pos = H } }` (since 2026-10-09): the class's `figure` takes
   key-value options and drops a plain `[H]`; `H` is declared as a short form of the class's own key `pos=H`, so
-  `sections/` keep the standard `\begin{figure}[H]` and need no change at the next port.
-- `\begin{abstract}[\abstractname]`: the class writes the abstract verbatim and, without the optional argument, loses
-  the `\input` line.
+  the figures keep the standard `\begin{figure}[H]`.
+- `\begin{abstract}[\abstractname]`: the class writes the abstract verbatim; without the optional argument it lost
+  the `\input` line of the modular layout. Kept since the abstract text is in `main.tex`.
 - `\DeclareFontShape` for `T1/stix/m/scit` and `b/scit`: STIX has no italic small caps; the substitution the font
   system makes anyway, declared without a warning.
 - `\hypersetup{pdfauthor={Norbert Micheľ}}` after `\maketitle`: the class's own value ends with a stray character.
@@ -214,7 +231,7 @@ from each other, and I found no error in the proofs in their current wording (I 
 - Citation [3] for the cactus structure is given as "cf." - the work concerns the cactus representation of 2-cuts;
   the statement itself is justified directly in the article.
 - The "Intent" section does not yet answer the four questions of
-  [paper-structure.md](../../knowledge/writing/paper-structure.md) §1 (main claim, contributions, closest work, reader
+  [paper-structure.md](../knowledge/writing/paper-structure.md) §1 (main claim, contributions, closest work, reader
   and venue): for the author to fill in.
 
 ### Build and template (2026-10-08, class `cas-sc` 2.4)
@@ -247,23 +264,24 @@ from each other, and I found no error in the proofs in their current wording (I 
 - One `Underfull \hbox (badness 1292)` in the reference list (the Mehlhorn et al. entry, line broken inside the DOI);
   cosmetic.
 - PDF subject "Complex STM Content" is set by the class; title and author are set (`pdfinfo`).
-- `check-text.ps1`: 77 findings, all in the wording of `sections/`, which the port did not change (rule: content and
-  wording are the author's); `main.tex` 0 findings. `submission/ai-declaration.tex`: one long sentence and "in order
+- `check-text.ps1` (run on the modular layout): 77 findings, all in the wording of the sections, which the port did
+  not change (rule: content and wording are the author's); the wrapper lines 0 findings.
+  `projects/clanok-1-min-cut-path.submission/ai-declaration.tex`: one long sentence and "in order
   to", both from Elsevier's prescribed statement, kept on purpose.
 
 ### Deviations from the rules in `knowledge/writing/`
 
 - References with `Theorem~\ref{...}`; no `cleveref` (not requested; the class loads `hyperref`, `natbib` is loaded
-  in the wrapper).
+  in `main.tex`).
 - Theorem environments with `\newtheorem[definition]` (correct only while cleveref is not loaded).
 - Figures placed with `[H]` (through the key alias `H` in `main.tex`; from 2026-10-08 to 2026-10-09 the sections
   carried the class's `[pos=H]`), the algorithm with `[H]`; house rule: `[tb]`.
 - Figures are PNG drawings, not vector PDF (see above).
 - Lists use the class's own `enumerate` and `itemize` (since 2026-10-09; `enumitem`, which replaced them with
-  `article`'s spacing, was removed). The labelled list in `sections/03-np-completeness.tex` line 341 is written
+  `article`'s spacing, was removed). The labelled list in Section 3 (proof of Theorem 3.5) is written
   `\begin{enumerate}[(a)]`, the class's label syntax (before: `[label=(\alph*)]` with `enumitem`); under a class
-  without that syntax `preamble/packages.tex` needs `\usepackage{enumerate}`. The plain `enumerate` nested in item
-  (b) of the two-way correspondence (proof of Theorem 3.5, line 360) is labelled (a)-(c), the same style as the outer
+  without that syntax the preamble needs `\usepackage{enumerate}`. The plain `enumerate` nested in item
+  (b) of the two-way correspondence (proof of Theorem 3.5) is labelled (a)-(c), the same style as the outer
   list (a)-(b); `new-aiaa` printed 1)-3). If the author wants other labels there, `\begin{enumerate}[1.]` on that line
   would do it (markup only; not changed, because it was not requested).
 
