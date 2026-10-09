@@ -111,7 +111,7 @@ The first exchanges the names $A_1$ and $A_2$, and with them $I$ with $L$ and $J
 The second exchanges $u$ and $v$: the values $c(u, v)$, $d(u, v)$ and $\cp(u, v)$ do not depend on the order of $u$ and $v$, and $P$ read backwards is a $v$--$u$ path.
 By Lemma~\ref{lem:empty-i-or-l} and the first exchange, we may assume that $L = \emptyset$; by the second exchange, we may then assume that $u \in A_2$.
 Since $A_2 = K \cup L = K$, we have $u \in K$, so the graph is partitioned into the three sets $I, J, K$.
-This agrees with the fact that the first edge of $P$ belongs to the cut and is incident to $u$.
+Accordingly, $u$ is incident to an edge of the cut: the first edge of $P$ belongs to the cut and is incident to $u$.
 We observe that $v \in J$: the last edge of $P$ belongs to the cut and is incident to $v$, so the vertex $v$ cannot belong to the set $I$.
 This structure is illustrated in Figure~\ref{fig:diameter-two-structure}.
 
@@ -130,11 +130,13 @@ Counting the edges of $C$ according to their end-vertex in $K$, we estimate the 
 Here $\deg(u, I) = 0$, because $u \in K$ has no neighbors in $I$: an edge between $u \in A_2$ and a vertex of $I \subseteq A_1$ would belong to $C$, but no vertex of $I$ is incident to an edge of $C$.
 The terms of the estimate count the following edges:
 \begin{itemize}
-    \item $\deg(u, I)$ and $\deg(u, J)$ denote the numbers of edges that lead from the vertex $u$ to the opposite side of the minimum cut,
+    \item The terms $\deg(u, I)$ and $\deg(u, J)$ denote the numbers of edges that lead from the vertex $u$ to the opposite side of the minimum cut.
 
-    \item the path $P$ is contained in the cut and has at least three edges, so its vertices alternate between $A_2$ and $A_1$; hence its third vertex lies in $K$, differs from $u$ because a path does not repeat vertices, and contributes at least two edges to the cut, namely the second and the third edge of $P$,
+    \item The path $P$ is contained in the cut and has at least three edges, so its vertices alternate between $A_2$ and $A_1$.
+    Hence its third vertex lies in $K$ and differs from $u$, because a path does not repeat vertices.
+    This vertex contributes at least two edges to the cut, namely the second and the third edge of $P$.
 
-    \item each of the remaining $|K| - 2$ vertices of the set $K$ is incident to an edge of $C$ by the definition of $K$, so it contributes at least one edge to the cut.
+    \item Each of the remaining $|K| - 2$ vertices of the set $K$ is incident to an edge of $C$ by the definition of $K$, so it contributes at least one edge to the cut.
 \end{itemize}
 The edges counted on the right-hand side are drawn in red in Figure~\ref{fig:diameter-two-structure}.
 
@@ -198,7 +200,7 @@ The path $P$ therefore passes through a sequence of cycles $Z_1, Z_2, \dots, Z_t
 The path $P$ enters $Z_1$ at $u$ and leaves $Z_t$ at $v$.
 For $i < t$, the vertex where $P$ leaves $Z_i$ is the vertex where it enters $Z_{i+1}$, since every edge of $P$ lies on one of these cycles.
 The other arc of each cycle $Z_i$ is edge-disjoint from $P$, and consecutive arcs share these vertices, so the concatenation of these arcs connects $u$ and $v$ in $G \setminus P$.
-This contradicts the fact that $G \setminus P$ contains no $u$--$v$ path.
+This contradicts the assumption that $P$ contains a $u$--$v$ cut.
 Therefore,
 \[
 \cp(u, v) = d(u, v) + 1 = c(u, v) + d(u, v) - 1. \qedhere

@@ -23,3 +23,12 @@
 | 19 | proof of Lemma 2.4 (lower bound, upper bound, particular case) | - | 158-164 |
 | 20 | informal notion of approximation; I(n), OPT(x) | - | 167-168 |
 | 21 | Definition 2.5 Average (1+eps)-Approximation Scheme, enumerate with three items, two displays in item 2, limit in item 3 | `def:approximation-scheme` | 170-188 |
+
+## Confirmation after editing (line numbers of the revised frag-A)
+
+All 21 items present. Front matter 1-20 unchanged; abstract 24-32 (7 sentences, three results); keywords 34-36;
+`\maketitle` and `\hypersetup` 38-42; `sec:introduction` 45 (classical citations 55, novelty sentence 83,
+contributions 86-92, reduction idea and roadmap after them); `sec:fundamentals` 107 (heading now "Preliminaries");
+conventions 109-121 incl. deg(x,S) 121; Definition 2.1 with enumerate 123-131; Figure 1 135-140; Definition 2.2
+142-149; Definition 2.3 151-158; minimum cut-path in prose after it; problem box 164-177; Lemma 2.4 181-188 and proof
+190-198; I(n), OPT(x) 200-202; Definition 2.5 with three items, both displays and the limit 204-222. No label changed.
