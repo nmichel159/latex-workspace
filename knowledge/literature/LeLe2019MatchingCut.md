@@ -24,7 +24,7 @@
 
 | Result | Location in source | Where we use it | Exact assumptions |
 |---|---|---|---|
-| Matching Cut polynomial on diameter two, NP-complete on every fixed diameter d >= 3 | Section 1.1, Theorem 1 | article 1, related work; a remark next to Section 4 | simple graphs |
+| Matching Cut polynomial on diameter two, NP-complete on every fixed diameter d >= 3 | Section 1.1, Theorem 1 | article 1, related work; a remark next to Section 5 | simple graphs |
 
 ## Difference from our work
 

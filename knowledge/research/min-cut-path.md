@@ -42,26 +42,26 @@ Typeset problem names in small caps: `\textsc{Min Cut-Path}`, `\textsc{Separatin
 | Bounds `max(c, d) ≤ cp ≤ c + d − 1` | Claim 7 | Lemma `lem:basic-bounds` (2.3) | added to A1 on 2026-10-07 |
 | The union of a minimum cut and a shortest path is a 2-approximation | Claim 8 | Corollary `cor:two-approximation` (2.4): `\|C ∪ P\| ≤ 2cp − 1` | added to A1 on 2026-10-10 |
 | `min cp(u,v) = min c(u,v)` over the edges `{u,v} ∈ E` | Theorem 9 | – | |
-| Partial Path / Partial Cut Property (a known path or cut of an optimum ⇒ polynomial solution) | Theorem 10, 11 | Lemma `lem:contraction` (7.5): `cp = min (|C| + d_C)` over the inclusion-minimal cuts `C`, the formula behind Theorem 11 | basis of the Path-Cut algorithm; trying all cuts with at most `b` edges takes `|E|^O(b)` time (XP, not FPT) |
-| No PTAS (hence no FPTAS) unless P = NP; FPT with respect to the threshold `b` (treewidth reduction of `Marx2013Separators` and Courcelle's theorem) | – | Section 7 (in `main.tex` since 2026-10-10): Theorem `thm:no-ptas` (7.3, with Lemmas `lem:missed-threads` 7.1 and `lem:unsatisfied-clauses` 7.2), Corollary `cor:no-fptas` (7.4), Theorem `thm:fpt` (7.8), Lemmas `lem:treewidth-reduction` (7.6), `lem:good-set` (7.7) | important cuts do not suffice: in the left graph of Example 5.3 the only important cut gives 4, `cp = 3`; lemmas checked on small graphs (`checks/check_fpt_lemmas.py`, `checks/check_good_set_literal.py`) |
+| Partial Path / Partial Cut Property (a known path or cut of an optimum ⇒ polynomial solution) | Theorem 10, 11 | Lemma `lem:contraction` (8.1): `cp = min (|C| + d_C)` over the inclusion-minimal cuts `C`, the formula behind Theorem 11 | basis of the Path-Cut algorithm; trying all cuts with at most `b` edges takes `|E|^O(b)` time (XP, not FPT) |
+| No PTAS (hence no FPTAS) unless P = NP; FPT with respect to the threshold `b` (treewidth reduction of `Marx2013Separators` and Courcelle's theorem) | – | Section 4 "Approximation Hardness": Theorem `thm:no-ptas` (4.3, with Lemmas `lem:missed-threads` 4.1 and `lem:unsatisfied-clauses` 4.2), Corollary `cor:no-fptas` (4.4); Section 8 "Fixed-Parameter Tractability": Theorem `thm:fpt` (8.4), Lemmas `lem:treewidth-reduction` (8.2), `lem:good-set` (8.3); one Section 7 until the reorder of 2026-10-10 | important cuts do not suffice: in the left graph of Example 6.3 the only important cut gives 4, `cp = 3`; lemmas checked on small graphs (`checks/check_fpt_lemmas.py`, `checks/check_good_set_literal.py`) |
 | Tree-cut: `tc(u,v) = t(G)` in an unweighted graph; fails in a weighted one | Theorem 4, 5 | – | |
-| Decomposition `I, J, K, L` by a cut | Claim 12 (+ Algorithm 1) | Definition `def:cut-decomposition` (4.2; a lemma until 2026-10-10) | |
-| Diameter 2 ⇒ `I = ∅` or `L = ∅` | Claim 13 | Lemma `lem:empty-i-or-l` (4.3) | |
-| Every `u`–`v` path intersects every `u`–`v` cut in an odd number of edges | Claim 14 | Lemma `lem:odd-intersection` (4.4) | holds for a cut of the form `δ(A₁)` |
-| **Diameter 2 ⇒ `cp = c + d − 1`** | Theorem 15 | Theorem `thm:diameter-two` (4.5) | |
-| Diameter 2 ⇒ `c(u,v) = min(deg u, deg v)` | Theorem 16 | Corollary `cor:diameter-two-degrees` (4.7), with `cp = min(deg u, deg v) + d − 1` and a linear-time algorithm | added to A1 on 2026-10-10 |
-| `c(x,y) ≤ 2` for all pairs ⇒ cactus structure | Claim 17 | Lemma `lem:cactus` (5.1): `c(x,y) ≤ 2` for all pairs iff two distinct cycles share at most one vertex (both directions proved); Section 5 is titled "Cactus Graphs" | a lemma with proof since 2026-10-10 |
-| **`c(x,y) ≤ 2` for all pairs ⇒ `cp = c + d − 1`** | Theorem 18 | Theorem `thm:cut-two` (5.2) | proof added 2026-10-07 |
-| Class *diam or cut 2*; the formula `cp = c + d − 1` does not hold in it (counterexamples) | Def. 37, Fig. 3.3 | Example `ex:strict` (5.3) with Figure 11 shows the two counterexamples; the conclusion names the class and says that the formula fails in it | the two counterexamples are described below the table; the author decided on 2026-10-09 not to put them or the class diagram into A1 for now |
+| Decomposition `I, J, K, L` by a cut | Claim 12 (+ Algorithm 1) | Definition `def:cut-decomposition` (5.2; a lemma until 2026-10-10) | |
+| Diameter 2 ⇒ `I = ∅` or `L = ∅` | Claim 13 | Lemma `lem:empty-i-or-l` (5.3) | |
+| Every `u`–`v` path intersects every `u`–`v` cut in an odd number of edges | Claim 14 | Lemma `lem:odd-intersection` (5.4) | holds for a cut of the form `δ(A₁)` |
+| **Diameter 2 ⇒ `cp = c + d − 1`** | Theorem 15 | Theorem `thm:diameter-two` (5.5) | |
+| Diameter 2 ⇒ `c(u,v) = min(deg u, deg v)` | Theorem 16 | Corollary `cor:diameter-two-degrees` (5.7), with `cp = min(deg u, deg v) + d − 1` and a linear-time algorithm | added to A1 on 2026-10-10 |
+| `c(x,y) ≤ 2` for all pairs ⇒ cactus structure | Claim 17 | Lemma `lem:cactus` (6.1): `c(x,y) ≤ 2` for all pairs iff two distinct cycles share at most one vertex (both directions proved); Section 6 is titled "Cactus Graphs" | a lemma with proof since 2026-10-10 |
+| **`c(x,y) ≤ 2` for all pairs ⇒ `cp = c + d − 1`** | Theorem 18 | Theorem `thm:cut-two` (6.2) | proof added 2026-10-07 |
+| Class *diam or cut 2*; the formula `cp = c + d − 1` does not hold in it (counterexamples) | Def. 37, Fig. 3.3 | Example `ex:strict` (6.3) with Figure 12 shows the two counterexamples; the conclusion names the class and says that the formula fails in it | the two counterexamples are described below the table; the author decided on 2026-10-09 not to put them or the class diagram into A1 for now |
 | General path, square graph, general square graph, pseudo-square graph | Def. 38–41 | – | |
 | Decomposition into a general square graph for `c(u,v) = 2` | Theorem 20 (Alg. 2–5) | – | |
 | Polynomial computation of `cp` in *diam or cut 2* for `c(u,v) = 2` | Theorem 22 (Alg. 6) | – | the case `d(u,v) = 2` remains open |
 | Linear `O(\|E\|)` computation given the decomposition | Theorem 23 (Alg. 7) | – | |
-| `G(n, 1/α)`, `α > 1`, has diameter 2 almost surely | Theorem 24 (with proof; `α > 0` in MT) | Theorem `thm:random-diameter-two` (6.1), constant `p`, with a proof since 2026-10-10 (known fact: Frieze-Karoński, Exercise 1.4.8) | |
-| Properties of `G(n, α log n / n)`, `α > 1`: connectivity, diameter | Theorem 25, 26 | `thm:random-diameter` (6.2, Chung-Lu), `thm:random-connectivity` (6.3, Bollobás p. 169) | Theorem 27 (largest component) is only in MT |
-| Vertex degrees | Theorem 28: all in `(1 ± ε) α log n` – **false** for fixed `α` | Lemma `lem:degree-bounds` (6.4): all at least `β₁ log n` (the upper bound `β₂` was removed on 2026-10-09) | see Section 5a |
-| Bounds for `c(u,v)` | Claim 29 (with `(1 ± ε) α log n`) | Lemma `lem:connectivity-bounds` (6.5): `c(u,v) ≥ β₁ log n` | |
-| **Average (1+ε)-Approximation Scheme** for `p ≥ α log n / n` | Theorem 30 | Theorem `thm:approximation-scheme` (6.6): with high probability `\|C ∪ P\| ≤ (1 + 1/(β₁ log log n)) cp` for all pairs; the scheme is its consequence (2026-10-10) | monotonicity argument added in A1 |
+| `G(n, 1/α)`, `α > 1`, has diameter 2 almost surely | Theorem 24 (with proof; `α > 0` in MT) | Theorem `thm:random-diameter-two` (7.1), constant `p`, with a proof since 2026-10-10 (known fact: Frieze-Karoński, Exercise 1.4.8) | |
+| Properties of `G(n, α log n / n)`, `α > 1`: connectivity, diameter | Theorem 25, 26 | `thm:random-diameter` (7.2, Chung-Lu), `thm:random-connectivity` (7.3, Bollobás p. 169) | Theorem 27 (largest component) is only in MT |
+| Vertex degrees | Theorem 28: all in `(1 ± ε) α log n` – **false** for fixed `α` | Lemma `lem:degree-bounds` (7.4): all at least `β₁ log n` (the upper bound `β₂` was removed on 2026-10-09) | see Section 5a |
+| Bounds for `c(u,v)` | Claim 29 (with `(1 ± ε) α log n`) | Lemma `lem:connectivity-bounds` (7.5): `c(u,v) ≥ β₁ log n` | |
+| **Average (1+ε)-Approximation Scheme** for `p ≥ α log n / n` | Theorem 30 | Theorem `thm:approximation-scheme` (7.6): with high probability `\|C ∪ P\| ≤ (1 + 1/(β₁ log log n)) cp` for all pairs; the scheme is its consequence (2026-10-10) | monotonicity argument added in A1 |
 | Almost polynomial average-case algorithm (Path-Cut) | Theorem 31 (Alg. 8) | – | |
 | For `α < 1`, `cp(u,v)` is defined with probability → 0 | Claim 32 | – | |
 | Symmetric case `c = d = cp`: symmetric cut-path graph, max independent path graph | Def. 47, 48; Claim 33–36 | – | up to `2^{O(√n)}` distinct optima (Claim 35) |
@@ -86,8 +86,8 @@ Both graphs have the six vertices `t, a, v, u, b, s` and the edges `ta, tv, au, 
   5639 formulas (59 unsatisfiable; clauses with repeated variables included). Exact sizes: `2n + 7m` threads,
   `4n + 21m` crossing edges, `6n + 28m` connecting paths, `Λ = 10n + 33m + 1`, chain `18n + 63m + 1` edges,
   `|E| = 18n + 63m + 1 + (6n + 28m)Λ`; every vertex other than `u`, `v` has degree at most three.
-- Small graphs: Lemma 2.3, Corollaries 2.4 and 3.12 (`cp = d` iff a separating shortest path exists), Lemmas 4.3, 4.4,
-  Theorem 4.5, Remark 4.6, Lemma 5.1 and Theorem 5.2 hold on all 1251 graphs with 2 to 7 vertices; every minimum
+- Small graphs: Lemma 2.3, Corollaries 2.4 and 3.12 (`cp = d` iff a separating shortest path exists), Lemmas 5.3, 5.4,
+  Theorem 5.5, Remark 5.6, Lemma 6.1 and Theorem 6.2 hold on all 1251 graphs with 2 to 7 vertices; every minimum
   `u`-`v` cut is an edge boundary; `c(x,y) ≤ 2` for all pairs iff every block is an edge or a cycle.
 - Class *diam or cut 2*: the two counterexamples above are the only graphs with at most six vertices in which
   `cp = c + d − 1` fails; 22 further graphs with seven vertices fail (24 of the 995 connected graphs with 2 to 7
@@ -136,7 +136,7 @@ Article 2 will be prepared from the master's thesis. Do not reuse these places w
 
 ## 5b. Related problems in the literature
 
-Cited in A1 since the preserving revision of 2026-10-09 (introduction; Chung-Lu at Theorem 6.2; diameter three as an open question in the conclusion); not in MT; cite them in article 2 too (entries are in `knowledge/bibliography/references.bib`, reading notes in `knowledge/literature/`). Searched again 2026-10-09 (`knowledge/literature/searches.md`): the problem itself was not found elsewhere; no Discrete Applied Mathematics paper on a close problem was found.
+Cited in A1 since the preserving revision of 2026-10-09 (introduction; Chung-Lu at Theorem 7.2; diameter three as an open question in the conclusion); not in MT; cite them in article 2 too (entries are in `knowledge/bibliography/references.bib`, reading notes in `knowledge/literature/`). Searched again 2026-10-09 (`knowledge/literature/searches.md`): the problem itself was not found elsewhere; no Discrete Applied Mathematics paper on a close problem was found.
 
 | Problem | Relation to Min Cut-Path | Source |
 |---|---|---|
@@ -144,13 +144,13 @@ Cited in A1 since the preserving revision of 2026-10-09 (introduction; Chung-Lu 
 | Shortest Path Most Vital Edges (= length-bounded edge cut, unit lengths): delete `k` edges so that `d(s,t) >= l` | cuts that destroy short paths; NP-hard; for unit lengths NP-hard on diameter three and linear time on diameter two; for arbitrary lengths NP-hard on complete graphs (Theorem 5) | `Bazgan2019MostVital` (Theorem 4, Proposition 1 of arXiv v1); Baier et al. 2010 read, not added |
 | Network Diversion: minimal s-t cut containing a prescribed edge | a cut with prescribed content; open on undirected graphs, polynomial on planar graphs | `Bentert2025NetworkDiversion` |
 | Matching Cut: an edge cut that is a matching | a cut with prescribed structure; polynomial on diameter two, NP-complete on every fixed diameter `>= 3` | `LeLe2019MatchingCut`, `Komusiewicz2020MatchingCut` (DAM) |
-| Diameter of `G(n, p)` for `p >= c log n / n`, `c` constant | exact source for Theorem 6.2 of A1: with `c = alpha > 1`, `diam <= log n / log log n` w.h.p. | `ChungLu2001`, Theorem 4 (authors' PDF; journal numbering not compared) |
-| Edge connectivity = minimum degree w.h.p. in `G(n, p)` | Theorem 6.3 of A1 | not verified first-hand: Bollobas, Thomason 1985 and Section 7.2 of `Bollobas2001` according to secondary sources |
-| Chernoff tails `P(X <= a mu) <= exp(-mu h(a))`, `h(a) = a log a - a + 1`, and the upper tail with the same `h` | Lemma 6.4 of A1 | Frieze-Karonski, free PDF 2026: (34.19) and (34.17), Section 34.4, p. 707 (`phi(a - 1) = h(a)`); printed numbering (Ch. 21) not verified |
+| Diameter of `G(n, p)` for `p >= c log n / n`, `c` constant | exact source for Theorem 7.2 of A1: with `c = alpha > 1`, `diam <= log n / log log n` w.h.p. | `ChungLu2001`, Theorem 4 (authors' PDF; journal numbering not compared) |
+| Edge connectivity = minimum degree w.h.p. in `G(n, p)` | Theorem 7.3 of A1 | not verified first-hand: Bollobas, Thomason 1985 and Section 7.2 of `Bollobas2001` according to secondary sources |
+| Chernoff tails `P(X <= a mu) <= exp(-mu h(a))`, `h(a) = a log a - a + 1`, and the upper tail with the same `h` | Lemma 7.4 of A1 | Frieze-Karonski, free PDF 2026: (34.19) and (34.17), Section 34.4, p. 707 (`phi(a - 1) = h(a)`); printed numbering (Ch. 21) not verified |
 
 Diameter two is the boundary of tractability for Most Vital Edges with unit edge lengths and for Matching Cut. Whether Min Cut-Path is NP-hard on graphs of diameter three is open (the reduction of A1 produces graphs of large diameter).
 
-Note for texts: if `cp = c + d − 1` holds, the union of any minimum cut and any shortest path is a minimum cut-path (A1, Remark IV.6).
+Note for texts: if `cp = c + d − 1` holds, the union of any minimum cut and any shortest path is a minimum cut-path (A1, Remark 5.6).
 
 ## 6. Open problems and directions
 
@@ -158,9 +158,9 @@ From MT and the conclusion of A1:
 1. Class *diam or cut 2*: the case `d(u, v) = 2` (MT solves only `c(u, v) = 2`); in A1 phrased as merging two polynomial "islands".
 2. Planar graphs (cut ↔ cycle duality), graphs of bounded treewidth.
 3. Approximation algorithms with a guarantee for general graphs (only the trivial 2-approximation is known).
-   No PTAS unless P = NP (A1, Theorem 7.3, 2026-10-10; no FPTAS is Corollary 7.4): in the graph of the reduction every cut-path has at least
-   `Lambda + eta*` edges, `eta*` = the least number of threads a chain path misses (Lemma 7.1), and `eta*` is at
-   least a fifth of the least number of unsatisfied clauses when every variable occurs five times (Lemma 7.2);
+   No PTAS unless P = NP (A1, Theorem 4.3, 2026-10-10; no FPTAS is Corollary 4.4): in the graph of the reduction every cut-path has at least
+   `Lambda + eta*` edges, `eta*` = the least number of threads a chain path misses (Lemma 4.1), and `eta*` is at
+   least a fifth of the least number of unsatisfied clauses when every variable occurs five times (Lemma 4.2);
    with the gap problem of `Feige1998Threshold`. Open: the best factor between `1 + eps_0` and two; whether
    `cp = Lambda + eta*` always holds in these graphs (it does on the 38 formulas of `checks/check_gap_lemmas.py`).
 4. Weighted and directed variants.

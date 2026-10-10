@@ -32,7 +32,7 @@
 
 | Result | Location in source | Where we use it (project, statement) | Exact assumptions |
 |---|---|---|---|
-| NP-hardness of distinguishing satisfiable 3CNF-5 formulas from those with at most a `(1 - eps)`-fraction satisfiable | Proposition 2.1.2, p. 640 | article 1, Section 7.1, Theorem `thm:no-ptas` (7.3, no PTAS unless P = NP) | formulas of the 3CNF-5 shape; perfect completeness (the yes-case is "satisfiable"), which the proof of `thm:no-ptas` needs |
+| NP-hardness of distinguishing satisfiable 3CNF-5 formulas from those with at most a `(1 - eps)`-fraction satisfiable | Proposition 2.1.2, p. 640 | article 1, Section 4, Theorem `thm:no-ptas` (4.3, no PTAS unless P = NP) | formulas of the 3CNF-5 shape; perfect completeness (the yes-case is "satisfiable"), which the proof of `thm:no-ptas` needs |
 
 ## Difference from our work
 
