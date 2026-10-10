@@ -23,6 +23,14 @@ and what is still open: `projects/clanok-1-min-cut-path.submission/session-2026-
 After the referee review (same day) the reasons asked for by the reviewer were added and, with the author's approval,
 its proposals 1-8: Corollary 4.7, Lemma 5.1 as an equivalence, Section 5 "Cactus Graphs", Example 5.3 with Figure 11,
 new abstract sentences and open questions. 20 pages; packager `Verdict: PASS`.
+**Proof of Lemma 3.9 (Separation) rewritten 2026-10-10 (afternoon, author's request):** the paragraphs "Open
+crossing edges", "Usable connecting paths", Table 1 (`tab:usable`, removed) and the case analysis are replaced by the
+transition graph `\Gamma` (vertices `u`, `v` and the two paths `K^+`, `K^-` of every chain link; edges = connecting
+paths, types (a)-(d)) and the new Figure 10 (`fig:transition-graph`, `transition-graph.pdf`, TikZ source in
+`.submission/figures/transition-graph.tex`; drawn by the AI assistant, see open item 12). Edges of types (b), (c)
+join opposite signs in one block and never remain in `G \setminus P`; the only `u`-`v` path left is a whole clause
+thread, which contradicts Lemma 3.8. The former Figures 10, 11 are now 11, 12; the folder has eleven figure files.
+The author must check the new argument ("Content changes to review"). 20 pages; `-CheckOnly` packager run `Verdict: PASS`.
 Current numbering: Definitions 2.1, 2.2, Lemma 2.3, Corollary 2.4, Definition 2.5; Definitions 3.1-3.5, Lemmas 3.6-3.9,
 Theorems 3.10 (`thm:ssp-np-complete`), 3.11 (`thm:mcp-np-complete`), Corollary 3.12; Definitions 4.1, 4.2, Lemmas 4.3,
 4.4, Theorem 4.5, Remark 4.6, Corollary 4.7; Lemma 5.1, Theorem 5.2, Example 5.3; Theorems 6.1-6.3, Lemmas 6.4, 6.5,
