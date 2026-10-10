@@ -89,7 +89,9 @@ Given a graph $H$, two distinct non-adjacent vertices $x, y$ of the same compone
 \end{enumerate}
 \end{lemma}
 
-Marx, O'Sullivan and Razgon~\cite[Lemma~2.11]{Marx2013Separators} construct the set $D \setminus \{x, y\}$ and bound the bramble number of its torso, which is the treewidth plus one, by a function of $k$; by their Remark~2.13, adding $x$ and $y$ increases the treewidth by at most two.
+Marx, O'Sullivan and Razgon~\cite[Lemma~2.11]{Marx2013Separators} construct the set $D \setminus \{x, y\}$ and bound the bramble number of its torso, which is the treewidth plus one.
+Their bounds on the running time and on the bramble number depend on the minimum size of an $x$--$y$ separator, which is at most $k$, and on the difference between $k$ and this size; hence they are bounded by functions of $k$.
+By their Remark~2.13, adding $x$ and $y$ increases the treewidth by at most two.
 Statement~(c) is their Proposition~2.7.
 
 \paragraph{Construction.}
@@ -175,7 +177,7 @@ The vertex $v$ is reachable from $u$ by a path whose vertices other than $u$ lie
 This condition is a formula of monadic second-order logic.
 Condition~(ii) is this condition for $W = M \cup \bigl(V(G_D^+) \setminus (B \cup Y)\bigr)$, condition~(i) is its negation for $W = V(G_D^+) \setminus (M \cap B)$, and $|M| \leq b$ holds if and only if there are $b$ vertices, not necessarily distinct, such that every member of $M$ is one of them.
 Hence the existence of a good set with at most $b$ vertices is expressed by a formula $\varphi_b$ of monadic second-order logic over graphs with the vertex labels $u$, $v$, $B$ and $Y$.
-By Courcelle's theorem in the form of~\cite[Theorem~2.2]{Marx2013Separators}, which covers graphs with vertex labels, a property expressed by such a formula $\varphi$ is decided on a graph $H$ in time $f_\varphi(\tw(H)) \cdot (|V(H)| + |E(H)|)$.
+By Courcelle's theorem~\cite[Theorem~2.2]{Marx2013Separators} and its extension to graphs with vertex labels stated there, a property expressed by such a formula $\varphi$ is decided on a graph $H$ in time $f_\varphi(\tw(H)) \cdot (|V(H)| + |E(H)|)$.
 The total running time is therefore $f(b)$ times a polynomial in $|V| + |E|$, for a function $f$ of $b$.
 \end{proof}
 

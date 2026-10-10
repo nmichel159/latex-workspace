@@ -4,7 +4,7 @@
 |---|---|
 | Paper | Marx, O'Sullivan, Razgon: *Finding small separators in linear time via treewidth reduction*. ACM Transactions on Algorithms 9(4), 2013, 1-35. DOI 10.1145/2500119; arXiv:1110.4765 |
 | Key | `Marx2013Separators` |
-| Reading status | parts read 2026-10-10 in the preprint arXiv:1110.4765v1 (the only arXiv version): Sections 1, 2 and 3.1-3.3. The journal text was not compared, so every number below is the preprint's |
+| Reading status | parts read 2026-10-10 in the preprint arXiv:1110.4765v1 (the only arXiv version): Sections 1, 2 and 3.1-3.3. The journal text was not compared, so every number below is the preprint's. The statements used in article 1 were compared once more with the text of the preprint on 2026-10-10 (second pass): they match |
 | Full text | - |
 | Topic | [../research/min-cut-path.md](../research/min-cut-path.md), sections 3 and 5b |
 
@@ -44,7 +44,7 @@
 
 | Result | Location in source | Where we use it | Exact assumptions |
 |---|---|---|---|
-| set `D` with all minimal separators of size at most `k`, torso of bounded treewidth | Lemma 2.11, Remark 2.13 | article 1, draft section "Approximation and Parameterized Complexity", Lemma `lem:treewidth-reduction` | `s`, `t` non-adjacent; a separator of size at most `k` exists (so `e >= 0`); `l > 0` in their Lemma 2.4, which holds when `s`, `t` lie in one component |
+| set `D` with all minimal separators of size at most `k`, torso of bounded treewidth | Lemma 2.11, Remark 2.13 | article 1, Section 7 "Approximation and Parameterized Complexity", Lemma `lem:treewidth-reduction` (7.3) | `s`, `t` non-adjacent; a separator of size at most `k` exists (so `e >= 0`); `l > 0` in their Lemma 2.4, which holds when `s`, `t` lie in one component |
 | separation by subsets of `D` is the same in the torso and in the graph | Proposition 2.7 | same lemma, item (c) | the separator is a subset of `D` |
 | Courcelle's theorem for graphs with vertex labels | Theorem 2.2 and the paragraph after it | proof of Theorem `thm:fpt` | property expressed in MSO with vertex and vertex-set variables |
 | definition of FPT | Section 1, p. 1 | Section "Fixed-Parameter Tractability" | - |

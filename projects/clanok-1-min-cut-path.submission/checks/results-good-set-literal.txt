@@ -1,0 +1,2 @@
+instances: 6000, constructions (b, D): 59112 (cp <= b: 47990, cp > b: 11122)
+No check failed.

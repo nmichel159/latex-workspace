@@ -29,7 +29,7 @@ Notes for the map [../research/min-cut-path.md](../research/min-cut-path.md) (ar
 | [LeLe2019MatchingCut.md](LeLe2019MatchingCut.md) | matching cut by diameter: two polynomial, three and more NP-complete | sections 1, 2, 4.2 |
 | [Komusiewicz2020MatchingCut.md](Komusiewicz2020MatchingCut.md) | matching cut, kernels and exact algorithms (DAM) | abstract, section 1 |
 | [ChungLu2001.md](ChungLu2001.md) | diameter of G(n, p) near the connectivity threshold (tool for Section 6) | theorem statements, one proof |
-| [Marx2013Separators.md](Marx2013Separators.md) | treewidth reduction: small minimal separators lie in a torso of bounded treewidth (tool for the FPT draft; written 2026-10-10) | preprint: Sections 1, 2, 3.1-3.3 |
+| [Marx2013Separators.md](Marx2013Separators.md) | treewidth reduction: small minimal separators lie in a torso of bounded treewidth (tool for Section 7 of article 1; written 2026-10-10) | preprint: Sections 1, 2, 3.1-3.3 |
 
 The notes below belong to the map [../research/llm-optimization.md](../research/llm-optimization.md); all were written 2026-10-08.
 

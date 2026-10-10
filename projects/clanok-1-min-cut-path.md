@@ -44,11 +44,34 @@ the manuscript.** When it is inserted: add `\tw`, `\torso` to the macros and `Ma
 `GareyJohnson1978Strong` to `references.bib`; `GareyJohnson1978Strong` is `PARTIAL` (content not read) and its
 sentence carries a `TODO(verify)`; theorem numbers of Marx et al. are those of arXiv v1; the conclusion's questions on
 approximation and on FPT with respect to `b`, the abstract and the contributions then need an update.
+**Independent check of the draft (2026-10-10, second pass, author's request):** every step of `thm:no-fptas`,
+`lem:contraction`, `lem:good-set` and `thm:fpt` was derived again; no error found. The statements cited from Marx et
+al. (Theorems 2.1, 2.2 with the paragraph on labeled graphs, Definitions 2.3, 2.5, Proposition 2.7, Corollary 2.10,
+Lemma 2.11, Remarks 2.13, 2.14, the definition of FPT) were compared with the text of arXiv:1110.4765v1 and match.
+Two edits in the draft, both on how the source is cited: the bounds of their Lemma 2.11 depend on `l` and `k - l`
+(hence on `k`); labeled graphs are the extension stated after Theorem 2.2, not the theorem itself. `lem:good-set`
+was checked once more with the literal definition of a good set (`checks/check_good_set_literal.py`, 59112
+constructions, no failure). Still open: `GareyJohnson1978Strong` is unread (`TODO(verify)` stays; `thm:no-fptas`
+does not depend on it); the definition of FPT asks for a computable `f` and the proof of `thm:fpt` does not say why
+`f` is computable (Lemma 2.11 gives explicit recursions; TODO(verify) a source that states Courcelle's theorem with
+a computable bound).
+**Section 7 "Approximation and Parameterized Complexity" is in `main.tex` since 2026-10-10 (author's request).**
+It is the draft without one paragraph: the two sentences on strong NP-completeness with the citation
+`GareyJohnson1978Strong` stayed out, because the paper is still unread and the packager fails on a `TODO` in the
+manuscript; Theorem 7.1 has its own proof. The draft with that paragraph is in
+`archives/removed-from-projects/clanok-1-min-cut-path/2026-10-10-draft-section-7/`. Added with the section: macros `\tw`,
+`\torso`; `Marx2013Separators` in `references.bib` (19 entries); one sentence in the abstract; "Fourth, ..." in the
+contributions; one sentence in the roadmap; in the conclusion (now Section 8) the third question also asks for a
+PTAS and the last one asks for time `2^{O(b)}` instead of asking whether the problem is FPT in `b`. 22 pages;
+`check-text.ps1` 8 findings (the known false positives), `check-bib.ps1` 2 recommendations, packager `-CheckOnly`
+`Verdict: PASS`. The section was written and checked by the AI assistant: the author must read it ("Content
+changes to review", item 18) and the AI declaration must name it (open item 2).
 
 Current numbering: Definitions 2.1, 2.2, Lemma 2.3, Corollary 2.4, Definition 2.5; Definitions 3.1-3.5, Lemmas 3.6-3.9,
 Theorems 3.10 (`thm:ssp-np-complete`), 3.11 (`thm:mcp-np-complete`), Corollary 3.12; Definitions 4.1, 4.2, Lemmas 4.3,
 4.4, Theorem 4.5, Remark 4.6, Corollary 4.7; Lemma 5.1, Theorem 5.2, Example 5.3; Theorems 6.1-6.3, Lemmas 6.4, 6.5,
-Theorem 6.6. Older notes
+Theorem 6.6; Theorem 7.1 (`thm:no-fptas`), Lemmas 7.2 (`lem:contraction`), 7.3 (`lem:treewidth-reduction`), 7.4
+(`lem:good-set`), Theorem 7.5 (`thm:fpt`), equation (7.1) (`eq:cut-separator`). Older notes
 below, the session report and the files in `checks/` use the numbers of their day (before the approval: Lemmas
 3.5-3.8, Theorems 3.9, 3.10, Lemma 4.2, Definition 2.4).
 
@@ -71,7 +94,7 @@ Theorem 3.9 is `thm:ssp-np-complete`, Theorem 3.10 `thm:mcp-np-complete`; Figure
 | Target journal | Discrete Applied Mathematics (Elsevier), article type *Contribution* (more than 10 pages); venue card [knowledge/venues/discrete-applied-mathematics.md](../knowledge/venues/discrete-applied-mathematics.md) |
 | Class | `cas-sc.cls` (Elsevier CAS bundle 2.4, single column; `\ProvidesClass`: `cas-sc 2024/05/04, 2.4`) with `cas-common.sty`; bibliography `cas-model2-names.bst` via `\usepackage[numbers,sort&compress]{natbib}` |
 | Template folder | `templates/els-cas/` (the official template the DAM guide for authors links; download URL and SHA-256 in `templates/SOURCES.tsv`); `cas-sc.cls`, `cas-common.sty` and `cas-model2-names.bst` here are byte-identical to it (SHA-256 compared 2026-10-08) and are never edited in the project; `main.tex` is written from `cas-sc-template.tex` |
-| Bibliography | `references.bib` (11 entries, all cited and verified; the master's thesis is not cited since 2026-10-09, author's decision) |
+| Bibliography | `references.bib` (19 entries, all cited and verified; the master's thesis is not cited since 2026-10-09, author's decision) |
 | Origin | Overleaf export `archives/clanok_1_min_cut_path.zip` (2026-10-07); class `new-aiaa` until 2026-10-08 |
 | Knowledge base | [knowledge/research/min-cut-path.md](../knowledge/research/min-cut-path.md) |
 
@@ -170,7 +193,8 @@ author has no ORCID (stated 2026-10-08), so the title page carries no `orcid` ke
 | 4 Graphs of Diameter Two | `sec:diameter-two` | decomposition `I, J, K, L`, odd intersection of path and cut, `cp = c + d − 1` |
 | 5 Graphs with Cut-Value at Most Two | `sec:cut-two` | cactus structure, `cp = c + d − 1` |
 | 6 Erdős–Rényi Graphs | `sec:random-graphs` | diameter 2 in dense graphs, properties of sparse ones, approximation scheme |
-| 7 Conclusion | `sec:conclusion` | summary, further directions |
+| 7 Approximation and Parameterized Complexity | `sec:approx-param` | no FPTAS unless P = NP (`sec:approximation`); `cp = min (\|C\| + d_C)`, treewidth reduction, FPT in the threshold `b` (`sec:fpt`) |
+| 8 Conclusion | `sec:conclusion` | summary, further directions |
 
 Section numbers are arabic since the port (the class `new-aiaa` printed I-VII): Section III is now Section 3,
 Theorem III.5 is Theorem 3.5, Lemma II.4 is Lemma 2.4, and so on; the order is unchanged. The Roman numbers in
@@ -191,7 +215,8 @@ Labels of statements: `def:cut-path`, `def:cp-value`, `lem:basic-bounds`, `cor:t
 `thm:ssp-np-complete`, `thm:mcp-np-complete`, `cor:lower-bound-attained`, `def:diameter`,
 `def:cut-decomposition` (was `lem:cut-decomposition`), `lem:empty-i-or-l`, `lem:odd-intersection`, `thm:diameter-two`, `rem:algorithm`, `lem:cactus`
 (new 2026-10-10), `thm:cut-two`, `thm:random-diameter-two`, `thm:random-diameter`, `thm:random-connectivity`,
-`lem:degree-bounds`, `lem:connectivity-bounds`, `thm:approximation-scheme`.
+`lem:degree-bounds`, `lem:connectivity-bounds`, `thm:approximation-scheme`, `thm:no-fptas`, `lem:contraction`,
+`lem:treewidth-reduction`, `eq:cut-separator`, `lem:good-set`, `thm:fpt`.
 
 ### Notation table (2026-10-10)
 
@@ -583,8 +608,21 @@ from the revision, but the author is responsible for them.
       first appeared there, and that partial results for the class "diam or cut 2" were obtained there. The
       introduction now reads "To the best of our knowledge, the problem has not been studied before."
       **Check this sentence against the thesis** and against the journal's question on prior publication.
+18. **Section 7 (new, 2026-10-10): no FPTAS, FPT in the threshold `b`.** Statements and proofs were written by the
+    AI assistant and checked twice (by hand, against the preprint of Marx et al., and by brute force on small
+    graphs; `checks/README.md`). The proof of Theorem 7.5 rests on Lemma 2.11 of Marx, O'Sullivan and Razgon and
+    on Courcelle's theorem, cited by the numbers of arXiv:1110.4765v1: compare with the journal version before
+    submission. The sentences added to the abstract, the contributions, the roadmap and the conclusion are listed
+    at the top of these notes.
 
 ## Change history
+
+**2026-10-10 - Section 7 inserted (author's request)**
+- `main.tex`: Section 7 from the draft (without the paragraph that cites `GareyJohnson1978Strong`), macros `\tw`,
+  `\torso`, abstract, contributions, roadmap, conclusion; `references.bib`: `Marx2013Separators`. Draft retired to
+  `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-10-draft-section-7/`.
+- Build: 22 pages, no undefined references, BibTeX without warnings; packager `-Template els-cas -Flat
+  -KeepComments -CheckOnly`: `Verdict: PASS`.
 
 **2026-10-10 - session along `NEXT-TASK.md` (Windows, 08:35-10:30)**
 - Phase B: computational checks, `projects/clanok-1-min-cut-path.submission/checks/` (`README.md` there): Algorithm 1
