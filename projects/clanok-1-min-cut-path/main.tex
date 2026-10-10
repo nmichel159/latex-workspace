@@ -671,73 +671,51 @@ Then $P$ is a separating shortest $u$--$v$ path in $G$.
 \begin{proof}
 By Lemma~\ref{lem:chain-paths}, $P$ is a shortest $u$--$v$ path.
 It remains to show that $G \setminus P$ contains no $u$--$v$ path.
-We first describe the graph $G \setminus P$, then determine which connecting paths a $u$--$v$ path of $G \setminus P$ could use, and finally show that these connecting paths cannot be combined into a $u$--$v$ path.
+We first describe the graph $G \setminus P$ and then follow a $u$--$v$ path of $G \setminus P$ in a graph that records which paths of the chain links the connecting paths join.
 
 \paragraph{The graph $G \setminus P$.}
 All single edges of the chain lie on $P$.
 In every chain link, only the path not traversed by $P$ remains in $G \setminus P$; we call it the \emph{unused path} of the chain link.
 Unused paths of distinct chain links are vertex-disjoint and contain neither $u$ nor $v$.
-A crossing edge is \emph{open} if it lies on an unused path, and \emph{closed} if it lies on $P$.
-Each end-vertex of a closed crossing edge has degree three in $G$, with two edges in the chain link and one in a connecting path.
-In $G \setminus P$ it has degree one, so no $u$--$v$ path of $G \setminus P$ passes through it.
-
-Let $Q$ be a $u$--$v$ path in $G \setminus P$.
 Every edge of $G \setminus P$ lies on an unused path or on a connecting path.
-The internal vertices of a connecting path have degree two, so if $Q$ uses an edge of a connecting path, it uses the whole connecting path.
-We call a connecting path \emph{usable} if each of its two ends is $u$, $v$, or an end-vertex of an open crossing edge.
-By the previous paragraph, $Q$ uses only usable connecting paths.
-The edges of $G \setminus P$ at $u$ and at $v$ belong to connecting paths, because the single edges of the chain lie on $P$.
-Every end-vertex of a crossing edge is an end of exactly one connecting path, and unused paths of distinct chain links are vertex-disjoint.
-Hence $Q$ starts at $u$ with a usable connecting path, ends at $v$ with a usable connecting path, and passes from one usable connecting path to the next along a segment of a single unused path.
+An end of a connecting path is $u$, $v$, or an end-vertex of a crossing edge, and such an end-vertex is an internal vertex of exactly one of the two paths of its chain link.
+If $P$ traverses this path, the end-vertex has degree one in $G \setminus P$, because two of its three edges lie on $P$.
 
-\paragraph{Open crossing edges.}
-Recall that $P$ traverses, in all chain links of the block of $x_i$, the positive path if $\tau(x_i)=\mathsf{true}$ and the negative path if $\tau(x_i)=\mathsf{false}$.
+\paragraph{The transition graph.}
+For a chain link $K$, let $K^{+}$ and $K^{-}$ denote its positive and its negative path.
+The \emph{transition graph} $\Gamma$ is the multigraph whose vertices are $u$, $v$ and the two paths of every chain link, and whose edges are the connecting paths of $G$: a connecting path joins the two vertices of $\Gamma$ that contain its ends.
+A thread created by $\textsc{Thread}(u,v,\allowbreak[(K_1,\sigma_1),\dots,(K_t,\sigma_t)])$ is thus the path $u, K_1^{\sigma_1}, \dots, K_t^{\sigma_t}, v$ of $\Gamma$.
+By Algorithm~\ref{alg:reduction}, the edges of $\Gamma$ are the following, where $\sigma \in \{+,-\}$ and $-\sigma$ is the opposite sign:
 \begin{enumerate}[(a)]
-  \item A crossing edge in the block of $x_i$ is open if and only if its sign, that is, the sign of the path on which it lies, differs from the sign of the paths that $P$ traverses in this block.
-  \item The crossing edge of the clause thread of $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$ in $L_{j,k}$ is open if and only if $\tau$ does not satisfy $\ell_j$ (proof of Lemma~\ref{lem:clause-threads}).
+  \item for every variable $x_i$, edges between $u$ and $I_i^{\sigma}$ and between $T_i^{\sigma}$ and $v$ (first and last connecting paths of the synchronization threads);
+  \item for every variable $x_i$, an edge between $I_i^{\sigma}$ and $T_i^{-\sigma}$ (2-synchronization threads);
+  \item for every literal chain link $L_{j,k}$ in the block of $x_i$, edges between $I_i^{\sigma}$ and $L_{j,k}^{-\sigma}$ and between $L_{j,k}^{-\sigma}$ and $T_i^{\sigma}$ (3-synchronization threads);
+  \item for every clause $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$, the edges of the path $u, L_{1,k}^{s(\ell_1)}, L_{2,k}^{s(\ell_2)}, L_{3,k}^{s(\ell_3)}, v$ (clause thread).
 \end{enumerate}
+Figure~\ref{fig:transition-graph} shows $\Gamma$ with the chain links of each type drawn once: $I$ and $T$ stand for the links $I_i$ and $T_i$, and $L_j$ for the links $L_{j,k}$.
 
-\paragraph{Usable connecting paths.}
-By Algorithm~\ref{alg:reduction}, any two consecutive crossing edges of a synchronization thread have opposite signs and lie in the same block.
-By~(a), exactly one of them is open, so the connecting path between them is not usable.
-Hence a synchronization thread of $x_i$ has at most two usable connecting paths: its first one, from $u$ to $I_i$, and its last one, from $T_i$ to $v$.
-For a clause thread, (b) decides which connecting paths are usable.
-Table~\ref{tab:usable} lists the connecting paths that can be usable, each with its condition.
-
-\begin{table}[pos=H]
-\centering
-\caption{The connecting paths that can be usable in $G \setminus P$; literals are evaluated under $\tau$}
-\label{tab:usable}
-\begin{tabular}{lll}
-\hline
-Thread & Connecting path & Usable if \\
-\hline
-synchronization thread of $x_i$ & from $u$ to $I_i$ & its crossing edge in $I_i$ is open \\
- & from $T_i$ to $v$ & its crossing edge in $T_i$ is open \\
-clause thread of $C_k$ & from $u$ to $L_{1,k}$ & $\ell_1$ is false \\
- & between $L_{1,k}$ and $L_{2,k}$ & $\ell_1$ and $\ell_2$ are false \\
- & between $L_{2,k}$ and $L_{3,k}$ & $\ell_2$ and $\ell_3$ are false \\
- & from $L_{3,k}$ to $v$ & $\ell_3$ is false \\
-\hline
-\end{tabular}
-\end{table}
-
-Table~\ref{tab:usable} shows which usable connecting paths end on a given unused path:
-on the unused path of $I_i$, only paths to $u$; on the unused path of $T_i$, only paths to $v$; on the unused path of $L_{j,k}$, only paths of the clause thread of $C_k$.
+\begin{figure}[H]
+    \centering
+    \includegraphics{transition-graph.pdf}
+    \caption{The transition graph by type of chain link: solid edges can remain in $G \setminus P$, dashed edges never do}
+    \label{fig:transition-graph}
+\end{figure}
 
 \paragraph{No $u$--$v$ path.}
-We follow $Q$ from $u$.
-By Table~\ref{tab:usable}, its first connecting path ends on the unused path of some $I_i$ or of some $L_{1,k}$.
+Suppose that $G \setminus P$ contains a $u$--$v$ path $Q$.
+The internal vertices of a connecting path have degree two, so $Q$ contains a connecting path either as a whole or not at all.
+By the first paragraph, each end of a connecting path contained in $Q$ is $u$, $v$, or a vertex of an unused path, and between two consecutive connecting paths $Q$ stays on a single unused path.
+The edges of $G \setminus P$ at $u$ and at $v$ belong to connecting paths.
+Hence the connecting paths of $Q$, in their order along $Q$, form a walk from $u$ to $v$ in $\Gamma$ whose vertices other than $u$ and $v$ are unused paths.
+Let $W$ be a $u$--$v$ path of $\Gamma$ contained in this walk.
 
-Suppose first that it ends on the unused path of $I_i$.
-To continue, $Q$ needs a second usable connecting path with an end on this unused path.
-Every such path leads to $u$, which $Q$ has already visited, a contradiction.
-
-Suppose now that the first connecting path ends on the unused path of $L_{1,k}$; then $\ell_1$ is false.
-From here on, $Q$ can use only connecting paths of the clause thread of $C_k$, so it moves between the unused paths of $L_{1,k}$, $L_{2,k}$ and $L_{3,k}$ until it reaches $v$.
-It reaches $v$ only along the connecting path from $L_{3,k}$, so $\ell_3$ is false.
-On the way from $L_{1,k}$ to $L_{3,k}$, it uses the connecting paths between $L_{1,k}$ and $L_{2,k}$ and between $L_{2,k}$ and $L_{3,k}$, so $\ell_2$ is false.
-Then $\tau$ does not satisfy $C_k$, a contradiction.
+Since $P$ is consistent, the unused paths of all chain links of a block have the same sign.
+Every edge of type~(b) or~(c) joins two paths of opposite signs in one block, so one of its ends is not an unused path, and $W$ contains no such edge (dashed in Figure~\ref{fig:transition-graph}).
+The edges of types~(a) and~(d) join a vertex $I_i^{\sigma}$ only to $u$ and a vertex $T_i^{\sigma}$ only to $v$, and none of them joins $u$ to $v$.
+Hence $W$ has internal vertices, all of them are paths of literal chain links, and all edges of $W$ are of type~(d).
+A path of $L_{j,k}$ lies on edges of type~(d) only for the clause $C_k$, so $W$ is the path $u, L_{1,k}^{s(\ell_1)}, L_{2,k}^{s(\ell_2)}, L_{3,k}^{s(\ell_3)}, v$ of some clause $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$: it passes through three literal chain links.
+All three paths $L_{j,k}^{s(\ell_j)}$ are then unused, so $P$ does not hit the clause thread of $C_k$.
+This contradicts Lemma~\ref{lem:clause-threads}, because $\tau$ satisfies every clause.
 
 Therefore $G \setminus P$ contains no $u$--$v$ path, and $P$ is separating.
 \end{proof}
