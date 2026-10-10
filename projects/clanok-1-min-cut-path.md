@@ -20,9 +20,13 @@ Theorem 4.5 is one display; Figures 5, 8 and 10 updated). The author approved th
 Definition 4.2 (was Lemma 4.2), proof of Theorem 6.1, Theorem 6.6 as a bound with high probability, the 3-SAT
 citation, the last question of the conclusion. 18 pages; full packager run `Verdict: PASS`. Report, what was applied
 and what is still open: `projects/clanok-1-min-cut-path.submission/session-2026-10-10/REPORT.md`.
+After the referee review (same day) the reasons asked for by the reviewer were added and, with the author's approval,
+its proposals 1-8: Corollary 4.7, Lemma 5.1 as an equivalence, Section 5 "Cactus Graphs", Example 5.3 with Figure 11,
+new abstract sentences and open questions. 20 pages; packager `Verdict: PASS`.
 Current numbering: Definitions 2.1, 2.2, Lemma 2.3, Corollary 2.4, Definition 2.5; Definitions 3.1-3.5, Lemmas 3.6-3.9,
 Theorems 3.10 (`thm:ssp-np-complete`), 3.11 (`thm:mcp-np-complete`), Corollary 3.12; Definitions 4.1, 4.2, Lemmas 4.3,
-4.4, Theorem 4.5, Remark 4.6; Lemma 5.1, Theorem 5.2; Theorems 6.1-6.3, Lemmas 6.4, 6.5, Theorem 6.6. Older notes
+4.4, Theorem 4.5, Remark 4.6, Corollary 4.7; Lemma 5.1, Theorem 5.2, Example 5.3; Theorems 6.1-6.3, Lemmas 6.4, 6.5,
+Theorem 6.6. Older notes
 below, the session report and the files in `checks/` use the numbers of their day (before the approval: Lemmas
 3.5-3.8, Theorems 3.9, 3.10, Lemma 4.2, Definition 2.4).
 
@@ -601,6 +605,29 @@ from the revision, but the author is responsible for them.
   false positives and "Chung and Lu~\cite{...} proved", authors named); `check-bib.ps1` 2 recommendations; packager,
   full run `-Template els-cas -Flat -KeepComments`: `Verdict: PASS`, 18 pages, `Trace scan: 15 files, 0 hits`.
 
+**2026-10-10 - referee proposals approved and applied (14:00-14:30)**
+- The author approved items 1-8 of "Referee review" in `session-2026-10-10/REPORT.md`. Applied in `main.tex`:
+  abstract (the intermediate question; "cactus graphs"; the bound is the size of the union of a minimum cut and a
+  shortest path; "edge probability at least `α log n / n`" instead of "above the connectivity threshold");
+  introduction (what is proved, in place of "settle its complexity"; both classes attain the upper bound of Lemma
+  2.3); Section 2 (`cp` as the minimum over paths `P` of `|P|` plus the cut-value in `G \ P`); Section 3 (paragraph
+  after Theorem 3.10: degree at most three outside `u, v`, `c(u,v) >= 2n + 7m`, `d(u,v) = Λ`); Section 4 ("diameter
+  at most two" in Lemma 4.3 and Theorem 4.5; Corollary 4.7 `cor:diameter-two-degrees`: `c(u,v) = min(deg u, deg v)`,
+  linear time); Section 5 (title "Cactus Graphs"; Lemma 5.1 is an equivalence with the converse proved directly;
+  Theorem 5.2 stated for cactus graphs; Example 5.3 `ex:strict` with Figure 11 `fig:counterexamples`); Section 7
+  (the formula fails in the candidate class; approximation below factor two instead of the question about
+  experiments; bounded `c` or `d`, deciding `cp = c`).
+- New files in the project folder: `counterexample-cut-two.pdf`, `counterexample-distance-two.pdf` (copies of the
+  figures parked on 2026-10-09 in `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-conclusion-figures/`;
+  TikZ sources in `projects/clanok-1-min-cut-path.submission/figures/`). Open item 13 (parked counterexamples) is
+  settled by this; the class diagram stays out.
+- Corollary 4.7 checked by computation on all graphs of diameter at most two with at most seven vertices (8941 pairs).
+- Not applied: the classical theorem on diameter two (attribution to Plesnik 1975 not verified, so not cited); M3,
+  M4, M11; notation `l[0]`, `l[1]` and Algorithm 1 (the author's); the empty "ORCID(s):" line (class); colour-only
+  cues in Figures 7, 8, 10; keywords.
+- Build: 20 pages, 11 figures, no undefined references; `check-text.ps1` 8 findings (false positives); packager, full
+  run: `Verdict: PASS`, 18 files, `Trace scan: 17 files, 0 hits`. Committed and pushed on the author's request.
+
 **2026-10-10 - referee review and its justifications (13:00-13:40)**
 - Independent review as a DAM referee: session-2026-10-10/referee-report.md. Verdict: major revision, borderline
   minor; no error in the mathematics. Applied in main.tex: the findings that make reasons explicit or fix wording
@@ -612,7 +639,7 @@ from the revision, but the author is responsible for them.
   c(u,v) = min(deg u, deg v) for diameter two, the name cactus graphs, abstract and introduction, open questions
   (REPORT.md, same section, items 1-9).
 - Build: 18 pages, no undefined references; check-text.ps1 8 findings (false positives); packager, full run:
-  Verdict: PASS. Not committed.
+  Verdict: PASS. Committed and pushed after the author's approval.
 
 **2026-10-09 - preserving revision (cloud session, 16:50-17:20)**
 - Four editors (front matter and Sections 1-2; Section 3; Sections 4-5 and Figure 10; Sections 6-7 and sources) and

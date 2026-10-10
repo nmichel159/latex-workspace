@@ -108,10 +108,10 @@
 A cut-path between two vertices $u$ and $v$ of a graph is a set of edges that contains both a $u$--$v$ path and a cut separating $u$ from $v$.
 It models two servers that communicate along the path while every other route between them uses one of the secured edges.
 We study the \MinCutPath{} problem, which asks for a cut-path with the fewest edges.
-We prove that its decision version is NP-complete.
+We prove that its decision version is NP-complete, already when the question is whether some shortest $u$--$v$ path is a cut separating $u$ from $v$.
 Let $c(u,v)$ be the size of a minimum cut separating $u$ from $v$, and let $d(u,v)$ be the distance between $u$ and $v$.
-In graphs of diameter two and in graphs in which every two vertices can be separated by at most two edges, a minimum cut-path has $c(u,v) + d(u,v) - 1$ edges.
-In Erdős–Rényi random graphs above the connectivity threshold, the union of a minimum cut and a shortest path is within a factor $1+\epsilon$ of the optimum, for every fixed $\epsilon > 0$, with probability tending to one.
+In graphs of diameter two and in cactus graphs, a minimum cut-path has $c(u,v) + d(u,v) - 1$ edges, the size attained by the union of a minimum cut and a shortest path.
+In Erdős–Rényi random graphs on $n$ vertices with edge probability at least $\alpha \log n / n$ for a constant $\alpha > 1$, this union is within a factor $1+\epsilon$ of the optimum, for every fixed $\epsilon > 0$, with probability tending to one.
 \end{abstract}
 
 \begin{keywords}
@@ -161,13 +161,13 @@ In \textsc{Network Diversion} and \textsc{Matching Cut}, the cut alone carries t
 As with \textsc{Matching Cut} and with \textsc{Shortest Path Most Vital Edges} for unit edge lengths, graphs of diameter two form a polynomial case of \MinCutPath{} (Theorem~\ref{thm:diameter-two}).
 
 To the best of our knowledge, \MinCutPath{} has not been studied before.
-We settle its complexity and prove its basic structural properties.
+We prove that it is NP-complete and identify two graph classes in which the union of a minimum cut and a shortest path is optimal.
 
 Our contributions are the following.
 First, we prove that the decision version of \MinCutPath{} is NP-complete (Theorem~\ref{thm:mcp-np-complete}), by a reduction from \ThreeSAT{} through an intermediate problem, \SSP{} (Theorem~\ref{thm:ssp-np-complete}).
 Second, let $\cp(u,v)$ be the size of a minimum cut-path, $c(u,v)$ the size of a minimum cut separating $u$ from $v$, and $d(u,v)$ the distance between $u$ and $v$.
-We prove that $\cp(u,v) = c(u,v) + d(u,v) - 1$ in graphs of diameter two (Theorem~\ref{thm:diameter-two}) and in graphs in which $c(x,y) \leq 2$ for every two distinct vertices $x$ and $y$ (Theorem~\ref{thm:cut-two}).
-In both classes, a minimum cut-path can be computed in polynomial time.
+We prove that $\cp(u,v) = c(u,v) + d(u,v) - 1$ in graphs of diameter two (Theorem~\ref{thm:diameter-two}) and in cactus graphs, the connected graphs in which $c(x,y) \leq 2$ for every two distinct vertices $x$ and $y$ (Theorem~\ref{thm:cut-two}).
+In both classes the upper bound of Lemma~\ref{lem:basic-bounds} is attained, so the union of any minimum cut and any shortest path is a minimum cut-path.
 
 Third, Erdős–Rényi random graphs with constant edge probability have diameter two with probability tending to one (Theorem~\ref{thm:random-diameter-two}), so the formula applies to them.
 Let $n$ be the number of vertices and let $\alpha > 1$.
@@ -234,6 +234,7 @@ The minimum size of a cut-path between $u$ and $v$ is denoted by $\cp(u, v)$:
 Since $u$ and $v$ lie in the same connected component, the edge set $E$ contains a $u$--$v$ path, and removing all edges of $E$ disconnects $u$ from $v$ because $u \neq v$.
 Hence $E$ is a cut-path, and the minimum in Definition~\ref{def:cp-value} exists.
 A cut-path $S$ with $|S| = \cp(u, v)$ is called a \emph{minimum cut-path} between $u$ and $v$.
+For a fixed $u$--$v$ path $P$, a set $S \supseteq P$ is a cut-path if and only if $S \setminus P$ is a $u$--$v$ cut of $G \setminus P$; hence $\cp(u, v)$ is the minimum, over all $u$--$v$ paths $P$, of $|P|$ plus the cut-value of $u$ and $v$ in $G \setminus P$.
 
 \begin{problem}[\MinCutPath{} (Optimization Version)]
 Let $G=(V,E)$ be an undirected graph and $u,v \in V$ distinct vertices; cut-paths are defined in Definition~\ref{def:cut-path}.
@@ -779,6 +780,9 @@ A candidate path $P$ is verified in polynomial time: check that $P$ is a shortes
 Hence \SSP{} belongs to NP.
 \end{proof}
 
+In the graph $G$ constructed by Algorithm~\ref{alg:reduction}, every vertex other than $u$ and $v$ has degree at most three: the ends of the chain links and of the crossing edges have degree three, and all other vertices have degree two.
+On the other hand, $c(u,v) \geq 2n + 7m$, because the threads are edge-disjoint $u$--$v$ paths, and $d(u,v) = \Lambda$; hence the reduction says nothing about instances with bounded $c(u,v)$ or bounded $d(u,v)$.
+
 \subsection{From Separating Shortest Path to Min Cut-Path}\label{sec:ssp-to-mcp}
 The second step reduces \SSP{} to \MinCutPath, which we state in decision form.
 
@@ -866,7 +870,7 @@ In a graph of diameter two, the vertices that are not incident to the cut lie on
 
 \begin{lemma}
 \label{lem:empty-i-or-l}
-Let $G = (V, E)$ be a graph of diameter two, let $C$ be a cut that divides $G$ into two sets $A_1$ and $A_2$, and let $I, J, K, L$ be the decomposition induced by $C$ (Definition~\ref{def:cut-decomposition}).
+Let $G = (V, E)$ be a graph of diameter at most two, let $C$ be a cut that divides $G$ into two sets $A_1$ and $A_2$, and let $I, J, K, L$ be the decomposition induced by $C$ (Definition~\ref{def:cut-decomposition}).
 Then at least one of the sets $I$ and $L$ is empty:
 \[
 I = \emptyset \quad\text{or}\quad L = \emptyset.
@@ -878,7 +882,7 @@ Suppose, for a contradiction, that there are vertices $x \in I$ and $y \in L$.
 Since $x \in A_1$, $y \in A_2$ and $C$ is the set of all edges between $A_1$ and $A_2$, every $x$--$y$ path contains an edge $\{a, b\}$ of $C$ with $a \in A_1$ and $b \in A_2$.
 The vertices $a$ and $b$ are incident to an edge of $C$, so $a \in J$ and $b \in K$; in particular, $a \neq x$ and $b \neq y$, because $x$ and $y$ are not incident to any edge of $C$.
 Hence the path has at least one edge between $x$ and $a$, the edge $\{a, b\}$, and at least one edge between $b$ and $y$, so it passes through $J$ and $K$ and has at least three edges.
-Therefore $d(x, y) \geq 3$, which contradicts the assumption that $G$ has diameter two.
+Therefore $d(x, y) \geq 3$, which contradicts the assumption that $G$ has diameter at most two.
 \end{proof}
 
 \begin{lemma}
@@ -900,7 +904,7 @@ Therefore, the path crosses the cut an odd number of times, so $|C \cap P|$ is o
 
 \begin{theorem}
 \label{thm:diameter-two}
-Let $G = (V, E)$ be a graph of diameter two, and let $u, v \in V$ be two distinct vertices.
+Let $G = (V, E)$ be a graph of diameter at most two, and let $u, v \in V$ be two distinct vertices.
 Then a minimum cut-path between $u$ and $v$ has
 \[
 \cp(u, v) = c(u, v) + d(u, v) - 1
@@ -910,7 +914,7 @@ edges.
 
 \begin{proof}
 We distinguish two cases based on the values of $d(u, v)$ and $c(u, v)$.
-Since $G$ has diameter two, it is connected, so $c(u, v) \geq 1$ and $d(u, v) \in \{1, 2\}$.
+Since $G$ has diameter at most two, it is connected, so $c(u, v) \geq 1$ and $d(u, v) \in \{1, 2\}$.
 Hence the two cases below cover all pairs $u, v$.
 
 \emph{Case 1: $d(u, v) = 1$ or $c(u, v) = 1$.}
@@ -982,32 +986,59 @@ Whenever $\cp(u, v) = c(u, v) + d(u, v) - 1$, the proof of Lemma~\ref{lem:basic-
 Hence, in graphs of diameter two, a minimum cut-path can be found by one minimum-cut computation and one breadth-first search.
 \end{remark}
 
-\section{Graphs with Cut-Value at Most Two}
+\begin{corollary}
+\label{cor:diameter-two-degrees}
+Let $G = (V, E)$ be a graph of diameter at most two, and let $u, v \in V$ be two distinct vertices.
+Then $c(u, v) = \min\{\deg(u), \deg(v)\}$, and hence $\cp(u, v) = \min\{\deg(u), \deg(v)\} + d(u, v) - 1$.
+\end{corollary}
+
+\begin{proof}
+The edges incident to $u$ form a $u$--$v$ cut, and so do the edges incident to $v$; hence $c(u, v) \leq \min\{\deg(u), \deg(v)\}$.
+Let $C$ be a minimum $u$--$v$ cut.
+As in the proof of Theorem~\ref{thm:diameter-two}, $C$ is the set of all edges between two sides $A_1$ and $A_2$ that partition $V$, and by Lemma~\ref{lem:empty-i-or-l} we may name the sides so that every vertex of $A_2$ is incident to an edge of $C$.
+Let $w$ be the one of the vertices $u, v$ that lies in $A_2$, and let $\deg(w, W)$ again denote the number of neighbors of $w$ in a vertex set $W$.
+Every edge of $C$ has exactly one end in $A_2$; the vertex $w$ is an end of $\deg(w, A_1)$ of them, and each of the other $|A_2| - 1$ vertices of $A_2$ is an end of at least one.
+Hence $|C| \geq \deg(w, A_1) + |A_2| - 1 \geq \deg(w, A_1) + \deg(w, A_2) = \deg(w)$, so $c(u, v) \geq \min\{\deg(u), \deg(v)\}$.
+The formula for $\cp(u, v)$ follows from Theorem~\ref{thm:diameter-two}.
+\end{proof}
+
+Hence the edges incident to the one of the vertices $u, v$ with the smaller degree form a minimum $u$--$v$ cut, and a minimum cut-path is found in linear time, without a minimum-cut computation.
+
+\section{Cactus Graphs}
 \label{sec:cut-two}
 
-The same formula holds in graphs in which the cut-value of every pair of vertices is at most two.
+The same formula holds in connected graphs in which the cut-value of every pair of vertices is at most two.
 
-Such graphs have the structure of a \emph{cactus graph}: they consist of cycles and single edges, any two of which share at most one vertex, an articulation point.
+These are the \emph{cactus graphs}, the connected graphs in which any two distinct cycles share at most one vertex (Lemma~\ref{lem:cactus}).
+Such a graph consists of cycles and single edges, any two of which share at most one vertex, an articulation point.
 
 \begin{lemma}
 \label{lem:cactus}
-Let $G = (V, E)$ be a graph such that $c(x, y) \leq 2$ for every pair of distinct vertices $x, y \in V$.
-Then any two distinct cycles of $G$ share at most one vertex.
+A graph $G = (V, E)$ satisfies $c(x, y) \leq 2$ for every pair of distinct vertices $x, y \in V$ if and only if any two distinct cycles of $G$ share at most one vertex.
 \end{lemma}
 
 \begin{proof}
-Suppose first that two distinct cycles share an edge.
+Let $c(x, y) \leq 2$ for every pair of distinct vertices, and suppose first that two distinct cycles share an edge.
 Then the second cycle contains a path whose ends $x \neq y$ lie on the first cycle and whose edges do not belong to the first cycle.
 To find it, take an edge of the second cycle that is not on the first, and follow the second cycle from it in both directions up to the first vertex of the first cycle.
 The two vertices reached are distinct, because the second cycle contains both ends of the shared edge.
 The union of the two cycles then contains the two vertices $x$ and $y$ joined by three edge-disjoint paths: this path and the two $x$--$y$ paths along the first cycle.
 Separating $x$ from $y$ then requires at least three edges, which contradicts the assumption $c(x,y) \leq 2$.
 Similarly, two edge-disjoint cycles cannot share two vertices $x \neq y$: they would contain four edge-disjoint $x$--$y$ paths.
+
+Conversely, suppose that any two distinct cycles of $G$ share at most one vertex.
+Two vertices in different components have cut-value zero, so let $x, y$ be two distinct vertices joined by a path $P$, and let $e_1$ be the edge of $P$ at $x$.
+If $e_1$ lies on no cycle, then it is a bridge, and its removal separates $x$ from $y$.
+Otherwise let $Z$ be a cycle through $e_1$, and let $e_2$ be the other edge of $Z$ at $x$.
+Suppose that $G \setminus \{e_1, e_2\}$ contains an $x$--$y$ path $Q$.
+Following $P$ from $x$ to its first vertex other than $x$ that lies on $Q$, and returning to $x$ along $Q$, we obtain a cycle that contains $e_1$ and not $e_2$.
+This cycle and $Z$ are distinct and share both ends of $e_1$, a contradiction.
+Hence $c(x, y) \leq 2$.
 \end{proof}
 
 \begin{theorem}
 \label{thm:cut-two}
-Let $G = (V, E)$ be a connected graph such that $c(x, y) \leq 2$ for every pair of distinct vertices $x, y \in V$.
+Let $G = (V, E)$ be a cactus graph.
 Then, for any two distinct vertices $u,v \in V$, a minimum cut-path between $u$ and $v$ has
 \[
 \cp(u, v) = c(u, v) + d(u, v) - 1
@@ -1017,7 +1048,7 @@ edges.
 
 \begin{proof}
 We distinguish two cases based on the values of $d(u, v)$ and $c(u, v)$.
-Since $G$ is connected, $c(u, v) \geq 1$, and $c(u, v) \leq 2$ by assumption; since $u \neq v$, $d(u, v) \geq 1$.
+Since $G$ is connected, $c(u, v) \geq 1$, and $c(u, v) \leq 2$ by Lemma~\ref{lem:cactus}; since $u \neq v$, $d(u, v) \geq 1$.
 Hence the two cases below cover all pairs $u, v$.
 
 \emph{Case 1: $d(u, v) = 1$ or $c(u, v) = 1$.}
@@ -1053,6 +1084,22 @@ Therefore,
 \end{proof}
 
 By Remark~\ref{rem:algorithm}, a minimum cut-path in such a graph is again obtained as the union of a minimum cut and a shortest path.
+
+\begin{example}
+\label{ex:strict}
+In both graphs of Figure~\ref{fig:counterexamples}, the three red edges form a $u$--$v$ path whose removal separates $u$ from $v$, so $\cp(u, v) = 3$.
+In the left graph, $c(u, v) = 2$ and $d(u, v) = 3$; in the right graph, $c(u, v) = 3$ and $d(u, v) = 2$.
+In both, $c(u, v) + d(u, v) - 1 = 4$, so the upper bound of Lemma~\ref{lem:basic-bounds} is not attained.
+Hence the hypothesis of Theorem~\ref{thm:cut-two} cannot be weakened to $c(u, v) \leq 2$, and that of Theorem~\ref{thm:diameter-two} cannot be weakened to $d(u, v) \leq 2$.
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{counterexample-cut-two.pdf}\qquad\qquad
+    \includegraphics{counterexample-distance-two.pdf}
+    \caption{Two graphs with $\cp(u,v) = 3 < c(u,v) + d(u,v) - 1$; the cut-path is red}
+    \label{fig:counterexamples}
+\end{figure}
 
 \section{Erdős–Rényi Graphs}
 \label{sec:random-graphs}
@@ -1187,18 +1234,20 @@ Thus, the algorithm achieves the approximation ratio $1+\epsilon$ on a set of in
 
 We proved that \MinCutPath{} is NP-complete and that $\cp(u, v) = c(u, v) + d(u, v) - 1$ in two graph classes; several questions remain open.
 First, in which further graph classes can the problem be solved in polynomial time?
-A natural candidate is the class of graphs in which every pair of vertices is at distance at most two or has a minimum cut of size at most two; it contains both classes treated in this paper.
+A natural candidate is the class of graphs in which every pair of vertices is at distance at most two or has a minimum cut of size at most two.
+It contains both classes treated in this paper, but the formula $\cp(u, v) = c(u, v) + d(u, v) - 1$ does not hold in it (Example~\ref{ex:strict}).
 Is \MinCutPath{} NP-hard on graphs of diameter three?
 At this diameter, finding a matching cut and, for unit edge lengths, finding the most vital edges for shortest paths turn from polynomial-time solvable to NP-hard~\cite{Bazgan2019MostVital,LeLe2019MatchingCut}.
 
 Second, does duality help to solve \MinCutPath{} on \emph{planar graphs}?
 In a planar graph, every minimal edge cut corresponds to a cycle in the dual graph and vice versa, and several problems on cuts and flows can be solved faster in planar graphs than in general ones~\cite{itai1979maximum,henzinger1997faster}.
 
-Third, how do algorithms for \MinCutPath{} behave on average?
-Experiments on real-world networks and on random instances would answer this question and could guide the design of heuristics.
+Third, can a minimum cut-path be approximated within a factor smaller than two?
+By Corollary~\ref{cor:two-approximation}, the union of a minimum cut and a shortest path achieves the factor two; our reduction gives no inapproximability bound, because it only distinguishes $\cp(u, v) = d(u, v)$ from $\cp(u, v) > d(u, v)$.
 
 Finally, for a fixed threshold $b$, trying all sets of at most $b$ edges decides in polynomial time whether $\cp(u,v) \leq b$.
 Is \MinCutPath{} fixed-parameter tractable with respect to $b$?
+What is the complexity of the problem for bounded $c(u, v)$ or bounded $d(u, v)$, and of deciding whether $\cp(u, v) = c(u, v)$?
 
 
 \section*{Acknowledgments}
