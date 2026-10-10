@@ -85,7 +85,7 @@ Theorem 7.1 (no FPTAS) is kept, although Theorem 7.4 implies it: the author deci
 Lemmas 7.2-7.4 and Theorem 7.5 are now Lemmas 7.5-7.7 and Theorem 7.8. Abstract, contributions, roadmap and the
 third question of the conclusion now say "no polynomial-time approximation scheme". `references.bib`: 20 entries.
 Checks: `checks/check_gap_lemmas.py` (56 formulas, no failure; `cp = Lambda + eta*` on all 38 formulas with exact
-`cp`). 23 pages; packager `-CheckOnly` `Verdict: PASS`. Not committed. Referee pass by an independent agent: no
+`cp`). 23 pages; packager `-CheckOnly` `Verdict: PASS`. Committed and pushed on the author's request (commit 3a85a82). Referee pass by an independent agent: no
 mathematical error; its own experiment (random `u`-`v` paths with one to more than six connecting paths in the full
 graph, 9 formulas, script not kept) confirmed every step of the proof of Lemma 7.2; wording applied (reason for
 `Lambda >= 2`, "as a whole or not at all", "showed", "a constant factor smaller than two" in Section 7.1 and in the
