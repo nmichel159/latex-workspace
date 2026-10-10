@@ -12,6 +12,15 @@ Still open: "Open items for the author" below (AI declaration, funding, highligh
 changes to review". "Change history" names `preamble/` and `sections/` files; their content is now in `main.tex`, the
 files are in `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-before-flat/`.
 
+**Session of 2026-10-10 (plan `NEXT-TASK.md`):** the statements of Sections 2-5 were checked by computation (no
+failure; `projects/clanok-1-min-cut-path.submission/checks/`), the sources of Section 6 and the related work were
+re-checked, Sections 3-5 were tidied (Lemma 5.1 is new as an environment, Theorem 5.1 became 5.2; the count in
+Theorem 4.5 is one display; Figures 5, 8 and 10 updated). 17 pages; full packager run `Verdict: PASS`. Report and the
+decisions that wait for the author: `projects/clanok-1-min-cut-path.submission/session-2026-10-10/REPORT.md`.
+Current numbering: Definitions 2.1, 2.2, Lemma 2.3, Definition 2.4; Definitions 3.1-3.4, Lemmas 3.5-3.8, Theorems 3.9,
+3.10; Definition 4.1, Lemmas 4.2-4.4, Theorem 4.5, Remark 4.6; Lemma 5.1, Theorem 5.2; Theorems 6.1-6.3, Lemmas 6.4,
+6.5, Theorem 6.6. Older notes below use the numbers of their day.
+
 **Preserving revision of 2026-10-09 (evening):** the whole text was tidied without removing content; Section 3
 is reorganized into construction (Algorithm 1 outside the proof) and Lemmas 3.5-3.8 before Theorem 3.9; seven
 verified references added (18 entries); Figure 10 is vector (all figures are vector now). 19 pages. Report, change
@@ -65,7 +74,8 @@ the open items below.
 4. **Competing interests:** the declarations tool (form) in Editorial Manager, "I have nothing to declare" if none.
 5. **Research data** (Option C): the article has no data set; a statement in the submission form saying so.
 6. **Highlights** (encouraged): a separate editable file with "highlights" in its name, 3-5 bullets of at most 85
-   characters each; not written.
+   characters each; drafted 2026-10-10 in `projects/clanok-1-min-cut-path.submission/highlights.txt` (five lines, at
+   most 78 characters), to be confirmed.
 7. **Figures (Figures 2-6 redrawn as vector PDF on 2026-10-09; open only for
    `diameter-two-structure.png`; Figure 1 `cut-path` was redrawn too):** DAM asks for vector drawings (EPS/PDF) or bitmapped line drawings of at least 1000 dpi; the seven
    PNG drawings have 146-226 dpi at their printed width (see "Known problems"). Redraw them as vector graphics, or
@@ -90,9 +100,10 @@ the open items below.
     and the same fraction in running text) and `e^{-\mu h(a)}` in two displays of the same section. Possible forms:
     `1/\alpha`, `\alpha\log n/n`, `\exp(-\mu h(a))`; notation changes are the author's decision. Elsevier typesets
     accepted articles itself, so this is a style point, not a blocker.
-11. **Year of Frieze–Karoński** (bibliography): the publisher's page (`citation_publication_date` 2015/10) and
-    Crossref (print 2015-10-26) date *Introduction to Random Graphs* 2015; the entry keeps 2016 (note in the
-    canonical `.bib`). Confirm the year from the book's imprint page.
+11. **Year of Frieze–Karoński** (bibliography): settled 2026-10-10. The imprint page of the printed book reads
+    "First published 2016" (Google Books preview; note in the canonical `.bib`); the entry keeps 2016. Open instead:
+    the entry's `url` points to the authors' PDF of 2026, whose numbering differs from the printed book
+    (`session-2026-10-10/REPORT.md`, decision 12).
 12. **AI use in the figures** (since 2026-10-09; Figures 2-6 (`chain-threads`, `chain-link`, `chain`,
     `chain-link-types`, `threading`) are since that day also TikZ drawings written by the AI assistant, redrawn
     from the author's PNG drawings, and are not yet named in the draft declaration): Figures 7, 8 and 9 (`fig:two-synchronization`,
@@ -143,9 +154,48 @@ Figures (number on 2026-10-09, label, file, section): 1 `fig:cut-path` `cut-path
 9 `fig:clause-thread` `clause-thread.pdf` (all 3; Figures 7-9 stand inside the numbered list of thread types);
 10 `fig:diameter-two-structure` `diameter-two-structure.png` (4).
 
-Labels of statements: `lem:basic-bounds`, `thm:ssp-np-complete`, `alg:reduction`, `thm:mcp-np-complete`, `lem:cut-decomposition`,
-`lem:empty-i-or-l`, `lem:odd-intersection`, `thm:diameter-two`, `rem:algorithm`, `thm:cut-two`, `thm:random-diameter-two`, `thm:random-diameter`,
-`thm:random-connectivity`, `lem:degree-bounds`, `lem:connectivity-bounds`, `thm:approximation-scheme`.
+Labels of statements: `def:cut-path`, `def:cp-value`, `lem:basic-bounds`, `def:approximation-scheme`, `def:chain-link`,
+`def:chain`, `def:thread`, `def:threading`, `alg:reduction`, `lem:chain-paths`, `lem:synchronization`,
+`lem:clause-threads`, `lem:separating`, `tab:usable`, `thm:ssp-np-complete`, `thm:mcp-np-complete`, `def:diameter`,
+`lem:cut-decomposition`, `lem:empty-i-or-l`, `lem:odd-intersection`, `thm:diameter-two`, `rem:algorithm`, `lem:cactus`
+(new 2026-10-10), `thm:cut-two`, `thm:random-diameter-two`, `thm:random-diameter`, `thm:random-connectivity`,
+`lem:degree-bounds`, `lem:connectivity-bounds`, `thm:approximation-scheme`.
+
+### Notation table (2026-10-10)
+
+Occurrences are counted in the math of `main.tex` by section (rough; script of the session, not kept). "Clash" names
+another meaning of the same letter; the decisions are in `session-2026-10-10/REPORT.md`, decision 1.
+
+| Symbol | Meaning | Defined | Uses (section: count) | Clash |
+|---|---|---|---|---|
+| `G = (V, E)`, `u`, `v` | graph, the two distinguished vertices | Section 2 | everywhere | - |
+| `d(u,v)`, `c(u,v)`, `\cp(u,v)` | distance, cut-value, size of a minimum cut-path | Section 2, Definition 2.2 | everywhere | - |
+| `P`, `Q` | `u`-`v` path; a second `u`-`v` path | Section 2; Lemmas 3.5, 3.8 | `Q` 3: 14 | - |
+| `C` | `u`-`v` cut | Section 2 | 2: 10, 4: 33 | clauses `C_k` (3: 20), `\mathcal{C}` (3: 5) |
+| `S` | cut-path | Definition 2.1 | 2: 6, 4: 12, 5: 2, 6: 3 | `S = C \cap P` (proof of Lemma 4.4), vertex set in `\deg(x, S)` (proof of Theorem 4.5) |
+| `F` | cut-path in the decision version | Section 3.2 | 3: 11 | same object as `S` |
+| `k` | clause index | Section 3 | 3: 62 | threshold of the decision version (Section 3.2), bound in Definition 4.1 (4: 3), budget of other problems (1: 2) |
+| `n`, `m` | numbers of variables and clauses | Section 3 (declared) | 3: 17, 14 | `n` = number of vertices in Sections 1, 2, 6 (67) |
+| `i`, `j` | variable index, position of a literal | Section 3 | - | `i` also indexes `H_i`, `L_i` (Definition 3.2) and `Z_i` (Section 5) |
+| `r` | number of chain links | Definition 3.2 | 3: 12 (both meanings) | index of `Thread` (`K_r`, `\sigma_r`) |
+| `t` | number of links of a thread | `Thread` | 3: 7 | number of cycles `Z_1, \dots, Z_t` (5: 3) |
+| `p`, `q`; `p_i`, `q_i` | ends of a chain link | Definitions 3.1, 3.2 | 3: 9 | `p` = edge probability (6: 17) |
+| `L`; `L_i` | a chain link; the `i`-th link | Definitions 3.1-3.4 | 3: 13 | part `L` of Section 4 (4: 13) |
+| `I_i`, `T_i`, `L_{j,k}` | initialization, terminal, literal chain link | Section 3.1.1 | 3: 28, 26, about 45 | parts `I`, `L` of Section 4; `I(n)` |
+| `K_1, \dots, K_t`, `\sigma_r` | links and signs passed to `Thread` | Section 3.1.2 | 3: 8 | part `K` of Section 4 (4: 28) |
+| `H_i` | single edges of a chain | Definition 3.2 | 3: 4 | `h(a)` (Lemma 6.4) |
+| `z_1, z_2`, `e = \{x, y\}` | new vertices and the subdivided edge | Definition 3.4 | 3 | - |
+| `\mathcal{M}`, `\mathit{Lits}`, `\ell[0]`, `\ell[1]`, `s(\ell)` | map of literals, list, position of a literal, sign | Section 3.1.2 | 3 | author's notation, kept |
+| `\Lambda` | number of edges of a chain path | `Calibrate` | 3: 10 | - |
+| `\tau` | truth assignment | 3-SAT | 3: 24 | - |
+| `A`; `A_1`, `A_2` | vertex set of a side; the two sides of a cut | Section 2; Lemma 4.2 | 2: 2, 4: 7; 4: 46 | algorithm `A` of Definition 2.4 (2: 7) |
+| `I, J, K, L` | parts of the sides (incident to the cut or not) | Lemma 4.2 | 4: 19, 18, 28, 13 | see `I_i`, `K_r`, `L` |
+| `\deg(x, S)` | number of neighbors of `x` in `S` | proof of Theorem 4.5 | 4: 8 | `S` |
+| `Z_1, \dots, Z_t` | cycles met by `P` | proof of Theorem 5.2 | 5: 16 | - |
+| `I(n)`, `I_A^{\mathrm{opt}}(n)`, `X`, `\OPT(X)` | instances of size `n`, good instances, an instance, its optimum | Section 2, Definition 2.4 | 2: 7, 8, 3; 6: 3, 2 | `I` |
+| `G(n,p)`, `\alpha`, `\beta_1`, `\mu`, `a`, `a_1`, `h(a)` | random graph, constants of Section 6 | Section 6 | 6 | `a`, `b` are vertices in the proof of Lemma 4.3 |
+| `V(G)`, `\delta(G)` | vertex set and minimum degree of the random graph | Section 6 | 6: 2, 3 | `V(G)` only twice |
+| `\epsilon` | accuracy of the approximation | Definition 2.4 | 0: 2, 1: 1, 2: 5, 6: 5 | house rule prefers `\varepsilon` |
 
 ## Files
 
@@ -206,8 +256,9 @@ its comments:
 .\scripts\package-project.ps1 -Project clanok-1-min-cut-path -Template els-cas -Flat -KeepComments              # before sending
 ```
 
-Send only on `Verdict: PASS`. Last run 2026-10-09, 09:47, after the plain-style revision (`-Template els-cas -Flat
--KeepComments`): `Verdict: PASS`, 15 pages, `Trace scan: 15 files, 0 hits (0 allowed); 3 files identical to the
+Send only on `Verdict: PASS`. Last run 2026-10-10, 10:05 (`-Template els-cas -Flat -KeepComments`): `Verdict: PASS`,
+17 pages, 16 files in the zip, `Trace scan: 15 files, 0 hits (0 allowed)`, 22 comment lines kept, one advisory finding
+`[ai-declaration]`. Run of 2026-10-09, 09:47, after the plain-style revision: `Verdict: PASS`, 15 pages, `Trace scan: 15 files, 0 hits (0 allowed); 3 files identical to the
 template not scanned`, 22 comment lines kept, one finding `[ai-declaration]` (advisory). The run before it, after
 the move to the flat folder: `Verdict: PASS`, 16 pages, `Trace scan: 11 files, 0 hits (0 allowed); 3 files identical to the
 template not scanned`, 22 comment lines kept, one finding `[ai-declaration]` (the packager looks for the draft in
@@ -497,6 +548,28 @@ from the revision, but the author is responsible for them.
       **Check this sentence against the thesis** and against the journal's question on prior publication.
 
 ## Change history
+
+**2026-10-10 - session along `NEXT-TASK.md` (Windows, 08:35-10:30)**
+- Phase B: computational checks, `projects/clanok-1-min-cut-path.submission/checks/` (`README.md` there): Algorithm 1
+  as an executable model, Lemmas 3.5-3.8 and Theorem 3.9 on 5639 formulas; Lemma 2.3, Theorem 3.10, Lemmas 4.3, 4.4,
+  Theorem 4.5, Lemma 5.1 and Theorem 5.2 on all graphs with at most seven vertices. No failure.
+- `main.tex`: Section 1 (Most Vital Edges "with unit edge lengths"; no symbol `d` in the Matching Cut sentence);
+  Section 2 (`G = (V, E)` introduced); Section 3 (plan sentence in the proofs of Lemma 3.5 and Theorem 3.9; "exactly
+  `Λ` edges"); Section 4 (count of Theorem 4.5 as one display with groups (i)-(iii), `deg(u, I)` gone from the
+  estimate); Section 5 (Lemma 5.1 `lem:cactus` with proof; Theorem 5.2 cites it); Section 6 (verified locations:
+  `ChungLu2001` alone for Theorem 6.2, `\cite[p.~169]{Bollobas2001}` for Theorem 6.3, `\cite[Eq.~(21.19)]{Frieze2016}`,
+  `\cite[Section~1.1]{Frieze2016}`; bound variable `x` in Lemma 6.4); Section 7 (diameter-three question).
+- Figures: `chain-link-types.pdf` and `three-synchronization-threads.pdf` with labels `L_{j,k}` (were `L_{j,k,i}`);
+  `diameter-two-structure.pdf` with the marks (i), (ii), (iii). Sources in
+  `projects/clanok-1-min-cut-path.submission/figures/`; old PDFs in
+  `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-10-figure-10/` and `2026-10-10-figure-labels/`.
+- Sources and literature (two agents): `session-2026-10-10/sources-section-6.md`, `related-work-check.md`; canonical
+  `.bib` comments, `searches.md` (14 rows), `Bazgan2019MostVital.md`, `knowledge/research/min-cut-path.md` updated.
+  The same problem was not found under any name; no close paper in Discrete Applied Mathematics.
+- Build: 17 pages, no undefined references; `check-text.ps1` 7 findings (known false positives); `check-bib.ps1` 2
+  recommendations; packager, full run `-Template els-cas -Flat -KeepComments`: `Verdict: PASS`, 16 files,
+  `Trace scan: 15 files, 0 hits`, one advisory finding `[ai-declaration]`.
+- Not committed (the session had no permission to commit). Decisions for the author: `session-2026-10-10/REPORT.md`.
 
 **2026-10-09 - preserving revision (cloud session, 16:50-17:20)**
 - Four editors (front matter and Sections 1-2; Section 3; Sections 4-5 and Figure 10; Sections 6-7 and sources) and

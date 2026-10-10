@@ -89,9 +89,11 @@
 % Compared: title, author, book title, the three editors, pages 85-103, 1972, publisher Springer US, Boston, MA.
 % The 1972 printing was published by Plenum Press, New York (IBM Research Symposia Series) according to
 % secondary listings; the entry follows the Crossref record.
-% Content not read on 2026-10-09: the free scan (cgi.di.uoa.gr/~sgk/teaching/grad/handouts/karp.pdf) exceeds the
-% fetch limit. Secondary sources attribute to it the NP-completeness (many-one reductions) of satisfiability with
-% at most three literals per clause; open pp. 85-103 before the citation goes into a manuscript.
+% Content read 2026-10-10 in the reprint of the 1972 text (Springer, 50 Years of Integer Programming 1958-2008, 2010,
+% ch. 8; copy www.cs.umd.edu/~gasarch/BLOGPAPERS/Karp.pdf, page images with the original pages 85-103).
+% Reducibility = polynomial-time many-one, p. 86; Definition 5 ((polynomial) complete), p. 93; Main Theorem, p. 94:
+% all 21 listed problems are complete; item 11, p. 95: SATISFIABILITY WITH AT MOST 3 LITERALS PER CLAUSE (at most
+% three, not exactly three); reduction from SATISFIABILITY by splitting long clauses with a new variable, p. 98.
 @incollection{Karp1972Reducibility,
   author    = {Karp, Richard M.},
   title     = {Reducibility among Combinatorial Problems},
@@ -181,6 +183,13 @@
 % ----------------------------------------------------------------------------
 
 % VERIFIED 2026-10-09 (DOI on the publisher page cambridge.org, which lists this ISBN, and in its Crossref record; other fields 2026-10-07: publisher page or catalogue).
+% Locations read 2026-10-10 (Google Books preview, id o9WecWgilzYC): Sec. 7.2, p. 166 (hitting times; Bollobas-Thomason
+% 1985 for every k(n)), Theorem 7.4 p. 166 (k fixed), Theorem 7.6 p. 168 (p <= (log n + k log log n)/n: kappa = lambda
+% = delta), remark on p. 169 (Theorem 7.6 holds without any restriction on p, credited to Bollobas and Thomason 1985);
+% Theorem 10.10 p. 259 (diameter d or d+1 for p^d n^(d-1) = log(n^2/c), pn/(log n)^3 to infinity), monotonicity of
+% "diam <= k" p. 262. Constant p, diameter two: no numbered statement found (pp. 255-256, 263 not visible).
+% Bollobas, Thomason, Random Graphs of Small Order (Random Graphs '83, North-Holland Math. Stud. 118, 47-97, 1985,
+% DOI 10.1016/S0304-0208(08)73612-0): record only, content not read; no entry until it is read.
 @book{Bollobas2001,
   author    = {Bollob{\'a}s, B{\'e}la},
   title     = {Random Graphs},
@@ -196,15 +205,18 @@
 
 % VERIFIED 2026-10-09 (DOI on the publisher page cambridge.org, which lists this ISBN, and in its Crossref record; other fields 2026-10-07: publisher page or catalogue).
 % The original ISBN ended in 6 (invalid check digit).
-% Note 2026-10-08: Crossref (published-print 2015-10-26) and the publisher page (citation_publication_date
-% 2015/10) date the book 2015; the entry keeps 2016 until the owner confirms the year.
-% Note 2026-10-09: the PDF at the url field is a revised version dated 2026-08-07 (854 pages, 38 chapters); the
-% printed book has 22 chapters (cambridge.org contents: Ch. 1 pp. 3-18, Ch. 4 Connectivity pp. 63-70, Ch. 7
-% Extreme Characteristics pp. 110-137, Ch. 21 Inequalities pp. 386-409). Locations in the 2026 PDF:
-% coupling (1.3) and monotonicity (1.7) in Sec. 1.1, pp. 5-7; Theorem 7.1 (diameter d for fixed d), p. 121;
-% Theorem 7.2 (diameter for p = omega log n / n, omega to infinity), p. 125; Theorem 4.3 (k-connectivity, k fixed),
-% p. 71; Chernoff bounds (34.17), (34.19), Theorem 34.6, Sec. 34.4, pp. 705-708. The printed numbering is not
-% verified (Inequalities is Ch. 21 in print, Ch. 34 in the PDF); cite the printed book only with checked numbers.
+% Year 2026-10-10: the imprint page of the printed hardback (Google Books preview, id OVC2CgAAQBAJ, p. iv) reads
+% "(c) Alan Frieze and Michal Karonski 2016" and "First published 2016"; Cambridge Core and Crossref date the release
+% 26 October 2015. The entry keeps 2016.
+% Numbering 2026-10-10: the PDF at the url field is a revised version dated 2026-08-07 (854 pages, 38 chapters) with
+% numbers that differ from the printed book (22 chapters). Locations in the PRINTED edition (Google Books preview, id
+% Bh7QCgAAQBAJ, running heads read): coupling (1.3), p. 5, and monotone increasing properties (1.6), p. 7, both
+% Sec. 1.1; Exercise 1.4.8 (G(n,p), p constant, diameter two), p. 17; Theorem 7.1 (diameter d), p. 110; Theorem 7.2
+% (p = omega log n / n, omega to infinity), p. 114; Chernoff bounds (21.17)-(21.19) and Theorem 21.6, Sec. 21.4,
+% pp. 391-392. The same results in the 2026 PDF: (1.3) p. 5, (1.7) p. 7, Exercise 1.4.8 p. 18, Theorem 7.1 p. 121,
+% Theorem 7.2 p. 125, (34.17)-(34.19) p. 707, Theorem 34.6 p. 708. The book has no theorem kappa = lambda = delta
+% for G(n,p) (2026 PDF searched; Theorem 4.3 is k-connectivity for fixed k).
+% Open: the url field points to a version whose numbering differs from the printed book that the entry describes.
 @book{Frieze2016,
   author    = {Frieze, Alan and Karo{\'n}ski, Micha{\l}},
   title     = {Introduction to Random Graphs},
@@ -268,8 +280,11 @@
 % (1+o(1)) log n / log(np) is Theorem 5 and needs log n > np -> infinity (below the connectivity threshold).
 % For p >= c log n / n with a constant c, Theorem 4 gives almost surely
 % ceil(log(cn/11)/log(np)) <= diam <= ceil(log(33 c^2 n log n / 400)/log(np)) + 2 floor(1/c) + 2.
-% The journal numbering was not compared (ScienceDirect refused the request). Note: knowledge/literature/ChungLu2001.md.
-% Recommended for Theorem VI.2 of article 1 (so far only Bollobas2001 is cited there).
+% Compared 2026-10-10: Theorem 4 is identical in two authors' PDFs, fanchung.ucsd.edu/dia.pdf (2004, 22 pp., 17
+% references as in the Crossref record of the journal version; Theorem 4 on p. 15) and
+% math.cmu.edu/~af1p/Teaching/WWW2004/diameter.pdf (draft of 2000-08-29). The journal pagination was not seen
+% (ScienceDirect: HTTP 403 and a robot check). Cite "Theorem 4" only after the journal PDF confirms the number.
+% Note: knowledge/literature/ChungLu2001.md. Cited alone for Theorem 6.2 of article 1 since 2026-10-10.
 @article{ChungLu2001,
   author  = {Chung, Fan and Lu, Linyuan},
   title   = {The Diameter of Sparse Random Graphs},

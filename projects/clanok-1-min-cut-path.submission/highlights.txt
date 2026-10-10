@@ -1,0 +1,5 @@
+A cut-path is an edge set that contains both a u-v path and a u-v cut.
+Deciding whether a cut-path with at most k edges exists is NP-complete.
+In graphs of diameter two, a minimum cut-path has c(u,v) + d(u,v) - 1 edges.
+The same formula holds if every two vertices can be separated by two edges.
+In sparse random graphs, a minimum cut plus a shortest path is nearly optimal.
