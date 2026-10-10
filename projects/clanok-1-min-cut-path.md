@@ -601,6 +601,19 @@ from the revision, but the author is responsible for them.
   false positives and "Chung and Lu~\cite{...} proved", authors named); `check-bib.ps1` 2 recommendations; packager,
   full run `-Template els-cas -Flat -KeepComments`: `Verdict: PASS`, 18 pages, `Trace scan: 15 files, 0 hits`.
 
+**2026-10-10 - referee review and its justifications (13:00-13:40)**
+- Independent review as a DAM referee: session-2026-10-10/referee-report.md. Verdict: major revision, borderline
+  minor; no error in the mathematics. Applied in main.tex: the findings that make reasons explicit or fix wording
+  (M1, M2, M5-M9, M12-M15, P3, P7; table in session-2026-10-10/REPORT.md, section Referee review). New paragraph
+  The construction is well defined in Section 3.1.2; two reason sentences in the proof of Lemma 3.9; the symmetry
+  behind the second renaming in the proof of Theorem 4.5; the cycles of the proof of Theorem 5.2 defined before use;
+  the convention of Chung and Lu for disconnected graphs after Theorem 6.2.
+- Not applied, for the author: an example with cp < c + d - 1 (the parked counterexamples), the corollary
+  c(u,v) = min(deg u, deg v) for diameter two, the name cactus graphs, abstract and introduction, open questions
+  (REPORT.md, same section, items 1-9).
+- Build: 18 pages, no undefined references; check-text.ps1 8 findings (false positives); packager, full run:
+  Verdict: PASS. Not committed.
+
 **2026-10-09 - preserving revision (cloud session, 16:50-17:20)**
 - Four editors (front matter and Sections 1-2; Section 3; Sections 4-5 and Figure 10; Sections 6-7 and sources) and
   two reviewers (mathematics and preservation; style). Working files, inventories, change logs and issue lists:

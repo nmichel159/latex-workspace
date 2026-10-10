@@ -120,3 +120,68 @@ and Lu.
 - Knowledge base: `knowledge/bibliography/references.bib` (comment lines of `Bollobas2001`, `Frieze2016`, `ChungLu2001`,
   `Karp1972Reducibility`), `knowledge/literature/searches.md` (14 rows of 2026-10-10),
   `knowledge/literature/Bazgan2019MostVital.md`, `knowledge/research/min-cut-path.md` (numbers, computational results).
+
+## Referee review (2026-10-10, afternoon)
+
+Independent review in the role of a DAM referee: `referee-report.md` (it covers the 18-page version with the approved
+decisions; line numbers are those of that version). Verdict of the reviewer: **major revision, borderline minor**; no
+error in the mathematics, no blocker. The recommendation is driven by passages that assert instead of justify, by
+missing examples and by results that are easy to add.
+
+### Applied (reasons made explicit, wording; no new result)
+
+| Finding | Change in `main.tex` |
+|---|---|
+| M1 | `d(x,y)`, `c(x,y)` for any two distinct vertices, `d = \infty` without a path (one sentence in Section 2). |
+| M2 | `G \setminus F` for any edge set; after Definition 2.1: a set `S` is a cut-path iff it contains a `u`-`v` path and `G \setminus S` has no `u`-`v` path. |
+| M5 | 3-SAT box: "exactly three literals, not necessarily distinct". |
+| M6 | After Definition 3.3: the word thread refers from then on to the paths created by `Thread`. |
+| M7, P3(a) | New paragraph "The construction is well defined" (a threading always finds an edge; the links between the first threading and `Calibrate`; ends of crossing edges; the order in which a thread visits its links; independence of the free choices). |
+| M8 | Proof of Lemma 3.9: two sentences with the reasons for "`Q` starts ..., ends ..., passes ..."; the sign of a crossing edge is defined in item (a). |
+| M9 | Proof of Theorem 3.11: `b := d(u,v)` is defined because `u`, `v` lie in one component (Section 2). |
+| M12 | Proof of Theorem 4.5: the second renaming is justified by the symmetry of `C`, `P` and `P \subseteq C`; "`V` is partitioned". |
+| M13 | Proof of Theorem 5.2: the cycles `Z_1, ..., Z_t` are defined before they are used; they are pairwise distinct; the arcs form a walk that contains a path. |
+| M14 | After Theorem 6.2: Chung and Lu measure the diameter of a disconnected graph on its largest component; `G` is connected with high probability (Lemma 6.5). |
+| M15(b) | Theorem 6.6: "for an arbitrary choice of the two distinct vertices `u, v`". |
+| P3(d), P7 | Table 1 lead-in agrees with its caption; "As with ...", "is hit exactly when", "let `\tau` be its truth assignment", "By Lemma 3.7", present tense in the proof of Lemma 5.1. |
+
+Build after these changes: 18 pages, no undefined references; `check-text.ps1` 8 findings (false positives as
+before); packager, full run: `Verdict: PASS`. Not committed.
+
+### For the author to decide (content; nothing applied)
+
+Recommendation first.
+
+1. **S2, example with `cp < c + d - 1`: yes.** The two parked graphs show that the upper bound of Lemma 2.3 can be
+   strict, that the hypotheses of Theorems 4.5 and 5.2 cannot be weakened to the pair `u, v` alone, and that the formula
+   fails in the class the Conclusion calls "a natural candidate". The computation of today adds: they are the only such
+   graphs with at most six vertices. Place: after Theorem 5.2; one figure, three sentences; one clause in the
+   Conclusion ("but the formula does not hold in it").
+2. **S3, corollary for diameter two: yes.** `c(u,v) = \min\{\deg(u), \deg(v)\}`, hence
+   `\cp(u,v) = \min\{\deg(u), \deg(v)\} + d(u,v) - 1` and a linear-time algorithm without a minimum-cut computation
+   (Theorem 16 of the master's thesis; statement and proof: `referee-report.md`, S3). The classical theorem on
+   diameter two (edge connectivity equals minimum degree; attributed to Plesnik 1975) is TODO(verify) before it is cited.
+3. **S4, name the class of Section 5: yes.** A connected graph has `c(x,y) <= 2` for all pairs iff it is a cactus
+   (checked on all graphs with at most seven vertices); say "cactus graphs" in the abstract, the introduction and the
+   section title. The converse direction needs Menger's theorem with a source.
+4. **S1, S9, abstract and introduction: yes.** Say that in both classes the upper bound of Lemma 2.3 is attained;
+   replace "above the connectivity threshold" by "with edge probability at least `\alpha \log n / n`, `\alpha > 1`"
+   (the abstract promises more than Theorem 6.6 proves); name the intermediate problem.
+5. **S6, discussion and open questions: yes, one sentence each.** The reformulation
+   `\cp(u,v) = \min_P (|P| + c_{G \setminus P}(u,v))` after Definition 2.2; in the Conclusion: approximation below
+   factor two (the reduction gives no gap), the complexity of deciding `\cp(u,v) = c(u,v)`, bounded `c(u,v)` or
+   `d(u,v)`; drop the question about experiments.
+6. **S5, degree at most three: the reviewer disagrees with decision 2(c).** One sentence that says what the
+   reduction gives (degree at most three outside `u, v`; `c(u,v)` and `d(u,v)` unbounded) answers the question about
+   restricted classes. Recommended now: add the sentence.
+7. **M3, M4, M10, M11 (minor).** Corollary 2.4 in the sharper form `|C \cup P| \leq \cp + \min\{c, d\} - 1`;
+   Definition 2.5 with one item instead of items 2 and 3; "diameter at most two" in the statements; the decomposition
+   of Definition 4.2 named after the pair `(A_1, A_2)`. Recommended: M10 yes, the others as you prefer.
+8. **S8(b), claim in the introduction.** "We settle its complexity and prove its basic structural properties" ->
+   "We prove that it is NP-complete and identify two graph classes in which the union of a minimum cut and a shortest
+   path is optimal." Recommended: yes.
+9. **Presentation (P1, P2, P3(b,c,e), P4-P6, P8-P10).** The author's notation `\ell[0]`, `\ell[1]` and Algorithm 1
+   were left alone (the reviewer proposes `L_{j,k}` and a first line that creates `u`, `v`); the term "edge boundary"
+   for the second meaning of "cut"; statements of Theorems 4.5 and 5.2 as "Then `\cp(u,v) = c(u,v) + d(u,v) - 1`.";
+   repeated sentences; the empty "ORCID(s):" line; pages 2, 6, 7, 8 end with empty space because of the `[H]` floats;
+   Figures 7, 8 and 10 rely on colour only; the keyword "average-case approximation".
