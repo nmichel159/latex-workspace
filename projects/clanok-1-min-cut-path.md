@@ -66,6 +66,14 @@ PTAS and the last one asks for time `2^{O(b)}` instead of asking whether the pro
 `check-text.ps1` 8 findings (the known false positives), `check-bib.ps1` 2 recommendations, packager `-CheckOnly`
 `Verdict: PASS`. The section was written and checked by the AI assistant: the author must read it ("Content
 changes to review", item 18) and the AI declaration must name it (open item 2).
+**Referee pass on Section 7 (independent agent, 2026-10-10):** no false lemma or theorem. Fixed after it, in Section
+7.1: the sentence "the reduction gives no constant lower bound on the factor" was not supported (its reason, `cp = d`
+or `cp >= d + 1`, holds in every graph); it now says what the proofs of Section 3 show and that a finer analysis is
+not known. "Is open" became "we do not know" twice. Not fixed: computability of `f` (above). Lead, not verified
+(TODO(verify)): the threads are pairwise edge-disjoint `u`-`v` paths, so a cut-path that contains a chain path `P`
+has at least `Lambda` + (number of threads not hit by `P`) edges, with `Lambda = 10n + 33m + 1`; on gap instances of
+3-SAT with bounded occurrences this may give APX-hardness, hence no PTAS. Cut-paths around non-chain paths were not
+analysed.
 
 Current numbering: Definitions 2.1, 2.2, Lemma 2.3, Corollary 2.4, Definition 2.5; Definitions 3.1-3.5, Lemmas 3.6-3.9,
 Theorems 3.10 (`thm:ssp-np-complete`), 3.11 (`thm:mcp-np-complete`), Corollary 3.12; Definitions 4.1, 4.2, Lemmas 4.3,

@@ -158,6 +158,9 @@ From MT and the conclusion of A1:
 1. Class *diam or cut 2*: the case `d(u, v) = 2` (MT solves only `c(u, v) = 2`); in A1 phrased as merging two polynomial "islands".
 2. Planar graphs (cut ↔ cycle duality), graphs of bounded treewidth.
 3. Approximation algorithms with a guarantee for general graphs (only the trivial 2-approximation is known).
+   No FPTAS unless P = NP (A1, Theorem 7.1); PTAS and APX-hardness unknown. Lead of 2026-10-10, TODO(verify): in the
+   graphs of the reduction a cut-path that contains a chain path `P` has at least `Lambda` + (threads not hit by `P`)
+   edges, so gap instances of 3-SAT with bounded occurrences may give APX-hardness.
 4. Weighted and directed variants.
 5. Experimental evaluation on real and random networks.
 6. Structure of graphs with a fixed value `cp(u, v)`.
