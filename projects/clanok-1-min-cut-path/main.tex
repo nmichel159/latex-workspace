@@ -56,6 +56,7 @@
 \newcommand{\cp}{\operatorname{cp}}                  % value of a minimum cut-path
 \newcommand{\diam}{\operatorname{diam}}
 \newcommand{\OPT}{\mathrm{OPT}}
+\newcommand{\ALG}{\mathrm{ALG}}
 \newcommand{\MinCutPath}{\textsc{Min Cut-Path}}
 \newcommand{\SSP}{\textsc{Separating Shortest Path}}
 \newcommand{\ThreeSAT}{\textsc{3-SAT}}
@@ -170,7 +171,7 @@ In both classes, a minimum cut-path can be computed in polynomial time.
 
 Third, Erdős–Rényi random graphs with constant edge probability have diameter two with probability tending to one (Theorem~\ref{thm:random-diameter-two}), so the formula applies to them.
 Let $n$ be the number of vertices and let $\alpha > 1$.
-For edge probabilities $p \geq \alpha \log n / n$, we show that the union of a minimum cut and a shortest path is within a factor of $1+\epsilon$ of the optimum on almost all inputs (Theorem~\ref{thm:approximation-scheme}).
+For edge probabilities $p \geq \alpha \log n / n$, we show that the union of a minimum cut and a shortest path is within a factor of $1+\epsilon$ of the optimum, for every fixed $\epsilon > 0$, with probability tending to one (Theorem~\ref{thm:approximation-scheme}).
 
 \SSP{} asks whether some shortest $u$--$v$ path separates $u$ from $v$ when its edges are removed.
 The reduction from \ThreeSAT{} builds a chain of cycles between $u$ and $v$.
@@ -263,25 +264,40 @@ If $c(u, v) = 1$, the lower bound gives $\cp(u, v) \geq d(u, v) = c(u, v) + d(u,
 In both cases the lower and the upper bound coincide.
 \end{proof}
 
+\begin{corollary}
+\label{cor:two-approximation}
+Let $G = (V, E)$ be a graph, let $u, v \in V$ be two distinct vertices, let $C$ be a minimum $u$--$v$ cut, and let $P$ be a shortest $u$--$v$ path.
+Then $|C \cup P| \leq 2\cp(u, v) - 1$.
+\end{corollary}
+
+\begin{proof}
+By the proof of Lemma~\ref{lem:basic-bounds} and by its lower bound,
+\[
+|C \cup P| \leq c(u, v) + d(u, v) - 1 \leq 2\max\{c(u, v), d(u, v)\} - 1 \leq 2\cp(u, v) - 1. \qedhere
+\]
+\end{proof}
+
+Hence the union of a minimum cut and a shortest path approximates a minimum cut-path within a factor of two.
+
 For random graphs (Section~\ref{sec:random-graphs}), we use the following notion of approximation.
-Let $I(n)$ denote the set of all input instances of size $n$.
-For an instance $X \in I(n)$, let $\OPT(X)$ denote the optimal value of the objective function, that is, the minimum for a minimization problem and the maximum for a maximization problem.
+Let $\mathcal{I}(n)$ denote the set of all input instances of size $n$.
+For an instance $X \in \mathcal{I}(n)$, let $\OPT(X)$ denote the optimal value of the objective function, that is, the minimum for a minimization problem and the maximum for a maximization problem.
 
 \begin{definition}[Average $(1+\epsilon)$-Approximation Scheme]
 \label{def:approximation-scheme}
-Let $\epsilon > 0$. An algorithm $A$ is called an \emph{average $(1+\epsilon)$-approximation scheme} if the following three conditions hold.
+Let $\epsilon > 0$. An algorithm $\ALG$ is called an \emph{average $(1+\epsilon)$-approximation scheme} if the following three conditions hold.
 \begin{enumerate}
-    \item $A$ is a polynomial-time algorithm, i.e., its running time is bounded by a polynomial in $n$.
-    \item For each input size $n$, there exists a subset of inputs $I_{A}^{\mathrm{opt}}(n) \subseteq I(n)$ such that for every input $X \in I_{A}^{\mathrm{opt}}(n)$, the value $A(X)$ of the solution computed by $A$ satisfies
+    \item $\ALG$ is a polynomial-time algorithm, i.e., its running time is bounded by a polynomial in $n$.
+    \item For each input size $n$, there exists a subset of inputs $\mathcal{I}_{\ALG}^{\mathrm{opt}}(n) \subseteq \mathcal{I}(n)$ such that for every input $X \in \mathcal{I}_{\ALG}^{\mathrm{opt}}(n)$, the value $\ALG(X)$ of the solution computed by $\ALG$ satisfies
     \[
-    \frac{A(X)}{\OPT(X)} < 1+\epsilon \quad \text{(for minimization problems)}
+    \frac{\ALG(X)}{\OPT(X)} < 1+\epsilon \quad \text{(for minimization problems)}
     \]
     \[
-    \frac{\OPT(X)}{A(X)} < 1+\epsilon \quad \text{(for maximization problems)},
+    \frac{\OPT(X)}{\ALG(X)} < 1+\epsilon \quad \text{(for maximization problems)},
     \]
-    \item In addition, the algorithm is average-case in the sense that
+    \item In addition, the algorithm is average-case in the sense that, for a given probability distribution on $\mathcal{I}(n)$, a random input $X$ of size $n$ satisfies
     \[
-    \lim_{n \to \infty} \frac{\lvert I_{A}^{\mathrm{opt}}(n) \rvert}{\lvert I(n) \rvert} = 1.
+    \lim_{n \to \infty} \mathbb{P}\bigl(X \in \mathcal{I}_{\ALG}^{\mathrm{opt}}(n)\bigr) = 1.
     \]
 \end{enumerate}
 \end{definition}
@@ -305,7 +321,7 @@ The \ThreeSAT{} decision problem is defined as follows:
 \end{center}
 \end{problem}
 
-\ThreeSAT{} is NP-complete~\cite{Cook1971Complexity}.
+\ThreeSAT{} is NP-complete~\cite{Cook1971Complexity,Karp1972Reducibility}; these papers allow clauses with fewer than three literals, and such a clause is padded by repeating one of its literals.
 Throughout this section, $n$ and $m$ denote the numbers of variables and clauses of the \ThreeSAT{} instance under consideration.
 
 The proof has two steps and uses an intermediate problem, \SSP.
@@ -423,14 +439,16 @@ The chain links that belong to one variable are consecutive in the chain, as ill
 Let $G=(V,E)$ be a graph containing a $u$--$v$ chain with chain links $L_1,L_2,\dots,L_r$.
 A \emph{thread} is a $u$--$v$ path $P$ in $G$ such that:
 \begin{enumerate}
-    \item for each chain link $L_i$, the path $P$ shares at most one edge with $L_i$, and $P$ contains none of the single edges of the chain;
-    \item $P$ is edge-disjoint from every other thread and shares only the vertices $u$ and $v$ with it.
+    \item for each chain link $L_i$, the path $P$ shares at most one edge with $L_i$;
+    \item $P$ contains none of the single edges of the chain.
 \end{enumerate}
 \end{definition}
 
+In the construction, any two threads are edge-disjoint and share only the vertices $u$ and $v$.
+
 \begin{definition}[Threading]
 \label{def:threading}
-Let $L$ be a chain link in a $u$--$v$ chain, and let $P$ be a thread not yet passing through $L$.
+Let $L$ be a chain link in a $u$--$v$ chain, and let $P$ be a thread under construction that does not yet pass through $L$.
 The \emph{threading operation} on $(P,L)$ consists of the following elementary steps:
 \begin{enumerate}
     \item Select an edge $e=\{x,y\}$ of $L$ that is not used by any existing thread.
@@ -494,7 +512,7 @@ Given an instance of \ThreeSAT, we construct a graph $G$ with two distinguished 
 The reduction uses the following auxiliary procedures:
 \begin{itemize}
     \item $\textsc{BuildChain}(u,v,r)$: constructs a $u$--$v$ chain with $r$ chain links, where each chain link is realized as a $4$-cycle.
-    \item $\textsc{Thread}(u,v,[(K_1,\sigma_1),\dots,(K_t,\sigma_t)])$: creates a new thread from $u$ to $v$ that passes through the chain links $K_1,\dots,K_t$ in this order, where $\sigma_r \in \{+,-\}$ specifies whether the thread is threaded through $K_r$ positively or negatively.
+    \item $\textsc{Thread}(u,v,[(K_1,\sigma_1),\dots,(K_t,\sigma_t)])$: creates a new thread from $u$ to $v$ that passes through the chain links $K_1,\dots,K_t$ in this order, where $\sigma_h \in \{+,-\}$ specifies whether the thread is threaded through $K_h$ positively or negatively.
     The $t$ crossing edges are joined to each other and to the vertices $u$ and $v$ by $t+1$ new, internally vertex-disjoint paths of one edge each, which we call the \emph{connecting paths} of the thread; $\textsc{Calibrate}$ subdivides them later.
     \item $\textsc{Calibrate}(G)$: equalizes the lengths of the relevant paths in two steps.
     First, in every chain link whose positive and negative paths have different lengths, an edge of the shorter path that is not a crossing edge is subdivided repeatedly until both paths have the same length.
@@ -563,15 +581,19 @@ Every $u$--$v$ path of this chain has exactly $\Lambda$ edges, and so has every 
 
 \subsubsection{Correctness of the Reduction}
 \label{sec:reduction-correctness}
-We call the $u$--$v$ paths of the chain in $G$ \emph{chain paths}; a chain path is determined by choosing, in every chain link, either its positive or its negative path.
-We say that a chain path $P$ \emph{hits} a thread if $P$ and the thread share an edge.
-A thread shares only its crossing edges with the chain.
-Hence a chain path $P$ hits a thread created by $\textsc{Thread}(u,v,[(K_1,\sigma_1),\dots,(K_t,\sigma_t)])$ if and only if, for some $r$, the path $P$ traverses the path of $K_r$ with the sign $\sigma_r$.
+\begin{definition}[Chain Path, Hitting, Consistency]
+\label{def:chain-path}
+A \emph{chain path} is a $u$--$v$ path of the chain in $G$.
+A chain path $P$ \emph{hits} a thread if $P$ and the thread share an edge.
+A chain path is \emph{consistent} if, for every variable $x_i$, it traverses paths of the same sign in all chain links of the block of $x_i$.
+\end{definition}
+
+A chain path is determined by choosing, in every chain link, either its positive or its negative path, and a thread shares only its crossing edges with the chain.
+Hence a chain path $P$ hits a thread created by $\textsc{Thread}(u,v,\allowbreak[(K_1,\sigma_1),\dots,(K_t,\sigma_t)])$ if and only if, for some $h$, the path $P$ traverses the path of $K_h$ with the sign $\sigma_h$.
 
 Every thread is a $u$--$v$ path in $G$.
 Therefore, a chain path $P$ can be separating only if it hits every thread.
 
-A chain path is \emph{consistent} if, for every variable $x_i$, it traverses paths of the same sign in all chain links of the block of $x_i$.
 Consistent chain paths correspond to truth assignments: we set $\tau(x_i)=\mathsf{true}$ if the path traverses the positive paths in the block of $x_i$, and $\tau(x_i)=\mathsf{false}$ otherwise.
 Conversely, every truth assignment $\tau$ determines a consistent chain path, which traverses, in all chain links of the block of $x_i$, the positive path if $\tau(x_i)=\mathsf{true}$ and the negative path if $\tau(x_i)=\mathsf{false}$.
 We call it the \emph{consistent chain path of~$\tau$}.
@@ -753,8 +775,8 @@ The decision version of the \MinCutPath{} problem is defined as follows:
 
 \begin{center}
 \begin{tabular}{p{0.12\linewidth}p{0.8\linewidth}}
-\textbf{Input:} & A graph $G=(V,E)$, vertices $u,v \in V$, and an integer $k$. \\
-\textbf{Question:} & Does there exist a cut-path $F \subseteq E$ between $u$ and $v$ with $|F|\leq k$?
+\textbf{Input:} & A graph $G=(V,E)$, vertices $u,v \in V$, and an integer $b$. \\
+\textbf{Question:} & Does there exist a cut-path $S \subseteq E$ between $u$ and $v$ with $|S|\leq b$?
 \end{tabular}
 \end{center}
 \end{problem}
@@ -769,26 +791,36 @@ We reduce \SSP{} to the decision version of \MinCutPath{} and use Theorem~\ref{t
 
 \paragraph{Reduction.}
 Let $G$ be an instance of \SSP{} with distinguished vertices $u,v$.
-We set the threshold $k := d(u,v)$ and ask whether $G$ admits a cut-path of size at most $k$.
-The threshold $k$ is computed by breadth-first search, so the reduction runs in polynomial time.
+We set the threshold $b := d(u,v)$ and ask whether $G$ admits a cut-path of size at most $b$.
+The threshold $b$ is computed by breadth-first search, so the reduction runs in polynomial time.
 
 \paragraph{Correctness.}
 Suppose that $G$ admits a separating shortest path $P$.
-Then $|P| = d(u,v) = k$, and $P$ itself is a cut-path of size $k$, since (i) it is a $u$--$v$ path and (ii) its removal disconnects $u$ from $v$, so $P$ is also a $u$--$v$ cut.
-Conversely, suppose that $G$ has a cut-path $F$ with $|F| \leq k$.
-Then $F$ contains a $u$--$v$ path $P$, which has at least $d(u,v) = k$ edges; hence $F = P$ and $P$ is a shortest $u$--$v$ path in $G$.
-Since $F$ also contains a $u$--$v$ cut, $G \setminus P$ contains no $u$--$v$ path.
+Then $|P| = d(u,v) = b$, and $P$ itself is a cut-path of size $b$, since (i) it is a $u$--$v$ path and (ii) its removal disconnects $u$ from $v$, so $P$ is also a $u$--$v$ cut.
+Conversely, suppose that $G$ has a cut-path $S$ with $|S| \leq b$.
+Then $S$ contains a $u$--$v$ path $P$, which has at least $d(u,v) = b$ edges; hence $S = P$ and $P$ is a shortest $u$--$v$ path in $G$.
+Since $S$ also contains a $u$--$v$ cut, $G \setminus P$ contains no $u$--$v$ path.
 Hence $P$ is a separating shortest path, and the two instances are equivalent.
 
 \paragraph{Membership in NP.}
-A candidate cut-path $F$ can be verified in polynomial time:
-check that $|F| \leq k$, that $F$ contains a $u$--$v$ path, and that $G\setminus F$ contains no $u$--$v$ path (e.g., by breadth-first search).
+A candidate cut-path $S$ can be verified in polynomial time:
+check that $|S| \leq b$, that $S$ contains a $u$--$v$ path, and that $G\setminus S$ contains no $u$--$v$ path (e.g., by breadth-first search).
 
 \paragraph{Conclusion.}
 \MinCutPath{} is in NP, and the NP-complete problem \SSP{} (Theorem~\ref{thm:ssp-np-complete}) reduces to it in polynomial time.
 \end{proof}
 
 The decision version is NP-complete, and hence the optimization version is NP-hard.
+
+\begin{corollary}
+\label{cor:lower-bound-attained}
+It is NP-complete to decide, for a graph $G$ and two distinct vertices $u, v$ of $G$, whether $\cp(u, v) = d(u, v)$.
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:basic-bounds}, $\cp(u, v) \geq d(u, v)$, and by the proof of Theorem~\ref{thm:mcp-np-complete}, equality holds if and only if $G$ contains a separating shortest $u$--$v$ path.
+Hence the question is the \SSP{} problem, which is NP-complete by Theorem~\ref{thm:ssp-np-complete}.
+\end{proof}
 
 \section{Graphs of Diameter Two}
 \label{sec:diameter-two}
@@ -805,23 +837,23 @@ We derive a formula for $\cp(u,v)$ in graphs of diameter two; it yields a polyno
 The proof uses a decomposition: in any graph, a cut $C$ induces a partition of the vertex set into four subsets $I, J, K, L$.
 Each vertex lies on one of the two sides $A_1, A_2$ of the cut, and it is either incident to an edge of the cut or not.
 
-\begin{lemma}
-\label{lem:cut-decomposition}
+\begin{definition}[Decomposition Induced by a Cut]
+\label{def:cut-decomposition}
 Let $G = (V, E)$ be a graph, and let $C$ be a cut that divides $G$ into two sets $A_1$ and $A_2$ (i.e., $V = A_1 \cup A_2$, $A_1 \cap A_2 = \emptyset$, and $C$ is the set of all edges between $A_1$ and $A_2$).
-Then there exists a unique decomposition of $A_1$ and $A_2$ into subsets $I, J, K, L$ such that:
+The \emph{decomposition induced by $C$} consists of the four sets $I, J, K, L$ such that:
 \begin{itemize}
     \item $I \cup J = A_1$ and $I \cap J = \emptyset$,
     \item $K \cup L = A_2$ and $K \cap L = \emptyset$,
-    \item $\forall x \in J \cup K, \, \exists y \in V: \{x, y\} \in C,$
-    \item $\forall x \in I \cup L, \, \nexists y \in V: \{x, y\} \in C.$
+    \item every vertex of $J \cup K$ is incident to an edge of $C$,
+    \item no vertex of $I \cup L$ is incident to an edge of $C$.
 \end{itemize}
-\end{lemma}
+\end{definition}
 
 In a graph of diameter two, the vertices that are not incident to the cut lie on at most one side of it.
 
 \begin{lemma}
 \label{lem:empty-i-or-l}
-Let $G = (V, E)$ be a graph of diameter two, let $C$ be a cut that divides $G$ into two sets $A_1$ and $A_2$, and let $I, J, K, L$ be the decomposition of $A_1$ and $A_2$ described in Lemma~\ref{lem:cut-decomposition}.
+Let $G = (V, E)$ be a graph of diameter two, let $C$ be a cut that divides $G$ into two sets $A_1$ and $A_2$, and let $I, J, K, L$ be the decomposition induced by $C$ (Definition~\ref{def:cut-decomposition}).
 Then at least one of the sets $I$ and $L$ is empty:
 \[
 I = \emptyset \quad\text{or}\quad L = \emptyset.
@@ -847,11 +879,10 @@ Then the path $P$ contains an odd number of edges of $C$:
 \end{lemma}
 
 \begin{proof}
-Let $S = C \cap P$ be the set of edges in the intersection of the cut and the path.
-When we traverse the path $P$ from $u$ to $v$, each edge of $S$ changes the side of the cut (i.e., it switches between $A_1$ and $A_2$), while every other edge of $P$ stays on the same side.
+When we traverse the path $P$ from $u$ to $v$, each edge of $C \cap P$ changes the side of the cut (i.e., it switches between $A_1$ and $A_2$), while every other edge of $P$ stays on the same side.
 The path starts in $A_1$ and ends in $A_2$.
 If the path crossed the cut an even number of times, its first and its last vertex would lie on the same side, which contradicts the assumption that $u \in A_1$ and $v \in A_2$.
-Therefore, the path crosses the cut an odd number of times, so $|S|$ is odd.
+Therefore, the path crosses the cut an odd number of times, so $|C \cap P|$ is odd.
 \end{proof}
 
 \begin{theorem}
@@ -894,7 +925,7 @@ We denote the two sides $A$ and $V \setminus A$ by $A_1$ and $A_2$, in either or
 By Lemma~\ref{lem:odd-intersection}, applied to $C$ and to the path $P \subseteq C$, the number of edges of $P$ is odd.
 Since $d(u,v) = 2$, the path $P$ has at least two edges, and hence at least three.
 
-Let $I, J, K, L$ be the decomposition induced by the cut $C$ (Lemma~\ref{lem:cut-decomposition}).
+Let $I, J, K, L$ be the decomposition induced by the cut $C$ (Definition~\ref{def:cut-decomposition}).
 By Lemma~\ref{lem:empty-i-or-l}, after exchanging the names $A_1$ and $A_2$ (and with them $I$ with $L$ and $J$ with $K$) if necessary, we may assume that $L = \emptyset$.
 Since $c(u, v)$, $d(u, v)$ and $\cp(u, v)$ do not depend on the order of $u$ and $v$, we may also assume, after exchanging $u$ and $v$ if necessary, that $u \in A_2$.
 Since $A_2 = K \cup L = K$, we have $u \in K$, so the graph is partitioned into the three sets $I, J, K$.
@@ -909,7 +940,7 @@ Figure~\ref{fig:diameter-two-structure} shows this structure.
 \end{figure}
 
 Every edge of $C$ has exactly one end in $K$, because $C$ is the set of all edges between $A_1 = I \cup J$ and $A_2 = K$.
-For a vertex $x$ and a vertex set $S$, let $\deg(x, S)$ denote the number of neighbors of $x$ in $S$.
+For a vertex $x$ and a vertex set $W$, let $\deg(x, W)$ denote the number of neighbors of $x$ in $W$.
 The vertex $u$ has no neighbors in $I$: an edge between $u \in A_2$ and a vertex of $I \subseteq A_1$ would belong to $C$, but no vertex of $I$ is incident to an edge of $C$.
 We count the edges of $C$ according to their end-vertex in $K$, in three groups:
 \begin{enumerate}[(i)]
@@ -1015,9 +1046,10 @@ We study the \MinCutPath{} problem in Erdős–Rényi random graphs $G(n, p)$, i
 Throughout this section, $\log$ denotes the natural logarithm.
 An event holds \emph{with high probability} if its probability tends to one as $n \to \infty$.
 
-Random graphs with a constant edge probability $p$, called dense, have diameter two with high probability~\cite{Bollobas2001}.
+Random graphs with a constant edge probability $p$, called dense, have diameter two with high probability.
+This fact is well known~\cite[Exercise~1.4.8]{Frieze2016}; we include its short proof.
 
-\begin{theorem}[\cite{Bollobas2001}]
+\begin{theorem}
 \label{thm:random-diameter-two}
 Let $0 < p < 1$ be a constant.
 Then
@@ -1026,8 +1058,16 @@ Then
 \]
 \end{theorem}
 
+\begin{proof}
+Let $x$ and $y$ be two distinct vertices.
+Each of the other $n - 2$ vertices is adjacent to both $x$ and $y$ with probability $p^2$, independently of the others, so $x$ and $y$ have no common neighbor with probability $(1 - p^2)^{n-2}$.
+By the union bound over the fewer than $n^2$ pairs of vertices, the probability that some two vertices have no common neighbor is at most $n^2 (1 - p^2)^{n-2}$, which tends to zero.
+Hence $\diam(G(n, p)) \leq 2$ with high probability.
+The graph $G(n, p)$ is complete, that is, has diameter one, with probability $p^{n(n-1)/2}$, which also tends to zero.
+\end{proof}
+
 By Theorem~\ref{thm:diameter-two} and Remark~\ref{rem:algorithm}, a minimum cut-path in a graph of diameter two has $c(u, v) + d(u, v) - 1$ edges and can be computed in polynomial time.
-Consequently, for dense random graphs, the \MinCutPath{} problem can be solved exactly in polynomial time on almost all inputs.
+Consequently, for dense random graphs, the \MinCutPath{} problem can be solved exactly in polynomial time with high probability.
 
 Consider now sparse Erdős–Rényi random graphs $G(n, p)$ with $p = \alpha \log n / n$, where $\alpha > 1$ is a constant; we write $G$ for $G(n,p)$.
 For such graphs, we use two known results, on the diameter~\cite{ChungLu2001} and on the edge connectivity~\cite{Bollobas2001}.
@@ -1040,6 +1080,8 @@ Then
 \lim_{n\to\infty} \mathbb{P}\left( \diam(G) \leq \frac{\log n}{\log \log n} \right) = 1.
 \]
 \end{theorem}
+
+Chung and Lu~\cite{ChungLu2001} proved that, with high probability, $\diam(G) \leq \lceil \log((33\alpha^2/400)\, n \log n) / \log(\alpha \log n) \rceil + 2$ for $\alpha > 1$; the right-hand side is at most $\log n / \log \log n$ for all sufficiently large $n$.
 
 \begin{theorem}[{Connectivity~\cite[p.~169]{Bollobas2001}}]
 \label{thm:random-connectivity}
@@ -1090,14 +1132,15 @@ c(u, v) \geq \min_{x \neq y} c(x, y) \geq \min_{z \in V(G)} \deg(z) \geq \beta_1
 
 \begin{theorem}
 \label{thm:approximation-scheme}
-Let $p \geq \alpha \log n / n$ with a constant $\alpha > 1$.
-Then, for every $\epsilon > 0$, the algorithm that returns the union of a minimum $u$--$v$ cut and a shortest $u$--$v$ path is an average $(1+\epsilon)$-approximation scheme for the \MinCutPath{} problem.
+Let $p \geq \alpha \log n / n$ with a constant $\alpha > 1$, and let $\beta_1$ be the constant from Lemma~\ref{lem:degree-bounds}.
+Then, with high probability, every two distinct vertices $u, v$ of $G(n, p)$, every minimum $u$--$v$ cut $C$ and every shortest $u$--$v$ path $P$ satisfy
+\[
+|C \cup P| \leq \Bigl(1 + \frac{1}{\beta_1 \log \log n}\Bigr)\, \cp(u, v).
+\]
+In particular, for every $\epsilon > 0$, the algorithm that returns the union of a minimum $u$--$v$ cut and a shortest $u$--$v$ path is an average $(1+\epsilon)$-approximation scheme for the \MinCutPath{} problem on the inputs $(G(n, p), u, v)$.
 \end{theorem}
 
 \begin{proof}
-The algorithm runs in polynomial time, since both a minimum cut and a shortest path can be computed in polynomial time~\cite{Cormen2022}.
-By the proof of Lemma~\ref{lem:basic-bounds}, its output $S$ is a cut-path with $|S| \leq c(u,v) + d(u,v) - 1$.
-
 Adding edges to a graph cannot increase the distances and cannot decrease the values $c(u,v)$.
 The bounds of Theorem~\ref{thm:random-diameter} and Lemma~\ref{lem:connectivity-bounds} are stated for $p = \alpha \log n / n$.
 Hence, by the standard coupling of the random graphs $G(n,p)$ for different edge probabilities (see, e.g.,~\cite[Section~1.1]{Frieze2016}), they remain valid for every $p \geq \alpha \log n / n$.
@@ -1107,17 +1150,19 @@ d(u,v) \leq \diam(G) \leq \frac{\log n}{\log \log n}
 \qquad\text{and}\qquad
 c(u,v) \geq \beta_1 \log n.
 \]
-By Lemma~\ref{lem:basic-bounds}, the minimum cut is no larger than the minimum cut-path:
-\[
-c(u,v) \leq \cp(u,v) = \OPT(X),
-\]
-where $X = (G, u, v)$ is the input.
+Suppose that this event holds, let $u, v$ be two distinct vertices, and let $S = C \cup P$ for a minimum $u$--$v$ cut $C$ and a shortest $u$--$v$ path $P$.
+By the proof of Lemma~\ref{lem:basic-bounds}, the set $S$ is a cut-path with $|S| \leq c(u,v) + d(u,v) - 1$.
+By Lemma~\ref{lem:basic-bounds}, the minimum cut is no larger than the minimum cut-path, that is, $c(u,v) \leq \cp(u,v)$.
 Hence
 \begin{align*}
-\frac{|S|}{\OPT(X)} &\leq \frac{c(u,v)+d(u,v)-1}{c(u,v)} \leq \frac{c(u,v)+d(u,v)}{c(u,v)} = 1 + \frac{d(u,v)}{c(u,v)}\\
-&\leq 1+\frac{\log n / \log \log n}{\beta_1 \log n} = 1 + \frac{1}{\beta_1 \log \log n}.
+\frac{|S|}{\cp(u,v)} &\leq \frac{c(u,v)+d(u,v)-1}{c(u,v)} \leq \frac{c(u,v)+d(u,v)}{c(u,v)} = 1 + \frac{d(u,v)}{c(u,v)}\\
+&\leq 1+\frac{\log n / \log \log n}{\beta_1 \log n} = 1 + \frac{1}{\beta_1 \log \log n},
 \end{align*}
-The right-hand side is smaller than $1+\epsilon$ for all sufficiently large $n$.
+which proves the first claim.
+
+For the second claim, the algorithm runs in polynomial time, since both a minimum cut and a shortest path can be computed in polynomial time~\cite{Cormen2022}.
+For an input $X = (G, u, v)$, its output is the set $S$ above, and $\OPT(X) = \cp(u,v)$.
+The bound $1 + 1/(\beta_1 \log \log n)$ is smaller than $1+\epsilon$ for all sufficiently large $n$.
 Thus, the algorithm achieves the approximation ratio $1+\epsilon$ on a set of inputs whose probability tends to one, so it is an average $(1+\epsilon)$-approximation scheme.
 \end{proof}
 
@@ -1136,8 +1181,8 @@ In a planar graph, every minimal edge cut corresponds to a cycle in the dual gra
 Third, how do algorithms for \MinCutPath{} behave on average?
 Experiments on real-world networks and on random instances would answer this question and could guide the design of heuristics.
 
-Finally, what is the structure of the instances $(G, u, v)$ in which $\cp(u,v)$ equals a fixed constant?
-A closer study of them may clarify the boundary between polynomially solvable and NP-hard instances.
+Finally, for a fixed threshold $b$, trying all sets of at most $b$ edges decides in polynomial time whether $\cp(u,v) \leq b$.
+Is \MinCutPath{} fixed-parameter tractable with respect to $b$?
 
 
 \section*{Acknowledgments}
