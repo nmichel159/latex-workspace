@@ -27,6 +27,10 @@
 % construction); Lemma 3.1.2, p. 64 (cycles and bonds lie in single blocks); Lemma 3.1.3, p. 65 (two edges lie in
 % a common block iff in a common cycle iff in a common bond); Lemma 3.1.4, p. 66 (the block graph of a connected
 % graph is a tree; stated without proof, Exercise 7 of Chapter 3).
+% Checked 2026-10-10 in the same preview (math.uni-hamburg.de/home/diestel/books/graph.theory/preview/Ch3.pdf):
+% Section 3.3 "Menger's theorem", Theorem 3.3.1; Corollary 3.3.5 (ii), p. 75: "The minimum number of edges
+% separating a from b in G is equal to the maximum number of edge-disjoint a-b paths in G"; Theorem 3.3.6 (global
+% version) follows on the same page.
 @book{Diestel2025,
   author    = {Diestel, Reinhard},
   title     = {Graph Theory},
@@ -197,6 +201,28 @@
   doi       = {10.1007/s00453-015-0075-x}
 }
 
+% VERIFIED 2026-10-10 (Crossref record of DOI 10.1007/s10587-009-0056-9 and the DML-CZ record 140505).
+% DML-CZ record: dml.cz/handle/10338.dmlcz/140505, MR 2545645, Zbl 1224.05273.
+% Compared: author Jeffrey L. Stuart, title, Czechoslovak Mathematical Journal, volume 59, issue 3, pages 623-636,
+% print issue 2009-09.
+% Read 2026-10-10 in the DML-CZ full text. Abstract: lambda(u,v) is the size of a smallest set of EDGES whose
+% removal disconnects u and v. Section 4, p. 627: a graph is maximally locally connected if
+% lambda(u,v) = min{d(u), d(v)} for all distinct u, v; Theorem 11: if diam(G) <= 2, then
+% lambda(u,v) = min{d(u), d(v)} for all pairs of distinct vertices. Stated without proof and credited to its
+% reference [4]: Fricke, Oellermann, Swart, "The edge-connectivity, average edge-connectivity and degree
+% conditions", manuscript, 2000 (unpublished; no copy found).
+% Note: knowledge/literature/Stuart2009Eavesdropping.md.
+@article{Stuart2009Eavesdropping,
+  author    = {Stuart, Jeffrey L.},
+  title     = {The eavesdropping number of a graph},
+  journal   = {Czechoslovak Mathematical Journal},
+  volume    = {59},
+  number    = {3},
+  pages     = {623--636},
+  year      = {2009},
+  doi       = {10.1007/s10587-009-0056-9}
+}
+
 % VERIFIED 2026-10-07 (SIAM).
 @article{itai1979maximum,
   author    = {Itai, Alon and Shiloach, Yossi},
@@ -232,6 +258,12 @@
 % Lemma 2.11 (a set C' that contains every minimal s-t separator of size at most k, is disjoint from {s, t} and
 % has bn(torso(G, C')) <= g(l, e), in time f(l, e) (|E(G)| + |V(G)|)); Remark 2.13 (adding s, t costs at most 2);
 % Remark 2.14 (g(l, e) = 2^O(el)); Theorem 2.15 (treewidth reduction); Section 3.3 (connected vertex cuts).
+% Checked 2026-10-10 (bibliography audit): article number 30 according to the first author's publication list
+% (cs.bme.hu/~dmarx/pub.html, "9(4):30, 2013") and two institutional records; Crossref and OpenAlex give pages
+% 1-35 and no article number, so the entry keeps 1--35. arXiv has one version only (v1, 2011-10-21). The author's
+% manuscript in journal format (cs.bme.hu/~dmarx/papers/marx-tw-reduction-talg.pdf, dated 2012-10-26) has the same
+% numbers as arXiv v1 for Section 2.1, Theorem 2.2 and the remark on labeled graphs, Definition 2.5, Proposition
+% 2.7, Lemma 2.11 and Remark 2.13; the copy-edited ACM text could not be opened (HTTP 403).
 % Note: knowledge/literature/Marx2013Separators.md.
 @article{Marx2013Separators,
   author    = {Marx, D{\'a}niel and O'Sullivan, Barry and Razgon, Igor},
@@ -416,6 +448,50 @@
   pages   = {23--37},
   year    = {2019},
   doi     = {10.1002/net.21832}
+}
+
+% VERIFIED 2026-10-10 (Crossref record of DOI 10.1016/S0166-218X(97)00121-2; the OpenAlex record agrees).
+% Compared: author Tali Eilam-Tzoreff, title, Discrete Applied Mathematics, volume 85, issue 2, pages 113-138,
+% 1998-06.
+% Read 2026-10-10 by a search subagent in the journal PDF, pp. 113-120 (Internet Archive snapshot of the CORE
+% copy core.ac.uk/download/pdf/82288569.pdf): Section 2 defines 2D1SP (two pairs (s1,t1), (s2,t2); disjoint paths
+% P1, P2 such that P1 is a shortest s1-t1 path); Claim 1: the vertex- and the edge-disjoint version on undirected
+% graphs are NP-complete (reduction from 3SAT; holds for unit lengths, edges are replaced by paths); Claim 3:
+% directed graphs. Sections 4-5 not read. The owner of the workspace could not re-open the text the same day
+% (ScienceDirect shows a captcha); the article is in Elsevier's open archive.
+% Note: knowledge/literature/EilamTzoreff1998Disjoint.md.
+@article{EilamTzoreff1998Disjoint,
+  author  = {Eilam-Tzoreff, Tali},
+  title   = {The disjoint shortest paths problem},
+  journal = {Discrete Applied Mathematics},
+  volume  = {85},
+  number  = {2},
+  pages   = {113--138},
+  year    = {1998},
+  doi     = {10.1016/S0166-218X(97)00121-2}
+}
+
+% VERIFIED 2026-10-10 (Crossref record of DOI 10.1145/1868237.1868241; the OpenAlex record of the DOI agrees).
+% Compared: the eight authors in order, title, ACM Transactions on Algorithms, volume 7, issue 1, pages 1-27,
+% print issue 2010-11. The record has no article number (the reference list of Bazgan2019MostVital writes
+% "7(1):4"; not confirmed in a primary record).
+% Read 2026-10-10: the abstract in the Crossref record and the authors' manuscript of the journal version
+% (kam.mff.cuni.cz/~kolman/papers/acmlcuts.pdf, 27 pages, journal placeholders in the running heads).
+% Abstract: an L-length-bounded edge-cut is a set of edges after whose removal no s-t path of length at most L
+% remains; "NP-hard to approximate within a factor of 1.1377 for L >= 5 in the case of node-cuts and for L >= 4
+% in the case of edge-cuts". Manuscript: unit lengths and capacities unless stated otherwise (Section 2);
+% Theorem 3.11 (edge-cuts, L in {4, ..., floor(n^(1-eps))}, directed and undirected graphs). Theorem numbers are
+% those of the manuscript; the published text was not compared.
+% Note: knowledge/literature/Baier2010LengthBounded.md.
+@article{Baier2010LengthBounded,
+  author  = {Baier, Georg and Erlebach, Thomas and Hall, Alexander and K{\"o}hler, Ekkehard and Kolman, Petr and Pangr{\'a}c, Ond{\v{r}}ej and Schilling, Heiko and Skutella, Martin},
+  title   = {Length-bounded cuts and flows},
+  journal = {ACM Transactions on Algorithms},
+  volume  = {7},
+  number  = {1},
+  pages   = {1--27},
+  year    = {2010},
+  doi     = {10.1145/1868237.1868241}
 }
 
 % VERIFIED 2026-10-09 (DROPS page and its BibTeX export for DOI 10.4230/LIPIcs.SEA.2025.6).

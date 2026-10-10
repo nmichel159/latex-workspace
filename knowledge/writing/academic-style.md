@@ -161,6 +161,8 @@ House rule (no external source; derived from the author's drafts, §9). Do not w
 - a summary at the end of every paragraph (*Overall, ...*, *In summary, ...*);
 - *not only ... but also*, triads of adjectives, symmetric pairs (*both connectivity and disconnection*) used for rhythm;
 - dashes as the main way to build a sentence: at most one dash parenthesis per paragraph;
+- semicolons and colons as the main way to join clauses (*X; hence Y*, *claim: reason*): write two sentences, or
+  *so* / *because*; a colon stays before a list or a display (owner's remark, 2026-10-10);
 - abstract subjects (*the interplay*, *the tension*, *this perspective*) with *serves as*, *embodies*, *captures*,
   *reflects*;
 - a conclusion that promises *promising avenues for future research* instead of specific open problems;
