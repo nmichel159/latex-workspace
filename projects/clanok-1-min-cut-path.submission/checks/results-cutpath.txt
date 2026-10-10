@@ -1,0 +1,17 @@
+atlas: all 1251 graphs with 2..7 vertices  [1 s]
+   graphs                                               1251
+   pairs                                                22590
+   pairs with a separating shortest path                4671
+   connected graphs                                     995
+   graphs of diameter at most two                       457
+   pairs in graphs of diameter at most two              8941
+   graphs with c(x,y) <= 2 for all pairs                102
+   pairs in graphs with c(x,y) <= 2                     1789
+   graphs with d <= 2 or c <= 2 for every pair          995
+   ... of these, graphs with a pair cp < c + d - 1      24
+random graphs of diameter two on 8 vertices: 60 graphs, 1680 pairs  [2 s]
+random cactus graphs on 8..12 vertices: 200 graphs, 9088 pairs  [6 s]
+counterexample (a): c = 2, d = 3, cp = 3 < c + d - 1 = 4; in the class
+counterexample (b): c = 3, d = 2, cp = 3 < c + d - 1 = 4; in the class
+the two counterexamples are the only failing graphs of the class with at most six vertices
+no check failed
