@@ -30,7 +30,17 @@ Old figure PDFs: `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-1
 
 ## Decisions for the author
 
-Recommendation first. Nothing below is applied.
+Recommendation first. The list is kept as it was written, with the numbers of the morning build.
+
+**Status (2026-10-10, later):** the author approved the recommendations ("súhlasím"). Applied: 1 (b, c, e, f; a and d
+are "keep"), 2 (a, b), 3, 4, 5, 6, 7, 8 (the bound of Chung and Lu is cited without a theorem number until the journal
+PDF confirms "Theorem 4"), 9, 10. Wording differences from the proposals below: Definition 4.2 keeps the author's
+four items, written in words; Definition 3.3 keeps two items (at most one edge in each link; no single edge);
+Theorem 6.1 cites Frieze-Karonski, Exercise 1.4.8, for the known fact and has its proof. New numbering: Corollary
+2.4, Definition 2.5, Definition 3.5, Lemmas 3.6-3.9, Theorems 3.10, 3.11, Corollary 3.12, Definition 4.2. Build:
+18 pages; packager `Verdict: PASS`. Still open: 11 (title, keywords, novelty sentence, AI declaration, funding),
+12 (`url` of `Frieze2016`, optional citation of Baier et al.), the theorem number in the journal version of Chung
+and Lu.
 
 1. **Symbols.**
    - (a) Clauses `C_k` and cut `C`: keep (no cut occurs in Section 3.1).

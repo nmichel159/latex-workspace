@@ -40,11 +40,11 @@ Typeset problem names in small caps: `\textsc{Min Cut-Path}`, `\textsc{Separatin
 |---|---|---|---|
 | Base case: if `c = 1` or `d = 1`, then `cp = c + d − 1` | Claim 6 | Lemma `lem:basic-bounds` (2.3), second part | |
 | Bounds `max(c, d) ≤ cp ≤ c + d − 1` | Claim 7 | Lemma `lem:basic-bounds` (2.3) | added to A1 on 2026-10-07 |
-| The union of a minimum cut and a shortest path is a 2-approximation | Claim 8 | – | |
+| The union of a minimum cut and a shortest path is a 2-approximation | Claim 8 | Corollary `cor:two-approximation` (2.4): `\|C ∪ P\| ≤ 2cp − 1` | added to A1 on 2026-10-10 |
 | `min cp(u,v) = min c(u,v)` over the edges `{u,v} ∈ E` | Theorem 9 | – | |
 | Partial Path / Partial Cut Property (a known path or cut of an optimum ⇒ polynomial solution) | Theorem 10, 11 | – | basis of the Path-Cut algorithm |
 | Tree-cut: `tc(u,v) = t(G)` in an unweighted graph; fails in a weighted one | Theorem 4, 5 | – | |
-| Decomposition `I, J, K, L` by a cut | Claim 12 (+ Algorithm 1) | Lemma `lem:cut-decomposition` (4.2) | |
+| Decomposition `I, J, K, L` by a cut | Claim 12 (+ Algorithm 1) | Definition `def:cut-decomposition` (4.2; a lemma until 2026-10-10) | |
 | Diameter 2 ⇒ `I = ∅` or `L = ∅` | Claim 13 | Lemma `lem:empty-i-or-l` (4.3) | |
 | Every `u`–`v` path intersects every `u`–`v` cut in an odd number of edges | Claim 14 | Lemma `lem:odd-intersection` (4.4) | holds for a cut of the form `δ(A₁)` |
 | **Diameter 2 ⇒ `cp = c + d − 1`** | Theorem 15 | Theorem `thm:diameter-two` (4.5) | |
@@ -56,17 +56,17 @@ Typeset problem names in small caps: `\textsc{Min Cut-Path}`, `\textsc{Separatin
 | Decomposition into a general square graph for `c(u,v) = 2` | Theorem 20 (Alg. 2–5) | – | |
 | Polynomial computation of `cp` in *diam or cut 2* for `c(u,v) = 2` | Theorem 22 (Alg. 6) | – | the case `d(u,v) = 2` remains open |
 | Linear `O(\|E\|)` computation given the decomposition | Theorem 23 (Alg. 7) | – | |
-| `G(n, 1/α)`, `α > 1`, has diameter 2 almost surely | Theorem 24 (with proof; `α > 0` in MT) | Theorem `thm:random-diameter-two` (6.1), constant `p`, citing Bollobás without a location (no numbered statement found, 2026-10-10) | |
+| `G(n, 1/α)`, `α > 1`, has diameter 2 almost surely | Theorem 24 (with proof; `α > 0` in MT) | Theorem `thm:random-diameter-two` (6.1), constant `p`, with a proof since 2026-10-10 (known fact: Frieze-Karoński, Exercise 1.4.8) | |
 | Properties of `G(n, α log n / n)`, `α > 1`: connectivity, diameter | Theorem 25, 26 | `thm:random-diameter` (6.2, Chung-Lu), `thm:random-connectivity` (6.3, Bollobás p. 169) | Theorem 27 (largest component) is only in MT |
 | Vertex degrees | Theorem 28: all in `(1 ± ε) α log n` – **false** for fixed `α` | Lemma `lem:degree-bounds` (6.4): all at least `β₁ log n` (the upper bound `β₂` was removed on 2026-10-09) | see Section 5a |
 | Bounds for `c(u,v)` | Claim 29 (with `(1 ± ε) α log n`) | Lemma `lem:connectivity-bounds` (6.5): `c(u,v) ≥ β₁ log n` | |
-| **Average (1+ε)-Approximation Scheme** for `p ≥ α log n / n` | Theorem 30 | Theorem `thm:approximation-scheme` (6.6) | monotonicity argument added in A1 |
+| **Average (1+ε)-Approximation Scheme** for `p ≥ α log n / n` | Theorem 30 | Theorem `thm:approximation-scheme` (6.6): with high probability `\|C ∪ P\| ≤ (1 + 1/(β₁ log log n)) cp` for all pairs; the scheme is its consequence (2026-10-10) | monotonicity argument added in A1 |
 | Almost polynomial average-case algorithm (Path-Cut) | Theorem 31 (Alg. 8) | – | |
 | For `α < 1`, `cp(u,v)` is defined with probability → 0 | Claim 32 | – | |
 | Symmetric case `c = d = cp`: symmetric cut-path graph, max independent path graph | Def. 47, 48; Claim 33–36 | – | up to `2^{O(√n)}` distinct optima (Claim 35) |
 | Filter-BFS, Local-Cut; polynomial for nearly 5-regular graphs | Alg. 9–12; Theorem 37, 38 | – | |
-| **NP-completeness of \textsc{Separating Shortest Path}** (reduction from 3-SAT, chain and threads) | – | Theorem `thm:ssp-np-complete` (3.9), Lemmas 3.5-3.8, `alg:reduction` | new relative to MT; proof rewritten 2026-10-07 |
-| **NP-completeness of the decision version of \textsc{Min Cut-Path}** | – (an open problem in MT) | Theorem `thm:mcp-np-complete` (3.10) | threshold `k = d(u,v)`; the optimization version is NP-hard |
+| **NP-completeness of \textsc{Separating Shortest Path}** (reduction from 3-SAT, chain and threads) | – | Theorem `thm:ssp-np-complete` (3.10), Lemmas 3.6-3.9, `alg:reduction` | new relative to MT; proof rewritten 2026-10-07 |
+| **NP-completeness of the decision version of \textsc{Min Cut-Path}** | – (an open problem in MT) | Theorem `thm:mcp-np-complete` (3.11), Corollary `cor:lower-bound-attained` (3.12: deciding `cp = d` is NP-complete) | threshold `b = d(u,v)`; the optimization version is NP-hard |
 
 **Counterexamples in the class *diam or cut 2*** (MT Fig. 3.3; not in A1; checked by hand 2026-10-09; vector
 drawings with the path in red: TikZ sources in `projects/clanok-1-min-cut-path.submission/figures/`, PDFs in
@@ -81,11 +81,11 @@ Both graphs have the six vertices `t, a, v, u, b, s` and the edges `ta, tv, au, 
   a minimum cut and a shortest path is a minimum cut-path.
 
 **Computational verification (2026-10-10).** Scripts and logs: `projects/clanok-1-min-cut-path.submission/checks/`.
-- Reduction: an executable model of Algorithm 1 (`reduction.py`); Lemmas 3.5-3.8, Table 1 and Theorem 3.9 hold on
+- Reduction: an executable model of Algorithm 1 (`reduction.py`); Lemmas 3.6-3.9, Table 1 and Theorem 3.10 hold on
   5639 formulas (59 unsatisfiable; clauses with repeated variables included). Exact sizes: `2n + 7m` threads,
   `4n + 21m` crossing edges, `6n + 28m` connecting paths, `Λ = 10n + 33m + 1`, chain `18n + 63m + 1` edges,
   `|E| = 18n + 63m + 1 + (6n + 28m)Λ`; every vertex other than `u`, `v` has degree at most three.
-- Small graphs: Lemma 2.3, Theorem 3.10 (`cp = d` iff a separating shortest path exists), Lemmas 4.3, 4.4,
+- Small graphs: Lemma 2.3, Corollaries 2.4 and 3.12 (`cp = d` iff a separating shortest path exists), Lemmas 4.3, 4.4,
   Theorem 4.5, Remark 4.6, Lemma 5.1 and Theorem 5.2 hold on all 1251 graphs with 2 to 7 vertices; every minimum
   `u`-`v` cut is an edge boundary; `c(x,y) ≤ 2` for all pairs iff every block is an edge or a cycle.
 - Class *diam or cut 2*: the two counterexamples above are the only graphs with at most six vertices in which

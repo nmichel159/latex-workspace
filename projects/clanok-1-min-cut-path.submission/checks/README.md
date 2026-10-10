@@ -2,6 +2,10 @@
 
 Brute-force checks of the statements of Sections 2-5 of `projects/clanok-1-min-cut-path/main.tex`.
 Python 3.13 with networkx 3.6; run from this folder. Nothing here is sent with the manuscript.
+Statement numbers here and in the scripts are those of the build of 2026-10-10, 10:00. Since the changes approved
+later that day: Lemmas 3.5-3.8 are Lemmas 3.6-3.9, Theorems 3.9 and 3.10 are Theorems 3.10 and 3.11, Lemma 4.2 is
+Definition 4.2; the bound `|C u P| <= 2 cp - 1` is Corollary 2.4 and "cp = d iff a separating shortest path exists"
+is Corollary 3.12 (both were checked here before they entered the text).
 
 | File | What it does | Run time |
 |---|---|---|
