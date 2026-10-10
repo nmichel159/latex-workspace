@@ -18,6 +18,8 @@ is Corollary 3.12 (both were checked here before they entered the text).
 | `results-fpt-lemmas.txt` | output of the run of 2026-10-10 (evening): 142 connected graphs with 2 to 6 vertices, 1933 pairs, 35945 constructions, no failure; on 3 pairs the important cuts alone give more than `cp` | - |
 | `check_good_set_literal.py` | second, independent check of Section 7, written from its text alone: good sets are enumerated as subsets of `B \| Y` with conditions (i), (ii) as stated (no reformulation), on random connected graphs with 3 to 7 vertices and at most 10 edges, for the smallest admissible `D` and random supersets; also the contraction lemma and property (c) of the treewidth-reduction lemma; argument = number of graphs | 1 min for 6000 |
 | `results-good-set-literal.txt` | output of the run of 2026-10-10 with 6000 graphs: 59112 constructions (47990 with `cp <= b`, 11122 with `cp > b`), no failure | - |
+| `check_gap_lemmas.py` | the two lemmas behind Theorem 7.3 (no PTAS; Lemmas 7.1, 7.2), on the model `reduction.py`: `Lambda = 10n + 33m + 1`; for every chain path, unsatisfied clauses `<= B * eta(P)`; exact `cp(u,v)` (all chain paths, and all other paths up to eight edges above the best value) against `Lambda + eta*`; on small formulas every `u`-`v` path with one connecting path: `\|P\| + eta(P) >= Lambda + eta*` | 20 s; `--long` 30 s |
+| `results-gap-lemmas.txt` | output of the run of 2026-10-10 with `--long`: 56 formulas, exact `cp` on 38 (30 satisfiable, 7 with `eta* = 1`, 1 with `eta* = 2`), 132672 paths with one connecting path, no failure; `cp = Lambda + eta*` on all 38 | - |
 
 ## Results
 

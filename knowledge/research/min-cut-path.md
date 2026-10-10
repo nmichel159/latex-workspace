@@ -42,8 +42,8 @@ Typeset problem names in small caps: `\textsc{Min Cut-Path}`, `\textsc{Separatin
 | Bounds `max(c, d) ≤ cp ≤ c + d − 1` | Claim 7 | Lemma `lem:basic-bounds` (2.3) | added to A1 on 2026-10-07 |
 | The union of a minimum cut and a shortest path is a 2-approximation | Claim 8 | Corollary `cor:two-approximation` (2.4): `\|C ∪ P\| ≤ 2cp − 1` | added to A1 on 2026-10-10 |
 | `min cp(u,v) = min c(u,v)` over the edges `{u,v} ∈ E` | Theorem 9 | – | |
-| Partial Path / Partial Cut Property (a known path or cut of an optimum ⇒ polynomial solution) | Theorem 10, 11 | Lemma `lem:contraction` (7.2): `cp = min (|C| + d_C)` over the inclusion-minimal cuts `C`, the formula behind Theorem 11 | basis of the Path-Cut algorithm; trying all cuts with at most `b` edges takes `|E|^O(b)` time (XP, not FPT) |
-| No FPTAS unless P = NP; FPT with respect to the threshold `b` (treewidth reduction of `Marx2013Separators` and Courcelle's theorem) | – | Section 7 (in `main.tex` since 2026-10-10): Theorems `thm:no-fptas` (7.1), `thm:fpt` (7.5), Lemmas `lem:treewidth-reduction` (7.3), `lem:good-set` (7.4) | important cuts do not suffice: in the left graph of Example 5.3 the only important cut gives 4, `cp = 3`; lemmas checked on small graphs (`checks/check_fpt_lemmas.py`, `checks/check_good_set_literal.py`) |
+| Partial Path / Partial Cut Property (a known path or cut of an optimum ⇒ polynomial solution) | Theorem 10, 11 | Lemma `lem:contraction` (7.5): `cp = min (|C| + d_C)` over the inclusion-minimal cuts `C`, the formula behind Theorem 11 | basis of the Path-Cut algorithm; trying all cuts with at most `b` edges takes `|E|^O(b)` time (XP, not FPT) |
+| No PTAS (hence no FPTAS) unless P = NP; FPT with respect to the threshold `b` (treewidth reduction of `Marx2013Separators` and Courcelle's theorem) | – | Section 7 (in `main.tex` since 2026-10-10): Theorem `thm:no-ptas` (7.3, with Lemmas `lem:missed-threads` 7.1 and `lem:unsatisfied-clauses` 7.2), Corollary `cor:no-fptas` (7.4), Theorem `thm:fpt` (7.8), Lemmas `lem:treewidth-reduction` (7.6), `lem:good-set` (7.7) | important cuts do not suffice: in the left graph of Example 5.3 the only important cut gives 4, `cp = 3`; lemmas checked on small graphs (`checks/check_fpt_lemmas.py`, `checks/check_good_set_literal.py`) |
 | Tree-cut: `tc(u,v) = t(G)` in an unweighted graph; fails in a weighted one | Theorem 4, 5 | – | |
 | Decomposition `I, J, K, L` by a cut | Claim 12 (+ Algorithm 1) | Definition `def:cut-decomposition` (4.2; a lemma until 2026-10-10) | |
 | Diameter 2 ⇒ `I = ∅` or `L = ∅` | Claim 13 | Lemma `lem:empty-i-or-l` (4.3) | |
@@ -158,9 +158,11 @@ From MT and the conclusion of A1:
 1. Class *diam or cut 2*: the case `d(u, v) = 2` (MT solves only `c(u, v) = 2`); in A1 phrased as merging two polynomial "islands".
 2. Planar graphs (cut ↔ cycle duality), graphs of bounded treewidth.
 3. Approximation algorithms with a guarantee for general graphs (only the trivial 2-approximation is known).
-   No FPTAS unless P = NP (A1, Theorem 7.1); PTAS and APX-hardness unknown. Lead of 2026-10-10, TODO(verify): in the
-   graphs of the reduction a cut-path that contains a chain path `P` has at least `Lambda` + (threads not hit by `P`)
-   edges, so gap instances of 3-SAT with bounded occurrences may give APX-hardness.
+   No PTAS unless P = NP (A1, Theorem 7.3, 2026-10-10; no FPTAS is Corollary 7.4): in the graph of the reduction every cut-path has at least
+   `Lambda + eta*` edges, `eta*` = the least number of threads a chain path misses (Lemma 7.1), and `eta*` is at
+   least a fifth of the least number of unsatisfied clauses when every variable occurs five times (Lemma 7.2);
+   with the gap problem of `Feige1998Threshold`. Open: the best factor between `1 + eps_0` and two; whether
+   `cp = Lambda + eta*` always holds in these graphs (it does on the 38 formulas of `checks/check_gap_lemmas.py`).
 4. Weighted and directed variants.
 5. Experimental evaluation on real and random networks.
 6. Structure of graphs with a fixed value `cp(u, v)`.

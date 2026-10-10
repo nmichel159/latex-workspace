@@ -44,7 +44,7 @@
 
 | Result | Location in source | Where we use it | Exact assumptions |
 |---|---|---|---|
-| set `D` with all minimal separators of size at most `k`, torso of bounded treewidth | Lemma 2.11, Remark 2.13 | article 1, Section 7 "Approximation and Parameterized Complexity", Lemma `lem:treewidth-reduction` (7.3) | `s`, `t` non-adjacent; a separator of size at most `k` exists (so `e >= 0`); `l > 0` in their Lemma 2.4, which holds when `s`, `t` lie in one component |
+| set `D` with all minimal separators of size at most `k`, torso of bounded treewidth | Lemma 2.11, Remark 2.13 | article 1, Section 7 "Approximation and Parameterized Complexity", Lemma `lem:treewidth-reduction` (7.6) | `s`, `t` non-adjacent; a separator of size at most `k` exists (so `e >= 0`); `l > 0` in their Lemma 2.4, which holds when `s`, `t` lie in one component |
 | separation by subsets of `D` is the same in the torso and in the graph | Proposition 2.7 | same lemma, item (c) | the separator is a subset of `D` |
 | Courcelle's theorem for graphs with vertex labels | Theorem 2.2 and the paragraph after it | proof of Theorem `thm:fpt` | property expressed in MSO with vertex and vertex-set variables |
 | definition of FPT | Section 1, p. 1 | Section "Fixed-Parameter Tractability" | - |
