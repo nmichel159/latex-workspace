@@ -1242,8 +1242,8 @@ Comparing $|S|$ with $b$ thus decides the decision version of \MinCutPath{} in p
 \end{proof}
 
 Theorem~\ref{thm:no-fptas} leaves open whether \MinCutPath{} has a PTAS and whether a polynomial-time algorithm achieves a factor smaller than two.
-The reduction of Section~\ref{sec:np-completeness} gives no constant lower bound on the factor: in the graphs that it constructs, $\cp(u,v)$ is either $d(u,v)$ or at least $d(u,v) + 1$, and the ratio $(d(u,v) + 1)/d(u,v)$ tends to one as the formula grows.
-Whether \MinCutPath{} is APX-hard, which would exclude a PTAS unless $\mathrm{P} = \mathrm{NP}$, is open.
+The proofs of Section~\ref{sec:np-completeness} give no constant lower bound on the factor: for the graphs of the reduction, they show only that $\cp(u,v) = d(u,v)$ if the formula is satisfiable and $\cp(u,v) \geq d(u,v) + 1$ otherwise, and the ratio $(d(u,v) + 1)/d(u,v)$ tends to one as the formula grows.
+We do not know whether a finer analysis of these graphs gives a constant gap, nor whether \MinCutPath{} is APX-hard, which would exclude a PTAS unless $\mathrm{P} = \mathrm{NP}$.
 
 \subsection{Fixed-Parameter Tractability}
 \label{sec:fpt}
@@ -1386,7 +1386,7 @@ The total running time is therefore $f(b)$ times a polynomial in $|V| + |E|$, fo
 \end{proof}
 
 The proof gives no explicit bound on $f$.
-Whether \MinCutPath{} can be solved in time $2^{O(b)}$ times a polynomial in $|V| + |E|$ is open.
+We do not know whether \MinCutPath{} can be solved in time $2^{O(b)}$ times a polynomial in $|V| + |E|$.
 
 \section{Conclusion}
 \label{sec:conclusion}
