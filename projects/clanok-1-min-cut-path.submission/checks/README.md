@@ -14,8 +14,10 @@ is Corollary 3.12 (both were checked here before they entered the text).
 | `mutation_tests.py` | five broken constructions; each must be caught by a check | 1 s |
 | `check_cutpath.py` | Lemma 2.3, minimum cuts are edge boundaries, Theorem 3.10, Lemmas 4.3-4.4, Theorem 4.5, Remark 4.6, Lemma 5.1, Theorem 5.2, the two counterexamples of the class "d <= 2 or c <= 2" | 10 s |
 | `results-reduction.txt`, `results-cutpath.txt` | output of the runs of 2026-10-10 | - |
-| `check_fpt_lemmas.py` | draft section `../draft-approximation-parameterized.tex` (not in `main.tex`): the contraction lemma, the important cuts of the left graph of Example 5.3, and the equivalence lemma (good sets in the labelled graph built from the torso) for the smallest admissible set `D`, the whole vertex set and random sets in between; the treewidth bound is not checked | 30 s |
+| `check_fpt_lemmas.py` | Section 7 of `main.tex` (a draft beside the project until 2026-10-10): the contraction lemma, the important cuts of the left graph of Example 5.3, and the equivalence lemma (good sets in the labelled graph built from the torso) for the smallest admissible set `D`, the whole vertex set and random sets in between; the treewidth bound is not checked | 30 s |
 | `results-fpt-lemmas.txt` | output of the run of 2026-10-10 (evening): 142 connected graphs with 2 to 6 vertices, 1933 pairs, 35945 constructions, no failure; on 3 pairs the important cuts alone give more than `cp` | - |
+| `check_good_set_literal.py` | second, independent check of Section 7, written from its text alone: good sets are enumerated as subsets of `B \| Y` with conditions (i), (ii) as stated (no reformulation), on random connected graphs with 3 to 7 vertices and at most 10 edges, for the smallest admissible `D` and random supersets; also the contraction lemma and property (c) of the treewidth-reduction lemma; argument = number of graphs | 1 min for 6000 |
+| `results-good-set-literal.txt` | output of the run of 2026-10-10 with 6000 graphs: 59112 constructions (47990 with `cp <= b`, 11122 with `cp > b`), no failure | - |
 
 ## Results
 

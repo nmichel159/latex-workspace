@@ -55,6 +55,8 @@
 % Notation
 \newcommand{\cp}{\operatorname{cp}}                  % value of a minimum cut-path
 \newcommand{\diam}{\operatorname{diam}}
+\newcommand{\tw}{\operatorname{tw}}
+\newcommand{\torso}{\operatorname{torso}}
 \newcommand{\OPT}{\mathrm{OPT}}
 \newcommand{\ALG}{\mathrm{ALG}}
 \newcommand{\MinCutPath}{\textsc{Min Cut-Path}}
@@ -112,6 +114,7 @@ We prove that its decision version is NP-complete, already when the question is 
 Let $c(u,v)$ be the size of a minimum cut separating $u$ from $v$, and let $d(u,v)$ be the distance between $u$ and $v$.
 In graphs of diameter two and in cactus graphs, a minimum cut-path has $c(u,v) + d(u,v) - 1$ edges, the size attained by the union of a minimum cut and a shortest path.
 In Erdős–Rényi random graphs on $n$ vertices with edge probability at least $\alpha \log n / n$ for a constant $\alpha > 1$, this union is within a factor $1+\epsilon$ of the optimum, for every fixed $\epsilon > 0$, with probability tending to one.
+\MinCutPath{} has no fully polynomial-time approximation scheme unless $\mathrm{P} = \mathrm{NP}$, and it is fixed-parameter tractable with respect to the size of the cut-path.
 \end{abstract}
 
 \begin{keywords}
@@ -173,6 +176,8 @@ Third, Erdős–Rényi random graphs with constant edge probability have diamete
 Let $n$ be the number of vertices and let $\alpha > 1$.
 For edge probabilities $p \geq \alpha \log n / n$, we show that the union of a minimum cut and a shortest path is within a factor of $1+\epsilon$ of the optimum, for every fixed $\epsilon > 0$, with probability tending to one (Theorem~\ref{thm:approximation-scheme}).
 
+Fourth, \MinCutPath{} has no fully polynomial-time approximation scheme unless $\mathrm{P} = \mathrm{NP}$ (Theorem~\ref{thm:no-fptas}), and its decision version is fixed-parameter tractable with respect to the threshold on the size of the cut-path (Theorem~\ref{thm:fpt}).
+
 \SSP{} asks whether some shortest $u$--$v$ path separates $u$ from $v$ when its edges are removed.
 The reduction from \ThreeSAT{} builds a chain of cycles between $u$ and $v$.
 The shortest $u$--$v$ paths of the chain choose one of the two halves of every cycle, and these choices encode truth values.
@@ -183,6 +188,7 @@ Synchronization threads force the choices in all cycles of one variable to agree
 Section~\ref{sec:fundamentals} defines cut-paths and proves $\max\{c(u,v), d(u,v)\} \leq \cp(u,v) \leq c(u,v) + d(u,v) - 1$.
 Section~\ref{sec:np-completeness} contains the NP-completeness proof.
 Sections~\ref{sec:diameter-two} and~\ref{sec:cut-two} treat the two graph classes, and Section~\ref{sec:random-graphs} treats random graphs.
+Section~\ref{sec:approx-param} excludes a fully polynomial-time approximation scheme and proves fixed-parameter tractability.
 Section~\ref{sec:conclusion} lists open problems.
 
 \section{Preliminaries}
@@ -1207,6 +1213,181 @@ The bound $1 + 1/(\beta_1 \log \log n)$ is smaller than $1+\epsilon$ for all suf
 Thus, the algorithm achieves the approximation ratio $1+\epsilon$ on a set of inputs whose probability tends to one, so it is an average $(1+\epsilon)$-approximation scheme.
 \end{proof}
 
+\section{Approximation and Parameterized Complexity}
+\label{sec:approx-param}
+
+\subsection{Approximation Hardness}
+\label{sec:approximation}
+
+By Corollary~\ref{cor:two-approximation}, the union of a minimum $u$--$v$ cut and a shortest $u$--$v$ path is a cut-path with at most $2\cp(u,v) - 1$ edges, so a minimum cut-path is approximated within a factor of two in polynomial time.
+
+A \emph{polynomial-time approximation scheme} (PTAS) for \MinCutPath{} is an algorithm that, given a graph $G = (V, E)$, two distinct vertices $u, v \in V$ and a number $\epsilon > 0$, returns a cut-path between $u$ and $v$ with at most $(1+\epsilon)\cp(u,v)$ edges, in time polynomial in $|V|$ for every fixed $\epsilon$.
+It is a \emph{fully polynomial-time approximation scheme} (FPTAS) if its running time is polynomial in $|V|$ and $1/\epsilon$.
+
+\begin{theorem}
+\label{thm:no-fptas}
+Unless $\mathrm{P} = \mathrm{NP}$, there is no FPTAS for \MinCutPath.
+\end{theorem}
+
+\begin{proof}
+Suppose that an FPTAS exists.
+Given an instance $(G, u, v, b)$ of the decision version with $G = (V, E)$, we run it on $(G, u, v)$ with $\epsilon = 1/(|E|+1)$ and obtain a cut-path $S$.
+Since $\cp(u,v) \leq |E|$,
+\[
+\cp(u,v) \leq |S| \leq \Bigl(1 + \frac{1}{|E|+1}\Bigr)\cp(u,v) < \cp(u,v) + 1,
+\]
+and $|S| = \cp(u,v)$, because both numbers are integers.
+The running time is polynomial in $|V|$ and $|E| + 1$, hence in the size of the instance.
+Comparing $|S|$ with $b$ thus decides the decision version of \MinCutPath{} in polynomial time, and $\mathrm{P} = \mathrm{NP}$ by Theorem~\ref{thm:mcp-np-complete}.
+\end{proof}
+
+Theorem~\ref{thm:no-fptas} leaves open whether \MinCutPath{} has a PTAS and whether a polynomial-time algorithm achieves a factor smaller than two.
+The reduction of Section~\ref{sec:np-completeness} gives no constant lower bound on the factor: in the graphs that it constructs, $\cp(u,v)$ is either $d(u,v)$ or at least $d(u,v) + 1$, and the ratio $(d(u,v) + 1)/d(u,v)$ tends to one as the formula grows.
+Whether \MinCutPath{} is APX-hard, which would exclude a PTAS unless $\mathrm{P} = \mathrm{NP}$, is open.
+
+\subsection{Fixed-Parameter Tractability}
+\label{sec:fpt}
+
+A decision problem is \emph{fixed-parameter tractable} (FPT) with respect to a parameter $b$ of its instances if it can be decided in time $f(b)$ times a polynomial in the size of the instance, for some computable function $f$ (see, e.g.,~\cite{Marx2013Separators}).
+The \emph{parameterized version} of \MinCutPath{} is its decision version (Section~\ref{sec:ssp-to-mcp}) with the threshold $b$ as the parameter: given a graph $G = (V, E)$, two distinct vertices $u, v \in V$ and an integer $b$, is there a cut-path between $u$ and $v$ with at most $b$ edges?
+
+By Lemma~\ref{lem:basic-bounds}, an instance with $d(u,v) > b$ or $c(u,v) > b$ is a no-instance, and an instance with $c(u,v) + d(u,v) - 1 \leq b$ is a yes-instance; both values are computed in polynomial time~\cite{Cormen2022}.
+
+For a $u$--$v$ cut $C$, let $d_C(u,v)$ denote the minimum of $|P \setminus C|$ over all $u$--$v$ paths $P$; it is the distance between the images of $u$ and $v$ in the graph obtained from $G$ by contracting the edges of $C$.
+
+\begin{lemma}
+\label{lem:contraction}
+Let $G = (V, E)$ be a graph, and let $u, v \in V$ be two distinct vertices. Then
+\[
+\cp(u,v) = \min_{C}\, \bigl(|C| + d_C(u,v)\bigr),
+\]
+where the minimum is over all inclusion-minimal $u$--$v$ cuts $C$.
+\end{lemma}
+
+\begin{proof}
+For every $u$--$v$ cut $C$ and every $u$--$v$ path $P$, the set $C \cup P$ is a cut-path with $|C| + |P \setminus C|$ edges; hence $\cp(u,v) \leq |C| + d_C(u,v)$.
+Conversely, a minimum cut-path $S$ contains a $u$--$v$ path $P$ and a $u$--$v$ cut, hence also an inclusion-minimal $u$--$v$ cut $C$, and
+\[
+|C| + d_C(u,v) \leq |C| + |P \setminus C| = |C \cup P| \leq |S| = \cp(u,v). \qedhere
+\]
+\end{proof}
+
+By Lemma~\ref{lem:contraction}, one can decide whether $\cp(u,v) \leq b$ by computing $d_C(u,v)$ for every inclusion-minimal $u$--$v$ cut $C$ with at most $b$ edges, each time by a shortest-path computation in which the edges of $C$ have length zero.
+This algorithm runs in time $|E|^{O(b)}$ and is not an FPT algorithm: a graph that consists of $b$ internally disjoint $u$--$v$ paths with $|E|/b$ edges each has $(|E|/b)^b$ inclusion-minimal $u$--$v$ cuts with $b$ edges.
+We avoid the enumeration: after the remaining parts of the graph are replaced by weighted shortcuts, all these cuts lie in a graph of treewidth bounded by a function of $b$.
+
+We use tree decompositions, treewidth and the monadic second-order logic of graphs as in~\cite[Section~2.1]{Marx2013Separators}, and write $\tw(H)$ for the treewidth of a graph $H$.
+For a set $N$ of vertices of $H$, the graph $H - N$ is obtained from $H$ by deleting the vertices of $N$.
+Let $x, y$ be two distinct vertices of $H$.
+A set $N \subseteq V(H) \setminus \{x, y\}$ \emph{separates} $x$ from $y$ in $H$ if $x$ and $y$ lie in different components of $H - N$; such a set is an \emph{$x$--$y$ separator}, and it is \emph{minimal} if none of its proper subsets is an $x$--$y$ separator.
+For $D \subseteq V(H)$, the graph $\torso(H, D)$ has the vertex set $D$, and two vertices $a, a' \in D$ are adjacent in it if they are adjacent in $H$ or if $H$ contains an $a$--$a'$ path whose internal vertices lie outside $D$~\cite[Definition~2.5]{Marx2013Separators}.
+
+\begin{lemma}[{\cite[Proposition~2.7, Lemma~2.11 and Remark~2.13]{Marx2013Separators}}]
+\label{lem:treewidth-reduction}
+There are functions $f_1$ and $g_1$ and an algorithm with the following property.
+Given a graph $H$, two distinct non-adjacent vertices $x, y$ of the same component of $H$, and an integer $k$ such that $H$ has an $x$--$y$ separator with at most $k$ vertices, the algorithm computes in time $f_1(k) \cdot (|V(H)| + |E(H)|)$ a set $D \subseteq V(H)$ with $x, y \in D$ such that
+\begin{enumerate}[(a)]
+    \item $D$ contains every minimal $x$--$y$ separator of $H$ with at most $k$ vertices,
+    \item $\tw(\torso(H, D)) \leq g_1(k)$, and
+    \item a set $N \subseteq D \setminus \{x, y\}$ separates $x$ from $y$ in $\torso(H, D)$ if and only if it separates $x$ from $y$ in $H$.
+\end{enumerate}
+\end{lemma}
+
+Marx, O'Sullivan and Razgon~\cite[Lemma~2.11]{Marx2013Separators} construct the set $D \setminus \{x, y\}$ and bound the bramble number of its torso, which is the treewidth plus one.
+Their bounds on the running time and on the bramble number depend on the minimum size of an $x$--$y$ separator, which is at most $k$, and on the difference between $k$ and this size; hence they are bounded by functions of $k$.
+By their Remark~2.13, adding $x$ and $y$ increases the treewidth by at most two.
+Statement~(c) is their Proposition~2.7.
+
+\paragraph{Construction.}
+Let $(G, u, v, b)$ be an instance with $c(u,v) \leq b$.
+Let $G'$ be the graph obtained from $G$ by subdividing every edge $e \in E$ with a new vertex $z_e$, and let $R_F = \{z_e : e \in F\}$ for $F \subseteq E$.
+Deleting the vertex $z_e$ from $G'$ corresponds to removing the edge $e$ from $G$.
+Hence a set $F \subseteq E$ is a $u$--$v$ cut of $G$ if and only if $R_F$ separates $u$ from $v$ in $G'$, and $R_F$ is a minimal $u$--$v$ separator of $G'$ whenever $F$ is an inclusion-minimal $u$--$v$ cut of $G$.
+The vertices $u$ and $v$ are not adjacent in $G'$ and lie in the same component, and $G'$ has a $u$--$v$ separator with $c(u,v) \leq b$ vertices.
+We apply Lemma~\ref{lem:treewidth-reduction} to $G'$ with $x = u$, $y = v$ and $k = b$ and obtain a set $D$.
+By~(a), $z_e \in D$ for every edge $e$ of an inclusion-minimal $u$--$v$ cut of $G$ with at most $b$ edges.
+
+Let $G_D = \torso(G', D)$.
+For an edge $aa'$ of $G_D$, let $\omega(aa')$ be the minimum number of vertices of $R_E$ among the internal vertices of an $a$--$a'$ path of $G'$ whose internal vertices lie outside $D$; in particular, $\omega(aa') = 0$ if $a$ and $a'$ are adjacent in $G'$.
+Let $G_D^+$ be the graph obtained from $G_D$ by replacing every edge $aa'$ with $\omega(aa') \geq 1$ by an $a$--$a'$ path with $\min\{\omega(aa'), b+1\}$ new internal vertices.
+Let $Y$ be the set of all new vertices, and let $B = R_E \cap D$.
+Subdividing edges does not change which vertices of $D$ lie in a common component after vertices of $D$ are deleted.
+Together with~(c) and the correspondence between the cuts of $G$ and the separators of $G'$, this gives, for every $F \subseteq E$ with $R_F \subseteq D$,
+\begin{equation}
+\label{eq:cut-separator}
+\text{$F$ is a $u$--$v$ cut of $G$ if and only if $R_F$ separates $u$ from $v$ in $G_D^+$.}
+\end{equation}
+A set $M \subseteq B \cup Y$ is \emph{good} if
+\begin{enumerate}[(i)]
+    \item $M \cap B$ separates $u$ from $v$ in $G_D^+$, and
+    \item $G_D^+$ contains a $u$--$v$ path all of whose vertices in $B \cup Y$ belong to $M$.
+\end{enumerate}
+
+\begin{lemma}
+\label{lem:good-set}
+Let $(G, u, v, b)$ be an instance with $c(u,v) \leq b$, and let $G_D^+$, $B$ and $Y$ be constructed as above.
+Then $\cp(u,v) \leq b$ if and only if there is a good set with at most $b$ vertices.
+\end{lemma}
+
+\begin{proof}
+Suppose first that $\cp(u,v) \leq b$.
+By Lemma~\ref{lem:contraction}, there are an inclusion-minimal $u$--$v$ cut $C$ and a $u$--$v$ path $P$ of $G$ with $|C| + |P \setminus C| \leq b$.
+Since $|C| \leq b$, we have $R_C \subseteq D$ and hence $R_C \subseteq B$.
+Let $P'$ be the $u$--$v$ path of $G'$ obtained from $P$ by subdividing its edges, and let $u = a_0, a_1, \dots, a_r = v$ be the vertices of $P'$ that lie in $D$, in their order on $P'$.
+For $1 \leq i \leq r$, the part of $P'$ between $a_{i-1}$ and $a_i$ has no internal vertex in $D$.
+Hence $a_{i-1}a_i$ is an edge of $G_D$, and $\omega(a_{i-1}a_i)$ is at most the number of internal vertices of this part that lie in $R_E$.
+Every such vertex is $z_e$ for an edge $e \in P$ with $z_e \notin D$, and then $e \notin C$.
+In particular, $\omega(a_{i-1}a_i) \leq |P \setminus C| \leq b$, so $G_D^+$ contains a $u$--$v$ path $Q$ that passes through $a_0, \dots, a_r$ in this order and has exactly $\omega(a_{i-1}a_i)$ vertices of $Y$ between $a_{i-1}$ and $a_i$.
+Let $M = R_C \cup \bigl(V(Q) \cap (B \cup Y)\bigr)$.
+Condition~(ii) holds by the choice of $M$.
+Condition~(i) holds because $M \cap B \supseteq R_C$ and $R_C$ separates $u$ from $v$ in $G_D^+$ by~\eqref{eq:cut-separator}.
+The vertices of $Q$ in $B$ are the vertices $z_e \in D$ with $e \in P$, the number of vertices of $Q$ in $Y$ is at most the number of edges $e \in P$ with $z_e \notin D$, and $z_e \in D$ for every $e \in C$; hence
+\[
+|M| \leq |C| + |\{e \in P \setminus C : z_e \in D\}| + |\{e \in P \setminus C : z_e \notin D\}| = |C| + |P \setminus C| \leq b.
+\]
+
+Conversely, let $M$ be a good set with $|M| \leq b$, and let $Q$ be a $u$--$v$ path of $G_D^+$ as in~(ii).
+Let $F_1 = \{e \in E : z_e \in M \cap B\}$; by~(i) and~\eqref{eq:cut-separator}, $F_1$ is a $u$--$v$ cut of $G$.
+The path $Q$ consists of edges $aa'$ of $G_D$ with $\omega(aa') = 0$ and of paths that replace edges $aa'$ of $G_D$ with $\omega(aa') \geq 1$.
+The internal vertices of such a path lie in $Y$, hence in $M$ by~(ii); since $|M| \leq b$, their number is not $b+1$, so it is $\omega(aa')$.
+In both cases we replace the part of $Q$ between $a$ and $a'$ by an $a$--$a'$ path of $G'$ whose internal vertices lie outside $D$ and exactly $\omega(aa')$ of them in $R_E$.
+The result is a $u$--$v$ walk $Q'$ in $G'$.
+Let $F_2 = \{e \in E : z_e \in V(Q')\}$.
+A vertex $z_e$ of $Q'$ is a vertex of $Q$ in $B$, and then $e \in F_1$ by~(ii), or it is an internal vertex of one of the inserted paths, and the number of these vertices is at most $|V(Q) \cap Y| \leq |M \cap Y|$.
+Hence $|F_1 \cup F_2| \leq |M \cap B| + |M \cap Y| = |M| \leq b$.
+In $G'$, the vertex $z_e$ is adjacent exactly to the two ends of $e$; therefore any two vertices of $V$ that follow each other on $Q'$ are equal or are the two ends of an edge of $F_2$, and $F_2$ contains a $u$--$v$ path.
+Thus $F_1 \cup F_2$ is a cut-path between $u$ and $v$ with at most $b$ edges.
+\end{proof}
+
+\begin{theorem}
+\label{thm:fpt}
+\MinCutPath{} is fixed-parameter tractable with respect to the threshold $b$.
+\end{theorem}
+
+\begin{proof}
+The algorithm computes $c(u,v)$ and rejects if $c(u,v) > b$, which is correct by Lemma~\ref{lem:basic-bounds}.
+Otherwise it constructs $G'$, $D$, $G_D$, $\omega$ and $G_D^+$ and accepts if and only if there is a good set with at most $b$ vertices, which is correct by Lemma~\ref{lem:good-set}.
+
+The graph $G'$ has $|V| + |E|$ vertices and $2|E|$ edges, so $D$ is computed in time $f_1(b) \cdot (|V| + 3|E|)$.
+For two vertices $a, a' \in D$, a shortest-path computation in $G' - (D \setminus \{a, a'\})$, in which the length of a path is the number of its internal vertices in $R_E$, decides whether $aa'$ is an edge of $G_D$ and gives $\omega(aa')$.
+Hence $G_D^+$ is constructed in polynomial time and has at most $|D| + (b+1)|D|^2$ vertices.
+
+Subdividing an edge $aa'$ of a graph $H$ by a vertex $w$ yields a graph of treewidth at most $\max\{\tw(H), 2\}$.
+Indeed, a tree decomposition of $H$ has a bag that contains $a$ and $a'$, and a new bag $\{a, a', w\}$ attached to it gives a tree decomposition of the new graph.
+Hence $\tw(G_D^+) \leq \max\{\tw(G_D), 2\} \leq \max\{g_1(b), 2\}$ by~(b).
+
+Let $W$ be a set of vertices of $G_D^+$ with $v \in W$.
+The vertex $v$ is reachable from $u$ by a path whose vertices other than $u$ lie in $W$ if and only if every set of vertices that contains $u$ and every vertex of $W$ adjacent to one of its members also contains $v$.
+This condition is a formula of monadic second-order logic.
+Condition~(ii) is this condition for $W = M \cup \bigl(V(G_D^+) \setminus (B \cup Y)\bigr)$, condition~(i) is its negation for $W = V(G_D^+) \setminus (M \cap B)$, and $|M| \leq b$ holds if and only if there are $b$ vertices, not necessarily distinct, such that every member of $M$ is one of them.
+Hence the existence of a good set with at most $b$ vertices is expressed by a formula $\varphi_b$ of monadic second-order logic over graphs with the vertex labels $u$, $v$, $B$ and $Y$.
+By Courcelle's theorem~\cite[Theorem~2.2]{Marx2013Separators} and its extension to graphs with vertex labels stated there, a property expressed by such a formula $\varphi$ is decided on a graph $H$ in time $f_\varphi(\tw(H)) \cdot (|V(H)| + |E(H)|)$.
+The total running time is therefore $f(b)$ times a polynomial in $|V| + |E|$, for a function $f$ of $b$.
+\end{proof}
+
+The proof gives no explicit bound on $f$.
+Whether \MinCutPath{} can be solved in time $2^{O(b)}$ times a polynomial in $|V| + |E|$ is open.
+
 \section{Conclusion}
 \label{sec:conclusion}
 
@@ -1220,11 +1401,10 @@ At this diameter, finding a matching cut and, for unit edge lengths, finding the
 Second, does duality help to solve \MinCutPath{} on \emph{planar graphs}?
 In a planar graph, every minimal edge cut corresponds to a cycle in the dual graph and vice versa, and several problems on cuts and flows can be solved faster in planar graphs than in general ones~\cite{itai1979maximum,henzinger1997faster}.
 
-Third, can a minimum cut-path be approximated within a factor smaller than two?
-By Corollary~\ref{cor:two-approximation}, the union of a minimum cut and a shortest path achieves the factor two; our reduction gives no inapproximability bound, because it only distinguishes $\cp(u, v) = d(u, v)$ from $\cp(u, v) > d(u, v)$.
+Third, can a minimum cut-path be approximated within a factor smaller than two, and does \MinCutPath{} have a polynomial-time approximation scheme?
+By Corollary~\ref{cor:two-approximation}, the union of a minimum cut and a shortest path achieves the factor two, and Theorem~\ref{thm:no-fptas} excludes only a fully polynomial-time approximation scheme.
 
-Finally, for a fixed threshold $b$, trying all sets of at most $b$ edges decides in polynomial time whether $\cp(u,v) \leq b$.
-Is \MinCutPath{} fixed-parameter tractable with respect to $b$?
+Finally, \MinCutPath{} is fixed-parameter tractable with respect to the threshold $b$ (Theorem~\ref{thm:fpt}); can it be solved in time $2^{O(b)}$ times a polynomial in the size of the graph?
 What is the complexity of the problem for bounded $c(u, v)$ or bounded $d(u, v)$, and of deciding whether $\cp(u, v) = c(u, v)$?
 
 
