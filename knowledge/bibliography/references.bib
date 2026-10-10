@@ -106,6 +106,24 @@
   doi       = {10.1007/978-1-4684-2001-2_9}
 }
 
+% PARTIAL 2026-10-10: all fields verified (Crossref record of DOI 10.1145/322077.322090); the content was not read.
+% Compared: title with its subtitle, both authors as initials (M. R. Garey, D. S. Johnson), Journal of the ACM,
+% volume 25, issue 3, pages 499-508, 1978.
+% Not read: dl.acm.org refused the request and the Semantic Scholar record has no abstract.
+% Attributed to it in the draft section of article 1: the notion "NP-complete in the strong sense" and the
+% argument that such a problem with a polynomially bounded integer objective has no FPTAS unless P = NP. The
+% draft proves the second statement itself; confirm the first in the paper, then change the status to VERIFIED.
+@article{GareyJohnson1978Strong,
+  author    = {Garey, M. R. and Johnson, D. S.},
+  title     = {``{S}trong'' {NP}-Completeness Results: Motivation, Examples, and Implications},
+  journal   = {Journal of the ACM},
+  volume    = {25},
+  number    = {3},
+  pages     = {499--508},
+  year      = {1978},
+  doi       = {10.1145/322077.322090}
+}
+
 % ----------------------------------------------------------------------------
 % Cuts, flows and connectivity
 % ----------------------------------------------------------------------------
@@ -176,6 +194,31 @@
   pages     = {3--23},
   year      = {1997},
   doi       = {10.1006/jcss.1997.1493}
+}
+
+% VERIFIED 2026-10-10 (Crossref record of DOI 10.1145/2500119).
+% Compared: title, the three authors, ACM Transactions on Algorithms, volume 9, issue 4, pages 1-35, print issue
+% 2013-09 (online 2013-10-03). The record has no article number; dblp refused the request.
+% Read 2026-10-10 in the preprint arXiv:1110.4765v1 (the only version; the journal text was not compared, so the
+% numbers below are those of the preprint): definition of FPT (Section 1, p. 1); tree decompositions, Theorem 2.1
+% (bramble number = treewidth + 1), Theorem 2.2 (Courcelle's theorem, time f_phi(tw(G)) (|E(G)| + |V(G)|)) and its
+% extension to labeled graphs (Section 2.1, pp. 3-5); Definition 2.3 (separators); Definition 2.5 (torso);
+% Proposition 2.7 (a subset of C separates two vertices of C in torso(G, C) iff it does in G); Corollary 2.10;
+% Lemma 2.11 (a set C' that contains every minimal s-t separator of size at most k, is disjoint from {s, t} and
+% has bn(torso(G, C')) <= g(l, e), in time f(l, e) (|E(G)| + |V(G)|)); Remark 2.13 (adding s, t costs at most 2);
+% Remark 2.14 (g(l, e) = 2^O(el)); Theorem 2.15 (treewidth reduction); Section 3.3 (connected vertex cuts).
+% Note: knowledge/literature/Marx2013Separators.md.
+@article{Marx2013Separators,
+  author    = {Marx, D{\'a}niel and O'Sullivan, Barry and Razgon, Igor},
+  title     = {Finding small separators in linear time via treewidth reduction},
+  journal   = {ACM Transactions on Algorithms},
+  volume    = {9},
+  number    = {4},
+  pages     = {1--35},
+  year      = {2013},
+  doi       = {10.1145/2500119},
+  eprint    = {1110.4765},
+  archivePrefix = {arXiv}
 }
 
 % ----------------------------------------------------------------------------
