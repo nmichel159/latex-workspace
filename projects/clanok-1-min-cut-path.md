@@ -15,11 +15,16 @@ files are in `archives/removed-from-projects/clanok-1-min-cut-path/2026-10-09-be
 **Session of 2026-10-10 (plan `NEXT-TASK.md`):** the statements of Sections 2-5 were checked by computation (no
 failure; `projects/clanok-1-min-cut-path.submission/checks/`), the sources of Section 6 and the related work were
 re-checked, Sections 3-5 were tidied (Lemma 5.1 is new as an environment, Theorem 5.1 became 5.2; the count in
-Theorem 4.5 is one display; Figures 5, 8 and 10 updated). 17 pages; full packager run `Verdict: PASS`. Report and the
-decisions that wait for the author: `projects/clanok-1-min-cut-path.submission/session-2026-10-10/REPORT.md`.
-Current numbering: Definitions 2.1, 2.2, Lemma 2.3, Definition 2.4; Definitions 3.1-3.4, Lemmas 3.5-3.8, Theorems 3.9,
-3.10; Definition 4.1, Lemmas 4.2-4.4, Theorem 4.5, Remark 4.6; Lemma 5.1, Theorem 5.2; Theorems 6.1-6.3, Lemmas 6.4,
-6.5, Theorem 6.6. Older notes below use the numbers of their day.
+Theorem 4.5 is one display; Figures 5, 8 and 10 updated). The author approved the recommended decisions the same day
+("súhlasím") and they were applied: symbols (`b`, `S`, `W`, `ALG`, index `h`), Corollaries 2.4 and 3.12, Definition 3.5,
+Definition 4.2 (was Lemma 4.2), proof of Theorem 6.1, Theorem 6.6 as a bound with high probability, the 3-SAT
+citation, the last question of the conclusion. 18 pages; full packager run `Verdict: PASS`. Report, what was applied
+and what is still open: `projects/clanok-1-min-cut-path.submission/session-2026-10-10/REPORT.md`.
+Current numbering: Definitions 2.1, 2.2, Lemma 2.3, Corollary 2.4, Definition 2.5; Definitions 3.1-3.5, Lemmas 3.6-3.9,
+Theorems 3.10 (`thm:ssp-np-complete`), 3.11 (`thm:mcp-np-complete`), Corollary 3.12; Definitions 4.1, 4.2, Lemmas 4.3,
+4.4, Theorem 4.5, Remark 4.6; Lemma 5.1, Theorem 5.2; Theorems 6.1-6.3, Lemmas 6.4, 6.5, Theorem 6.6. Older notes
+below, the session report and the files in `checks/` use the numbers of their day (before the approval: Lemmas
+3.5-3.8, Theorems 3.9, 3.10, Lemma 4.2, Definition 2.4).
 
 **Preserving revision of 2026-10-09 (evening):** the whole text was tidied without removing content; Section 3
 is reorganized into construction (Algorithm 1 outside the proof) and Lemmas 3.5-3.8 before Theorem 3.9; seven
@@ -154,10 +159,11 @@ Figures (number on 2026-10-09, label, file, section): 1 `fig:cut-path` `cut-path
 9 `fig:clause-thread` `clause-thread.pdf` (all 3; Figures 7-9 stand inside the numbered list of thread types);
 10 `fig:diameter-two-structure` `diameter-two-structure.png` (4).
 
-Labels of statements: `def:cut-path`, `def:cp-value`, `lem:basic-bounds`, `def:approximation-scheme`, `def:chain-link`,
-`def:chain`, `def:thread`, `def:threading`, `alg:reduction`, `lem:chain-paths`, `lem:synchronization`,
-`lem:clause-threads`, `lem:separating`, `tab:usable`, `thm:ssp-np-complete`, `thm:mcp-np-complete`, `def:diameter`,
-`lem:cut-decomposition`, `lem:empty-i-or-l`, `lem:odd-intersection`, `thm:diameter-two`, `rem:algorithm`, `lem:cactus`
+Labels of statements: `def:cut-path`, `def:cp-value`, `lem:basic-bounds`, `cor:two-approximation`,
+`def:approximation-scheme`, `def:chain-link`, `def:chain`, `def:thread`, `def:threading`, `alg:reduction`,
+`def:chain-path`, `lem:chain-paths`, `lem:synchronization`, `lem:clause-threads`, `lem:separating`, `tab:usable`,
+`thm:ssp-np-complete`, `thm:mcp-np-complete`, `cor:lower-bound-attained`, `def:diameter`,
+`def:cut-decomposition` (was `lem:cut-decomposition`), `lem:empty-i-or-l`, `lem:odd-intersection`, `thm:diameter-two`, `rem:algorithm`, `lem:cactus`
 (new 2026-10-10), `thm:cut-two`, `thm:random-diameter-two`, `thm:random-diameter`, `thm:random-connectivity`,
 `lem:degree-bounds`, `lem:connectivity-bounds`, `thm:approximation-scheme`.
 
@@ -165,6 +171,10 @@ Labels of statements: `def:cut-path`, `def:cp-value`, `lem:basic-bounds`, `def:a
 
 Occurrences are counted in the math of `main.tex` by section (rough; script of the session, not kept). "Clash" names
 another meaning of the same letter; the decisions are in `session-2026-10-10/REPORT.md`, decision 1.
+The table shows the state before the approval. Applied since: the threshold is `b`; a cut-path is always `S` (`F` is
+gone; the set `C \cap P` of Lemma 4.4 has no name; `\deg(x, W)`); the algorithm is `\ALG` and the instance sets are
+`\mathcal{I}(n)`, `\mathcal{I}_{\ALG}^{\mathrm{opt}}(n)`; the index of `Thread` is `h`. Kept by decision: clauses
+`C_k`, parts `I, J, K, L`, `n`, `p`, `q`.
 
 | Symbol | Meaning | Defined | Uses (section: count) | Clash |
 |---|---|---|---|---|
@@ -256,8 +266,9 @@ its comments:
 .\scripts\package-project.ps1 -Project clanok-1-min-cut-path -Template els-cas -Flat -KeepComments              # before sending
 ```
 
-Send only on `Verdict: PASS`. Last run 2026-10-10, 10:05 (`-Template els-cas -Flat -KeepComments`): `Verdict: PASS`,
-17 pages, 16 files in the zip, `Trace scan: 15 files, 0 hits (0 allowed)`, 22 comment lines kept, one advisory finding
+Send only on `Verdict: PASS`. Last run 2026-10-10, 11:35, after the approved decisions (`-Template els-cas -Flat
+-KeepComments`): `Verdict: PASS`, 18 pages, 16 files in the zip, `Trace scan: 15 files, 0 hits (0 allowed)`. Run of
+10:05 the same day: `Verdict: PASS`, 17 pages, 16 files in the zip, `Trace scan: 15 files, 0 hits (0 allowed)`, 22 comment lines kept, one advisory finding
 `[ai-declaration]`. Run of 2026-10-09, 09:47, after the plain-style revision: `Verdict: PASS`, 15 pages, `Trace scan: 15 files, 0 hits (0 allowed); 3 files identical to the
 template not scanned`, 22 comment lines kept, one finding `[ai-declaration]` (advisory). The run before it, after
 the move to the flat folder: `Verdict: PASS`, 16 pages, `Trace scan: 11 files, 0 hits (0 allowed); 3 files identical to the
@@ -569,7 +580,26 @@ from the revision, but the author is responsible for them.
 - Build: 17 pages, no undefined references; `check-text.ps1` 7 findings (known false positives); `check-bib.ps1` 2
   recommendations; packager, full run `-Template els-cas -Flat -KeepComments`: `Verdict: PASS`, 16 files,
   `Trace scan: 15 files, 0 hits`, one advisory finding `[ai-declaration]`.
-- Not committed (the session had no permission to commit). Decisions for the author: `session-2026-10-10/REPORT.md`.
+- Committed on the author's request (three commits). Decisions for the author: `session-2026-10-10/REPORT.md`.
+
+**2026-10-10 - approved decisions applied (11:00-11:40)**
+- The author approved the recommendations of `session-2026-10-10/REPORT.md` in chat. Applied in `main.tex`:
+  decision 1 (threshold `b`; cut-path `S` in the decision version and Theorem 3.11; `C \cap P` unnamed in Lemma 4.4;
+  `\deg(x, W)`; `\ALG`, `\mathcal{I}(n)`; index `h` in `Thread`); 2 (Corollary 2.4 `cor:two-approximation` with one
+  sentence on the factor two; Corollary 3.12 `cor:lower-bound-attained`); 3 (Theorem 6.6 states the bound
+  `1 + 1/(\beta_1 \log\log n)` with high probability, the scheme is its "in particular"; Definition 2.5, item 3, with a
+  probability; "with high probability" / "with probability tending to one" instead of "on almost all inputs"); 4
+  (Definition 3.3 with two items about the path itself, the disjointness of threads as a sentence about the
+  construction; Definition 3.4 "thread under construction"); 5 (Definition 4.2 instead of Lemma 4.2, items in words);
+  6 (Definition 3.5: chain path, hits, consistent); 7 (Theorem 6.1 with a proof; Frieze-Karonski, Exercise 1.4.8, as
+  the reference); 8 (sentence after Theorem 6.2 with the bound of Chung and Lu, cited without a theorem number); 9
+  (3-SAT: Cook and Karp, padding by repeating a literal; `Karp1972Reducibility` copied into `references.bib`, 18
+  entries); 10 (last question of the conclusion: fixed-parameter tractability in the threshold).
+- Not applied, still the author's: title, keywords, novelty sentence, AI declaration, funding (decision 11); the `url`
+  of `Frieze2016` (decision 12); the theorem number of Chung and Lu in the journal version.
+- Build: 18 pages, no undefined references, BibTeX without warnings; `check-text.ps1` 8 findings (the seven known
+  false positives and "Chung and Lu~\cite{...} proved", authors named); `check-bib.ps1` 2 recommendations; packager,
+  full run `-Template els-cas -Flat -KeepComments`: `Verdict: PASS`, 18 pages, `Trace scan: 15 files, 0 hits`.
 
 **2026-10-09 - preserving revision (cloud session, 16:50-17:20)**
 - Four editors (front matter and Sections 1-2; Section 3; Sections 4-5 and Figure 10; Sections 6-7 and sources) and
