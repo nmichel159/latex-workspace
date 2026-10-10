@@ -14,6 +14,8 @@ is Corollary 3.12 (both were checked here before they entered the text).
 | `mutation_tests.py` | five broken constructions; each must be caught by a check | 1 s |
 | `check_cutpath.py` | Lemma 2.3, minimum cuts are edge boundaries, Theorem 3.10, Lemmas 4.3-4.4, Theorem 4.5, Remark 4.6, Lemma 5.1, Theorem 5.2, the two counterexamples of the class "d <= 2 or c <= 2" | 10 s |
 | `results-reduction.txt`, `results-cutpath.txt` | output of the runs of 2026-10-10 | - |
+| `check_fpt_lemmas.py` | draft section `../draft-approximation-parameterized.tex` (not in `main.tex`): the contraction lemma, the important cuts of the left graph of Example 5.3, and the equivalence lemma (good sets in the labelled graph built from the torso) for the smallest admissible set `D`, the whole vertex set and random sets in between; the treewidth bound is not checked | 30 s |
+| `results-fpt-lemmas.txt` | output of the run of 2026-10-10 (evening): 142 connected graphs with 2 to 6 vertices, 1933 pairs, 35945 constructions, no failure; on 3 pairs the important cuts alone give more than `cp` | - |
 
 ## Results
 

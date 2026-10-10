@@ -31,6 +31,20 @@ paths, types (a)-(d)) and the new Figure 10 (`fig:transition-graph`, `transition
 join opposite signs in one block and never remain in `G \setminus P`; the only `u`-`v` path left is a whole clause
 thread, which contradicts Lemma 3.8. The former Figures 10, 11 are now 11, 12; the folder has eleven figure files.
 The author must check the new argument ("Content changes to review"). 20 pages; `-CheckOnly` packager run `Verdict: PASS`.
+**Draft section "Approximation and Parameterized Complexity" (2026-10-10, evening; not in `main.tex`):**
+`projects/clanok-1-min-cut-path.submission/draft-approximation-parameterized.tex`. Contents: no FPTAS unless P = NP
+(`thm:no-fptas`); contraction lemma `cp = min (|C| + d_C)` (`lem:contraction`, the formula of Theorem 11 of the
+master's thesis); FPT with respect to `b` (`thm:fpt`) through the treewidth reduction of Marx, O'Sullivan and Razgon
+and Courcelle's theorem (`lem:treewidth-reduction`, `lem:good-set`). The proof by enumeration of important cuts that
+the author asked for is not valid (the left graph of Example 5.3: the only important cut gives 4, `cp = 3`), and
+trying all cuts with at most `b` edges takes `|E|^{O(b)}` time, which is not FPT. The two lemmas were checked on all
+connected graphs with at most six vertices (`checks/check_fpt_lemmas.py`). A preview build with the section before the
+conclusion has 22 pages (`tmp/fpt-section-preview/`). **The author must check the proof of `thm:fpt` before it enters
+the manuscript.** When it is inserted: add `\tw`, `\torso` to the macros and `Marx2013Separators`,
+`GareyJohnson1978Strong` to `references.bib`; `GareyJohnson1978Strong` is `PARTIAL` (content not read) and its
+sentence carries a `TODO(verify)`; theorem numbers of Marx et al. are those of arXiv v1; the conclusion's questions on
+approximation and on FPT with respect to `b`, the abstract and the contributions then need an update.
+
 Current numbering: Definitions 2.1, 2.2, Lemma 2.3, Corollary 2.4, Definition 2.5; Definitions 3.1-3.5, Lemmas 3.6-3.9,
 Theorems 3.10 (`thm:ssp-np-complete`), 3.11 (`thm:mcp-np-complete`), Corollary 3.12; Definitions 4.1, 4.2, Lemmas 4.3,
 4.4, Theorem 4.5, Remark 4.6, Corollary 4.7; Lemma 5.1, Theorem 5.2, Example 5.3; Theorems 6.1-6.3, Lemmas 6.4, 6.5,

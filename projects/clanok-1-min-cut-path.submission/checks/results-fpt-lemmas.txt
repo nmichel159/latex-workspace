@@ -1,0 +1,6 @@
+graphs: 142, pairs (u, v): 1933, constructions (b, D): 35945
+contraction lemma: holds on every pair
+equivalence lemma: holds on every construction
+pairs on which the important cuts alone give more than cp: 3
+Example 5.3 (left): cp = 3, minimal cuts: 9, important cuts: 1, best value over important cuts: 4 (from u), 4 (from v)
+No check failed.
