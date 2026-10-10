@@ -11,7 +11,7 @@
 ## What the paper does
 
 - Shortest Path Most Vital Edges (SP-MVE): given G, s, t, k, l, is there a set S of at most k edges such that every s-t path in G - S has length at least l? Equivalent names: interdiction, edge blocker; with unit lengths it is the minimum length-bounded edge cut of Baier et al. (2010) and Bounded Edge Undirected Cut of Golovach and Thilikos (2011) (Section 1).
-- NP-complete (Bar-Noy, Khuller, Schieber 1995, cited in Section 1). New: NP-hard already for unit lengths, b = l - d(s,t) = 2, l = 9 and diameter 8 (Theorem 1); NP-hard on split graphs, hence on diameter three (Theorem 4); linear time on graphs of diameter at most two with unit lengths (Proposition 1). The case b = 1 is polynomial (Baier et al.).
+- NP-complete (Bar-Noy, Khuller, Schieber 1995, cited in Section 1). New: NP-hard already for unit lengths, b = l - d(s,t) = 2, l = 9 and diameter 8 (Theorem 1); NP-hard on split graphs, hence on diameter three (Theorem 4); linear time on graphs of diameter at most two with unit lengths (Proposition 1). The case b = 1 is polynomial (Baier et al.). For arbitrary positive integer edge lengths SP-MVE is NP-hard already on complete graphs, so on diameter one (Theorem 5, read 2026-10-10); the diameter results (Theorem 4, Proposition 1) are for unit lengths.
 - Parameterized results (Figure 1): FPT in (k, l), W[1]-hard in k, parameters of graph structure.
 
 ## Definitions and notation that differ from ours
