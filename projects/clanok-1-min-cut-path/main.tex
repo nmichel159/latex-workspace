@@ -114,7 +114,7 @@ We prove that its decision version is NP-complete, already when the question is 
 Let $c(u,v)$ be the size of a minimum cut separating $u$ from $v$, and let $d(u,v)$ be the distance between $u$ and $v$.
 In graphs of diameter two and in cactus graphs, a minimum cut-path has $c(u,v) + d(u,v) - 1$ edges, the size attained by the union of a minimum cut and a shortest path.
 In Erdős–Rényi random graphs on $n$ vertices with edge probability at least $\alpha \log n / n$ for a constant $\alpha > 1$, this union is within a factor $1+\epsilon$ of the optimum, for every fixed $\epsilon > 0$, with probability tending to one.
-\MinCutPath{} has no fully polynomial-time approximation scheme unless $\mathrm{P} = \mathrm{NP}$, and it is fixed-parameter tractable with respect to the size of the cut-path.
+\MinCutPath{} has no polynomial-time approximation scheme unless $\mathrm{P} = \mathrm{NP}$, and it is fixed-parameter tractable with respect to the size of the cut-path.
 \end{abstract}
 
 \begin{keywords}
@@ -176,7 +176,7 @@ Third, Erdős–Rényi random graphs with constant edge probability have diamete
 Let $n$ be the number of vertices and let $\alpha > 1$.
 For edge probabilities $p \geq \alpha \log n / n$, we show that the union of a minimum cut and a shortest path is within a factor of $1+\epsilon$ of the optimum, for every fixed $\epsilon > 0$, with probability tending to one (Theorem~\ref{thm:approximation-scheme}).
 
-Fourth, \MinCutPath{} has no fully polynomial-time approximation scheme unless $\mathrm{P} = \mathrm{NP}$ (Theorem~\ref{thm:no-fptas}), and its decision version is fixed-parameter tractable with respect to the threshold on the size of the cut-path (Theorem~\ref{thm:fpt}).
+Fourth, \MinCutPath{} has no polynomial-time approximation scheme unless $\mathrm{P} = \mathrm{NP}$ (Theorem~\ref{thm:no-ptas}), and its decision version is fixed-parameter tractable with respect to the threshold on the size of the cut-path (Theorem~\ref{thm:fpt}).
 
 \SSP{} asks whether some shortest $u$--$v$ path separates $u$ from $v$ when its edges are removed.
 The reduction from \ThreeSAT{} builds a chain of cycles between $u$ and $v$.
@@ -188,7 +188,7 @@ Synchronization threads force the choices in all cycles of one variable to agree
 Section~\ref{sec:fundamentals} defines cut-paths and proves $\max\{c(u,v), d(u,v)\} \leq \cp(u,v) \leq c(u,v) + d(u,v) - 1$.
 Section~\ref{sec:np-completeness} contains the NP-completeness proof.
 Sections~\ref{sec:diameter-two} and~\ref{sec:cut-two} treat the two graph classes, and Section~\ref{sec:random-graphs} treats random graphs.
-Section~\ref{sec:approx-param} excludes a fully polynomial-time approximation scheme and proves fixed-parameter tractability.
+Section~\ref{sec:approx-param} excludes a polynomial-time approximation scheme and proves fixed-parameter tractability.
 Section~\ref{sec:conclusion} lists open problems.
 
 \section{Preliminaries}
@@ -1224,26 +1224,99 @@ By Corollary~\ref{cor:two-approximation}, the union of a minimum $u$--$v$ cut an
 A \emph{polynomial-time approximation scheme} (PTAS) for \MinCutPath{} is an algorithm that, given a graph $G = (V, E)$, two distinct vertices $u, v \in V$ and a number $\epsilon > 0$, returns a cut-path between $u$ and $v$ with at most $(1+\epsilon)\cp(u,v)$ edges, in time polynomial in $|V|$ for every fixed $\epsilon$.
 It is a \emph{fully polynomial-time approximation scheme} (FPTAS) if its running time is polynomial in $|V|$ and $1/\epsilon$.
 
+The reduction of Section~\ref{sec:np-completeness} excludes a PTAS.
+Let $G$, $u$ and $v$ be the output of Algorithm~\ref{alg:reduction} for a formula with $n$ variables and $m$ clauses.
+For a $u$--$v$ path $P$ of $G$, let $\eta(P)$ denote the number of threads that share no edge with $P$, and let $\eta^{*}$ be the minimum of $\eta(P)$ over all chain paths $P$.
+
+\begin{lemma}
+\label{lem:missed-threads}
+Every cut-path between $u$ and $v$ in $G$ has at least $\Lambda + \eta^{*}$ edges.
+\end{lemma}
+
+\begin{proof}
+Let $S$ be a cut-path between $u$ and $v$, and let $P \subseteq S$ be a $u$--$v$ path.
+The set $S \setminus P$ is a $u$--$v$ cut of $G \setminus P$ (Section~\ref{sec:fundamentals}), and every thread that shares no edge with $P$ is a $u$--$v$ path of $G \setminus P$.
+Any two threads are edge-disjoint, so $S \setminus P$ contains a separate edge of each of these threads, and $|S| \geq |P| + \eta(P)$.
+We show that $|P| + \eta(P) \geq \Lambda + \eta^{*}$.
+
+If $P$ is a chain path, then $|P| = \Lambda$ and $\eta(P) \geq \eta^{*}$.
+Otherwise, as in the proof of Lemma~\ref{lem:chain-paths}, $P$ contains every connecting path either as a whole or not at all; it contains $k \geq 1$ connecting paths, each with $\Lambda$ edges, and all its other edges are edges of the chain.
+The two paths of a chain link form a cycle, so $P$ contains at most one of them.
+Let $\widetilde{P}$ be the chain path that traverses, in every chain link, the path of the link that is contained in $P$ if there is one, and the positive path otherwise.
+Let $x$ be the number of crossing edges of $P$ that do not lie on $\widetilde{P}$, and let $h$ be the number of single edges of the chain that lie on $P$; then $|P| \geq k\Lambda + x + h$.
+A thread consists of its connecting paths and its crossing edges.
+Hence a thread that shares an edge with $P$ but no edge with $\widetilde{P}$ contains one of the $k$ connecting paths of $P$ or one of these $x$ crossing edges.
+Every connecting path and every crossing edge belongs to exactly one thread, so there are at most $k + x$ such threads, and $\eta(P) \geq \eta(\widetilde{P}) - k - x \geq \eta^{*} - k - x$.
+Together,
+\[
+|P| + \eta(P) \geq k\Lambda + h + \eta^{*} - k = \Lambda + \eta^{*} + (k-1)(\Lambda - 1) + h - 1.
+\]
+If $k \geq 2$, the right-hand side is at least $\Lambda + \eta^{*}$, because $\Lambda \geq 2$: a chain with a chain link has at least two single edges.
+If $k = 1$, the connecting path of $P$ does not join $u$ and $v$ (proof of Lemma~\ref{lem:chain-paths}), so $P$ has an edge of the chain at $u$ or at $v$.
+The only edges of the chain at $u$ and at $v$ are single edges; hence $h \geq 1$, and the right-hand side is again at least $\Lambda + \eta^{*}$.
+\end{proof}
+
+\begin{lemma}
+\label{lem:unsatisfied-clauses}
+Suppose that every variable has at most five occurrences in the formula.
+Let $P$ be a chain path, and let $\tau$ be the truth assignment with $\tau(x_i) = \mathsf{true}$ if and only if $P$ traverses the positive path of $I_i$.
+Then $\tau$ satisfies all but at most $5\,\eta(P)$ clauses.
+\end{lemma}
+
+\begin{proof}
+To every clause that $\tau$ does not satisfy we assign a thread that $P$ does not hit, so that at most five clauses receive the same thread.
+Let $C_k = (\ell_1 \vee \ell_2 \vee \ell_3)$ be a clause that $\tau$ does not satisfy.
+If $P$ does not hit the clause thread of $C_k$, we assign this thread to $C_k$.
+Otherwise $P$ traverses, for some $j$, the path of $L_{j,k}$ with the sign $s(\ell_j)$.
+Let $x_i$ be the variable of $\ell_j$.
+Since $\tau$ does not satisfy $\ell_j$, the path $P$ traverses in $I_i$ the path with the sign opposite to $s(\ell_j)$, so it traverses paths of opposite signs in $I_i$ and in $L_{j,k}$.
+If $P$ traverses paths of opposite signs in $I_i$ and in $T_i$, it does not hit one of the two 2-synchronization threads of $x_i$, by the first item in the proof of Lemma~\ref{lem:synchronization}.
+Otherwise it does not hit one of the two 3-synchronization threads of $L_{j,k}$, by the second item.
+We assign such a thread to $C_k$.
+A clause thread and a 3-synchronization thread of $L_{j,k}$ are assigned only to the clause $C_k$, and a 2-synchronization thread of $x_i$ only to clauses in which $x_i$ occurs, of which there are at most five.
+\end{proof}
+
 \begin{theorem}
-\label{thm:no-fptas}
-Unless $\mathrm{P} = \mathrm{NP}$, there is no FPTAS for \MinCutPath.
+\label{thm:no-ptas}
+There is a constant $\epsilon_0 > 0$ such that, unless $\mathrm{P} = \mathrm{NP}$, no polynomial-time algorithm returns, for every graph $G = (V, E)$ and every two distinct vertices $u, v \in V$, a cut-path between $u$ and $v$ with fewer than $(1+\epsilon_0)\cp(u,v)$ edges.
+In particular, \MinCutPath{} has no PTAS unless $\mathrm{P} = \mathrm{NP}$.
 \end{theorem}
 
 \begin{proof}
-Suppose that an FPTAS exists.
-Given an instance $(G, u, v, b)$ of the decision version with $G = (V, E)$, we run it on $(G, u, v)$ with $\epsilon = 1/(|E|+1)$ and obtain a cut-path $S$.
-Since $\cp(u,v) \leq |E|$,
+Consider formulas in which every clause contains three literals with distinct variables and every variable occurs in exactly five clauses.
+Feige~\cite[Proposition~2.1.2]{Feige1998Threshold} showed that, for some constant $\delta > 0$, it is NP-hard to distinguish the satisfiable formulas of this kind from those in which every truth assignment leaves at least $\delta m$ clauses unsatisfied.
+Let $\epsilon_0 = \delta/200$, and let $G$, $u$ and $v$ be the output of Algorithm~\ref{alg:reduction} for such a formula.
+
+Every variable has five occurrences, so $5n = 3m$.
+A path of a chain link has two edges before the threadings, and every threading through it adds two edges.
+By Algorithm~\ref{alg:reduction}, six threads are threaded through each of the two paths of $I_i$ and of $T_i$, and one and two threads through the two paths of a literal chain link.
+After the calibration, the paths of $I_i$ and $T_i$ therefore have $14$ edges, and those of a literal chain link have six.
+With the $2n + 3m + 1$ single edges of the chain,
 \[
-\cp(u,v) \leq |S| \leq \Bigl(1 + \frac{1}{|E|+1}\Bigr)\cp(u,v) < \cp(u,v) + 1,
+\Lambda = (2n + 3m + 1) + 14 \cdot 2n + 6 \cdot 3m = 39m + 1 \leq 40m.
 \]
-and $|S| = \cp(u,v)$, because both numbers are integers.
-The running time is polynomial in $|V|$ and $|E| + 1$, hence in the size of the instance.
-Comparing $|S|$ with $b$ thus decides the decision version of \MinCutPath{} in polynomial time, and $\mathrm{P} = \mathrm{NP}$ by Theorem~\ref{thm:mcp-np-complete}.
+
+If the formula is satisfiable, then $G$ contains a separating shortest $u$--$v$ path (Lemma~\ref{lem:separating}), which is a cut-path with $d(u,v) = \Lambda$ edges, and $\cp(u,v) = \Lambda$ by Lemma~\ref{lem:basic-bounds}.
+If every truth assignment leaves at least $\delta m$ clauses unsatisfied, then $\eta^{*} \geq \delta m / 5$ by Lemma~\ref{lem:unsatisfied-clauses}, and by Lemma~\ref{lem:missed-threads},
+\[
+\cp(u,v) \geq \Lambda + \frac{\delta m}{5} \geq \Bigl(1 + \frac{\delta}{200}\Bigr)\Lambda = (1+\epsilon_0)\Lambda.
+\]
+An algorithm as in the statement returns a cut-path with fewer than $(1+\epsilon_0)\Lambda$ edges in the first case and with at least $(1+\epsilon_0)\Lambda$ edges in the second.
+The graph $G$ is constructed in polynomial time (Theorem~\ref{thm:ssp-np-complete}), and $\Lambda = d(u,v)$ is computed by breadth-first search; hence the algorithm distinguishes the two cases in polynomial time, and $\mathrm{P} = \mathrm{NP}$.
+A PTAS with $\epsilon = \epsilon_0/2$ is such an algorithm.
 \end{proof}
 
-Theorem~\ref{thm:no-fptas} leaves open whether \MinCutPath{} has a PTAS and whether a polynomial-time algorithm achieves a factor smaller than two.
-The proofs of Section~\ref{sec:np-completeness} give no constant lower bound on the factor: for the graphs of the reduction, they show only that $\cp(u,v) = d(u,v)$ if the formula is satisfiable and $\cp(u,v) \geq d(u,v) + 1$ otherwise, and the ratio $(d(u,v) + 1)/d(u,v)$ tends to one as the formula grows.
-We do not know whether a finer analysis of these graphs gives a constant gap, nor whether \MinCutPath{} is APX-hard, which would exclude a PTAS unless $\mathrm{P} = \mathrm{NP}$.
+\begin{corollary}
+\label{cor:no-fptas}
+Unless $\mathrm{P} = \mathrm{NP}$, there is no FPTAS for \MinCutPath.
+\end{corollary}
+
+\begin{proof}
+For every fixed $\epsilon$, the running time of an FPTAS is polynomial in $|V|$.
+Hence every FPTAS is a PTAS, and the claim follows from Theorem~\ref{thm:no-ptas}.
+\end{proof}
+
+We do not know whether a polynomial-time algorithm achieves a constant factor smaller than two.
 
 \subsection{Fixed-Parameter Tractability}
 \label{sec:fpt}
@@ -1401,8 +1474,8 @@ At this diameter, finding a matching cut and, for unit edge lengths, finding the
 Second, does duality help to solve \MinCutPath{} on \emph{planar graphs}?
 In a planar graph, every minimal edge cut corresponds to a cycle in the dual graph and vice versa, and several problems on cuts and flows can be solved faster in planar graphs than in general ones~\cite{itai1979maximum,henzinger1997faster}.
 
-Third, can a minimum cut-path be approximated within a factor smaller than two, and does \MinCutPath{} have a polynomial-time approximation scheme?
-By Corollary~\ref{cor:two-approximation}, the union of a minimum cut and a shortest path achieves the factor two, and Theorem~\ref{thm:no-fptas} excludes only a fully polynomial-time approximation scheme.
+Third, can a minimum cut-path be approximated within a constant factor smaller than two?
+By Corollary~\ref{cor:two-approximation}, the union of a minimum cut and a shortest path achieves the factor two, and by Theorem~\ref{thm:no-ptas}, some constant factor larger than one cannot be achieved in polynomial time unless $\mathrm{P} = \mathrm{NP}$.
 
 Finally, \MinCutPath{} is fixed-parameter tractable with respect to the threshold $b$ (Theorem~\ref{thm:fpt}); can it be solved in time $2^{O(b)}$ times a polynomial in the size of the graph?
 What is the complexity of the problem for bounded $c(u, v)$ or bounded $d(u, v)$, and of deciding whether $\cp(u, v) = c(u, v)$?

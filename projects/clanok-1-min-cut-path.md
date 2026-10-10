@@ -74,12 +74,34 @@ not known. "Is open" became "we do not know" twice. Not fixed: computability of 
 has at least `Lambda` + (number of threads not hit by `P`) edges, with `Lambda = 10n + 33m + 1`; on gap instances of
 3-SAT with bounded occurrences this may give APX-hardness, hence no PTAS. Cut-paths around non-chain paths were not
 analysed.
+**No PTAS (2026-10-10, author's request "try to get the non-existence of a PTAS in"):** the lead is worked out in
+Section 7.1 of `main.tex`: `eta(P)`, `eta*`; Lemma 7.2 `lem:missed-threads` (every cut-path has at least
+`Lambda + eta*` edges; non-chain paths are handled by comparing `P` with a chain path that agrees with it on the
+link paths it contains); Lemma 7.3 `lem:unsatisfied-clauses` (with at most five occurrences per variable, the
+assignment read off the initialization links leaves at most `5 eta(P)` clauses unsatisfied); Theorem 7.4
+`thm:no-ptas` (some factor `1 + eps_0` is NP-hard, `eps_0 = delta / 200`, `Lambda = 39m + 1`), with the gap problem
+of Feige (`Feige1998Threshold`, Proposition 2.1.2, read in the journal PDF; note in `knowledge/literature/`).
+Theorem 7.1 (no FPTAS) is kept, although Theorem 7.4 implies it: the author decides whether it stays. The former
+Lemmas 7.2-7.4 and Theorem 7.5 are now Lemmas 7.5-7.7 and Theorem 7.8. Abstract, contributions, roadmap and the
+third question of the conclusion now say "no polynomial-time approximation scheme". `references.bib`: 20 entries.
+Checks: `checks/check_gap_lemmas.py` (56 formulas, no failure; `cp = Lambda + eta*` on all 38 formulas with exact
+`cp`). 23 pages; packager `-CheckOnly` `Verdict: PASS`. Not committed. Referee pass by an independent agent: no
+mathematical error; its own experiment (random `u`-`v` paths with one to more than six connecting paths in the full
+graph, 9 formulas, script not kept) confirmed every step of the proof of Lemma 7.2; wording applied (reason for
+`Lambda >= 2`, "as a whole or not at all", "showed", "a constant factor smaller than two" in Section 7.1 and in the
+conclusion). **Numbers since the author's decision of the same day ("make it a corollary"):** the theorem
+"no FPTAS" with its elementary proof was removed and is now Corollary 7.4 `cor:no-fptas` of Theorem 7.3 (an
+FPTAS is a PTAS); the lemmas are 7.1 `lem:missed-threads` and 7.2 `lem:unsatisfied-clauses`, the theorem is 7.3
+`thm:no-ptas`; Lemmas 7.5-7.7 and Theorem 7.8 keep their numbers. The elementary proof (run an FPTAS with
+`eps = 1/(|E|+1)`) is in the archived draft and in the git history. **New mathematics written by the AI
+assistant: the author must check Lemmas 7.2, 7.3 and Theorem 7.4 ("Content changes to review", item 19).**
 
 Current numbering: Definitions 2.1, 2.2, Lemma 2.3, Corollary 2.4, Definition 2.5; Definitions 3.1-3.5, Lemmas 3.6-3.9,
 Theorems 3.10 (`thm:ssp-np-complete`), 3.11 (`thm:mcp-np-complete`), Corollary 3.12; Definitions 4.1, 4.2, Lemmas 4.3,
 4.4, Theorem 4.5, Remark 4.6, Corollary 4.7; Lemma 5.1, Theorem 5.2, Example 5.3; Theorems 6.1-6.3, Lemmas 6.4, 6.5,
-Theorem 6.6; Theorem 7.1 (`thm:no-fptas`), Lemmas 7.2 (`lem:contraction`), 7.3 (`lem:treewidth-reduction`), 7.4
-(`lem:good-set`), Theorem 7.5 (`thm:fpt`), equation (7.1) (`eq:cut-separator`). Older notes
+Theorem 6.6; Lemmas 7.1 (`lem:missed-threads`), 7.2 (`lem:unsatisfied-clauses`), Theorem 7.3 (`thm:no-ptas`),
+Corollary 7.4 (`cor:no-fptas`), Lemmas 7.5 (`lem:contraction`), 7.6 (`lem:treewidth-reduction`), 7.7 (`lem:good-set`),
+Theorem 7.8 (`thm:fpt`), equation (7.1) (`eq:cut-separator`). Older notes
 below, the session report and the files in `checks/` use the numbers of their day (before the approval: Lemmas
 3.5-3.8, Theorems 3.9, 3.10, Lemma 4.2, Definition 2.4).
 
@@ -102,7 +124,7 @@ Theorem 3.9 is `thm:ssp-np-complete`, Theorem 3.10 `thm:mcp-np-complete`; Figure
 | Target journal | Discrete Applied Mathematics (Elsevier), article type *Contribution* (more than 10 pages); venue card [knowledge/venues/discrete-applied-mathematics.md](../knowledge/venues/discrete-applied-mathematics.md) |
 | Class | `cas-sc.cls` (Elsevier CAS bundle 2.4, single column; `\ProvidesClass`: `cas-sc 2024/05/04, 2.4`) with `cas-common.sty`; bibliography `cas-model2-names.bst` via `\usepackage[numbers,sort&compress]{natbib}` |
 | Template folder | `templates/els-cas/` (the official template the DAM guide for authors links; download URL and SHA-256 in `templates/SOURCES.tsv`); `cas-sc.cls`, `cas-common.sty` and `cas-model2-names.bst` here are byte-identical to it (SHA-256 compared 2026-10-08) and are never edited in the project; `main.tex` is written from `cas-sc-template.tex` |
-| Bibliography | `references.bib` (19 entries, all cited and verified; the master's thesis is not cited since 2026-10-09, author's decision) |
+| Bibliography | `references.bib` (20 entries, all cited and verified; the master's thesis is not cited since 2026-10-09, author's decision) |
 | Origin | Overleaf export `archives/clanok_1_min_cut_path.zip` (2026-10-07); class `new-aiaa` until 2026-10-08 |
 | Knowledge base | [knowledge/research/min-cut-path.md](../knowledge/research/min-cut-path.md) |
 
@@ -201,7 +223,7 @@ author has no ORCID (stated 2026-10-08), so the title page carries no `orcid` ke
 | 4 Graphs of Diameter Two | `sec:diameter-two` | decomposition `I, J, K, L`, odd intersection of path and cut, `cp = c + d − 1` |
 | 5 Graphs with Cut-Value at Most Two | `sec:cut-two` | cactus structure, `cp = c + d − 1` |
 | 6 Erdős–Rényi Graphs | `sec:random-graphs` | diameter 2 in dense graphs, properties of sparse ones, approximation scheme |
-| 7 Approximation and Parameterized Complexity | `sec:approx-param` | no FPTAS unless P = NP (`sec:approximation`); `cp = min (\|C\| + d_C)`, treewidth reduction, FPT in the threshold `b` (`sec:fpt`) |
+| 7 Approximation and Parameterized Complexity | `sec:approx-param` | no PTAS, hence no FPTAS, unless P = NP (`sec:approximation`); `cp = min (\|C\| + d_C)`, treewidth reduction, FPT in the threshold `b` (`sec:fpt`) |
 | 8 Conclusion | `sec:conclusion` | summary, further directions |
 
 Section numbers are arabic since the port (the class `new-aiaa` printed I-VII): Section III is now Section 3,
@@ -223,7 +245,8 @@ Labels of statements: `def:cut-path`, `def:cp-value`, `lem:basic-bounds`, `cor:t
 `thm:ssp-np-complete`, `thm:mcp-np-complete`, `cor:lower-bound-attained`, `def:diameter`,
 `def:cut-decomposition` (was `lem:cut-decomposition`), `lem:empty-i-or-l`, `lem:odd-intersection`, `thm:diameter-two`, `rem:algorithm`, `lem:cactus`
 (new 2026-10-10), `thm:cut-two`, `thm:random-diameter-two`, `thm:random-diameter`, `thm:random-connectivity`,
-`lem:degree-bounds`, `lem:connectivity-bounds`, `thm:approximation-scheme`, `thm:no-fptas`, `lem:contraction`,
+`lem:degree-bounds`, `lem:connectivity-bounds`, `thm:approximation-scheme`, `lem:missed-threads`, `lem:unsatisfied-clauses`, `thm:no-ptas`, `cor:no-fptas`,
+`lem:contraction`,
 `lem:treewidth-reduction`, `eq:cut-separator`, `lem:good-set`, `thm:fpt`.
 
 ### Notation table (2026-10-10)
@@ -622,6 +645,10 @@ from the revision, but the author is responsible for them.
     on Courcelle's theorem, cited by the numbers of arXiv:1110.4765v1: compare with the journal version before
     submission. The sentences added to the abstract, the contributions, the roadmap and the conclusion are listed
     at the top of these notes.
+19. **Section 7.1, no PTAS (new, 2026-10-10).** Lemmas 7.1, 7.2 and Theorem 7.3 are new statements with new
+    proofs, written by the AI assistant; they use the construction of Section 3 and Proposition 2.1.2 of Feige
+    (1998). Check in particular the case of a path with exactly one connecting path in the proof of Lemma 7.1 and
+    the count `Lambda = 39m + 1`. "No FPTAS" is Corollary 7.4 (author's decision).
 
 ## Change history
 

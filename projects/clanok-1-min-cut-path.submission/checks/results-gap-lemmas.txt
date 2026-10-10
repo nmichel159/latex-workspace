@@ -1,0 +1,8 @@
+formulas: 56; charging lemma checked on the chain paths of all of them
+exact cp on 38 formulas (30 satisfiable); non-chain u-v paths within the bound: 3; all u-v paths with one connecting path: 132672
+(least number of unsatisfied clauses, eta*, cp - Lambda): number of formulas
+  (0, 0, 0): 30
+  (1, 1, 1): 7
+  (2, 2, 2): 1
+formulas with cp > Lambda + eta*: 0
+No check failed.
