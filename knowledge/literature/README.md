@@ -31,6 +31,9 @@ Notes for the map [../research/min-cut-path.md](../research/min-cut-path.md) (ar
 | [ChungLu2001.md](ChungLu2001.md) | diameter of G(n, p) near the connectivity threshold (tool for Section 7 of article 1) | theorem statements, one proof |
 | [Feige1998Threshold.md](Feige1998Threshold.md) | gap version of 3-SAT with five occurrences of every variable (tool for Theorem 4.3 of article 1, no PTAS; written 2026-10-10) | abstract, Section 2.1 |
 | [Marx2013Separators.md](Marx2013Separators.md) | treewidth reduction: small minimal separators lie in a torso of bounded treewidth (tool for Section 8 of article 1; written 2026-10-10) | preprint: Sections 1, 2, 3.1-3.3 |
+| [Stuart2009Eavesdropping.md](Stuart2009Eavesdropping.md) | in graphs of diameter two the cut-value of every pair is the smaller of the two degrees (known theorem behind Corollary 5.7 of article 1; written 2026-10-10) | abstract, Section 4, references |
+| [Baier2010LengthBounded.md](Baier2010LengthBounded.md) | length-bounded cuts: definition, NP-hard to approximate within 1.1377 (written 2026-10-10) | published abstract; authors' manuscript: Table I, Theorems 3.9, 3.11 |
+| [EilamTzoreff1998Disjoint.md](EilamTzoreff1998Disjoint.md) | two disjoint paths, one of them shortest: NP-complete (mirror of Separating Shortest Path, Discrete Applied Mathematics; written 2026-10-10) | pp. 113-120, read by a search subagent |
 
 The notes below belong to the map [../research/llm-optimization.md](../research/llm-optimization.md); all were written 2026-10-08.
 

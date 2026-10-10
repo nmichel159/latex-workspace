@@ -57,7 +57,15 @@ the removed components.
 
 ## Doubts and open questions
 
-- Numbers are from arXiv v1; compare with the journal version before submission.
+- Numbers are from arXiv v1. Checked 2026-10-10: arXiv has this one version only, and the first author's
+  manuscript in journal format (cs.bme.hu/~dmarx/papers/marx-tw-reduction-talg.pdf, dated 2012-10-26) has the same
+  numbers for Section 2.1, Theorem 2.2 and the remark on labeled graphs, Definition 2.5, Proposition 2.7,
+  Lemma 2.11, Remark 2.13, Theorem 2.15 and Section 3.3. The copy-edited ACM text could not be opened (HTTP 403):
+  compare once from a library account. Article number 30 (author's publication list); Crossref has pages 1-35.
+- Theorem 2.2 does not say that `f_phi` is computable, and the definition of FPT on p. 1 asks for a computable `f`.
+  A source with a computable bound: Cygan et al., *Parameterized Algorithms* (Springer 2015), Theorem 7.11 (read
+  2026-10-10 in the authors' free PDF; not in the bibliography). Article 1, Theorem 8.4, does not argue
+  computability (proposal in `projects/clanok-1-min-cut-path.submission/literature_review_report.md`, section 6).
 - The original source of Courcelle's theorem is not in our bibliography (their [13] is Courcelle's chapter in the
   Handbook of Theoretical Computer Science, vol. B, 1990, not read by us).
 - Their Section 3.3 handles a connected vertex separator; an edge version of it is not what we need (the path of a

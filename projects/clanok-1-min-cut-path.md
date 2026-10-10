@@ -116,6 +116,32 @@ sentence is the FPT result). 23 pages, no undefined reference; `check-text.ps1` 
 positives); static packager `Verdict: PASS`. The numbers of article 1 quoted in `knowledge/research/min-cut-path.md`
 and in the reading notes of `knowledge/literature/` were updated.
 
+**Literature review, Abstract and Introduction (2026-10-10, evening, author's request).** Report with the audit of
+the bibliography, the comparison table, the originality assessment, the check of Section 8, the change log and
+the reviewer assessment: `projects/clanok-1-min-cut-path.submission/literature_review_report.md`; working files
+with every query: `projects/clanok-1-min-cut-path.submission/literature-review-2026-10-10/`. Changed in the
+manuscript: the Abstract, Section 1 (rewritten: definition, why the problem is not the sum of its two polynomial
+parts, related work by idea, four numbered results with theorem numbers, techniques, organization) and
+`references.bib` (23 entries; new: `Stuart2009Eavesdropping`, `Baier2010LengthBounded`,
+`EilamTzoreff1998Disjoint`). Sections 2-9 are unchanged. Findings: the same problem was not found under any
+name; all 20 old entries agree with their primary records (two documented differences: article number of Marx
+et al., year of Frieze and Karoński); **`c(u,v) = min{deg u, deg v}` in diameter two (first half of Corollary 5.7)
+is a known theorem** (Fricke, Oellermann, Swart; Stuart 2009, Theorem 11), now attributed in the Introduction;
+Lemma 6.1 is folklore; a mirror problem from Discrete Applied Mathematics (Eilam-Tzoreff 1998) is now cited;
+Section 8 was derived again and no error was found. Open after it: "Known problems", "Review of 2026-10-10
+(literature)". 24 pages; `check-text.ps1` 11 findings (the eight known false positives and three more of the
+same kind, "Name~\cite{...} proved"); `check-bib.ps1` 2 recommendations; packager `-CheckOnly` `Verdict: PASS`.
+
+**Punctuation pass (2026-10-10, late evening, author's request "change the formulations that read as AI").**
+All 56 semicolons of the running text and 25 colons that introduced a reason or a restatement were replaced in
+`main.tex` (81 places, Abstract to Section 8): a new sentence, or ", so" / ", and" / ", because". No statement,
+definition, proof step or number changed. Kept: colons before lists and displays, list labels, the semicolons that
+end list items in definitions, the five figure captions with a colon or semicolon. 24 pages, no undefined
+reference; `check-text.ps1` 11 findings (the known false positives); static packager `Verdict: PASS`.
+A quick pass on phrasing followed (eight sentences in Sections 1, 3 and 9 reworded into plainer English: "pays
+off", "carries the condition", "fit into few edges", "choose one of the two halves", "do not help", "In words",
+"says nothing about", "turn from ... to"); no statement changed.
+
 Current numbering (since the reorder of 2026-10-10): Definitions 2.1, 2.2, Lemma 2.3, Corollary 2.4, Definition 2.5;
 Definitions 3.1-3.5, Lemmas 3.6-3.9, Theorems 3.10 (`thm:ssp-np-complete`), 3.11 (`thm:mcp-np-complete`),
 Corollary 3.12; Lemmas 4.1 (`lem:missed-threads`), 4.2 (`lem:unsatisfied-clauses`), Theorem 4.3 (`thm:no-ptas`),
@@ -147,7 +173,7 @@ Theorem 3.9 is `thm:ssp-np-complete`, Theorem 3.10 `thm:mcp-np-complete`; Figure
 | Target journal | Discrete Applied Mathematics (Elsevier), article type *Contribution* (more than 10 pages); venue card [knowledge/venues/discrete-applied-mathematics.md](../knowledge/venues/discrete-applied-mathematics.md) |
 | Class | `cas-sc.cls` (Elsevier CAS bundle 2.4, single column; `\ProvidesClass`: `cas-sc 2024/05/04, 2.4`) with `cas-common.sty`; bibliography `cas-model2-names.bst` via `\usepackage[numbers,sort&compress]{natbib}` |
 | Template folder | `templates/els-cas/` (the official template the DAM guide for authors links; download URL and SHA-256 in `templates/SOURCES.tsv`); `cas-sc.cls`, `cas-common.sty` and `cas-model2-names.bst` here are byte-identical to it (SHA-256 compared 2026-10-08) and are never edited in the project; `main.tex` is written from `cas-sc-template.tex` |
-| Bibliography | `references.bib` (20 entries, all cited and verified; the master's thesis is not cited since 2026-10-09, author's decision) |
+| Bibliography | `references.bib` (23 entries since the literature review of 2026-10-10, all cited and verified; the master's thesis is not cited since 2026-10-09, author's decision) |
 | Origin | Overleaf export `archives/clanok_1_min_cut_path.zip` (2026-10-07); class `new-aiaa` until 2026-10-08 |
 | Knowledge base | [knowledge/research/min-cut-path.md](../knowledge/research/min-cut-path.md) |
 
@@ -511,6 +537,32 @@ from each other, and I found no error in the proofs in their current wording (I 
   list (a)-(b); `new-aiaa` printed 1)-3). If the author wants other labels there, `\begin{enumerate}[1.]` on that line
   would do it (markup only; not changed, because it was not requested).
 
+### Review of 2026-10-10 (literature), nothing of this is applied
+
+Details and ready sentences: `projects/clanok-1-min-cut-path.submission/literature_review_report.md`, sections 6, 7.
+
+- **Thesis and conference abstract not cited.** The Introduction says "has not been studied by other authors";
+  the master's thesis and the CSGT 2026 abstract are findable (the thesis is indexed in OpenAlex). The article
+  shares results with the thesis. Decide before submission (report, section 7, item 3).
+- **Section 5, Corollary 5.7:** the first equality is known (attributed only in the Introduction); add the
+  sentence of the report after the corollary. Lemma 5.3 is the case distinction of the known proof.
+- **Section 6, Lemma 6.1:** folklore; say so before the lemma.
+- **Section 8, Theorem 8.4:** the definition asks for a computable `f`, the proof does not argue it; the model of
+  the proof (connected separators of Marx et al., Section 3.3) is named only in the Introduction. Numbers cited
+  from Marx et al. agree with arXiv v1 and with the author's manuscript in journal format; the ACM text was not
+  opened.
+- **`EilamTzoreff1998Disjoint`:** Claim 1 was read by a search subagent (pp. 113-120); ScienceDirect showed a
+  captcha to the main session. Open the article (open archive) once and confirm the sentence of the Introduction.
+- **Not cited for lack of a full text:** Min-Min disjoint paths (Xu et al. 2006; Guo and Shen 2013), Hon, Tsai,
+  Yang 2025 (published hardness of non-disconnecting paths). Name collision: "cut paths" of Cairo et al.
+  (ACM Trans. Algorithms 2026).
+- **`Frieze2016`:** the `url` field points to a PDF whose numbering differs from the printed book that the text
+  cites; delete the field.
+- **Keywords and title** do not reflect the results added on 2026-10-10 (inapproximability, fixed-parameter
+  tractability).
+- A search subagent sent one Crossref request with the author's e-mail address as a `mailto` parameter
+  (`literature-review-2026-10-10/B2-path-and-cut.md`, Limitations).
+
 ### Review of 2026-10-09 (read-through of `main.tex`, nothing changed)
 
 Build clean (15 pages), `check-text.ps1` 2 findings, `check-bib.ps1` 0. New findings, line numbers of `main.tex`:
@@ -682,7 +734,31 @@ from the revision, but the author is responsible for them.
     follow the new order (one sentence added after "First", one after the NP-completeness sentence of the
     abstract). Check the two sentences.
 
+22. **Abstract and Introduction rewritten (2026-10-10, evening).** Check in particular:
+    - the new sentence "A minimum cut-path may contain no minimum cut, or no shortest path; the two graphs of
+      Example 6.3 show both" (brute force: `literature-review-2026-10-10/check_example.py`; reason in the report,
+      section 8);
+    - the novelty sentence "neither \MinCutPath{} nor \SSP{} has been studied by other authors, under these or
+      other names" (before: "has not been studied before");
+    - "by a reduction ... that produces graphs in which every vertex other than `u` and `v` has degree at most
+      three" (from the remark after Theorem 3.10) and "the best factor achievable in polynomial time therefore
+      lies between `1 + epsilon_0` and two";
+    - the attribution of `c(u,v) = min{deg u, deg v}` to Fricke, Oellermann and Swart and "a folklore fact" for
+      Lemma 6.1;
+    - the three new citations (Stuart, Baier et al., Eilam-Tzoreff) and the corollary number of Menger's theorem
+      in Diestel;
+    - the paragraph on the technique of Theorem 8.4 ("they meet the same obstacle for connected separators and
+      enlarge the part").
+
 ## Change history
+
+**2026-10-10 - literature review, Abstract and Introduction (author's request)**
+- `main.tex`: Abstract and Section 1 rewritten; `references.bib`: `Stuart2009Eavesdropping`,
+  `Baier2010LengthBounded`, `EilamTzoreff1998Disjoint` (23 entries). Sections 2-9 unchanged.
+- Knowledge base: three entries with status lines and three reading notes; notes in the comments of
+  `Diestel2025` and `Marx2013Separators`; 30 rows in `knowledge/literature/searches.md`; map
+  `knowledge/research/min-cut-path.md`, section 5b.
+- Build: 24 pages, no undefined references, BibTeX without warnings.
 
 **2026-10-10 - Section 7 inserted (author's request)**
 - `main.tex`: Section 7 from the draft (without the paragraph that cites `GareyJohnson1978Strong`), macros `\tw`,
