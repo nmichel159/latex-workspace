@@ -26,7 +26,7 @@
 
 | Result | Location in source | Where we use it | Exact assumptions |
 |---|---|---|---|
-| SP-MVE NP-hard; linear time on diameter at most two, NP-hard on diameter three | Section 1; Proposition 1; Theorem 4 (preprint numbering) | article 1, introduction (related work), possibly Section 4 | unit edge lengths for the diameter results |
+| SP-MVE NP-hard; linear time on diameter at most two, NP-hard on diameter three | Section 1; Proposition 1; Theorem 4 (preprint numbering) | article 1, introduction (related work), possibly Section 5 | unit edge lengths for the diameter results |
 
 ## Difference from our work
 

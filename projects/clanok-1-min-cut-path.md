@@ -95,15 +95,38 @@ FPTAS is a PTAS); the lemmas are 7.1 `lem:missed-threads` and 7.2 `lem:unsatisfi
 `thm:no-ptas`; Lemmas 7.5-7.7 and Theorem 7.8 keep their numbers. The elementary proof (run an FPTAS with
 `eps = 1/(|E|+1)`) is in the archived draft and in the git history. **New mathematics written by the AI
 assistant: the author must check Lemmas 7.2, 7.3 and Theorem 7.4 ("Content changes to review", item 19).**
+**Conclusion rewritten (2026-10-10, author's request "improve the conclusion"):** the opening sentence named only
+two of the four results. The first paragraph now states what is known about the union of a minimum cut and a
+shortest path (optimal in the two classes, factor `1 + o(1)` in random graphs, factor two in general; `cp = d` is
+NP-complete, no PTAS; FPT in `b` without an explicit bound). The open questions are a numbered list of seven, the
+same seven as before, one question per item: `cp = c`; bounded `c` or `d`; diameter three; the class "distance or
+cut-value at most two"; planar graphs; a factor below two; time `2^{O(b)}`. Reworded: "in which further graph
+classes ..." and "does duality help ..." became the two polynomial-time questions (items 4, 5). No new statement,
+no new citation. 23 pages; `check-text.ps1` 8 findings (the known false positives); static packager `Verdict: PASS`.
+**Sections reordered (2026-10-10, proposed on the author's request "think about the order of the sections",
+approved "ok daj to do main").** Section 7.1 (no PTAS) uses the construction of Section 3 and stood eight pages
+behind it; Section 7 was in the order in which the results were added. New order: 1 Introduction,
+2 Preliminaries, 3 NP-completeness, 4 Approximation Hardness (was 7.1), 5 Graphs of Diameter Two, 6 Cactus
+Graphs, 7 Erdős–Rényi Graphs, 8 Fixed-Parameter Tractability (was 7.2), 9 Conclusion. The two blocks moved
+unchanged and became sections; the heading "Approximation and Parameterized Complexity" and its label
+`sec:approx-param` are gone. Changed with it: the roadmap (two sentences); the contributions ("The same
+reduction excludes a polynomial-time approximation scheme ..." follows "First", "Fourth" is the FPT result
+alone); the abstract (the sentence on the approximation scheme follows the NP-completeness sentence, the last
+sentence is the FPT result). 23 pages, no undefined reference; `check-text.ps1` 8 findings (the known false
+positives); static packager `Verdict: PASS`. The numbers of article 1 quoted in `knowledge/research/min-cut-path.md`
+and in the reading notes of `knowledge/literature/` were updated.
 
-Current numbering: Definitions 2.1, 2.2, Lemma 2.3, Corollary 2.4, Definition 2.5; Definitions 3.1-3.5, Lemmas 3.6-3.9,
-Theorems 3.10 (`thm:ssp-np-complete`), 3.11 (`thm:mcp-np-complete`), Corollary 3.12; Definitions 4.1, 4.2, Lemmas 4.3,
-4.4, Theorem 4.5, Remark 4.6, Corollary 4.7; Lemma 5.1, Theorem 5.2, Example 5.3; Theorems 6.1-6.3, Lemmas 6.4, 6.5,
-Theorem 6.6; Lemmas 7.1 (`lem:missed-threads`), 7.2 (`lem:unsatisfied-clauses`), Theorem 7.3 (`thm:no-ptas`),
-Corollary 7.4 (`cor:no-fptas`), Lemmas 7.5 (`lem:contraction`), 7.6 (`lem:treewidth-reduction`), 7.7 (`lem:good-set`),
-Theorem 7.8 (`thm:fpt`), equation (7.1) (`eq:cut-separator`). Older notes
-below, the session report and the files in `checks/` use the numbers of their day (before the approval: Lemmas
-3.5-3.8, Theorems 3.9, 3.10, Lemma 4.2, Definition 2.4).
+Current numbering (since the reorder of 2026-10-10): Definitions 2.1, 2.2, Lemma 2.3, Corollary 2.4, Definition 2.5;
+Definitions 3.1-3.5, Lemmas 3.6-3.9, Theorems 3.10 (`thm:ssp-np-complete`), 3.11 (`thm:mcp-np-complete`),
+Corollary 3.12; Lemmas 4.1 (`lem:missed-threads`), 4.2 (`lem:unsatisfied-clauses`), Theorem 4.3 (`thm:no-ptas`),
+Corollary 4.4 (`cor:no-fptas`); Definitions 5.1, 5.2, Lemmas 5.3, 5.4, Theorem 5.5, Remark 5.6, Corollary 5.7;
+Lemma 6.1, Theorem 6.2, Example 6.3; Theorems 7.1-7.3, Lemmas 7.4, 7.5, Theorem 7.6; Lemmas 8.1 (`lem:contraction`),
+8.2 (`lem:treewidth-reduction`), 8.3 (`lem:good-set`), Theorem 8.4 (`thm:fpt`), equation (8.1) (`eq:cut-separator`).
+Everything else in these notes (the paragraphs above, the open items, "Content changes to review", "Change
+history"), the session reports and the files in `checks/` use the numbers of their day. Before the reorder:
+diameter two was Section 4 (4.1-4.7), cactus graphs Section 5 (5.1-5.3), random graphs Section 6 (6.1-6.6), no
+PTAS Section 7.1 (7.1-7.4), FPT Section 7.2 (7.5-7.8, equation (7.1)), the conclusion Section 8. Before the
+approval of the morning: Lemmas 3.5-3.8, Theorems 3.9, 3.10, Lemma 4.2, Definition 2.4.
 
 **Preserving revision of 2026-10-09 (evening):** the whole text was tidied without removing content; Section 3
 is reorganized into construction (Algorithm 1 outside the proof) and Lemmas 3.5-3.8 before Theorem 3.9; seven
@@ -220,11 +243,12 @@ author has no ORCID (stated 2026-10-08), so the title page carries no `orcid` ke
 | 1 Introduction | `sec:introduction` | motivation, related problems, contributions, relation to the master's thesis |
 | 2 Fundamentals | `sec:fundamentals` | cut-path, `CP(u,v)`, `cp(u,v)`, optimization version, Lemma *Basic Bounds*, average (1+ε)-approximation scheme |
 | 3 NP-completeness | `sec:np-completeness` | 3-SAT → Separating Shortest Path (`sec:ssp`: chain, threads, calibration) → Min Cut-Path (`sec:ssp-to-mcp`) |
-| 4 Graphs of Diameter Two | `sec:diameter-two` | decomposition `I, J, K, L`, odd intersection of path and cut, `cp = c + d − 1` |
-| 5 Graphs with Cut-Value at Most Two | `sec:cut-two` | cactus structure, `cp = c + d − 1` |
-| 6 Erdős–Rényi Graphs | `sec:random-graphs` | diameter 2 in dense graphs, properties of sparse ones, approximation scheme |
-| 7 Approximation and Parameterized Complexity | `sec:approx-param` | no PTAS, hence no FPTAS, unless P = NP (`sec:approximation`); `cp = min (\|C\| + d_C)`, treewidth reduction, FPT in the threshold `b` (`sec:fpt`) |
-| 8 Conclusion | `sec:conclusion` | summary, further directions |
+| 4 Approximation Hardness | `sec:approximation` | no PTAS, hence no FPTAS, unless P = NP, by the reduction of Section 3 |
+| 5 Graphs of Diameter Two | `sec:diameter-two` | decomposition `I, J, K, L`, odd intersection of path and cut, `cp = c + d − 1` |
+| 6 Cactus Graphs | `sec:cut-two` | cactus structure, `cp = c + d − 1`, Example 6.3 |
+| 7 Erdős–Rényi Graphs | `sec:random-graphs` | diameter 2 in dense graphs, properties of sparse ones, approximation scheme |
+| 8 Fixed-Parameter Tractability | `sec:fpt` | `cp = min (\|C\| + d_C)`, treewidth reduction, FPT in the threshold `b` |
+| 9 Conclusion | `sec:conclusion` | what is known about the union of a minimum cut and a shortest path; seven numbered open questions |
 
 Section numbers are arabic since the port (the class `new-aiaa` printed I-VII): Section III is now Section 3,
 Theorem III.5 is Theorem 3.5, Lemma II.4 is Lemma 2.4, and so on; the order is unchanged. The Roman numbers in
@@ -639,16 +663,24 @@ from the revision, but the author is responsible for them.
       first appeared there, and that partial results for the class "diam or cut 2" were obtained there. The
       introduction now reads "To the best of our knowledge, the problem has not been studied before."
       **Check this sentence against the thesis** and against the journal's question on prior publication.
-18. **Section 7 (new, 2026-10-10): no FPTAS, FPT in the threshold `b`.** Statements and proofs were written by the
+18. **Section 7 (new, 2026-10-10; since the reorder its FPT part is Section 8, Lemmas 8.1-8.3 and Theorem 8.4):
+    no FPTAS, FPT in the threshold `b`.** Statements and proofs were written by the
     AI assistant and checked twice (by hand, against the preprint of Marx et al., and by brute force on small
     graphs; `checks/README.md`). The proof of Theorem 7.5 rests on Lemma 2.11 of Marx, O'Sullivan and Razgon and
     on Courcelle's theorem, cited by the numbers of arXiv:1110.4765v1: compare with the journal version before
     submission. The sentences added to the abstract, the contributions, the roadmap and the conclusion are listed
     at the top of these notes.
-19. **Section 7.1, no PTAS (new, 2026-10-10).** Lemmas 7.1, 7.2 and Theorem 7.3 are new statements with new
+19. **Section 7.1, no PTAS (new, 2026-10-10; since the reorder Section 4, Lemmas 4.1, 4.2, Theorem 4.3,
+    Corollary 4.4).** Lemmas 7.1, 7.2 and Theorem 7.3 are new statements with new
     proofs, written by the AI assistant; they use the construction of Section 3 and Proposition 2.1.2 of Feige
     (1998). Check in particular the case of a path with exactly one connecting path in the proof of Lemma 7.1 and
     the count `Lambda = 39m + 1`. "No FPTAS" is Corollary 7.4 (author's decision).
+20. **Conclusion (rewritten 2026-10-10).** A summary paragraph of four sentences and a numbered list of the seven
+    open questions; two questions are reworded as polynomial-time questions (the class "distance or cut-value at
+    most two", planar graphs). Check the wording of the questions.
+21. **Section order (2026-10-10).** No PTAS is Section 4, FPT is Section 8; the abstract and the contributions
+    follow the new order (one sentence added after "First", one after the NP-completeness sentence of the
+    abstract). Check the two sentences.
 
 ## Change history
 

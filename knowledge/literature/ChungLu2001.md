@@ -19,7 +19,7 @@
 
 | Result | Location in source | Where we use it | Exact assumptions |
 |---|---|---|---|
-| diam G(n, p) <= log n / log log n w.h.p. for p = alpha log n / n | Theorem 4 with c = alpha > 1 | article 1, Section 6 (Theorem 6.2) | alpha > 1 constant, so floor(1/alpha) = 0 |
+| diam G(n, p) <= log n / log log n w.h.p. for p = alpha log n / n | Theorem 4 with c = alpha > 1 | article 1, Section 7 (Theorem 7.2) | alpha > 1 constant, so floor(1/alpha) = 0 |
 
 Derivation for the article: with c = alpha > 1 the upper bound is at most (log n + log log n + O(1))/(log log n + log alpha) + 3 = log n/(log log n + log alpha) + O(1). Since log alpha > 0, log n/log log n - log n/(log log n + log alpha) tends to infinity, so diam <= log n/log log n for all large n.
 
