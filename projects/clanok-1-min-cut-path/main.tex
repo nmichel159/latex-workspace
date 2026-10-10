@@ -153,11 +153,11 @@ Other problems prescribe the structure of a cut.
 \textsc{Network Diversion} asks for a minimal $u$--$v$ cut of at most $k+1$ edges that contains a prescribed edge.
 Bentert et al.~\cite{Bentert2025NetworkDiversion} solved it in $O(n \log n)$ time on planar graphs with $n$ vertices and state that its complexity on general undirected graphs is open.
 A \emph{matching cut} is the set of all edges between the two sides of a vertex partition, provided that this set is a matching.
-Deciding whether a graph has a matching cut is solvable in polynomial time on graphs of diameter two and NP-complete on graphs of diameter $d$ for every fixed $d \geq 3$~\cite{LeLe2019MatchingCut}.
+Deciding whether a graph has a matching cut is solvable in polynomial time on graphs of diameter two and NP-complete on graphs of every fixed diameter at least three~\cite{LeLe2019MatchingCut}.
 Komusiewicz et al.~\cite{Komusiewicz2020MatchingCut} gave kernels, single-exponential FPT algorithms and an exact exponential-time algorithm for this problem.
 
 In \textsc{Network Diversion} and \textsc{Matching Cut}, the cut alone carries the condition, whereas in a cut-path the cut must fit into few edges together with a path.
-As with \textsc{Shortest Path Most Vital Edges} and \textsc{Matching Cut}, graphs of diameter two form a polynomial case of \MinCutPath{} (Theorem~\ref{thm:diameter-two}).
+As for \textsc{Matching Cut} and for \textsc{Shortest Path Most Vital Edges} with unit edge lengths, graphs of diameter two form a polynomial case of \MinCutPath{} (Theorem~\ref{thm:diameter-two}).
 
 To the best of our knowledge, \MinCutPath{} has not been studied before.
 We settle its complexity and prove its basic structural properties.
@@ -190,7 +190,7 @@ Section~\ref{sec:conclusion} lists open problems.
 We use standard notation from graph theory and computational complexity and follow the conventions of~\cite{Diestel2025,Cormen2022}.
 All graphs under consideration are finite, simple and undirected.
 
-Most statements concern two distinct vertices $u, v \in V$.
+Most statements concern a graph $G = (V, E)$ and two distinct vertices $u, v \in V$.
 The distance $d(u, v)$ is the length of a shortest $u$--$v$ path in $G$.
 A set of edges whose removal disconnects $u$ from $v$ is a \emph{cut separating $u$ and $v$}, or a \emph{$u$--$v$ cut}.
 The value $c(u, v)$ denotes the minimum size of a $u$--$v$ cut; we call it the \emph{cut-value} of $u$ and $v$.
@@ -559,7 +559,7 @@ In words, the chain consists of $n$ consecutive blocks, one for each variable; t
 Each variable receives a pair of 2-synchronization threads, each occurrence of a variable receives a pair of 3-synchronization threads, and each clause receives one clause thread.
 Every thread passes through at least two chain links, so it has at least two crossing edges.
 After the calibration, the subdivided $4$-cycles are again chain links, and the chain in $G$ is a $u$--$v$ chain in the sense of Definition~\ref{def:chain}.
-Every $u$--$v$ path of this chain has exactly $\Lambda$ edges, and every connecting path has at least $\Lambda$ edges.
+Every $u$--$v$ path of this chain has exactly $\Lambda$ edges, and so has every connecting path.
 
 \subsubsection{Correctness of the Reduction}
 \label{sec:reduction-correctness}
@@ -584,12 +584,12 @@ In particular, the shortest $u$--$v$ paths in $G$ are exactly the chain paths.
 
 \begin{proof}
 After the calibration, all chain paths have the same length $\Lambda$.
-Let $Q$ be a $u$--$v$ path in $G$ that is not a chain path.
+Let $Q$ be a $u$--$v$ path in $G$ that is not a chain path; we show that $Q$ contains a whole connecting path and at least one further edge.
 By Definition~\ref{def:chain}, every $u$--$v$ path that uses only edges of the chain is a chain path, and the edges of $G$ outside the chain are the edges of the connecting paths.
 Hence $Q$ contains an edge of some connecting path.
 
 The internal vertices of a connecting path have degree two in $G$, because the procedure $\textsc{Thread}$ creates the connecting paths as new, internally vertex-disjoint paths and $\textsc{Calibrate}$ subdivides them only by new vertices of degree two.
-Since $u$ and $v$ are not internal vertices of a connecting path, $Q$ contains the whole connecting path, which has at least $\Lambda$ edges.
+Since $u$ and $v$ are not internal vertices of a connecting path, $Q$ contains the whole connecting path, which has $\Lambda$ edges.
 Every thread has at least two crossing edges, so every connecting path has an end-vertex on a crossing edge, and no connecting path joins $u$ and $v$ directly.
 Hence $Q$ contains at least one further edge, and $|Q| > \Lambda$.
 \end{proof}
@@ -712,7 +712,7 @@ The \SSP{} problem is NP-complete.
 \end{theorem}
 
 \begin{proof}
-The reduction is Algorithm~\ref{alg:reduction}.
+The reduction is Algorithm~\ref{alg:reduction}; we show that it is correct and runs in polynomial time, and that \SSP{} belongs to NP.
 
 \paragraph{Correctness.}
 The constructed instance of \SSP{} is equivalent to the original \ThreeSAT{} instance:
@@ -866,7 +866,7 @@ edges.
 
 \begin{proof}
 We distinguish two cases based on the values of $d(u, v)$ and $c(u, v)$.
-Since $G$ has diameter two, it is connected and $d(u, v) \in \{1, 2\}$; hence $c(u, v) \geq 1$.
+Since $G$ has diameter two, it is connected, so $c(u, v) \geq 1$ and $d(u, v) \in \{1, 2\}$.
 Hence the two cases below cover all pairs $u, v$.
 
 \emph{Case 1: $d(u, v) = 1$ or $c(u, v) = 1$.}
@@ -904,34 +904,30 @@ Figure~\ref{fig:diameter-two-structure} shows this structure.
 \begin{figure}[H]
     \centering
     \includegraphics{diameter-two-structure.pdf}
-    \caption{Structure of the cut $C$ in the proof of Theorem~\ref{thm:diameter-two}; the path $P$ is shaded and the edges counted in the estimate are drawn in red}
+    \caption{The cut $C$ in the proof of Theorem~\ref{thm:diameter-two}: the path $P$ is shaded, the counted edges are red}
     \label{fig:diameter-two-structure}
 \end{figure}
 
 Every edge of $C$ has exactly one end in $K$, because $C$ is the set of all edges between $A_1 = I \cup J$ and $A_2 = K$.
 For a vertex $x$ and a vertex set $S$, let $\deg(x, S)$ denote the number of neighbors of $x$ in $S$.
-Counting the edges of $C$ according to their end-vertex in $K$, we estimate the size of the cut $C$:
-\[
-\cp(u, v) = c(u,v) = |C| \geq \deg(u, I) + \deg(u, J) + 2 + (|K| - 2).
-\]
-Here $\deg(u, I) = 0$ (see below).
-The terms of the estimate count the following edges:
-\begin{itemize}
-    \item The terms $\deg(u, I)$ and $\deg(u, J)$ denote the numbers of edges that lead from the vertex $u$ to the opposite side of the minimum cut.
+The vertex $u$ has no neighbors in $I$: an edge between $u \in A_2$ and a vertex of $I \subseteq A_1$ would belong to $C$, but no vertex of $I$ is incident to an edge of $C$.
+We count the edges of $C$ according to their end-vertex in $K$, in three groups:
+\begin{enumerate}[(i)]
+    \item The vertex $u$ is incident to $\deg(u, J)$ edges of $C$, the edges that lead from $u$ to the opposite side of the cut.
 
     \item The path $P$ is contained in the cut and has at least three edges, so its vertices alternate between $A_2$ and $A_1$.
     Hence its third vertex lies in $K$ and differs from $u$, because a path does not repeat vertices.
     This vertex contributes at least two edges to the cut, namely the second and the third edge of $P$.
 
     \item Each of the remaining $|K| - 2$ vertices of the set $K$ is incident to an edge of $C$ by the definition of $K$, so it contributes at least one edge to the cut.
-\end{itemize}
-
-Since $\deg(u, I) = 0$, and since $\deg(u, K) \leq |K| - 1$ because $u \in K$ is not its own neighbor, we obtain
-\[
-\deg(u, I) + \deg(u, J) + 2 + (|K| - 2) \geq
-0 + \deg(u, J) + \deg(u, K) + 1 = \deg(u) + 1 \geq c(u, v) + 1.
-\]
-The equality holds because $V = I \cup J \cup K$ and $u$ has no neighbors in $I$: an edge between $u \in A_2$ and a vertex of $I \subseteq A_1$ would belong to $C$, but no vertex of $I$ is incident to an edge of $C$.
+\end{enumerate}
+Since $u \in K$ is not its own neighbor, we have $\deg(u, K) \leq |K| - 1$.
+Since $V = I \cup J \cup K$ and $u$ has no neighbors in $I$, we have $\deg(u) = \deg(u, J) + \deg(u, K)$.
+Hence
+\begin{align*}
+\cp(u, v) = c(u, v) = |C| &\geq \underbrace{\deg(u, J)}_{\text{(i)}} + \underbrace{2}_{\text{(ii)}} + \underbrace{|K| - 2}_{\text{(iii)}}\\
+&\geq \deg(u, J) + \deg(u, K) + 1 = \deg(u) + 1 \geq c(u, v) + 1.
+\end{align*}
 The last inequality holds because the edges incident to $u$ form a $u$--$v$ cut.
 This contradicts the assumption that $\cp(u, v) = c(u, v)$; hence $\cp(u, v) = c(u, v) + 1 = c(u, v) + d(u, v) - 1$.
 \end{proof}
@@ -948,13 +944,22 @@ Hence, in graphs of diameter two, a minimum cut-path can be found by one minimum
 The same formula holds in graphs in which the cut-value of every pair of vertices is at most two.
 
 Such graphs have the structure of a \emph{cactus graph}: they consist of cycles and single edges, any two of which share at most one vertex, an articulation point.
-Indeed, suppose that two distinct cycles shared an edge.
+
+\begin{lemma}
+\label{lem:cactus}
+Let $G = (V, E)$ be a graph such that $c(x, y) \leq 2$ for every pair of distinct vertices $x, y \in V$.
+Then any two distinct cycles of $G$ share at most one vertex.
+\end{lemma}
+
+\begin{proof}
+Suppose first that two distinct cycles shared an edge.
 Then the second cycle contains a path whose ends $x \neq y$ lie on the first cycle and whose edges do not belong to the first cycle.
 To find it, take an edge of the second cycle that is not on the first, and follow the second cycle from it in both directions up to the first vertex of the first cycle.
 The two vertices reached are distinct, because the second cycle contains both ends of the shared edge.
 The union of the two cycles would then contain the two vertices $x$ and $y$ joined by three edge-disjoint paths: this path and the two $x$--$y$ paths along the first cycle.
 Separating $x$ from $y$ would require at least three edges, contradicting the assumption $c(x,y) \leq 2$.
 Similarly, two edge-disjoint cycles cannot share two vertices $x \neq y$: they would contain four edge-disjoint $x$--$y$ paths.
+\end{proof}
 
 \begin{theorem}
 \label{thm:cut-two}
@@ -985,10 +990,12 @@ Hence a minimum cut-path is a shortest $u$--$v$ path $P$ that contains a $u$--$v
 
 Since $c(u, v) = 2$, no single edge separates $u$ from $v$.
 A bridge of $G$ on the path $P$ would separate $u$ from $v$; hence no edge of $P$ is a bridge, and every edge of $P$ lies on a cycle of the cactus graph $G$.
+By Lemma~\ref{lem:cactus}, this cycle is unique, since two cycles through the same edge would share two vertices.
 
 The path $P$ therefore passes through a sequence of cycles $Z_1, Z_2, \dots, Z_t$, and in each cycle $Z_i$ it follows one of the two arcs between the vertex where it enters $Z_i$ and the vertex where it leaves $Z_i$.
 The path $P$ does not return to a cycle $Z_i$ after leaving it.
-Otherwise the part of $P$ from the vertex where it leaves $Z_i$ to the next vertex of $Z_i$ on $P$, together with an arc of $Z_i$, would be a cycle that shares an edge with $Z_i$.
+Otherwise the part of $P$ from the vertex where it leaves $Z_i$ to the next vertex of $Z_i$ on $P$, together with an arc of $Z_i$, would be a second cycle that shares an edge with $Z_i$, which contradicts Lemma~\ref{lem:cactus}.
+
 The path $P$ enters $Z_1$ at $u$ and leaves $Z_t$ at $v$.
 For $i < t$, the vertex where $P$ leaves $Z_i$ is the vertex where it enters $Z_{i+1}$, since every edge of $P$ lies on one of these cycles.
 The other arc of each cycle $Z_i$ is edge-disjoint from $P$, and consecutive arcs share these vertices, so the concatenation of these arcs connects $u$ and $v$ in $G \setminus P$.
@@ -1023,9 +1030,9 @@ By Theorem~\ref{thm:diameter-two} and Remark~\ref{rem:algorithm}, a minimum cut-
 Consequently, for dense random graphs, the \MinCutPath{} problem can be solved exactly in polynomial time on almost all inputs.
 
 Consider now sparse Erdős–Rényi random graphs $G(n, p)$ with $p = \alpha \log n / n$, where $\alpha > 1$ is a constant; we write $G$ for $G(n,p)$.
-For such graphs, we use two known results, on the diameter and on the edge connectivity~\cite{Bollobas2001,ChungLu2001,Frieze2016}.
+For such graphs, we use two known results, on the diameter~\cite{ChungLu2001} and on the edge connectivity~\cite{Bollobas2001}.
 
-\begin{theorem}[Diameter~\cite{Bollobas2001,ChungLu2001}]
+\begin{theorem}[Diameter~\cite{ChungLu2001}]
 \label{thm:random-diameter}
 Let $p = \alpha \log n / n$ with a constant $\alpha > 1$.
 Then
@@ -1034,7 +1041,7 @@ Then
 \]
 \end{theorem}
 
-\begin{theorem}[Connectivity~\cite{Frieze2016}]
+\begin{theorem}[{Connectivity~\cite[p.~169]{Bollobas2001}}]
 \label{thm:random-connectivity}
 Let $p = \alpha \log n / n$ with a constant $\alpha > 1$.
 Then, with high probability, the edge connectivity of $G$ equals its minimum degree $\delta(G)$.
@@ -1045,16 +1052,16 @@ Then, with high probability, the edge connectivity of $G$ equals its minimum deg
 Let $p = \alpha \log n / n$ with a constant $\alpha > 1$.
 Then there exists a constant $\beta_1 > 0$, depending only on $\alpha$, such that
 \[
-\lim_{n\to\infty} \mathbb{P}\Bigl( \forall v \in V(G): \ \deg(v) \geq \beta_1 \log n \Bigr) = 1.
+\lim_{n\to\infty} \mathbb{P}\Bigl( \forall x \in V(G): \ \deg(x) \geq \beta_1 \log n \Bigr) = 1.
 \]
 \end{lemma}
 
 \begin{proof}
-The degree of a fixed vertex $v$ has the binomial distribution with mean $\mu = (n-1)p = (1-o(1))\,\alpha \log n$.
+The degree of a fixed vertex $x$ has the binomial distribution with mean $\mu = (n-1)p = (1-o(1))\,\alpha \log n$.
 For $a > 0$, let $h(a) = a \log a - a + 1$.
-By the Chernoff bound (see, e.g.,~\cite{Frieze2016}),
+By the Chernoff bound (see, e.g.,~\cite[Eq.~(21.19)]{Frieze2016}),
 \[
-\mathbb{P}\bigl(\deg(v) \leq a\mu\bigr) \leq \exp(-\mu h(a)) \quad \text{for } 0 < a < 1.
+\mathbb{P}\bigl(\deg(x) \leq a\mu\bigr) \leq \exp(-\mu h(a)) \quad \text{for } 0 < a < 1.
 \]
 Since $h(a) \to 1$ as $a \to 0$ and $\alpha > 1$, we can fix a constant $0 < a_1 < 1$ such that $\alpha h(a_1) > 1$.
 For this constant, the probability above is $o(1/n)$, because $\exp(-\mu h(a_1)) = n^{-(1-o(1))\,\alpha h(a_1)}$.
@@ -1093,7 +1100,7 @@ By the proof of Lemma~\ref{lem:basic-bounds}, its output $S$ is a cut-path with 
 
 Adding edges to a graph cannot increase the distances and cannot decrease the values $c(u,v)$.
 The bounds of Theorem~\ref{thm:random-diameter} and Lemma~\ref{lem:connectivity-bounds} are stated for $p = \alpha \log n / n$.
-Hence, by the standard coupling of the random graphs $G(n,p)$ for different edge probabilities (see, e.g.,~\cite{Frieze2016}), they remain valid for every $p \geq \alpha \log n / n$.
+Hence, by the standard coupling of the random graphs $G(n,p)$ for different edge probabilities (see, e.g.,~\cite[Section~1.1]{Frieze2016}), they remain valid for every $p \geq \alpha \log n / n$.
 Thus, with high probability, all pairs of distinct vertices $u,v$ satisfy
 \[
 d(u,v) \leq \diam(G) \leq \frac{\log n}{\log \log n}
@@ -1120,7 +1127,8 @@ Thus, the algorithm achieves the approximation ratio $1+\epsilon$ on a set of in
 We proved that \MinCutPath{} is NP-complete and that $\cp(u, v) = c(u, v) + d(u, v) - 1$ in two graph classes; several questions remain open.
 First, in which further graph classes can the problem be solved in polynomial time?
 A natural candidate is the class of graphs in which every pair of vertices is at distance at most two or has a minimum cut of size at most two; it contains both classes treated in this paper.
-Is \MinCutPath{} NP-hard on graphs of diameter three, the smallest diameter for which finding the most vital edges for shortest paths and finding a matching cut are NP-hard~\cite{Bazgan2019MostVital,LeLe2019MatchingCut}?
+Is \MinCutPath{} NP-hard on graphs of diameter three?
+At this diameter, finding a matching cut and, for unit edge lengths, finding the most vital edges for shortest paths turn from polynomial-time solvable to NP-hard~\cite{Bazgan2019MostVital,LeLe2019MatchingCut}.
 
 Second, does duality help to solve \MinCutPath{} on \emph{planar graphs}?
 In a planar graph, every minimal edge cut corresponds to a cycle in the dual graph and vice versa, and several problems on cuts and flows can be solved faster in planar graphs than in general ones~\cite{itai1979maximum,henzinger1997faster}.

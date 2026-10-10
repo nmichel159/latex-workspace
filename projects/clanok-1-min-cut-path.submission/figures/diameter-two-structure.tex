@@ -5,7 +5,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{stix}
 \pdfinfoomitdate=1 \pdftrailerid{} \pdfsuppressptexinfo=-1
-\usetikzlibrary{calc}
+\usetikzlibrary{calc,decorations.pathreplacing}
 \definecolor{threadred}{RGB}{200,40,40}
 \begin{document}
 \begin{tikzpicture}[x=1cm, y=1cm,
@@ -58,5 +58,10 @@
     \fill (\p) circle[radius=1.8pt];
   \node[left=1.5pt] at (u) {$u$};
   \node[right=1.5pt] at (v) {$v$};
+  % the three groups of counted edges, named by their end-vertex in K as in the proof
+  \node[font=\footnotesize] at (0.6,-0.5) {(i)};
+  \node[font=\footnotesize] at (1.4,-0.5) {(ii)};
+  \draw[line width=0.4pt, decorate, decoration={brace, mirror, amplitude=3pt}] (2.1,-0.27) -- (4.7,-0.27)
+    node[midway, below=3pt, font=\footnotesize] {(iii)};
 \end{tikzpicture}
 \end{document}
