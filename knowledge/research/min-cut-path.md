@@ -48,10 +48,10 @@ Typeset problem names in small caps: `\textsc{Min Cut-Path}`, `\textsc{Separatin
 | Diameter 2 ⇒ `I = ∅` or `L = ∅` | Claim 13 | Lemma `lem:empty-i-or-l` (4.3) | |
 | Every `u`–`v` path intersects every `u`–`v` cut in an odd number of edges | Claim 14 | Lemma `lem:odd-intersection` (4.4) | holds for a cut of the form `δ(A₁)` |
 | **Diameter 2 ⇒ `cp = c + d − 1`** | Theorem 15 | Theorem `thm:diameter-two` (4.5) | |
-| Diameter 2 ⇒ `c(u,v) = min(deg u, deg v)` | Theorem 16 | – | |
-| `c(x,y) ≤ 2` for all pairs ⇒ cactus structure | Claim 17 | Lemma `lem:cactus` (5.1): two distinct cycles share at most one vertex | a lemma with proof since 2026-10-10 |
+| Diameter 2 ⇒ `c(u,v) = min(deg u, deg v)` | Theorem 16 | Corollary `cor:diameter-two-degrees` (4.7), with `cp = min(deg u, deg v) + d − 1` and a linear-time algorithm | added to A1 on 2026-10-10 |
+| `c(x,y) ≤ 2` for all pairs ⇒ cactus structure | Claim 17 | Lemma `lem:cactus` (5.1): `c(x,y) ≤ 2` for all pairs iff two distinct cycles share at most one vertex (both directions proved); Section 5 is titled "Cactus Graphs" | a lemma with proof since 2026-10-10 |
 | **`c(x,y) ≤ 2` for all pairs ⇒ `cp = c + d − 1`** | Theorem 18 | Theorem `thm:cut-two` (5.2) | proof added 2026-10-07 |
-| Class *diam or cut 2*; the formula `cp = c + d − 1` does not hold in it (counterexamples) | Def. 37, Fig. 3.3 | only in the conclusion as a further direction, without the counterexamples | the two counterexamples are described below the table; the author decided on 2026-10-09 not to put them or the class diagram into A1 for now |
+| Class *diam or cut 2*; the formula `cp = c + d − 1` does not hold in it (counterexamples) | Def. 37, Fig. 3.3 | Example `ex:strict` (5.3) with Figure 11 shows the two counterexamples; the conclusion names the class and says that the formula fails in it | the two counterexamples are described below the table; the author decided on 2026-10-09 not to put them or the class diagram into A1 for now |
 | General path, square graph, general square graph, pseudo-square graph | Def. 38–41 | – | |
 | Decomposition into a general square graph for `c(u,v) = 2` | Theorem 20 (Alg. 2–5) | – | |
 | Polynomial computation of `cp` in *diam or cut 2* for `c(u,v) = 2` | Theorem 22 (Alg. 6) | – | the case `d(u,v) = 2` remains open |

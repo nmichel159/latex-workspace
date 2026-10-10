@@ -148,7 +148,11 @@ missing examples and by results that are easy to add.
 Build after these changes: 18 pages, no undefined references; `check-text.ps1` 8 findings (false positives as
 before); packager, full run: `Verdict: PASS`. Not committed.
 
-### For the author to decide (content; nothing applied)
+### For the author to decide (content)
+
+**Status (2026-10-10, 14:30):** the author approved items 1-8; they are applied (item 7: M10 only; item 2 without the
+citation of the classical theorem, whose attribution is not verified). Item 9 is not applied. New numbering:
+Corollary 4.7, Example 5.3, Figure 11. Build: 20 pages; packager `Verdict: PASS`; committed and pushed.
 
 Recommendation first.
 
