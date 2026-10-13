@@ -1,0 +1,230 @@
+check_structure.py: S0-S10 and S15, all connected graphs with 2..8 vertices (12112 graphs), all ordered pairs
+graphs by number of vertices: 2: 1, 3: 2, 4: 6, 5: 21, 6: 112, 7: 853, 8: 11117
+  done in 88 s
+
+Statistics, small graphs
+  DC witnesses by equalities among x, y, alpha, beta: x=alpha  38
+  DC witnesses by equalities among x, y, alpha, beta: x=beta   19
+  DC witnesses by equalities among x, y, alpha, beta: y=alpha  19
+  DC witnesses by equalities among x, y, alpha, beta: y=alpha,x=beta 168
+  DC witnesses by equalities among x, y, alpha, beta: y=beta   38
+  S0 pairs with c = 1 or d = 1                                 410756
+  S0c pairs with c = 2 in graphs with a bridge                 59182
+  S1 pairs of edge-disjoint paths                              9444742
+  S14 coarse decompositions (subsets of the minimum cuts)      226160
+  S15 pairs (d = 2, c >= 3)                                    131186
+  S15 pairs with cp = c                                        800
+  S15 pairs with cp = c + 1                                    130386
+  S7 paths that do not separate                                4629370
+  S7 paths that separate                                       190272
+  S8 triples (g, p, h)                                         5192374
+  graphs                                                       12112
+  graphs in DC                                                 11575
+  graphs not in DC                                             537
+  ordered pairs                                                662244
+  outside DC: pairs with cp = d                                4
+  outside DC: paths p with (i) of length >= 3 exist in no pair 5342
+  outside DC: witnesses with four distinct terminals           2
+  pairs by number of squares k = 2                             157416
+  pairs by number of squares k = 3                             23262
+  pairs by number of squares k = 4                             1172
+  pairs by number of squares k = 5                             42
+  pairs with c = 2                                             181892
+  pairs with cp = d                                            282
+  pairs with cp = d + 1                                        181610
+  simple u-v paths                                             4819642
+
+assertion      statement                                                           count   failed
+CP-optimal     cp_brute returns a cut-path of size cp                             662244        0  PASS
+CP-subsets     cp_brute = cp_subsets (article 1's method)                         662244        0  PASS
+CP-definition  cp_brute = literal definition (n <= 6)                               3866        0  PASS
+CP-bounds      max(c,d) <= cp <= c+d-1                                            662244        0  PASS
+S0a            S0: c = 1 or d = 1  =>  cp = c + d - 1                             410756        0  PASS
+S0b            S0: in DC a pair with d >= 3 has c <= 2                             47064        0  PASS
+S0c-v          S0: v in the 2-edge-connected component K of u                      59182        0  PASS
+S0c-d          S0: distances in K and G                                            59182        0  PASS
+S0c-c          S0: cut-values in K and G                                           59182        0  PASS
+S0c-cp         S0: cp(u,v) in K and G                                              59182        0  PASS
+S1-exist       S1: two edge-disjoint paths exist                                  181892        0  PASS
+S1a            S1: F within E(p1) u E(p2)                                        9444742        0  PASS
+S1b            S1: every minimum cut has one edge on each path                   9444742        0  PASS
+S2a            S2: orientation well defined (same tail for every cut)             181892        0  PASS
+S2b            S2: orientation agrees with p1, p2                                9444742        0  PASS
+S2c            S2: every path meets every minimum cut exactly once               4819642        0  PASS
+S2d            S2: every path traverses F tail->head                             4819642        0  PASS
+S3a            S3: F-edges join different pieces                                  181892        0  PASS
+S3b            S3: every path visits a piece in one block                        4819642        0  PASS
+S4a            S4: at most 2 entering, 2 leaving                                  181892        0  PASS
+S4b            S4: pieces of u and v                                              181892        0  PASS
+S4c            S4: other pieces                                                   181892        0  PASS
+S5o            S5: squares totally ordered, k >= 2                                181892        0  PASS
+S5a            S5: entering edges of S_i (i >= 2) form a minimum cut              207624        0  PASS
+S5b            S5: leaving edges of S_i (i < k) form a minimum cut                207624        0  PASS
+S5c            S5: every path visits the squares in the common order             4819642        0  PASS
+S5d            S5: two sequences between consecutive squares                      207624        0  PASS
+S5d-cover      S5: sequences cover all links and F-edges once                     181892        0  PASS
+S5e            S5: a path uses exactly one sequence completely                   5236968        0  PASS
+S6             S6: distinct terminals of a square have c >= 3                     381786        0  PASS
+S7pre          S7: a path uses exactly one entering and one leaving edge         4819642        0  PASS
+S7             S7: separation criterion                                          4819642        0  PASS
+S8a            S8: u-v paths of G = directed u-v paths of G-vector                181892        0  PASS
+S8b            S8: shortest path through (g, p, h) has the formula length        5192374        0  PASS
+S8c            S8: it meets the square exactly in p                              5192374        0  PASS
+S8d            S8: every path leaves a square along an enumerated (g, p, h)       181892        0  PASS
+S9a            S9: cp = d  iff  the condition holds                               181892        0  PASS
+S9b            S9: cp in {d, d+1}                                                 181892        0  PASS
+S10            S10: witness p has |p| = d(x,y) <= 2 in DC                            282        0  PASS
+S9-witness-shortest outside DC: witness p is a shortest x-y path                            4        0  PASS
+OBS8-terminals notes, doubt 8: in DC a separating trace has at most three distinct terminals        282        0  PASS
+OBS8-distance  notes, doubt 8: in DC alpha and beta of a separating trace are at distance <= 2        282        0  PASS
+S9-core        core.tex theorem: cp = d iff (i) d(u,x)+|p|+d(y,v) = d, (ii) p separates alpha, beta     181892        0  PASS
+S10-core-p     core.tex corollary: a path p with (i) has |p| = d(x,y) <= 2 (DC)     176550        0  PASS
+S10-core-shortest core.tex corollary: a shortest u-v path has <= 2 edges in every square (DC)     176550        0  PASS
+S11-res-i      core.tex residual lemma (i): delta(A) minimum cut iff no arc of D leaves A    1004700        0  PASS
+S11-res-ii     core.tex residual lemma (ii): edge of p1 u p2 in F iff ends in different strong components of D    1004700        0  PASS
+S14pre         S14: a subset of the minimum cuts gives a chain of squares         226160        0  PASS
+S14-S7         S14: criterion S7 on the coarser decomposition                    2324720        0  PASS
+S14-S9         S14: criterion S9 on the coarser decomposition                     226160        0  PASS
+S15a           S15: cp in {c, c+1}                                                131186        0  PASS
+S15b           S15: cp = c iff a minimum cut contains a path                      131186        0  PASS
+S15c           S15: such paths have odd length >= 3                               131186        0  PASS
+
+Random chains of squares (chains.py): 4500 seeds, at most 20000 simple paths per instance
+  DC witnesses by equalities among x, y, alpha, beta: none     3
+  DC witnesses by equalities among x, y, alpha, beta: x=alpha  5
+  DC witnesses by equalities among x, y, alpha, beta: x=beta   3
+  DC witnesses by equalities among x, y, alpha, beta: y=alpha  8
+  DC witnesses by equalities among x, y, alpha, beta: y=alpha,x=beta 375
+  DC witnesses by equalities among x, y, alpha, beta: y=beta   12
+  S1 pairs of edge-disjoint paths                              135347
+  S14 coarse decompositions (subsets of the minimum cuts)      20170
+  S7 paths that do not separate                                1507519
+  S7 paths that separate                                       1161225
+  S8 triples (g, p, h)                                         86176
+  chain instances (in DC, c = 2)                               2983
+  chain instances checked                                      2953
+  chain instances rejected                                     1517
+  chain instances: vertices                                    77512
+  pairs by number of squares k = 10                            4
+  pairs by number of squares k = 3                             520
+  pairs by number of squares k = 4                             790
+  pairs by number of squares k = 5                             725
+  pairs by number of squares k = 6                             578
+  pairs by number of squares k = 7                             260
+  pairs by number of squares k = 8                             64
+  pairs by number of squares k = 9                             12
+  pairs skipped: more than 20000 simple paths                  30
+  pairs with c = 2                                             2953
+  pairs with cp = d                                            364
+  pairs with cp = d + 1                                        2589
+  simple u-v paths                                             2668744
+
+assertion      statement                                                           count   failed
+S1-exist       S1: two edge-disjoint paths exist                                    2953        0  PASS
+S1a            S1: F within E(p1) u E(p2)                                         135347        0  PASS
+S1b            S1: every minimum cut has one edge on each path                    135347        0  PASS
+S2a            S2: orientation well defined (same tail for every cut)               2953        0  PASS
+S2b            S2: orientation agrees with p1, p2                                 135347        0  PASS
+S2c            S2: every path meets every minimum cut exactly once               2668744        0  PASS
+S2d            S2: every path traverses F tail->head                             2668744        0  PASS
+S3a            S3: F-edges join different pieces                                    2953        0  PASS
+S3b            S3: every path visits a piece in one block                        2668744        0  PASS
+S4a            S4: at most 2 entering, 2 leaving                                    2953        0  PASS
+S4b            S4: pieces of u and v                                                2953        0  PASS
+S4c            S4: other pieces                                                     2953        0  PASS
+S5o            S5: squares totally ordered, k >= 2                                  2953        0  PASS
+S5a            S5: entering edges of S_i (i >= 2) form a minimum cut               11340        0  PASS
+S5b            S5: leaving edges of S_i (i < k) form a minimum cut                 11340        0  PASS
+S5c            S5: every path visits the squares in the common order             2668744        0  PASS
+S5d            S5: two sequences between consecutive squares                       11340        0  PASS
+S5d-cover      S5: sequences cover all links and F-edges once                       2953        0  PASS
+S5e            S5: a path uses exactly one sequence completely                  13281684        0  PASS
+S6             S6: distinct terminals of a square have c >= 3                      14317        0  PASS
+S7pre          S7: a path uses exactly one entering and one leaving edge         2668744        0  PASS
+S7             S7: separation criterion                                          2668744        0  PASS
+S8a            S8: u-v paths of G = directed u-v paths of G-vector                  2953        0  PASS
+S8b            S8: shortest path through (g, p, h) has the formula length          86176        0  PASS
+S8c            S8: it meets the square exactly in p                                86176        0  PASS
+S8d            S8: every path leaves a square along an enumerated (g, p, h)         2953        0  PASS
+S9a            S9: cp = d  iff  the condition holds                                 2953        0  PASS
+S9b            S9: cp in {d, d+1}                                                   2953        0  PASS
+S10            S10: witness p has |p| = d(x,y) <= 2 in DC                            406        0  PASS
+OBS8-terminals notes, doubt 8: in DC a separating trace has at most three distinct terminals        406        3  FAIL
+OBS8-distance  notes, doubt 8: in DC alpha and beta of a separating trace are at distance <= 2        406        0  PASS
+S9-core        core.tex theorem: cp = d iff (i) d(u,x)+|p|+d(y,v) = d, (ii) p separates alpha, beta       2953        0  PASS
+S10-core-p     core.tex corollary: a path p with (i) has |p| = d(x,y) <= 2 (DC)       2953        0  PASS
+S10-core-shortest core.tex corollary: a shortest u-v path has <= 2 edges in every square (DC)       2953        0  PASS
+S11-res-i      core.tex residual lemma (i): delta(A) minimum cut iff no arc of D leaves A        139        0  PASS
+S11-res-ii     core.tex residual lemma (ii): edge of p1 u p2 in F iff ends in different strong components of D      16215        0  PASS
+S14pre         S14: a subset of the minimum cuts gives a chain of squares          20170        0  PASS
+S14-S7         S14: criterion S7 on the coarser decomposition                   16316660        0  PASS
+S14-S9         S14: criterion S9 on the coarser decomposition                      20170        0  PASS
+
+FAILURES (smallest graph per assertion)
+  OBS8-terminals: n=31, edges=0-1 0-2 1-2 1-5 2-19 3-4 3-5 3-6 4-5 4-6 5-6 5-19 5-20 5-21 7-8 7-9 7-10 8-9 8-14 9-10 9-21 10-20 10-23 11-13 11-14 11-15 11-27 12-14 12-15 12-29 13-14 13-15 15-16 16-17 16-18 17-30 21-22 23-26 24-25 24-26 24-27 25-26 25-27 26-27 28-29 29-30, u=2, v=16
+      witness p = (14, 12, 15) has four distinct terminals x=14 y=15 alpha=11 beta=12
+
+Random instances outside DC (chains.py, larger blocks; S10 not asserted): 6000 seeds
+  S1 pairs of edge-disjoint paths                              69519
+  S14 coarse decompositions (subsets of the minimum cuts)      15152
+  S7 paths that do not separate                                1161319
+  S7 paths that separate                                       1737748
+  S8 triples (g, p, h)                                         332914
+  chain instances (not in DC, c = 2)                           2401
+  chain instances checked                                      2105
+  chain instances rejected                                     3599
+  chain instances: vertices                                    55971
+  outside DC: pairs with cp = d                                132
+  outside DC: pairs with cp = d where every witness p has |p| >= 3 61
+  outside DC: paths p with (i) of length >= 3 exist in no pair 2032
+  outside DC: paths p with (i) of length >= 3 exist in some pair 73
+  outside DC: witnesses with four distinct terminals           1
+  pairs by number of squares k = 2                             60
+  pairs by number of squares k = 3                             746
+  pairs by number of squares k = 4                             980
+  pairs by number of squares k = 5                             285
+  pairs by number of squares k = 6                             31
+  pairs by number of squares k = 7                             3
+  pairs skipped: more than 20000 simple paths                  296
+  pairs with c = 2                                             2105
+  pairs with cp = d                                            132
+  pairs with cp = d + 1                                        1973
+  simple u-v paths                                             2899067
+
+assertion      statement                                                           count   failed
+S1-exist       S1: two edge-disjoint paths exist                                    2105        0  PASS
+S1a            S1: F within E(p1) u E(p2)                                          69519        0  PASS
+S1b            S1: every minimum cut has one edge on each path                     69519        0  PASS
+S2a            S2: orientation well defined (same tail for every cut)               2105        0  PASS
+S2b            S2: orientation agrees with p1, p2                                  69519        0  PASS
+S2c            S2: every path meets every minimum cut exactly once               2899067        0  PASS
+S2d            S2: every path traverses F tail->head                             2899067        0  PASS
+S3a            S3: F-edges join different pieces                                    2105        0  PASS
+S3b            S3: every path visits a piece in one block                        2899067        0  PASS
+S4a            S4: at most 2 entering, 2 leaving                                    2105        0  PASS
+S4b            S4: pieces of u and v                                                2105        0  PASS
+S4c            S4: other pieces                                                     2105        0  PASS
+S5o            S5: squares totally ordered, k >= 2                                  2105        0  PASS
+S5a            S5: entering edges of S_i (i >= 2) form a minimum cut                5805        0  PASS
+S5b            S5: leaving edges of S_i (i < k) form a minimum cut                  5805        0  PASS
+S5c            S5: every path visits the squares in the common order             2899067        0  PASS
+S5d            S5: two sequences between consecutive squares                        5805        0  PASS
+S5d-cover      S5: sequences cover all links and F-edges once                       2105        0  PASS
+S5e            S5: a path uses exactly one sequence completely                   8766066        0  PASS
+S6             S6: distinct terminals of a square have c >= 3                       8700        0  PASS
+S7pre          S7: a path uses exactly one entering and one leaving edge         2899067        0  PASS
+S7             S7: separation criterion                                          2899067        0  PASS
+S8a            S8: u-v paths of G = directed u-v paths of G-vector                  2105        0  PASS
+S8b            S8: shortest path through (g, p, h) has the formula length         332914        0  PASS
+S8c            S8: it meets the square exactly in p                               332914        0  PASS
+S8d            S8: every path leaves a square along an enumerated (g, p, h)         2105        0  PASS
+S9a            S9: cp = d  iff  the condition holds                                 2105        0  PASS
+S9b            S9: cp in {d, d+1}                                                   2105        0  PASS
+S9-witness-shortest outside DC: witness p is a shortest x-y path                          138        0  PASS
+S9-core        core.tex theorem: cp = d iff (i) d(u,x)+|p|+d(y,v) = d, (ii) p separates alpha, beta       2105        0  PASS
+S11-res-ii     core.tex residual lemma (ii): edge of p1 u p2 in F iff ends in different strong components of D      10443        0  PASS
+S14pre         S14: a subset of the minimum cuts gives a chain of squares          15152        0  PASS
+S14-S7         S14: criterion S7 on the coarser decomposition                   23505566        0  PASS
+S14-S9         S14: criterion S9 on the coarser decomposition                      15152        0  PASS
+
+Assertions: 182335747, failed: 3.  Total time 177 s.

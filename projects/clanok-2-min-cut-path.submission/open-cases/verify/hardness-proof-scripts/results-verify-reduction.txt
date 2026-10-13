@@ -1,0 +1,69 @@
+formulas 4537; failures 0; time 285 s
+family a: 1190 formulas, sat 1154, unsat 36, n 13-40, edges 36-304, c 4-15, brute-force (all vertex sets, exact cp) 130, failures 0
+family b: 2744 formulas, sat 2024, unsat 720, n 27-42, edges 149-339, c 10-16, brute-force (all vertex sets, exact cp) 0, failures 0
+family c: 400 formulas, sat 380, unsat 20, n 40-244, edges 300-10323, c 15-99, brute-force (all vertex sets, exact cp) 0, failures 0
+family d: 200 formulas, sat 136, unsat 64, n 13-171, edges 36-5121, c 4-69, brute-force (all vertex sets, exact cp) 17, failures 0
+family e: 3 formulas, sat 0, unsat 3, n 20-142, edges 84-3548, c 7-57, brute-force (all vertex sets, exact cp) 1, failures 0
+c(fA0,fB0) vs M: M=6: c=4, M=8: c=6, M=9: c=7, M=10: c=8, M=11: c=9, M=12: c=10, M=13: c=11, M=14: c=12 ...
+c(fA0,fB0) == M-2 for all: True
+brute-force instances (phi, n, cp, c, #mincuts, sat):
+  [[1]]  n=13 cp=4 c=4 #mc=2 sat=True minlen=3
+  [[-1]]  n=13 cp=4 c=4 #mc=2 sat=True minlen=3
+  [[2]]  n=13 cp=4 c=4 #mc=2 sat=True minlen=3
+  [[-2]]  n=13 cp=4 c=4 #mc=2 sat=True minlen=3
+  [[1, 1]]  n=18 cp=6 c=6 #mc=2 sat=True minlen=3
+  [[-1, 1]]  n=18 cp=6 c=6 #mc=2 sat=True minlen=3
+  [[1, 2]]  n=18 cp=6 c=6 #mc=4 sat=True minlen=3
+  [[-2, 1]]  n=18 cp=6 c=6 #mc=4 sat=True minlen=3
+  [[-1, -1]]  n=18 cp=6 c=6 #mc=2 sat=True minlen=3
+  [[-1, 2]]  n=18 cp=6 c=6 #mc=4 sat=True minlen=3
+  [[-2, -1]]  n=18 cp=6 c=6 #mc=4 sat=True minlen=3
+  [[2, 2]]  n=18 cp=6 c=6 #mc=2 sat=True minlen=3
+  [[-2, 2]]  n=18 cp=6 c=6 #mc=2 sat=True minlen=3
+  [[-2, -2]]  n=18 cp=6 c=6 #mc=2 sat=True minlen=3
+  [[1, 1, 1]]  n=23 cp=8 c=8 #mc=2 sat=True minlen=3
+  [[-1, 1, 1]]  n=23 cp=8 c=8 #mc=2 sat=True minlen=3
+  [[1, 1, 2]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[-2, 1, 1]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[-1, -1, 1]]  n=23 cp=8 c=8 #mc=2 sat=True minlen=3
+  [[-1, 1, 2]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[-2, -1, 1]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[1, 2, 2]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[-2, 1, 2]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[-2, -2, 1]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[-1, -1, -1]]  n=23 cp=8 c=8 #mc=2 sat=True minlen=3
+  [[-1, -1, 2]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[-2, -1, -1]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[-1, 2, 2]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[-2, -1, 2]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[-2, -2, -1]]  n=23 cp=8 c=8 #mc=4 sat=True minlen=3
+  [[2, 2, 2]]  n=23 cp=8 c=8 #mc=2 sat=True minlen=3
+  [[-2, 2, 2]]  n=23 cp=8 c=8 #mc=2 sat=True minlen=3
+  [[-2, -2, 2]]  n=23 cp=8 c=8 #mc=2 sat=True minlen=3
+  [[-2, -2, -2]]  n=23 cp=8 c=8 #mc=2 sat=True minlen=3
+  [[1], [1]]  n=20 cp=7 c=7 #mc=2 sat=True minlen=5
+  [[1], [-1]]  n=20 cp=8 c=7 #mc=2 sat=False minlen=None
+  [[1], [2]]  n=20 cp=7 c=7 #mc=4 sat=True minlen=5
+  [[1], [-2]]  n=20 cp=7 c=7 #mc=4 sat=True minlen=7
+  [[1], [1, 1]]  n=25 cp=9 c=9 #mc=2 sat=True minlen=5
+  [[1], [-1, 1]]  n=25 cp=9 c=9 #mc=2 sat=True minlen=5
+  [[1], [1, 2]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=5
+  [[1], [-2, 1]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=5
+  [[1], [-1, -1]]  n=25 cp=10 c=9 #mc=2 sat=False minlen=None
+  [[1], [-1, 2]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=5
+  [[1], [-2, -1]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=7
+  [[1], [2, 2]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=5
+  [[1], [-2, 2]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=5
+  [[1], [-2, -2]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=7
+  [[-1], [1]]  n=20 cp=8 c=7 #mc=2 sat=False minlen=None
+  [[-1], [-1]]  n=20 cp=7 c=7 #mc=2 sat=True minlen=5
+  [[-1], [2]]  n=20 cp=7 c=7 #mc=4 sat=True minlen=5
+  [[-1], [-2]]  n=20 cp=7 c=7 #mc=4 sat=True minlen=5
+  [[-1], [1, 1]]  n=25 cp=10 c=9 #mc=2 sat=False minlen=None
+  [[-1], [-1, 1]]  n=25 cp=9 c=9 #mc=2 sat=True minlen=5
+  [[-1], [1, 2]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=5
+  [[-1], [-2, 1]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=5
+  [[-1], [-1, -1]]  n=25 cp=9 c=9 #mc=2 sat=True minlen=5
+  [[-1], [-1, 2]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=5
+  [[-1], [-2, -1]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=5
+  [[-1], [2, 2]]  n=25 cp=9 c=9 #mc=4 sat=True minlen=5

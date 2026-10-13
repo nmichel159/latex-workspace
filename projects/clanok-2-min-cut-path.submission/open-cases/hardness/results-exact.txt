@@ -1,0 +1,7 @@
+check_exact.py: exact.py versus checks/mcp.py on all connected graphs with 2..7 vertices
+
+graphs: 995, ordered pairs: 39692, pairs with a u-v path inside a minimum cut: 21366
+comparisons: c(u,v) and the set of minimum cuts (3 methods); PATH-IN-MIN-CUT from the cuts, cp_brute == c,
+  definition-based test with and without the alternation pruning
+failures: 0
+Time 41 s.

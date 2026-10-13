@@ -1,0 +1,24 @@
+formula x-notx [[1], [-1]] switches 2 answer False satisfiable False
+bottoms 2 tops 3  F=[(1, 2)]
+   s0: Nb=[0, 1] Nt=[1, 2]
+   s1: Nb=[0, 1] Nt=[0, 1]
+
+  pairs without P2: 0  pairs with no option: 0
+formula all4 [[1, 2], [1, -2], [-1, 2], [-1, -2]] switches 8 answer False satisfiable False
+bottoms 7 tops 5  F=[(2, 4)]
+   s0: Nb=[0, 4] Nt=[1, 4]
+   s1: Nb=[1, 6] Nt=[1, 4]
+   s2: Nb=[1, 4] Nt=[1, 2]
+   s3: Nb=[1, 5] Nt=[1, 2]
+   s4: Nb=[0, 3] Nt=[2, 3]
+   s5: Nb=[2, 6] Nt=[2, 3]
+   s6: Nb=[1, 3] Nt=[0, 3]
+   s7: Nb=[2, 5] Nt=[0, 3]
+
+  pair 0 ('occ', 0, 1) 5 ('occ', 2, 2) options keeping 'no': [('t', 2), ('nt', None)]
+  pair 0 ('occ', 0, 1) 6 ('occ', 3, -1) options keeping 'no': [('b', 3), ('b', 4), ('t', 2), ('nb', None), ('nt', None)]
+  pair 0 ('occ', 0, 1) 7 ('occ', 3, -2) options keeping 'no': []
+  pair 1 ('occ', 0, 2) 4 ('occ', 2, -1) options keeping 'no': []
+  pair 1 ('occ', 0, 2) 7 ('occ', 3, -2) options keeping 'no': [('b', 5), ('b', 6), ('nb', None), ('nt', None)]
+  pair 2 ('occ', 1, 1) 7 ('occ', 3, -2) options keeping 'no': []
+  pairs without P2: 6  pairs with no option: 3

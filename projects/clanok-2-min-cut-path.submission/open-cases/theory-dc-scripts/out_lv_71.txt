@@ -1,0 +1,1 @@
+seed 71 {'yes': 508, 'fail': 0, 'notmin': 0}

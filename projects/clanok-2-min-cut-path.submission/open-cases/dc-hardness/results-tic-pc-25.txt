@@ -1,0 +1,2 @@
+random phase: {'no_rel_yes': 127, 'ac_fp': 87, 'pc_fp': 0} 66s
+climb phase: {'steps': 1030, 'ac_fp': 1018, 'pc_fp': 0} 447s

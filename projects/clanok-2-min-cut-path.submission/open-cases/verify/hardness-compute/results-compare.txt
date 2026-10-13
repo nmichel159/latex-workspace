@@ -1,0 +1,5 @@
+compare_hardness.py (hardness/ imported read-only)
+H1 graph identity (natural sync order): my F1+F2+F4 46159 formulas, hardness/ families (a)-(c) 399 formulas; different graphs: 0 [] (45 s)
+H2 shortest path length in a minimum cut, my BFS value vs hardness/reduction.shortest_route: 49733 records of info-*.jsonl (47235 satisfiable); different: 0 [] (10 s)
+H3 my checks R0-R11 on the 399 formulas of hardness/check_reduction.py: {"sat": 352, "unsat": 47, "bb": 399, "budget": 0, "nmax": 176}; failing formulas: 0 [] (125 s)
+H4 libraries on 600 random connected G(n, p) graphs (n = 6..14, p = 0.2..0.5), 7200 ordered pairs: c, the set of minimum cuts, the answer cp = c; mismatches: 0 []; pairs skipped because cp_equals_c_paths hit its path budget: 0 (19 s)

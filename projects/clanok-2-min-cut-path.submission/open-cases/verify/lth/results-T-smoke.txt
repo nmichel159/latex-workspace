@@ -1,0 +1,17 @@
+rand seed 100: {'n': 20, 'yes': 14, 'no': 6, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 2, 'p2': 20, 'bad_cert': 0}
+empty seed 102: {'n': 20, 'yes': 13, 'no': 7, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 4, 'p2': 20, 'bad_cert': 0}
+rigidmut seed 105: {'n': 20, 'yes': 15, 'no': 5, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 5, 'p2': 20, 'bad_cert': 0}
+zero seed 103: {'n': 20, 'yes': 10, 'no': 10, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 4, 'p2': 20, 'bad_cert': 0}
+pool seed 101: {'n': 20, 'yes': 9, 'no': 11, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 4, 'p2': 20, 'bad_cert': 0}
+nop2 seed 106: {'n': 20, 'yes': 8, 'no': 12, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 1, 'p2': 6, 'bad_cert': 0, 'noP2_T_miss': 1}
+sat seed 104: {'n': 20, 'yes': 19, 'no': 1, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 20, 'bad_cert': 0}
+
+TOTALS (1s)
+empty: {'n': 20, 'yes': 13, 'no': 7, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 4, 'p2': 20, 'bad_cert': 0}
+nop2: {'n': 20, 'yes': 8, 'no': 12, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 1, 'p2': 6, 'bad_cert': 0, 'noP2_T_miss': 1}
+pool: {'n': 20, 'yes': 9, 'no': 11, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 4, 'p2': 20, 'bad_cert': 0}
+rand: {'n': 20, 'yes': 14, 'no': 6, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 2, 'p2': 20, 'bad_cert': 0}
+rigidmut: {'n': 20, 'yes': 15, 'no': 5, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 5, 'p2': 20, 'bad_cert': 0}
+sat: {'n': 20, 'yes': 19, 'no': 1, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 20, 'bad_cert': 0}
+zero: {'n': 20, 'yes': 10, 'no': 10, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 4, 'p2': 20, 'bad_cert': 0}
+violations: 0

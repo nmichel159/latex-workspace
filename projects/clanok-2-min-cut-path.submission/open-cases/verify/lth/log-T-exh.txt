@@ -1,0 +1,7 @@
+K=1 n=5 {'inst': 3498, 'yes': 3418, 'relax_yes_no': 0, 'viol': 0} 1s
+K=2 n=3 {'inst': 11996, 'yes': 10343, 'relax_yes_no': 76, 'viol': 0} 1s
+K=3 n=2 {'inst': 6080, 'yes': 3183, 'relax_yes_no': 294, 'viol': 0} 1s
+K=2 n=4 {'inst': 109675, 'yes': 103638, 'relax_yes_no': 160, 'viol': 0} 14s
+K=3 n=3 {'inst': 190412, 'yes': 149747, 'relax_yes_no': 3074, 'viol': 0} 63s
+K=4 n=2 {'inst': 27795, 'yes': 11663, 'relax_yes_no': 1686, 'viol': 0} 11s
+K=5 n=2 {'inst': 100625, 'yes': 34217, 'relax_yes_no': 6514, 'viol': 0} 62s

@@ -1,0 +1,1 @@
+H1 graph identity (natural sync order): my F1+F2+F4 46159 formulas, hardness/ families (a)-(c) 399 formulas; different graphs: 0 [] (45 s)

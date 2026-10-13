@@ -1,8 +1,9 @@
 # Min Cut-Path – research overview
 
-Sources: the master's thesis *Min Cut-Path* (Charles University, Prague, 2025; **MT**) and the manuscript of article 1
-(`projects/clanok-1-min-cut-path/main.tex`, the whole text in one file; **A1**). Definition and theorem numbers of MT can be located in
-`knowledge/sources/diplomova-praca-2025-min-cut-path.txt`.
+Sources: the master's thesis *Min Cut-Path* (Charles University, Prague, 2025; **MT**), the manuscript of article 1
+(`projects/clanok-1-min-cut-path/main.tex`, the whole text in one file; **A1**) and the manuscript of article 2
+(`projects/clanok-2-min-cut-path/main.tex`, written 2026-10-12 from Section 3.3 of MT; **A2**, Section 3a below).
+Definition and theorem numbers of MT can be located in `knowledge/sources/diplomova-praca-2025-min-cut-path.txt`.
 
 ## 1. Problem
 
@@ -93,13 +94,69 @@ Both graphs have the six vertices `t, a, v, u, b, s` and the edges `ta, tv, au, 
   `cp = c + d − 1` fails; 22 further graphs with seven vertices fail (24 of the 995 connected graphs with 2 to 7
   vertices; every connected graph with at most seven vertices lies in the class).
 
+## 3a. Article 2: the class `DC_2` (written 2026-10-12)
+
+Subject: Section 3.3 of MT with canonical definitions and complete proofs. Class `DC_2` (macro `\DC`): connected
+graphs in which every two distinct vertices satisfy `d(x,y) ≤ 2` or `c(x,y) ≤ 2` (MT: *diam or cut 2*, Def. 37).
+Statements are numbered on one counter (theorem, lemma, proposition, corollary); numbers as compiled 2026-10-12.
+
+**Terms (A2, Definitions 3 and 4), for a pair with `c(u,v) = 2`:** `F` = union of all minimum `u`-`v` cuts; every
+edge of `F` has a *tail* (on the `u`-side of every minimum cut containing it) and a *head*; a *piece* is a
+component of `G − F`; an edge of `F` *enters* the piece of its head and *leaves* the piece of its tail; a *square*
+is the piece of `u`, the piece of `v` or a piece entered by two edges, `S_1, …, S_k` in the order from `u` to `v`;
+a *link* is any other piece (one entering, one leaving edge); *terminals* of `S_i`: `a_i, b_i` heads of the entering
+edges (`a_1 = b_1 = u`), `c_i, d_i` tails of the leaving edges (`c_k = d_k = v`); a *general path* is a sequence
+`e_0, L_1, e_1, …, L_r, e_r` of edges of `F` and links from one square to the next; the *square decomposition* is
+`S_1, P_{1,1}, P_{1,2}, S_2, …, S_k`; the *trace* of a path in a piece is its part inside the piece.
+
+| A2 | Label | Result | MT | Note |
+|---|---|---|---|---|
+| Lemma 1 | `lem:basic-bounds` | `max{c,d} ≤ cp ≤ c+d−1`; `cp = d` iff a separating shortest path exists | Claims 6, 7 | proved in A2 |
+| Prop. 4 | `prop:class` | `c(x,y) ≥ 3` is an equivalence relation (3-edge-connected components); `G ∈ DC_2` iff every class has pairwise distances ≤ 2; diameter two and cactus graphs lie in the class | – | |
+| Ex. 1 | `ex:counterexamples` | `G_a`, `G_b`: `cp = 3 < c + d − 1` | Fig. 3.3 | the two counterexamples of Section 3 above |
+| Prop. 5 | `prop:easy-pairs` | `d = 1 ⇒ cp = c`; `c = 1 ⇒ cp = d`; `c = 2 ⇒ cp ∈ {d, d+1}`; `d = 2 ⇒ cp ∈ {c, c+1}` | Claims 6, 7 | in the class every pair is of one of the four kinds |
+| Lemmas 6-8 | `lem:orientation`, `lem:pieces`, `lem:degrees` | `F ⊆ p_1 ∪ p_2`; orientation; a `u`-`v` path visits a piece once; numbers of entering and leaving edges | Claim 19 | |
+| **Thm 9** | `thm:structure` | square decomposition: entering/leaving edges of a square form minimum cuts; all `u`-`v` paths pass the squares in one order and follow one of the two general paths; **distinct terminals of a square have `c ≥ 3`** | Theorem 20 (Def. 38-40) | parts (i)-(iv) are the known structure of all minimum cuts for value two (Section 5b) |
+| Lemma 10 | `lem:criterion` | a `u`-`v` path `R` separates iff in some square the other entering and the other leaving terminal are separated in `S_i ∖ R` | inside the proof of Theorem 22 | |
+| **Thm 11** | `thm:characterization` | any graph, `c(u,v) = 2`: `cp = d` iff some square has an `x`-`y` path `p` with `d(u,x) + |p| + d(y,v) = d(u,v)` that separates the other two terminals in the square; else `cp = d + 1` | Theorem 22 | |
+| Cor. 13 | `cor:two-edges` | in the class such a `p` has at most two edges | Claim 21 | |
+| Lemma 14 | `lem:residual` | `F` = edges of `p_1 ∪ p_2` whose ends lie in different strong components of the residual digraph | – | Picard-Queyranne for value two |
+| **Thm 15** | `thm:linear-time` (Alg. 1 `alg:cut-two`) | `O(|V|+|E|)`: decide `c(u,v) ≤ 2` and compute `cp` and a minimum cut-path, for every connected graph, or return a pair with `c ≥ 3`, `d ≥ 3` that certifies `G ∉ DC_2` (never for `G ∈ DC_2`) | Theorems 22, 23 (Alg. 6, 7) | MT: linear only when the decomposition is given; the certificate form was added after the referee pass |
+| Cor. 16 | `cor:class-pairs` | in the class all pairs with `c ≤ 2` (hence all with `d ≥ 3`) in linear time; `d = 1` by one minimum cut | – | |
+| Rem. 2 | `rem:coarser` | unions of some minimum cuts give coarser decompositions with the same criterion; the construction of MT (Transformations A, B, C) is of this kind | Alg. 2-5, Def. 41 | not proved that every run of Alg. 5 of MT gives such a union |
+| **Thm 17** | `thm:hardness` | deciding `cp = d` is NP-complete for pairs with `c(u,v) = 2` in general graphs (add `u'` joined to `u` by two paths of length two; A1, Theorem 3.10) | – | new; answers, for the cut-value, question 2 of the conclusion of A1 (bounded `c(u,v)`) |
+| Prop. 18 | `prop:open-pairs` | `cp = c` iff some minimum cut contains a `u`-`v` path; odd length, at least three if `d = 2` | proof of Theorem 15 | the pairs `d = 2`, `c ≥ 3` of the class stay open in A2 |
+
+**Verification (2026-10-12).** `projects/clanok-2-min-cut-path.submission/checks/` (README with counts): every
+statement on all 12112 connected graphs with at most 8 vertices and on 2953 random chains in the class (up to 40
+vertices); the algorithm against brute force; 18 mutation tests. Independent referee pass with its own scripts:
+`projects/clanok-2-min-cut-path.submission/review/referee-math.md` (no error; 11895 instances, 81 example values).
+Every connected graph with at most 7 vertices lies in `DC_2`; 537 connected graphs with 8 vertices do not.
+Outside the class the algorithm without the certificate returns `d + 1` where `cp = d` on 111 of 4789 random
+instances, so the hypothesis on the class (or the certificate) is needed.
+
+**Errors and gaps of MT Section 3.3** (details: `projects/clanok-2-min-cut-path.submission/drafts/core-notes.md` §3):
+Definitions 38-40 do not fix which decomposition is meant and the proofs use unproved facts about it; condition 2
+of Definition 39 is a consequence, not a definition; Transformations A, B, C and Algorithm 5 are not specified
+precisely and Theorem 20 has only an "intuition of correctness"; the proof of Claim 21 is not an argument (case 2);
+the key equivalence of Theorem 22 is asserted; Algorithm 7 starts with `P ← ∅` and intersects, removes vertices
+where edges are meant, and Theorem 23 assumes the decomposition as given.
+
+**Work on the open pairs** (`d(u,v) = 2`, `c(u,v) ≥ 3`): `projects/clanok-2-min-cut-path.submission/open-cases/`
+holds working files of another session of 2026-10-12 (claims about NP-completeness of deciding `cp = c` in general
+graphs and on diameter three, FPT in `c`); not checked here and not in A2. TODO(verify) before any of it is used.
+
 ## 4. What each text contains beyond the other
 
 **Only in MT** (material for further articles):
 - chapter 2: tree-cut, 2-approximation, global minimum, partial path/cut property;
-- chapter 3.3: the whole theory of *diam or cut 2* and of the decomposition into a general square graph;
+- chapter 3.3: Transformations A, B, C and the incremental construction (A2 replaces them by the canonical decomposition, Section 3a);
 - chapter 4.5: almost polynomial average-case algorithm for sparse random graphs;
 - chapter 5: symmetric case `c = d = cp`, algorithms Filter-BFS and Local-Cut.
+
+**Only in A2:** the canonical square decomposition from the minimum cuts, the 3-edge-connectivity of the terminals,
+the separation criterion and the characterization for every graph with `c(u,v) = 2`, linear time including the
+decomposition, the certificate for graphs outside the class, NP-completeness for `c(u,v) = 2`.
 
 **Only in A1:**
 - NP-completeness via the intermediate problem \textsc{Separating Shortest Path};
@@ -153,6 +210,18 @@ Cited in A1 since the preserving revision of 2026-10-09 (introduction; Chung-Lu 
 | Edge connectivity = minimum degree w.h.p. in `G(n, p)` | Theorem 7.3 of A1 | not verified first-hand: Bollobas, Thomason 1985 and Section 7.2 of `Bollobas2001` according to secondary sources |
 | Chernoff tails `P(X <= a mu) <= exp(-mu h(a))`, `h(a) = a log a - a + 1`, and the upper tail with the same `h` | Lemma 7.4 of A1 | Frieze-Karonski, free PDF 2026: (34.19) and (34.17), Section 34.4, p. 707 (`phi(a - 1) = h(a)`); printed numbering (Ch. 21) not verified |
 
+Added for A2 on 2026-10-12 (verdicts and exact locations: `projects/clanok-2-min-cut-path.submission/drafts/related-work.md`; searches logged in `knowledge/literature/searches.md`):
+
+| Topic | Relation to A2 | Source |
+|---|---|---|
+| All minimum `s`-`t` cuts are the closed sets of the residual graph of one maximum flow; contracting its strong components gives an acyclic graph (the "strip" of Dinitz and Vainshtein, balanced for undirected graphs) | **the square decomposition is this structure for value two**: Theorem 9(i)-(iv) and Lemma 14 of A2 must be attributed; new in A2 are its explicit form with terminals and what is done with it | `PicardQueyranne1980` (Theorem 1, Corollary 6 of the authors' report), `BaswanaPandey2025Carcass` (Section 1); `DinitzVainshtein2000Carcass` only PARTIAL |
+| 3-edge-connected components are vertex classes; cactus of the 2-edge cuts of a 2-edge-connected graph | the classes of `c(x,y) ≥ 3` in Proposition 4 of A2; "the square decomposition is the part of the cactus between `u` and `v`" is in no source (our derivation, not proved in A2) | `Mehlhorn2017Certifying` (Section 1, Lemma 11 of arXiv v3), `NagamochiKameda1996` |
+| Classes defined by bounded local edge-connectivity | nearest named classes; the class `DC_2` ("small distance or small local connectivity") was not found under any name | `Aboulker2017Coloring` |
+| Standard algorithms (breadth-first search, strong components, augmenting paths, flow decomposition), bridges | Section 5 of A2 | `Erickson2019Algorithms`, `Tarjan1972DFS` (abstract only), `Schmidt2013TwoConnectivity` |
+
+Not found anywhere: the separation criterion, the characterization of `cp = d` for `c(u,v) = 2`, the algorithm, the
+hardness for `c(u,v) = 2` (DBLP, Google Scholar and MathSciNet were not searched).
+
 Diameter two is the boundary of tractability for Most Vital Edges with unit edge lengths and for Matching Cut. Whether Min Cut-Path is NP-hard on graphs of diameter three is open (the reduction of A1 produces graphs of large diameter).
 
 Note for texts: if `cp = c + d − 1` holds, the union of any minimum cut and any shortest path is a minimum cut-path (A1, Remark 5.6).
@@ -160,7 +229,8 @@ Note for texts: if `cp = c + d − 1` holds, the union of any minimum cut and an
 ## 6. Open problems and directions
 
 From MT and the conclusion of A1:
-1. Class *diam or cut 2*: the case `d(u, v) = 2` (MT solves only `c(u, v) = 2`); in A1 phrased as merging two polynomial "islands".
+1. Class *diam or cut 2* (`DC_2`): the pairs with `d(u, v) = 2` and `c(u, v) ≥ 3` (MT and A2 solve the pairs with `c(u, v) ≤ 2`, A2 in linear time); in A1 phrased as merging two polynomial "islands". There `cp ∈ {c, c+1}` and `cp = c` iff some minimum cut contains a `u`-`v` path (A2, Proposition 18). On graphs with at most 8 vertices: `cp = c` for 400 pairs, `cp = c + 1` for 65193.
+   Question 2 of the conclusion of A1 (bounded `c(u,v)` or `d(u,v)`): answered for the cut-value by A2, Theorem 17 (NP-complete already for `c(u,v) = 2`); A1's text still lists it as open.
 2. Planar graphs (cut ↔ cycle duality), graphs of bounded treewidth.
 3. Approximation algorithms with a guarantee for general graphs (only the trivial 2-approximation is known).
    No PTAS unless P = NP (A1, Theorem 4.3, 2026-10-10; no FPTAS is Corollary 4.4): in the graph of the reduction every cut-path has at least
@@ -175,7 +245,7 @@ From MT and the conclusion of A1:
 
 ## 7. Planned manuscripts
 
-Author's decision (2026-10-07): **article 2 will be produced from the master's thesis** (project `projects/clanok-2-min-cut-path/`; target Algorithmica, Springer Nature template `sn-jnl` prepared 2026-10-08, placeholder text only). The LaTeX source of MT is not in the repository – supply it in `inbox/`, otherwise the text is transcribed from the PDF. Article 1 targets Discrete Applied Mathematics and was ported to its template on 2026-10-08 (class `cas-sc`).
+Author's decision (2026-10-07): **article 2 will be produced from the master's thesis** (project `projects/clanok-2-min-cut-path/`; target Algorithmica, Springer Nature template `sn-jnl` prepared 2026-10-08). Written 2026-10-12 from Section 3.3 of MT (the class `DC_2`; Section 3a above), working title *Min Cut-Path on Graphs with Distance or Cut-Value at Most Two*; the author has not yet read it. The LaTeX source of MT is not in the repository; the text was written from the PDF. Article 1 targets Discrete Applied Mathematics and was ported to its template on 2026-10-08 (class `cas-sc`).
 
 | Title in the CV | Likely source in MT (guess, to be confirmed) |
 |---|---|
@@ -196,6 +266,10 @@ English terms come from MT and A1, Czech ones from the Czech abstract of MT. The
 | square graph | čtvercový graf | štvorcový graf |
 | general square graph | obecný čtvercový graf | všeobecný štvorcový graf |
 | diam or cut 2 graph | graf s průměrem nebo řezem nejvýše dva | graf s priemerom alebo rezom najviac dva |
+| square, link, piece, terminal (A2) | – | štvorec, článok, kus, terminál |
+| square decomposition (A2; "general square graph" in MT) | – | dekompozícia na štvorce |
+| entering / leaving edge, tail, head (A2) | – | vstupná / výstupná hrana, chvost, hlava |
+| trace of a path in a square (A2) | – | stopa cesty vo štvorci |
 | nearly k-regular graph | téměř k-regulární graf | takmer k-regulárny graf |
 | symmetric cut-path | symetrická řezo-cesta | symetrická rez-cesta |
 | tree-cut | – | strom-rez |

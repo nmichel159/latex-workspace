@@ -1,0 +1,27 @@
+connected graphs by order: {2: 1, 3: 2, 4: 6, 5: 21, 6: 112, 7: 853, 8: 11117}
+13a DC answer no                                        120876
+13a DC answer yes                                       712
+13a DC longest witness length 3                         712
+13a non-DC pairs where P2 fails (expected possible)     36
+13a nonDC answer no                                     9510
+13a nonDC answer yes                                    88
+13a nonDC longest witness length 3                      88
+13a pairs (d=2,c>=3)                                    131186
+13a pairs in DC                                         121588
+DC' answer no                                           38784
+DC' answer yes                                          482
+DC' pairs (d=2,c>=4)                                    39266
+L1 cp compared                                          142656
+L1 pairs (graph with bridges, c>=2)                     142656
+L4 ears                                                 302266
+L4 ears attached at u or v                              189870
+L4 ears with p = s                                      4286
+L4 long ears (>= 2 vertices)                            18988
+P5 pairs (c>=3)                                         398478
+cp compared                                             131186
+graphs                                                  12112
+graphs in DC                                            11575
+graphs in DC'                                           12112
+paths inside minimum cuts                               443140
+violations: 0
+time 48.9s

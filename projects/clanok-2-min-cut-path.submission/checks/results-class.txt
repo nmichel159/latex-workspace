@@ -1,0 +1,42 @@
+check_class.py: S13, all 12112 connected graphs with 2..8 vertices
+
+  graphs with 2 vertices                                       1
+  graphs with 3 vertices                                       2
+  graphs with 4 vertices                                       6
+  graphs with 5 vertices                                       21
+  graphs with 6 vertices                                       112
+  graphs with 7 vertices                                       853
+  graphs with 8 vertices                                       11117
+  in DC with a pair cp < c + d - 1, 6 vertices                 2
+  in DC with a pair cp < c + d - 1, 7 vertices                 22
+  in DC with a pair cp < c + d - 1, 8 vertices                 356
+  in DC, 2 vertices                                            1
+  in DC, 3 vertices                                            2
+  in DC, 4 vertices                                            6
+  in DC, 5 vertices                                            21
+  in DC, 6 vertices                                            112
+  in DC, 7 vertices                                            853
+  in DC, 8 vertices                                            10580
+  not in DC, 8 vertices                                        537
+  S13-eq             12112 assertions, 0 failed  PASS
+  S13-iff            12112 assertions, 0 failed  PASS
+  S13-cactus-def     12112 assertions, 0 failed  PASS
+  S13-diam2           4612 assertions, 0 failed  PASS
+  S13-cactus           290 assertions, 0 failed  PASS
+  S13-formula         4881 assertions, 0 failed  PASS
+  PRE-cor312        331122 assertions, 0 failed  PASS
+  PRE-bounds        331122 assertions, 0 failed  PASS
+  PRE-easy-i         10664 assertions, 0 failed  PASS
+  PRE-easy-ii         3799 assertions, 0 failed  PASS
+  PRE-easy-iii       90946 assertions, 0 failed  PASS
+  PRE-easy-iv       135619 assertions, 0 failed  PASS
+  PRE-minimum-cuts   19846 assertions, 0 failed  PASS
+  PRE-open-pairs     19846 assertions, 0 failed  PASS
+  PRE-parity          1933 assertions, 0 failed  PASS
+  PRE-uncrossing       142 assertions, 0 failed  PASS
+  PRE-bridges-DC     18018 assertions, 0 failed  PASS
+
+Graphs with 6 vertices in DC in which cp < c + d - 1 for some pair: 2
+  edges 0-1;0-3;0-5;1-2;2-3;3-4;4-5: isomorphic to counterexample (a): True, to (b): False
+  edges 0-2;0-3;0-4;0-5;1-2;1-3;2-3;3-4;4-5: isomorphic to counterexample (a): False, to (b): True
+Time 9 s.

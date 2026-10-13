@@ -1,0 +1,109 @@
+explore_open_cases.py: all 12112 connected graphs with 2..8 vertices, unordered pairs
+
+Graphs: 2 vertices: 1, 3 vertices: 2, 4 vertices: 6, 5 vertices: 21, 6 vertices: 112, 7 vertices: 853, 8 vertices: 11117
+Graphs not in DC: 8 vertices: 537
+
+=== (a) pairs with d(u,v) = 2 and c(u,v) >= 3 ===
+graphs          c       cp = c   cp = c + 1 share cp=c
+n=5             3            0            5      0.00%
+n=5           any            0            5      0.00%
+n=6             3            1          101      0.98%
+n=6             4            0           14      0.00%
+n=6           any            1          115      0.86%
+n=7             3           11         1784      0.61%
+n=7             4            7          415      1.66%
+n=7             5            0           39      0.00%
+n=7           any           18         2238      0.80%
+n=8             3          147        43911      0.33%
+n=8             4          199        16239      1.21%
+n=8             5           35         2515      1.37%
+n=8             6            0          170      0.00%
+n=8           any          381        62835      0.60%
+all             3          159        45801      0.35%
+all             4          206        16668      1.22%
+all             5           35         2554      1.35%
+all             6            0          170      0.00%
+all           any          400        65193      0.61%
+
+Pairs with cp = c: lengths of the u-v paths contained in a minimum cut
+  number of (pair, minimum cut, path) triples by path length: {3: 457}
+  number of pairs by the set of lengths of their paths in minimum cuts: {(3,): 400}
+  (|A|, |V - A|) of the cut that contains the path, A = u side: {(3, 3): 1, (3, 4): 11, (3, 5): 118, (4, 3): 10, (4, 4): 161, (5, 3): 156}
+
+Three smallest examples with cp = c:
+    n=6 m=9: edges 0-2 0-3 0-4 0-5 1-2 1-3 2-3 3-4 4-5; u=2 v=4; c=3 cp=3; in DC: True
+        minimum cut 0-2 0-3 3-4 contains the path 2-0-3-4
+    n=7 m=10: edges 0-2 0-3 0-4 0-5 1-2 1-3 2-3 3-4 3-6 4-5; u=2 v=4; c=3 cp=3; in DC: True
+        minimum cut 0-2 0-3 3-4 contains the path 2-0-3-4
+    n=7 m=10: edges 0-2 0-3 0-4 0-5 1-2 1-3 2-3 2-6 3-4 4-5; u=2 v=4; c=3 cp=3; in DC: True
+        minimum cut 0-2 0-3 3-4 contains the path 2-0-3-4
+  smallest with c = 3:
+    n=6 m=9: edges 0-2 0-3 0-4 0-5 1-2 1-3 2-3 3-4 4-5; u=2 v=4; c=3 cp=3; in DC: True
+        minimum cut 0-2 0-3 3-4 contains the path 2-0-3-4
+  smallest with c = 4:
+    n=7 m=11: edges 0-5 0-6 1-4 1-6 2-3 2-5 3-4 3-5 3-6 4-5 4-6; u=5 v=6; c=4 cp=4; in DC: True
+        minimum cut 0-5 3-4 3-6 4-5 contains the path 5-4-3-6
+        minimum cut 0-6 3-4 3-6 4-5 contains the path 5-4-3-6
+  smallest with c = 5:
+    n=8 m=13: edges 0-1 0-3 0-4 0-7 1-3 1-4 1-5 1-6 2-4 2-7 4-7 5-7 6-7; u=1 v=7; c=5 cp=5; in DC: True
+        minimum cut 0-4 0-7 1-4 1-5 1-6 contains the path 1-4-0-7
+        minimum cut 0-4 0-7 1-4 1-6 5-7 contains the path 1-4-0-7
+
+Three smallest examples with cp = c + 1:
+    n=5 m=6: edges 0-2 0-3 0-4 1-2 1-3 1-4; u=0 v=1; c=3 cp=4; in DC: True
+    n=5 m=7: edges 0-2 0-3 0-4 1-2 1-3 1-4 2-4; u=0 v=1; c=3 cp=4; in DC: True
+    n=5 m=8: edges 0-1 0-3 0-4 1-2 1-4 2-3 2-4 3-4; u=0 v=2; c=3 cp=4; in DC: True
+  smallest with c = 3:
+    n=5 m=6: edges 0-2 0-3 0-4 1-2 1-3 1-4; u=0 v=1; c=3 cp=4; in DC: True
+  smallest with c = 4:
+    n=6 m=8: edges 0-4 0-5 1-4 1-5 2-4 2-5 3-4 3-5; u=4 v=5; c=4 cp=5; in DC: True
+  smallest with c = 5:
+    n=7 m=10: edges 0-2 0-3 0-4 0-5 0-6 1-2 1-3 1-4 1-5 1-6; u=0 v=1; c=5 cp=6; in DC: True
+  smallest with c = 6:
+    n=8 m=12: edges 0-6 0-7 1-6 1-7 2-6 2-7 3-6 3-7 4-6 4-7 5-6 5-7; u=6 v=7; c=6 cp=7; in DC: True
+
+=== (b) connected graphs of diameter exactly 3 ===
+diameter-3 graphs: 4 vertices: 1 (in DC: 1, not in DC: 0), 5 vertices: 5 (in DC: 5, not in DC: 0), 6 vertices: 43 (in DC: 43, not in DC: 0), 7 vertices: 387 (in DC: 387, not in DC: 0), 8 vertices: 5797 (in DC: 5261, not in DC: 536)
+
+Distribution of the gap (c + d - 1) - cp over all pairs of diameter-3 graphs, by (d, c); columns: gap 0, 1, 2, ...
+d        c             gap 0      gap 1      gap 2
+1        1              3587          0          0
+1        2             19954          0          0
+1        3             31535          0          0
+1        4             21469          0          0
+1        5              5751          0          0
+1        6               453          0          0
+2        1             12255          0          0
+2        2             32214          0          0
+2        3             22508        113          0
+2        4              5148        195          0
+2        5               317         35          0
+3        1              7770          0          0
+3        2              7103         67          0
+3        3               600         67          3
+
+Largest gap: 2
+  n = 4: 6 pairs in diameter-3 graphs, 0 with cp < c + d - 1
+  n = 5: 50 pairs in diameter-3 graphs, 0 with cp < c + d - 1
+  n = 6: 645 pairs in diameter-3 graphs, 3 with cp < c + d - 1
+  n = 7: 8127 pairs in diameter-3 graphs, 26 with cp < c + d - 1
+  n = 8: 162316 pairs in diameter-3 graphs, 451 with cp < c + d - 1
+
+Three smallest examples with cp < c + d - 1:
+    n=6 m=7: edges 0-1 0-3 0-5 1-2 2-3 3-4 4-5; u=1 v=4; c=2 d=3 cp=3 (c+d-1-cp = 1); in DC: True
+    n=6 m=7: edges 0-1 0-3 0-5 1-2 2-3 3-4 4-5; u=2 v=5; c=2 d=3 cp=3 (c+d-1-cp = 1); in DC: True
+    n=6 m=9: edges 0-2 0-3 0-4 0-5 1-2 1-3 2-3 3-4 4-5; u=2 v=4; c=3 d=2 cp=3 (c+d-1-cp = 1); in DC: True
+  smallest with d = 2, c = 3, gap 1:
+    n=6 m=9: edges 0-2 0-3 0-4 0-5 1-2 1-3 2-3 3-4 4-5; u=2 v=4; c=3 d=2 cp=3 (c+d-1-cp = 1); in DC: True
+  smallest with d = 2, c = 4, gap 1:
+    n=7 m=11: edges 0-5 0-6 1-4 1-6 2-3 2-5 3-4 3-5 3-6 4-5 4-6; u=5 v=6; c=4 d=2 cp=4 (c+d-1-cp = 1); in DC: True
+  smallest with d = 2, c = 5, gap 1:
+    n=8 m=13: edges 0-1 0-3 0-4 0-7 1-3 1-4 1-5 1-6 2-4 2-7 4-7 5-7 6-7; u=1 v=7; c=5 d=2 cp=5 (c+d-1-cp = 1); in DC: True
+  smallest with d = 3, c = 2, gap 1:
+    n=6 m=7: edges 0-1 0-3 0-5 1-2 2-3 3-4 4-5; u=1 v=4; c=2 d=3 cp=3 (c+d-1-cp = 1); in DC: True
+  smallest with d = 3, c = 3, gap 1:
+    n=8 m=10: edges 0-1 0-7 1-2 1-5 2-3 2-6 3-4 4-7 5-6 5-7; u=2 v=7; c=3 d=3 cp=4 (c+d-1-cp = 1); in DC: False
+  smallest with d = 3, c = 3, gap 2:
+    n=8 m=11: edges 0-3 0-4 0-7 1-2 1-3 1-4 1-7 2-5 2-6 5-7 6-7; u=0 v=2; c=3 d=3 cp=3 (c+d-1-cp = 2); in DC: False
+
+Time 3 s.

@@ -1,0 +1,11 @@
+(1) edges [('p', 'u'), ('p', 'y'), ('q', 'u'), ('q', 'y'), ('r', 'v'), ('r', 'x'), ('s', 'v'), ('s', 'x'), ('u', 'x'), ('v', 'y'), ('x', 'y')]
+    c=3 d=3 cp=3 c+d-1=5; |delta(A)|=3; shortest path u x y v inside delta(A); |cut U path| = 3
+(2) phi=[[1], [-1]] M=c0+2 sync=yes: #mincuts=2 answer=False sat=False
+(2) phi=[[1], [-1]] M=c0+1 sync=yes: #mincuts=2 answer=False sat=False
+(2) phi=[[1], [-1]] M=c0+2 sync=no: #mincuts=4 answer=True sat=False
+(2) phi=[[1, 2], [1, -2], [-1, 2], [-1, -2]] M=c0+2 sync=yes: #mincuts=4 answer=False sat=False
+(2) phi=[[1, 2], [1, -2], [-1, 2], [-1, -2]] M=c0+1 sync=yes: #mincuts=4 answer=False sat=False
+(2) phi=[[1, 2], [1, -2], [-1, 2], [-1, -2]] M=c0+2 sync=no: #mincuts=256 answer=True sat=False
+(2) phi=[[1, 1, 1], [-1, -1, -1]] M=c0+2 sync=yes: #mincuts=2 answer=False sat=False
+(2) phi=[[1, 1, 1], [-1, -1, -1]] M=c0+1 sync=yes: #mincuts=2 answer=False sat=False
+(2) phi=[[1, 1, 1], [-1, -1, -1]] M=c0+2 sync=no: #mincuts=64 answer=True sat=False

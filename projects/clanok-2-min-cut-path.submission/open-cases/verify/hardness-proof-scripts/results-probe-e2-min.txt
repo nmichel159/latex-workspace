@@ -1,0 +1,1 @@
+graphs <= 7 vertices: pairs with d >= 3 and cp < c + d - 1: 13; of them with a minimum cut + shortest path of size cp: 0

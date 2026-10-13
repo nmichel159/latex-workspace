@@ -1,0 +1,4 @@
+check_reduction.py F2: 16044 formulas, 196 s
+stats: {"formulas": 16044, "sat": 13892, "unsat": 2152, "bb": 16044, "bb_budget": 0, "brute": 56, "branch": 15988, "R10": 16044, "nmin": 13, "nmax": 52, "emax": 505, "cmin": 4, "cmax": 20, "fillers_M1": 0}
+failing formulas: 0
+failures by check: {}

@@ -1,0 +1,73 @@
+empty seed 1002: {'n': 400, 'yes': 249, 'no': 151, 'relax_yes_no': 9, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 57, 'p2': 400, 'bad_cert': 0}
+rand seed 1000: {'n': 400, 'yes': 240, 'no': 160, 'relax_yes_no': 11, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 53, 'p2': 400, 'bad_cert': 0}
+rigidmut seed 1005: {'n': 400, 'yes': 227, 'no': 173, 'relax_yes_no': 87, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 85, 'p2': 400, 'bad_cert': 0}
+pool seed 1001: {'n': 400, 'yes': 166, 'no': 234, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 70, 'p2': 400, 'bad_cert': 0}
+nop2 seed 1006: {'n': 400, 'yes': 155, 'no': 245, 'relax_yes_no': 11, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 55, 'p2': 141, 'bad_cert': 0, 'noP2_T_miss': 4}
+zero seed 1003: {'n': 400, 'yes': 229, 'no': 171, 'relax_yes_no': 5, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 67, 'p2': 400, 'bad_cert': 0}
+empty seed 1011: {'n': 400, 'yes': 258, 'no': 142, 'relax_yes_no': 8, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 58, 'p2': 400, 'bad_cert': 0}
+rand seed 1009: {'n': 400, 'yes': 246, 'no': 154, 'relax_yes_no': 10, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 67, 'p2': 400, 'bad_cert': 0}
+zero seed 1012: {'n': 400, 'yes': 240, 'no': 160, 'relax_yes_no': 3, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 61, 'p2': 400, 'bad_cert': 0}
+rigidmut seed 1014: {'n': 400, 'yes': 214, 'no': 186, 'relax_yes_no': 96, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 84, 'p2': 400, 'bad_cert': 0}
+nop2 seed 1015: {'n': 400, 'yes': 158, 'no': 242, 'relax_yes_no': 12, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 60, 'p2': 127, 'bad_cert': 0, 'noP2_T_miss': 5}
+sat seed 1004: {'n': 400, 'yes': 390, 'no': 10, 'relax_yes_no': 10, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 50, 'p2': 400, 'bad_cert': 0}
+rand seed 1018: {'n': 400, 'yes': 249, 'no': 151, 'relax_yes_no': 10, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 68, 'p2': 400, 'bad_cert': 0}
+empty seed 1020: {'n': 400, 'yes': 267, 'no': 133, 'relax_yes_no': 6, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 68, 'p2': 400, 'bad_cert': 0}
+pool seed 1010: {'n': 400, 'yes': 159, 'no': 241, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 77, 'p2': 400, 'bad_cert': 0}
+sat seed 1013: {'n': 400, 'yes': 394, 'no': 6, 'relax_yes_no': 6, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 52, 'p2': 400, 'bad_cert': 0}
+zero seed 1021: {'n': 400, 'yes': 240, 'no': 160, 'relax_yes_no': 12, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 61, 'p2': 400, 'bad_cert': 0}
+rigidmut seed 1023: {'n': 400, 'yes': 243, 'no': 157, 'relax_yes_no': 74, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 84, 'p2': 400, 'bad_cert': 0}
+pool seed 1019: {'n': 400, 'yes': 146, 'no': 254, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 67, 'p2': 400, 'bad_cert': 0}
+nop2 seed 1024: {'n': 400, 'yes': 149, 'no': 251, 'relax_yes_no': 9, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 60, 'p2': 139, 'bad_cert': 0, 'noP2_T_miss': 2}
+rand seed 1027: {'n': 400, 'yes': 248, 'no': 152, 'relax_yes_no': 8, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 63, 'p2': 400, 'bad_cert': 0}
+hard seed 1008: {'n': 400, 'yes': 331, 'no': 69, 'relax_yes_no': 61, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 17, 'p2': 400, 'bad_cert': 0}
+sat seed 1022: {'n': 400, 'yes': 392, 'no': 8, 'relax_yes_no': 8, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 50, 'p2': 400, 'bad_cert': 0}
+empty seed 1029: {'n': 400, 'yes': 249, 'no': 151, 'relax_yes_no': 5, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 59, 'p2': 400, 'bad_cert': 0}
+zero seed 1030: {'n': 400, 'yes': 250, 'no': 150, 'relax_yes_no': 6, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 53, 'p2': 400, 'bad_cert': 0}
+pool seed 1028: {'n': 400, 'yes': 156, 'no': 244, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 69, 'p2': 400, 'bad_cert': 0}
+rigidmut seed 1032: {'n': 400, 'yes': 234, 'no': 166, 'relax_yes_no': 86, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 83, 'p2': 400, 'bad_cert': 0}
+nop2 seed 1033: {'n': 400, 'yes': 159, 'no': 241, 'relax_yes_no': 9, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 63, 'p2': 127, 'bad_cert': 0, 'noP2_T_miss': 4}
+sat seed 1031: {'n': 400, 'yes': 391, 'no': 9, 'relax_yes_no': 9, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 58, 'p2': 400, 'bad_cert': 0}
+hard seed 1017: {'n': 400, 'yes': 324, 'no': 76, 'relax_yes_no': 66, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 22, 'p2': 400, 'bad_cert': 0}
+rand seed 1036: {'n': 400, 'yes': 255, 'no': 145, 'relax_yes_no': 11, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 54, 'p2': 400, 'bad_cert': 0}
+empty seed 1038: {'n': 400, 'yes': 260, 'no': 140, 'relax_yes_no': 8, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 68, 'p2': 400, 'bad_cert': 0}
+zero seed 1039: {'n': 400, 'yes': 256, 'no': 144, 'relax_yes_no': 6, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 70, 'p2': 400, 'bad_cert': 0}
+pool seed 1037: {'n': 400, 'yes': 161, 'no': 239, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 77, 'p2': 400, 'bad_cert': 0}
+rigidmut seed 1041: {'n': 400, 'yes': 224, 'no': 176, 'relax_yes_no': 92, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 84, 'p2': 400, 'bad_cert': 0}
+big seed 1007: {'n': 400, 'yes': 301, 'no': 99, 'relax_yes_no': 2, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 400, 'bad_cert': 0}
+nop2 seed 1042: {'n': 400, 'yes': 161, 'no': 239, 'relax_yes_no': 10, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 57, 'p2': 136, 'bad_cert': 0, 'noP2_T_miss': 6}
+sat seed 1040: {'n': 400, 'yes': 393, 'no': 7, 'relax_yes_no': 7, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 47, 'p2': 400, 'bad_cert': 0}
+hard seed 1035: {'n': 400, 'yes': 340, 'no': 60, 'relax_yes_no': 51, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 14, 'p2': 400, 'bad_cert': 0}
+rand seed 1045: {'n': 400, 'yes': 251, 'no': 149, 'relax_yes_no': 5, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 57, 'p2': 400, 'bad_cert': 0}
+hard seed 1026: {'n': 400, 'yes': 327, 'no': 73, 'relax_yes_no': 68, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 16, 'p2': 400, 'bad_cert': 0}
+zero seed 1048: {'n': 400, 'yes': 250, 'no': 150, 'relax_yes_no': 5, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 62, 'p2': 400, 'bad_cert': 0}
+empty seed 1047: {'n': 400, 'yes': 246, 'no': 154, 'relax_yes_no': 8, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 64, 'p2': 400, 'bad_cert': 0}
+pool seed 1046: {'n': 400, 'yes': 156, 'no': 244, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 75, 'p2': 400, 'bad_cert': 0}
+rigidmut seed 1050: {'n': 400, 'yes': 222, 'no': 178, 'relax_yes_no': 93, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 77, 'p2': 400, 'bad_cert': 0}
+nop2 seed 1051: {'n': 400, 'yes': 163, 'no': 237, 'relax_yes_no': 11, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 67, 'p2': 133, 'bad_cert': 0, 'noP2_T_miss': 9}
+sat seed 1049: {'n': 400, 'yes': 392, 'no': 8, 'relax_yes_no': 8, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 38, 'p2': 400, 'bad_cert': 0}
+hard seed 1044: {'n': 400, 'yes': 353, 'no': 47, 'relax_yes_no': 40, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 11, 'p2': 400, 'bad_cert': 0}
+rand seed 1054: {'n': 400, 'yes': 249, 'no': 151, 'relax_yes_no': 7, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 68, 'p2': 400, 'bad_cert': 0}
+big seed 1016: {'n': 400, 'yes': 283, 'no': 117, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 400, 'bad_cert': 0}
+empty seed 1056: {'n': 400, 'yes': 269, 'no': 131, 'relax_yes_no': 3, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 61, 'p2': 400, 'bad_cert': 0}
+zero seed 1057: {'n': 400, 'yes': 245, 'no': 155, 'relax_yes_no': 5, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 72, 'p2': 400, 'bad_cert': 0}
+rigidmut seed 1059: {'n': 400, 'yes': 218, 'no': 182, 'relax_yes_no': 93, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 83, 'p2': 400, 'bad_cert': 0}
+pool seed 1055: {'n': 400, 'yes': 143, 'no': 257, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 68, 'p2': 400, 'bad_cert': 0}
+nop2 seed 1060: {'n': 400, 'yes': 170, 'no': 230, 'relax_yes_no': 10, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 65, 'p2': 134, 'bad_cert': 0, 'noP2_T_miss': 2}
+sat seed 1058: {'n': 400, 'yes': 391, 'no': 9, 'relax_yes_no': 9, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 49, 'p2': 400, 'bad_cert': 0}
+rand seed 1063: {'n': 400, 'yes': 225, 'no': 175, 'relax_yes_no': 10, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 57, 'p2': 400, 'bad_cert': 0}
+pool seed 1064: {'n': 400, 'yes': 165, 'no': 235, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 76, 'p2': 400, 'bad_cert': 0}
+big seed 1043: {'n': 400, 'yes': 299, 'no': 101, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 400, 'bad_cert': 0}
+empty seed 1065: {'n': 400, 'yes': 239, 'no': 161, 'relax_yes_no': 3, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 68, 'p2': 400, 'bad_cert': 0}
+zero seed 1066: {'n': 400, 'yes': 244, 'no': 156, 'relax_yes_no': 5, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 58, 'p2': 400, 'bad_cert': 0}
+rigidmut seed 1068: {'n': 400, 'yes': 217, 'no': 183, 'relax_yes_no': 93, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 81, 'p2': 400, 'bad_cert': 0}
+nop2 seed 1069: {'n': 400, 'yes': 155, 'no': 245, 'relax_yes_no': 11, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 59, 'p2': 119, 'bad_cert': 0, 'noP2_T_miss': 5}
+sat seed 1067: {'n': 400, 'yes': 388, 'no': 12, 'relax_yes_no': 12, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 51, 'p2': 400, 'bad_cert': 0}
+big seed 1025: {'n': 400, 'yes': 294, 'no': 106, 'relax_yes_no': 2, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 400, 'bad_cert': 0}
+hard seed 1053: {'n': 400, 'yes': 336, 'no': 64, 'relax_yes_no': 59, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 17, 'p2': 400, 'bad_cert': 0}
+big seed 1034: {'n': 400, 'yes': 297, 'no': 103, 'relax_yes_no': 2, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 400, 'bad_cert': 0}
+big seed 1052: {'n': 400, 'yes': 302, 'no': 98, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 400, 'bad_cert': 0}
+hard seed 1062: {'n': 400, 'yes': 322, 'no': 78, 'relax_yes_no': 68, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 13, 'p2': 400, 'bad_cert': 0}
+big seed 1061: {'n': 400, 'yes': 278, 'no': 122, 'relax_yes_no': 2, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 400, 'bad_cert': 0}
+hard seed 1071: {'n': 400, 'yes': 337, 'no': 63, 'relax_yes_no': 56, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 12, 'p2': 400, 'bad_cert': 0}
+big seed 1070: {'n': 400, 'yes': 296, 'no': 104, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 400, 'bad_cert': 0}
+violations: 0 time 546s

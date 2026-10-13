@@ -1,0 +1,15 @@
+L=2 nodes=4 P2=True solutions=1 only-alternating=True
+L=3 nodes=7 P2=True solutions=1 only-alternating=True
+L=4 nodes=11 P2=True solutions=1 only-alternating=True
+L=5 nodes=16 P2=True solutions=1 only-alternating=True
+L=6 nodes=22 P2=True solutions=1 only-alternating=True
+L=7 nodes=29 P2=True solutions=1 only-alternating=True
+L=8 nodes=37 P2=True solutions=1 only-alternating=True
+L=9 nodes=46 P2=True solutions=1 only-alternating=True
+L=10 nodes=56 P2=True solutions=1 only-alternating=True
+L=11 nodes=67 P2=True solutions=1 only-alternating=True
+L=12 nodes=79 P2=True solutions=1 only-alternating=True
+L=13 nodes=92 P2=True solutions=1 only-alternating=True
+L=14 nodes=106 P2=True solutions=1 only-alternating=True
+L=15 nodes=121 P2=True solutions=1 only-alternating=True
+L=16 nodes=137 P2=True solutions=1 only-alternating=True

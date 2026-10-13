@@ -1,0 +1,2 @@
+K=3 n=2 switch options 120: {'inst': 6080, 'yes': 3183, 'relax_yes_no': 294, 'viol': 0} (1s)
+violations: 0

@@ -1,0 +1,5 @@
+(exact, t=1 algorithm): {(True, True): 93, (False, False): 92}
+R_2: exact True, t=1 True | with t in flip sides: P2 True, exact True, unique True, t=1 True
+R_3: exact True, t=1 True | with t in flip sides: P2 True, exact True, unique True, t=1 True
+R_4: exact True, t=1 True | with t in flip sides: P2 True, exact True, unique True, t=1 True
+R_5: exact True, t=1 True | with t in flip sides: P2 True, exact True, unique True, t=1 True

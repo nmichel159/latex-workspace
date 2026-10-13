@@ -1,0 +1,15 @@
+1. G_a, first augmenting path u,a,b,v
+   augmenting paths: uabv usbatv
+   common edges: ['ab']
+   paths of the net flow: uatv usbv left over arcs: {}
+4. D from the augmenting paths of item 1 (edge ab gets the arc b->a from P1 and a->b from P2)
+   edges of P1, P2 with ends in different strong components: ['at', 'au', 'bs', 'bv', 'su', 'tv']
+   F: ['at', 'au', 'bs', 'bv', 'su', 'tv'] -> equal: True
+   (here the result is still F because ab keeps both arcs; the lemma of the text does not cover this digraph, since P2 is not edge-disjoint from P1 and 'the path that contains xy' is not unique)
+2. all connected graphs with at most 7 vertices, ordered pairs with c(u,v) = 2
+   pairs: 13350
+   pairs with a separating shortest path (if it is the first augmenting path, cancellation is forced): 26
+   pairs where the two breadth-first augmenting paths (sorted adjacency lists) share an edge: 16
+3. net flow with a cycle: P1 = u,1,2,3,4,v and the augmenting path u,4,3,x,2,1,v
+   paths: u1v u4v  left over arcs (a cycle): [('2', '3'), ('3', 'x'), ('x', '2')]
+   randomized depth-first augmentations: 985 pairs, two simple edge-disjoint paths from the net flow in all; left-over flow cycles in 0

@@ -1,0 +1,32 @@
+family.py: F(k) as described in the docstring
+
+k=1 cliques=False: n=6 m=9 d(u,v)=2 c(u,v)=3 cp_brute=3; paths in minimum cuts: 1, lengths [3]; DC violations: 0 []; candidate O3 says cp=c: True  (0.0 s)
+    edges: 0-1 0-2 0-4 1-2 1-3 1-5 2-3 2-4 3-5
+    brute force: c=3, 5 minimum cuts, |delta(A)|=3, paths inside minimum cuts [(0, 1, 2, 3)], same as the closure search: True (0.0 s)
+k=1 cliques=True: n=6 m=9 d(u,v)=2 c(u,v)=3 cp_brute=3; paths in minimum cuts: 1, lengths [3]; DC violations: 0 []; candidate O3 says cp=c: True  (0.0 s)
+    edges: 0-1 0-2 0-4 1-2 1-3 1-5 2-3 2-4 3-5
+    brute force: c=3, 5 minimum cuts, |delta(A)|=3, paths inside minimum cuts [(0, 1, 2, 3)], same as the closure search: True (0.0 s)
+k=2 cliques=False: n=10 m=17 d(u,v)=2 c(u,v)=5 cp_brute=5; paths in minimum cuts: 1, lengths [5]; DC violations: 0 []; candidate O3 says cp=c: False  (0.0 s)
+    edges: 0-1 0-2 0-4 0-6 0-7 1-2 1-5 1-8 2-3 2-6 3-4 3-5 3-9 4-5 4-7 5-8 5-9
+    brute force: c=5, 21 minimum cuts, |delta(A)|=5, paths inside minimum cuts [(0, 1, 2, 3, 4, 5)], same as the closure search: True (0.0 s)
+k=2 cliques=True: n=10 m=19 d(u,v)=2 c(u,v)=5 cp_brute=5; paths in minimum cuts: 1, lengths [5]; DC violations: 0 []; candidate O3 says cp=c: False  (0.0 s)
+    edges: 0-1 0-2 0-4 0-6 0-7 1-2 1-3 1-5 1-8 2-3 2-4 2-6 3-4 3-5 3-9 4-5 4-7 5-8 5-9
+    brute force: c=5, 9 minimum cuts, |delta(A)|=5, paths inside minimum cuts [(0, 1, 2, 3, 4, 5)], same as the closure search: True (0.0 s)
+k=3 cliques=False: n=14 m=25 d(u,v)=2 c(u,v)=7 cp_brute=7; paths in minimum cuts: 1, lengths [7]; DC violations: 1 [(2, 5)]; candidate O3 says cp=c: False  (0.0 s)
+    edges: 0-1 0-2 0-4 0-6 0-8 0-9 0-10 1-2 1-7 1-11 2-3 2-8 3-4 3-7 3-12 4-5 4-9 5-6 5-7 5-13 6-7 6-10 7-11 7-12 7-13
+    brute force: c=7, 85 minimum cuts, |delta(A)|=7, paths inside minimum cuts [(0, 1, 2, 3, 4, 5, 6, 7)], same as the closure search: True (0.0 s)
+k=3 cliques=True: n=14 m=31 d(u,v)=2 c(u,v)=7 cp_brute=7; paths in minimum cuts: 1, lengths [7]; DC violations: 0 []; candidate O3 says cp=c: False  (0.0 s)
+    edges: 0-1 0-2 0-4 0-6 0-8 0-9 0-10 1-2 1-3 1-5 1-7 1-11 2-3 2-4 2-6 2-8 3-4 3-5 3-7 3-12 4-5 4-6 4-9 5-6 5-7 5-13 6-7 6-10 7-11 7-12 7-13
+    brute force: c=7, 17 minimum cuts, |delta(A)|=7, paths inside minimum cuts [(0, 1, 2, 3, 4, 5, 6, 7)], same as the closure search: True (0.0 s)
+k=4 cliques=False: n=18 m=33 d(u,v)=2 c(u,v)=9 cp_brute=None; paths in minimum cuts: 1, lengths [9]; DC violations: 4 [(2, 5), (2, 7), (3, 6), (4, 7)]; candidate O3 says cp=c: False  (0.0 s)
+    edges: 0-1 0-2 0-4 0-6 0-8 0-10 0-11 0-12 0-13 1-2 1-9 1-14 2-3 2-10 3-4 3-9 3-15 4-5 4-11 5-6 5-9 5-16 6-7 6-12 7-8 7-9 7-17 8-9 8-13 9-14 9-15 9-16 9-17
+    brute force: c=9, 341 minimum cuts, |delta(A)|=9, paths inside minimum cuts [(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)], same as the closure search: True (0.7 s)
+k=4 cliques=True: n=18 m=45 d(u,v)=2 c(u,v)=9 cp_brute=None; paths in minimum cuts: 1, lengths [9]; DC violations: 0 []; candidate O3 says cp=c: False  (0.0 s)
+    edges: 0-1 0-2 0-4 0-6 0-8 0-10 0-11 0-12 0-13 1-2 1-3 1-5 1-7 1-9 1-14 2-3 2-4 2-6 2-8 2-10 3-4 3-5 3-7 3-9 3-15 4-5 4-6 4-8 4-11 5-6 5-7 5-9 5-16 6-7 6-8 6-12 7-8 7-9 7-17 8-9 8-13 9-14 9-15 9-16 9-17
+    brute force: c=9, 33 minimum cuts, |delta(A)|=9, paths inside minimum cuts [(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)], same as the closure search: True (0.9 s)
+k=5 cliques=False: n=22 m=41 d(u,v)=2 c(u,v)=11 cp_brute=None; paths in minimum cuts: 1, lengths [11]; DC violations: 9 [(2, 5), (2, 7), (2, 9), (3, 6)]; candidate O3 says cp=c: False  (0.0 s)
+    edges: 0-1 0-2 0-4 0-6 0-8 0-10 0-12 0-13 0-14 0-15 0-16 1-2 1-11 1-17 2-3 2-12 3-4 3-11 3-18 4-5 4-13 5-6 5-11 5-19 6-7 6-14 7-8 7-11 7-20 8-9 8-15 9-10 9-11 9-21 10-11 10-16 11-17 11-18 11-19 11-20 11-21
+    brute force: c=11, 1365 minimum cuts, |delta(A)|=11, paths inside minimum cuts [(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)], same as the closure search: True (10.0 s)
+k=5 cliques=True: n=22 m=61 d(u,v)=2 c(u,v)=11 cp_brute=None; paths in minimum cuts: 1, lengths [11]; DC violations: 0 []; candidate O3 says cp=c: False  (0.0 s)
+    edges: 0-1 0-2 0-4 0-6 0-8 0-10 0-12 0-13 0-14 0-15 0-16 1-2 1-3 1-5 1-7 1-9 1-11 1-17 2-3 2-4 2-6 2-8 2-10 2-12 3-4 3-5 3-7 3-9 3-11 3-18 4-5 4-6 4-8 4-10 4-13 5-6 5-7 5-9 5-11 5-19 6-7 6-8 6-10 6-14 7-8 7-9 7-11 7-20 8-9 8-10 8-15 9-10 9-11 9-21 10-11 10-16 11-17 11-18 11-19 11-20 11-21
+    brute force: c=11, 65 minimum cuts, |delta(A)|=11, paths inside minimum cuts [(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)], same as the closure search: True (19.9 s)

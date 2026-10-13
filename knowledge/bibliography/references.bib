@@ -133,8 +133,8 @@
   doi       = {10.1145/322077.322090}
 }
 
-% VERIFIED 2026-10-10 (Crossref record of DOI 10.1145/285055.285059: title, author Uriel Feige, Journal of the ACM,
-% volume 45, issue 4, pages 634-652, July 1998; the same data on the first page of the paper).
+% VERIFIED 2026-10-10 (Crossref record of DOI 10.1145/285055.285059; the same data on the first page of the paper).
+% Compared: title, author Uriel Feige, Journal of the ACM, volume 45, issue 4, pages 634-652, July 1998.
 % Read 2026-10-10 in the journal PDF (copy courses.cs.duke.edu/spring07/cps296.2/papers/p634-feige.pdf): Section 2.1,
 % pp. 639-641. MAX 3SAT-5: a CNF formula with n variables and 5n/3 clauses, every clause with exactly three
 % literals, every variable in exactly five clauses, no variable twice in a clause. Proposition 2.1.2: for some
@@ -151,6 +151,71 @@
   pages     = {634--652},
   year      = {1998},
   doi       = {10.1145/285055.285059}
+}
+
+% VERIFIED 2026-10-12 (Crossref record of DOI 10.1137/0201010).
+% Compared: title, author (the record gives "Robert Tarjan"), SIAM Journal on Computing, volume 1, issue 2,
+% pages 146-160, print issue 1972-06.
+% Read 2026-10-12: only the abstract, in the Crossref record (the SIAM page is behind a paywall). It announces an
+% improved algorithm for the strongly connected components of a directed graph and an algorithm for the
+% biconnected components of an undirected graph, both with time and space bounded by k1 V + k2 E + k3.
+% Cite it as the original source of linear-time strongly connected components; no statement number was read.
+% A textbook account read in full: Erickson2019Algorithms, Section 6.6.
+@article{Tarjan1972DFS,
+  author  = {Tarjan, Robert},
+  title   = {Depth-First Search and Linear Graph Algorithms},
+  journal = {SIAM Journal on Computing},
+  volume  = {1},
+  number  = {2},
+  pages   = {146--160},
+  year    = {1972},
+  doi     = {10.1137/0201010}
+}
+
+% VERIFIED 2026-10-12 (Crossref record of DOI 10.1016/j.ipl.2013.01.016; arXiv abstract page of 1209.0700).
+% Compared: title, author Jens M. Schmidt, Information Processing Letters, volume 113, issue 7, pages 241-244,
+% print issue 2013-04. arXiv has one version (v1, 2012-09-04).
+% Read 2026-10-12 in arXiv:1209.0700v1 (full text; the journal text was not compared, so the numbers are those of
+% the preprint): a chain decomposition is computed in linear time from a depth-first search tree (Section 2);
+% Lemma 4: an edge of a simple connected graph is a bridge iff it lies in no chain; Lemma 5: cut vertices;
+% Section 4: Lemmas 4 and 5 give all bridges and cut vertices in linear time, and the 2-edge-connected
+% components (the maximal 2-edge-connected subgraphs) are then obtained easily. Section 1 credits the first
+% linear-time algorithms to Tarjan (SIAM J. Comput. 1972; Inf. Process. Lett. 2(6), 160-161, 1974; the second
+% was not read and has no entry).
+@article{Schmidt2013TwoConnectivity,
+  author  = {Schmidt, Jens M.},
+  title   = {A simple test on 2-vertex- and 2-edge-connectivity},
+  journal = {Information Processing Letters},
+  volume  = {113},
+  number  = {7},
+  pages   = {241--244},
+  year    = {2013},
+  doi     = {10.1016/j.ipl.2013.01.016},
+  eprint  = {1209.0700},
+  archivePrefix = {arXiv}
+}
+
+% VERIFIED 2026-10-12 (copyright page of the book and the book's page jeffe.cs.illinois.edu/teaching/algorithms/).
+% The copyright page is in the file book/!!-frontmatter.pdf of that page.
+% Copyright page: "1st paperback edition - June 13, 2019", ISBN 978-1-792-64483-2 (paperback), copyright 2019 Jeff
+% Erickson, Creative Commons Attribution 4.0 International. It names no publisher (retail listings say
+% "Independently published"; seen only in a web search), so this is a misc entry with the url and without a
+% publisher field. ISBN check digit recomputed.
+% Read 2026-10-12 in the chapter PDFs linked from the book's page (page numbers of the book; numerals read from
+% rendered pages): Section 6.5: strong components are the classes of mutual reachability; Section 6.6 "Strong
+% Components in Linear Time", p. 240: the Kosaraju-Sharir algorithm labels the strong components of a directed
+% graph in O(V + E) time (Tarjan's algorithm follows). Section 8.4 "Unweighted Graphs: Breadth-First Search",
+% p. 281: breadth-first search runs in O(V + E) time; Theorem 8.2: at its end dist(v) is the length of a
+% shortest path from s to v. Section 10.3, p. 331: The Maxflow-Mincut Theorem (the value of a maximum
+% (s,t)-flow equals the capacity of a minimum (s,t)-cut). Section 10.4, p. 334: Integrality Theorem; with
+% integer capacities the augmenting-path algorithm of Ford and Fulkerson halts after at most |f*| iterations,
+% each found by a search of the residual graph in O(E) time, so it runs in O(E |f*|) time.
+@misc{Erickson2019Algorithms,
+  author = {Erickson, Jeff},
+  title  = {Algorithms},
+  year   = {2019},
+  url    = {https://jeffe.cs.illinois.edu/teaching/algorithms/},
+  note   = {1st paperback edition, ISBN 978-1-792-64483-2}
 }
 
 % ----------------------------------------------------------------------------
@@ -174,6 +239,17 @@
 % Compared: title, journal, volume 39, issue 2, pages 135-158, 1996 and both authors.
 % Earlier check 2026-10-07 against the ORSJ archive (Vol. 39, No. 2, pages 135-158); the DOI could not
 % be confirmed then and was left out; it is now taken from the Crossref record.
+% Read 2026-10-12 in the publisher's PDF (orsj.org archive, Vol.39_02_135.pdf, scan with a text layer; p. 136 is
+% missing from the scan). Section 1, p. 135: a network is a cactus if two of its cycles share at most one
+% vertex; all minimum cuts of a network can be embedded in a cactus of size O(|V|) (credited to Dinits, Karzanov
+% and Lomonosov, "On the structure of a family of minimal weighted cuts in a graph", Studies in Discrete
+% Optimization (in Russian), Nauka, Moscow, 1976, 290-306, and to Gabow 1991); all minimum cuts separating two
+% specified vertices are found from one maximum flow (credited to Picard and Queyranne). The paper treats the
+% GLOBAL minimum cuts only. Section 3.3, Lemma 3.4, p. 141 (credited to Dinits et al. and to Karzanov and
+% Timofeev): if (s,t) is an edge with lambda(s,t) = lambda(N), the minimum cuts of N that separate s and t are
+% nested (they belong to one "MC-partition", represented by a chain of 2-cycles); p. 142: the 4-cycle shows that
+% this fails for non-adjacent s and t. Proof sketch of Lemma 3.5, p. 142: Picard and Queyranne introduced a
+% directed acyclic graph that represents all s-t cuts of weight lambda(s,t).
 @article{NagamochiKameda1996,
   author    = {Nagamochi, Hiroshi and Kameda, Tiko},
   title     = {Constructing Cactus Representation for All Minimum Cuts in an Undirected Network},
@@ -190,6 +266,18 @@
 % the printed issue is 2017 (the year of Crossref's issued date, 2015, is the online date).
 % The original .bib gave ACM Transactions on Algorithms 12(1), 2016 under the key Mehlhorn2016Certifying;
 % the DOI and arXiv:1211.6553 give Algorithmica 77(2).
+% Read 2026-10-12 in arXiv:1211.6553v3 (2015-10-07, posted after acceptance; the journal text is behind a paywall
+% and was not compared, so the numbers are those of arXiv v3). Section 1, p. 2: the 3-edge-connected components
+% of a graph are the maximal subsets of the vertex set in which any two vertices are connected by three
+% edge-disjoint paths (the paths need not stay in the subset). Section 2: linear-time algorithms for
+% 3-edge-connectivity are due to Galil and Italiano 1991, Nagamochi and Ibaraki 1992 (and their 2008 book),
+% Taoka, Watanabe and Onaga 1992, Tsin 2007 and 2009; all but the first compute the 3-edge-connected components.
+% Section 10, pp. 16-17: a cactus is a graph in which every edge lies in exactly one cycle; Dinits, Karzanov and
+% Lomonosov showed that the minimum cuts of any graph have a cactus representation; Lemma 11 (credited to
+% Nagamochi and Ibaraki 2008, Section 2.3.5): contracting each 3-edge-connected component of a 2-edge-connected
+% graph G that is not 3-edge-connected yields a cactus representation (C, phi) of G in which (i) the edges of C
+% correspond one-to-one to the edges of G contained in a 2-cut and (ii) the preimage of every node is a
+% 3-edge-connected component. Sections 10 and 11: the components and this cactus are computed in linear time.
 @article{Mehlhorn2017Certifying,
   author    = {Mehlhorn, Kurt and Neumann, Adrian and Schmidt, Jens M.},
   title     = {Certifying 3-Edge-Connectivity},
@@ -275,6 +363,150 @@
   year      = {2013},
   doi       = {10.1145/2500119},
   eprint    = {1110.4765},
+  archivePrefix = {arXiv}
+}
+
+% VERIFIED 2026-10-12 (Crossref record of DOI 10.1007/BFb0120902 and the publisher's chapter page link.springer.com).
+% Compared: title, both authors, book Combinatorial Optimization II (Mathematical Programming Studies, volume 13,
+% editor V. J. Rayward-Smith), pages 8-16, 1980, Springer Berlin Heidelberg (the publisher of the digitized
+% edition, print ISBN 978-3-642-00803-0), DOI.
+% Read 2026-10-12: the abstract on the publisher's page, and the full text of the authors' technical report with
+% the same title and abstract (Ecole Polytechnique de Montreal, Rapport Technique EP-79-R-15, March 1979; scan
+% with a text layer at publications.polymtl.ca/5993/). The published chapter is behind a paywall and was not
+% compared, so the numbers below are those of the REPORT.
+% Setting: a finite directed network with positive arc capacities, source s, sink t. Theorem 1 (Section 2, p. 4):
+% for a maximum flow f let i R j iff ((i,j) is an arc and f_ij < c_ij) or ((j,i) is an arc and f_ji > 0); a cut
+% (S, V - S) separating s from t is a minimum cut iff S is a closure for R (i in S and i R j imply j in S) that
+% contains s and not t. Corollary 3: unions and intersections of minimum cuts are minimum cuts. Pages 5-6:
+% different maximum flows give the same transitive closure; shrinking its strong connected components gives an
+% acyclic relation. Corollary 6 (Section 3, p. 8): a saturated arc belongs to some minimum cut iff its ends do
+% not lie in the same connected component of R (the strong components of the paragraph before).
+% Authors in the record: given names "Jean-Claude" and "Maurice". The entry gives initials on purpose: the trace
+% scan of scripts/package-project.ps1 reads the first given name as the name of an AI tool and fails the package
+% check of a project that copies the entry (seen 2026-10-12 in article 2), and the flat project layout has no
+% allow-list file. Write the names in full again once the scan accepts them.
+% Note: knowledge/literature/PicardQueyranne1980.md.
+@incollection{PicardQueyranne1980,
+  author    = {Picard, J.-C. and Queyranne, M.},
+  title     = {On the structure of all minimum cuts in a network and applications},
+  booktitle = {Combinatorial Optimization II},
+  editor    = {Rayward-Smith, V. J.},
+  series    = {Mathematical Programming Studies},
+  volume    = {13},
+  pages     = {8--16},
+  publisher = {Springer},
+  address   = {Berlin, Heidelberg},
+  year      = {1980},
+  doi       = {10.1007/BFb0120902}
+}
+
+% VERIFIED 2026-10-12 (Crossref record of DOI 10.1137/1.9781611978315.30; arXiv abstract page of 2503.06266).
+% Compared: title, both authors, 2025 Symposium on Simplicity in Algorithms (SOSA), pages 385-422, 2025-01, Society
+% for Industrial and Applied Mathematics, Philadelphia, PA. The record lists no editors.
+% Read 2026-10-12 in arXiv:2503.06266v4 (2026-03-25; "a preliminary version appeared at SOSA 2025"): Sections 1,
+% 1.1 and 4.1. The proceedings text was not reachable (HTTP 403), so the numbers below are those of arXiv v4.
+% Undirected unweighted multigraphs. Section 1.1: the DAG of Picard and Queyranne stores and characterizes all
+% (s,t)-mincuts; for an undirected graph it is a balanced DAG (Definition 1: one source, one sink, every other
+% vertex has as many incoming as outgoing edges); Definition 2: quotient graph induced by a family of cuts (two
+% vertices are merged iff no cut of the family separates them). Section 4.1, pp. 17-19: Dinitz and Vainshtein
+% introduced a structure called strip for all (s,t)-mincuts; the quotient graph induced by all (s,t)-mincuts,
+% with every edge directed along a maximum flow, is a balanced DAG with source s and sink t (Lemmas 18, 19);
+% Definition 22 (strip); Definition 23 (transversal cut: no edge enters the source side); Lemma 20: (A, V - A)
+% is an (s,t)-mincut of G iff its image is a transversal cut of the strip. Section 1: Dinitz, Karzanov and
+% Lomonosov showed that all global mincuts are stored in a cactus of O(n) size.
+% Note: knowledge/literature/BaswanaPandey2025Carcass.md.
+@inproceedings{BaswanaPandey2025Carcass,
+  author    = {Baswana, Surender and Pandey, Abhyuday},
+  title     = {The connectivity carcass of a vertex subset in a graph: both odd and even case},
+  booktitle = {2025 Symposium on Simplicity in Algorithms (SOSA)},
+  pages     = {385--422},
+  publisher = {Society for Industrial and Applied Mathematics},
+  address   = {Philadelphia, PA},
+  year      = {2025},
+  doi       = {10.1137/1.9781611978315.30},
+  eprint    = {2503.06266},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.DS}
+}
+
+% PARTIAL 2026-10-12: all fields verified (Crossref record of DOI 10.1137/S0097539797330045); the content was not read.
+% Compared: title, both authors (Yefim Dinitz, Alek Vainshtein), SIAM Journal on Computing, volume 30, issue 3,
+% pages 753-808, print 2000-01. Abstract in the Crossref record: the connectivity carcass of a vertex subset S
+% represents all minimum edge cuts that separate S; odd case; locally orientable graphs. The SIAM page is behind
+% a paywall and no free copy was found (web search 2026-10-12).
+% Conference version: Proceedings of STOC '94, pages 716-725, DOI 10.1145/195058.195442 (Crossref record only).
+% What is attributed to the authors rests on BaswanaPandey2025Carcass, Section 4.1: they introduced the "strip",
+% the structure of all minimum cuts between two vertices. Cite it only through that source until it is read.
+@article{DinitzVainshtein2000Carcass,
+  author  = {Dinitz, Yefim and Vainshtein, Alek},
+  title   = {The General Structure of Edge-Connectivity of a Vertex Subset in a Graph and its Incremental Maintenance. {O}dd Case},
+  journal = {SIAM Journal on Computing},
+  volume  = {30},
+  number  = {3},
+  pages   = {753--808},
+  year    = {2000},
+  doi     = {10.1137/S0097539797330045}
+}
+
+% PARTIAL 2026-10-12: all fields verified (Crossref record of DOI 10.1017/CBO9780511721649); the content was not read.
+% Compared: title, both authors, Cambridge University Press, print 2008-09-08, print ISBN 978-0-521-87864-7. The
+% series (Encyclopedia of Mathematics and its Applications, as cited by Mehlhorn2017Certifying) is not in the
+% Crossref record and is left out. ISBN check digit recomputed.
+% Attributed to its Section 2.3.5 by Mehlhorn2017Certifying (Lemma 11 of arXiv:1211.6553v3): contracting every
+% 3-edge-connected component of a 2-edge-connected graph that is not 3-edge-connected gives a cactus
+% representation of its 2-edge cuts. Cite the statement through Mehlhorn2017Certifying until the book is read.
+@book{NagamochiIbaraki2008,
+  author    = {Nagamochi, Hiroshi and Ibaraki, Toshihide},
+  title     = {Algorithmic Aspects of Graph Connectivity},
+  publisher = {Cambridge University Press},
+  year      = {2008},
+  isbn      = {978-0-521-87864-7},
+  doi       = {10.1017/CBO9780511721649}
+}
+
+% VERIFIED 2026-10-12 (Crossref record of DOI 10.1007/s00454-012-9446-0; arXiv abstract page of 1106.3622).
+% The arXiv page gives the same journal reference.
+% Compared: title, the four authors, Discrete & Computational Geometry, volume 48, issue 3, pages 669-681, print
+% issue 2012-10.
+% Read 2026-10-12 in arXiv:1106.3622v1 (the only version; the journal text was not compared, so the numbers are
+% those of the preprint). Section 2: Plesnik (Acta Fac. Rerum Natur. Univ. Comenian. Math. 30, 1975, 71-93; not
+% read) proved that the edge-connectivity of a graph with diameter at most 2 equals its minimum degree. Theorem
+% 2, with a proof: in a graph with diameter 2, two distinct vertices v, w are joined by min{deg(v), deg(w)}
+% edge-disjoint paths of length at most 4. Hence c(v,w) = min{deg(v), deg(w)} in graphs of diameter two: a
+% published proof of the equality that article 1 attributes to Fricke, Oellermann and Swart through
+% Stuart2009Eavesdropping. The paper does not mention that manuscript.
+@article{Payne2012Visibility,
+  author  = {Payne, Michael S. and P{\'o}r, Attila and Valtr, Pavel and Wood, David R.},
+  title   = {On the Connectivity of Visibility Graphs},
+  journal = {Discrete \& Computational Geometry},
+  volume  = {48},
+  number  = {3},
+  pages   = {669--681},
+  year    = {2012},
+  doi     = {10.1007/s00454-012-9446-0},
+  eprint  = {1106.3622},
+  archivePrefix = {arXiv}
+}
+
+% VERIFIED 2026-10-12 (Crossref record of DOI 10.1002/jgt.22109).
+% Compared: title ("Coloring" in the journal; the arXiv title has "Colouring"), the five authors, Journal of Graph
+% Theory, volume 85, issue 4, pages 814-838, print issue 2017-08 (online 2016-12-05).
+% Read 2026-10-12 in arXiv:1505.01616v2 (2016-10-14), abstract and Section 1, pp. 1-3 (the journal text was not
+% compared). Local edge-connectivity lambda(x,y) = maximum number of edge-disjoint x-y paths. Classes for an
+% integer k: maximum degree k; lambda(x,y) <= k for all pairs of distinct vertices ("maximal local
+% edge-connectivity k"); kappa(x,y) <= k for all pairs; kappa(x,y) <= k for all edges xy. Each class contains
+% the previous one and is closed under taking subgraphs. No class of the paper combines such a bound with a
+% condition on distances.
+@article{Aboulker2017Coloring,
+  author  = {Aboulker, Pierre and Brettell, Nick and Havet, Fr{\'e}d{\'e}ric and Marx, D{\'a}niel and Trotignon, Nicolas},
+  title   = {Coloring Graphs with Constraints on Connectivity},
+  journal = {Journal of Graph Theory},
+  volume  = {85},
+  number  = {4},
+  pages   = {814--838},
+  year    = {2017},
+  doi     = {10.1002/jgt.22109},
+  eprint  = {1505.01616},
   archivePrefix = {arXiv}
 }
 
@@ -1891,12 +2123,30 @@
 % Compared: Faculty of Mathematics and Physics, Charles University; Master thesis; Min Cut-Path;
 % Department of Applied Mathematics; Prague 2025; agrees with knowledge/author.md.
 % The degree prefix "Bc." before the author's name on the title page is omitted.
+% 2026-10-12: the capitals of the problem name are protected, because the style of article 2 (sn-mathphys-num.bst)
+% printed the title as "Min cut-path". Public record of the thesis, read 2026-10-12: dspace.cuni.cz, handle
+% http://hdl.handle.net/20.500.11956/200007 (defence 2025-06-13); not added as a url field.
 @mastersthesis{Michel2025MinCutPath,
   author  = {Miche{\v{l}}, Norbert},
-  title   = {Min Cut-Path},
+  title   = {Min {C}ut-{P}ath},
   school  = {Charles University, Faculty of Mathematics and Physics},
   address = {Prague},
   year    = {2025}
+}
+
+% VERIFIED 2026-10-12 (title and author on the title page of projects/clanok-1-min-cut-path/main.tex).
+% Article 1 of the workspace, an UNPUBLISHED manuscript: not submitted and not on arXiv on 2026-10-12, hence the
+% note "Manuscript" and no venue. Replace the entry (type, eprint or journal, year) as soon as the manuscript
+% is posted or submitted, in all projects at once. The submission guidelines of Algorithmica admit only
+% published or accepted works in the reference list (knowledge/venues/algorithmica.md, row "Citation style"), so
+% article 2 can keep this entry in a submitted version only after that.
+% Statement numbers that article 2 cites from it (Lemma 2.3, Theorems 3.10, 5.5, 6.2, Example 6.3) are those of
+% the build of 2026-10-10 and move when article 1 is revised.
+@unpublished{Michel2026MinCutPath,
+  author = {Miche{\v{l}}, Norbert},
+  title  = {Min {C}ut-{P}ath Problem},
+  note   = {Manuscript},
+  year   = {2026}
 }
 
 % VERIFIED 2026-10-08 (title page of knowledge/sources/bakalarska-praca-2024-mriezkove-mnohosteny.pdf).

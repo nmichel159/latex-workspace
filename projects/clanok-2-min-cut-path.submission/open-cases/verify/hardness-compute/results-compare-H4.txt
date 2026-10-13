@@ -1,0 +1,1 @@
+H4 libraries on 600 random connected G(n, p) graphs (n = 6..14, p = 0.2..0.5), 7200 ordered pairs: c, the set of minimum cuts, the answer cp = c; mismatches: 0 []; pairs skipped because cp_equals_c_paths hit its path budget: 0 (19 s)

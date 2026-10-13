@@ -1,0 +1,10 @@
+hubimp m=1 m'=1 bottom/top classes       n= 11 |R|= 13 P2=True  exact=False exact2=False AC=True  PC=False   0.0s
+hubimp m=1 m'=2 bottom/top classes       n= 15 |R|= 21 P2=True  exact=False exact2=False AC=True  PC=False   0.0s
+hubimp m=2 m'=1 bottom/top classes       n= 15 |R|= 21 P2=True  exact=False exact2=False AC=True  PC=False   0.0s
+hubimp m=2 m'=2 bottom/top classes       n= 22 |R|= 35 P2=True  exact=False exact2=False AC=True  PC=True    0.2s  <-- PC FALSE POSITIVE
+hubimp m=2 m'=3 bottom/top classes       n= 29 |R|= 49 P2=True  exact=False exact2=None  AC=True  PC=True    1.6s  <-- PC FALSE POSITIVE
+hubimp m=1 m'=1 strict                   n= 11 |R|= 18 P2=True  exact=False exact2=False AC=True  PC=False   0.0s
+hubimp m=1 m'=2 strict                   n= 15 |R|= 27 P2=True  exact=False exact2=False AC=True  PC=False   0.0s
+hubimp m=2 m'=1 strict                   n= 15 |R|= 27 P2=True  exact=False exact2=False AC=True  PC=False   0.0s
+hubimp m=2 m'=2 strict                   n= 22 |R|= 43 P2=True  exact=False exact2=False AC=True  PC=True    0.4s  <-- PC FALSE POSITIVE
+hubimp m=2 m'=3 strict                   n= 29 |R|= 59 P2=True  exact=False exact2=None  AC=True  PC=True    5.3s  <-- PC FALSE POSITIVE

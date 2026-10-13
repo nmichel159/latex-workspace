@@ -1,0 +1,15 @@
+hub m=1 m'=1 00 one-sided          classes=2 switches= 4 n= 11 |R|= 13 P2=True  brute=False exact=False exact2=False AC=True  PC=False/False/False Lmin=None   0.0s
+hub m=1 m'=2 0001 one-sided        classes=3 switches= 7 n= 15 |R|= 21 P2=True  brute=False exact=False exact2=False AC=True  PC=False/False/False Lmin=None   0.1s
+hub m=1 m'=2 0001 two-sided        classes=3 switches= 7 n= 15 |R|= 21 P2=True  brute=False exact=False exact2=False AC=True  PC=False/False/False Lmin=None   0.1s
+hub m=1 m'=2 0100 one-sided        classes=3 switches= 7 n= 15 |R|= 21 P2=True  brute=False exact=False exact2=False AC=True  PC=False/False/False Lmin=None   0.1s
+hub m=1 m'=2 0100 two-sided        classes=3 switches= 7 n= 15 |R|= 21 P2=True  brute=False exact=False exact2=False AC=True  PC=False/False/False Lmin=None   0.1s
+hub m=2 m'=1 0010 one-sided        classes=3 switches= 7 n= 15 |R|= 21 P2=True  brute=False exact=False exact2=False AC=True  PC=False/False/False Lmin=None   0.1s
+hub m=2 m'=1 0010 two-sided        classes=3 switches= 7 n= 15 |R|= 21 P2=True  brute=False exact=False exact2=False AC=True  PC=False/False/False Lmin=None   0.1s
+hub m=2 m'=1 1000 one-sided        classes=3 switches= 7 n= 15 |R|= 21 P2=True  brute=False exact=False exact2=False AC=True  PC=False/False/False Lmin=None   0.1s
+hub m=2 m'=1 1000 two-sided        classes=3 switches= 7 n= 15 |R|= 21 P2=True  brute=False exact=False exact2=False AC=True  PC=False/False/False Lmin=None   0.1s
+hub m=2 m'=2 00011011 one-sided    classes=4 switches=12 n= 22 |R|= 35 P2=True  brute=False exact=False exact2=False AC=True  PC=True/None/None Lmin=19   0.5s
+hub m=2 m'=2 00011011 two-sided    classes=4 switches=12 n= 22 |R|= 35 P2=True  brute=False exact=False exact2=False AC=True  PC=False/None/None Lmin=None   0.3s
+hub m=1 m'=3 000102 one-sided      classes=4 switches=10 n= 19 |R|= 29 P2=True  brute=False exact=False exact2=False AC=True  PC=False/None/None Lmin=None   0.1s
+hub m=1 m'=3 000102 two-sided      classes=4 switches=10 n= 19 |R|= 29 P2=True  brute=False exact=False exact2=False AC=True  PC=False/None/None Lmin=None   0.1s
+hub m=3 m'=1 001020 one-sided      classes=4 switches=10 n= 19 |R|= 29 P2=True  brute=False exact=False exact2=False AC=True  PC=False/None/None Lmin=None   0.1s
+hub m=3 m'=1 001020 two-sided      classes=4 switches=10 n= 19 |R|= 29 P2=True  brute=False exact=False exact2=False AC=True  PC=False/None/None Lmin=None   0.1s

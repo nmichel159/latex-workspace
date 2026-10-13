@@ -1,0 +1,5 @@
+('rand', 'no-relaxed-no', 'agree') 49
+('rand', 'no-relaxed-yes', 'agree') 2
+('rand', 'yes', 'agree') 150
+('sat', 'no-relaxed-yes', 'agree') 29
+('sat', 'yes', 'agree') 160

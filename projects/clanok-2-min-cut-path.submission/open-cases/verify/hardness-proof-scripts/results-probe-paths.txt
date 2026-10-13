@@ -1,0 +1,2 @@
+formulas 1290, paths enumerated 12956, formulas with a violation 0
+(x1)(x1): 1 paths, lengths [5]

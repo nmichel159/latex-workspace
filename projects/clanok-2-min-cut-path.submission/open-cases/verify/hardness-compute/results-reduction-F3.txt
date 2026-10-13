@@ -1,0 +1,4 @@
+check_reduction.py F3: 400 formulas, 72311 s (sum of per-formula times; 283 formulas in info-F3.jsonl (interrupted run) + 117 in info-F3-rest.jsonl; this resume took 2819 s)
+stats: {"formulas": 400, "sat": 360, "unsat": 40, "bb": 351, "bb_budget": 49, "brute": 0, "branch": 0, "R10": 21, "nmin": 74, "nmax": 516, "emax": 45631, "cmin": 29, "cmax": 211, "fillers_M1": 0}
+failing formulas: 0
+failures by check: {}

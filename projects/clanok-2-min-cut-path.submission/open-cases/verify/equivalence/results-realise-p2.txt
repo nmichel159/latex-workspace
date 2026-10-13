@@ -1,0 +1,15 @@
+mode p2 seed 2 count 4000
+ZZ no                                         2630
+ZZ yes                                        1370
+instances                                     4000
+planted                                       1974
+random                                        2026
+recovered Q = Q                               4000
+recovered preorder = preorder                 4000
+zigzag length 3                               1089
+zigzag length 5                               262
+zigzag length 7                               19
+max n of G(Pi)                                251
+prefix-search nodes max                       111
+violations: 0
+time 71.3s

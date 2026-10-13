@@ -1,0 +1,8 @@
+G(Pi): vertices 417 edges 833 comparable pairs N 160 equivalent pairs 0
+d(u,v) = 2
+c(u,v) = 160 (N = 160 )
+in DC: True 0s
+PIMC on G(Pi) by prefix search: False nodes 1959 94s
+pipeline: q 22 c_H 160 answer False False same Q True
+same preorder: True same R: True
+PC of the recovered instance, L = 21: True 108s

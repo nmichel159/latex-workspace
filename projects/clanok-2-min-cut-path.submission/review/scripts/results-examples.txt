@@ -1,0 +1,89 @@
+== ex:counterexamples: G_a, G_b ==
+OK       G_a components after removing u,a,b,v: got ['{a,t,v}', '{b,s,u}'], text says ['{a,t,v}', '{b,s,u}']
+OK       G_b components after removing u,a,b,v: got ['{a,t,v}', '{b,s,u}'], text says ['{a,t,v}', '{b,s,u}']
+OK       G_a c(u,v): got 2, text says 2
+OK       G_a d(u,v): got 3, text says 3
+OK       G_b c(u,v): got 3, text says 3
+OK       G_b d(u,v): got 2, text says 2
+OK       G_a cp(u,v): got 3, text says 3
+OK       G_b cp(u,v): got 3, text says 3
+OK       G_a in the class: got True, text says True
+OK       G_b in the class: got True, text says True
+OK       G_a vertices of degree > 2: got ['a', 'b'], text says ['a', 'b']
+OK       G_a: a, b adjacent: got True, text says True
+OK       G_b pairs at distance >= 3: got [('s', 't')], text says [('s', 't')]
+OK       G_b d(s,t): got 3, text says 3
+OK       G_b degrees of s, t: got (2, 2), text says (2, 2)
+OK       G_a diameter: got 3, text says 3
+OK       G_b diameter: got 3, text says 3
+OK       G_a is a cactus graph: got False, text says False
+OK       G_b is a cactus graph: got False, text says False
+== ex:decomposition: G_a ==
+OK       G_a minimum cuts: got frozenset({frozenset({frozenset({'u', 'a'}), frozenset({'s', 'u'})}), frozenset({frozenset({'t', 'a'}), frozenset({'v', 'b'})}), frozenset({frozenset({'t', 'v'}), frozenset({'v', 'b'})}), frozenset({frozenset({'u', 'a'}), frozenset({'s', 'b'})})}), text says frozenset({frozenset({frozenset({'u', 'a'}), frozenset({'s', 'u'})}), frozenset({frozenset({'t', 'a'}), frozenset({'v', 'b'})}), frozenset({frozenset({'t', 'v'}), frozenset({'v', 'b'})}), frozenset({frozenset({'u', 'a'}), frozenset({'s', 'b'})})})
+OK       G_a F = E minus ab: got {frozenset({'u', 'a'}), frozenset({'s', 'b'}), frozenset({'t', 'v'}), frozenset({'t', 'a'}), frozenset({'s', 'u'}), frozenset({'v', 'b'})}, text says {frozenset({'u', 'a'}), frozenset({'t', 'v'}), frozenset({'s', 'u'}), frozenset({'s', 'b'}), frozenset({'t', 'a'}), frozenset({'v', 'b'})}
+OK       G_a squares in order: got ['{u}', '{a,b}', '{v}'], text says ['{u}', '{a,b}', '{v}']
+OK       G_a links: got ['{s}', '{t}'], text says ['{s}', '{t}']
+OK       G_a terminals of S_2 (a,b,c,d): got ('a', 'b', 'a', 'b'), text says ('a', 'b', 'a', 'b')
+OK       G_a P_{1,1}: got (['au'], []), text says (['au'], [])
+OK       G_a P_{1,2}: got (['su', 'bs'], ['{s}']), text says (['su', 'bs'], ['{s}'])
+OK       G_a P_{2,1}: got (['at', 'tv'], ['{t}']), text says (['at', 'tv'], ['{t}'])
+OK       G_a P_{2,2}: got (['bv'], []), text says (['bv'], [])
+OK       tail conflicts: got False, text says False
+== ex:worked: G_1 ==
+OK       G_1 number of vertices, edges: got (10, 13), text says (10, 13)
+OK       G_1 c(u,v): got 2, text says 2
+OK       G_1 d(u,v): got 5, text says 5
+OK       G_1 p_1, p_2 are edge-disjoint paths: got True, text says True
+OK       G_1 minimum cuts: got frozenset({frozenset({frozenset({'6', '8'}), frozenset({'7', 'v'})}), frozenset({frozenset({'u', '1'}), frozenset({'u', '2'})}), frozenset({frozenset({'3', '6'}), frozenset({'7', '5'})}), frozenset({frozenset({'v', '8'}), frozenset({'7', 'v'})}), frozenset({frozenset({'3', '6'}), frozenset({'4', '2'})}), frozenset({frozenset({'4', '5'}), frozenset({'3', '6'})})}), text says frozenset({frozenset({frozenset({'6', '8'}), frozenset({'7', 'v'})}), frozenset({frozenset({'u', '1'}), frozenset({'u', '2'})}), frozenset({frozenset({'3', '6'}), frozenset({'7', '5'})}), frozenset({frozenset({'v', '8'}), frozenset({'7', 'v'})}), frozenset({frozenset({'4', '2'}), frozenset({'3', '6'})}), frozenset({frozenset({'4', '5'}), frozenset({'3', '6'})})})
+OK       G_1 F = E minus {12,13,23,67}: got {frozenset({'6', '8'}), frozenset({'3', '6'}), frozenset({'u', '1'}), frozenset({'4', '5'}), frozenset({'v', '8'}), frozenset({'u', '2'}), frozenset({'4', '2'}), frozenset({'7', '5'}), frozenset({'7', 'v'})}, text says {frozenset({'6', '8'}), frozenset({'3', '6'}), frozenset({'u', '1'}), frozenset({'4', '5'}), frozenset({'v', '8'}), frozenset({'u', '2'}), frozenset({'4', '2'}), frozenset({'7', '5'}), frozenset({'7', 'v'})}
+OK       G_1 squares in order: got ['{u}', '{1,2,3}', '{6,7}', '{v}'], text says ['{u}', '{1,2,3}', '{6,7}', '{v}']
+OK       G_1 links: got ['{4}', '{5}', '{8}'], text says ['{4}', '{5}', '{8}']
+OK       G_1 terminals of S_2: got ('1', '2', '3', '2'), text says ('1', '2', '3', '2')
+OK       G_1 terminals of S_3: got ('6', '7', '6', '7'), text says ('6', '7', '6', '7')
+OK       G_1 P_{1,1}, P_{1,2}, P_{2,1}, P_{3,2} single edges: got [(['1u'], []), (['2u'], []), (['36'], []), (['7v'], [])], text says [(['1u'], []), (['2u'], []), (['36'], []), (['7v'], [])]
+OK       G_1 P_{2,2}: got (['24', '45', '57'], ['{4}', '{5}']), text says (['24', '45', '57'], ['{4}', '{5}'])
+OK       G_1 P_{3,1}: got (['68', '8v'], ['{8}']), text says (['68', '8v'], ['{8}'])
+OK       G_1 vertices outside S_2, S_3 have degree two: got True, text says True
+OK       G_1 squares S_2, S_3 are cliques: got True, text says True
+OK       G_1 cut {36,24} separates S_2 from S_3: got True, text says True
+OK       G_1 in the class: got True, text says True
+== ex:criterion ==
+OK       G_a witness (2,(a,b),(b,a),p=a,b) with (i) and (ii): got True, text says True
+OK       G_a d(u,a)+|p|+d(b,v): got 3, text says 3
+OK       G_1 witness (3,(6,7),(7,6),p=6,7): got True, text says True
+OK       G_1 d(u,6), d(7,v): got (3, 1), text says (3, 1)
+OK       G_1 cp(u,v): got 5, text says 5
+OK       G_1: u,1,3,6,7,v is a cut-path with 5 edges: got (5, True, False), text says (5, True, False)
+OK       G_1' same minimum cuts (same F): got frozenset({frozenset({frozenset({'6', '8'}), frozenset({'7', 'v'})}), frozenset({frozenset({'u', '1'}), frozenset({'u', '2'})}), frozenset({frozenset({'3', '6'}), frozenset({'7', '5'})}), frozenset({frozenset({'v', '8'}), frozenset({'7', 'v'})}), frozenset({frozenset({'3', '6'}), frozenset({'4', '2'})}), frozenset({frozenset({'4', '5'}), frozenset({'3', '6'})})}), text says frozenset({frozenset({frozenset({'6', '8'}), frozenset({'7', 'v'})}), frozenset({frozenset({'u', '1'}), frozenset({'u', '2'})}), frozenset({frozenset({'3', '6'}), frozenset({'7', '5'})}), frozenset({frozenset({'v', '8'}), frozenset({'7', 'v'})}), frozenset({frozenset({'3', '6'}), frozenset({'4', '2'})}), frozenset({frozenset({'4', '5'}), frozenset({'3', '6'})})})
+OK       G_1' distances from u unchanged: got True, text says True
+OK       G_1' distances to v unchanged: got True, text says True
+OK       G_1' squares: got ['{u}', '{1,2,3}', '{6,7,9}', '{v}'], text says ['{u}', '{1,2,3}', '{6,7,9}', '{v}']
+OK       G_1' paths with an edge and (i): got [(2, ('1', '3')), (2, ('2', '3')), (3, ('6', '7'))], text says [(2, ('1', '3')), (2, ('2', '3')), (3, ('6', '7'))]
+OK       G_1' none of them satisfies (ii): got False, text says False
+OK       G_1' S_2 minus 13, S_2 minus 23, S_3 minus 67 connected: got [3, 3, 3], text says [3, 3, 3]
+OK       G_1' cp(u,v): got 6, text says 6
+OK       G_1' in the class (not claimed in the text): got True, text says True
+OK       G_1'' d(u,v): got 4, text says 4
+OK       G_1'' c(u,v): got 2, text says 2
+OK       G_1'' squares are those of G_1: got ['{u}', '{1,2,3}', '{6,7}', '{v}'], text says ['{u}', '{1,2,3}', '{6,7}', '{v}']
+OK       G_1'' no path with an edge satisfies (i): got [], text says []
+OK       G_1'' cp(u,v): got 5, text says 5
+OK       G_1'' in the class (not claimed in the text): got True, text says True
+== ex:two-edges: G_a^+ ==
+OK       G_a^+ vertices of degree > 2: got ['a', 'b', 'u'], text says ['a', 'b', 'u']
+OK       G_a^+ pairwise distances of u, a, b at most two: got 2, text says 2
+OK       G_a^+ in the class: got True, text says True
+OK       G_a^+ c(u,v), d(u,v): got (2, 3), text says (2, 3)
+OK       G_a^+ minimum cuts: got frozenset({frozenset({frozenset({'t', 'a'}), frozenset({'v', 'b'})}), frozenset({frozenset({'t', 'v'}), frozenset({'v', 'b'})})}), text says frozenset({frozenset({frozenset({'t', 'a'}), frozenset({'v', 'b'})}), frozenset({frozenset({'t', 'v'}), frozenset({'v', 'b'})})})
+OK       G_a^+ squares: got ['{a,b,r,s,u}', '{v}'], text says ['{a,b,r,s,u}', '{v}']
+OK       G_a^+ links: got ['{t}'], text says ['{t}']
+OK       G_a^+ terminals of S_1: got ('u', 'u', 'a', 'b'), text says ('u', 'u', 'a', 'b')
+OK       G_a^+ l for x=u, y=b: got 2, text says 2
+OK       G_a^+ u,a is a path of S_1 and u,a,b is a path of S_1: got (True, True), text says (True, True)
+OK       G_a^+ a isolated in S_1 minus p: got ['a'], text says ['a']
+OK       G_a^+ cp(u,v): got 3, text says 3
+OK       G_a^+ u,a,b,v separates u from v: got False, text says False
+== sec:distance-two: G_b ==
+OK       G_b delta({u,s,b}): got {frozenset({'u', 'a'}), frozenset({'a', 'b'}), frozenset({'v', 'b'})}, text says {frozenset({'u', 'a'}), frozenset({'b', 'a'}), frozenset({'v', 'b'})}
+
+claims: 81, mismatches: 0

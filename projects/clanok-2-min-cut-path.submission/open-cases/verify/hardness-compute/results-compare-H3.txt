@@ -1,0 +1,1 @@
+H3 my checks R0-R11 on the 399 formulas of hardness/check_reduction.py: {"sat": 352, "unsat": 47, "bb": 399, "budget": 0, "nmax": 176}; failing formulas: 0 [] (125 s)

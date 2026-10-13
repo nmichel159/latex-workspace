@@ -1,0 +1,252 @@
+==== atlas ====
+checks performed (name: count):
+  ALG-at-most-4-candidates                   14790
+  ALG-at-most-4-candidates'                  22382
+  ALG-returns-a-cut-path'-adjacent           22382
+  ALG-returns-a-cut-path'-along              22382
+  ALG-returns-a-cut-path-adjacent            14790
+  ALG-returns-a-cut-path-along               14790
+  ALG-star'-adjacent                         21356
+  ALG-star'-along                            21356
+  ALG-star-adjacent                          14790
+  ALG-star-along                             14790
+  ALG3'-adjacent                             22367
+  ALG3'-along                                22367
+  ALG3-adjacent                              14790
+  ALG3-along                                 14790
+  CHA                                        14790
+  CHA'                                       22382
+  CHA+                                       30
+  CHA+'                                      194
+  CHA-p-has-an-edge                          30
+  CHA-p-has-an-edge'                         194
+  CRI                                        153838
+  CRI'                                       97064
+  DEG-count                                  9346
+  DEG-count'                                 29716
+  DEG-i                                      14790
+  DEG-i'                                     22382
+  DEG-ii                                     77852
+  DEG-ii'                                    148960
+  DEG-iii-visited                            38926
+  DEG-iii-visited'                           74480
+  DEG-link                                   9346
+  DEG-link'                                  29716
+  DEG-u                                      14790
+  DEG-u'                                     22382
+  DEG-v                                      14790
+  DEG-v'                                     22382
+  LAM                                        14790
+  LAM'                                       22382
+  LEN-i                                      14790
+  LEN-i'                                     22382
+  LEN-ii                                     186930
+  LEN-ii'                                    149042
+  MINCUT-delta                               12491
+  MINCUT-two-components                      12491
+  ORI-i                                      221734
+  ORI-ii                                     104409
+  ORI-iii                                    14790
+  ORI-iii'                                   22382
+  ORI-iii-direction                          153838
+  ORI-iii-direction'                         97064
+  PIE-i                                      24982
+  PIE-i'                                     63302
+  PIE-ii                                     41570
+  PIE-ii'                                    79337
+  PIE-ii-conv                                14790
+  PIE-ii-conv'                               22382
+  PIE-iii                                    153838
+  PIE-iii'                                   97064
+  RES-i                                      423576
+  RES-ii                                     83773
+  STR-k>=2                                   14790
+  STR-k>=2'                                  22382
+  STR1-enter                                 17434
+  STR1-enter'                                27239
+  STR1-leave                                 17434
+  STR1-leave'                                27239
+  STR2                                       153838
+  STR2'                                      97064
+  STR3                                       14790
+  STR3'                                      22382
+  STR4                                       153838
+  STR4'                                      97064
+  STR5                                       24114
+information (not failures):
+  PIE-i fails for a minimum cut not contained in F' (expected)           44081
+  STR5 fails for a coarser decomposition (expected)                      32597
+  pairs                                                                  7395
+  pairs in a graph of the class                                          7395
+  some eligible pair has l >= 3'                                         30
+FAILURES: 0
+==== chain ====
+checks performed (name: count):
+  ALG-at-most-4-candidates                   6000
+  ALG-at-most-4-candidates'                  72402
+  ALG-returns-a-cut-path'-adjacent           72402
+  ALG-returns-a-cut-path'-along              72402
+  ALG-returns-a-cut-path-adjacent            6000
+  ALG-returns-a-cut-path-along               6000
+  ALG-star'-adjacent                         46026
+  ALG-star'-along                            46026
+  ALG-star-adjacent                          5998
+  ALG-star-along                             5998
+  ALG3'-adjacent                             59222
+  ALG3'-along                                59222
+  ALG3-adjacent                              6000
+  ALG3-along                                 6000
+  CHA                                        6000
+  CHA'                                       72402
+  CHA+                                       188
+  CHA+'                                      2841
+  CHA-p-has-an-edge                          168
+  CHA-p-has-an-edge'                         2618
+  CRI                                        86162
+  CRI'                                       1179713
+  DEG-count                                  28784
+  DEG-count'                                 167127
+  DEG-i                                      6000
+  DEG-i'                                     72402
+  DEG-ii                                     81568
+  DEG-ii'                                    623862
+  DEG-iii-visited                            40784
+  DEG-iii-visited'                           311931
+  DEG-link                                   28784
+  DEG-link'                                  167127
+  DEG-u                                      6000
+  DEG-u'                                     72402
+  DEG-v                                      6000
+  DEG-v'                                     72402
+  LAM                                        6000
+  LAM'                                       72402
+  LEN-i                                      6000
+  LEN-i'                                     72402
+  LEN-ii                                     65492
+  LEN-ii'                                    918387
+  MINCUT-delta                               22855
+  MINCUT-two-components                      22855
+  ORI-i                                      486368
+  ORI-ii                                     359793
+  ORI-iii                                    6000
+  ORI-iii'                                   72402
+  ORI-iii-direction                          86162
+  ORI-iii-direction'                         1179713
+  PIE-i                                      45710
+  PIE-i'                                     304216
+  PIE-ii                                     47046
+  PIE-ii'                                    355832
+  PIE-ii-conv                                6000
+  PIE-ii-conv'                               72402
+  PIE-iii                                    86162
+  PIE-iii'                                   1179713
+  RES-i                                      4042352
+  RES-ii                                     59194
+  STR-k>=2                                   6000
+  STR-k>=2'                                  72402
+  STR1-enter                                 12262
+  STR1-enter'                                116303
+  STR1-leave                                 12262
+  STR1-leave'                                116303
+  STR2                                       86162
+  STR2'                                      1179713
+  STR3                                       6000
+  STR3'                                      72402
+  STR4                                       86162
+  STR4'                                      1179713
+  STR5                                       9054
+information (not failures):
+  ... and R enters the square at alpha'                                  29
+  ALG wrong when some l >= 3 (outside the class)'                        1550
+  PIE-i fails for a minimum cut not contained in F' (expected)           346045
+  STR5 fails for a coarser decomposition (expected)                      188859
+  pairs                                                                  3000
+  pairs in a graph of the class                                          2999
+  some eligible pair has l >= 3'                                         26360
+  witness p is a proper part of the trace of R'                          36
+  witness p is the trace of NO shortest u-v path'                        16
+FAILURES: 0
+==== random ====
+checks performed (name: count):
+  ALG-at-most-4-candidates                   3000
+  ALG-at-most-4-candidates'                  4754
+  ALG-returns-a-cut-path'-adjacent           4754
+  ALG-returns-a-cut-path'-along              4754
+  ALG-returns-a-cut-path-adjacent            3000
+  ALG-returns-a-cut-path-along               3000
+  ALG-star'-adjacent                         4240
+  ALG-star'-along                            4240
+  ALG-star-adjacent                          2932
+  ALG-star-along                             2932
+  ALG3'-adjacent                             4730
+  ALG3'-along                                4730
+  ALG3-adjacent                              3000
+  ALG3-along                                 3000
+  CHA                                        3000
+  CHA'                                       4754
+  CHA+                                       2
+  CHA+'                                      31
+  CHA-p-has-an-edge                          2
+  CHA-p-has-an-edge'                         31
+  CRI                                        83680
+  CRI'                                       29484
+  DEG-count                                  2200
+  DEG-count'                                 5506
+  DEG-i                                      3000
+  DEG-i'                                     4754
+  DEG-ii                                     16400
+  DEG-ii'                                    30028
+  DEG-iii-visited                            8200
+  DEG-iii-visited'                           15014
+  DEG-link                                   2200
+  DEG-link'                                  5506
+  DEG-u                                      3000
+  DEG-u'                                     4754
+  DEG-v                                      3000
+  DEG-v'                                     4754
+  LAM                                        3000
+  LAM'                                       4754
+  LEN-i                                      3000
+  LEN-i'                                     4754
+  LEN-ii                                     89926
+  LEN-ii'                                    40032
+  MINCUT-delta                               2726
+  MINCUT-two-components                      2726
+  ORI-i                                      90666
+  ORI-ii                                     51306
+  ORI-iii                                    3000
+  ORI-iii'                                   4754
+  ORI-iii-direction                          83680
+  ORI-iii-direction'                         29484
+  PIE-i                                      5452
+  PIE-i'                                     11878
+  PIE-ii                                     8634
+  PIE-ii'                                    15931
+  PIE-ii-conv                                3000
+  PIE-ii-conv'                               4754
+  PIE-iii                                    83680
+  PIE-iii'                                   29484
+  RES-i                                      481664
+  RES-ii                                     19968
+  STR-k>=2                                   3000
+  STR-k>=2'                                  4754
+  STR1-enter                                 3434
+  STR1-enter'                                5671
+  STR1-leave                                 3434
+  STR1-leave'                                5671
+  STR2                                       83680
+  STR2'                                      29484
+  STR3                                       3000
+  STR3'                                      4754
+  STR4                                       83680
+  STR4'                                      29484
+  STR5                                       5590
+information (not failures):
+  ALG wrong when some l >= 3 (outside the class)'                        12
+  PIE-i fails for a minimum cut not contained in F' (expected)           9484
+  STR5 fails for a coarser decomposition (expected)                      7414
+  pairs                                                                  1500
+  pairs in a graph of the class                                          1335
+  some eligible pair has l >= 3'                                         48
+FAILURES: 0
+time: 12 s, tasks: 11895

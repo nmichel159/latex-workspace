@@ -1,0 +1,2 @@
+climb.py n=12 L=7 mode=dc iterations=40000 seeds=64: 0 seeds succeeded
+Time 34 s.

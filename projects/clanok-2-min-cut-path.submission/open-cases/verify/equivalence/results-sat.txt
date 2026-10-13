@@ -1,0 +1,10 @@
+P2 fails                                 3000
+formulas                                 3000
+formulas with all paths enumerated       2902
+realised formulas                        40
+realised max n                           123
+satisfiable                              1790
+unsatisfiable                            1210
+zigzags enumerated                       588256
+violations: 0
+time 121.1s

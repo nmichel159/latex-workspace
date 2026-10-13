@@ -1,0 +1,14 @@
+cut(8,1)       P2=True exact2CH=False exactZZ=False relaxed=False AC=False PC=False  n=50 |R|=76  0.0s
+cut(8,2)       P2=True exact2CH=False exactZZ=False relaxed=True AC=False PC=False  n=50 |R|=76  0.0s
+cut(8,3)       P2=True exact2CH=False exactZZ=False relaxed=True AC=True PC=False  n=50 |R|=76  186.6s
+cut(8,4)       P2=True exact2CH=False exactZZ=False relaxed=True AC=True PC=False  n=50 |R|=76  172.0s
+cut(8,5)       P2=True exact2CH=False exactZZ=False relaxed=True AC=True PC=False  n=50 |R|=76  167.8s
+cut(8,6)       P2=True exact2CH=False exactZZ=False relaxed=True AC=True PC=False  n=50 |R|=76  138.0s
+cut(8,7)       P2=True exact2CH=False exactZZ=False relaxed=True AC=True PC=False  n=50 |R|=76  121.0s
+tflip(8,1)     P2=True exact2CH=False exactZZ=False relaxed=True AC=False PC=False  n=52 |R|=79  0.0s
+tflip(8,2)     P2=True exact2CH=False exactZZ=False relaxed=True AC=True PC=False  n=53 |R|=80  152.6s
+tflip(8,3)     P2=True exact2CH=False exactZZ=False relaxed=True AC=False PC=False  n=52 |R|=79  0.1s
+tflip(8,4)     P2=True exact2CH=False exactZZ=False relaxed=True AC=True PC=False  n=53 |R|=80  143.7s
+tflip(8,5)     P2=True exact2CH=False exactZZ=False relaxed=True AC=True PC=False  n=52 |R|=79  114.5s
+tflip(8,6)     P2=True exact2CH=False exactZZ=False relaxed=True AC=True PC=False  n=53 |R|=80  162.1s
+tflip(8,7)     P2=True exact2CH=False exactZZ=False relaxed=True AC=True PC=False  n=52 |R|=79  137.5s

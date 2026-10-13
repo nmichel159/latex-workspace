@@ -1,0 +1,24 @@
+check_reduction.py: reduction 3-SAT -> PATH-IN-MIN-CUT, checks R1-R8 of the docstring
+
+(a) all 3-CNF over 1-2 variables, 1-2 clauses: 216 formulas (215 satisfiable, 1 unsatisfiable), formulas with a failed check: 0
+  |V| from 23 to 40, |E| from 105 to 304, c(u,v) from 8 to 15
+  minimum cuts computed by: PQ 216, all vertex sets 16, branching 216; definition-based test (R7) on 216 formulas
+  (m, shortest path in a minimum cut) for satisfiable formulas: [((1, 3), 16), ((2, 5), 185), ((2, 7), 14)]
+(b) random 3-CNF, n = 2..6, m = 3..8, plus 3 unsatisfiable formulas: 123 formulas (117 satisfiable, 6 unsatisfiable), formulas with a failed check: 0
+  |V| from 40 to 142, |E| from 304 to 3549, c(u,v) from 15 to 57
+  minimum cuts computed by: PQ 123, branching 82; definition-based test (R7) on 123 formulas
+  (m, shortest path in a minimum cut) for satisfiable formulas: [((3, 7), 20), ((4, 9), 18), ((4, 11), 2), ((5, 11), 16), ((5, 13), 2), ((5, 15), 1), ((6, 13), 13), ((6, 15), 6), ((7, 15), 18), ((7, 17), 1), ((8, 17), 13), ((8, 19), 6), ((8, 21), 1)]
+(c) random 3-CNF over 2-3 variables, m = 4..10: 60 formulas (20 satisfiable, 40 unsatisfiable), formulas with a failed check: 0
+  |V| from 74 to 176, |E| from 992 to 5415, c(u,v) from 29 to 71
+  minimum cuts computed by: PQ 60, branching 14; definition-based test (R7) on 31 formulas
+  (m, shortest path in a minimum cut) for satisfiable formulas: [((4, 9), 3), ((5, 11), 3), ((6, 15), 1), ((7, 15), 1), ((7, 17), 1), ((8, 17), 3), ((9, 19), 3), ((9, 21), 2), ((10, 21), 2), ((10, 23), 1)]
+
+Examples:
+  phi=[[1, 1, 1]] |V|=23 |E|=106 c=8 d=2 diam=3 sat=True answer=True shortest=3 cuts=2 cuts_with_path=1 def=(True, 14, 3, [3]) classes={'d>2,c>2 (not DC)': 64, "d>2,c>3 (not 'd<=2 or c<=3')": 64, "d>3,c>2 (not 'd<=3 or c<=2')": 0} (1.9 s)
+  phi=[[1, 1, -1]] |V|=23 |E|=106 c=8 d=2 diam=3 sat=True answer=True shortest=3 cuts=2 cuts_with_path=2 def=(True, 14, 3, [3]) classes={'d>2,c>2 (not DC)': 64, "d>2,c>3 (not 'd<=2 or c<=3')": 64, "d>3,c>2 (not 'd<=3 or c<=2')": 0} (1.9 s)
+  phi=[[1, -1, -1]] |V|=23 |E|=106 c=8 d=2 diam=3 sat=True answer=True shortest=3 cuts=2 cuts_with_path=2 def=(True, 14, 3, [3]) classes={'d>2,c>2 (not DC)': 64, "d>2,c>3 (not 'd<=2 or c<=3')": 64, "d>3,c>2 (not 'd<=3 or c<=2')": 0} (1.9 s)
+  phi=[[-1, -1, -2], [2, 3, -3], [-2, -1, 2], [1, -1, -1], [2, 2, -1], [-3, 1, -2], [3, 2, 1], [3, 2, 3], [1, -2, -3]] |V|=159 |E|=4432 c=64 d=2 diam=3 sat=True answer=True shortest=21 cuts=8 cuts_with_path=2 def=None classes={'d>2,c>2 (not DC)': 3294, "d>2,c>3 (not 'd<=2 or c<=3')": 3294, "d>3,c>2 (not 'd<=3 or c<=2')": 0} (3.9 s)
+  phi=[[2, 1, -1], [-2, -2, -1], [1, 2, 2], [-1, 2, -2]] |V|=74 |E|=993 c=29 d=2 diam=3 sat=True answer=True shortest=9 cuts=4 cuts_with_path=2 def=(True, 53, 81, [9, 11, 13]) classes={'d>2,c>2 (not DC)': 700, "d>2,c>3 (not 'd<=2 or c<=3')": 700, "d>3,c>2 (not 'd<=3 or c<=2')": 0} (1.3 s)
+  phi=[[3, -1, -3], [-1, -2, -1], [-1, -1, -1], [-1, 2, 3]] |V|=74 |E|=992 c=29 d=2 diam=3 sat=True answer=True shortest=9 cuts=8 cuts_with_path=4 def=(True, 53, 81, [9, 11]) classes={'d>2,c>2 (not DC)': 700, "d>2,c>3 (not 'd<=2 or c<=3')": 700, "d>3,c>2 (not 'd<=3 or c<=2')": 0} (1.3 s)
+
+Total: 399 formulas, 0 with a failed check.  Time 150 s.

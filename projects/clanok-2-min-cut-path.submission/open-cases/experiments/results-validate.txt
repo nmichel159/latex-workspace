@@ -1,0 +1,20 @@
+validate.py: all connected graphs with 2..8 vertices
+
+n=2: 1 graphs, 2 ordered pairs, 2 with a path inside a minimum cut, 0 validation failures
+n=3: 2 graphs, 12 ordered pairs, 10 with a path inside a minimum cut, 0 validation failures
+n=4: 6 graphs, 72 ordered pairs, 50 with a path inside a minimum cut, 0 validation failures
+n=5: 21 graphs, 420 ordered pairs, 260 with a path inside a minimum cut, 0 validation failures
+n=6: 112 graphs, 3360 ordered pairs, 1904 with a path inside a minimum cut, 0 validation failures
+n=7: 853 graphs, 35826 ordered pairs, 19140 with a path inside a minimum cut, 0 validation failures
+n=8: 11117 graphs, 311276 unordered pairs, 160604 with a path inside a minimum cut, 0 validation failures
+
+Validation failures (V1-V5): 0
+O1 (c >= 3 and a path inside a minimum cut => all its vertices x have c(u,x) >= 3): tested on 140392 pairs, 0 failures
+O5 (add w adjacent to u, v: c+1, d<=2, same paths inside minimum cuts): tested on 39692 ordered pairs (n <= 7), 0 failures
+
+Pairs with a path inside a minimum cut, by (d(u,v), set of lengths of such paths):
+  d=1 lengths [1]: 180803
+  d=1 lengths [1, 3]: 745
+  d=2 lengths [3]: 419
+  d=3 lengths [3]: 3
+Time 6 s.

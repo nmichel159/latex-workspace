@@ -1,0 +1,42 @@
+% Source of the figure counterexamples.pdf: the two six-vertex graphs of the class DC_2 for which
+% cp(u,v) = c(u,v) + d(u,v) - 1 fails. In (a) c(u,v) = 2 and d(u,v) = 3, in (b) d(u,v) = 2 and c(u,v) = 3;
+% in both the red u-v path u-a-b-v is also a u-v cut. Compile with pdfLaTeX; the PDF is included in the
+% manuscript at its natural size.
+\documentclass[tikz,border=1pt]{standalone}
+\usepackage[T1]{fontenc}
+\pdfinfoomitdate=1 \pdftrailerid{} \pdfsuppressptexinfo=-1
+\definecolor{pathred}{RGB}{200,40,40}
+\tikzset{
+  vertex/.style={circle, fill=black, inner sep=0pt, minimum size=2.2mm},
+  terminal/.style={circle, fill=black, inner sep=0pt, minimum size=3mm},
+  edge/.style={line width=0.7pt},
+  pathedge/.style={line width=1.8pt, pathred, line cap=round}}
+% the graph with the vertex names prefixed by #1; the edges av and ub are drawn by the caller
+\newcommand{\sixgraph}[1]{%
+  \node[vertex]   (#1t) at (1.5,3.0) {};
+  \node[vertex]   (#1a) at (0,1.8) {};
+  \node[terminal] (#1v) at (3.0,1.8) {};
+  \node[terminal] (#1u) at (0,0) {};
+  \node[vertex]   (#1b) at (3.0,0) {};
+  \node[vertex]   (#1s) at (1.5,-1.2) {};
+  \draw[edge] (#1t) -- (#1a) (#1t) -- (#1v) (#1u) -- (#1s) (#1s) -- (#1b);
+  \draw[pathedge] (#1u) -- (#1a) (#1a) -- (#1b) (#1b) -- (#1v);
+  \node[above=1pt] at (#1t) {$t$};
+  \node[left=2pt]  at (#1a) {$a$};
+  \node[right=2pt] at (#1v) {$v$};
+  \node[left=2pt]  at (#1u) {$u$};
+  \node[right=2pt] at (#1b) {$b$};
+  \node[below=1pt] at (#1s) {$s$};}
+\begin{document}
+\begin{tikzpicture}[x=1cm, y=1cm]
+  \begin{scope}
+    \sixgraph{p}
+    \node at (1.5,-2.3) {(a)};
+  \end{scope}
+  \begin{scope}[xshift=5.6cm]
+    \draw[edge] (0,1.8) -- (3.0,1.8) (0,0) -- (3.0,0);
+    \sixgraph{q}
+    \node at (1.5,-2.3) {(b)};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

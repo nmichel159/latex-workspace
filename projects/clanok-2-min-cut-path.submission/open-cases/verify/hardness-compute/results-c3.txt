@@ -1,0 +1,5 @@
+check_c3.py: 390 atlas graphs in the class, 505 other graphs in the class (B subcubic, C grown, D wheels), 200 unrestricted random graphs (E)
+class c(x,y) <= 3: {'pairs': 47738, 'yes': 14735, 'd2': 17285, 'd2yes': 93, 'paths13': 47808, 'skipped': 0}
+unrestricted: {'pairs': 6000, 'yes': 2434, 'd2': 2629, 'd2yes': 4, 'paths13': 47830, 'skipped': 0}
+failures: 0
+time 238 s

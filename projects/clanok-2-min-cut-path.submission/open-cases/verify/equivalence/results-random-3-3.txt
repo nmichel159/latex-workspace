@@ -1,0 +1,39 @@
+class k = 3 seed 3 count 20000
+13a DC answer no                                        80183
+13a DC answer yes                                       6700
+13a DC longest witness length 3                         5593
+13a DC longest witness length 5                         1059
+13a DC longest witness length 7                         48
+13a non-DC pairs where P2 fails (expected possible)     33
+13a nonDC answer no                                     55970
+13a nonDC answer yes                                    3686
+13a nonDC longest witness length 3                      2575
+13a nonDC longest witness length 5                      1037
+13a nonDC longest witness length 7                      74
+13a pairs (d=2,c>=3)                                    146539
+13a pairs in DC                                         86883
+DC' answer no                                           67253
+DC' answer yes                                          8030
+DC' pairs (d=2,c>=4)                                    75283
+L1 cp compared                                          51923
+L1 pairs (graph with bridges, c>=2)                     346645
+L4 ears                                                 1319666
+L4 ears attached at u or v                              664672
+L4 ears with p = s                                      27983
+L4 long ears (>= 2 vertices)                            180755
+P5 pairs (c>=3)                                         407256
+cp compared                                             31609
+graphs                                                  18837
+graphs in DC                                            14714
+graphs in DC'                                           18837
+n=10                                                    2612
+n=11                                                    2357
+n=12                                                    2373
+n=13                                                    2183
+n=14                                                    1953
+n=15                                                    1723
+n=16                                                    1617
+n=9                                                     5182
+paths inside minimum cuts                               639418
+violations: 0
+time 599.8s

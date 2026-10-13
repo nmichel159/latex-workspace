@@ -1,0 +1,3 @@
+H(2,2) classes L=25: SPC False 10s
+H(2,2) classes L=31: SPC False 43s
+H(2,2) classes L=41: SPC False 149s

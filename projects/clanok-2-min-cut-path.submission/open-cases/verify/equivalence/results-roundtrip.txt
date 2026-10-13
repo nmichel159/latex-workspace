@@ -1,0 +1,10 @@
+round trip seed 2 count 3000
+graphs                                        2057
+pairs realised                                13788
+pairs realised, PIMC no                       12774
+pairs realised, PIMC yes                      1014
+skipped (instance too large to realise)       1247
+max n of G(Pi), M=1                           88
+max n of G(Pi), M=None                        590
+violations: 0
+time 798.9s

@@ -1,0 +1,4 @@
+check_vlib.py: 995 atlas graphs (connected, 2..7 vertices) + 300 random graphs (8..9 vertices)
+ordered pairs: 58876, yes-pairs (some minimum cut contains a u-v path): 30266
+failures: 0
+time 98.6 s

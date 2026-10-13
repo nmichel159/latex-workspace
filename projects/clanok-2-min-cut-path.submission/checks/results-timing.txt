@@ -1,0 +1,11 @@
+time_algorithm.py: algorithm.solve on chains of k squares (fresh process per size, garbage collector off, best of 5 runs)
+       k   vertices      edges      seconds   microseconds/(n+m)   result
+     500       3360       5017        0.015                 1.76   c = 2, 563 squares, cp = d
+    1000       6870      10197        0.030                 1.77   c = 2, 1123 squares, cp = d
+    2000      13666      20366        0.061                 1.79   c = 2, 2237 squares, cp = d
+    4000      27221      40555        0.124                 1.83   c = 2, 4440 squares, cp = d
+    8000      54185      80881        0.272                 2.01   c = 2, 8901 squares, cp = d
+   16000     108497     161510        0.489                 1.81   c = 2, 17791 squares, cp = d
+   32000     218118     325117        0.998                 1.84   c = 2, 35587 squares, cp = d
+
+exponent between the smallest and the largest instance: 1.01

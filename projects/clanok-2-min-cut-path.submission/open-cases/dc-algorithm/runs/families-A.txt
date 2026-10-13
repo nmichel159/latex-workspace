@@ -1,0 +1,78 @@
+=== section A
+k=1 q=4 dist_ok=True c=3 #mincuts=3 witnesses=[[0, 2]] minlen=3 one-generator=True two-generators=True
+k=2 q=6 dist_ok=True c=6 #mincuts=7 witnesses=[[0, 2, 3]] minlen=5 one-generator=False two-generators=True
+k=3 q=8 dist_ok=True c=11 #mincuts=15 witnesses=[[0, 2, 3, 4]] minlen=7 one-generator=False two-generators=False
+k=4 q=10 dist_ok=True c=18 #mincuts=31 witnesses=[[0, 2, 3, 4, 5]] minlen=9 one-generator=False two-generators=False
+k=5 q=12 dist_ok=True c=27 #mincuts=63 witnesses=[[0, 2, 3, 4, 5, 6]] minlen=11 one-generator=False two-generators=False
+Z_2                                n=  6 |R|=  9 P2=True  exact=True  AC=True  PC=True    0.0s 
+Z_2 minus (0, 4)                   n=  6 |R|=  8 P2=True  exact=False AC=False PC=False   0.0s 
+Z_2 minus (2, 4)                   n=  6 |R|=  8 P2=True  exact=False AC=False PC=False   0.0s 
+Z_2 minus (2, 5)                   n=  6 |R|=  8 P2=True  exact=False AC=False PC=False   0.0s 
+Z_2 minus (3, 1)                   n=  6 |R|=  8 P2=True  exact=False AC=False PC=False   0.0s 
+Z_2 minus (3, 5)                   n=  6 |R|=  8 P2=True  exact=False AC=False PC=False   0.0s 
+Z_3                                n=  8 |R|= 13 P2=True  exact=True  AC=True  PC=True    0.0s 
+Z_3 minus (0, 5)                   n=  8 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z_3 minus (2, 5)                   n=  8 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z_3 minus (2, 6)                   n=  8 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z_3 minus (3, 6)                   n=  8 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z_3 minus (3, 7)                   n=  8 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z_3 minus (4, 1)                   n=  8 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z_3 minus (4, 7)                   n=  8 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z_4                                n= 10 |R|= 17 P2=True  exact=True  AC=True  PC=True    0.0s 
+Z_4 minus (0, 6)                   n= 10 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z_4 minus (2, 6)                   n= 10 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z_4 minus (2, 7)                   n= 10 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z_4 minus (3, 7)                   n= 10 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z_4 minus (3, 8)                   n= 10 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z_4 minus (4, 8)                   n= 10 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z_4 minus (4, 9)                   n= 10 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z_4 minus (5, 1)                   n= 10 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z_4 minus (5, 9)                   n= 10 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z_5                                n= 12 |R|= 21 P2=True  exact=True  AC=True  PC=True    0.0s 
+Z_5 minus (0, 7)                   n= 12 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z_5 minus (2, 7)                   n= 12 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z_5 minus (2, 8)                   n= 12 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z_5 minus (3, 8)                   n= 12 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z_5 minus (3, 9)                   n= 12 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z_5 minus (4, 9)                   n= 12 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z_5 minus (4, 10)                  n= 12 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z_5 minus (5, 10)                  n= 12 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z_5 minus (5, 11)                  n= 12 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z_5 minus (6, 1)                   n= 12 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z_5 minus (6, 11)                  n= 12 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_2                               n=  8 |R|=  9 P2=True  exact=True  AC=True  PC=True    0.0s 
+Z'_2 minus (0, 4)                  n=  8 |R|=  8 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_2 minus (2, 4)                  n=  8 |R|=  8 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_2 minus (2, 5)                  n=  8 |R|=  8 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_2 minus (3, 1)                  n=  8 |R|=  8 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_2 minus (3, 5)                  n=  8 |R|=  8 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_3                               n= 10 |R|= 13 P2=True  exact=True  AC=True  PC=True    0.0s 
+Z'_3 minus (0, 5)                  n= 10 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_3 minus (2, 5)                  n= 10 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_3 minus (2, 6)                  n= 10 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_3 minus (3, 6)                  n= 10 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_3 minus (3, 7)                  n= 10 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_3 minus (4, 1)                  n= 10 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_3 minus (4, 7)                  n= 10 |R|= 12 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_4                               n= 12 |R|= 17 P2=True  exact=True  AC=True  PC=True    0.0s 
+Z'_4 minus (0, 6)                  n= 12 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_4 minus (2, 6)                  n= 12 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_4 minus (2, 7)                  n= 12 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_4 minus (3, 7)                  n= 12 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_4 minus (3, 8)                  n= 12 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_4 minus (4, 8)                  n= 12 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_4 minus (4, 9)                  n= 12 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_4 minus (5, 1)                  n= 12 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_4 minus (5, 9)                  n= 12 |R|= 16 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_5                               n= 14 |R|= 21 P2=True  exact=True  AC=True  PC=True    0.0s 
+Z'_5 minus (0, 7)                  n= 14 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_5 minus (2, 7)                  n= 14 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_5 minus (2, 8)                  n= 14 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_5 minus (3, 8)                  n= 14 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_5 minus (3, 9)                  n= 14 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_5 minus (4, 9)                  n= 14 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_5 minus (4, 10)                 n= 14 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_5 minus (5, 10)                 n= 14 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_5 minus (5, 11)                 n= 14 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_5 minus (6, 1)                  n= 14 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 
+Z'_5 minus (6, 11)                 n= 14 |R|= 20 P2=True  exact=False AC=False PC=False   0.0s 

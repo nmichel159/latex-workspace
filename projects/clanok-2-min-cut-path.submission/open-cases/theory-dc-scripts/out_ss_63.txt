@@ -1,0 +1,2 @@
+seed 63 {'inst': 2468, 'paths3': 976, 'bad3': 0, 'paths5': 976, 'bad5': 0}
+seed 63 {'yes': 598, 'long': 324, 'H1': 0, 'H2': 0, 'H3': 0, 'pairsE': 0, 'pairsO': 0}

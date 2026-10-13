@@ -1,0 +1,21 @@
+rand seed 200: {'n': 10, 'yes': 8, 'no': 2, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 2, 'p2': 10, 'bad_cert': 0}
+empty seed 202: {'n': 10, 'yes': 4, 'no': 6, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 2, 'p2': 10, 'bad_cert': 0}
+pool seed 201: {'n': 10, 'yes': 5, 'no': 5, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 3, 'p2': 10, 'bad_cert': 0}
+rigidmut seed 205: {'n': 10, 'yes': 7, 'no': 3, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 2, 'p2': 10, 'bad_cert': 0}
+nop2 seed 206: {'n': 10, 'yes': 6, 'no': 4, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 3, 'p2': 6, 'bad_cert': 0}
+sat seed 204: {'n': 10, 'yes': 10, 'no': 0, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 2, 'p2': 10, 'bad_cert': 0}
+zero seed 203: {'n': 10, 'yes': 5, 'no': 5, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 3, 'p2': 10, 'bad_cert': 0}
+hard seed 208: {'n': 10, 'yes': 8, 'no': 2, 'relax_yes_no': 2, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 10, 'bad_cert': 0}
+big seed 207: {'n': 10, 'yes': 6, 'no': 4, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 10, 'bad_cert': 0}
+
+TOTALS (1s)
+big: {'n': 10, 'yes': 6, 'no': 4, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 10, 'bad_cert': 0}
+empty: {'n': 10, 'yes': 4, 'no': 6, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 2, 'p2': 10, 'bad_cert': 0}
+hard: {'n': 10, 'yes': 8, 'no': 2, 'relax_yes_no': 2, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 0, 'p2': 10, 'bad_cert': 0}
+nop2: {'n': 10, 'yes': 6, 'no': 4, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 3, 'p2': 6, 'bad_cert': 0}
+pool: {'n': 10, 'yes': 5, 'no': 5, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 3, 'p2': 10, 'bad_cert': 0}
+rand: {'n': 10, 'yes': 8, 'no': 2, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 2, 'p2': 10, 'bad_cert': 0}
+rigidmut: {'n': 10, 'yes': 7, 'no': 3, 'relax_yes_no': 1, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 2, 'p2': 10, 'bad_cert': 0}
+sat: {'n': 10, 'yes': 10, 'no': 0, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 2, 'p2': 10, 'bad_cert': 0}
+zero: {'n': 10, 'yes': 5, 'no': 5, 'relax_yes_no': 0, 'T_bad': 0, 'H_bad': 0, 'Tfull_bad': 0, 'Tfull_runs': 3, 'p2': 10, 'bad_cert': 0}
+violations: 0

@@ -1,0 +1,8 @@
+hubimp(2,2,classes): n=22 exact=False SPC=False 1s
+   simple-path CSP: PC non-empty for L in [] 1s
+hubimp(2,3,classes): n=29 exact=False SPC=False 35s
+   simple-path CSP: PC non-empty for L in [] 7s
+hubimp(2,2,strict): n=22 exact=False SPC=False 2s
+   simple-path CSP: PC non-empty for L in [] 1s
+hubimp(2,3,strict): n=29 exact=False SPC=False 84s
+   simple-path CSP: PC non-empty for L in [] 14s

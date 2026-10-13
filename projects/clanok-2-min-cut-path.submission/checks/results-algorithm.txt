@@ -1,0 +1,93 @@
+check_algorithm.py: algorithm.py (S11) against brute force
+
+(i), (ii): all 12112 connected graphs with 2..8 vertices, all ordered pairs with c <= 2
+  graphs in DC: 11575, graphs not in DC: 537 (graphs with at most 7 vertices are all in DC)
+  graphs in DC
+    graphs                                                           11575
+    pairs c = 1                                                      81874
+    pairs c = 2                                                      176550
+    pairs where every entering terminal is within distance 2 of every leaving terminal (*) 176550
+    pairs with c = 2: cp = d                                         278
+    pairs with c = 2: cp = d + 1                                     176272
+  ALG-applies       258424 assertions, 0 failed  PASS
+  ALG-c3-refused    373748 assertions, 0 failed  PASS
+  ALG-c-d           258424 assertions, 0 failed  PASS
+  ALG-value         258424 assertions, 0 failed  PASS
+  ALG-cutpath       258424 assertions, 0 failed  PASS
+  ALG-star          176550 assertions, 0 failed  PASS
+  ALG-F             176550 assertions, 0 failed  PASS
+  ALG-tail          176550 assertions, 0 failed  PASS
+  ALG-pieces        176550 assertions, 0 failed  PASS
+  ALG-scc           176550 assertions, 0 failed  PASS
+  ALG-squares       176550 assertions, 0 failed  PASS
+  ALG-lambda        176550 assertions, 0 failed  PASS
+  graphs NOT in DC (report only: the algorithm is claimed for DC)
+    graphs                                                           537
+    pairs c = 2                                                      5342
+    pairs where (*) fails                                            1234
+    pairs where (*) fails and the algorithm is right                 1234
+    pairs where every entering terminal is within distance 2 of every leaving terminal (*) 4108
+    pairs with c = 2: cp = d                                         4
+    pairs with c = 2: cp = d + 1                                     5338
+    wrong value on 0 of 5342 pairs with c <= 2, invalid cut-path on 0; F, orientation, pieces, squares and lambda wrong on 0/0/0/0/0
+    ALG-star (value right whenever (*) holds), non-DC graphs: 4108 assertions, 0 failed  PASS
+
+(iii): random chains in DC with long decompositions, seeds 20261012..20265511
+  DC instances                                                       2983
+  DC instances with k = 10 squares                                   4
+  DC instances with k = 3 squares                                    520
+  DC instances with k = 4 squares                                    790
+  DC instances with k = 5 squares                                    733
+  DC instances with k = 6 squares                                    586
+  DC instances with k = 7 squares                                    267
+  DC instances with k = 8 squares                                    70
+  DC instances with k = 9 squares                                    13
+  DC instances: edges                                                106384
+  DC instances: vertices                                             77512
+  DC: pairs where every entering terminal is within distance 2 of every leaving terminal (*) 2983
+  DC: pairs with c = 2: cp = d                                       369
+  DC: pairs with c = 2: cp = d + 1                                   2614
+  pairs c = 2                                                        2983
+  seeds rejected (not in DC, c != 2, or duplicate edge)              1517
+  ALG-applies         2983 assertions, 0 failed  PASS
+  ALG-c-d             2983 assertions, 0 failed  PASS
+  ALG-value           2983 assertions, 0 failed  PASS
+  ALG-cutpath         2983 assertions, 0 failed  PASS
+  ALG-star            2983 assertions, 0 failed  PASS
+  ALG-F               2983 assertions, 0 failed  PASS
+  ALG-scc             2983 assertions, 0 failed  PASS
+  mean vertices 26.0, mean edges 35.7
+
+(iv): random graphs outside DC with c(u,v) = 2, seeds 20261012..20273011 (report only)
+  non-DC instances                                                   4789
+  non-DC instances: vertices                                         111291
+  non-DC: algorithm value not below the true cp                      4789
+  non-DC: pairs where (*) fails                                      4395
+  non-DC: pairs where (*) fails and the algorithm is right           4284
+  non-DC: pairs where (*) fails and the algorithm is wrong           111
+  non-DC: pairs where every entering terminal is within distance 2 of every leaving terminal (*) 394
+  non-DC: pairs with c = 2: cp = d                                   291
+  non-DC: pairs with c = 2: cp = d + 1                               4498
+  non-DC: wrong value: algorithm d + 1, brute force d                111
+  pairs c = 2                                                        4789
+  seeds rejected (in DC, c != 2, or duplicate edge)                  7211
+  algorithm wrong on 111 of 4789 instances (2.3%); cut-path invalid on 0
+  ALG-star (value right whenever (*) holds): 394 assertions, 0 failed  PASS
+  smallest random instance with a wrong value: n=13, u=0, v=11, edges 0-1 0-4 1-2 2-3 3-12 4-5 4-8 5-6 6-7 7-11 7-12 8-9 9-10 10-11
+      algorithm cp = 6 (shortest path + cut), brute force cp = 5, d = 5, c = 2
+  hand-built family (crossed path of k edges as a square; vertices 0 = u, 1 = x, 2 = y, 3 = v):
+    k = 3: n = 12, in DC: False (pair (1, 2)), c = 2, d = 5, cp (brute force) = 5, algorithm = 6  <- WRONG
+      edges: 0-1 0-4 1-7 1-10 2-3 2-6 2-11 3-9 4-5 5-6 7-8 8-9 10-11
+    k = 4: n = 15, in DC: False (pair (1, 2)), c = 2, d = 6, cp (brute force) = 6, algorithm = 7  <- WRONG
+    k = 5: n = 18, in DC: False (pair (1, 2)), c = 2, d = 7, cp (brute force) = 7, algorithm = 8  <- WRONG
+    k = 6: n = 21, in DC: False (pair (1, 2)), c = 2, d = 8, cp (brute force) = 8, algorithm = 9  <- WRONG
+
+(vi): the algorithm on coarser decompositions (F' = union of some minimum cuts); graphs with 2..7 vertices, 1500 DC chains, 1500 non-DC instances
+  coarser decompositions tried                                                     36482
+  coarser decompositions where (*) fails: algorithm right                          9806
+  coarser decompositions where (*) fails: algorithm wrong                          531
+  coarser decompositions with (*)                                                  26145
+  ALG-coarse: 26145 assertions, 0 failed  PASS
+
+(the running time of the algorithm is measured in time_algorithm.py)
+Total time 7 s.

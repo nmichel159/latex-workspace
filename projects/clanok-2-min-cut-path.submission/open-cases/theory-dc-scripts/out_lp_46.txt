@@ -1,0 +1,1 @@
+seed 46 {'inst': 2084, 'paths3': 658, 'bad3': 0, 'paths5': 658, 'bad5': 0}

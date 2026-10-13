@@ -1,0 +1,4 @@
+G_a^+ [along]: returns 3, edges ['ab', 'au', 'bv'], cp by brute force 3, d = 3, in the class: True, some l >= 3: False
+G_a^+ [adjacent]: returns 3, edges ['ab', 'au', 'bv'], cp by brute force 3, d = 3, in the class: True, some l >= 3: False
+21-vertex graph [along]: returns 9, edges ['01', '02', '1011', '107', '152', '154', '34', '39', '79'], cp by brute force 9, d = 9, in the class: True, some l >= 3: False
+21-vertex graph [adjacent]: returns 9, edges ['01', '02', '1011', '107', '152', '154', '34', '39', '79'], cp by brute force 9, d = 9, in the class: True, some l >= 3: False

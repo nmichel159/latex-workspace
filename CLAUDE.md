@@ -77,7 +77,7 @@ the same conventions, and is backed by a knowledge base of the author's research
 |---|---|---|---|
 | `cv` | CV (AltaCV, English, 2 pages) | `norbert-michel-cv.tex` | `outputs/cv/norbert-michel-cv.pdf` |
 | `clanok-1-min-cut-path` | article "Min Cut-Path Problem" (English) for Discrete Applied Mathematics; one-file `main.tex` written from `cas-sc-template.tex`; class `cas-sc` from template `els-cas`; package check with `-Template els-cas -Flat -KeepComments` | `main.tex` | `outputs/clanok-1-min-cut-path/main.pdf` |
-| `clanok-2-min-cut-path` | second article, to be written from the master's thesis, for Algorithmica; `main.tex` is the template's `sn-article.tex` filled in, placeholder text; class `sn-jnl` from template `sn-jnl`; package check with `-Template sn-jnl -Flat -KeepComments` | `main.tex` | `outputs/clanok-2-min-cut-path/main.pdf` |
+| `clanok-2-min-cut-path` | second article "Min Cut-Path on Graphs with Distance or Cut-Value at Most Two" (working title), written from Section 3.3 of the master's thesis, for Algorithmica; first complete draft of 2026-10-12, not yet read by the author; `main.tex` is the template's `sn-article.tex` filled in; class `sn-jnl` from template `sn-jnl`; package check with `-Template sn-jnl -Flat -KeepComments` | `main.tex` | `outputs/clanok-2-min-cut-path/main.pdf` |
 
 Each project has notes beside its folder, `projects/<project>.md`, with its status, file list and known problems.
 Read them before editing the project and update them when the status changes. Add a row here and in the root

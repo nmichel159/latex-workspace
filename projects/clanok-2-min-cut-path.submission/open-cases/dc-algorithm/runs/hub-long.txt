@@ -1,0 +1,3 @@
+hub long (1,2,classes): n=27 |R|=45 P2=True exact=False AC=True PC=False 1s
+   simple-path PC non-empty for L in [] 4s
+   SPC False 1s

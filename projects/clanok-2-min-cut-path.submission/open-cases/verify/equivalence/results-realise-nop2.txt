@@ -1,0 +1,19 @@
+mode nop2 seed 3 count 1500
+ZZ no                                         1004
+ZZ yes                                        496
+instances                                     1500
+nop2: G(Pi) in DC                             1117
+nop2: G(Pi) not in DC                         383
+nop2: instance has P2                         1117
+nop2: instance violates P2                    383
+planted                                       752
+random                                        748
+recovered Q = Q                               1500
+recovered preorder = preorder                 1500
+zigzag length 3                               410
+zigzag length 5                               84
+zigzag length 7                               2
+max n of G(Pi)                                252
+prefix-search nodes max                       104
+violations: 0
+time 26.3s

@@ -1,0 +1,2 @@
+K=4 n=2 switch options 255: {'inst': 27795, 'yes': 11663, 'relax_yes_no': 1686, 'viol': 0} (11s)
+violations: 0

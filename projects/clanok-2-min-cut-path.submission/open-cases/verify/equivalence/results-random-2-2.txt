@@ -1,0 +1,33 @@
+class k = 2 seed 2 count 20000
+13a DC answer no                                        115670
+13a DC answer yes                                       8588
+13a DC longest witness length 3                         6997
+13a DC longest witness length 5                         1487
+13a DC longest witness length 7                         104
+13a pairs (d=2,c>=3)                                    124258
+13a pairs in DC                                         124258
+DC' answer no                                           80857
+DC' answer yes                                          6406
+DC' pairs (d=2,c>=4)                                    87263
+L1 cp compared                                          52376
+L1 pairs (graph with bridges, c>=2)                     334808
+L4 ears                                                 1322471
+L4 ears attached at u or v                              693350
+L4 ears with p = s                                      24824
+L4 long ears (>= 2 vertices)                            164592
+P5 pairs (c>=3)                                         362733
+cp compared                                             27951
+graphs                                                  18824
+graphs in DC                                            18824
+graphs in DC'                                           18824
+n=10                                                    2595
+n=11                                                    2402
+n=12                                                    2385
+n=13                                                    2236
+n=14                                                    1925
+n=15                                                    1684
+n=16                                                    1556
+n=9                                                     5217
+paths inside minimum cuts                               671408
+violations: 0
+time 507.2s

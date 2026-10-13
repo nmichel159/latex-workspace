@@ -1,0 +1,64 @@
+% Draft of the declaration of generative AI use for the article
+% "Min Cut-Path on Graphs with Distance or Cut-Value at Most Two" (target journal: Algorithmica, Springer Nature).
+%
+% Status: draft for the author, written 2026-10-12. It is NOT part of the manuscript: this file lies beside the
+% project folder, in projects/clanok-2-min-cut-path.submission/, and the project folder is what gets sent.
+% The author completes it and inserts it himself.
+%
+% Rule (knowledge/writing/submission.md 1.1 and 1.3, policy pages read 2026-10-08; re-open them before submission):
+%   - Springer Nature asks for an AI declaration in the manuscript that describes every permitted use and confirms
+%     the author's accountability; Algorithmica's guidelines ask for LLM use to be documented "in the Methods
+%     section or a suitable alternative part" and exempt only AI-assisted copy editing.
+%   - The use here goes far beyond copy editing (see the list below), so the declaration is required.
+%   - Visuals: Springer Nature asks for a disclosure in the caption or legend of an AI-made visual and allows
+%     diagrams made from author content and figures made from verified code. All seven figures of the manuscript
+%     are TikZ drawings written by the assistant (sources in projects/clanok-2-min-cut-path.submission/figures/).
+%     Decide whether the captions need a sentence, and add it there if they do.
+%
+% What the assistant did, for the author to check against his own knowledge of the work before signing:
+%   1. Restructuring. Section 3.3 of the master's thesis was rewritten into the article: the decomposition is
+%      defined from the union of all minimum cuts instead of the three transformations of the thesis, and the
+%      order of the statements is new (blueprint in projects/clanok-2-min-cut-path.submission/SPEC.md, section 5).
+%   2. Proofs. Every proof of the manuscript in its present form was drafted by the assistant, including the
+%      statements that the thesis does not contain: the separation criterion (Lemma 10), the characterization
+%      for arbitrary graphs (Theorem 11), the computation of the decomposition in linear time (Lemma 14,
+%      Theorem 15) and the NP-completeness for cut-value two (Theorem 17). Numbers as compiled on 2026-10-12.
+%   3. Text. All sections, the abstract, the introduction and the conclusion were drafted by the assistant.
+%   4. Figures. All seven figures were written by the assistant as TikZ code, from the figures of the thesis and
+%      from the definitions of the article.
+%   5. Literature. The assistant searched the literature, wrote the reading notes and checked the bibliographic
+%      data against the publishers' records (projects/clanok-2-min-cut-path.submission/drafts/related-work.md).
+%   6. Checks by computation. The assistant wrote programs that test the statements S0-S15 of the blueprint, the
+%      named graphs of the examples and an implementation of Algorithm 1 against a brute-force computation of
+%      cp(u,v): all 12112 connected graphs with 2 to 8 vertices (662244 ordered pairs), 2953 random chains in the
+%      class with up to 40 vertices, the algorithm against brute force on 258424 pairs with cut-value at most two
+%      and on 2983 chains, and 18 mutation tests in which a statement is broken on purpose (all detected).
+%      The record of these checks is projects/clanok-2-min-cut-path.submission/checks/README.md, with the outputs
+%      in the files results-*.txt beside it. The checks support the statements, prove none of them and are not
+%      part of the paper.
+%   7. Review. A separate referee pass, also made with the assistant, read the mathematical body line by line and
+%      tested it with its own programs (projects/clanok-2-min-cut-path.submission/review/referee-math.md; 11895
+%      instances, 81 example values, no failure). Its findings were applied the same day; among them the
+%      statement of Theorem 15 and Algorithm 1 changed (the algorithm no longer assumes that the graph is in the
+%      class). The list of these changes is in integration-notes.md, section 8.
+%
+% To complete before inserting:
+%   - replace [MODEL AND VERSION] by the exact model name and version that was used (the packager fails while
+%     the placeholder is in the manuscript);
+%   - the last sentence ("the author reviewed ...") may be signed only after the author has read every statement
+%     and every proof: see "Content to review" in projects/clanok-2-min-cut-path.md;
+%   - if the checks by computation are mentioned, decide what "Code availability" in the Declarations says
+%     (it reads "Not applicable." now);
+%   - adjust the list of purposes to the actual use if the manuscript changes.
+%
+% To insert (the text goes directly into main.tex, which has no \input of own files):
+%   1. in projects/clanok-2-min-cut-path/main.tex, in the back matter after the paragraph of
+%      \bmhead{Acknowledgements} and before \section*{Declarations}, add the heading
+%        \bmhead{Declaration of generative AI and AI-assisted technologies}
+%      followed by the paragraph below, without these comment lines (a theory paper has no Methods section, so
+%      the back matter is the "suitable alternative part"; the packager recognizes this heading);
+%   2. rebuild and run the packager again (it then reports the declaration in its line "AI declaration: ...").
+
+During the preparation of this work the author used Claude ([MODEL AND VERSION], Anthropic), an AI assistant, in order to restructure a section of his master's thesis into this paper, to draft the definitions, the statements, the proofs and the text in their present form, to draw the figures as vector graphics, to search the literature and to check the bibliographic data against the publishers' records.
+The assistant also wrote programs that test the statements, the examples and the algorithm of the paper against an exhaustive computation on all connected graphs with at most eight vertices and on random graphs.
+After using this tool, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.

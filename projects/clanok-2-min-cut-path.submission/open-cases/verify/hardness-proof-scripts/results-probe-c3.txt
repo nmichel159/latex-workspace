@@ -1,0 +1,2 @@
+(i) atlas: ordered pairs with c <= 3: 32518, of them cp = c: 15128, with d >= 2 and cp = c: 24, disagreements: 0
+(ii) random graphs in the class c(x,y) <= 3: 600 graphs (n 9-15), non-adjacent pairs 24578, with cp = c: 20, with c = 3 and cp = c: 20, disagreements: 0

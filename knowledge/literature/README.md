@@ -35,6 +35,18 @@ Notes for the map [../research/min-cut-path.md](../research/min-cut-path.md) (ar
 | [Baier2010LengthBounded.md](Baier2010LengthBounded.md) | length-bounded cuts: definition, NP-hard to approximate within 1.1377 (written 2026-10-10) | published abstract; authors' manuscript: Table I, Theorems 3.9, 3.11 |
 | [EilamTzoreff1998Disjoint.md](EilamTzoreff1998Disjoint.md) | two disjoint paths, one of them shortest: NP-complete (mirror of Separating Shortest Path, Discrete Applied Mathematics; written 2026-10-10) | pp. 113-120, read by a search subagent |
 
+Notes written for article 2 (same map), 2026-10-12:
+
+| Note | Topic | Reading status |
+|---|---|---|
+| [PicardQueyranne1980.md](PicardQueyranne1980.md) | all minimum s-t cuts are the closed sets of the residual graph of one maximum flow (source of the structure behind the square decomposition, Sections 3 and 5 of article 2) | authors' technical report in full; of the published chapter the abstract |
+| [Mehlhorn2017Certifying.md](Mehlhorn2017Certifying.md) | 3-edge-connected components as vertex classes; cactus of the 2-edge cuts (Lemma 11) | arXiv v3: abstract, Sections 1, 2, 4, 10-12 |
+| [NagamochiKameda1996.md](NagamochiKameda1996.md) | cactus representation of all global minimum cuts; credits Dinits, Karzanov, Lomonosov and Picard, Queyranne | publisher's PDF: abstract, Sections 1, 3.1-3.3 |
+| [BaswanaPandey2025Carcass.md](BaswanaPandey2025Carcass.md) | connectivity carcass of Dinitz and Vainshtein; the strip (balanced DAG) of all minimum cuts between two vertices | arXiv v4: abstract, Sections 1, 1.1, 4.1 |
+| [Aboulker2017Coloring.md](Aboulker2017Coloring.md) | graph classes defined by bounded local edge-connectivity (nearest named classes to the class of article 2) | arXiv v2: abstract, Section 1 |
+| [Erickson2019Algorithms.md](Erickson2019Algorithms.md) | textbook statements: breadth-first search, strong components, augmenting paths and flow decomposition (Section 5 of article 2) | Sections 6.5, 6.6, 8.4, 10.3, 10.4 |
+| [Schmidt2013TwoConnectivity.md](Schmidt2013TwoConnectivity.md) | bridges and 2-edge-connectivity in linear time by chain decomposition | arXiv v1 in full |
+
 The notes below belong to the map [../research/llm-optimization.md](../research/llm-optimization.md); all were written 2026-10-08.
 
 | Note | Topic | Reading status |

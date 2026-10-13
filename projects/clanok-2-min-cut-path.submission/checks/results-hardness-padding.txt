@@ -1,0 +1,37 @@
+check_hardness_padding.py: S12, all 995 connected graphs with 2..7 vertices, all ordered pairs with c(u,v) >= 2
+
+  c = 2: F' = F + 4 new edges                                            13350
+  c = 2: squares of G' = {u'} + squares of G                             13350
+  decomposition of (G', u', v): k = 2 squares, c(u,v) >= 3               18744
+  decomposition of (G', u', v): k = 3 squares, c(u,v) = 2                11072
+  decomposition of (G', u', v): k = 4 squares, c(u,v) = 2                2176
+  decomposition of (G', u', v): k = 5 squares, c(u,v) = 2                100
+  decomposition of (G', u', v): k = 6 squares, c(u,v) = 2                2
+  graphs                                                                 995
+  pairs (u, v) with c >= 2                                               32094
+  pairs with cp(u',v) = d(u',v)                                          26
+  pairs with cp(u',v) = d(u',v) + 1                                      32068
+
+  S12-c               32094 assertions, 0 failed  PASS
+  S12-d               32094 assertions, 0 failed  PASS
+  S12-iff             32094 assertions, 0 failed  PASS
+  S12-cp(G)           32094 assertions, 0 failed  PASS
+  S12-sep             32094 assertions, 0 failed  PASS
+  S12-allpaths        32094 assertions, 0 failed  PASS
+  S12-shape           32094 assertions, 0 failed  PASS
+  S12-part            32094 assertions, 0 failed  PASS
+  S12-one-square      18744 assertions, 0 failed  PASS
+  S12-terminals       18744 assertions, 0 failed  PASS
+  S12-c2-F            13350 assertions, 0 failed  PASS
+  S12-c2-squares      13350 assertions, 0 failed  PASS
+  S12-c2-not-one-square    13350 assertions, 0 failed  PASS
+
+Instances produced by the reduction of article 1 (checks of article 1, imported read-only; connecting paths of one edge,
+which does not change any connectivity between u and v):
+  formula with 1 variables, 1 clauses: |V| = 78, |E| = 116, c(u,v) = 9, d(u,v) = 5;  padded: c(u',v) = 2, d(u',v) = 7, F' = the four new edges: True, V(G) is one piece (the piece of v): True, k = 2 squares
+  formula with 2 variables, 2 clauses: |V| = 154, |E| = 231, c(u,v) = 18, d(u,v) = 5;  padded: c(u',v) = 2, d(u',v) = 7, F' = the four new edges: True, V(G) is one piece (the piece of v): True, k = 2 squares
+  formula with 3 variables, 2 clauses: |V| = 170, |E| = 255, c(u,v) = 20, d(u,v) = 5;  padded: c(u',v) = 2, d(u',v) = 7, F' = the four new edges: True, V(G) is one piece (the piece of v): True, k = 2 squares
+  formula with 3 variables, 1 clauses: |V| = 110, |E| = 164, c(u,v) = 13, d(u,v) = 5;  padded: c(u',v) = 2, d(u',v) = 7, F' = the four new edges: True, V(G) is one piece (the piece of v): True, k = 2 squares
+  S12-article1: 4 assertions, 0 failed  PASS
+
+Time 3 s.

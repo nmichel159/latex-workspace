@@ -1,0 +1,1 @@
+H2 shortest path length in a minimum cut, my BFS value vs hardness/reduction.shortest_route: 49733 records of info-*.jsonl (47235 satisfiable); different: 0 [] (10 s)

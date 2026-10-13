@@ -1,0 +1,8 @@
+check_lemmas.py: lemmas of theory-hardness.md on all connected graphs with 2..7 vertices (ordered pairs) and 11117 connected graphs with 8 vertices (unordered pairs)
+
+graphs: 12112; pairs with c(u,v) >= 1: 350968; pairs with a path inside a minimum cut: 181970; such paths: 182764
+alternating flow paths of length <= 5 not inside a minimum cut (negative cases of L1.3): 1124
+checks: L1.1 (n <= 7), L1.3 both directions, O5 (n <= 7, ordered pairs), L3.1, L3.2, L3.4
+failures: 0
+failures by check: {}
+Time 3 s.

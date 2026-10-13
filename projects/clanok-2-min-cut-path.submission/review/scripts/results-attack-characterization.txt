@@ -1,0 +1,20 @@
+H1: n = 19, m = 22, c(u,v) = 2, d(u,v) = 5, cp(u,v) = 5, in the class: False
+  squares: ['{u}', '{A,k1,k2,k3,m1,m2,m3,w,x,y}', '{v}'] links: ['{B}', '{s1}', '{s2}', '{s3}', '{t1}', '{t2}', '{t3}']
+  witness: square 2, (x,alpha) = (A,x), (y,beta) = (y,w), p = A,x,w,y; shortest u-x paths: 1, through alpha: 0
+  witness: square 2, (x,alpha) = (A,x), (y,beta) = (w,y), p = A,x,w; shortest u-x paths: 1, through alpha: 0
+  witness: square 2, (x,alpha) = (x,A), (y,beta) = (y,w), p = x,w,y; shortest u-x paths: 1, through alpha: 1
+  statements.py: 8760 checks, failures: 0
+    info: ... and R enters the square at alpha 2
+    info: ... and R enters the square at alpha' 26
+    info: witness p is a proper part of the trace of R 4
+    info: witness p is a proper part of the trace of R' 58
+    info: witness p is the trace of NO shortest u-v path 4
+    info: witness p is the trace of NO shortest u-v path' 58
+random search finished
+  info: ... and R enters the square at alpha' 6
+  info: witness p is a proper part of the trace of R 2
+  info: witness p is a proper part of the trace of R' 15
+  info: witness p is the trace of NO shortest u-v path 2
+  info: witness p is the trace of NO shortest u-v path' 10
+  instances (full decomposition) where a witness p is met only after entering at alpha: 0
+  failures: 0

@@ -1,0 +1,166 @@
+verify_named_graphs.py
+====================================================================================================
+counterexample (a) of the research map: 6 vertices {a, b, s, t, u, v}, 7 edges {ab, at, au, bs, bv, su, tv}; u = u, v = v
+  d(u,v) = 3, c(u,v) = 2, cp(u,v) = 3 (second computation: 3), c + d - 1 = 4
+  an optimal cut-path: {ab, au, bv}; it is a cut-path: True
+  in DC: True
+  shortest u-v paths: 3; those whose removal separates u from v: ['uabv']
+  minimum cuts: ['{at, bv}', '{au, bs}', '{au, su}', '{bv, tv}']
+  F = {at, au, bs, bv, su, tv}
+  orientation (tail -> head): a->t, u->a, s->b, b->v, u->s, t->v
+  pieces: {a,b}, {s}, {t}, {u}, {v}
+  squares in order S_1..S_k (k = 3): S_1 = {u}, S_2 = {a,b}, S_3 = {v}
+  links: {s}, {t}
+  terminals of S_1: entering (a, b) = (u, u), leaving (c, d) = (u, u)
+      S6: (one terminal)
+  terminals of S_2: entering (a, b) = (a, b), leaving (c, d) = (a, b)
+      S6: c(a,b) = 3
+  terminals of S_3: entering (a, b) = (v, v), leaving (c, d) = (v, v)
+      S6: (one terminal)
+  general paths between S_1 and S_2: au | su[{s}]bs
+  general paths between S_2 and S_3: at[{t}]tv | bv
+  S9 witnesses (count = d and p separates alpha, beta): ['S_2: g=au, p=ab, h=bv (alpha=b, beta=a)']
+  S9: cp = d iff a witness exists: True
+  algorithm: cp = 3 via the path uabv (g = au, p = ab, h = bv)
+             cut-path returned: {ab, au, bv}
+  algorithm agrees with brute force: cp True, F True, cut-path valid True
+  claim d                        OK : claimed 3, computed 3
+  claim c                        OK : claimed 2, computed 2
+  claim cp                       OK : claimed 3, computed 3
+  claim k                        OK : claimed 3, computed 3
+====================================================================================================
+counterexample (b) of the research map: 6 vertices {a, b, s, t, u, v}, 9 edges {ab, at, au, av, bs, bu, bv, su, tv}; u = u, v = v
+  d(u,v) = 2, c(u,v) = 3, cp(u,v) = 3 (second computation: 3), c + d - 1 = 4
+  an optimal cut-path: {ab, au, bv}; it is a cut-path: True
+  in DC: True
+  shortest u-v paths: 2; those whose removal separates u from v: []
+  open case d = 2, c = 3: the algorithm does not apply (it returns None)
+  minimum cut {ab, au, bv} contains the u-v paths ['uabv']
+  minimum cuts that contain a u-v path: 1 of 5; cp = c: True
+  claim d                        OK : claimed 2, computed 2
+  claim c                        OK : claimed 3, computed 3
+  claim cp                       OK : claimed 3, computed 3
+====================================================================================================
+core.tex, Example counterexamples (G_a and G_b)
+  claim OK       G_a: d(u,v) = 3, c(u,v) = 2
+  claim OK       G_a: cp(u,v) = 3, c + d - 1 = 4 (computed cp = 3, c + d - 1 = 4)
+  claim OK       G_a: removing the path u,a,b,v leaves the components {u,s,b} and {a,t,v} (computed ['atv', 'bsu'])
+  claim OK       G_a: u,a,b,v is a cut-path with three edges
+  claim OK       G_a belongs to DC
+  claim OK       G_a: not of diameter two (diameter 3) and not a cactus graph
+  claim OK       G_a: the only vertices of degree > 2 are a and b, which are adjacent (computed ['a', 'b'])
+  claim OK       G_b: d(u,v) = 2, c(u,v) = 3
+  claim OK       G_b: cp(u,v) = 3, c + d - 1 = 4 (computed cp = 3, c + d - 1 = 4)
+  claim OK       G_b: removing the path u,a,b,v leaves the components {u,s,b} and {a,t,v} (computed ['atv', 'bsu'])
+  claim OK       G_b: u,a,b,v is a cut-path with three edges
+  claim OK       G_b belongs to DC
+  claim OK       G_b: not of diameter two (diameter 3) and not a cactus graph
+  claim OK       G_b: the only two vertices at distance three are s and t, both of degree two (computed [('s', 't')])
+====================================================================================================
+core.tex, Example decomposition (G_a)
+  claim OK       minimum u-v cuts: [['at', 'bv'], ['au', 'bs'], ['au', 'su'], ['bv', 'tv']]
+  claim OK       F contains every edge except ['ab']
+  claim OK       squares in order: ['u', 'ab', 'v']
+  claim OK       links: ['s', 't'] (computed ['s', 't'])
+  claim OK       terminals of S_1: entering {u}, leaving {u} (computed {u}, {u})
+  claim OK       terminals of S_2: entering {ab}, leaving {ab} (computed {ab}, {ab})
+  claim OK       terminals of S_3: entering {v}, leaving {v} (computed {v}, {v})
+  claim OK       general paths between S_1 and S_2: ['au', 'su,{s},bs'] (computed ['au', 'su,{s},bs'])
+  claim OK       general paths between S_2 and S_3: ['at,{t},tv', 'bv'] (computed ['at,{t},tv', 'bv'])
+====================================================================================================
+core.tex, Example worked (G_1)
+  claim OK       G_1: c(u,v) = 2, d(u,v) = 5
+  claim OK       p_1 is a u-v path with 5 edges
+  claim OK       p_2 is a u-v path with 5 edges
+  claim OK       p_1 and p_2 are edge-disjoint
+  claim OK       minimum u-v cuts: [['1u', '2u'], ['24', '36'], ['36', '45'], ['36', '57'], ['68', '7v'], ['7v', '8v']]
+  claim OK       F contains every edge except ['12', '13', '23', '67']
+  claim OK       squares in order: ['u', '123', '67', 'v']
+  claim OK       links: ['4', '5', '8'] (computed ['4', '5', '8'])
+  claim OK       terminals of S_1: entering {u}, leaving {u} (computed {u}, {u})
+  claim OK       terminals of S_2: entering {12}, leaving {32} (computed {12}, {23})
+  claim OK       terminals of S_3: entering {67}, leaving {67} (computed {67}, {67})
+  claim OK       terminals of S_4: entering {v}, leaving {v} (computed {v}, {v})
+  claim OK       general paths between S_1 and S_2: ['1u', '2u'] (computed ['1u', '2u'])
+  claim OK       general paths between S_2 and S_3: ['24,{4},45,{5},57', '36'] (computed ['24,{4},45,{5},57', '36'])
+  claim OK       general paths between S_3 and S_4: ['68,{8},8v', '7v'] (computed ['68,{8},8v', '7v'])
+  claim OK       S_2: entering terminals 1, 2 and leaving terminals 3, 2 (b_2 = d_2 = 2)
+  claim OK       every vertex outside S_2 and S_3 has degree two
+  claim OK       two vertices of the same square are adjacent
+  claim OK       G_1 belongs to DC
+====================================================================================================
+core.tex, Example criterion
+  claim OK       G_a: d(u,a) + |p| + d(b,v) = 3 = d(u,v) for p = a,b, and cp(u,v) = 3
+  claim OK       G_a: S_2 minus p has no edge, so it separates alpha = b from beta = a
+  claim OK       G_1: d(u,6) + |p| + d(7,v) = 3 + 1 + 1 = d(u,v) for p = 6,7
+  claim OK       G_1: cp(u,v) = 5 (computed 5)
+  claim OK       G_1: u,1,3,6,7,v is a minimum cut-path (a cut-path with 5 = cp edges)
+  claim OK       G_1: some path with (i) separates alpha from beta (cp = d)
+  claim OK       G_1': F does not change
+  claim OK       G_1': distances from u and to v do not change (d(u,6) = 3, d(7,v) = 1, d(u,v) = 5)
+  claim OK       G_1': squares S_1, S_2, S_4 do not change and S_3 = {6,7,9} (computed ['u', '123', '679', 'v'])
+  claim OK       G_1': the only paths of the squares with (i) (at least one edge) are the edges 13, 23 and 67 (computed [['13'], ['23'], ['67']])
+  claim OK       G_1': none of S_2 minus 13, S_2 minus 23, S_3 minus 67 separates alpha from beta (all connected)
+  claim OK       G_1': cp(u,v) = 6
+  claim OK       G_1'': d(u,v) = 4
+  claim OK       G_1'': the squares are those of G_1 (computed ['u', '123', '67', 'v'])
+  claim OK       G_1'': no path with at least one edge in a square satisfies (i) (computed [])
+  claim OK       G_1'': cp(u,v) = 5
+====================================================================================================
+core.tex, Example two-edges (G_a^+)
+  claim OK       G_a^+: vertices of degree > 2 are u, a, b, pairwise at distance <= 2; G_a^+ is in DC (computed ['a', 'b', 'u'])
+  claim OK       minimum u-v cuts: [['at', 'bv'], ['bv', 'tv']]
+  claim OK       F contains every edge except ['ua', 'us', 'sb', 'ab', 'ru', 'rb']
+  claim OK       squares in order: ['abrsu', 'v']
+  claim OK       links: ['t'] (computed ['t'])
+  claim OK       terminals of S_1: entering {u}, leaving {ab} (computed {u}, {ab})
+  claim OK       terminals of S_2: entering {v}, leaving {v} (computed {v}, {v})
+  claim OK       general paths between S_1 and S_2: ['at,{t},tv', 'bv'] (computed ['at,{t},tv', 'bv'])
+  claim OK       G_a^+: c_1 = a and d_1 = b (computed leaving terminals of S_1: ab)
+  claim OK       G_a^+: d(u,v) = 3 and l = d(u,v) - 0 - 1 = 2 for (x, alpha) = (u,u), (y, beta) = (b,a)
+  claim OK       G_a^+: the algorithm returns 3 and the path u,a,b,v (computed 3, uabv)
+  claim OK       G_a^+: the vertex a is isolated in S_1 minus p for p = u,a,b
+====================================================================================================
+drafts/core-notes.md has a section 'Graphs to verify'; each graph in it is verified by the calls below (edge lists and values copied from the section by hand).
+====================================================================================================
+core-notes.md, Section 4: Graphs to verify
+  claim OK       G_a, the pair (s,t): cp = d = 3 (computed d = 3, c = 2, cp = 3)
+  claim OK       G_b: delta({u,s,b}) = {ua, ab, bv} is a minimum cut and the path u,a,b,v
+  claim OK       G_1 has 10 vertices and 13 edges
+  claim OK       G_1: distances from u are 1:1, 2:1, 3:2, 4:2, 5:3, 6:3, 7:4, 8:4, v:5
+  claim OK       G_1: distances to v are 7:1, 8:1, 5:2, 6:2, 3:3, 4:3, 1:4, 2:4, u:5
+  claim OK       G_1: the five shortest u-v paths (computed ['u1367v', 'u1368v', 'u2367v', 'u2368v', 'u2457v'])
+  claim OK       G_1: diameter 5, largest cut-value 3
+  claim OK       G_1': d = 5, c = 2, cp = 6, the same minimum cuts as G_1, in DC
+  claim OK       G_1': no path with (i) satisfies (ii)
+  claim OK       G_1'': the edge list of the notes is G_1 without vertex 5 plus 47
+  claim OK       G_1'': d = 4, c = 2, cp = 5, in DC
+  claim OK       minimum u-v cuts: [['1u', '2u'], ['24', '36'], ['36', '47'], ['68', '7v'], ['7v', '8v']]
+  claim OK       F contains every edge except ['12', '13', '23', '67']
+  claim OK       squares in order: ['u', '123', '67', 'v']
+  claim OK       links: ['4', '8'] (computed ['4', '8'])
+  claim OK       terminals of S_1: entering {u}, leaving {u} (computed {u}, {u})
+  claim OK       terminals of S_2: entering {12}, leaving {32} (computed {12}, {23})
+  claim OK       terminals of S_3: entering {67}, leaving {67} (computed {67}, {67})
+  claim OK       terminals of S_4: entering {v}, leaving {v} (computed {v}, {v})
+  claim OK       general paths between S_1 and S_2: ['1u', '2u'] (computed ['1u', '2u'])
+  claim OK       general paths between S_2 and S_3: ['24,{4},47', '36'] (computed ['24,{4},47', '36'])
+  claim OK       general paths between S_3 and S_4: ['68,{8},8v', '7v'] (computed ['68,{8},8v', '7v'])
+  claim OK       G_1'': the only shortest path is u,2,4,7,v (computed ['u247v'])
+  claim OK       G_a^+: d = 3, c = 2, cp = 3, in DC
+  further graphs used in the checks of the math core:
+  claim OK       G_a plus a vertex w adjacent to a, b: cp = 4 = d + 1 (computed d = 3, cp = 4)
+  claim OK       13-vertex graph with a separating trace of two edges: d = 4, c = 2, cp = 4, not in DC
+  claim OK         its squares are {u}, {A,B,q,w,x,y,z}, {v} (computed ['u', 'ABqwxyz', 'v'])
+  claim OK         the path p = x,w,y satisfies (i) and (ii) (witnesses ['xwy'])
+  claim OK         the middle square has four distinct terminals alpha = A, beta = B, x, y (computed ABxy)
+  FINDING (contradicts doubt 8 of core-notes.md): a graph in DC with a separating trace that has four distinct terminals
+  claim OK         21 vertices, 25 edges, d = 9, c = 2, cp = 9 = d, in DC
+  claim OK         the separating shortest paths are u,0,2,f,4,3,9,7,a,b and u,d,2,f,4,3,9,7,a,b (computed ['102f4397ab', '1d2f4397ab'])
+  claim OK         the third square {6,7,8,9,a} has the four distinct terminals 9, 6 (entering) and 7, a (leaving) (computed square 6789a)
+  claim OK         the trace p = 9,7,a (x = 9, y = a, alpha = 6, beta = 7) satisfies (i) and (ii) (witnesses ['97a'])
+  claim OK       C_6 with antipodal u, v: cp = 4, squares {u}, {v}, four links
+  claim OK       two 4-cycles sharing a vertex w: cp = 5, squares {u}, {w}, {v}
+  claim OK       K_4 on 1..4 with u adjacent to 1, 2 and v adjacent to 3, 4: cp = 4, squares {u}, {1,2,3,4}, {v}, no link
+====================================================================================================
+claims checked: 0 mismatches

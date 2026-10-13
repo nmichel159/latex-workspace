@@ -1,0 +1,2 @@
+K=1 n=5 switch options 15: {'inst': 3498, 'yes': 3418, 'relax_yes_no': 0, 'viol': 0} (1s)
+violations: 0

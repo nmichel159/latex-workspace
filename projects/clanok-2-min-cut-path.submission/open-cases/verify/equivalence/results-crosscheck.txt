@@ -1,0 +1,2 @@
+{'pairs': 34220, 'atlas graphs': 995, 'random graphs': 300}
+disagreements: 0

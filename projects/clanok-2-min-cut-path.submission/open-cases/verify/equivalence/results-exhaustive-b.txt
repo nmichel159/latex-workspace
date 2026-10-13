@@ -1,0 +1,11 @@
+q = 2: 2 preorders with u least, v greatest
+q = 3: 4 preorders with u least, v greatest
+q = 4: 13 preorders with u least, v greatest
+q = 5: 74 preorders with u least, v greatest
+N<=3 instances                 21
+P2 instances with N>=4         11641
+P2 no                          8443
+P2 yes                         3198
+instances                      13397
+violations: 0
+time 37.1s

@@ -1,0 +1,963 @@
+{"f": [[-2, 3, 3]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[1, -1, 2]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[1, 1, 2]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[-1, -2, 3]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[-1, -2, -3]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[1, 2, 3]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[-2, 3, -3]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[-2, -2, 3]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[1, -1, -1]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[1, 1, 1]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[-1, 2, 3]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[1, 1, -1]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[-2, -3, -3]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[-3, -3, -3]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[1, 1, 1], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, 1, 1], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, 1, 1], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 1], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 1], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 1], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 1], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 1], [1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 1], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 1], [1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 1], [1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 1], [1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 1], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 1], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 1], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.6}
+{"f": [[1, 1, 1], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.6}
+{"f": [[1, 1, 1], [-1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.6}
+{"f": [[1, 1, 1], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 1], [-1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.6}
+{"f": [[1, 1, 1], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.6}
+{"f": [[1, 1, 1], [2, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 1], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.7}
+{"f": [[1, 1, 1], [2, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 1], [-1, -1, -1]], "n": 40, "cp": 16, "status": "Optimal", "want": 16, "time": 1.1}
+{"f": [[1, 1, 1], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.7}
+{"f": [[1, 1, -1], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.6}
+{"f": [[1, 1, 1], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.7}
+{"f": [[1, 1, 1], [2, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.8}
+{"f": [[1, 1, -1], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.6}
+{"f": [[1, 1, 1], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.7}
+{"f": [[1, 1, 1], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.8}
+{"f": [[1, 1, 1], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.7}
+{"f": [[1, 1, 1], [2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.9}
+{"f": [[1, 1, -1], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, -1], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.8}
+{"f": [[1, 1, -1], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.6}
+{"f": [[1, 1, -1], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [-1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, -1], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, -1], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [-1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.9}
+{"f": [[1, 1, -1], [2, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [-1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.6}
+{"f": [[1, 1, -1], [2, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [2, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, -1], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, -1], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, -1], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, -1], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [1, 1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [1, -1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, 1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.6}
+{"f": [[1, 1, 2], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, 1, 2], [-1, -1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [-1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [2, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [2, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [2, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [2, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [3, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 1, 2], [3, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 2], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, -1], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.8}
+{"f": [[1, -1, -1], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [-1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, -1], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [-1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, -1, -1], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, -1, -1], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [-1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, -1, -1], [2, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [2, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, -1, -1], [2, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, -1, -1], [2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, -1], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, 1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, 2], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, 2], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, -1, 2], [1, -1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, -1, 2], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, -1, 2], [1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, -1, 2], [1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, 2], [1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, 2], [1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, -1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, -1, 2], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, 2], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, 2], [-1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, 2], [2, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [2, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, -1, 2], [2, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, 2], [2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [2, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, 2], [2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, -1, 2], [3, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [3, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2, 3], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, -1, 2], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2, 3], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, 2, 3], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1, 2, 3], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2, 3], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2, 3], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2, 3], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2, 3], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2, 3], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2, 3], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2, 3], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[1, 2, 3], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2, 3], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2, 3], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-1, 2, 3], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-1, 2, 3], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-1, 2, 3], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-1, 2, 3], [1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1, 1], [2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 10.5}
+{"f": [[-1, 2, 3], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [2, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-1, 2, 3], [2, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-1, 2, 3], [2, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, 2, 3], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-1, -2, 3], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, 1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-1, -2, 3], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [3, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [3, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-1, -2, -3], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, 3], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-1, -2, -3], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-1, -2, -3], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, 1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, 1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -2, 3], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-2, -2, 3], [1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, -1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -2, 3], [2, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [2, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -2, 3], [2, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [2, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-2, -2, 3], [2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-2, -2, 3], [-2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -2, 3], [3, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -2, 3], [3, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -2, 3], [3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -2, 3], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [1, 1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, 1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-2, 3, 3], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, -1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-2, 3, 3], [1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-1, -1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [-1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [-1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [-1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [-1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [-1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [2, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [2, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [2, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [2, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [-2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [3, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, 3], [3, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, 3], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, 1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, 1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, -1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-1, -1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [-1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [2, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [2, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [2, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [2, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, 3, -3], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [3, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [3, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, 3, -3], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [1, 1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, 1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, -1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-1, -1, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [-1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [-1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [-1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [2, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [2, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [2, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [2, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [-2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-2, -3, -3], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [3, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-2, -3, -3], [3, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [1, 1, 1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [1, 1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [1, 1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [1, 1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-3, -3, -3], [1, -1, -1]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-3, -3, -3], [1, 1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-3, -3, -3], [1, -1, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-3, -3, -3], [1, -1, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [1, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-3, -3, -3], [1, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [1, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-3, -3, -3], [-1, 2, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [-1, -1, 2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [-1, 2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [-1, 2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [-1, 2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.3}
+{"f": [[-3, -3, -3], [-1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [-1, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [-1, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [-2, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [-2, -2, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [-2, -2, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [-2, 3, 3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[-3, -3, -3], [-2, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [3, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[-3, -3, -3], [-2, 3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.5}
+{"f": [[1]], "n": 13, "cp": 4, "status": "Optimal", "want": 4, "time": 0.1}
+{"f": [[-2]], "n": 13, "cp": 4, "status": "Optimal", "want": 4, "time": 0.1}
+{"f": [[-3, -3, -3], [3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 1]], "n": 18, "cp": 6, "status": "Optimal", "want": 6, "time": 0.2}
+{"f": [[1, -1]], "n": 18, "cp": 6, "status": "Optimal", "want": 6, "time": 0.2}
+{"f": [[-3, -3, -3], [-3, -3, -3]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 0.4}
+{"f": [[1, 2]], "n": 18, "cp": 6, "status": "Optimal", "want": 6, "time": 0.2}
+{"f": [[-1, 2]], "n": 18, "cp": 6, "status": "Optimal", "want": 6, "time": 0.2}
+{"f": [[-2, -2]], "n": 18, "cp": 6, "status": "Optimal", "want": 6, "time": 0.1}
+{"f": [[-1, -2]], "n": 18, "cp": 6, "status": "Optimal", "want": 6, "time": 0.2}
+{"f": [[1], [1]], "n": 20, "cp": 7, "status": "Optimal", "want": 7, "time": 0.2}
+{"f": [[1], [-2]], "n": 20, "cp": 7, "status": "Optimal", "want": 7, "time": 0.1}
+{"f": [[1], [2]], "n": 20, "cp": 7, "status": "Optimal", "want": 7, "time": 0.2}
+{"f": [[1], [-1]], "n": 20, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[1], [1, 1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1], [1, -1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1], [1, 2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1], [1, -2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1], [-1, 2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1], [-1, -1]], "n": 25, "cp": 10, "status": "Optimal", "want": 10, "time": 0.3}
+{"f": [[-3, -3, -3], [3, 3, 3]], "n": 40, "cp": 16, "status": "Optimal", "want": 16, "time": 1.0}
+{"f": [[1], [-1, -2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1], [2, 2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1], [2, -2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1], [-2, -2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.3}
+{"f": [[1], [1, 1, 1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [1, 1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [1, 1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [1, -1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1], [1, -1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1], [1, 1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [1, -1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [1, 2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [1, -2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1], [1, 2, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [-1, -1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [-1, -1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [-1, -1, -1]], "n": 30, "cp": 12, "status": "Optimal", "want": 12, "time": 0.4}
+{"f": [[1], [-1, 2, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [-1, -2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [-1, 2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [2, 2, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1], [2, -2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2], [-1]], "n": 20, "cp": 7, "status": "Optimal", "want": 7, "time": 0.2}
+{"f": [[-2], [1]], "n": 20, "cp": 7, "status": "Optimal", "want": 7, "time": 0.2}
+{"f": [[1], [2, 2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2], [-2]], "n": 20, "cp": 7, "status": "Optimal", "want": 7, "time": 0.2}
+{"f": [[-2], [2]], "n": 20, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[1], [-2, -2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [1, -2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2], [1, 1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2], [1, 2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2], [1, -1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2], [-1, 2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2], [-1, -1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2], [-1, -2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2], [-2, -2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2], [2, -2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2], [1, 1, 1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2], [2, 2]], "n": 25, "cp": 10, "status": "Optimal", "want": 10, "time": 0.3}
+{"f": [[-2], [1, 1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2], [1, 1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2], [1, 1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2], [1, -1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2], [1, -1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2], [1, -1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [1, 2, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [1, 2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [1, -2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [-1, -1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [-1, -1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [-1, -1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [-1, 2, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [-1, 2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [-1, -2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [2, 2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [2, 2, 2]], "n": 30, "cp": 12, "status": "Optimal", "want": 12, "time": 0.3}
+{"f": [[1, 1], [1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2], [2, -2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2], [-2, -2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, 1], [2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1, 1], [-1]], "n": 25, "cp": 10, "status": "Optimal", "want": 10, "time": 0.3}
+{"f": [[1, 1], [-2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1, 1], [1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, 1], [1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1], [1, 1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.4}
+{"f": [[1, 1], [-1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1], [1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.4}
+{"f": [[1, 1], [-1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1], [2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, 1], [2, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1], [-2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, 1], [-1, -1]], "n": 30, "cp": 12, "status": "Optimal", "want": 12, "time": 0.6}
+{"f": [[1, 1], [1, 1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [1, 1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [1, 1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [1, 1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [1, -1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [1, -1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [1, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [1, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 1], [1, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, 3, -3], [-1, -2, -2]], "n": 40, "cp": 15, "status": "Optimal", "want": 15, "time": 9.9}
+{"f": [[1, 1], [-1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 1], [-1, -1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 1], [-1, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [-1, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [2, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [-1, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.5}
+{"f": [[1, 1], [2, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 1], [2, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1], [-2, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1, -1], [2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1, -1], [-1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1, 1], [-1, -1, -1]], "n": 35, "cp": 14, "status": "Optimal", "want": 14, "time": 0.9}
+{"f": [[1, -1], [-2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1, -1], [1, 1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, -1], [1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, -1], [1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, -1], [1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, -1], [-1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, -1], [-1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, -1], [-1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, -1], [2, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, -1], [2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, -1], [-2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, -1], [1, 1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [1, 1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [1, 1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [1, -1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [1, -1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [1, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [1, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, -1], [1, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [-1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [-1, -1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, -1], [-1, -1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [-1, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [-1, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [-1, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [2, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 2], [1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1, -1], [2, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [2, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1], [-2, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 2], [-2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1, 2], [1, 1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 2], [1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, 2], [1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, 2], [-2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, 2], [-1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 2], [-1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 2], [1, 1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 2], [1, 1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 2], [1, 1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.5}
+{"f": [[1, 2], [1, -1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.5}
+{"f": [[1, 2], [1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.5}
+{"f": [[1, 2], [-1, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 2], [-1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.5}
+{"f": [[1, 2], [-1, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.5}
+{"f": [[1, 2], [-1, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [-1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-1, 2], [1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-1, 2], [2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-1, 2], [-2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[1, 2], [-2, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [1, 1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2], [1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2], [1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2], [1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2], [-1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2], [-1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2], [-1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2], [2, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2], [2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2], [-2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2], [1, 1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [1, 1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [1, -1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [1, 1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-1, 2], [1, 1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-1, 2], [1, -1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [1, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [1, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [1, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [-1, -1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [-1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [-1, -1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [-1, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [-1, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [-1, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2], [1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-1, 2], [2, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [2, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-1, 2], [-2, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2], [2, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2], [-2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-1, -2], [1, 1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, -2], [-1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-1, -2], [1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, -2], [1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, -2], [-2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-1, -2], [-1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-1, -2], [1, 1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2], [1, -1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2], [1, 1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2], [1, 1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-1, -2], [1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2], [-1, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2], [-1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2, -2], [-1]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-2, -2], [-2]], "n": 25, "cp": 9, "status": "Optimal", "want": 9, "time": 0.2}
+{"f": [[-1, -2], [-1, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [2]], "n": 25, "cp": 10, "status": "Optimal", "want": 10, "time": 0.3}
+{"f": [[-1, -2], [-1, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2], [-2, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [1, 1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2, -2], [1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2, -2], [1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2, -2], [-1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2, -2], [-1, 2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2, -2], [-1, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2, -2], [-2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2, -2], [2, -2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2, -2], [1, 1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [1, 1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-2, -2], [1, 1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-2, -2], [2, 2]], "n": 30, "cp": 12, "status": "Optimal", "want": 12, "time": 0.6}
+{"f": [[-2, -2], [1, 1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [1, -1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [1, -1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [1, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [1, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [1, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [-1, -1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [-1, -1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [-1, -1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [-1, 2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [-1, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-2, -2], [-1, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-2, -2], [2, 2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-2, -2], [2, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-2, -2], [-2, -2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, 1], [1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1, 1], [2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1, 1], [-2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1, 1], [-1]], "n": 30, "cp": 12, "status": "Optimal", "want": 12, "time": 0.3}
+{"f": [[1, 1, 1], [1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2], [2, 2, 2]], "n": 35, "cp": 14, "status": "Optimal", "want": 14, "time": 0.9}
+{"f": [[1, 1, 1], [1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 1, 1], [1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 1, 1], [1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.5}
+{"f": [[1, 1, 1], [-1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 1, 1], [-1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, 1], [2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, -1], [1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, 1, 1], [2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, 1], [-2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, -1], [-1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1, 1], [-1, -1]], "n": 35, "cp": 14, "status": "Optimal", "want": 14, "time": 0.9}
+{"f": [[1, 1, -1], [-2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1, -1], [2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1, -1], [1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, -1], [1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, -1], [1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, -1], [1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.5}
+{"f": [[1, 1, -1], [-1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, -1], [-1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, -1], [-1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, -1], [2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, -1], [2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, 2], [1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, 1, -1], [-2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, 2], [-1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, 1, 2], [2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1, 2], [-2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, 1, 2], [1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 1, 2], [1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 1, 2], [1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.5}
+{"f": [[1, 1, 2], [1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 1, 2], [-1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, 1, 2], [-1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, 2], [-1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, 2], [2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, 1, 2], [2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, -1], [1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, 1, 2], [-2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, -1, -1], [-1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, -1, -1], [2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, -1, -1], [-2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, -1, -1], [1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, -1], [1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, -1], [1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, -1], [1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[1, -1, -1], [-1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, -1], [-1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, -1], [-1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, -1], [2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, -1], [2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, -1], [-2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, 2], [1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, -1, 2], [-1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, -1, 2], [2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, -1, 2], [-2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[1, -1, 2], [1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, 2], [1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, 2], [1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, 2], [1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, 2], [-1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, 2], [-1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, 2], [-1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, 2], [-2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1, -1, 2], [2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -1, 2], [1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[1, -1, 2], [2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-1, -1, 2], [-1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-1, -1, 2], [2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-1, -1, 2], [-2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-1, -1, 2], [1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -1, 2], [1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -1, 2], [1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -1, 2], [1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-1, -1, 2], [-1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -1, 2], [-1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -1, 2], [-1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -1, 2], [-2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -1, 2], [2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-1, -1, 2], [2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, 2], [1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2, 2], [-1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2, 2], [2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-1, 2, 2], [-2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2, 2], [1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, 2], [1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, 2], [1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, 2], [-1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, 2], [1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.5}
+{"f": [[-1, 2, 2], [-1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, 2], [-1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, 2], [2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-1, 2, 2], [2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, 2], [-2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, -2], [1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2, -2], [-1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2, -2], [2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2, -2], [-2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-1, 2, -2], [1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, -2], [1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, -2], [1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, -2], [1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, -2], [-1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, -2], [-1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, -2], [-1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, -2], [2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2, -2], [1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, 2, -2], [-2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, 2, -2], [2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.5}
+{"f": [[-1, -2, -2], [-1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, -2, -2], [-2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-1, -2, -2], [1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2, -2], [1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2, -2], [1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2, -2], [1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2, -2], [-1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2, -2], [-1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2, -2], [-1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2, -2], [2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-1, -2, -2], [2, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.4}
+{"f": [[-1, -2, -2], [-2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2, -2], [1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2, -2, -2], [-1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.3}
+{"f": [[-2, -2, -2], [2]], "n": 30, "cp": 12, "status": "Optimal", "want": 12, "time": 0.3}
+{"f": [[-2, -2, -2], [-2]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 0.2}
+{"f": [[-2, -2, -2], [1, 1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2, -2], [1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2, -2], [1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2, -2], [1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2, -2], [-1, -1]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2, -2], [-1, 2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2, -2], [-1, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1], [1]], "n": 20, "cp": 7, "status": "Optimal", "want": 7, "time": 0.2}
+{"f": [[-2, -2, -2], [2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2, -2], [-2, -2]], "n": 35, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[1], [2], [-3], [-4]], "n": 34, "cp": 13, "status": "Optimal", "want": 13, "time": 0.3}
+{"f": [[-2, -2, -2], [2, 2]], "n": 35, "cp": 14, "status": "Optimal", "want": 14, "time": 0.7}
+{"f": [[1], [2], [3], [-4], [-5], [-6]], "n": 48, "cp": 19, "status": "Optimal", "want": 19, "time": 0.5}
+{"f": [[5, 9, -5]], "n": 23, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[1, 2, 3, 4, 5]], "n": 33, "cp": 12, "status": "Optimal", "want": 12, "time": 0.3}
+{"f": [[1, 1, 1], [-1, -1, -1]], "n": 40, "cp": 16, "status": "Optimal", "want": 16, "time": 1.0}
+{"f": [[-2, -2], [1, -1]], "n": 30, "cp": 11, "status": "Optimal", "want": 11, "time": 10.3}
+{"f": [[1, -2, 3, -4, 5, -6, 7]], "n": 43, "cp": 16, "status": "Optimal", "want": 16, "time": 0.4}
+{"f": [[1, 1, -1], [-1, -1, 1], [1, -1, -1]], "n": 57, "cp": 22, "status": "Optimal", "want": 22, "time": 1.2}
+{"f": [[1], [-1]], "n": 20, "cp": 8, "status": "Optimal", "want": 8, "time": 0.2}
+{"f": [[-1], [-1], [-1], [1]], "n": 34, "cp": 14, "status": "Optimal", "want": 14, "time": 0.4}
+{"f": [[1, -1, 2], [-2, 2, -2], [-1, -2, 1]], "n": 57, "cp": 22, "status": "Optimal", "want": 22, "time": 1.4}

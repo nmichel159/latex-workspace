@@ -1,0 +1,15 @@
+dc_attempt.py: the variant G* of the reduction (docstring)
+
+phi=[[1], [1]] |V|=60 |E|=130 c=9 (c0=9) d=2 cuts=2 (= A_tau: True) answer=True sat=True; DC violations: none (in DC)
+phi=[[1], [2], [-3], [-4]] |V|=138 |E|=305 c=15 (c0=15) d=2 cuts=16 (= A_tau: True) answer=True sat=True; DC violations: {'neg-pos different variables': 4}
+phi=[[1], [-1]] |V|=60 |E|=130 c=9 (c0=9) d=2 cuts=2 (= A_tau: True) answer=False sat=False; DC violations: none (in DC)
+phi=[[1, -2, 3], [-1, 2, -3]] |V|=128 |E|=276 c=17 (c0=17) d=2 cuts=8 (= A_tau: True) answer=True sat=True; DC violations: {'neg-pos different variables': 6}
+phi=[[1, 2, 2], [-1, -2, -2], [1, -2, -2], [-1, 2, 2]] |V|=338 |E|=731 c=31 (c0=31) d=2 cuts=4 (= A_tau: True) answer=False sat=False; DC violations: {'neg-pos different variables': 16, 'neg-pos same variable': 11}
+phi=[[3, 2, -3], [3, 2, -3], [1, -3, -2]] |V|=221 |E|=478 c=24 (c0=24) d=2 cuts=8 (= A_tau: True) answer=True sat=True; DC violations: {'neg-pos same variable': 2, 'neg-pos different variables': 12}
+phi=[[1, 3, -3], [3, 1, 2], [2, -3, -3]] |V|=221 |E|=478 c=24 (c0=24) d=2 cuts=8 (= A_tau: True) answer=True sat=True; DC violations: {'neg-pos different variables': 12, 'neg-pos same variable': 2}
+phi=[[-2, -1, -1], [1, -1, -3], [-3, -2, -3]] |V|=221 |E|=478 c=24 (c0=24) d=2 cuts=8 (= A_tau: True) answer=True sat=True; DC violations: {'neg-pos different variables': 5}
+phi=[[-3, -3, 2], [2, 3, -3], [3, 3, -2]] |V|=221 |E|=479 c=24 (c0=24) d=2 cuts=4 (= A_tau: True) answer=True sat=True; DC violations: {'neg-pos different variables': 9, 'neg-pos same variable': 4}
+phi=[[1, -3, -1], [-1, -1, 2], [-2, 1, 2]] |V|=221 |E|=478 c=24 (c0=24) d=2 cuts=8 (= A_tau: True) answer=True sat=True; DC violations: {'neg-pos different variables': 12, 'neg-pos same variable': 2}
+phi=[[-3, -3, 1], [-1, 1, 1], [-2, -1, 2]] |V|=221 |E|=478 c=24 (c0=24) d=2 cuts=8 (= A_tau: True) answer=True sat=True; DC violations: {'neg-pos different variables': 13, 'neg-pos same variable': 1}
+
+formulas: 11, failures of (c = c0, cuts = A_tau, answer = sat): 0.  Time 0 s.

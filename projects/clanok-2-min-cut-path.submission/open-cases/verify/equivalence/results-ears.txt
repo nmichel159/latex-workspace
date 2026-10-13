@@ -1,0 +1,23 @@
+adversarial ears seed 2 count 10000
+13a DC answer no                                        22041
+13a DC answer yes                                       338
+13a DC longest witness length 3                         338
+13a pairs (d=2,c>=3)                                    22379
+13a pairs in DC                                         22379
+DC' answer no                                           11657
+DC' answer yes                                          255
+DC' pairs (d=2,c>=4)                                    11912
+L1 cp compared                                          17632
+L1 pairs (graph with bridges, c>=2)                     205183
+L4 ears                                                 370857
+L4 ears attached at u or v                              220369
+L4 ears with p = s                                      31585
+L4 long ears (>= 2 vertices)                            177931
+P5 pairs (c>=3)                                         137738
+cp compared                                             3837
+graphs                                                  9744
+graphs in DC                                            9744
+graphs in DC'                                           9744
+paths inside minimum cuts                               342356
+violations: 0
+time 538.3s

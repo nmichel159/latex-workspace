@@ -1,0 +1,10 @@
+extend9.py: all connected 8-vertex graphs (11117) plus one vertex joined to every non-empty subset
+
+labelled candidates on 9 vertices: 2834835
+pairs (u < v) with d(u,v) = 2 and c(u,v) >= 3 (with repetitions): 29381216
+  of them with a u-v path inside some minimum cut: 102793
+  of them with c(u,v) >= 5: 2941169
+pairs with paths inside minimum cuts, all of length >= 5 (weak type): 0
+pairs with some path of length >= 5 inside a minimum cut (strong type): 0
+pairs where the length-3 test (O3) misses an existing path: 0
+Time 93 s.

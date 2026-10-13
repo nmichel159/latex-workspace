@@ -1,0 +1,54 @@
+% Source of the figure square-terminals.pdf: a square S_i with its terminals x, alpha (entering edges) and y, beta
+% (leaving edges) and a u-v path R that enters through x and leaves through y; R meets S_i in the red path x-w-y.
+% (a) The two gray parts of S_i are joined only by the edges of R, so alpha and beta lie in different components of
+% S_i minus R. (b) One more edge joins the two parts, so alpha and beta stay connected.
+% Compile with pdfLaTeX; the PDF is included in the manuscript at its natural size.
+\documentclass[tikz,border=1pt]{standalone}
+\usepackage[T1]{fontenc}
+\pdfinfoomitdate=1 \pdftrailerid{} \pdfsuppressptexinfo=-1
+\usetikzlibrary{arrows.meta}
+\definecolor{fblue}{RGB}{31,102,178}
+\definecolor{pathred}{RGB}{200,40,40}
+\tikzset{
+  vertex/.style={circle, fill=black, inner sep=0pt, minimum size=2.2mm},
+  terminal/.style={circle, fill=black, inner sep=0pt, minimum size=3mm},
+  edge/.style={line width=0.7pt},
+  pathedge/.style={line width=1.8pt, pathred, line cap=round},
+  square/.style={rounded corners=4pt, fill=gray!10, draw=gray!75!black, line width=0.9pt},
+  part/.style={rounded corners=5pt, fill=gray!30, draw=gray!70, line width=0.6pt},
+  fedge/.style={line width=0.9pt, fblue, dash pattern=on 3pt off 1.6pt, -{Stealth[length=2.4mm, width=2mm]}}}
+% one panel; #1 prefixes the node names
+\newcommand{\panel}[1]{%
+  \draw[square] (0,0) rectangle (3.6,3.0);
+  \node[above=1pt] at (1.8,3.0) {$S_i$};
+  % part A contains alpha, x and y; part B contains w and beta
+  \draw[part] (0.12,0.15) -- (0.95,0.15) -- (0.95,1.9) -- (3.48,1.9) -- (3.48,2.88) -- (0.12,2.88) -- cycle;
+  \draw[part] (1.25,0.15) rectangle (3.48,1.6);
+  \node[terminal] (#1x) at (0.35,2.3) {};
+  \node[terminal] (#1y) at (3.25,2.3) {};
+  \node[terminal] (#1al) at (0.35,0.7) {};
+  \node[terminal] (#1be) at (3.25,0.7) {};
+  \node[vertex]   (#1w) at (1.8,1.3) {};
+  \node[above=2pt] at (#1x) {$x$};
+  \node[above=2pt] at (#1y) {$y$};
+  \node[below=2pt] at (#1al) {$\alpha$};
+  \node[below=2pt] at (#1be) {$\beta$};
+  \node[below=2pt] at (#1w) {$w$};
+  \draw[fedge] (-0.9,2.3) -- (#1x);
+  \draw[fedge] (-0.9,0.7) -- (#1al);
+  \draw[fedge] (#1y) -- (4.5,2.3);
+  \draw[fedge] (#1be) -- (4.5,0.7);
+  \draw[pathedge] (#1x) -- (#1w) -- (#1y);}
+\begin{document}
+\begin{tikzpicture}[x=1cm, y=1cm]
+  \begin{scope}
+    \panel{p}
+    \node at (1.8,-0.65) {(a)};
+  \end{scope}
+  \begin{scope}[xshift=6.4cm]
+    \panel{q}
+    \draw[edge] (qal) -- (qbe);
+    \node at (1.8,-0.65) {(b)};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
