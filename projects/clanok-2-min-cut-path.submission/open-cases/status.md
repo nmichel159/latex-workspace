@@ -177,5 +177,5 @@ proof goes to an independent reviewer before it is reported as a result.
 
 ## Article 3, state at the last stop (2026-10-31)
 
-Second version of `projects/clanok-3-min-cut-path/main.tex`, 35 pages, uncommitted: Sections 5 and 6 rewritten directly on the preorder, time `n^31 · n^O(1)`.
+Second version of `projects/clanok-3-min-cut-path/main.tex`, 35 pages, commit `cf1b950`: Sections 5 and 6 rewritten directly on the preorder, time `n^31 · n^O(1)`.
 Referee of the rewrite: `projects/clanok-3-min-cut-path.submission/review/referee-direct.md`, unfinished. Details and next steps: `projects/clanok-3-min-cut-path.md`.

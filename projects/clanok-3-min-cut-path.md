@@ -22,7 +22,7 @@ Checks: build clean, no undefined reference, no overfull line, 7 figures. Packag
 ## Next steps
 
 1. Finish `review/referee-direct.md` and apply its findings to `main.tex`.
-2. Commit the second version: the working tree holds it uncommitted; the last commit `c1c0fc6` is the first version with 44 pages. Keep `checks/runs/` small.
+2. The second version is commit `cf1b950`, pushed, with the referee's files as they stood then; the first version with 44 pages is `c1c0fc6`. Commit the finished referee report when the author asks. Keep `checks/runs/` small.
 3. The author reads the article; then shorter proofs and the open points below.
 
 ## Intent
