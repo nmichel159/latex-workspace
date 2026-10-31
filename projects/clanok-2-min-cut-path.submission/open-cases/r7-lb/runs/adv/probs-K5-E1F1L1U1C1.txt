@@ -1,0 +1,6 @@
+adv sample seed 203 word E5F5 Q 0 count 20000 probs [('E', 1.0), ('F', 1.0), ('L', 1.0), ('U', 1.0), ('C', 1.0)] pid 29652
+  it 0 new best score 21.53 cost 2 mean 2.00 npairs 1 m 12 (0s)
+  it 3 new best score 21.58 cost 2 mean 2.00 npairs 1 m 12 (0s)
+  it 4 new best score 21.68 cost 2 mean 2.00 npairs 1 m 12 (0s)
+  it 5 new best score 21.80 cost 2 mean 2.00 npairs 1 m 12 (0s)
+  it 14 new best score 32.90 cost 3 mean 3.00 npairs 3 m 12 (0s)

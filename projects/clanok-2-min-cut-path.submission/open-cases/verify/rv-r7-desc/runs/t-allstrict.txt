@@ -1,0 +1,24 @@
+base allstrict seed 1 time 67.0
+accepted moves {'addTcore': 3, 'attack': 5, 'tieA': 1, 'wit': 2, 'addT': 1}
+rejected moves {'unstrict': 2}
+C_1 max 0
+Case I 36
+Case I: F^1 alone 36
+Mirror II° 36
+Mirror II°: E^1 alone 36
+Or: direct 18
+Or: reversed 18
+R(a) far pairs 1800
+R(b) far pairs 1800
+R_1 max 0
+S0 pass: R_0, C_0 nonempty 36
+S0: |A|,|B|>=10 36
+S1: |K|>=20 36
+base instances verified 1
+gen left: h-pair 189
+gen right: a-pair 189
+max m 135
+max r 135
+max_span_44 2
+paths 36
+FAILURES: none

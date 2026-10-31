@@ -1,0 +1,18 @@
+nodes 7 s 0 t 1
+  switch 0: E = [0, 2], F = [4]
+  switch 1: E = [2, 3], F = [5]
+  switch 2: E = [3, 4], F = [4, 5]
+  switch 3: E = [4], F = [4, 5]
+  switch 4: E = [2], F = [5, 6]
+  switch 5: E = [2, 4], F = [1, 6]
+ZZ: q = 14 |R| = 21 names ['u', ('b', 2), ('b', 3), ('b', 4), ('sw', 0), ('sw', 1), ('sw', 2), ('sw', 3), ('sw', 4), ('sw', 5), ('t', 4), ('t', 5), ('t', 6), 'v']
+R: [('u', ('sw', 0)), (('b', 2), ('sw', 0)), (('b', 2), ('sw', 1)), (('b', 2), ('sw', 4)), (('b', 2), ('sw', 5)), (('b', 3), ('sw', 1)), (('b', 3), ('sw', 2)), (('b', 4), ('sw', 2)), (('b', 4), ('sw', 3)), (('b', 4), ('sw', 5)), (('b', 4), ('t', 4)), (('sw', 0), ('t', 4)), (('sw', 1), ('t', 5)), (('sw', 2), ('t', 4)), (('sw', 2), ('t', 5)), (('sw', 3), ('t', 4)), (('sw', 3), ('t', 5)), (('sw', 4), ('t', 5)), (('sw', 4), ('t', 6)), (('sw', 5), ('t', 6)), (('sw', 5), 'v')]
+P2 (ZZ): True  P2 (2CH): True
+solution down-sets: 1 exact_dfs: True
+   D middle = [('sw', 3), ('sw', 4), ('sw', 5)] g_low 3 g_up 3 path ['u', ('sw', 0), ('b', 2), ('sw', 1), ('b', 3), ('sw', 2), ('b', 4), ('t', 4), ('sw', 3), ('t', 5), ('sw', 4), ('t', 6), ('sw', 5), 'v']
+2CH mode counts (min E, min F): (3, 3)
+k-guess low: [False, False, False, True] up: [False, False, False, True]
+strict guess: False
+omega(U) = 2 omega(Lambda) = 3
+Theorem H search, t = 1: True
+no-variants (one node removed from one side): {'total': 20, 'p2': 6, 'no': 6, 'ac_fp': 0, 'pc_fp': 0}

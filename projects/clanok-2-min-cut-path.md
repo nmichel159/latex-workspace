@@ -60,6 +60,15 @@ of Sections 3 to 5, 81 example values, 0 failures. Applied on the coordinator's 
 M11, M12; not applied: M10 (open item 13). What changed where: `integration-notes.md` §8. The numbering of the
 statements did not change; Algorithm 1 has 29 lines instead of 22.
 
+**Open case of the class (pairs with `d = 2`, `c >= 3`; working material, not in the manuscript).** Rounds 1-5 of AI
+agents (2026-10-12 to 2026-10-22) in `projects/clanok-2-min-cut-path.submission/open-cases/`; state, review status and
+how to resume: `open-cases/status.md`. Reviewed: equivalence to the zigzag problem ZZ + P2, the switch model is in P,
+reduction to it after propagation (Theorem R), NP-completeness for distance three, quasi-polynomial algorithm.
+**Since 2026-10-31 also reviewed: the open case is in P (`open-cases/r7-desc.md` Theorem B, `verify/rv-r7-desc.md`).** The
+author has not read it. Nothing of it changes Section 7 of this manuscript ("we do not know a polynomial-time
+algorithm"): the author decided on 2026-10-31 to write a new article (diameter three, the squares, ZZ + P2), and this
+manuscript stays as it is until the author decides what happens to it.
+
 ### Open items for the author (before submission)
 
 1. **Read the manuscript.** Every definition, statement and proof is new text written by an AI assistant

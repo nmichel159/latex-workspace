@@ -1,0 +1,19 @@
+r4search-X-half: 157 jobs, 2 workers
+  50/157 jobs (26s)
+  100/157 jobs (73s)
+  150/157 jobs (121s)
+== r4search-X-half (144s)
+  NO GRAPH BRUTE FORCE                          83
+  P2 in ZZ and in switch form                   157
+  brute methods: core                           73
+  brute methods: core+paths                     1
+  brute_paths over budget                       156
+  gsw.GSW identical                             157
+  pairs                                         157
+  paths checked (Thm 8.2)                       179
+  paths/instances with >= 2 levels              12
+  random down-sets lifted                       3925
+  yes                                           157
+  yes certified in G (lifted D: min cut with u-v path) 157
+  maxima: {'levels': 2, 'tools': 2, 'flips': 3, 'anchors': 1, 'heavy': 2, 'span': 5, 'Amax': 6, 'bad': 1, 'm': 11, 'q': 33, 'n': 1137, 'c': 362, 'sf_L': 10, 'damage': 1}
+  total records with errors: 0

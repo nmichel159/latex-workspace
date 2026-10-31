@@ -1,0 +1,12 @@
+formula picks P                                              12
+paths                                                        12
+paths reaching Stage 0                                       12
+paths with same-type ties                                    8
+sat contact E                                                174
+sat contact F                                                802
+sat rejected                                                 1274
+sat strict                                                   439
+shape: E* (R_0 empty)                                        3
+shape: F* (C_0 empty)                                        9
+tie-free paths                                               4
+FAILURES: none

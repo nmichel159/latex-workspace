@@ -1,0 +1,2 @@
+{'inst': 4256, 'guarded_conn': 14888, 'viol_D': 0, 'viol_T': 0, 'control_breaks': 1420, 'control_inst': 4414, 'dead_sides': 9296}
+violations: 0

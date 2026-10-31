@@ -1,0 +1,4 @@
+X_3 mates=both q=31 |R|=45 switches=6 P2=True solutions=1 exact=True | NG(1,0)=True tried=13 peak Pi=[('t', 't')] | GC(<=2)=(1, 'vp') | 0.0s
+X_4 mates=both q=45 |R|=68 switches=8 P2=True solutions=1 exact=True | NG(1,0)=True tried=26 peak Pi=[('t', 't')] | GC(<=2)=(2, 'pp') | 0.0s
+X_5 mates=both q=61 |R|=95 switches=10 P2=True solutions=1 exact=True | NG(1,0)=True tried=34 peak Pi=[('t', 't')] | GC(<=2)=(2, 'vp') | 0.0s
+X_6 mates=both q=79 |R|=126 switches=12 P2=True solutions=1 exact=True | NG(1,0)=False tried=53 | GC(<=2)=None | 0.2s

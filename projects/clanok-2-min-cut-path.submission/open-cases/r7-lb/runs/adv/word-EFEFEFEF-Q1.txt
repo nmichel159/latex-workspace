@@ -1,0 +1,8 @@
+adv sample seed 102 word EFEFEFEF Q 1 count 3000 probs [('E', 3.0), ('F', 3.0), ('L', 1.0), ('U', 1.0), ('C', 1.0)] pid 15568
+  it 0 new best score 11.60 cost 1 mean 1.83 npairs 6 m 12 (0s)
+  it 29 new best score 11.90 cost 1 mean 2.00 npairs 4 m 12 (0s)
+  it 101 new best score 12.04 cost 1 mean 2.14 npairs 7 m 12 (0s)
+  it 529 new best score 21.44 cost 2 mean 2.00 npairs 1 m 12 (1s)
+  it 1078 new best score 21.58 cost 2 mean 2.00 npairs 2 m 12 (2s)
+  it 1579 new best score 21.62 cost 2 mean 2.00 npairs 2 m 12 (2s)
+SUMMARY {"cost1": 2990, "cost2": 10} (5s)

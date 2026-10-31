@@ -1,0 +1,1 @@
+{"inst": 2977, "p2": 2626, "yes": 2381, "paths": 5792, "search": 11908, "mismatch": 0}

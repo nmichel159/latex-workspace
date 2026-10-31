@@ -1,0 +1,22 @@
+graphs-n8: 12111 connected graphs, 79s
+  IDESC exact run                  12723
+  branch E                         578
+  bridges>0                        21946
+  ear edges                        84232
+  ears                             84898
+  ears p=p'                        666
+  graphs DC                        11574
+  graphs not DC                    537
+  levels hist                      {1: 754}
+  max flips                        1
+  max m                            6
+  max span L4.4                    1
+  no                               120876
+  pairs                            121588
+  s = t                            4
+  seen                             121588
+  shortest paths checked           754
+  trivial C=0                      88
+  trivial R=0                      18
+  yes                              712
+  errors: 0

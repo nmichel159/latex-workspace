@@ -1,0 +1,13 @@
+rigid-1-5-5-9 (1s, pid 27352)
+  F with heavy rows                    5
+  branch F                             5
+  instances                            5
+  levels hist                          {1: 5}
+  max anchors                          1
+  max flips                            2
+  max m                                14
+  max span L4.4                        3
+  paths checked                        5
+  planted path shortest (own search)   4
+  yes                                  4
+  errors: 0

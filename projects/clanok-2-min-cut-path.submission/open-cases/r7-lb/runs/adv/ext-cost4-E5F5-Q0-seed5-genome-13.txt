@@ -1,0 +1,7 @@
+extend inst/cost4-E5F5-Q0-seed5-genome.json PA 1 PB 3 samples 15000 seed 13 (K 5 -> 6) pid 24440
+  it 0 new best cost 3 npairs 8 m 14 (0s)
+  it 1 new best cost 3 npairs 5 m 14 (0s)
+  it 2 new best cost 3 npairs 3 m 14 (0s)
+  it 35 new best cost 3 npairs 2 m 14 (0s)
+  it 168 new best cost 3 npairs 1 m 14 (0s)
+SUMMARY {1: 277, 2: 9842, 3: 4881} (26s)

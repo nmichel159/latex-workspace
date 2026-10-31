@@ -1,0 +1,55 @@
+adv8 random args=201 3000 4 12 pid=9976
+  200 instances, 0s
+  600 instances, 1s
+  800 instances, 1s
+  1400 instances, 2s
+  1600 instances, 3s
+  1800 instances, 11s
+  2200 instances, 12s
+  2600 instances, 19s
+  2800 instances, 25s
+SUMMARY adv8 random 201 3000 4 12 (26s)
+  A empty: 4796
+  E continue: 43
+  E final: 3884
+  E terms checked: 11944
+  F final: 1152
+  F final with anchors: 353
+  F terms checked: 2647
+  FINAL D DOES NOT CONNECT IN ZZ FAIL: 36
+  bad pairs: 1198
+  case C0: 4440
+  case E (v>=1/2): 3927
+  case F (v<1/2): 1152
+  case R0: 104
+  duality pairs: 15789
+  duality pairs y<x: 7306
+  games: 5079
+  games with v = 1/2 (float): 169
+  heavy rows: 13657
+  instances: 3000
+  levels=1 (proof): 7185
+  levels=1 (stress): 2352
+  levels=2 (stress): 43
+  max E expected uncovered x1000: 312
+  max F expected failures x1000: 12
+  max anchors: 1
+  max bad pairs on a path: 18
+  max levels proof/adversarial: 1
+  max levels proof/first: 1
+  max levels proof/sample: 1
+  max levels stress/adversarial: 2
+  max sampled anchors (distinct): 3
+  max |A & NE(E#x)|: 3
+  max |A|: 4
+  max |B & NF(F#y)|: 3
+  max |Phi|/|T| x100: 300
+  no: 1291
+  paths: 3594
+  rows: 30113
+  sample: E cover drawn: 972
+  sample: F cover drawn: 287
+  sample: anchors drawn: 89
+  saved failures: 36
+  yes: 1709
+FAILURES: FINAL D DOES NOT CONNECT IN ZZ FAIL

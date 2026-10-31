@@ -1,0 +1,2 @@
+{'yes': 232, 'no': 68, 'p2zz_ok': 300, 'mismatch': 0}
+done-selftest

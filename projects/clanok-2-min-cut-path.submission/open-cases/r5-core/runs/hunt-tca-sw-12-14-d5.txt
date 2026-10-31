@@ -1,0 +1,11 @@
+  run 0 it 200 tca 4 links 89 rel 0 (3s)
+  run 0 it 400 tca 4 links 91 rel 0 (11s)
+  run 0 it 800 tca 4 links 92 rel 0 (26s)
+  run 0 it 1200 tca 4 links 92 rel 0 (37s)
+  run 0 it 1600 tca 4 links 91 rel 0 (50s)
+  run 0 it 1800 tca 4 links 91 rel 0 (56s)
+  run 0 it 2200 tca 4 links 88 rel 0 (66s)
+  run 0 it 2800 tca 4 links 90 rel 0 (84s)
+run 0 final tca 4 word FFFEFEFFFFEEEF rel []
+  run 1 it 200 tca 1 links 88 rel 0 (87s)
+  run 1 it 400 tca 1 links 92 rel 0 (563s)

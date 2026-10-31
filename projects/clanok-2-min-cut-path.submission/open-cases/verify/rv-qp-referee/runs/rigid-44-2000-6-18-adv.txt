@@ -1,0 +1,14 @@
+rigid-44-2000-6-18-adv (15s, pid 15564)
+  F with heavy rows                    1614
+  adversarial E-terms                  406
+  branch F                             1622
+  instances                            2000
+  levels hist                          {1: 1972, 2: 28}
+  max anchors                          5
+  max flips                            7
+  max m                                30
+  max span L4.4                        3
+  paths checked                        2000
+  planted path shortest (own search)   653
+  yes                                  653
+  errors: 0

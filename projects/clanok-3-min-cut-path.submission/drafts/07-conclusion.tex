@@ -1,0 +1,18 @@
+\section{Conclusion}\label{sec:conclusion}
+
+\MinCutPath{} is NP-complete on graphs of diameter three (\cref{thm:dt-hardness}) and solvable in polynomial time on $\DC$ (\cref{thm:main}).
+A pair with $c(u, v) \leq 2$ takes linear time (\cref{thm:linear-time}), and a pair with $d(u, v) = 2$ and $c(u, v) \geq 3$ takes time $n^{71} \cdot n^{O(1)}$ (\cref{thm:pa-open-case}).
+
+We leave the following questions open.
+\begin{enumerate}
+\item Is there an algorithm with a small exponent for the pairs with $d(u, v) = 2$ and $c(u, v) \geq 3$?
+The exponent $71$ counts the elements of the formula of \cref{thm:pa-formulas}, and it does not use the structure of the formula.
+
+\item Let $k \geq 3$ be a fixed integer, and consider the connected graphs in which every two distinct vertices $x$ and $y$ satisfy $d(x, y) \leq k$ or $c(x, y) \leq 2$.
+Can $\cp(u, v)$ be computed in linear time for the pairs with $c(u, v) = 2$ in these graphs?
+The paths of \cref{thm:characterization} then have at most $k$ edges, by the argument of \cref{cor:two-edges}, but the bound of four candidates per pair of terminals in \cref{alg:cut-two} uses that they have at most two.
+
+\item Consider the connected graphs in which every two distinct vertices $x$ and $y$ satisfy $d(x, y) \leq 2$ or $c(x, y) \leq 3$.
+Can $\cp(u, v)$ be computed in polynomial time for the pairs with $c(u, v) = 3$ in these graphs?
+By \cref{lem:basic-bounds}, such a pair with $d(u, v) \geq 3$ has $d(u, v) \leq \cp(u, v) \leq d(u, v) + 2$, and the square decomposition is defined for cut-value two only.
+\end{enumerate}

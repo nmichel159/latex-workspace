@@ -1,0 +1,9 @@
+A0 non-empty                                                 29
+B0 non-empty                                                 122
+formula picks P                                              300
+paths                                                        300
+paths with big A, B                                          288
+paths with same-type ties                                    300
+small A                                                      7
+small B                                                      5
+FAILURES: none

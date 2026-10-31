@@ -1,0 +1,23 @@
+  100 (0s) {'instances': 100, 'yes-instances': 93, 'paths': 213, '(c) conflicting consistent pairs': 2745, '6.2 chains with contacts j=1': 1873, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 8982, '6.2 chains with contacts j=3': 52456, '6.3 max span E': 2, '6.3 max |S_x|': 3, '6.3 max span F': 2, '6.3 max |S_y| dual': 3, 'comparable pairs (anchored)': 319, 'bad pairs': 240, 'max bad pairs on a path': 21, 'comparable pairs (bad)': 240, 'no-instances': 7, '6.4 incomparable pairs': 23}
+  200 (0s) {'instances': 200, 'yes-instances': 187, 'paths': 408, '(c) conflicting consistent pairs': 4419, '6.2 chains with contacts j=1': 3489, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 15988, '6.2 chains with contacts j=3': 88734, '6.3 max span E': 2, '6.3 max |S_x|': 3, '6.3 max span F': 3, '6.3 max |S_y| dual': 3, 'comparable pairs (anchored)': 533, 'bad pairs': 382, 'max bad pairs on a path': 24, 'comparable pairs (bad)': 382, 'no-instances': 13, '6.4 incomparable pairs': 34}
+  300 (1s) {'instances': 300, 'yes-instances': 278, 'paths': 624, '(c) conflicting consistent pairs': 6958, '6.2 chains with contacts j=1': 5525, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 27610, '6.2 chains with contacts j=3': 168814, '6.3 max span E': 2, '6.3 max |S_x|': 3, '6.3 max span F': 3, '6.3 max |S_y| dual': 3, 'comparable pairs (anchored)': 831, 'bad pairs': 621, 'max bad pairs on a path': 24, 'comparable pairs (bad)': 621, 'no-instances': 22, '6.4 incomparable pairs': 46}
+  400 (1s) {'instances': 400, 'yes-instances': 365, 'paths': 813, '(c) conflicting consistent pairs': 9237, '6.2 chains with contacts j=1': 7287, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 37240, '6.2 chains with contacts j=3': 232062, '6.3 max span E': 2, '6.3 max |S_x|': 3, '6.3 max span F': 3, '6.3 max |S_y| dual': 3, 'comparable pairs (anchored)': 1041, 'bad pairs': 843, 'max bad pairs on a path': 25, 'comparable pairs (bad)': 843, 'no-instances': 35, '6.4 incomparable pairs': 60}
+test_lemmas seed 203 count 400 m 6-14 cap 30 jmax 3 profile dense-order (1s)
+  (c) conflicting consistent pairs              9237
+  6.2 chains with contacts j=1                  7287
+  6.2 chains with contacts j=2                  37240
+  6.2 chains with contacts j=3                  232062
+  6.2 max(|c-d| - j)                            1
+  6.3 max span E                                2
+  6.3 max span F                                3
+  6.3 max |S_x|                                 3
+  6.3 max |S_y| dual                            3
+  6.4 incomparable pairs                        60
+  bad pairs                                     843
+  comparable pairs (anchored)                   1041
+  comparable pairs (bad)                        843
+  instances                                     400
+  max bad pairs on a path                       25
+  no-instances                                  35
+  paths                                         813
+  yes-instances                                 365

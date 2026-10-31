@@ -1,0 +1,7 @@
+formula picks P                                              150
+paths                                                        150
+paths reaching Stage 0                                       150
+paths with same-type ties                                    150
+shape: E* (R_0 empty)                                        70
+shape: F* (C_0 empty)                                        80
+FAILURES: none

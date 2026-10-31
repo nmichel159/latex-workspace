@@ -1,0 +1,4 @@
+restart 0 n=15 best (levels, kappa, paths without single proof-term) = (2, 8, 1) (7s)
+restart 1 n=13 best (levels, kappa, paths without single proof-term) = (2, 8, 1) (13s)
+restart 2 n=15 best (levels, kappa, paths without single proof-term) = (2, 7, 1) (20s)
+restart 3 n=14 best (levels, kappa, paths without single proof-term) = (2, 7, 1) (26s)

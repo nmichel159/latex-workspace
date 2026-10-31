@@ -1,0 +1,41 @@
+enum_zz K 4 part 0/8 gdesc<=6 (258s)
+  (E') descriptions                                       66996
+  (F') descriptions                                       66969
+  (c) conflicting consistent pairs                        64892
+  6.2 chains with contacts j=1                            245620
+  6.2 chains with contacts j=2                            111580
+  6.2 max(|c-d| - j)                                      0
+  6.3 max span E                                          2
+  6.3 max span F                                          2
+  6.3 max |S_x|                                           2
+  6.3 max |S_y| dual                                      2
+  6.4 incomparable pairs                                  196
+  GDESC no-instances run                                  91661
+  GDESC(k, kappa_min, 9k) runs                            82663
+  P2 instances                                            174324
+  bad pairs                                               5888
+  case C empty                                            42388
+  case R empty                                            31686
+  comparable pairs (anchored)                             91855
+  comparable pairs (bad)                                  5888
+  cor 6.5' descriptions                                   169840
+  covers tested                                           134487
+  inst with kappa_min > 0                                 3131
+  instances                                               217856
+  lambda < 1/2                                            2628
+  lambda >= 1/2                                           57785
+  max bad pairs                                           1
+  max bad pairs on a path                                 1
+  max integer/tau                                         1
+  max kappa                                               1
+  max kappa_min                                           1
+  max min LP cover - kappa                                1
+  max min(kE,kF)                                          1
+  max |Phi|/|T| (E)                                       2
+  max |Phi|/|T| (F)                                       2
+  no-instances                                            91661
+  paths                                                   122460
+  paths with bad pairs                                    5888
+  preorders                                               355
+  sum r                                                   169782
+  yes-instances                                           82663

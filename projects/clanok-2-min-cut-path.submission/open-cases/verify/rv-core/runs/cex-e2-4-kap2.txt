@@ -1,0 +1,4 @@
+﻿instance R(EFEFEFEF) with kap at [2]: switches 8, nodes 38, P2 violations 0
+solutions: 1  shortest valid length: 8  number of shortest valid paths: 1
+b1=x2 b2=x8: |Phi|=3  contracted centres: FAILS (D = {x1,x2,x4,x6,x8})  | uncontracted: succeeds | Phi = A & U (|.|=4): succeeds   A&U-Phi = {x1}
+failures of (E2) as written: 1

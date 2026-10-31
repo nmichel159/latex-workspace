@@ -1,0 +1,19 @@
+test_narrow seed 701 count 10000 m 5-14 gen both cap 20 gd 6 (14s)
+  (E') descriptions                                       14101
+  (F') descriptions                                       12374
+  GDESC(k, kappa_narrow_min, 9k) runs                     1594
+  case C empty                                            4618
+  case R empty                                            4386
+  covers tested                                           18317
+  instances with kappa_min narrow < order                 205
+  lambda < 1/2                                            1745
+  lambda >= 1/2                                           7568
+  lambda exactly 1/2                                      526
+  max kappa_narrow                                        4
+  max min(kE,kF)                                          2
+  max |Phi|/|T| (E)                                       4
+  max |Phi|/|T| (F)                                       4
+  paths                                                   16752
+  paths with kappa_narrow < kappa_order                   681
+  paths with narrow bad pairs                             2949
+  yes-instances                                           9009

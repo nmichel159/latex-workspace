@@ -1,0 +1,55 @@
+  preorders 200 (74s)
+  preorders 400 (152s)
+  preorders 600 (246s)
+  preorders 800 (357s)
+  preorders 1000 (451s)
+  preorders 1200 (554s)
+  preorders 1400 (661s)
+  preorders 1600 (773s)
+  preorders 1800 (906s)
+  preorders 2000 (1057s)
+  preorders 2200 (1216s)
+sample_zz5 K 5 samples 200 seed 1 part 2/3 gdesc<=6 (1339s)
+  (E') descriptions                                       273500
+  (F') descriptions                                       273861
+  (c) conflicting consistent pairs                        561027
+  6.2 chains with contacts j=1                            1202657
+  6.2 chains with contacts j=2                            1709966
+  6.2 chains with contacts j=3                            1357170
+  6.2 max(|c-d| - j)                                      1
+  6.3 max span E                                          2
+  6.3 max span F                                          2
+  6.3 max |S_x|                                           2
+  6.3 max |S_y| dual                                      2
+  6.4 incomparable pairs                                  2303
+  GDESC no-instances run                                  44590
+  GDESC(k, kappa_min, 9k) runs                            124319
+  P2 instances                                            168909
+  bad pairs                                               29858
+  case C empty                                            74606
+  case R empty                                            61166
+  comparable pairs (anchored)                             356634
+  comparable pairs (bad)                                  29858
+  cor 6.5' descriptions                                   482621
+  covers tested                                           353373
+  inst with kappa_min > 0                                 4652
+  instances                                               462800
+  lambda < 1/2                                            3534
+  lambda >= 1/2                                           214067
+  lambda exactly 1/2                                      4
+  max bad pairs                                           2
+  max bad pairs on a path                                 2
+  max integer/tau                                         1
+  max kappa                                               1
+  max kappa_min                                           1
+  max min LP cover - kappa                                1
+  max min(kE,kF)                                          1
+  max |Phi|/|T| (E)                                       2
+  max |Phi|/|T| (F)                                       2
+  no-instances                                            44590
+  paths                                                   301684
+  paths with bad pairs                                    23473
+  preorders                                               2314
+  preorders (all parts)                                   6942
+  sum r                                                   256456
+  yes-instances                                           124319

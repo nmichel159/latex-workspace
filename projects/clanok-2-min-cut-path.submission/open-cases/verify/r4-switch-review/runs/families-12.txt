@@ -1,0 +1,13 @@
+R_2 path len 2 certificate ["thm8", 1, 1, 0, 0, 0]
+R_3 path len 3 certificate ["thm8", 2, 1, 0, 1, 0]
+R_4 path len 4 certificate ["thm8", 3, 1, 0, 1, 0]
+R_5 path len 5 certificate ["thm8", 4, 1, 0, 1, 0]
+R_6 path len 6 certificate ["thm8", 5, 1, 0, 1, 0]
+R_7 path len 7 certificate ["thm8", 6, 1, 0, 1, 0]
+R_8 path len 8 certificate ["thm8", 6, 1, 0, 1, 0]
+R_9 path len 9 certificate ["thm8", 6, 1, 0, 1, 0]
+R_10 path len 10 certificate ["thm8", 6, 1, 0, 1, 0]
+R_11 path len 11 certificate ["thm8", 6, 1, 0, 1, 0]
+R_12 path len 12 certificate ["thm8", 6, 1, 0, 1, 0]
+{"inst": 165, "yes": 22, "no": 143, "paths": 22, "fail": 0, "decide_runs": 45}
+{"maxB": 6, "maxZ": 1, "maxsingles": 0, "maxstorT": 3, "step0_T": 1, "step1_T": 43}

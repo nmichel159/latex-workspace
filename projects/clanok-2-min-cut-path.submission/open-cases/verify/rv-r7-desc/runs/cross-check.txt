@@ -1,0 +1,43 @@
+B m 193 r 193 author's shortest_len: 193
+A m 134 r 134 author's shortest_len: 134
+stair m 174 r 174 author's shortest_len: 174
+ties m 191 r 191 author's shortest_len: 191
+mix m 247 r 247 author's shortest_len: 247
+small m 154 r 154 author's shortest_len: 154
+cross m 310 r 310 author's shortest_len: 310
+allstrict m 136 r 136 author's shortest_len: 136
+B m 183 r 183 author's shortest_len: 183
+A m 165 r 165 author's shortest_len: 165
+stair m 179 r 179 author's shortest_len: 179
+ties m 195 r 195 author's shortest_len: 195
+mix m 259 r 259 author's shortest_len: 259
+small m 161 r 161 author's shortest_len: 161
+cross m 277 r 277 author's shortest_len: 277
+allstrict m 133 r 133 author's shortest_len: 133
+author's counters:
+   R_0, C_0 both non-empty 16
+   case I 14
+   case II 2
+   formula picks P 16
+   paths 16
+   paths reaching Stage 0 16
+   paths with same-type ties 14
+   shape A 6
+   shape B 6
+   shape: E^1 alone 2
+   shape: F^1 alone 2
+   tie-free paths 2
+referee's counters:
+   Case I 14
+   Case I: F^1 alone 2
+   Case II (as written) 2
+   Case II: R_1 empty (Prop. C) 2
+   Or: direct 16
+   S0 pass: R_0, C_0 nonempty 16
+   S0: |A|,|B|>=10 16
+   S1: |K|>=20 16
+   Shape A (C_1 nonempty) 6
+   Shape B 6
+   Shape B: one pair alone leaves a class of R_0 2
+   paths 16
+   paths with non-strict R_0 x C_0 pair 14

@@ -1,0 +1,18 @@
+H(2,2) classes: q=22 |R|=35 P2=True downsets=625 answer(downsets)=False answer(dfs)=False bottomwit=True topwit=False
+  Theorem F algorithm (bottom): False  dual: False
+  L=11 AC=False PC=False (0.0s)
+  L=13 AC=False PC=False (0.0s)
+  L=15 AC=True PC=False (0.1s)
+  L=17 AC=True PC=False (0.1s)
+  L=19 AC=True PC=True (0.2s)
+  L=21 AC=True PC=True (0.2s)
+  L=23 AC=True PC=True (0.3s)
+H(2,2) po: q=22 |R|=43 P2=True downsets=663 answer(downsets)=False answer(dfs)=False bottomwit=False topwit=False
+  Theorem F algorithm (bottom): False  dual: False
+  L=11 AC=False PC=False (0.0s)
+  L=13 AC=False PC=False (0.0s)
+  L=15 AC=True PC=False (0.1s)
+  L=17 AC=True PC=False (0.2s)
+  L=19 AC=True PC=True (0.2s)
+  L=21 AC=True PC=True (0.4s)
+  L=23 AC=True PC=True (0.5s)

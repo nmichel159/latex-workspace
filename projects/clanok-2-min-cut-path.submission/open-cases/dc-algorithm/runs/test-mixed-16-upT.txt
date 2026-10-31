@@ -1,0 +1,1 @@
+16 upT {'instances': 3000, 'yes': 929, 'mismatch_exact': 0, 'low2_wrong': 0, 'up2_wrong': 0, 'lemmaS_fail': 0, 'bound_fail': 0, 'max_mp': 2, 'max_mv': 2, 'min_glow_gt2': 0, 'min_gup_gt2': 0, 'both_gt2': 0} hist g_low {0: 455, 1: 465, 2: 9} hist g_up {0: 282, 1: 639, 2: 8}

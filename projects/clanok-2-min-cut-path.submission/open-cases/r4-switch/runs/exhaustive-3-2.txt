@@ -1,0 +1,1 @@
+N 3 n 2 {'total': 2080, 'p2': 1715, 'yes': 1382, 'no': 333, 'paths': 2056, 'ok': 4112, 'fail': 0, 'unsound': 0, 'swaps': 0} 0.1s

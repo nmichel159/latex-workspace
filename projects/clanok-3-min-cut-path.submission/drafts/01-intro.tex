@@ -1,0 +1,96 @@
+\section{Introduction}\label{sec:introduction}
+
+Let $G$ be a connected graph, and let $u$ and $v$ be two distinct vertices of $G$.
+A \emph{cut-path} between $u$ and $v$ is a set of edges that contains a $u$--$v$ path and a cut separating $u$ from $v$.
+The \MinCutPath{} problem asks for a cut-path with the fewest edges, and $\cp(u, v)$ denotes their number.
+Let $d(u, v)$ be the distance between $u$ and $v$, and let the cut-value $c(u, v)$ be the minimum number of edges of a cut separating $u$ from $v$.
+The union of a minimum cut and a shortest path is a cut-path, and the two share an edge, which gives the upper bound in
+\[
+\max\{c(u, v), d(u, v)\} \leq \cp(u, v) \leq c(u, v) + d(u, v) - 1
+\]
+(\cref{lem:basic-bounds}).
+
+The \MinCutPath{} problem was introduced in the author's master's thesis~\cite{Michel2025MinCutPath}.
+The upper bound is attained by all pairs of vertices in graphs of diameter two and in cactus graphs~\cite[Theorems~15 and~18]{Michel2025MinCutPath}, where the cactus graphs are the connected graphs with $c(x, y) \leq 2$ for all pairs $x, y$ (\cref{sec:class}).
+A shortest $u$--$v$ path is separating if the removal of its edges separates $u$ from $v$, and $\cp(u, v) = d(u, v)$ if and only if such a path exists.
+Deciding whether it exists, the \SSP{} problem, is NP-complete~\cite[Theorem~3.10]{Michel2026MinCutPath}.
+
+The formula $\cp(u, v) = c(u, v) + d(u, v) - 1$ fails if every pair of vertices is required to satisfy only one of the two hypotheses.
+Let $\DC$ be the class of connected graphs in which every two distinct vertices $x$ and $y$ satisfy $d(x, y) \leq 2$ or $c(x, y) \leq 2$.
+The thesis defines this class and gives two graphs in it with $\cp(u, v) = 3$ and $c(u, v) + d(u, v) - 1 = 4$~\cite[Definition~37 and Figure~3.3]{Michel2025MinCutPath}.
+We prove that \MinCutPath{} is NP-complete on graphs of diameter three and solvable in polynomial time on $\DC$.
+
+\subsection{Our Results}\label{sec:results}
+
+\begin{enumerate}
+\item \emph{NP-completeness on diameter three.}
+Deciding whether $\cp(u, v) = c(u, v)$ is NP-complete on graphs of diameter three, already for pairs with $d(u, v) = 2$.
+Hence the decision version of \MinCutPath{} is NP-complete on these graphs, and deciding whether $\cp(u, v) = c(u, v) + d(u, v) - 1$ is coNP-complete (\cref{thm:dt-hardness,cor:dt-consequences}).
+
+\item \emph{Pairs of $\DC$ with cut-value at most two.}
+Let $c(u, v) = 2$ in an arbitrary connected graph.
+The minimum $u$--$v$ cuts divide the graph into a chain of subgraphs, the squares (\cref{thm:structure}), and $\cp(u, v) = d(u, v)$ if and only if some square contains a path that lies on a shortest $u$--$v$ path and separates two terminals of the square (\cref{thm:characterization}).
+For a graph $G = (V, E)$ of $\DC$, this gives an $O(|V| + |E|)$ algorithm for $\cp(u, v)$ and a minimum cut-path (\cref{thm:linear-time,cor:class-pairs}).
+
+\item \emph{Pairs of $\DC$ at distance two.}
+The pairs of $\DC$ that item 2 leaves have $d(u, v) = 2$ and $c(u, v) \geq 3$ (\cref{prop:easy-pairs}).
+For these, $\cp(u, v) \in \{c(u, v), c(u, v) + 1\}$, and $\cp(u, v) = c(u, v)$ if and only if some minimum $u$--$v$ cut contains a $u$--$v$ path (\cref{prop:open-pairs}).
+We decide this question and construct a minimum cut-path in time $n^{71} \cdot n^{O(1)}$ for $n = |V|$ (\cref{thm:pa-open-case}).
+\end{enumerate}
+
+Items 2 and 3 together give our main result.
+
+\begin{theorem}\label{thm:main}
+\MinCutPath{} restricted to the graphs of $\DC$ is solvable in polynomial time.
+\end{theorem}
+
+\begin{proof}
+A pair with $d(u, v) = 1$, or with $c(u, v) \leq 2$, is solved by \cref{thm:linear-time,cor:class-pairs}.
+A pair with $d(u, v) \geq 3$ has $c(u, v) \leq 2$ by the definition of $\DC$.
+Every other pair has $d(u, v) = 2$ and $c(u, v) \geq 3$ and is solved by \cref{thm:pa-open-case}.
+\end{proof}
+
+\subsection{Techniques}\label{sec:techniques}
+
+The hardness proof reduces from 3-SAT.
+Two cliques force every minimum $u$--$v$ cut to correspond to an assignment of the variables, and $u$ and $v$ are connected by the edges of the cut if and only if the assignment satisfies the formula.
+
+For $c(u, v) = 2$, consecutive squares are joined by two general paths, and a $u$--$v$ path $R$ follows exactly one of them, so $u$ and $v$ are separated in $G \setminus R$ if and only if, in some square, the part of $R$ in the square separates the two terminals that $R$ does not use (\cref{lem:criterion}).
+In a graph of $\DC$, such a part of a shortest path has at most two edges (\cref{cor:two-edges}), which leaves a constant number of candidates per square.
+
+For $d(u, v) = 2$ and $c(u, v) \geq 3$, the minimum cuts are the down-sets of a preorder (Picard and Queyranne~\cite{PicardQueyranne1980}), and a path in a minimum cut alternates between the two sides.
+The hypothesis $G \in \DC$ becomes a condition on the preorder: two incomparable elements have a common neighbor below both or above both (\cref{thm:zz-reduction}).
+A solution is a shortest path $P$ that alternates between the sides of some down-set.
+It suffices to separate the minimal elements $A_P$ that $P$ uses on one side from the maximal elements $B_P$ that it uses on the other side.
+Two far-apart members of $A_P$, or of $B_P$, determine a down-set that separates all but few pairs, because a side that met two far-apart members would shorten $P$.
+A formula of unions and intersections over at most $71$ elements then gives a down-set that contains the solution (\cref{thm:pa-formulas}), and the algorithm tries all such formulas.
+
+\subsection{Related Work}\label{sec:related-work}
+
+By Menger's theorem, $c(u, v)$ is the maximum number of pairwise edge-disjoint $u$--$v$ paths~\cite[Corollary~3.3.5]{Diestel2025}.
+Picard and Queyranne~\cite{PicardQueyranne1980} described all minimum cuts between two vertices of a network by one maximum flow.
+A set that contains the source and not the sink is the source side of a minimum cut if and only if no arc of the residual digraph leaves it.
+For an undirected graph, contract every class of vertices that no minimum $u$--$v$ cut separates and direct the remaining edges along a maximum flow.
+The result is an acyclic digraph in which every vertex other than the classes of $u$ and $v$ has as many entering as leaving edges, a structure that Dinitz and Vainshtein call a strip (see~\cite{BaswanaPandey2025Carcass}).
+All minimum cuts of a graph are represented by a cactus, a result of Dinits, Karzanov and Lomonosov (see~\cite{NagamochiKameda1996}).
+For a 2-edge-connected graph that is not 3-edge-connected, this cactus is obtained by contracting every 3-edge-connected component, that is, every class of the relation $c(x, y) \geq 3$, and it is computed in linear time~\cite{Mehlhorn2017Certifying}.
+For a pair with $c(u, v) = 2$, the square decomposition of \cref{sec:structure} is an explicit form of these representations.
+We prove its properties directly, because \cref{sec:separating,sec:algorithm} use the terminals of the squares and distances inside the squares, which a contraction does not keep.
+
+A $u$--$v$ path is non-disconnecting if the removal of its edges leaves the graph connected.
+Deciding whether such a path exists is NP-hard~\cite{Mao2021NonSeparating}, and a shortest one is found in FPT time with respect to its length~\cite{Abhinav2022NonSeparating}.
+For two pairs of vertices, it is NP-complete to decide whether some shortest path between the first pair is edge-disjoint from some path between the second pair~\cite{EilamTzoreff1998Disjoint}.
+\SSP{} asks the opposite, namely whether the removal of the edges of some shortest $u$--$v$ path separates $u$ from $v$.
+
+Graphs in which the local edge-connectivity $c(x, y)$ of every pair of vertices is at most a constant $k$ were studied for coloring problems~\cite{Aboulker2017Coloring}.
+For $k = 2$ the connected graphs of this kind are the cactus graphs.
+The class $\DC$ asks for $c(x, y) \leq 2$ only when $d(x, y) \geq 3$, so it contains all cactus graphs and all connected graphs of diameter two.
+To the best of our knowledge, a class defined by such a condition on distances and cut-values has not been studied.
+Graphs of diameter two are also a polynomial case of \textsc{Matching Cut} and, for unit edge lengths, of \textsc{Shortest Path Most Vital Edges}, and both problems are NP-hard on graphs of diameter three~\cite{LeLe2019MatchingCut,Bazgan2019MostVital}.
+
+\subsection{Relation to the Thesis}\label{sec:thesis}
+
+The class $\DC$, the two graphs of \cref{ex:counterexamples}, the notions of a square and of a general path, and the idea of a polynomial and of a linear-time algorithm for pairs with cut-value two are taken from Section~3.3 of the thesis~\cite[Definitions~37 to~40 and Theorems~20, 22 and~23]{Michel2025MinCutPath}.
+The thesis obtains a decomposition by three transformations of the graph.
+Here the decomposition is defined by the union of all minimum $u$--$v$ cuts, and every statement has a complete proof.
+The separation criterion and the characterization for arbitrary graphs (\cref{lem:criterion,thm:characterization}), the linear running time that includes the computation of the decomposition (\cref{thm:linear-time}), and \cref{sec:dt-diameter-three,sec:zz-zigzag,sec:pa-polynomial} are new.

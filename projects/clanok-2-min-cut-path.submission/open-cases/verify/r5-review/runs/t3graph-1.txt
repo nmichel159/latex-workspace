@@ -1,0 +1,16 @@
+formula nv=1 [[1]]: |Q|=20 (pendants 9), vertices 367, ears 347, N=135; max element distance 3, d(u,v)=2, c(u,v)=135, closures ok=True, cut formula ok=True, PIMC=True (states 307), SAT=True, ok=True; non-DC witness ('b_c1', 'b_P1_1', 22); 0.1s
+    walk u d e0 a1 T1 a2 c1 P1_1 c2 v (flow even/odd = 135)
+formula nv=1 [[1], [-1]]: |Q|=24 (pendants 11), vertices 530, ears 506, N=192; max element distance 3, d(u,v)=2, c(u,v)=192, closures ok=True, cut formula ok=True, PIMC=False (states 416), SAT=False, ok=True; non-DC witness ('d', 'P1_1', 28); 0.1s
+formula nv=2 [[1, 2]]: |Q|=28 (pendants 13), vertices 700, ears 672, N=252; max element distance 3, d(u,v)=2, c(u,v)=252, closures ok=True, cut formula ok=True, PIMC=True (states 763), SAT=True, ok=True; non-DC witness ('b_c2', 'b_P1_2', 30); 0.2s
+    walk u d e0 a1 T1 a2 T2 a3 c1 P1_1 c2 v (flow even/odd = 252)
+formula nv=2 [[1], [-1, 2]]: |Q|=32 (pendants 15), vertices 914, ears 882, N=326; max element distance 3, d(u,v)=2, c(u,v)=326, closures ok=True, cut formula ok=True, PIMC=True (states 939), SAT=True, ok=True; non-DC witness ('b_T1', 'b_P1_1', 34); 0.3s
+    walk u d e0 a1 T1 a2 T2 a3 c1 P1_1 c2 P2_2 c3 v (flow even/odd = 326)
+formula nv=2 [[1, 2], [-1], [-2]]: |Q|=36 (pendants 17), vertices 1149, ears 1113, N=407; max element distance 3, d(u,v)=2, c(u,v)=407, closures ok=True, cut formula ok=True, PIMC=False (states 1242), SAT=False, ok=True; non-DC witness ('b_a1', 'b_T2', 38); 0.4s
+formula nv=2 [[1, -2], [-1, 2], [1, 2]]: |Q|=40 (pendants 19), vertices 1421, ears 1381, N=501; max element distance 3, d(u,v)=2, c(u,v)=501, closures ok=True, cut formula ok=True, PIMC=True (states 1545), SAT=True, ok=True; non-DC witness ('b_a1', 'b_P2_2', 42); 0.5s
+    walk u d e0 a1 T1 a2 T2 a3 c1 P1_1 c2 P2_2 c3 P3_1 c4 v (flow even/odd = 501)
+formula nv=2 [[1, 2], [-1, 2], [1, -2], [-1, -2]]: |Q|=46 (pendants 22), vertices 1861, ears 1815, N=652; max element distance 3, d(u,v)=2, c(u,v)=652, closures ok=True, cut formula ok=True, PIMC=False (states 2043), SAT=False, ok=True; non-DC witness ('e0', 'c2', 52); 0.7s
+formula nv=3 [[1, 2, 3], [-1, -2], [-3]]: |Q|=46 (pendants 22), vertices 1834, ears 1788, N=643; max element distance 3, d(u,v)=2, c(u,v)=643, closures ok=True, cut formula ok=True, PIMC=True (states 3521), SAT=True, ok=True; non-DC witness ('b_a2', 'b_c2', 48); 1.0s
+    walk u d e0 a1 T1 a2 F2 a3 F3 a4 c1 P1_1 c2 P2_2 c3 P3_1 c4 v (flow even/odd = 643)
+formula nv=3 [[1, -2], [2, -3], [3, -1], [1, 2, 3]]: |Q|=54 (pendants 26), vertices 2518, ears 2464, N=877; max element distance 3, d(u,v)=2, c(u,v)=877, closures ok=True, cut formula ok=True, PIMC=True (states 3897), SAT=True, ok=True; non-DC witness ('b_P1_1', 'b_P1_2', 56); 2.7s
+    walk u d e0 a1 T1 a2 T2 a3 T3 a4 c1 P1_1 c2 P2_1 c3 P3_1 c4 P4_1 c5 v (flow even/odd = 877)
+formula nv=3 [[1, -2], [2, -3], [3, -1], [-1, -2, -3], [1, 2, 3]]: |Q|=62 (pendants 30), vertices 3295, ears 3233, N=1142; max element distance 3, d(u,v)=2, c(u,v)=1142, closures ok=True, cut formula ok=True, PIMC=False (states 4731), SAT=False, ok=True; non-DC witness ('b_T1', 'b_F1', 64); 3.7s

@@ -1,0 +1,5 @@
+100 {'AC-refutes': 59, 'GC2-yes': 41, 'H1-no': 22, 'H1-yes': 20, 'inst-2ch': 42, 'inst-gcert': 24, 'inst-mixed-low': 6, 'inst-mixed-mixed': 20, 'inst-mixed-up': 8, 'no': 59, 'yes': 41}
+200 {'AC-refutes': 120, 'GC2-yes': 80, 'H1-no': 34, 'H1-yes': 45, 'inst-2ch': 79, 'inst-gcert': 53, 'inst-mixed-low': 17, 'inst-mixed-mixed': 36, 'inst-mixed-up': 15, 'no': 120, 'yes': 80}
+300 {'AC-refutes': 179, 'GC2-yes': 121, 'H1-no': 49, 'H1-yes': 71, 'inst-2ch': 120, 'inst-gcert': 79, 'inst-mixed-low': 25, 'inst-mixed-mixed': 52, 'inst-mixed-up': 24, 'no': 179, 'yes': 121}
+400 {'AC-refutes': 237, 'GC2-yes': 163, 'H1-no': 62, 'H1-yes': 87, 'inst-2ch': 149, 'inst-gcert': 102, 'inst-mixed-low': 32, 'inst-mixed-mixed': 73, 'inst-mixed-up': 44, 'no': 237, 'yes': 163}
+FINAL seed=12 count=400 {'AC-refutes': 237, 'GC2-yes': 163, 'H1-no': 62, 'H1-yes': 87, 'inst-2ch': 149, 'inst-gcert': 102, 'inst-mixed-low': 32, 'inst-mixed-mixed': 73, 'inst-mixed-up': 44, 'no': 237, 'yes': 163}

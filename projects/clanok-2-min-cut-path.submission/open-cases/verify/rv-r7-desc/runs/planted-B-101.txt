@@ -1,0 +1,37 @@
+base B seed 101 time 480.1
+accepted moves {'addTcore': 18, 'addScore': 219, 'wit': 195, 'tieH': 233, 'addS': 167, 'addT': 52, 'tieA': 192, 'attack': 21}
+rejected moves {'addT': 139, 'addTcore': 196, 'attack': 408, 'addS': 37}
+C_1 max 34
+Case I 732
+Case I: F^1 alone 426
+Case II (as written) 144
+Case II: R_1 empty (Prop. C) 144
+Mirror II° 732
+Mirror II°: E^1 alone 426
+Mirror I° 144
+Or: direct 714
+Or: reversed 714
+R(a) far pairs 73800
+R(b) far pairs 73800
+R_1 max 34
+S0 exit: C_0 empty, F* 24
+S0 exit: R_0 empty, E* 24
+S0 pass: R_0, C_0 nonempty 1428
+S0: |A|,|B|>=10 1476
+S1: |K|<20 576
+S1: |K|>=20 852
+Shape A (C_1 nonempty) 144
+Shape A' (mirror, R_1 nonempty) 144
+Shape B 162
+Shape B' (mirror) 162
+base instances verified 7
+gen left: claim B' tested 2458
+gen left: h-pair 6998
+gen right: a-pair 6955
+gen right: claim B tested 2488
+max m 203
+max r 203
+max_span_44 2
+paths 1476
+paths with non-strict R_0 x C_0 pair 714
+FAILURES: none

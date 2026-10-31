@@ -1,0 +1,8 @@
+formula picks P                                              3418
+no-instances                                                 343
+paths                                                        3418
+paths with same-type ties                                    67
+skipped (search budget)                                      3
+small A                                                      3418
+tie-free paths                                               3351
+FAILURES: none

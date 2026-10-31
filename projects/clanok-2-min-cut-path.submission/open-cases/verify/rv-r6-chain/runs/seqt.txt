@@ -1,0 +1,14 @@
+preorder ok True P2 bad [] ZZ exact True
+switches m = 0 nodes N = 1 s = 0 t = 0 sides []
+IDESC (blind, Theorem 8.2 parameters): True
+realised graph: n = 11 edges = 17 DC True d(u,v) = 2
+  c: 4
+  brute: True
+  brute_methods: ['subsets', 'paths']
+  zz: True
+  sf_L: 0
+  s_eq_t: True
+  idesc: True
+  cert_graph: True
+  roundtrip: True
+  err: []

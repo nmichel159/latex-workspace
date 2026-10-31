@@ -1,0 +1,30 @@
+﻿  2750 (47s) {'instances': 2750, 'yes-instances': 2750, 'sum r': 9610, 'paths': 5995, 'paths with bad pairs': 2760, 'max bad pairs': 42, 'max kappa': 6, 'covers tested': 13894, 'case C empty': 1735, 'max integer/tau': Fraction(3, 2), "cor 6.5' descriptions": 10491, 'max min LP cover - kappa': Fraction(2, 1), 'inst with kappa_min > 0': 1090, 'max kappa_min': 6, 'lambda >= 1/2': 8496, 'max min(kE,kF)': 2, "(E') descriptions": 17762, 'max |Phi|/|T| (E)': Fraction(4, 1), "(F') descriptions": 14765, 'max |Phi|/|T| (F)': Fraction(4, 1), 'case R empty': 1489, 'lambda < 1/2': 2174, 'lambda exactly 1/2': 474}
+  2800 (47s) {'instances': 2800, 'yes-instances': 2800, 'sum r': 9781, 'paths': 6091, 'paths with bad pairs': 2802, 'max bad pairs': 42, 'max kappa': 6, 'covers tested': 14115, 'case C empty': 1771, 'max integer/tau': Fraction(3, 2), "cor 6.5' descriptions": 10652, 'max min LP cover - kappa': Fraction(2, 1), 'inst with kappa_min > 0': 1110, 'max kappa_min': 6, 'lambda >= 1/2': 8648, 'max min(kE,kF)': 2, "(E') descriptions": 18077, 'max |Phi|/|T| (E)': Fraction(4, 1), "(F') descriptions": 14969, 'max |Phi|/|T| (F)': Fraction(4, 1), 'case R empty': 1501, 'lambda < 1/2': 2195, 'lambda exactly 1/2': 482}
+  2850 (48s) {'instances': 2850, 'yes-instances': 2850, 'sum r': 9961, 'paths': 6206, 'paths with bad pairs': 2854, 'max bad pairs': 42, 'max kappa': 6, 'covers tested': 14380, 'case C empty': 1796, 'max integer/tau': Fraction(3, 2), "cor 6.5' descriptions": 10857, 'max min LP cover - kappa': Fraction(2, 1), 'inst with kappa_min > 0': 1127, 'max kappa_min': 6, 'lambda >= 1/2': 8828, 'max min(kE,kF)': 2, "(E') descriptions": 18417, 'max |Phi|/|T| (E)': Fraction(4, 1), "(F') descriptions": 15268, 'max |Phi|/|T| (F)': Fraction(4, 1), 'case R empty': 1524, 'lambda < 1/2': 2232, 'lambda exactly 1/2': 499}
+  2900 (49s) {'instances': 2900, 'yes-instances': 2900, 'sum r': 10124, 'paths': 6317, 'paths with bad pairs': 2907, 'max bad pairs': 42, 'max kappa': 6, 'covers tested': 14641, 'case C empty': 1822, 'max integer/tau': Fraction(3, 2), "cor 6.5' descriptions": 11053, 'max min LP cover - kappa': Fraction(2, 1), 'inst with kappa_min > 0': 1148, 'max kappa_min': 6, 'lambda >= 1/2': 8984, 'max min(kE,kF)': 2, "(E') descriptions": 18713, 'max |Phi|/|T| (E)': Fraction(4, 1), "(F') descriptions": 15524, 'max |Phi|/|T| (F)': Fraction(4, 1), 'case R empty': 1552, 'lambda < 1/2': 2283, 'lambda exactly 1/2': 506}
+  2950 (50s) {'instances': 2950, 'yes-instances': 2950, 'sum r': 10296, 'paths': 6421, 'paths with bad pairs': 2973, 'max bad pairs': 42, 'max kappa': 6, 'covers tested': 14932, 'case C empty': 1848, 'max integer/tau': Fraction(3, 2), "cor 6.5' descriptions": 11240, 'max min LP cover - kappa': Fraction(2, 1), 'inst with kappa_min > 0': 1173, 'max kappa_min': 6, 'lambda >= 1/2': 9176, 'max min(kE,kF)': 2, "(E') descriptions": 19084, 'max |Phi|/|T| (E)': Fraction(4, 1), "(F') descriptions": 15925, 'max |Phi|/|T| (F)': Fraction(4, 1), 'case R empty': 1578, 'lambda < 1/2': 2330, 'lambda exactly 1/2': 509}
+  3000 (51s) {'instances': 3000, 'yes-instances': 3000, 'sum r': 10468, 'paths': 6510, 'paths with bad pairs': 3021, 'max bad pairs': 42, 'max kappa': 6, 'covers tested': 15151, 'case C empty': 1874, 'max integer/tau': Fraction(3, 2), "cor 6.5' descriptions": 11397, 'max min LP cover - kappa': Fraction(2, 1), 'inst with kappa_min > 0': 1195, 'max kappa_min': 6, 'lambda >= 1/2': 9321, 'max min(kE,kF)': 2, "(E') descriptions": 19401, 'max |Phi|/|T| (E)': Fraction(4, 1), "(F') descriptions": 16164, 'max |Phi|/|T| (F)': Fraction(4, 1), 'case R empty': 1599, 'lambda < 1/2': 2357, 'lambda exactly 1/2': 515}
+test_thm65 seed 402 count 3000 m 12-16 gen planted cap 10 gdesc<=0 (51s)
+  (E') descriptions                                       19401
+  (F') descriptions                                       16164
+  case C empty                                            1874
+  case R empty                                            1599
+  cor 6.5' descriptions                                   11397
+  covers tested                                           15151
+  inst with kappa_min > 0                                 1195
+  instances                                               3000
+  lambda < 1/2                                            2357
+  lambda >= 1/2                                           9321
+  lambda exactly 1/2                                      515
+  max bad pairs                                           42
+  max integer/tau                                         3/2
+  max kappa                                               6
+  max kappa_min                                           6
+  max min LP cover - kappa                                2
+  max min(kE,kF)                                          2
+  max |Phi|/|T| (E)                                       4
+  max |Phi|/|T| (F)                                       4
+  paths                                                   6510
+  paths with bad pairs                                    3021
+  sum r                                                   10468
+  yes-instances                                           3000

@@ -1,0 +1,7 @@
+rand seed 7000: {'inst': 20, 'yes': 5, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 36, 'maxc': 6, 'len': {1: 5}, 'far': 15}
+gpi seed 7001: {'inst': 20, 'yes': 7, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 1707, 'maxc': 26, 'len': {3: 6, 5: 1}, 'far': 0}
+
+TOTALS (1s)
+gpi: {'inst': 20, 'yes': 7, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 1707, 'maxc': 26, 'len': {3: 6, 5: 1}, 'far': 0}
+rand: {'inst': 20, 'yes': 5, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 36, 'maxc': 6, 'len': {1: 5}, 'far': 15}
+violations: 0

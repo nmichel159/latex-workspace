@@ -1,0 +1,4 @@
+nbhd runs/adv/ceB-E5F5-s41-cost4.json D 2 mode all centre cost 4 pid 9140
+distance 1 done: {3: 55, 4: 58, 2: 7} (0s)
+distance 2 done: {3: 4530, 4: 1682, 2: 894, 1: 4} (8s)
+END best cost 4 centre 4 (8s)

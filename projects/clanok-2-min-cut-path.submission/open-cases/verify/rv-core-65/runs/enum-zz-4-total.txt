@@ -1,0 +1,48 @@
+# runs/enum-zz-4-p0-rerun.txt | enum_zz K 4 part 0/8 gdesc<=6 (258s)
+# runs/enum-zz-4-p1.txt | enum_zz K 4 part 1/8 gdesc<=6 (253s)
+# runs/enum-zz-4-p2.txt | enum_zz K 4 part 2/8 gdesc<=6 (282s)
+# runs/enum-zz-4-p3.txt | enum_zz K 4 part 3/8 gdesc<=6 (250s)
+# runs/enum-zz-4-p4.txt | enum_zz K 4 part 4/8 gdesc<=6 (328s)
+# runs/enum-zz-4-p5-rerun.txt | enum_zz K 4 part 5/8 gdesc<=6 (272s)
+# runs/enum-zz-4-p6.txt | enum_zz K 4 part 6/8 gdesc<=6 (293s)
+# runs/enum-zz-4-p7.txt | enum_zz K 4 part 7/8 gdesc<=6 (347s)
+  (E') descriptions                                       413011
+  (F') descriptions                                       413011
+  (c) conflicting consistent pairs                        459864
+  6.2 chains with contacts j=1                            1629264
+  6.2 chains with contacts j=2                            768624
+  6.2 max(|c-d| - j)                                      0
+  6.3 max span E                                          2
+  6.3 max span F                                          2
+  6.3 max |S_x|                                           2
+  6.3 max |S_y| dual                                      2
+  6.4 incomparable pairs                                  1536
+  GDESC no-instances run                                  581504
+  GDESC(k, kappa_min, 9k) runs                            530236
+  P2 instances                                            1111740
+  bad pairs                                               29184
+  case C empty                                            271568
+  case R empty                                            200382
+  comparable pairs (anchored)                             564948
+  comparable pairs (bad)                                  29184
+  cor 6.5' descriptions                                   1073472
+  covers tested                                           844691
+  inst with kappa_min > 0                                 15534
+  instances                                               1535744
+  lambda < 1/2                                            14954
+  lambda >= 1/2                                           357787
+  max bad pairs                                           1
+  max bad pairs on a path                                 1
+  max integer/tau                                         1
+  max kappa                                               1
+  max kappa_min                                           1
+  max min LP cover - kappa                                1
+  max min(kE,kF)                                          1
+  max |Phi|/|T| (E)                                       2
+  max |Phi|/|T| (F)                                       2
+  no-instances                                            581504
+  paths                                                   785016
+  paths with bad pairs                                    29184
+  preorders                                               2840
+  sum r                                                   1089752
+  yes-instances                                           530236

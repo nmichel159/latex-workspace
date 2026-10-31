@@ -1,0 +1,1 @@
+seed 71 mode planted {'paths': 2147, 'straddles': 0, 'holes': 11, 'triples': 0, 'caseii': 1096, 'fail': 0} 0.3s

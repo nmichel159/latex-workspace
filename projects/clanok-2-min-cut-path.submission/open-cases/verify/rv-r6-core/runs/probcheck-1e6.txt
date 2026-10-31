@@ -1,0 +1,1 @@
+probcheck m = 1 .. 1000000 : violations [] count 0 ; min margin of (b) for m >= 2: 0.1579702720979701

@@ -1,0 +1,10 @@
+formula all4 [[1, 2], [1, -2], [-1, 2], [-1, -2]] switches 8 own answer False satisfiable False P2 False
+  pair 0 ('occ', 0, 1) 5 ('occ', 2, 2) single additions keeping 'no': [('t', 2), ('nt', None)]
+  pair 0 ('occ', 0, 1) 6 ('occ', 3, -1) single additions keeping 'no': [('b', 3), ('b', 4), ('t', 2), ('nb', None), ('nt', None)]
+  pair 0 ('occ', 0, 1) 7 ('occ', 3, -2) single additions keeping 'no': []
+  pair 1 ('occ', 0, 2) 4 ('occ', 2, -1) single additions keeping 'no': []
+  pair 1 ('occ', 0, 2) 7 ('occ', 3, -2) single additions keeping 'no': [('b', 5), ('b', 6), ('nb', None), ('nt', None)]
+  pair 2 ('occ', 1, 1) 7 ('occ', 3, -2) single additions keeping 'no': []
+  pairs with no option: 3
+formula x-notx [[1], [-1]] switches 2 own answer False satisfiable False P2 True
+  pairs with no option: 0

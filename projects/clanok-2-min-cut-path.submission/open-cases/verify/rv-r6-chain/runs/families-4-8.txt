@@ -1,0 +1,18 @@
+families-4-8: 48 jobs, 1 workers
+== families-4-8 (402s)
+  NO GRAPH BRUTE FORCE                          36
+  P2 in ZZ and in switch form                   48
+  ZZ level only (too large to realise)          19
+  blind single-term search accepts              22
+  blind single-term search run                  24
+  brute methods: core                           12
+  brute_paths over budget                       29
+  gsw.GSW identical                             48
+  no                                            4
+  pairs                                         48
+  paths checked (Thm 8.2)                       90
+  random down-sets lifted                       1200
+  yes                                           44
+  yes certified in G (lifted D: min cut with u-v path) 25
+  maxima: {'m': 24, 'q': 318, 'n': 3876, 'c': 1128, 'levels': 1, 'tools': 2, 'flips': 3, 'damage': 0, 'heavy': 4, 'span': 5, 'Amax': 4, 'bad': 0, 'sf_L': 8, 'anchors': 4}
+  total records with errors: 0

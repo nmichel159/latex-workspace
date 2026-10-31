@@ -1,0 +1,22 @@
+small-n8: 268 jobs, 2 workers
+  50/268 jobs (19s)
+  100/268 jobs (36s)
+  150/268 jobs (70s)
+  200/268 jobs (102s)
+  250/268 jobs (154s)
+== small-n8 (171s)
+  P2 in ZZ and in switch form                   121588
+  blind single-term search accepts              712
+  blind single-term search run                  121588
+  brute methods: subsets+paths                  121588
+  gsw.GSW identical                             121588
+  no                                            120876
+  pairs                                         121588
+  paths checked (Thm 8.2)                       754
+  random down-sets lifted                       3039700
+  s = t                                         4
+  skipped: not DC                               536
+  yes                                           712
+  yes certified in G (lifted D: min cut with u-v path) 712
+  maxima: {'m': 6, 'q': 8, 'n': 8, 'c': 6, 'levels': 1, 'tools': 1, 'flips': 1, 'damage': 0, 'heavy': 3, 'span': 1, 'Amax': 1, 'bad': 2, 'sf_L': 2}
+  total records with errors: 0

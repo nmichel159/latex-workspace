@@ -1,0 +1,24 @@
+  100 instances (1s) {'P2': 100, 'yes': 83, 'paths': 299, 'levels=1': 299, 'case E': 176, 'max tools': 2, 'max anchors': 1, 'max flips': 2, 'max heavy': 10, 'max damage': 0, 'max kappa': 3, 'paths with bad pairs': 44, 'no': 17, 'case R0': 20, 'case C0': 49, 'case noA': 50, 'case F': 4}
+  200 instances (3s) {'P2': 200, 'yes': 163, 'paths': 673, 'levels=1': 673, 'case E': 425, 'max tools': 2, 'max anchors': 1, 'max flips': 2, 'max heavy': 11, 'max damage': 0, 'max kappa': 4, 'paths with bad pairs': 108, 'no': 37, 'case R0': 31, 'case C0': 104, 'case noA': 94, 'case F': 19}
+  300 instances (5s) {'P2': 300, 'yes': 247, 'paths': 1079, 'levels=1': 1079, 'case E': 643, 'max tools': 2, 'max anchors': 1, 'max flips': 2, 'max heavy': 14, 'max damage': 0, 'max kappa': 4, 'paths with bad pairs': 160, 'no': 53, 'case R0': 54, 'case C0': 183, 'case noA': 169, 'case F': 30}
+  400 instances (7s) {'P2': 400, 'yes': 326, 'paths': 1423, 'levels=1': 1423, 'case E': 822, 'max tools': 2, 'max anchors': 1, 'max flips': 2, 'max heavy': 14, 'max damage': 0, 'max kappa': 4, 'paths with bad pairs': 202, 'no': 74, 'case R0': 66, 'case C0': 266, 'case noA': 225, 'case F': 44}
+  500 instances (9s) {'P2': 500, 'yes': 410, 'paths': 1795, 'levels=1': 1795, 'case E': 1004, 'max tools': 2, 'max anchors': 1, 'max flips': 2, 'max heavy': 14, 'max damage': 0, 'max kappa': 4, 'paths with bad pairs': 244, 'no': 90, 'case R0': 96, 'case C0': 366, 'case noA': 273, 'case F': 56}
+random seed 11 count 500 n 10-18 limit 20 (9s)
+  P2                                            500
+  case C0                                       366
+  case E                                        1004
+  case F                                        56
+  case R0                                       96
+  case noA                                      273
+  levels=1                                      1795
+  max anchors                                   1
+  max damage                                    0
+  max flips                                     2
+  max heavy                                     14
+  max kappa                                     4
+  max tools                                     2
+  no                                            90
+  paths                                         1795
+  paths with bad pairs                          244
+  yes                                           410
+  worst (levels, needs>=2 terms, kappa) per instance: [((1, 0, 2), 'r86'), ((1, 0, 2), 'r78'), ((1, 0, 2), 'r77'), ((1, 0, 2), 'r59'), ((1, 0, 2), 'r44'), ((1, 0, 2), 'r393'), ((1, 0, 2), 'r304'), ((1, 0, 2), 'r24')]

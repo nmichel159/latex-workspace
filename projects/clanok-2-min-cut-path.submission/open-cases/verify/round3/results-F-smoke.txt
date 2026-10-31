@@ -1,0 +1,11 @@
+bottie seed 102: {'n': 20, 'hyp': 20, 'yes': 1, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 1, 'maxA': 1, 'mixed_alg_wrong': 0, 'pc_runs': 13, 'ac_fp': 0, 'pc_fp': 0}
+top seed 101: {'n': 20, 'hyp': 20, 'yes': 13, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 648, 'maxA': 1, 'mixed_alg_wrong': 0, 'pc_runs': 7, 'ac_fp': 0, 'pc_fp': 0}
+mixed seed 103: {'n': 20, 'hyp': 9, 'yes': 13, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 0, 'maxA': 0, 'mixed_alg_wrong': 0, 'pc_runs': 0, 'ac_fp': 0, 'pc_fp': 0}
+bottom seed 100: {'n': 20, 'hyp': 20, 'yes': 10, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 2185, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 10, 'ac_fp': 0, 'pc_fp': 0}
+
+TOTALS (0s)
+bottie: {'n': 20, 'hyp': 20, 'yes': 1, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 1, 'maxA': 1, 'mixed_alg_wrong': 0, 'pc_runs': 13, 'ac_fp': 0, 'pc_fp': 0}
+bottom: {'n': 20, 'hyp': 20, 'yes': 10, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 2185, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 10, 'ac_fp': 0, 'pc_fp': 0}
+mixed: {'n': 20, 'hyp': 9, 'yes': 13, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 0, 'maxA': 0, 'mixed_alg_wrong': 0, 'pc_runs': 0, 'ac_fp': 0, 'pc_fp': 0}
+top: {'n': 20, 'hyp': 20, 'yes': 13, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 648, 'maxA': 1, 'mixed_alg_wrong': 0, 'pc_runs': 7, 'ac_fp': 0, 'pc_fp': 0}
+violations: 0

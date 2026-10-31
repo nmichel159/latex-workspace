@@ -1,0 +1,5 @@
+enum_zone K 3 aa FF bb EE part 0/1 pid 24372
+  code 0 new max cost 1 npairs 1 term ('E', [3], [], [], []) (0s)
+  code 14 new max cost 2 npairs 1 term ('E', [3], [], [], [1]) (0s)
+SUMMARY cost1:338 cost2:174 (0s)
+by (cost, min(npairs,5)): (1, 1):310 (1, 2):28 (2, 1):170 (2, 2):4

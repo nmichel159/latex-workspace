@@ -1,0 +1,4 @@
+configurations                                               236
+no configuration                                             3764
+shorter path, as Lemma G says                                236
+FAILURES: none

@@ -1,0 +1,11 @@
+9500 {'n': 100, 'yes': 98, 't1_miss': 0, 'need2': 0, 'need_gt2': 0, 't2_found': 0, 't2_incomplete': 0, 't2_sound_runs': 0, 't2_unsound': 0}
+9501 {'n': 100, 'yes': 97, 't1_miss': 0, 'need2': 0, 'need_gt2': 0, 't2_found': 0, 't2_incomplete': 0, 't2_sound_runs': 0, 't2_unsound': 0}
+9502 {'n': 100, 'yes': 96, 't1_miss': 0, 'need2': 0, 'need_gt2': 0, 't2_found': 0, 't2_incomplete': 0, 't2_sound_runs': 1, 't2_unsound': 0}
+9504 {'n': 100, 'yes': 94, 't1_miss': 0, 'need2': 0, 'need_gt2': 0, 't2_found': 0, 't2_incomplete': 0, 't2_sound_runs': 0, 't2_unsound': 0}
+9506 {'n': 100, 'yes': 96, 't1_miss': 0, 'need2': 0, 'need_gt2': 0, 't2_found': 0, 't2_incomplete': 0, 't2_sound_runs': 0, 't2_unsound': 0}
+9507 {'n': 100, 'yes': 98, 't1_miss': 0, 'need2': 0, 'need_gt2': 0, 't2_found': 0, 't2_incomplete': 0, 't2_sound_runs': 0, 't2_unsound': 0}
+9505 {'n': 100, 'yes': 98, 't1_miss': 0, 'need2': 0, 'need_gt2': 0, 't2_found': 0, 't2_incomplete': 0, 't2_sound_runs': 1, 't2_unsound': 0}
+9503 {'n': 100, 'yes': 95, 't1_miss': 0, 'need2': 0, 'need_gt2': 0, 't2_found': 0, 't2_incomplete': 0, 't2_sound_runs': 2, 't2_unsound': 0}
+9508 {'n': 100, 'yes': 96, 't1_miss': 0, 'need2': 0, 'need_gt2': 0, 't2_found': 0, 't2_incomplete': 0, 't2_sound_runs': 1, 't2_unsound': 0}
+9509 {'n': 100, 'yes': 96, 't1_miss': 0, 'need2': 0, 'need_gt2': 0, 't2_found': 0, 't2_incomplete': 0, 't2_sound_runs': 1, 't2_unsound': 0}
+{'n': 1000, 'yes': 964, 't1_miss': 0, 'need2': 0, 'need_gt2': 0, 't2_found': 0, 't2_incomplete': 0, 't2_sound_runs': 6, 't2_unsound': 0} violations: 0

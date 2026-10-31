@@ -1,0 +1,82 @@
+== r7-lb/inst 8 files, time 0.0
+   G hypothesis met 2
+   S0: |A|<10 14
+   S0: |B|<10 14
+   ThA trivial 7
+   files 4
+   max m 12
+   max r 10
+   max_span_44 3
+   other format 4
+   paths 14
+   tie-free paths 7
+   yes-instances 4
+== r7-lb/adv 61 files, time 0.6
+   G hypothesis met 8
+   J hypothesis met 1
+   S0: |A|<10 276
+   S0: |B|<10 276
+   ThA trivial 138
+   files 61
+   max m 20
+   max r 12
+   max_span_44 3
+   paths 276
+   tie-free paths 138
+   yes-instances 61
+== r7-lb/sa 6 files, time 0.1
+   S0: |A|<10 18
+   S0: |B|<10 18
+   ThA trivial 6
+   files 6
+   max m 18
+   max r 5
+   max_span_44 2
+   paths 18
+   tie-free paths 6
+   yes-instances 6
+== r4-search 157 files, time 0.8
+   J hypothesis met 1
+   R(a) far pairs 1
+   S0: |A|<10 358
+   S0: |B|<10 358
+   ThA trivial 169
+   files 157
+   max m 11
+   max r 10
+   max_span_44 4
+   paths 358
+   tie-free paths 169
+   yes-instances 157
+== r5-core/single 23 files, time 0.3
+   R(a) far pairs 544
+   R(b) far pairs 534
+   S0 exit: C_0 empty, F* 46
+   S0 exit: R_0 empty, E* 46
+   S0: |A|,|B|>=10 46
+   ThA F* branch 23
+   files 23
+   max m 37
+   max r 24
+   max_span_44 2
+   paths 46
+   tie-free paths 23
+   yes-instances 23
+== rv-r6/deep 188 files, time 136.7
+   R(a) far pairs 14464
+   R(b) far pairs 14214
+   S0 exit: C_0 empty, F* 294
+   S0 exit: R_0 empty, E* 286
+   S0: |A|,|B|>=10 300
+   S0: |A|<10 48
+   S0: |B|<10 62
+   ThA F* branch 96
+   ThA trivial 18
+   files 188
+   max m 703
+   max r 640
+   max_span_44 2
+   paths 376
+   tie-free paths 114
+   yes-instances 188
+FAILURES: none

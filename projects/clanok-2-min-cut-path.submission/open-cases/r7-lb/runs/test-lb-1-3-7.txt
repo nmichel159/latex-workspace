@@ -1,0 +1,5 @@
+test_lb seed 1 count 400 m 3-7 cap 4 (0s)
+  cost=0               201
+  cost=1               31
+  no                   168
+  yes                  232

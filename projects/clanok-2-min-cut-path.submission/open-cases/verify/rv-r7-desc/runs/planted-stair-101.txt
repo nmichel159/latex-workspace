@@ -1,0 +1,37 @@
+base stair seed 101 time 480.5
+accepted moves {'tieA': 189, 'addScore': 206, 'tieH': 209, 'wit': 186, 'addS': 173, 'attack': 121, 'addTcore': 127, 'addT': 86, 'unstrict': 86}
+rejected moves {'unstrict': 109, 'attack': 296, 'addT': 105, 'addTcore': 90, 'addS': 11}
+(star) tested 8831928
+C_1 max 16
+Case I 930
+Case I: F^1 alone 516
+Case II (as written) 144
+Case II: R_1 empty (Prop. C) 144
+Mirror II° 930
+Mirror II°: E^1 alone 516
+Mirror I° 144
+Or: direct 852
+Or: reversed 852
+R(a) far pairs 91200
+R(b) far pairs 91200
+R_1 max 20
+S0 exit: C_0 empty, F* 60
+S0 exit: R_0 empty, E* 60
+S0 pass: R_0, C_0 nonempty 1704
+S0: |A|,|B|>=10 1824
+S1: |K|<20 672
+S1: |K|>=20 1032
+Shape A (C_1 nonempty) 414
+Shape A' (mirror, R_1 nonempty) 413
+Shape B' (mirror) 1
+base instances verified 7
+gen left: claim B' tested 1795
+gen left: h-pair 8366
+gen right: a-pair 8350
+gen right: claim B tested 1870
+max m 200
+max r 200
+max_span_44 2
+paths 1824
+paths with non-strict R_0 x C_0 pair 1668
+FAILURES: none

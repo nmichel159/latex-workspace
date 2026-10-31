@@ -1,0 +1,10 @@
+run 0 min|f| = 1 second 1 sum 36 types FFFEFFFEFFFE
+run 1 min|f| = 1 second 1 sum 36 types FEFEFFFEFFFF
+run 2 min|f| = 2 second 2 sum 42 types FFEEEEEFFEFE
+run 3 min|f| = 2 second 2 sum 42 types EEEEEFFEEFEF
+run 4 min|f| = 1 second 1 sum 40 types FFFEFEFEFEEF
+run 5 min|f| = 2 second 2 sum 42 types EEEFEEEFEFEF
+run 6 min|f| = 2 second 2 sum 49 types EFEEEFEFFFFF
+run 7 min|f| = 1 second 2 sum 41 types EFEEFEFEEFFE
+histogram of min|f|: {1: 4, 2: 4}
+best: ((2, 2, 49), [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1], [[1, 4, 5, 7, 8, 9, 10, 11], [2, 3, 4, 6, 7, 8, 9, 10, 11], [3, 5, 6, 7, 8, 9, 10, 11], [4, 5, 6, 7, 8, 9, 10, 11], [5, 7, 8, 9, 10], [4, 6], [7, 8, 9, 10, 11], [4, 6], [4, 6], [4, 6], [3, 4, 6], [0, 1, 2, 3, 4, 5, 6, 8, 9, 10]])

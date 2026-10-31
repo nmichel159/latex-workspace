@@ -1,0 +1,52 @@
+adv8 random args=202 1500 10 16 pid=27880
+  200 instances, 1s
+  400 instances, 3s
+  800 instances, 8s
+  1000 instances, 11s
+  1200 instances, 14s
+  1400 instances, 18s
+SUMMARY adv8 random 202 1500 10 16 (19s)
+  A empty: 4548
+  E continue: 49
+  E final: 4600
+  E terms checked: 19717
+  F final: 1080
+  F final with anchors: 339
+  F terms checked: 3143
+  bad pairs: 3827
+  case C0: 4696
+  case E (v>=1/2): 4653
+  case F (v<1/2): 1080
+  case R0: 44
+  duality pairs: 26073
+  duality pairs y<x: 14054
+  games: 5733
+  games with v = 1/2 (float): 256
+  heavy rows: 26849
+  instances: 1500
+  levels=1 (proof): 7818
+  levels=1 (stress): 2557
+  levels=2 (stress): 49
+  max E expected uncovered x1000: 500
+  max F expected failures x1000: 24
+  max anchors: 2
+  max bad pairs on a path: 45
+  max levels proof/adversarial: 1
+  max levels proof/first: 1
+  max levels proof/sample: 1
+  max levels stress/adversarial: 2
+  max sampled anchors (distinct): 2
+  max |A & NE(E#x)|: 3
+  max |A|: 4
+  max |B & NF(F#y)|: 3
+  max |Phi|/|T| x100: 300
+  no: 284
+  paths: 3743
+  rows: 48756
+  sample: E cover drawn: 1151
+  sample: F cover drawn: 270
+  sample: anchors drawn: 85
+  skipped: path search over budget: 4
+  stuck (no progress): 4
+  yes: 1212
+FAILURES: none

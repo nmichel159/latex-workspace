@@ -1,0 +1,33 @@
+﻿Y_2: U = ['m1', 'm2', 'x3', 'x4']; D = ['x3', 'x4']; claim holds: True; connects: True
+Y'_2: U = ['m1', 'm2', 'x3', 'x4']; D = ['x3', 'x4']; claim holds: True; connects: True
+Y^d_2: U = ['d', 'm1', 'm2', 'x3', 'x4']; D = ['d', 'x3', 'x4']; claim holds: True; connects: True
+Y^d_2/back: U = ['d', 'm1', 'm2', 'x3', 'x4']; D = ['d', 'x3', 'x4']; claim holds: True; connects: True
+Y'^d_2: U = ['d', 'm1', 'm2', 'x3', 'x4']; D = ['d', 'x3', 'x4']; claim holds: True; connects: True
+Y'^d_2/back: U = ['d', 'm1', 'm2', 'x3', 'x4']; D = ['d', 'x3', 'x4']; claim holds: True; connects: True
+Y_3: U = ['m1', 'm2', 'm3', 'x4', 'x5', 'x6']; D = ['x4', 'x5', 'x6']; claim holds: True; connects: True
+Y'_3: U = ['m1', 'm2', 'm3', 'x4', 'x5', 'x6']; D = ['x4', 'x5', 'x6']; claim holds: True; connects: True
+Y^d_3: U = ['d', 'm1', 'm2', 'm3', 'x4', 'x5', 'x6']; D = ['d', 'x4', 'x5', 'x6']; claim holds: True; connects: True
+Y^d_3/back: U = ['d', 'm1', 'm2', 'm3', 'x4', 'x5', 'x6']; D = ['d', 'x4', 'x5', 'x6']; claim holds: True; connects: True
+Y'^d_3: U = ['d', 'm1', 'm2', 'm3', 'x4', 'x5', 'x6']; D = ['d', 'x4', 'x5', 'x6']; claim holds: True; connects: True
+Y'^d_3/back: U = ['d', 'm1', 'm2', 'm3', 'x4', 'x5', 'x6']; D = ['d', 'x4', 'x5', 'x6']; claim holds: True; connects: True
+Y_4: U = ['m1', 'm2', 'm3', 'm4', 'x5', 'x6', 'x7', 'x8']; D = ['x5', 'x6', 'x7', 'x8']; claim holds: True; connects: True
+Y'_4: U = ['m1', 'm2', 'm3', 'm4', 'x5', 'x6', 'x7', 'x8']; D = ['x5', 'x6', 'x7', 'x8']; claim holds: True; connects: True
+Y^d_4: U = ['d', 'm1', 'm2', 'm3', 'm4', 'x5', 'x6', 'x7', 'x8']; D = ['d', 'x5', 'x6', 'x7', 'x8']; claim holds: True; connects: True
+Y^d_4/back: U = ['d', 'm1', 'm2', 'm3', 'm4', 'x5', 'x6', 'x7', 'x8']; D = ['d', 'x5', 'x6', 'x7', 'x8']; claim holds: True; connects: True
+Y'^d_4: U = ['d', 'm1', 'm2', 'm3', 'm4', 'x5', 'x6', 'x7', 'x8']; D = ['d', 'x5', 'x6', 'x7', 'x8']; claim holds: True; connects: True
+Y'^d_4/back: U = ['d', 'm1', 'm2', 'm3', 'm4', 'x5', 'x6', 'x7', 'x8']; D = ['d', 'x5', 'x6', 'x7', 'x8']; claim holds: True; connects: True
+Y_5: U = ['m1', 'm2', 'm3', 'm4', 'm5', 'x10', 'x6', 'x7', 'x8', 'x9']; D = ['x10', 'x6', 'x7', 'x8', 'x9']; claim holds: True; connects: True
+Y'_5: U = ['m1', 'm2', 'm3', 'm4', 'm5', 'x10', 'x6', 'x7', 'x8', 'x9']; D = ['x10', 'x6', 'x7', 'x8', 'x9']; claim holds: True; connects: True
+Y^d_5: U = ['d', 'm1', 'm2', 'm3', 'm4', 'm5', 'x10', 'x6', 'x7', 'x8', 'x9']; D = ['d', 'x10', 'x6', 'x7', 'x8', 'x9']; claim holds: True; connects: True
+Y^d_5/back: U = ['d', 'm1', 'm2', 'm3', 'm4', 'm5', 'x10', 'x6', 'x7', 'x8', 'x9']; D = ['d', 'x10', 'x6', 'x7', 'x8', 'x9']; claim holds: True; connects: True
+Y'^d_5: U = ['d', 'm1', 'm2', 'm3', 'm4', 'm5', 'x10', 'x6', 'x7', 'x8', 'x9']; D = ['d', 'x10', 'x6', 'x7', 'x8', 'x9']; claim holds: True; connects: True
+Y'^d_5/back: U = ['d', 'm1', 'm2', 'm3', 'm4', 'm5', 'x10', 'x6', 'x7', 'x8', 'x9']; D = ['d', 'x10', 'x6', 'x7', 'x8', 'x9']; claim holds: True; connects: True
+X_2: P2 ok, solutions 1; D = ['m2', 'x2']; equals the unique solution: True; connects: True
+X_3: P2 ok, solutions 1; D = ['m2', 'x2']; equals the unique solution: True; connects: True
+X_4: P2 ok, solutions 1; D = ['m2', 'm4', 'x2', 'x4']; equals the unique solution: True; connects: True
+X_5: P2 ok, solutions 1; D = ['m2', 'm4', 'x2', 'x4']; equals the unique solution: True; connects: True
+X_6: P2 ok, solutions 1; D = ['m2', 'm4', 'm6', 'x2', 'x4', 'x6']; equals the unique solution: True; connects: True
+X_7: P2 ok, solutions 1; D = ['m2', 'm4', 'm6', 'x2', 'x4', 'x6']; equals the unique solution: True; connects: True
+X_8: P2 ok, solutions 1; D = ['m2', 'm4', 'm6', 'm8', 'x2', 'x4', 'x6', 'x8']; equals the unique solution: True; connects: True
+X_9: P2 ok, solutions 1; D = ['m2', 'm4', 'm6', 'm8', 'x2', 'x4', 'x6', 'x8']; equals the unique solution: True; connects: True
+X_10: P2 ok, solutions 1; D = ['m10', 'm2', 'm4', 'm6', 'm8', 'x10', 'x2', 'x4', 'x6', 'x8']; equals the unique solution: True; connects: True

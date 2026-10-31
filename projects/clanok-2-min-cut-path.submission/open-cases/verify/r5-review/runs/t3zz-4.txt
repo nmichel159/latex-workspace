@@ -1,0 +1,1 @@
+seed 4 count 300 maxv 6 maxc 20: {'total': 300, 'sat': 100, 'unsat': 200, 'p2fail': 300, 'brute': 48, 'mismatch': 0, 'p3fail': 0, 'axiom': 0}

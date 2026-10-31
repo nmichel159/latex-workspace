@@ -1,0 +1,11 @@
+INCOMPLETE planted N=27 s=0 t=1 [0: E=[8] F=[0, 2, 9, 10, 11, 12]] [1: E=[24, 25] F=[2, 3, 13, 14, 15, 16]] [2: E=[8, 20, 26] F=[3, 4, 17, 18, 19]] [3: E=[4, 5, 24] F=[9, 13, 17, 21, 22]] [4: E=[5, 6, 25] F=[10, 14, 18, 23]] [5: E=[6, 7, 26] F=[11, 15, 19, 21]] [6: E=[1, 7, 20] F=[12, 16, 22, 23]]
+seed 33 params kd ks s B 1 0 4 8 21.7s
+  (family, exact, alg) ('planted', True, False) 1
+  (family, exact, alg) ('planted', True, True) 199
+  (family, exact, alg) ('random', False, False) 34
+  (family, exact, alg) ('random', True, True) 166
+  (family, exact, alg) ('repair', False, False) 17
+  (family, exact, alg) ('repair', True, True) 183
+  (family, exact, alg) ('sat', True, True) 145
+  (family, exact, alg) ('satdel', False, False) 17
+  (family, exact, alg) ('satdel', True, True) 86

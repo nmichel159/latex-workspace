@@ -1,0 +1,22 @@
+﻿  1400 (10s) {'instances': 1400, 'yes-instances': 1133, 'paths': 2324, '(c) conflicting consistent pairs': 22654, '6.2 chains with contacts j=1': 18653, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 67818, '6.2 chains with contacts j=3': 315064, '6.2 chains with contacts j=4': 1376888, '6.3 max span F': 3, '6.3 max |S_y| dual': 3, 'bad pairs': 1099, 'max bad pairs on a path': 18, 'no-instances': 267, '6.3 max span E': 3, '6.3 max |S_x|': 4, 'comparable pairs (anchored)': 3072, 'comparable pairs (bad)': 1099, '6.4 incomparable pairs': 798}
+  1500 (10s) {'instances': 1500, 'yes-instances': 1211, 'paths': 2467, '(c) conflicting consistent pairs': 23914, '6.2 chains with contacts j=1': 19785, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 71854, '6.2 chains with contacts j=3': 332856, '6.2 chains with contacts j=4': 1450152, '6.3 max span F': 3, '6.3 max |S_y| dual': 3, 'bad pairs': 1153, 'max bad pairs on a path': 18, 'no-instances': 289, '6.3 max span E': 3, '6.3 max |S_x|': 4, 'comparable pairs (anchored)': 3210, 'comparable pairs (bad)': 1153, '6.4 incomparable pairs': 880}
+test_lemmas seed 221 count 1500 m 6-12 cap 20 jmax 4 profile dense-med (10s)
+  (c) conflicting consistent pairs              23914
+  6.2 chains with contacts j=1                  19785
+  6.2 chains with contacts j=2                  71854
+  6.2 chains with contacts j=3                  332856
+  6.2 chains with contacts j=4                  1450152
+  6.2 max(|c-d| - j)                            1
+  6.3 max span E                                3
+  6.3 max span F                                3
+  6.3 max |S_x|                                 4
+  6.3 max |S_y| dual                            3
+  6.4 incomparable pairs                        880
+  bad pairs                                     1153
+  comparable pairs (anchored)                   3210
+  comparable pairs (bad)                        1153
+  instances                                     1500
+  max bad pairs on a path                       18
+  no-instances                                  289
+  paths                                         2467
+  yes-instances                                 1211

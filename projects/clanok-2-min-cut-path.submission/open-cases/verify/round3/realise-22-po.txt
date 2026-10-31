@@ -1,0 +1,4 @@
+H(2,2) po: G(Pi) has 417 vertices, 833 edges, N = 160 strict pairs, simple True, multi-edge-free (nx.Graph)
+  d(u,v) = 2, c(u,v) = 160
+  DC: True (pairs at distance >= 3 inside a 3-edge-connected component: 0; components: 396; Gomory-Hu: None)
+  PIMC search: no path after 4780 flow tests (13s)

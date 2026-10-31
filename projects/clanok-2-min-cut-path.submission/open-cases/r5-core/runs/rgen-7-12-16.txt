@@ -1,0 +1,30 @@
+  20 (1s) {'yes': 20, 'projective': 2, 'planted path shortest': 10, 'paths': 40, 'max |A|': 20, 'ilp levels=1': 35, 'ilp sample failures': 0, 'ilp max damage': 2, 'ilp max anchors': 4, 'sample levels=1': 35, 'sample sample failures': 0, 'sample max damage': 2, 'sample max anchors': 19, 'kth=1 levels=2': 10, 'kth=1 sample failures': 0, 'kth=1 max damage': 7, 'kth=1 max anchors': 7, 'max kappa': 7, 'paths: single proof-term': 37, 'kth=1 levels=1': 29, 'ilp levels=2': 5, 'sample levels=2': 5, 'kth=1 stopped without progress': 2, 'kth=1 levels=3': 1}
+  40 (2s) {'yes': 40, 'projective': 3, 'planted path shortest': 24, 'paths': 72, 'max |A|': 20, 'ilp levels=1': 58, 'ilp sample failures': 0, 'ilp max damage': 2, 'ilp max anchors': 4, 'sample levels=1': 58, 'sample sample failures': 0, 'sample max damage': 2, 'sample max anchors': 19, 'kth=1 levels=2': 18, 'kth=1 sample failures': 0, 'kth=1 max damage': 8, 'kth=1 max anchors': 7, 'max kappa': 7, 'paths: single proof-term': 64, 'kth=1 levels=1': 47, 'ilp levels=2': 14, 'sample levels=2': 14, 'kth=1 stopped without progress': 6, 'kth=1 levels=3': 7}
+  60 (3s) {'yes': 60, 'projective': 7, 'planted path shortest': 34, 'paths': 112, 'max |A|': 20, 'ilp levels=1': 91, 'ilp sample failures': 0, 'ilp max damage': 2, 'ilp max anchors': 4, 'sample levels=1': 91, 'sample sample failures': 0, 'sample max damage': 2, 'sample max anchors': 19, 'kth=1 levels=2': 24, 'kth=1 sample failures': 0, 'kth=1 max damage': 10, 'kth=1 max anchors': 7, 'max kappa': 7, 'paths: single proof-term': 98, 'kth=1 levels=1': 76, 'ilp levels=2': 21, 'sample levels=2': 21, 'kth=1 stopped without progress': 8, 'kth=1 levels=3': 12}
+  80 (5s) {'yes': 80, 'projective': 9, 'planted path shortest': 47, 'paths': 146, 'max |A|': 20, 'ilp levels=1': 119, 'ilp sample failures': 0, 'ilp max damage': 2, 'ilp max anchors': 4, 'sample levels=1': 119, 'sample sample failures': 0, 'sample max damage': 2, 'sample max anchors': 19, 'kth=1 levels=2': 31, 'kth=1 sample failures': 0, 'kth=1 max damage': 10, 'kth=1 max anchors': 7, 'max kappa': 7, 'paths: single proof-term': 126, 'kth=1 levels=1': 99, 'ilp levels=2': 27, 'sample levels=2': 27, 'kth=1 stopped without progress': 8, 'kth=1 levels=3': 16}
+test_rgen seed 7 count 80 n 12-16 (5s)
+  ilp levels=1                             119
+  ilp levels=2                             27
+  ilp max anchors                          4
+  ilp max damage                           2
+  ilp sample failures                      0
+  kth=1 levels=1                           99
+  kth=1 levels=2                           31
+  kth=1 levels=3                           16
+  kth=1 max anchors                        7
+  kth=1 max damage                         10
+  kth=1 sample failures                    0
+  kth=1 stopped without progress           8
+  max kappa                                7
+  max |A|                                  20
+  paths                                    146
+  paths: single proof-term                 126
+  planted path shortest                    47
+  projective                               9
+  sample levels=1                          119
+  sample levels=2                          27
+  sample max anchors                       19
+  sample max damage                        2
+  sample sample failures                   0
+  yes                                      80
+  worst (no single term, kappa), it, W, m: [((1, 7), 49, 'EFEFEFEFEFEFEFEFEFEFEFEF', 38), ((1, 6), 41, 'EFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEF', 45), ((1, 5), 75, 'EFEFEFEFEFEFEFEFEFEFEFEFEFEF', 39), ((1, 5), 70, 'EFEFEFEFEFEFEFEFEFEFEFEF', 35), ((1, 4), 73, 'EFFFEFEEEFFEFFFFEFFFEFEFEEEFEE', 39), ((1, 4), 71, 'EFEFEFEFEFEFEFEFEFEFEFEF', 34), ((1, 4), 62, 'FFFFFEEFEFFFFFEFEEFFEFFEEEEFEFFE', 42), ((1, 4), 39, 'EFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEF', 41)]

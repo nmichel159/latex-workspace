@@ -1,0 +1,19 @@
+rgraphs-1-12-11: 12 graphs generated, 1s
+  IDESC exact run                  48
+  branch E                         2
+  bridges>0                        8
+  disconnected (skipped)           1
+  ear edges                        150
+  ears                             150
+  ears p=p'                        0
+  graphs DC                        11
+  levels hist                      {1: 2}
+  max flips                        1
+  max m                            5
+  max n                            10
+  max span L4.4                    1
+  no                               46
+  pairs                            48
+  shortest paths checked           2
+  yes                              2
+  errors: 0

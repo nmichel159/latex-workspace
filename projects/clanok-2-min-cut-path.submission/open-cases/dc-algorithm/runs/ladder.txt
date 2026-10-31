@@ -1,0 +1,100 @@
+K(2): q = 6, |R| = 9, P2 True, solutions 1, g_low [2], g_up [2], j-guess low [False, False, True], up [False, False, True], strict guess True
+   edge 0 deleted: P2 True, exact False, AC False, PC False
+   edge 1 deleted: P2 True, exact False, AC False, PC False
+   edge 2 deleted: P2 True, exact False, AC False, PC False
+   edge 3 deleted: P2 True, exact False, AC False, PC False
+   edge 4 deleted: P2 True, exact False, AC False, PC False
+K(2) hubs: q = 8, |R| = 9, P2 True, solutions 1, g_low [2], g_up [2], j-guess low [False, False, True], up [False, False, True], strict guess True
+   edge 0 deleted: P2 True, exact False, AC False, PC False
+   edge 1 deleted: P2 True, exact False, AC False, PC False
+   edge 2 deleted: P2 True, exact False, AC False, PC False
+   edge 3 deleted: P2 True, exact False, AC False, PC False
+   edge 4 deleted: P2 True, exact False, AC False, PC False
+K(3): q = 8, |R| = 13, P2 True, solutions 1, g_low [3], g_up [3], j-guess low [False, False, False, True], up [False, False, False, True], strict guess True
+   edge 0 deleted: P2 True, exact False, AC False, PC False
+   edge 1 deleted: P2 True, exact False, AC False, PC False
+   edge 2 deleted: P2 True, exact False, AC False, PC False
+   edge 3 deleted: P2 True, exact False, AC False, PC False
+   edge 4 deleted: P2 True, exact False, AC False, PC False
+   edge 5 deleted: P2 True, exact False, AC False, PC False
+   edge 6 deleted: P2 True, exact False, AC False, PC False
+K(3) hubs: q = 10, |R| = 13, P2 True, solutions 1, g_low [3], g_up [3], j-guess low [False, False, False, True], up [False, False, False, True], strict guess True
+   edge 0 deleted: P2 True, exact False, AC False, PC False
+   edge 1 deleted: P2 True, exact False, AC False, PC False
+   edge 2 deleted: P2 True, exact False, AC False, PC False
+   edge 3 deleted: P2 True, exact False, AC False, PC False
+   edge 4 deleted: P2 True, exact False, AC False, PC False
+   edge 5 deleted: P2 True, exact False, AC False, PC False
+   edge 6 deleted: P2 True, exact False, AC False, PC False
+K(4): q = 10, |R| = 17, P2 True, solutions 1, g_low [4], g_up [4], j-guess low [False, False, False, False], up [False, False, False, False], strict guess True
+   edge 0 deleted: P2 True, exact False, AC False, PC False
+   edge 1 deleted: P2 True, exact False, AC False, PC False
+   edge 2 deleted: P2 True, exact False, AC False, PC False
+   edge 3 deleted: P2 True, exact False, AC False, PC False
+   edge 4 deleted: P2 True, exact False, AC False, PC False
+   edge 5 deleted: P2 True, exact False, AC False, PC False
+   edge 6 deleted: P2 True, exact False, AC False, PC False
+   edge 7 deleted: P2 True, exact False, AC False, PC False
+   edge 8 deleted: P2 True, exact False, AC False, PC False
+K(4) hubs: q = 12, |R| = 17, P2 True, solutions 1, g_low [4], g_up [4], j-guess low [False, False, False, False], up [False, False, False, False], strict guess True
+   edge 0 deleted: P2 True, exact False, AC False, PC False
+   edge 1 deleted: P2 True, exact False, AC False, PC False
+   edge 2 deleted: P2 True, exact False, AC False, PC False
+   edge 3 deleted: P2 True, exact False, AC False, PC False
+   edge 4 deleted: P2 True, exact False, AC False, PC False
+   edge 5 deleted: P2 True, exact False, AC False, PC False
+   edge 6 deleted: P2 True, exact False, AC False, PC False
+   edge 7 deleted: P2 True, exact False, AC False, PC False
+   edge 8 deleted: P2 True, exact False, AC False, PC False
+K(5): q = 12, |R| = 21, P2 True, solutions 1, g_low [5], g_up [5], j-guess low [False, False, False, False], up [False, False, False, False], strict guess True
+   edge 0 deleted: P2 True, exact False, AC False, PC False
+   edge 1 deleted: P2 True, exact False, AC False, PC False
+   edge 2 deleted: P2 True, exact False, AC False, PC False
+   edge 3 deleted: P2 True, exact False, AC False, PC False
+   edge 4 deleted: P2 True, exact False, AC False, PC False
+   edge 5 deleted: P2 True, exact False, AC False, PC False
+   edge 6 deleted: P2 True, exact False, AC False, PC False
+   edge 7 deleted: P2 True, exact False, AC False, PC False
+   edge 8 deleted: P2 True, exact False, AC False, PC False
+   edge 9 deleted: P2 True, exact False, AC False, PC False
+   edge 10 deleted: P2 True, exact False, AC False, PC False
+K(5) hubs: q = 14, |R| = 21, P2 True, solutions 1, g_low [5], g_up [5], j-guess low [False, False, False, False], up [False, False, False, False], strict guess True
+   edge 0 deleted: P2 True, exact False, AC False, PC False
+   edge 1 deleted: P2 True, exact False, AC False, PC False
+   edge 2 deleted: P2 True, exact False, AC False, PC False
+   edge 3 deleted: P2 True, exact False, AC False, PC False
+   edge 4 deleted: P2 True, exact False, AC False, PC False
+   edge 5 deleted: P2 True, exact False, AC False, PC False
+   edge 6 deleted: P2 True, exact False, AC False, PC False
+   edge 7 deleted: P2 True, exact False, AC False, PC False
+   edge 8 deleted: P2 True, exact False, AC False, PC False
+   edge 9 deleted: P2 True, exact False, AC False, PC False
+   edge 10 deleted: P2 True, exact False, AC False, PC False
+K(6): q = 14, |R| = 25, P2 True, solutions 1, g_low [6], g_up [6], j-guess low [False, False, False, False], up [False, False, False, False], strict guess True
+   edge 0 deleted: P2 True, exact False, AC False, PC False
+   edge 1 deleted: P2 True, exact False, AC False, PC False
+   edge 2 deleted: P2 True, exact False, AC False, PC False
+   edge 3 deleted: P2 True, exact False, AC False, PC False
+   edge 4 deleted: P2 True, exact False, AC False, PC False
+   edge 5 deleted: P2 True, exact False, AC False, PC False
+   edge 6 deleted: P2 True, exact False, AC False, PC False
+   edge 7 deleted: P2 True, exact False, AC False, PC False
+   edge 8 deleted: P2 True, exact False, AC False, PC False
+   edge 9 deleted: P2 True, exact False, AC False, PC False
+   edge 10 deleted: P2 True, exact False, AC False, PC False
+   edge 11 deleted: P2 True, exact False, AC False, PC False
+   edge 12 deleted: P2 True, exact False, AC False, PC False
+K(6) hubs: q = 16, |R| = 25, P2 True, solutions 1, g_low [6], g_up [6], j-guess low [False, False, False, False], up [False, False, False, False], strict guess True
+   edge 0 deleted: P2 True, exact False, AC False, PC False
+   edge 1 deleted: P2 True, exact False, AC False, PC False
+   edge 2 deleted: P2 True, exact False, AC False, PC False
+   edge 3 deleted: P2 True, exact False, AC False, PC False
+   edge 4 deleted: P2 True, exact False, AC False, PC False
+   edge 5 deleted: P2 True, exact False, AC False, PC False
+   edge 6 deleted: P2 True, exact False, AC False, PC False
+   edge 7 deleted: P2 True, exact False, AC False, PC False
+   edge 8 deleted: P2 True, exact False, AC False, PC False
+   edge 9 deleted: P2 True, exact False, AC False, PC False
+   edge 10 deleted: P2 True, exact False, AC False, PC False
+   edge 11 deleted: P2 True, exact False, AC False, PC False
+   edge 12 deleted: P2 True, exact False, AC False, PC False

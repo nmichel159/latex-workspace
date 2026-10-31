@@ -143,8 +143,12 @@ the key equivalence of Theorem 22 is asserted; Algorithm 7 starts with `P ← �
 where edges are meant, and Theorem 23 assumes the decomposition as given.
 
 **Work on the open pairs** (`d(u,v) = 2`, `c(u,v) ≥ 3`): `projects/clanok-2-min-cut-path.submission/open-cases/`
-holds working files of another session of 2026-10-12 (claims about NP-completeness of deciding `cp = c` in general
-graphs and on diameter three, FPT in `c`); not checked here and not in A2. TODO(verify) before any of it is used.
+holds the working files of AI agents (rounds 1-5, 2026-10-12 to 2026-10-22); current state and the list of what is
+reviewed: `open-cases/status.md`. Not in A2, not read by the author. In short: the open case is equivalent to the
+zigzag problem ZZ + P2 (reviewed, `verify/rv-r6-chain.md`), and ZZ + P2 is in P, time `m^71 · poly` with `m <= n − 2`
+switches (`open-cases/r7-desc.md` Theorem B, reviewed `verify/rv-r7-desc.md`). So every pair of `DC_2` is solved in
+polynomial time, as reviewed by AI agents. Deciding `cp = c` is NP-complete on graphs of diameter three with
+`d(u,v) = 2` (reviewed, `open-cases/theory-hardness.md` Thm 2.5) and FPT in `c`.
 
 ## 4. What each text contains beyond the other
 
@@ -230,6 +234,7 @@ Note for texts: if `cp = c + d − 1` holds, the union of any minimum cut and an
 
 From MT and the conclusion of A1:
 1. Class *diam or cut 2* (`DC_2`): the pairs with `d(u, v) = 2` and `c(u, v) ≥ 3` (MT and A2 solve the pairs with `c(u, v) ≤ 2`, A2 in linear time); in A1 phrased as merging two polynomial "islands". There `cp ∈ {c, c+1}` and `cp = c` iff some minimum cut contains a `u`-`v` path (A2, Proposition 18). On graphs with at most 8 vertices: `cp = c` for 400 pairs, `cp = c + 1` for 65193.
+   Partial results (AI agents, 2026-10-12 to 2026-10-22, not in any manuscript): `open-cases/status.md` (Section 3a).
    Question 2 of the conclusion of A1 (bounded `c(u,v)` or `d(u,v)`): answered for the cut-value by A2, Theorem 17 (NP-complete already for `c(u,v) = 2`); A1's text still lists it as open.
 2. Planar graphs (cut ↔ cycle duality), graphs of bounded treewidth.
 3. Approximation algorithms with a guarantee for general graphs (only the trivial 2-approximation is known).

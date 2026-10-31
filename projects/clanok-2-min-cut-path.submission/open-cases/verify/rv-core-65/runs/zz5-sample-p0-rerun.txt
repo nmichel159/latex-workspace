@@ -1,0 +1,6 @@
+  preorders 200 (48s)
+  preorders 400 (98s)
+  preorders 600 (179s)
+  preorders 800 (278s)
+  preorders 1000 (355s)
+  preorders 1200 (438s)

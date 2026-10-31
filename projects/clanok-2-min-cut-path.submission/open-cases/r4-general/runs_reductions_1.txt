@@ -1,0 +1,3 @@
+MW example: P2 True, answer False; with a new bottom witness of x, y: P2 True, answer True; with a new top witness: P2 True, answer False
+subdivision: 1068 middle-middle edges subdivided, answer kept in all, P2 kept in 907
+pairs with only middle witnesses tested: 798; pairs where both replacements change the answer: 0

@@ -1,0 +1,14 @@
+base cegis seed 1 time 170.9
+accepted moves {}
+rejected moves {}
+R(a) far pairs 1200
+R(b) far pairs 1200
+S0 exit: C_0 empty, F* 24
+S0 exit: R_0 empty, E* 24
+S0: |A|,|B|>=10 24
+base instances verified 1
+max m 91
+max r 91
+max_span_44 2
+paths 24
+FAILURES: none

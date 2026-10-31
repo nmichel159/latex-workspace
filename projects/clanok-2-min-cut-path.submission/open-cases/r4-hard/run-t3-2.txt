@@ -1,0 +1,2 @@
+seed 2 formulas 600 {'yes': 457, 'no': 143, 'mism': 0, 'p3fail': 0, 'p2fail_inst': 600}
+exit 0

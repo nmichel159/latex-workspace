@@ -1,0 +1,4 @@
+nbhd inst/cost4-E5F5-Q0-seed5-genome.json D 2 mode all centre cost 4 pid 23704
+distance 1 done: {3: 59, 4: 51, 2: 10} (0s)
+distance 2 done: {3: 4427, 4: 1305, 2: 1352, 1: 26} (7s)
+END best cost 4 centre 4 (7s)

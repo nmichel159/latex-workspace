@@ -1,0 +1,12 @@
+deep-1-2-3-7 (1s, pid 26704)
+  F with heavy rows                    2
+  branch E                             2
+  branch F                             2
+  instances                            2
+  levels hist                          {2: 2}
+  max anchors                          1
+  max flips                            0
+  max m                                78
+  max span L4.4                        1
+  paths checked                        2
+  errors: 0

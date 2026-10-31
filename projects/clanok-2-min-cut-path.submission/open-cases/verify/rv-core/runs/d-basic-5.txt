@@ -1,0 +1,16 @@
+﻿k=2 Y^d        switches=7 nodes=24 P2-bad=0 solutions=2 expected=True pruned=['x4:F'] | without d: solutions=1 pruned 6/6
+k=2 Y^d/back   switches=7 nodes=25 P2-bad=0 solutions=2 expected=True pruned=['x4:F'] | without d: solutions=1 pruned 6/6
+k=2 Y'^d       switches=7 nodes=26 P2-bad=0 solutions=2 expected=True pruned=['x4:F'] | without d: solutions=1 pruned 6/6
+k=2 Y'^d/back  switches=7 nodes=27 P2-bad=0 solutions=2 expected=True pruned=['x4:F'] | without d: solutions=1 pruned 6/6
+k=3 Y^d        switches=10 nodes=49 P2-bad=0 solutions=2 expected=True pruned=['x6:F'] | without d: solutions=1 pruned 9/9
+k=3 Y^d/back   switches=10 nodes=50 P2-bad=0 solutions=2 expected=True pruned=['x6:F'] | without d: solutions=1 pruned 9/9
+k=3 Y'^d       switches=10 nodes=52 P2-bad=0 solutions=2 expected=True pruned=['x6:F'] | without d: solutions=1 pruned 9/9
+k=3 Y'^d/back  switches=10 nodes=53 P2-bad=0 solutions=2 expected=True pruned=['x6:F'] | without d: solutions=1 pruned 9/9
+k=4 Y^d        switches=13 nodes=83 P2-bad=0 solutions=2 expected=True pruned=['x8:F'] | without d: solutions=1 pruned 12/12
+k=4 Y^d/back   switches=13 nodes=84 P2-bad=0 solutions=2 expected=True pruned=['x8:F'] | without d: solutions=1 pruned 12/12
+k=4 Y'^d       switches=13 nodes=87 P2-bad=0 solutions=2 expected=True pruned=['x8:F'] | without d: solutions=1 pruned 12/12
+k=4 Y'^d/back  switches=13 nodes=88 P2-bad=0 solutions=2 expected=True pruned=['x8:F'] | without d: solutions=1 pruned 12/12
+k=5 Y^d        switches=16 nodes=126 P2-bad=0 solutions=2 expected=True pruned=['x10:F'] | without d: solutions=1 pruned 15/15
+k=5 Y^d/back   switches=16 nodes=127 P2-bad=0 solutions=2 expected=True pruned=['x10:F'] | without d: solutions=1 pruned 15/15
+k=5 Y'^d       switches=16 nodes=131 P2-bad=0 solutions=2 expected=True pruned=['x10:F'] | without d: solutions=1 pruned 15/15
+k=5 Y'^d/back  switches=16 nodes=132 P2-bad=0 solutions=2 expected=True pruned=['x10:F'] | without d: solutions=1 pruned 15/15

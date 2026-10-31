@@ -1,0 +1,4 @@
+planted seed=23 tasks=400 (30 attempts each) mode=sat
+counts {"gen": 12000, "kept": 948, "paths": 1346}
+proof stats {"holes": 19, "maxB": 9, "maxH": 1, "maxZ": 3, "max_disjoint": 1, "maxsingles": 2, "maxstorT": 7, "rows": 39, "step1_T": 2038, "step2_T": 136, "step3": 44, "step3_T": 44, "swaps": 476}
+failures 0

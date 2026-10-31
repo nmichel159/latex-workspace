@@ -1,0 +1,96 @@
+adv8 layered args=102 1000 20 48 pid=27472
+  20 designs, 2s, levels max proof/adv 2, proof/first 2, stress 4
+  40 designs, 8s, levels max proof/adv 2, proof/first 2, stress 4
+  60 designs, 15s, levels max proof/adv 2, proof/first 2, stress 4
+  80 designs, 22s, levels max proof/adv 2, proof/first 2, stress 4
+  100 designs, 29s, levels max proof/adv 2, proof/first 2, stress 4
+  120 designs, 35s, levels max proof/adv 2, proof/first 2, stress 4
+  140 designs, 41s, levels max proof/adv 2, proof/first 2, stress 4
+  160 designs, 48s, levels max proof/adv 2, proof/first 2, stress 4
+  180 designs, 54s, levels max proof/adv 2, proof/first 2, stress 4
+  200 designs, 62s, levels max proof/adv 2, proof/first 2, stress 5
+  220 designs, 68s, levels max proof/adv 2, proof/first 2, stress 5
+  240 designs, 75s, levels max proof/adv 2, proof/first 2, stress 5
+  260 designs, 80s, levels max proof/adv 2, proof/first 2, stress 5
+  280 designs, 85s, levels max proof/adv 2, proof/first 2, stress 5
+  300 designs, 91s, levels max proof/adv 2, proof/first 2, stress 5
+  320 designs, 97s, levels max proof/adv 2, proof/first 2, stress 5
+  340 designs, 102s, levels max proof/adv 2, proof/first 2, stress 5
+  360 designs, 106s, levels max proof/adv 2, proof/first 2, stress 5
+  380 designs, 111s, levels max proof/adv 2, proof/first 2, stress 5
+  400 designs, 114s, levels max proof/adv 2, proof/first 2, stress 5
+  420 designs, 119s, levels max proof/adv 2, proof/first 2, stress 5
+  440 designs, 123s, levels max proof/adv 2, proof/first 2, stress 5
+  460 designs, 128s, levels max proof/adv 2, proof/first 2, stress 5
+  480 designs, 133s, levels max proof/adv 2, proof/first 2, stress 5
+  500 designs, 138s, levels max proof/adv 2, proof/first 2, stress 5
+  520 designs, 143s, levels max proof/adv 2, proof/first 2, stress 5
+  540 designs, 148s, levels max proof/adv 2, proof/first 2, stress 5
+  560 designs, 153s, levels max proof/adv 2, proof/first 2, stress 5
+  580 designs, 158s, levels max proof/adv 2, proof/first 2, stress 5
+  600 designs, 162s, levels max proof/adv 2, proof/first 2, stress 6
+  620 designs, 167s, levels max proof/adv 2, proof/first 2, stress 6
+  640 designs, 172s, levels max proof/adv 2, proof/first 2, stress 6
+  660 designs, 177s, levels max proof/adv 2, proof/first 2, stress 6
+  680 designs, 183s, levels max proof/adv 2, proof/first 2, stress 6
+  700 designs, 189s, levels max proof/adv 2, proof/first 2, stress 6
+  720 designs, 193s, levels max proof/adv 2, proof/first 2, stress 6
+  740 designs, 199s, levels max proof/adv 2, proof/first 2, stress 6
+  760 designs, 202s, levels max proof/adv 2, proof/first 2, stress 6
+  780 designs, 207s, levels max proof/adv 2, proof/first 2, stress 6
+  800 designs, 211s, levels max proof/adv 2, proof/first 2, stress 6
+  820 designs, 215s, levels max proof/adv 2, proof/first 2, stress 6
+  840 designs, 222s, levels max proof/adv 2, proof/first 2, stress 6
+  860 designs, 226s, levels max proof/adv 2, proof/first 2, stress 6
+  880 designs, 231s, levels max proof/adv 2, proof/first 2, stress 6
+  900 designs, 237s, levels max proof/adv 2, proof/first 2, stress 6
+  920 designs, 242s, levels max proof/adv 2, proof/first 2, stress 6
+  940 designs, 248s, levels max proof/adv 2, proof/first 2, stress 6
+  960 designs, 252s, levels max proof/adv 2, proof/first 2, stress 6
+  980 designs, 258s, levels max proof/adv 2, proof/first 2, stress 6
+  1000 designs, 265s, levels max proof/adv 2, proof/first 2, stress 6
+SUMMARY adv8 layered 102 1000 20 48 (265s)
+  E continue: 3527
+  E final: 552
+  E terms checked: 43006
+  F final: 2559
+  F final with anchors: 2358
+  F terms checked: 27353
+  bad pairs: 19479
+  case E (v>=1/2): 4968
+  case F (v<1/2): 2559
+  designs: 1000
+  duality pairs: 2273328
+  duality pairs y<x: 78719
+  games: 7527
+  games with v = 1/2 (float): 575
+  heavy rows: 11354
+  levels=1 (proof): 568
+  levels=1 (stress): 67
+  levels=2 (proof): 2432
+  levels=2 (stress): 813
+  levels=3 (stress): 84
+  levels=4 (stress): 31
+  levels=5 (stress): 4
+  levels=6 (stress): 1
+  max E expected uncovered x1000: 343
+  max F expected failures x1000: 146
+  max anchors: 8
+  max bad pairs on a path: 150
+  max levels proof/adversarial: 2
+  max levels proof/first: 2
+  max levels proof/sample: 2
+  max levels stress/adversarial: 6
+  max m: 65
+  max sampled anchors (distinct): 25
+  max |A & NE(E#x)|: 3
+  max |A|: 33
+  max |B & NF(F#y)|: 3
+  max |Phi|/|T| x100: 300
+  rows: 111272
+  sample: E cover drawn: 970
+  sample: F cover drawn: 835
+  sample: anchors drawn: 790
+  saved deep designs: 36
+  stuck (no progress): 889
+FAILURES: none

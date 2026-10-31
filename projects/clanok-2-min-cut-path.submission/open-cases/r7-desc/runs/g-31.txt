@@ -1,0 +1,5 @@
+configurations                                               666
+no configuration                                             5332
+search budget                                                2
+shorter path, as Lemma G says                                666
+FAILURES: none

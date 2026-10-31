@@ -1,0 +1,5 @@
+extend inst/cost4-E5F5-ce2.json PA 2 PB 3 samples 15000 seed 23 (K 5 -> 6) pid 18720
+  it 0 new best cost 2 npairs 3 m 14 (0s)
+  it 1 new best cost 3 npairs 3 m 14 (0s)
+  it 9 new best cost 3 npairs 2 m 14 (0s)
+  it 92 new best cost 3 npairs 1 m 14 (0s)

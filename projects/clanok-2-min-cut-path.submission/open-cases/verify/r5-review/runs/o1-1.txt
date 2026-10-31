@@ -1,0 +1,1 @@
+seed 1 count 200 k 32: {'case_E': 194, 'case_F': 6, 'unfaithful_shown': 200}

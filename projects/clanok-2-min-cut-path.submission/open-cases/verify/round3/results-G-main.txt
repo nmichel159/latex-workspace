@@ -1,0 +1,27 @@
+seed 4003: {'n': 150, 'p2': 113, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4004: {'n': 150, 'p2': 110, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4005: {'n': 150, 'p2': 111, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 4, 'ac_nonmono': 0}
+seed 4002: {'n': 150, 'p2': 119, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4000: {'n': 150, 'p2': 120, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4001: {'n': 150, 'p2': 111, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 4, 'ac_nonmono': 0}
+seed 4007: {'n': 150, 'p2': 107, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4008: {'n': 150, 'p2': 117, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4009: {'n': 150, 'p2': 113, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4006: {'n': 150, 'p2': 117, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4010: {'n': 150, 'p2': 114, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4011: {'n': 150, 'p2': 117, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4013: {'n': 150, 'p2': 108, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 4, 'ac_nonmono': 0}
+seed 4015: {'n': 150, 'p2': 115, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4017: {'n': 150, 'p2': 115, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4014: {'n': 150, 'p2': 116, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4016: {'n': 150, 'p2': 117, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4012: {'n': 150, 'p2': 115, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4020: {'n': 150, 'p2': 117, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4018: {'n': 150, 'p2': 118, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4019: {'n': 150, 'p2': 111, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4021: {'n': 150, 'p2': 108, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4022: {'n': 150, 'p2': 116, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+seed 4023: {'n': 150, 'p2': 108, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 60, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+
+TOTALS (10s): {'n': 3600, 'p2': 2733, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 1440, 'pc_fp_L': 0, 'ac_fp_L': 12, 'ac_nonmono': 0}
+violations: 0

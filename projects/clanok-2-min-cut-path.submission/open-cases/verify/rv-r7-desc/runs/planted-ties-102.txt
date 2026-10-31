@@ -1,0 +1,38 @@
+base ties seed 102 time 480.5
+accepted moves {'wit': 215, 'tieA': 201, 'addScore': 219, 'tieH': 217, 'addS': 191, 'addTcore': 74, 'attack': 77, 'addT': 81, 'unstrict': 42}
+rejected moves {'addTcore': 144, 'attack': 378, 'addT': 138, 'unstrict': 38, 'addS': 16}
+(star) tested 2692488
+C_1 max 29
+Case I 708
+Case I: F^1 alone 486
+Case II (as written) 234
+Case II: R_1 empty (Prop. C) 234
+Mirror II° 708
+Mirror II°: E^1 alone 483
+Mirror I° 234
+Or: direct 816
+Or: reversed 816
+R(a) far pairs 88200
+R(b) far pairs 88200
+R_1 max 29
+S0 exit: C_0 empty, F* 66
+S0 exit: R_0 empty, E* 66
+S0 pass: R_0, C_0 nonempty 1632
+S0: |A|,|B|>=10 1764
+S1: |K|<20 720
+S1: |K|>=20 912
+Shape A (C_1 nonempty) 174
+Shape A' (mirror, R_1 nonempty) 177
+Shape B 48
+Shape B' (mirror) 48
+base instances verified 8
+gen left: claim B' tested 1776
+gen left: h-pair 7647
+gen right: a-pair 7623
+gen right: claim B tested 1803
+max m 204
+max r 204
+max_span_44 2
+paths 1764
+paths with non-strict R_0 x C_0 pair 1206
+FAILURES: none

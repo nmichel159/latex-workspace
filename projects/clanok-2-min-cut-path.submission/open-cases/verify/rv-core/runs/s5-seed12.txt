@@ -1,0 +1,36 @@
+E1 tested                                        3561
+E2 as written FAILED                             21
+E2 pairs                                         362
+E2 |A&U| - |f*| sum                              34
+F1 tested                                        3561
+F2 as written FAILED                             26
+F2 pairs                                         424
+FA-a tested                                      5544
+LG-E tested                                      14244
+LG-F tested                                      14244
+S52 arbitrary-B0 fails (hypothesis needed)       5395
+S52 arbitrary-B0 tested                          6212
+S52 tested                                       6835
+paths                                            3561
+yes-instances                                    2000
+example ('E2-written', 12, 109, 'w8', 'w9')
+example ('E2-written', 12, 517, 'w0', 'w6')
+example ('E2-written', 12, 517, 'w2', 'w6')
+example ('E2-written', 12, 517, 'w5', 'w6')
+example ('E2-written', 12, 567, 'w1', 'w3')
+example ('E2-written', 12, 567, 'w1', 'w9')
+example ('E2-written', 12, 567, 'w3', 'w6')
+example ('E2-written', 12, 567, 'w3', 'w8')
+example ('E2-written', 12, 567, 'w6', 'w9')
+example ('E2-written', 12, 567, 'w8', 'w9')
+example ('E2-written', 12, 1010, 'w0', 'w5')
+example ('E2-written', 12, 1010, 'w2', 'w3')
+example ('E2-written', 12, 1111, 'w3', 'w4')
+example ('E2-written', 12, 1567, 'w4', 'w6')
+example ('E2-written', 12, 1716, 'w2', 'w8')
+example ('E2-written', 12, 1716, 'w4', 'w8')
+example ('E2-written', 12, 1716, 'w7', 'w8')
+example ('E2-written', 12, 1716, 'w8', 'w10')
+example ('E2-written', 12, 1876, 'w4', 'w6')
+example ('E2-written', 12, 1876, 'w6', 'w8')
+example ('E2-written', 12, 1876, 'w6', 'w9')

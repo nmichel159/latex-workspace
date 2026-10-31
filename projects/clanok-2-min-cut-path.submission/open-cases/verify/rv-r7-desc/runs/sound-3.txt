@@ -1,0 +1,6 @@
+connecting values 339489
+formula values 720000
+instances 4000
+no-instances 1392
+yes-instances 2608
+FAILURES: none

@@ -1,0 +1,2 @@
+crosscheck seed=2 count=600
+{"inst": 600, "paths": 709, "path_mismatch": 0, "brute_mismatch": 0, "author_cert_error": 0, "search_pairs": 2400, "search_mismatch": 0, "own_fail": 0, "author_storage_max": 7, "own_storage_max": 9}

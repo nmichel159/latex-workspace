@@ -1,0 +1,3 @@
+part 1: {'inst': 5000, 'p2': 4131, 'yes': 3611, 'viol': 0}
+part 2: {'inst': 400, 'yes': 259, 'viol': 0, 'maxV': 76}
+violations: 0

@@ -1,0 +1,32 @@
+== BP_6
+m=24 N=187 P2-violations=0 solutions=1 shortest=12 #shortest=1
+  path Ex1 Fx2 Ex3 Fx4 Ex5 Fx6 Ex7 Fx8 Ex9 Fx10 Ex11 Fx12
+    |A|=6 |B|=6 |NE|=12 |NF|=12 bad=36 vc=6 tauE=6.0 tauF=6.0 incomp_fail=0
+    Prop. M cost: F-kind 6, E-kind 5; catches F#a: [1, 2, 3, 4, 5, 6]; catches E#b: [0, 1, 2, 3, 4, 5]
+  Prop. M best (flips, kind, members, picks P): (5, 0, 'x2', 'x12', True)
+  GDESC(k=1,a=1,e=1) accepts: kind 0 tools ['x10'] flags [] anchors ['x10'] flips ['x11']
+  time 1.1s
+== BP_7
+m=28 N=253 P2-violations=0 solutions=None shortest=14 #shortest=1
+  path Ex1 Fx2 Ex3 Fx4 Ex5 Fx6 Ex7 Fx8 Ex9 Fx10 Ex11 Fx12 Ex13 Fx14
+    |A|=7 |B|=7 |NE|=14 |NF|=14 bad=49 vc=7 tauE=7.0 tauF=7.0 incomp_fail=0
+    Prop. M cost: F-kind 6, E-kind 5; catches F#a: [1, 2, 3, 4, 5, 6, 7]; catches E#b: [0, 1, 2, 3, 4, 5, 6]
+  Prop. M best (flips, kind, members, picks P): (5, 0, 'x4', 'x14', True)
+  GDESC(k=1,a=1,e=1) accepts: kind 0 tools ['x12'] flags [] anchors ['x12'] flips ['x13']
+  time 0.0s
+== BP_8
+m=32 N=329 P2-violations=0 solutions=None shortest=16 #shortest=1
+  path Ex1 Fx2 Ex3 Fx4 Ex5 Fx6 Ex7 Fx8 Ex9 Fx10 Ex11 Fx12 Ex13 Fx14 Ex15 Fx16
+    |A|=8 |B|=8 |NE|=16 |NF|=16 bad=64 vc=8 tauE=8.0 tauF=8.0 incomp_fail=0
+    Prop. M cost: F-kind 6, E-kind 5; catches F#a: [1, 2, 3, 4, 5, 6, 7, 8]; catches E#b: [0, 1, 2, 3, 4, 5, 6, 7]
+  Prop. M best (flips, kind, members, picks P): (5, 0, 'x6', 'x16', True)
+  GDESC(k=1,a=1,e=1) accepts: kind 0 tools ['x14'] flags [] anchors ['x14'] flips ['x15']
+  time 0.1s
+== BP_9
+m=36 N=415 P2-violations=0 solutions=None shortest=18 #shortest=1
+  path Ex1 Fx2 Ex3 Fx4 Ex5 Fx6 Ex7 Fx8 Ex9 Fx10 Ex11 Fx12 Ex13 Fx14 Ex15 Fx16 Ex17 Fx18
+    |A|=9 |B|=9 |NE|=18 |NF|=18 bad=81 vc=9 tauE=9.0 tauF=9.0 incomp_fail=0
+    Prop. M cost: F-kind 6, E-kind 5; catches F#a: [1, 2, 3, 4, 5, 6, 7, 8, 9]; catches E#b: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  Prop. M best (flips, kind, members, picks P): (5, 0, 'x8', 'x18', True)
+  GDESC(k=1,a=1,e=1) accepts: kind 0 tools ['x16'] flags [] anchors ['x16'] flips ['x17']
+  time 0.1s

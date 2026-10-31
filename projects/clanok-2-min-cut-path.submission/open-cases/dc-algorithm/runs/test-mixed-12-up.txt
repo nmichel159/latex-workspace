@@ -1,0 +1,1 @@
+12 up {'instances': 3000, 'yes': 925, 'mismatch_exact': 0, 'low2_wrong': 0, 'up2_wrong': 0, 'lemmaS_fail': 0, 'bound_fail': 0, 'max_mp': 3, 'max_mv': 2, 'min_glow_gt2': 0, 'min_gup_gt2': 0, 'both_gt2': 0} hist g_low {0: 427, 1: 484, 2: 14} hist g_up {0: 263, 1: 648, 2: 14}

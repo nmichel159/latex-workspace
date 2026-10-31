@@ -1,0 +1,21 @@
+  10 (0s) {'yes': 10, 'paths': 33, 'max |A|': 3, 'ilp levels=1': 33, 'ilp sample failures': 0, 'ilp max damage': 0, 'sample levels=1': 33, 'sample sample failures': 0, 'sample max damage': 0, 'kth=1 no progress': 0, 'kth=1 levels=1': 32, 'kth=1 sample failures': 0, 'kth=1 max damage': 1, 'kth=1 levels=2': 1}
+  20 (1s) {'yes': 20, 'paths': 63, 'max |A|': 3, 'ilp levels=1': 63, 'ilp sample failures': 0, 'ilp max damage': 0, 'sample levels=1': 63, 'sample sample failures': 0, 'sample max damage': 0, 'kth=1 no progress': 0, 'kth=1 levels=1': 61, 'kth=1 sample failures': 0, 'kth=1 max damage': 1, 'kth=1 levels=2': 2}
+  30 (1s) {'yes': 30, 'paths': 93, 'max |A|': 3, 'ilp levels=1': 93, 'ilp sample failures': 0, 'ilp max damage': 0, 'sample levels=1': 93, 'sample sample failures': 0, 'sample max damage': 0, 'kth=1 no progress': 0, 'kth=1 levels=1': 89, 'kth=1 sample failures': 0, 'kth=1 max damage': 1, 'kth=1 levels=2': 4}
+  40 (1s) {'yes': 40, 'paths': 119, 'max |A|': 3, 'ilp levels=1': 119, 'ilp sample failures': 0, 'ilp max damage': 0, 'sample levels=1': 119, 'sample sample failures': 0, 'sample max damage': 0, 'kth=1 no progress': 0, 'kth=1 levels=1': 114, 'kth=1 sample failures': 0, 'kth=1 max damage': 1, 'kth=1 levels=2': 5}
+  50 (2s) {'yes': 50, 'paths': 148, 'max |A|': 3, 'ilp levels=1': 148, 'ilp sample failures': 0, 'ilp max damage': 0, 'sample levels=1': 148, 'sample sample failures': 0, 'sample max damage': 0, 'kth=1 no progress': 0, 'kth=1 levels=1': 142, 'kth=1 sample failures': 0, 'kth=1 max damage': 1, 'kth=1 levels=2': 6}
+  60 (3s) {'yes': 60, 'paths': 178, 'max |A|': 3, 'ilp levels=1': 178, 'ilp sample failures': 0, 'ilp max damage': 0, 'sample levels=1': 178, 'sample sample failures': 0, 'sample max damage': 0, 'kth=1 no progress': 0, 'kth=1 levels=1': 170, 'kth=1 sample failures': 0, 'kth=1 max damage': 1, 'kth=1 levels=2': 8}
+test_multi seed 8 count 60 n 10-14 limit 4 (3s)
+  ilp levels=1                             178
+  ilp max damage                           0
+  ilp sample failures                      0
+  kth=1 levels=1                           170
+  kth=1 levels=2                           8
+  kth=1 max damage                         1
+  kth=1 no progress                        0
+  kth=1 sample failures                    0
+  max |A|                                  3
+  paths                                    178
+  sample levels=1                          178
+  sample max damage                        0
+  sample sample failures                   0
+  yes                                      60

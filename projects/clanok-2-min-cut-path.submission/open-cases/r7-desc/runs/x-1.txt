@@ -1,0 +1,4 @@
+cells tested                                                 566
+no cell                                                      2434
+shorter path found, as Lemma X says                          566
+FAILURES: none

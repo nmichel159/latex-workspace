@@ -1,0 +1,48 @@
+adv8 deep args=105 3 5 9 pid=5588
+  design 0 m=335 k=9 levels {'proof/adversarial': 5, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 6s
+  design 1 m=338 k=9 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 15s
+  design 2 m=334 k=9 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 24s
+SUMMARY adv8 deep 105 3 5 9 (24s)
+  E continue: 17
+  E terms checked: 804
+  F final: 9
+  F final with anchors: 9
+  F terms checked: 272
+  bad pairs: 1249
+  boundary: tool with |dam| = theta exactly: 124
+  boundary: |A''| = |A'|/2 exactly: 19
+  case E (v>=1/2): 20
+  case F (v<1/2): 9
+  deep pert 0 levels proof/adv=5: 1
+  deep pert 1 levels proof/adv=3: 1
+  deep pert 2 levels proof/adv=3: 1
+  designs: 3
+  duality pairs: 436736
+  duality pairs y<x: 6626
+  games: 29
+  heavy rows: 269
+  levels=2 (proof): 6
+  levels=2 (stress): 3
+  levels=3 (proof): 2
+  levels=5 (proof): 1
+  max E expected uncovered x1000: 0
+  max F expected failures x1000: 5
+  max anchors: 10
+  max bad pairs on a path: 520
+  max levels proof/adversarial: 5
+  max levels proof/first: 2
+  max levels proof/sample: 2
+  max levels stress/adversarial: 2
+  max m: 338
+  max sampled anchors (distinct): 8
+  max |A & NE(E#x)|: 1
+  max |A|: 144
+  max |B & NF(F#y)|: 1
+  max |Phi|/|T| x100: 100
+  rows: 3093
+  sample: E cover drawn: 3
+  sample: F cover drawn: 3
+  sample: anchors drawn: 3
+  saved deep designs: 3
+  stuck (no progress): 3
+FAILURES: none

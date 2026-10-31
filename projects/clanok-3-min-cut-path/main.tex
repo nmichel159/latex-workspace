@@ -1,0 +1,2370 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove “Numbered” in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+% The float package is loaded before the class: the class loads hyperref, and a float package loaded
+% after hyperref (by the algorithm package below) writes the anchor of every figure and algorithm twice.
+\RequirePackage{float}
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+%%%%
+% References by \cref. With \newtheorem and a shared counter, \cref calls a lemma "Theorem" under this class,
+% so the environments that share the counter of theorem are declared with thmtools below.
+\usepackage{thmtools}%
+\usepackage[capitalise,noabbrev]{cleveref}%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+%%\newtheorem{proposition}[theorem]{Proposition}%
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+% Proposition, Lemma and Corollary are numbered with Theorem, in the style of Theorem.
+\declaretheorem[name=Proposition, style=thmstyleone, sibling=theorem]{proposition}%
+\declaretheorem[name=Lemma, style=thmstyleone, sibling=theorem]{lemma}%
+\declaretheorem[name=Corollary, style=thmstyleone, sibling=theorem]{corollary}%
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+% Algorithm: the input and the output are headed "Input:" and "Output:".
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}%
+\algrenewcommand\algorithmicensure{\textbf{Output:}}%
+
+% Notation.
+\newcommand{\cp}{\operatorname{cp}}% cp(u,v): number of edges of a minimum cut-path
+\newcommand{\DC}{\mathcal{DC}_2}% graphs with distance or cut-value at most two
+\newcommand{\MinCutPath}{\textsc{Min Cut-Path}}%
+\newcommand{\SSP}{\textsc{Separating Shortest Path}}%
+\newcommand{\PathInMinCut}{\textsc{Path in Min Cut}}%
+\newcommand{\dn}{\mathord{\downarrow}}%
+\newcommand{\upp}{\mathord{\uparrow}}%
+\newcommand{\LMN}{\mathrm{LMN}}%
+\newcommand{\UMN}{\mathrm{UMN}}%
+\newcommand{\pos}{\mathrm{pos}}%
+\newcommand{\nodeof}{\mathrm{node}}%
+\newcommand{\pk}{\mathrm{pk}}%
+\newcommand{\NE}{\mathrm{NE}}%
+\newcommand{\NF}{\mathrm{NF}}%
+\newcommand{\Pos}{\mathrm{Pos}}%
+\newcommand{\win}{\mathrm{win}}%
+\newcommand{\FR}{\mathrm{FR}}%
+\newcommand{\ER}{\mathrm{ER}}%
+\newcommand{\EP}{\mathrm{EP}}%
+
+% Title and author of the PDF file.
+\hypersetup{pdftitle={Min Cut-Path: NP-Complete on Diameter Three, Polynomial for Distance or Cut-Value Two}, pdfauthor={Norbert Miche\v{l}}}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title{Min Cut-Path: NP-Complete on Diameter Three, Polynomial for Distance or Cut-Value Two}
+
+\author*{\fnm{Norbert} \sur{Miche\v{l}}}\email{5344553@upjs.sk}
+
+\affil{\orgdiv{Institute of Computer Science, Faculty of Science}, \orgname{Pavol Jozef \v{S}af\'arik University in Ko\v{s}ice}, \orgaddress{\street{Jesenn\'a 5}, \city{Ko\v{s}ice}, \postcode{040 01}, \country{Slovakia}}}
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{A cut-path between two vertices $u$ and $v$ of a graph is a set of edges that contains both a $u$--$v$ path and a cut separating $u$ from $v$.
+The \MinCutPath{} problem asks for a cut-path with the fewest edges.
+Let $d(u,v)$ be the distance between $u$ and $v$, and let the cut-value $c(u,v)$ be the size of a minimum cut separating them.
+We prove that \MinCutPath{} is NP-complete on graphs of diameter three, already for pairs with $d(u,v) = 2$.
+We then prove that it is solvable in polynomial time on the graphs in which every two vertices are at distance at most two or have cut-value at most two.
+This class contains the graphs of diameter two and the cactus graphs.
+For a pair with cut-value two, the minimum cuts divide the graph into a chain of subgraphs.
+A minimum cut-path has $d(u,v)$ edges if and only if one of these subgraphs contains a path that lies on a shortest $u$--$v$ path and separates two prescribed vertices of the subgraph, and in the class this gives a linear-time algorithm.
+The remaining pairs have $d(u,v) = 2$ and $c(u,v) \geq 3$, and there a minimum cut-path has $c(u,v)$ edges if and only if some minimum cut contains a $u$--$v$ path.
+The minimum cuts are the down-sets of a preorder, and the condition on distances gives every two incomparable elements a common neighbor below both or above both.
+We show that a bounded number of elements determines a down-set whose cut contains a given shortest solution, and enumeration of these descriptions decides the question.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{Separating shortest path, Edge connectivity, Minimum cuts, Graph diameter, NP-completeness}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introduction}\label{sec:introduction}
+
+Let $G$ be a connected graph, and let $u$ and $v$ be two distinct vertices of $G$.
+A \emph{cut-path} between $u$ and $v$ is a set of edges that contains a $u$--$v$ path and a cut separating $u$ from $v$.
+The \MinCutPath{} problem asks for a cut-path with the fewest edges, and $\cp(u, v)$ denotes their number.
+Let $d(u, v)$ be the distance between $u$ and $v$, and let the cut-value $c(u, v)$ be the minimum number of edges of a cut separating $u$ from $v$.
+By~\cite[Lemma~2.3]{Michel2026MinCutPath},
+\[
+\max\{c(u, v), d(u, v)\} \leq \cp(u, v) \leq c(u, v) + d(u, v) - 1.
+\]
+
+The \MinCutPath{} problem was introduced in the author's master's thesis~\cite{Michel2025MinCutPath}.
+The upper bound is attained by all pairs of vertices in graphs of diameter two and in cactus graphs~\cite[Theorems~5.5 and~6.2]{Michel2026MinCutPath}, where the cactus graphs are the connected graphs with $c(x, y) \leq 2$ for all pairs $x, y$ (\cref{sec:class}).
+A shortest $u$--$v$ path is separating if the removal of its edges separates $u$ from $v$, and $\cp(u, v) = d(u, v)$ if and only if such a path exists.
+Deciding whether it exists, the \SSP{} problem, is NP-complete~\cite[Theorem~3.10]{Michel2026MinCutPath}.
+
+The formula $\cp(u, v) = c(u, v) + d(u, v) - 1$ fails if every pair of vertices is required to satisfy only one of the two hypotheses.
+Let $\DC$ be the class of connected graphs in which every two distinct vertices $x$ and $y$ satisfy $d(x, y) \leq 2$ or $c(x, y) \leq 2$.
+The thesis defines this class and gives two graphs in it with $\cp(u, v) = 3$ and $c(u, v) + d(u, v) - 1 = 4$~\cite[Definition~37 and Figure~3.3]{Michel2025MinCutPath}.
+We prove that \MinCutPath{} is NP-complete on graphs of diameter three and solvable in polynomial time on $\DC$.
+
+\subsection{Our Results}\label{sec:results}
+
+\begin{enumerate}
+\item \emph{NP-completeness on diameter three.}
+Deciding whether $\cp(u, v) = c(u, v)$ is NP-complete on graphs of diameter three, already for pairs with $d(u, v) = 2$.
+Hence the decision version of \MinCutPath{} is NP-complete on these graphs, and deciding whether $\cp(u, v) = c(u, v) + d(u, v) - 1$ is coNP-complete (\cref{thm:dt-hardness,cor:dt-consequences}).
+
+\item \emph{Pairs of $\DC$ with cut-value at most two.}
+Let $c(u, v) = 2$ in an arbitrary connected graph.
+The minimum $u$--$v$ cuts divide the graph into a chain of subgraphs, the squares (\cref{thm:structure}), and $\cp(u, v) = d(u, v)$ if and only if some square contains a path that lies on a shortest $u$--$v$ path and separates two terminals of the square (\cref{thm:characterization}).
+For a graph $G = (V, E)$ of $\DC$, this gives an $O(|V| + |E|)$ algorithm for $\cp(u, v)$ and a minimum cut-path (\cref{thm:linear-time,cor:class-pairs}).
+
+\item \emph{Pairs of $\DC$ at distance two.}
+The pairs of $\DC$ that item 2 leaves have $d(u, v) = 2$ and $c(u, v) \geq 3$ (\cref{prop:easy-pairs}).
+For these, $\cp(u, v) \in \{c(u, v), c(u, v) + 1\}$, and $\cp(u, v) = c(u, v)$ if and only if some minimum $u$--$v$ cut contains a $u$--$v$ path (\cref{prop:open-pairs}).
+We decide this question and construct a minimum cut-path in time $n^{71} \cdot n^{O(1)}$ for $n = |V|$ (\cref{thm:pa-open-case}).
+\end{enumerate}
+
+Items 2 and 3 together give our main result.
+
+\begin{theorem}\label{thm:main}
+\MinCutPath{} restricted to the graphs of $\DC$ is solvable in polynomial time.
+\end{theorem}
+
+\begin{proof}
+A pair with $d(u, v) = 1$, or with $c(u, v) \leq 2$, is solved by \cref{thm:linear-time,cor:class-pairs}.
+A pair with $d(u, v) \geq 3$ has $c(u, v) \leq 2$ by the definition of $\DC$.
+Every other pair has $d(u, v) = 2$ and $c(u, v) \geq 3$ and is solved by \cref{thm:pa-open-case}.
+\end{proof}
+
+\subsection{Techniques}\label{sec:techniques}
+
+The hardness proof reduces from 3-SAT.
+Two cliques force every minimum $u$--$v$ cut to correspond to an assignment of the variables, and $u$ and $v$ are connected by the edges of the cut if and only if the assignment satisfies the formula.
+
+For $c(u, v) = 2$, consecutive squares are joined by two general paths, and a $u$--$v$ path $R$ follows exactly one of them.
+Hence $u$ and $v$ are separated in $G \setminus R$ if and only if, in some square, the part of $R$ in the square separates the two terminals that $R$ does not use (\cref{lem:criterion}).
+In a graph of $\DC$, such a part of a shortest path has at most two edges (\cref{cor:two-edges}), which leaves a constant number of candidates per square.
+
+For $d(u, v) = 2$ and $c(u, v) \geq 3$, the minimum cuts are the down-sets of a preorder (Picard and Queyranne~\cite{PicardQueyranne1980}), and a path in a minimum cut alternates between the two sides.
+The hypothesis $G \in \DC$ becomes a condition on the preorder: two incomparable elements have a common neighbor below both or above both (\cref{thm:zz-reduction}).
+A solution is a shortest path $P$ that alternates between the sides of some down-set.
+It suffices to separate the minimal elements $A_P$ that $P$ uses on one side from the maximal elements $B_P$ that it uses on the other side.
+Two far-apart members of $A_P$, or of $B_P$, determine a down-set that separates all but few pairs, because a side that met two far-apart members would shorten $P$.
+A formula of unions and intersections over at most $71$ elements then gives a down-set that contains the solution (\cref{thm:pa-formulas}), and the algorithm tries all such formulas.
+
+\subsection{Related Work}\label{sec:related-work}
+
+By Menger's theorem, $c(u, v)$ is the maximum number of pairwise edge-disjoint $u$--$v$ paths~\cite[Corollary~3.3.5]{Diestel2025}.
+Picard and Queyranne~\cite{PicardQueyranne1980} described all minimum cuts between two vertices of a network by one maximum flow.
+A set that contains the source and not the sink is the source side of a minimum cut if and only if no arc of the residual digraph leaves it.
+For an undirected graph, contract every class of vertices that no minimum $u$--$v$ cut separates and direct the remaining edges along a maximum flow.
+The result is an acyclic digraph in which every vertex other than the classes of $u$ and $v$ has as many entering as leaving edges, a structure that Dinitz and Vainshtein call a strip (see~\cite{BaswanaPandey2025Carcass}).
+All minimum cuts of a graph are represented by a cactus, a result of Dinits, Karzanov and Lomonosov (see~\cite{NagamochiKameda1996}).
+For a 2-edge-connected graph that is not 3-edge-connected, this cactus is obtained by contracting every 3-edge-connected component, that is, every class of the relation $c(x, y) \geq 3$, and it is computed in linear time~\cite{Mehlhorn2017Certifying}.
+For a pair with $c(u, v) = 2$, the square decomposition of \cref{sec:structure} is an explicit form of these representations.
+We prove its properties directly, because \cref{sec:separating,sec:algorithm} use the terminals of the squares and distances inside the squares, which a contraction does not keep.
+
+A $u$--$v$ path is non-disconnecting if the removal of its edges leaves the graph connected.
+Deciding whether such a path exists is NP-hard~\cite{Mao2021NonSeparating}, and a shortest one is found in FPT time with respect to its length~\cite{Abhinav2022NonSeparating}.
+For two pairs of vertices, it is NP-complete to decide whether some shortest path between the first pair is edge-disjoint from some path between the second pair~\cite{EilamTzoreff1998Disjoint}.
+\SSP{} asks the opposite, namely whether the removal of the edges of some shortest $u$--$v$ path separates $u$ from $v$.
+
+Graphs in which the local edge-connectivity $c(x, y)$ of every pair of vertices is at most a constant $k$ were studied for coloring problems~\cite{Aboulker2017Coloring}.
+For $k = 2$ the connected graphs of this kind are the cactus graphs.
+The class $\DC$ asks for $c(x, y) \leq 2$ only when $d(x, y) \geq 3$, so it contains all cactus graphs and all connected graphs of diameter two.
+To the best of our knowledge, a class defined by such a condition on distances and cut-values has not been studied.
+Graphs of diameter two are also a polynomial case of \textsc{Matching Cut} and, for unit edge lengths, of \textsc{Shortest Path Most Vital Edges}, and both problems are NP-hard on graphs of diameter three~\cite{LeLe2019MatchingCut,Bazgan2019MostVital}.
+
+\subsection{Relation to the Thesis}\label{sec:thesis}
+
+Section~3.3 of the thesis~\cite[Definitions~37 to~40 and Theorems~20, 22 and~23]{Michel2025MinCutPath} contains the class $\DC$, the two graphs of \cref{ex:counterexamples} and the notions of a square and of a general path.
+It also contains the idea of a polynomial and of a linear-time algorithm for pairs with cut-value two.
+The thesis obtains a decomposition by three transformations of the graph.
+Here the decomposition is defined by the union of all minimum $u$--$v$ cuts, and every statement has a complete proof.
+The separation criterion and the characterization for arbitrary graphs (\cref{lem:criterion,thm:characterization}), the linear running time that includes the computation of the decomposition (\cref{thm:linear-time}), and \cref{sec:dt-diameter-three,sec:zz-zigzag,sec:pa-polynomial} are new.
+
+\section{Preliminaries}
+\label{sec:preliminaries}
+
+\subsection{Cut-Paths and Minimum Cuts}
+\label{sec:cut-paths}
+
+All graphs are finite, simple and undirected.
+Notions that are not defined here follow~\cite{Diestel2025}.
+Throughout the paper, $G = (V, E)$ is a connected graph, and $u$ and $v$ are two distinct vertices of $G$.
+We write $xy$ for the edge with the ends $x$ and $y$.
+A path is a sequence of distinct vertices in which consecutive vertices are adjacent, and a single vertex is a path with no edges.
+A path from $x$ to $y$ is an $x$--$y$ path.
+We write $|P|$ for the number of edges of a path $P$ and use the symbol $P$ also for the set of its edges.
+The distance $d(x, y)$ is the number of edges of a shortest $x$--$y$ path of $G$.
+For a subgraph $H$ of $G$ and a set $M \subseteq E$, the graph $H \setminus M$ is obtained from $H$ by removing the edges of $M$.
+
+Let $x$ and $y$ be two distinct vertices.
+A set $C \subseteq E$ is an \emph{$x$--$y$ cut} if $G \setminus C$ contains no $x$--$y$ path.
+The minimum size of an $x$--$y$ cut is the \emph{cut-value} $c(x, y)$.
+For a set $A \subseteq V$, we denote by $\delta(A)$ the set of all edges with exactly one end in $A$.
+If $x \in A$ and $y \notin A$, then $\delta(A)$ is an $x$--$y$ cut.
+Distances and cut-values in a subgraph $H$ are written $d_H$ and $c_H$.
+
+\begin{definition}[Cut-path]
+\label{def:cut-path}
+A \emph{cut-path} between $u$ and $v$ is a set of edges of $G$ that contains a $u$--$v$ path and a $u$--$v$ cut.
+The minimum number of edges of a cut-path between $u$ and $v$ is denoted by $\cp(u, v)$, and a cut-path with $\cp(u, v)$ edges is a \emph{minimum cut-path}.
+\end{definition}
+
+The \MinCutPath{} problem asks for a minimum cut-path between $u$ and $v$.
+A shortest $u$--$v$ path $P$ is \emph{separating} if $G \setminus P$ contains no $u$--$v$ path, and the \SSP{} problem asks whether $G$ contains such a path.
+
+\begin{lemma}[{\cite[Lemma~2.3 and Corollary~3.12]{Michel2026MinCutPath}}]
+\label{lem:basic-bounds}
+The value $\cp(u, v)$ satisfies
+\[
+\max\{c(u, v), d(u, v)\} \leq \cp(u, v) \leq c(u, v) + d(u, v) - 1,
+\]
+and the union of a minimum $u$--$v$ cut and a shortest $u$--$v$ path is a cut-path with at most $c(u, v) + d(u, v) - 1$ edges.
+The equality $\cp(u, v) = d(u, v)$ holds if and only if $G$ contains a separating shortest $u$--$v$ path.
+\end{lemma}
+
+\begin{lemma}
+\label{lem:minimum-cuts}
+Let $C$ be a minimum $u$--$v$ cut.
+Then $G \setminus C$ has exactly two components, and $C = \delta(A)$ for exactly one set $A \subseteq V$ with $u \in A$, the vertex set of the component that contains $u$.
+For every set $A \subseteq V$ with $u \in A$ and $v \notin A$, every $u$--$v$ path contains an odd number of edges of $\delta(A)$~\cite[Lemma~5.4]{Michel2026MinCutPath}.
+\end{lemma}
+
+\begin{proof}
+Let $A$ be the vertex set of the component of $G \setminus C$ that contains $u$.
+Every edge of $\delta(A)$ belongs to $C$, and $\delta(A)$ is a $u$--$v$ cut because $v \notin A$.
+Hence $\delta(A) = C$ by the minimality of $C$.
+Let $Y$ be the component of $G \setminus C$ that contains $v$, and suppose that there is a third component $Y'$.
+Since $G$ is connected, some edge of $G$ has exactly one end in $Y'$.
+This edge belongs to $C = \delta(A)$ and has no end in $Y$.
+The edges of $C$ with an end in $Y$ thus form a $u$--$v$ cut with fewer than $|C|$ edges, a contradiction.
+If $C = \delta(A')$ for a set $A'$ with $u \in A'$, then no edge of $G \setminus C$ has exactly one end in $A'$, so $A'$ is the union of the vertex sets of some components of $G \setminus C$.
+Since $\delta(V)$ is empty and $C$ is not, we have $A' \neq V$ and hence $A' = A$.
+\end{proof}
+
+When we write a minimum $u$--$v$ cut as $\delta(A)$, the set $A$ contains $u$.
+
+\begin{lemma}
+\label{lem:uncrossing}
+Let $A, B \subseteq V$, and let $m(A, B)$ be the number of edges with one end in $A \setminus B$ and the other end in $B \setminus A$.
+Then
+\[
+|\delta(A \cap B)| + |\delta(A \cup B)| = |\delta(A)| + |\delta(B)| - 2m(A, B).
+\]
+\end{lemma}
+
+\begin{proof}
+The sets $A \cap B$, $A \setminus B$, $B \setminus A$ and $V \setminus (A \cup B)$ partition $V$.
+An edge with both ends in one of them is counted on neither side.
+An edge between $A \setminus B$ and $B \setminus A$ belongs to $\delta(A)$ and to $\delta(B)$ and to neither set on the left-hand side.
+An edge between $A \cap B$ and $V \setminus (A \cup B)$ belongs to all four sets.
+Every other edge belongs to exactly one of $\delta(A)$, $\delta(B)$ and to exactly one of $\delta(A \cap B)$, $\delta(A \cup B)$.
+\end{proof}
+
+The inequality $|\delta(A \cap B)| + |\delta(A \cup B)| \leq |\delta(A)| + |\delta(B)|$ is the submodularity of the cut function.
+
+\begin{proposition}
+\label{prop:open-pairs}
+Let $G$ be a connected graph and let $u, v$ be two distinct vertices of $G$.
+Then $\cp(u, v) = c(u, v)$ if and only if some minimum $u$--$v$ cut contains a $u$--$v$ path.
+Such a path has an odd number of edges, and at least three edges if $d(u, v) = 2$.
+\end{proposition}
+
+\begin{proof}
+A minimum $u$--$v$ cut that contains a $u$--$v$ path is a cut-path with $c(u, v)$ edges, and $\cp(u, v) \geq c(u, v)$ by \cref{lem:basic-bounds}.
+Conversely, a cut-path with $c(u, v)$ edges contains a $u$--$v$ cut, which has at least $c(u, v)$ edges.
+The cut-path is therefore equal to this cut, so it is a minimum $u$--$v$ cut, and it contains a $u$--$v$ path.
+A minimum $u$--$v$ cut is $\delta(A)$ for a set $A$ with $u \in A$ and $v \notin A$, and a $u$--$v$ path contained in $\delta(A)$ has an odd number of edges by \cref{lem:minimum-cuts}.
+If $d(u, v) = 2$, the path has at least two edges, hence at least three.
+\end{proof}
+
+In the graph $G_b$ of \cref{ex:counterexamples}, the minimum $u$--$v$ cut $\delta(\{u, s, b\}) = \{ua, ab, bv\}$ is the path $u, a, b, v$.
+In a graph of diameter two, $\cp(u, v) = c(u, v) + 1$ for every pair with $d(u, v) = 2$~\cite[Theorem~5.5]{Michel2026MinCutPath}, so by \cref{prop:open-pairs} no minimum $u$--$v$ cut contains a $u$--$v$ path.
+
+\subsection{Graphs with Distance or Cut-Value at Most Two}
+\label{sec:class}
+
+\begin{definition}[The class $\DC$, {\cite[Definition~37]{Michel2025MinCutPath}}]
+\label{def:class}
+The class $\DC$ consists of all connected graphs in which every two distinct vertices $x$ and $y$ satisfy $d(x, y) \leq 2$ or $c(x, y) \leq 2$.
+\end{definition}
+
+A graph has \emph{diameter at most two} if any two of its vertices are at distance at most two.
+A \emph{cactus graph} is a connected graph in which any two distinct cycles share at most one vertex.
+The cactus graphs are the connected graphs in which $c(x, y) \leq 2$ for every two distinct vertices $x$ and $y$~\cite[Lemma~6.1]{Michel2026MinCutPath}.
+
+\begin{proposition}
+\label{prop:class}
+The relation on $V$ that holds for $x$ and $y$ if $x = y$ or $c(x, y) \geq 3$ is an equivalence relation.
+The graph $G$ belongs to $\DC$ if and only if any two vertices of the same equivalence class are at distance at most two in $G$.
+In particular, $\DC$ contains all connected graphs of diameter at most two and all cactus graphs.
+\end{proposition}
+
+\begin{proof}
+The relation is reflexive and symmetric.
+For transitivity, let $x, y, z$ be distinct vertices with $c(x, y) \geq 3$ and $c(y, z) \geq 3$, and let $C$ be a minimum $x$--$z$ cut.
+If $y$ lies in the component of $G \setminus C$ that contains $x$, then $C$ is a $y$--$z$ cut, and otherwise $C$ is an $x$--$y$ cut.
+In both cases $|C| \geq 3$.
+By \cref{def:class}, the graph $G$ lies outside $\DC$ if and only if some two distinct vertices $x, y$ satisfy $c(x, y) \geq 3$ and $d(x, y) \geq 3$, which is the second statement.
+In a graph of diameter at most two all distances are at most two, and in a cactus graph every equivalence class is a single vertex.
+\end{proof}
+
+The equivalence classes of \cref{prop:class} are called 3-edge-connected components in~\cite{Mehlhorn2017Certifying}, where they are computed in linear time.
+
+In graphs of diameter at most two and in cactus graphs, every pair satisfies $\cp(u, v) = c(u, v) + d(u, v) - 1$~\cite[Theorems~5.5 and~6.2]{Michel2026MinCutPath}.
+\Cref{fig:graph-classes} shows the three classes.
+The formula fails in $\DC$, as the two graphs of~\cite[Figure~3.3]{Michel2025MinCutPath} show (\cref{ex:counterexamples}).
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{graph-classes.pdf}
+    \caption{The class $\DC$ and its two subclasses; (a) and (b) are the graphs $G_a$ and $G_b$ of \cref{fig:counterexamples}}
+    \label{fig:graph-classes}
+\end{figure}
+
+\begin{example}
+\label{ex:counterexamples}
+Let $G_a$ be the graph with the vertices $u, v, a, b, s, t$ and the edges $ua$, $us$, $sb$, $ab$, $at$, $tv$, $bv$, and let $G_b$ be obtained from $G_a$ by adding the edges $av$ and $ub$ (\cref{fig:counterexamples}).
+In both graphs, the removal of the path $u, a, b, v$ leaves the components $\{u, s, b\}$ and $\{a, t, v\}$, so this path is a cut-path with three edges.
+In $G_a$ we have $c(u, v) = 2$ and $d(u, v) = 3$, and in $G_b$ we have $c(u, v) = 3$ and $d(u, v) = 2$.
+Hence $\cp(u, v) = 3$ in both graphs by \cref{lem:basic-bounds}, whereas $c(u, v) + d(u, v) - 1 = 4$.
+Both graphs belong to $\DC$.
+In $G_a$ the only two vertices of degree greater than two are $a$ and $b$, which are adjacent.
+In $G_b$ the only two vertices at distance three are $s$ and $t$, which have degree two.
+Neither graph has diameter two, and neither is a cactus graph.
+\end{example}
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{counterexamples.pdf}
+    \caption{The graphs $G_a$ (a) and $G_b$ (b) of \cref{ex:counterexamples}; the cut-path $u, a, b, v$ is red}
+    \label{fig:counterexamples}
+\end{figure}
+
+\begin{proposition}
+\label{prop:easy-pairs}
+(i) If $d(u, v) = 1$, then $\cp(u, v) = c(u, v)$, and every minimum $u$--$v$ cut is a minimum cut-path.
+(ii) If $c(u, v) = 1$, then $\cp(u, v) = d(u, v)$, and every shortest $u$--$v$ path is a minimum cut-path.
+(iii) If $c(u, v) = 2$, then $\cp(u, v) \in \{d(u, v), d(u, v) + 1\}$.
+(iv) If $d(u, v) = 2$, then $\cp(u, v) \in \{c(u, v), c(u, v) + 1\}$.
+If $G \in \DC$, then $d(u, v) \leq 2$ or $c(u, v) \leq 2$, so at least one of the four statements applies to every pair $u, v$.
+\end{proposition}
+
+\begin{proof}
+The four values follow from \cref{lem:basic-bounds}.
+If $d(u, v) = 1$, the edge $uv$ is a $u$--$v$ path and lies in every $u$--$v$ cut, so every minimum $u$--$v$ cut is a cut-path.
+If $c(u, v) = 1$, the edge of a $u$--$v$ cut of size one lies on every $u$--$v$ path, so every shortest $u$--$v$ path is a cut-path.
+The last statement is \cref{def:class}.
+\end{proof}
+
+By \cref{prop:easy-pairs}, a minimum cut-path in a graph of $\DC$ remains to be found for the pairs with $c(u, v) = 2$ and for the pairs with $d(u, v) = 2$ and $c(u, v) \geq 3$.
+\Cref{sec:structure,sec:separating,sec:algorithm} treat the first kind.
+\Cref{sec:zz-zigzag,sec:pa-polynomial} treat the second kind.
+
+\begin{remark}[Bridges]
+\label{rem:bridges}
+Let $K$ be the component of $u$ in the graph obtained from $G$ by removing all bridges of $G$.
+Two vertices $x$ and $y$ of $K$ are joined by a path of $K$, so no bridge of $G$ separates them, and no $x$--$y$ path of $G$ contains a bridge.
+Every $x$--$y$ path of $G$ is therefore a path of $K$.
+Hence the distance, the cut-value and the value of a minimum cut-path of $x$ and $y$ are the same in $K$ as in $G$, and $K \in \DC$ if $G \in \DC$.
+If $c(u, v) \geq 2$, then $v \in K$, because a bridge on a $u$--$v$ path would be a $u$--$v$ cut.
+None of the results below assumes that $G = K$.
+\end{remark}
+
+\section{NP-Completeness on Graphs of Diameter Three}
+\label{sec:dt-diameter-three}
+
+By \cref{prop:open-pairs}, $\cp(u, v) = c(u, v)$ if and only if some minimum $u$--$v$ cut contains a $u$--$v$ path.
+The problem \PathInMinCut{} has as input a connected graph $G$ and two distinct vertices $u$ and $v$, and it asks whether some minimum $u$--$v$ cut of $G$ contains a $u$--$v$ path.
+We prove that \PathInMinCut{} is NP-complete on graphs of diameter three, already for pairs at distance two (\cref{thm:dt-hardness}), and we draw the consequences for \MinCutPath{} (\cref{cor:dt-consequences}).
+
+\subsection{The Reduction from 3-SAT}
+\label{sec:dt-construction}
+
+The reduction assigns to a formula $\varphi$ a graph $G_\varphi$ whose minimum $u$--$v$ cuts correspond to the truth assignments of $\varphi$ (\cref{lem:dt-cuts}).
+The cut of an assignment contains a $u$--$v$ path if and only if the assignment satisfies $\varphi$ (\cref{lem:dt-cut-graphs}).
+
+\begin{definition}[The graph $G_\varphi$]
+\label{def:dt-graph}
+Let $\varphi$ be a formula in conjunctive normal form with the clauses $C_1, \dots, C_m$, where $m \geq 1$, over the variables $x_1, \dots, x_p$.
+A clause is a nonempty list of literals that may contain repetitions, a literal is a variable or a negated variable, and every variable occurs in some clause.
+If every clause has three literals, then $\varphi$ is an instance of 3-SAT.
+A \emph{truth assignment} $\tau$ sets every variable to true or to false, and $\tau$ \emph{satisfies} $\varphi$ if every clause contains a literal that is true under $\tau$.
+Let $L$ be the total number of literals in the $m$ clauses, counted with repetitions, and let $c_0 = (m + 1) + 2L$ and $N = c_0 + 2$.
+
+The vertex set of $G_\varphi$ consists of two disjoint sets $K^u$ and $K^v$ with $N$ vertices each and of the \emph{occurrence vertices} $o_{k,j}$, one for the $j$-th literal of $C_k$, for all $k$ and $j$.
+Any two vertices of $K^u$ are adjacent, and so are any two vertices of $K^v$.
+The clique $K^u$ contains the vertices $u = u_0, u_1, \dots, u_m$ and two \emph{anchors} $w_1, w_2$, and the clique $K^v$ contains the vertices $v_0, v_1, \dots, v_m = v$ and two anchors $z_1, z_2$.
+Since $N - (m + 3) = 2L \geq 2$, each clique has $2L$ further vertices, its \emph{fillers}.
+The \emph{rungs} $u_k v_k$, for $0 \leq k \leq m$, are the only edges between $K^u$ and $K^v$.
+If the $j$-th literal of $C_k$ is a variable, then $o_{k,j}$ is a \emph{positive} occurrence vertex, adjacent to $v_{k-1}$, $v_k$, $w_1$ and $w_2$.
+If this literal is a negated variable, then $o_{k,j}$ is a \emph{negative} occurrence vertex, adjacent to $u_{k-1}$, $u_k$, $z_1$ and $z_2$.
+For every variable $x_i$, let $O_i$ be the set of the occurrence vertices of the literals $x_i$ and $\neg x_i$.
+The vertices of $O_i$ are joined, in an arbitrary order, into a path by $|O_i| - 1$ \emph{synchronization edges}.
+The graph $G_\varphi$ has no further edges.
+For a truth assignment $\tau$, let $A_\tau$ be the union of $K^u$ and of all sets $O_i$ such that $\tau$ sets $x_i$ to true.
+\end{definition}
+
+\Cref{fig:dt-construction} shows $G_\varphi$ for $\varphi = (x_1 \vee \neg x_2) \wedge x_2$.
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{hardness-construction.pdf}
+    \caption{The graph $G_\varphi$ for $\varphi = (x_1 \vee \neg x_2) \wedge x_2$ without the clique edges and with a $u$--$v$ path in $\delta(A_\tau)$ for $\tau(x_1) = \tau(x_2) = \text{true}$ in red}
+    \label{fig:dt-construction}
+\end{figure}
+
+Every occurrence vertex has exactly two neighbors in $K^u$ and two neighbors in $K^v$, and a filler has no neighbor outside its clique.
+The graph $G_\varphi$ is connected, because the rungs join the two cliques and every occurrence vertex has a neighbor in a clique.
+It has $2N + L$ vertices and $N(N - 1) + (m + 1) + 4L + (L - p)$ edges, where the four terms count the edges inside the cliques, the rungs, the edges at the occurrence vertices and the synchronization edges.
+Hence $G_\varphi$ is computed in time polynomial in the length of $\varphi$.
+
+\subsection{Minimum Cuts and Cut Graphs}
+\label{sec:dt-correctness}
+
+By \cref{lem:minimum-cuts}, every minimum $u$--$v$ cut is $\delta(A)$ for exactly one set $A$ with $u \in A$ and $v \notin A$.
+
+\begin{lemma}[Forcing]
+\label{lem:dt-forcing}
+Let $G = (V, E)$ be the graph $G_\varphi$ of a formula $\varphi$ (\cref{def:dt-graph}).
+Then $c(u, v) \leq c_0$, and every minimum $u$--$v$ cut $\delta(A)$ with $u \in A$ satisfies $K^u \subseteq A$ and $A \cap K^v = \emptyset$.
+\end{lemma}
+
+\begin{proof}
+The edges that leave $K^u$ are the $m + 1$ rungs and the two edges from each of the $L$ occurrence vertices to $K^u$.
+Hence $|\delta(K^u)| = c_0$, and $\delta(K^u)$ is a $u$--$v$ cut, so $c(u, v) \leq c_0$.
+Let $\delta(A)$ be a minimum $u$--$v$ cut with $u \in A$, and suppose that some vertex $a \in K^u$ is not in $A$.
+The edge $ua$ and the paths $u, y, a$ for $y \in K^u \setminus \{u, a\}$ are $N - 1$ edge-disjoint $u$--$a$ paths.
+Each of them contains an edge of $\delta(A)$, because $u \in A$ and $a \notin A$.
+Hence $|\delta(A)| \geq N - 1 = c_0 + 1 > c(u, v)$, a contradiction.
+If some vertex $b \in K^v$ were in $A$, the $N - 1$ edge-disjoint $v$--$b$ paths in the clique $K^v$ would give the same contradiction, because $v \notin A$.
+\end{proof}
+
+\begin{lemma}[Minimum cuts]
+\label{lem:dt-cuts}
+Let $G = (V, E)$ be the graph $G_\varphi$ of a formula $\varphi$ with the variables $x_1, \dots, x_p$.
+(i) Let $A$ be a set with $K^u \subseteq A \subseteq V \setminus K^v$, and let $s(A)$ be the number of synchronization edges in $\delta(A)$.
+Then $\delta(A)$ consists of the $m + 1$ rungs, of two edges at every occurrence vertex $o$, which are the edges from $o$ to $K^v$ if $o \in A$ and the edges from $o$ to $K^u$ otherwise, and of the synchronization edges with exactly one end in $A$.
+In particular, $|\delta(A)| = c_0 + s(A)$.
+(ii) We have $c(u, v) = c_0$.
+The minimum $u$--$v$ cuts are exactly the sets $\delta(A_\tau)$ for the $2^p$ truth assignments $\tau$ of $x_1, \dots, x_p$, and distinct assignments give distinct cuts.
+\end{lemma}
+
+\begin{proof}
+Each clique lies on one side of $A$, so no clique edge belongs to $\delta(A)$.
+All rungs belong to $\delta(A)$, because $u_k \in A$ and $v_k \notin A$.
+An occurrence vertex $o$ has two neighbors in $K^u$ and two in $K^v$, so exactly its two edges to $K^v$ belong to $\delta(A)$ if $o \in A$, and exactly its two edges to $K^u$ otherwise.
+All remaining edges are synchronization edges, which proves the description of $\delta(A)$.
+The rungs and the edges at the $L$ occurrence vertices are $(m + 1) + 2L = c_0$ edges, so $|\delta(A)| = c_0 + s(A)$.
+
+By \cref{lem:dt-forcing}, every minimum $u$--$v$ cut $\delta(A)$ with $u \in A$ satisfies $K^u \subseteq A \subseteq V \setminus K^v$, so $|\delta(A)| \geq c_0$.
+Together with $c(u, v) \leq c_0$ this gives $c(u, v) = c_0$.
+Hence a set $A$ with $K^u \subseteq A \subseteq V \setminus K^v$ gives a minimum $u$--$v$ cut if and only if $s(A) = 0$.
+A synchronization edge joins two vertices of the same set $O_i$, and the vertices of $O_i$ are connected by synchronization edges.
+Therefore $s(A) = 0$ if and only if every $O_i$ is contained in $A$ or disjoint from $A$.
+Every occurrence vertex lies in some $O_i$, so these sets $A$ are exactly the sets $A_\tau$, where $\tau$ sets $x_i$ to true if and only if $O_i \subseteq A$.
+Distinct assignments give distinct sets $A_\tau$, because every $O_i$ is nonempty, and distinct sets $A$ with $u \in A$ give distinct cuts by \cref{lem:minimum-cuts}.
+\end{proof}
+
+\begin{lemma}[Cut graphs]
+\label{lem:dt-cut-graphs}
+Let $G = (V, E)$ be the graph $G_\varphi$ of a formula $\varphi$, let $\tau$ be a truth assignment, and let $H_\tau$ be the graph $(V, \delta(A_\tau))$.
+Then $u$ and $v$ are connected in $H_\tau$ if and only if $\tau$ satisfies $\varphi$.
+\end{lemma}
+
+\begin{proof}
+An occurrence vertex is \emph{true} under $\tau$ if its literal is true under $\tau$, and \emph{false} otherwise.
+An occurrence vertex of the variable $x_i$ lies in $A_\tau$ if and only if $\tau$ sets $x_i$ to true, whether its literal is $x_i$ or $\neg x_i$.
+Hence a positive occurrence vertex is true if and only if it lies in $A_\tau$, and a negative one is true if and only if it lies outside $A_\tau$.
+Since $\delta(A_\tau)$ is a minimum cut, $s(A_\tau) = 0$ by \cref{lem:dt-cuts}, so the edges of $H_\tau$ are the rungs and two edges at every occurrence vertex, and $H_\tau$ has no clique edges and no synchronization edges.
+A true occurrence vertex of $C_k$ is adjacent in $H_\tau$ to $v_{k-1}, v_k$ if it is positive and to $u_{k-1}, u_k$ if it is negative.
+A false occurrence vertex is adjacent in $H_\tau$ to $w_1, w_2$ if it is positive and to $z_1, z_2$ if it is negative.
+Let $T_k = \{u_k, v_k\}$ for $0 \leq k \leq m$, whose two vertices are adjacent in $H_\tau$ by a rung.
+
+Suppose that $\tau$ satisfies $\varphi$.
+For each $k$ with $1 \leq k \leq m$, a true literal of $C_k$ gives a true occurrence vertex of $C_k$, which is adjacent in $H_\tau$ to a vertex of $T_{k-1}$ and to a vertex of $T_k$.
+Hence $T_0 \cup \dots \cup T_m$ lies in one component of $H_\tau$, and it contains $u = u_0$ and $v = v_m$.
+
+Suppose that $\tau$ does not satisfy $\varphi$, and let $C_k$ be a clause without a true literal.
+Let $W = T_0 \cup \dots \cup T_{k-1} \cup W'$, where $W'$ is the set of the true occurrence vertices of $C_1, \dots, C_{k-1}$.
+We show that no edge of $H_\tau$ leaves $W$.
+In $G$, a vertex $u_j$ or $v_j$ is adjacent outside its clique only to its partner in $T_j$ and to occurrence vertices of $C_j$ and $C_{j+1}$, and in $H_\tau$ only to true ones.
+For $j \leq k - 1$, the true occurrence vertices of $C_j$ lie in $W'$, and those of $C_{j+1}$ lie in $W'$ if $j + 1 \leq k - 1$ and do not exist if $j + 1 = k$, because $C_k$ has no true occurrence vertex.
+A true occurrence vertex of $C_j$ with $j \leq k - 1$ is adjacent in $H_\tau$ only to vertices of $T_{j-1} \cup T_j \subseteq W$.
+So no edge of $H_\tau$ leaves $W$.
+Since $m \geq k$, we have $u \in T_0 \subseteq W$ and $v = v_m \notin W$, so $u$ and $v$ are not connected in $H_\tau$.
+\end{proof}
+
+\subsection{Hardness Results}
+\label{sec:dt-results}
+
+\begin{theorem}
+\label{thm:dt-hardness}
+\PathInMinCut{} is NP-complete.
+It remains NP-complete for pairs $u, v$ with $d(u, v) = 2$ in graphs of diameter three.
+\end{theorem}
+
+\begin{proof}
+The problem is in NP.
+A certificate for an instance $(G, u, v)$ is a set $S \subseteq E$.
+The value $c(u, v)$ is computed in polynomial time by a maximum-flow algorithm, and graph searches check that $|S| = c(u, v)$, that $G \setminus S$ contains no $u$--$v$ path and that $S$ contains a $u$--$v$ path.
+If these checks succeed, then $S$ is a minimum $u$--$v$ cut that contains a $u$--$v$ path, and every such cut passes them.
+
+For hardness, we reduce 3-SAT, which is NP-complete~\cite{Cook1971Complexity,Karp1972Reducibility}, to \PathInMinCut{}.
+Let $\varphi$ be an instance of 3-SAT.
+The triple $(G_\varphi, u, v)$ is computed in polynomial time (\cref{def:dt-graph}).
+By \cref{lem:dt-cuts}, the minimum $u$--$v$ cuts of $G_\varphi$ are the sets $\delta(A_\tau)$.
+Since two connected vertices of $H_\tau$ are joined by a path of $H_\tau$, the set $\delta(A_\tau)$ contains a $u$--$v$ path if and only if $u$ and $v$ are connected in $H_\tau$.
+By \cref{lem:dt-cut-graphs}, this holds if and only if $\tau$ satisfies $\varphi$.
+Hence some minimum $u$--$v$ cut of $G_\varphi$ contains a $u$--$v$ path if and only if $\varphi$ is satisfiable.
+
+It remains to determine the distances in $G_\varphi$.
+The vertices $u = u_0$ and $v = v_m$ are not adjacent, because the only edge between the cliques at $u_0$ is the rung $u_0 v_0$ and $m \geq 1$.
+The vertex $u_m$ is adjacent to $u$ and, by the rung $u_m v_m$, to $v$, so $d(u, v) = 2$.
+Every vertex of $G_\varphi$ lies in $K^u$ or in $K^v$ or is an occurrence vertex, which has neighbors in both cliques.
+Two vertices of one clique are adjacent.
+For $x \in K^u$ and $y \in K^v$, the path $x, u_m, v_m, y$ has at most three edges.
+An occurrence vertex is at distance at most two from every vertex of a clique, because it has a neighbor in that clique.
+Two occurrence vertices $o$ and $o'$ are joined by a path $o, y, y', o'$ with at most three edges, where $y$ and $y'$ are neighbors of $o$ and $o'$ in $K^u$.
+Hence the diameter of $G_\varphi$ is at most three.
+A filler $f$ of $K^u$ and a filler $f'$ of $K^v$ are not adjacent and have no common neighbor, because the neighbors of $f$ are the vertices of $K^u \setminus \{f\}$ and the neighbors of $f'$ are the vertices of $K^v \setminus \{f'\}$.
+So $d(f, f') = 3$, and the diameter of $G_\varphi$ is exactly three.
+\end{proof}
+
+\begin{corollary}
+\label{cor:dt-consequences}
+(a) Deciding whether $\cp(u, v) = c(u, v)$ is NP-complete, also for pairs with $d(u, v) = 2$ in graphs of diameter three.
+
+(b) The decision version of \MinCutPath{}, which asks for a connected graph $G$, two distinct vertices $u, v$ and an integer $b$ whether $\cp(u, v) \leq b$, is NP-complete on graphs of diameter three, already for pairs with $d(u, v) = 2$ and the threshold $b = c(u, v)$.
+Computing $\cp(u, v)$ is NP-hard for pairs with $d(u, v) = 2$.
+
+(c) Deciding whether $\cp(u, v) = c(u, v) + d(u, v) - 1$ is coNP-complete, also for pairs with $d(u, v) = 2$ in graphs of diameter three.
+If $\cp(u, v) = c(u, v) + d(u, v) - 1$, then the union of any minimum $u$--$v$ cut and any shortest $u$--$v$ path is a minimum cut-path, and for $d(u, v) = 2$ the converse holds: if the union of some minimum $u$--$v$ cut and some shortest $u$--$v$ path is a minimum cut-path, then $\cp(u, v) = c(u, v) + 1$.
+\end{corollary}
+
+\begin{proof}
+(a) By \cref{prop:open-pairs}, the question whether $\cp(u, v) = c(u, v)$ is \PathInMinCut{}, so (a) is \cref{thm:dt-hardness}.
+
+(b) By \cref{lem:basic-bounds}, $\cp(u, v) \geq c(u, v)$, so $\cp(u, v) \leq c(u, v)$ if and only if $\cp(u, v) = c(u, v)$.
+The threshold $b = c(u, v)$ is computed by a maximum-flow algorithm, and for $G_\varphi$ it is $c_0$ by \cref{lem:dt-cuts}.
+Hence (a) reduces to the decision version with $b = c(u, v)$, which is therefore NP-hard on graphs of diameter three, already for pairs with $d(u, v) = 2$.
+The decision version is in NP, because a cut-path with at most $b$ edges is a certificate, and two graph searches check that it contains a $u$--$v$ path and that its removal leaves no $u$--$v$ path.
+An algorithm that computes $\cp(u, v)$ decides the decision version with $b = c(u, v)$, so computing $\cp(u, v)$ is NP-hard for pairs with $d(u, v) = 2$.
+
+(c) By \cref{lem:basic-bounds}, $\cp(u, v) \leq c(u, v) + d(u, v) - 1$, so the equality fails if and only if some cut-path has at most $c(u, v) + d(u, v) - 2$ edges.
+The values $c(u, v)$ and $d(u, v)$ are computed in polynomial time, and such a cut-path is a certificate as in (b), so the problem is in coNP.
+Let $d(u, v) = 2$.
+By \cref{prop:easy-pairs}(iv), $\cp(u, v) \in \{c(u, v), c(u, v) + 1\}$, so $\cp(u, v) = c(u, v) + d(u, v) - 1 = c(u, v) + 1$ if and only if $\cp(u, v) \neq c(u, v)$.
+By (a), the problem is therefore coNP-hard for pairs with $d(u, v) = 2$ in graphs of diameter three.
+
+For the last statement, let $\delta(A)$ be a minimum $u$--$v$ cut and $P$ a shortest $u$--$v$ path.
+By \cref{lem:basic-bounds}, $\delta(A) \cup P$ is a cut-path with at most $c(u, v) + d(u, v) - 1$ edges.
+If $\cp(u, v) = c(u, v) + d(u, v) - 1$, it is therefore a minimum cut-path.
+Let $d(u, v) = 2$.
+By \cref{lem:minimum-cuts}, $P$ contains an odd number of edges of $\delta(A)$, so exactly one, and $\delta(A) \cup P$ has $c(u, v) + 1$ edges.
+If it is a minimum cut-path, then $\cp(u, v) = c(u, v) + 1$.
+\end{proof}
+
+\begin{remark}
+\label{rem:dt-not-in-dc}
+The graph $G_\varphi$ does not belong to $\DC$.
+A filler $f$ of $K^u$ and a filler $f'$ of $K^v$ are at distance three, and $c(f, f') = c_0 \geq 4$, because the proofs of \cref{lem:dt-forcing,lem:dt-cuts} apply to $f$ and $f'$ in place of $u$ and $v$.
+\end{remark}
+
+\begin{remark}
+\label{rem:dt-bounded-cut-value}
+The cut-value $c(u, v) = c_0$ of the instances in \cref{thm:dt-hardness} grows with $\varphi$.
+For every constant $k$, the question is solvable in polynomial time for pairs with $c(u, v) \leq k$, because $\cp(u, v) \leq c(u, v)$ is the decision version of \MinCutPath{} with the threshold $b = c(u, v)$, which is fixed-parameter tractable in $b$~\cite[Theorem~8.4]{Michel2026MinCutPath}.
+\end{remark}
+
+\begin{remark}
+\label{rem:dt-shifted-class}
+In a graph of diameter at most three, every two vertices $x, y$ satisfy $d(x, y) \leq 3$.
+Hence \cref{thm:dt-hardness,cor:dt-consequences} hold in the class of the connected graphs in which every pair satisfies $d(x, y) \leq 3$ or $c(x, y) \leq 2$, which is obtained from $\DC$ by raising the bound on the distance from two to three.
+\end{remark}
+
+\section{Pairs with Cut-Value at Most Two}
+\label{sec:squares}
+
+\subsection{Minimum Cuts of a Pair with Cut-Value Two}
+\label{sec:structure}
+
+The minimum $u$--$v$ cuts of a pair with $c(u, v) = 2$ arrange the graph into a chain of subgraphs, the squares, in which consecutive squares are joined in two ways (\cref{thm:structure}, \cref{fig:square-decomposition}).
+The structure of all minimum cuts between two vertices is known in general form, as the acyclic digraph of Picard and Queyranne~\cite{PicardQueyranne1980} and, for undirected graphs, as the strip of Dinitz and Vainshtein (see~\cite{BaswanaPandey2025Carcass} and \cref{sec:related-work}).
+\Cref{lem:orientation,lem:pieces,lem:degrees} and statements (i) to (iv) of \cref{thm:structure} describe this structure for cut-value two in the explicit form that the later sections use, with squares, links, general paths and terminals.
+We include their proofs to keep the paper self-contained.
+Statement (v) of \cref{thm:structure} corresponds to the construction of the cactus that represents the cuts with two edges of a 2-edge-connected graph, in which every class of the relation $c(x, y) \geq 3$ is contracted to one node~\cite{Mehlhorn2017Certifying}.
+
+Throughout this section and \cref{sec:separating}, we assume that $c(u, v) = 2$.
+By Menger's theorem~\cite[Corollary~3.3.5]{Diestel2025}, $G$ contains two edge-disjoint $u$--$v$ paths.
+We fix two such paths $p_1$ and $p_2$.
+Let $F = F(u, v)$ be the union of all minimum $u$--$v$ cuts.
+
+\begin{lemma}
+\label{lem:orientation}
+(i) Every minimum $u$--$v$ cut consists of one edge of $p_1$ and one edge of $p_2$, so $F \subseteq p_1 \cup p_2$.
+(ii) Let $\delta(A)$ be a minimum $u$--$v$ cut and let $R$ be a $u$--$v$ path.
+Then $R$ contains exactly one edge of $\delta(A)$, the vertices of $R$ before this edge lie in $A$, and the vertices of $R$ after it lie outside $A$.
+(iii) Every edge $e \in F$ has an end that lies in $A$ for every minimum $u$--$v$ cut $\delta(A)$ that contains $e$, and every $u$--$v$ path that contains $e$ meets this end before the other end of $e$.
+\end{lemma}
+
+\begin{proof}
+(i) The graph obtained by removing a minimum $u$--$v$ cut contains neither $p_1$ nor $p_2$.
+The cut therefore contains an edge of each path, and these two edges are distinct.
+
+(ii) By \cref{lem:minimum-cuts}, the path $R$ contains an odd number of the two edges of $\delta(A)$, hence exactly one.
+The path starts in $A$, ends outside $A$ and changes between $A$ and $V \setminus A$ only at this edge.
+
+(iii) By (i), the edge $e$ lies on $p_j$ for some $j \in \{1, 2\}$.
+Let $s$ be the end of $e$ that $p_j$ meets first.
+For every minimum $u$--$v$ cut $\delta(A)$ that contains $e$, statement (ii) for the path $p_j$ gives $s \in A$, and the other end of $e$ lies outside $A$.
+Statement (ii) for a $u$--$v$ path $R$ that contains $e$ and for one such cut shows that $R$ meets $s$ before the other end of $e$.
+\end{proof}
+
+\begin{definition}[Pieces, squares and links]
+\label{def:pieces}
+Let $e \in F$.
+The end of $e$ that lies in $A$ for every minimum $u$--$v$ cut $\delta(A)$ containing $e$ is the \emph{tail} of $e$, and the other end is the \emph{head} of $e$.
+A \emph{piece} is a component of $G \setminus F$.
+The edge $e$ \emph{leaves} the piece that contains its tail and \emph{enters} the piece that contains its head.
+A piece is a \emph{square} if it contains $u$, if it contains $v$, or if two edges of $F$ enter it.
+Every other piece is a \emph{link}.
+\end{definition}
+
+By \cref{lem:orientation}(iii), every $u$--$v$ path that contains an edge of $F$ traverses it from its tail to its head.
+The tail of an edge of $F \cap p_j$ is the end that $p_j$ meets first, but the definition does not depend on the choice of $p_1$ and $p_2$.
+We use the same symbol for a piece and for its vertex set, and we say that a path \emph{visits} a piece if it contains a vertex of the piece.
+
+\begin{lemma}
+\label{lem:pieces}
+(i) For every minimum $u$--$v$ cut $\delta(A)$, every piece is contained in $A$ or disjoint from $A$.
+(ii) The two ends of every edge of $F$ lie in different pieces, and every edge of $G$ whose ends lie in different pieces belongs to $F$.
+(iii) Let $R$ be a $u$--$v$ path that visits a piece $X$.
+Then the vertices of $R$ in $X$ are consecutive on $R$.
+If $u \notin X$, the edge of $R$ before the first of these vertices enters $X$, and if $v \notin X$, the edge of $R$ after the last of them leaves $X$.
+No other edge of $F$ on $R$ has an end in $X$.
+\end{lemma}
+
+\begin{proof}
+(i) Since $\delta(A) \subseteq F$, every piece is a connected subgraph of $G \setminus \delta(A)$, and no edge of $G \setminus \delta(A)$ joins $A$ to $V \setminus A$.
+
+(ii) An edge of $F$ lies in a minimum $u$--$v$ cut $\delta(A)$ and has one end in $A$ and one outside $A$, so its ends lie in different pieces by (i).
+An edge outside $F$ is an edge of $G \setminus F$, and its ends lie in the same component of this graph.
+
+(iii) Let $x$ be a vertex of $R$ in $X$ whose successor $y$ on $R$ is not in $X$.
+By (ii), $xy \in F$, and by \cref{lem:orientation}(iii), $x$ is the tail of $xy$, so $xy$ leaves $X$.
+Let $\delta(A)$ be a minimum $u$--$v$ cut that contains $xy$.
+Then $x \in A$, hence $X \subseteq A$ by (i), and by \cref{lem:orientation}(ii) all vertices of $R$ after $x$ lie outside $A$ and therefore outside $X$.
+Thus $x$ is the last vertex of $R$ in $X$.
+It follows that the vertices of $R$ in $X$ are consecutive and that, if $v \notin X$, the edge of $R$ after the last of them leaves $X$.
+If $u \notin X$, let $x'$ be the first vertex of $R$ in $X$ and let $y'$ be its predecessor.
+By (ii), $y'x' \in F$, and by \cref{lem:orientation}(iii), $x'$ is its head, so $y'x'$ enters $X$.
+Finally, an edge of $F$ on $R$ with an end in $X$ has its other end outside $X$ by (ii), so it is one of the two edges just described.
+\end{proof}
+
+By \cref{lem:pieces}(ii), a piece is an induced subgraph of $G$.
+For a $u$--$v$ path $R$ that visits a piece $X$, the \emph{trace} of $R$ in $X$ is the path formed by the vertices of $R$ in $X$, which is a path of $X$ by \cref{lem:pieces}(ii) and~(iii).
+
+\begin{lemma}
+\label{lem:degrees}
+(i) The vertices $u$ and $v$ lie in different pieces.
+(ii) Let $j \in \{1, 2\}$ and let $X$ be a piece.
+If $p_j$ visits $X$ and $u \notin X$, exactly one edge of $p_j$ enters $X$, and otherwise none does.
+If $p_j$ visits $X$ and $v \notin X$, exactly one edge of $p_j$ leaves $X$, and otherwise none does.
+(iii) Every piece is visited by $p_1$ or by $p_2$.
+Consequently, no edge enters the piece of $u$ and two edges leave it, and two edges enter the piece of $v$ and none leaves it.
+A link is a piece that is visited by exactly one of $p_1$ and $p_2$, and it has exactly one entering and one leaving edge.
+Every square is visited by both paths.
+\end{lemma}
+
+\begin{proof}
+(i) Since $c(u, v) = 2$, there is a minimum $u$--$v$ cut $\delta(A)$, and by \cref{lem:pieces}(i) the piece of $u$ lies in $A$ and the piece of $v$ outside $A$.
+
+(ii) If $p_j$ does not visit $X$, no edge of $p_j$ has an end in $X$.
+Otherwise the statement is \cref{lem:pieces}(iii) for $R = p_j$.
+
+(iii) Let $X$ be a piece.
+By (i), $X \neq V$, and since $G$ is connected, some edge has exactly one end in $X$.
+This edge belongs to $F$ by \cref{lem:pieces}(ii) and lies on $p_1$ or $p_2$ by \cref{lem:orientation}(i), so one of the two paths visits $X$.
+
+The consequences follow from (ii) and (iii).
+Every edge of $F$ lies on exactly one of $p_1$ and $p_2$, and both paths visit the pieces of $u$ and of $v$.
+A piece that contains neither $u$ nor $v$ is entered by as many edges as there are paths among $p_1, p_2$ that visit it, and as many edges leave it.
+\end{proof}
+
+By \cref{lem:degrees}, both paths visit every square.
+Every square that does not contain $u$ is entered by exactly one edge of $p_1$ and exactly one edge of $p_2$, and every square that does not contain $v$ is left by exactly one edge of each of the two paths.
+
+\begin{definition}[General paths and terminals]
+\label{def:decomposition}
+Let $S_1, \dots, S_k$ be the squares in the order in which $p_1$ visits them.
+For $2 \leq i \leq k$, the vertices $a_i$ and $b_i$ are the heads of the edges of $p_1$ and of $p_2$ that enter $S_i$, and $a_1 = b_1 = u$.
+For $1 \leq i < k$, the vertices $c_i$ and $d_i$ are the tails of the edges of $p_1$ and of $p_2$ that leave $S_i$, and $c_k = d_k = v$.
+The vertices $a_i, b_i, c_i, d_i$ are the \emph{terminals} of $S_i$, the first two are its \emph{entering terminals} and the last two its \emph{leaving terminals}.
+A \emph{general path} from a square $S$ to a square $S'$ is a sequence $e_0, L_1, e_1, \dots, L_r, e_r$ with $r \geq 0$ in which $L_1, \dots, L_r$ are links, the edge $e_0$ leaves $S$, the edge $e_r$ enters $S'$, and for $1 \leq m \leq r$ the edge $e_{m-1}$ enters $L_m$ and the edge $e_m$ leaves $L_m$.
+\end{definition}
+
+We have $u \in S_1$ and $v \in S_k$, and $k \geq 2$ by \cref{lem:degrees}(i).
+The four terminals of a square need not be distinct, and by \cref{lem:orientation}(i) each of them lies on $p_1$ or on $p_2$.
+
+\begin{theorem}[Square decomposition]
+\label{thm:structure}
+Let $G$ be a connected graph, let $u$ and $v$ be two vertices of $G$ with $c(u, v) = 2$, and let $p_1$ and $p_2$ be two edge-disjoint $u$--$v$ paths.
+With the notions of \cref{def:pieces,def:decomposition}, the following statements hold.
+(i) For $2 \leq i \leq k$, the two edges that enter $S_i$ form a minimum $u$--$v$ cut, and for $1 \leq i < k$, so do the two edges that leave $S_i$.
+(ii) Every $u$--$v$ path visits all squares, in the order $S_1, \dots, S_k$.
+(iii) For $1 \leq i < k$ and $j \in \{1, 2\}$, there is exactly one general path $P_{i,j}$ from $S_i$ to $S_{i+1}$ whose edges lie on $p_j$, and every link and every edge of $F$ belongs to exactly one of these $2(k - 1)$ general paths.
+(iv) For $1 \leq i < k$, every $u$--$v$ path contains all edges and visits all links of one of the general paths $P_{i,1}$ and $P_{i,2}$, and it contains no edge and visits no link of the other one.
+(v) Any two distinct terminals $s$ and $t$ of the same square satisfy $c(s, t) \geq 3$.
+\end{theorem}
+
+\begin{proof}
+(i) Let $2 \leq i \leq k$, and let $g_1$ and $g_2$ be the edges of $p_1$ and $p_2$ that enter $S_i$.
+For $j \in \{1, 2\}$, choose a minimum $u$--$v$ cut $\delta(A_j)$ that contains $g_j$.
+The head of $g_j$ lies in $S_i$ and outside $A_j$, so $S_i$ is disjoint from $A_j$ by \cref{lem:pieces}(i).
+The sets $A_1 \cap A_2$ and $A_1 \cup A_2$ contain $u$ and not $v$, so $\delta(A_1 \cap A_2)$ and $\delta(A_1 \cup A_2)$ are $u$--$v$ cuts.
+Each of them has at least two edges, and by \cref{lem:uncrossing} they have at most four edges together.
+Hence $\delta(A)$ with $A = A_1 \cup A_2$ is a minimum $u$--$v$ cut.
+The tail of $g_j$ lies in $A_j \subseteq A$ and its head lies in $S_i$, which is disjoint from $A$, so $\delta(A) = \{g_1, g_2\}$.
+For $1 \leq i < k$ and the edges $h_1, h_2$ that leave $S_i$, let $\delta(B_j)$ be a minimum $u$--$v$ cut that contains $h_j$.
+Now $S_i \subseteq B_j$, and the same argument shows that $\delta(B)$ with $B = B_1 \cap B_2$ is a minimum $u$--$v$ cut.
+The tail of $h_j$ lies in $S_i \subseteq B$ and its head lies outside $B_j$, so $\delta(B) = \{h_1, h_2\}$.
+
+(ii) Let $R$ be a $u$--$v$ path.
+It visits $S_1$ and $S_k$.
+Let $2 \leq i \leq k$, and let $\delta(A)$ be the minimum $u$--$v$ cut formed by the edges that enter $S_i$.
+By \cref{lem:orientation}(ii), $R$ contains exactly one edge of $\delta(A)$, the vertices of $R$ before it lie in $A$ and the vertices after it outside $A$.
+The head of this edge lies in $S_i$, so $R$ visits $S_i$, and this head is the first vertex of $R$ in $S_i$.
+Let $X$ be a square other than $S_i$.
+By \cref{lem:pieces}(i), $X \subseteq A$ or $X$ is disjoint from $A$.
+In the first case $R$ visits $X$ before $S_i$, and in the second case after $S_i$, because the vertices of $R$ in $S_i$ are consecutive.
+Which case occurs does not depend on $R$.
+Hence all $u$--$v$ paths visit the squares in the same order as $p_1$.
+
+(iii) Let $1 \leq i < k$ and $j \in \{1, 2\}$.
+By (ii), the path $p_j$ visits $S_i$, then $S_{i+1}$, and no square in between.
+Let $X_0 = S_i, X_1, \dots, X_r, X_{r+1} = S_{i+1}$ be the pieces that $p_j$ visits from $S_i$ to $S_{i+1}$, in this order, and let $e_m$ be the edge of $p_j$ between $X_m$ and $X_{m+1}$.
+The pieces $X_1, \dots, X_r$ are links, and by \cref{lem:pieces}(iii) the edge $e_m$ leaves $X_m$ and enters $X_{m+1}$.
+Hence $e_0, X_1, e_1, \dots, X_r, e_r$ is a general path from $S_i$ to $S_{i+1}$ whose edges lie on $p_j$.
+It is the only one, because exactly one edge of $p_j$ leaves $S_i$ and a general path is determined by its first edge.
+Indeed, each of its links is the piece that contains the head of the preceding edge, and each further edge is the only edge that leaves the preceding link (\cref{lem:degrees}).
+Every edge of $F$ lies on $p_1$ or $p_2$ (\cref{lem:orientation}(i)) and every link is visited by $p_1$ or $p_2$ (\cref{lem:degrees}).
+Since $p_j$ leads from $S_1$ to $S_k$, each of these edges and links belongs to $P_{i,j}$ for some $i$ and $j$.
+An edge of $F$ lies on only one of the two paths and between only one pair of consecutive squares, and a link is entered by only one edge, so $i$ and $j$ are unique.
+
+(iv) Let $R$ be a $u$--$v$ path and let $1 \leq i < k$.
+By (ii) and \cref{lem:pieces}(iii), $R$ contains exactly one edge that leaves $S_i$.
+It is the first edge of $P_{i,j}$ for some $j$.
+Let $P_{i,j} = e_0, L_1, e_1, \dots, L_r, e_r$.
+If $R$ contains $e_{m-1}$ for some $m$ with $1 \leq m \leq r$, then $R$ visits $L_m$, and by \cref{lem:pieces}(iii) it contains the only edge that leaves $L_m$, which is $e_m$.
+Hence $R$ contains all edges and visits all links of $P_{i,j}$.
+Let $e'_0, L'_1, e'_1, \dots$ be the other general path from $S_i$ to $S_{i+1}$.
+If $R$ visited a link $L'_m$, it would contain the only edge that enters it, which is $e'_{m-1}$.
+If $R$ contained an edge $e'_m$ with $m \geq 1$, it would visit $L'_m$, which contains the tail of $e'_m$.
+By induction on $m$, the path $R$ would contain $e'_0$, a second edge that leaves $S_i$.
+Hence $R$ contains no edge and visits no link of this general path.
+
+(v) Suppose that $c(s, t) \leq 2$ for two distinct terminals $s, t$ of a square $S_i$.
+Let $B$ be the vertex set of the component that contains $s$ in the graph obtained from $G$ by removing a minimum $s$--$t$ cut.
+Every edge with exactly one end in $B$ belongs to this cut.
+Then $s \in B$, $t \notin B$ and $|\delta(B)| \leq 2$.
+If exactly one of $u, v$ belonged to $B$, then $\delta(B)$ would be a minimum $u$--$v$ cut with $s$ and $t$ on different sides, which contradicts \cref{lem:pieces}(i).
+After exchanging $s$ with $t$ and $B$ with $V \setminus B$ if necessary, we may thus assume that $u, v \notin B$.
+In particular, $s \notin \{u, v\}$, so $s$ is the head of an edge $e$ that enters $S_i$ or the tail of an edge $e$ that leaves $S_i$.
+Let $z$ be the other end of $e$.
+In the first case, let $\delta(A)$ be the minimum $u$--$v$ cut formed by the edges that enter $S_i$, and put $W = A$.
+In the second case, let $\delta(A)$ be the minimum $u$--$v$ cut formed by the edges that leave $S_i$, and put $W = V \setminus A$.
+In both cases $|\delta(W)| = 2$, the set $W$ contains $z$ and exactly one of $u, v$, and $W$ is disjoint from $S_i$.
+Since $u, v \notin B$, the set $W \cup B$ contains exactly one of $u, v$, so $|\delta(W \cup B)| \geq 2$.
+We show that $|\delta(W \cup B)| \leq 2$.
+If $z \notin B$, the edge $e$ joins $z \in W \setminus B$ to $s \in B \setminus W$, and \cref{lem:uncrossing} gives $|\delta(W \cap B)| + |\delta(W \cup B)| \leq 2 + 2 - 2$.
+If $z \in B$, then $z \in W \cap B$ and $u, v \notin W \cap B$.
+The vertex $z$ lies on $p_1$ or $p_2$, and this path contains at least two edges of $\delta(W \cap B)$, so $|\delta(W \cap B)| \geq 2$.
+By \cref{lem:uncrossing}, $|\delta(W \cup B)| \leq 2 + 2 - |\delta(W \cap B)| \leq 2$.
+In both cases $\delta(W \cup B)$ is a minimum $u$--$v$ cut.
+The vertex $s$ lies in $W \cup B$, and the vertex $t$ lies neither in $B$ nor in $W$, because $t \in S_i$.
+This contradicts \cref{lem:pieces}(i).
+\end{proof}
+
+We call the sequence $S_1, P_{1,1}, P_{1,2}, S_2, \dots, P_{k-1,1}, P_{k-1,2}, S_k$ the \emph{square decomposition} of $G$ with respect to $u$ and $v$ (\cref{fig:square-decomposition}).
+The general path $P_{i,1}$ starts with the edge that leaves $S_i$ at $c_i$ and ends with the edge that enters $S_{i+1}$ at $a_{i+1}$, and $P_{i,2}$ leads in the same way from $d_i$ to $b_{i+1}$.
+The squares, their order, the links and the two general paths between consecutive squares are determined by $G$, $u$ and $v$, by \cref{def:pieces} and \cref{thm:structure}(ii).
+Only the names $P_{i,1}, P_{i,2}$ and $a_i, b_i, c_i, d_i$ depend on the choice of $p_1$ and $p_2$.
+Every vertex lies in exactly one square or link, and every edge lies in a square, in a link or in $F$.
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{square-decomposition.pdf}
+    \caption{The square decomposition: squares (boxes), links (ellipses) and the directed edges of $F$}
+    \label{fig:square-decomposition}
+\end{figure}
+
+\begin{example}
+\label{ex:decomposition}
+In the graph $G_a$ of \cref{ex:counterexamples}, let $p_1 = u, a, t, v$ and $p_2 = u, s, b, v$.
+The minimum $u$--$v$ cuts are $\{ua, us\}$, $\{ua, sb\}$, $\{at, bv\}$ and $\{tv, bv\}$, so $F$ contains all edges except $ab$.
+The squares are $S_1 = \{u\}$, $S_2 = \{a, b\}$ and $S_3 = \{v\}$, and the links are $\{s\}$ and $\{t\}$ (\cref{fig:decomposition-example}).
+The terminals of $S_2$ are $a_2 = c_2 = a$ and $b_2 = d_2 = b$.
+The general paths are $P_{1,1} = ua$, $P_{1,2} = us, \{s\}, sb$, $P_{2,1} = at, \{t\}, tv$ and $P_{2,2} = bv$.
+\end{example}
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{decomposition-example.pdf}
+    \caption{The square decomposition of $G_a$ with respect to $u$ and $v$}
+    \label{fig:decomposition-example}
+\end{figure}
+
+\begin{example}
+\label{ex:worked}
+Let $G_1$ be the graph with the vertices $u, v, 1, \dots, 8$ and the edges
+\[
+u1,\ u2,\ 12,\ 13,\ 23,\ 36,\ 24,\ 45,\ 57,\ 67,\ 68,\ 7v,\ 8v
+\]
+(\cref{fig:worked-example}).
+We have $c(u, v) = 2$ and $d(u, v) = 5$, and we take $p_1 = u, 1, 3, 6, 8, v$ and $p_2 = u, 2, 4, 5, 7, v$.
+The minimum $u$--$v$ cuts are $\{u1, u2\}$, $\{36, 24\}$, $\{36, 45\}$, $\{36, 57\}$, $\{68, 7v\}$ and $\{8v, 7v\}$, so $F$ contains all edges except $12$, $13$, $23$ and $67$.
+The squares are $S_1 = \{u\}$, $S_2 = \{1, 2, 3\}$, $S_3 = \{6, 7\}$ and $S_4 = \{v\}$, and the links are $\{4\}$, $\{5\}$ and $\{8\}$.
+The terminals are $a_2 = 1$, $b_2 = d_2 = 2$, $c_2 = 3$, $a_3 = c_3 = 6$ and $b_3 = d_3 = 7$.
+The general paths $P_{1,1}$, $P_{1,2}$, $P_{2,1}$ and $P_{3,2}$ are the single edges $u1$, $u2$, $36$ and $7v$, while $P_{2,2} = 24, \{4\}, 45, \{5\}, 57$ and $P_{3,1} = 68, \{8\}, 8v$.
+Every vertex outside $S_2 \cup S_3$ has degree two, two vertices of the same square are adjacent, and the cut $\{36, 24\}$ separates $S_2$ from $S_3$.
+Hence $G_1 \in \DC$.
+\end{example}
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{worked-example.pdf}
+    \caption{The graph $G_1$ of \cref{ex:worked} and its square decomposition}
+    \label{fig:worked-example}
+\end{figure}
+
+\subsection{Separating Shortest Paths}
+\label{sec:separating}
+
+By \cref{lem:basic-bounds} and \cref{prop:easy-pairs}(iii), a pair with $c(u, v) = 2$ satisfies $\cp(u, v) = d(u, v)$ if $G$ contains a separating shortest $u$--$v$ path, and $\cp(u, v) = d(u, v) + 1$ otherwise.
+Whether a $u$--$v$ path separates $u$ from $v$ is decided inside the squares.
+
+Let $R$ be a $u$--$v$ path.
+By \cref{thm:structure}(ii) and \cref{lem:pieces}(iii), the path $R$ contains exactly one of the two edges that enter $S_i$, for $2 \leq i \leq k$, and exactly one of the two edges that leave $S_i$, for $1 \leq i < k$.
+Let $x_i$ be the head of the edge of $R$ that enters $S_i$, and let $\alpha_i$ be the head of the other edge that enters $S_i$.
+Let $y_i$ be the tail of the edge of $R$ that leaves $S_i$, and let $\beta_i$ be the tail of the other edge that leaves $S_i$.
+We put $x_1 = \alpha_1 = u$ and $y_k = \beta_k = v$.
+Then $(x_i, \alpha_i)$ is $(a_i, b_i)$ or $(b_i, a_i)$, the pair $(y_i, \beta_i)$ is $(c_i, d_i)$ or $(d_i, c_i)$, and the trace of $R$ in $S_i$ is an $x_i$--$y_i$ path (\cref{fig:square-terminals}).
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{square-terminals.pdf}
+    \caption{A square $S_i$ and a trace $x, w, y$ that separates $\alpha$ from $\beta$ in (a) and does not in (b)}
+    \label{fig:square-terminals}
+\end{figure}
+
+\begin{lemma}[Separation criterion]
+\label{lem:criterion}
+Let $c(u, v) = 2$, and let $R$ be a $u$--$v$ path.
+The graph $G \setminus R$ contains a $u$--$v$ path if and only if, for every $i \in \{1, \dots, k\}$, the vertices $\alpha_i$ and $\beta_i$ lie in the same component of $S_i \setminus R$.
+\end{lemma}
+
+\begin{proof}
+Let $1 \leq i < k$.
+By \cref{thm:structure}(iv), $R$ contains the edges of one of the general paths from $S_i$ to $S_{i+1}$, and it contains no edge and visits no link of the other one, which we denote by $e_0, L_1, e_1, \dots, L_r, e_r$.
+The edge $e_0$ is the edge that leaves $S_i$ and does not lie on $R$, so its tail is $\beta_i$, and likewise the head of $e_r$ is $\alpha_{i+1}$.
+The links $L_1, \dots, L_r$ are connected and contain no edge of $R$.
+Hence $\beta_i$ and $\alpha_{i+1}$ lie in the same component of $G \setminus R$.
+
+Suppose that $\alpha_i$ and $\beta_i$ lie in the same component of $S_i \setminus R$ for every $i$.
+Then $u = \alpha_1$, $\beta_1$, $\alpha_2$, $\beta_2$, \dots, $\alpha_k$, $\beta_k = v$ all lie in the same component of $G \setminus R$.
+
+Conversely, let $Q$ be a $u$--$v$ path of $G \setminus R$, and let $1 \leq i \leq k$.
+By \cref{thm:structure}(ii), $Q$ visits $S_i$.
+If $i \geq 2$, the path $Q$ contains an edge that enters $S_i$ and does not lie on $R$, so the first vertex of $Q$ in $S_i$ is $\alpha_i$.
+If $i = 1$, this vertex is $u = \alpha_1$.
+In the same way, the last vertex of $Q$ in $S_i$ is $\beta_i$.
+The trace of $Q$ in $S_i$ is therefore an $\alpha_i$--$\beta_i$ path of $S_i \setminus R$.
+\end{proof}
+
+\begin{theorem}[Separating shortest paths]
+\label{thm:characterization}
+Let $G$ be a connected graph, let $u$ and $v$ be two vertices of $G$ with $c(u, v) = 2$, and let $S_1, \dots, S_k$ be the squares of $G$ with respect to $u$ and $v$, with the terminals $a_i, b_i, c_i, d_i$.
+Then $\cp(u, v) = d(u, v)$ if and only if there are an index $i$, a pair $(x, \alpha) \in \{(a_i, b_i), (b_i, a_i)\}$, a pair $(y, \beta) \in \{(c_i, d_i), (d_i, c_i)\}$ and an $x$--$y$ path $p$ of $S_i$ such that
+(i) $d(u, x) + |p| + d(y, v) = d(u, v)$ and
+(ii) the vertices $\alpha$ and $\beta$ lie in different components of $S_i \setminus p$.
+Otherwise $\cp(u, v) = d(u, v) + 1$.
+\end{theorem}
+
+\begin{proof}
+Suppose that $i$, $(x, \alpha)$, $(y, \beta)$ and $p$ satisfy (i) and (ii).
+Let $R_x$ be a shortest $u$--$x$ path and let $R_y$ be a shortest $y$--$v$ path of $G$.
+By (i), the paths $R_x$, $p$ and $R_y$ form a walk from $u$ to $v$ with $d(u, v)$ edges.
+Such a walk repeats no vertex, so it is a shortest $u$--$v$ path $R$.
+Let $x_i, \alpha_i, y_i, \beta_i$ be defined for $R$ as above, and let $p'$ be the trace of $R$ in $S_i$, which contains $p$.
+We show that $\alpha_i$ and $\alpha$ lie in the same component of $S_i \setminus p$.
+This holds if $\alpha_i = \alpha$, in particular if $i = 1$.
+Otherwise $(x_i, \alpha_i) = (\alpha, x)$, and the part of $p'$ from $x_i = \alpha$ to $x$ is a path of $S_i$ that shares no edge with $p$ and joins $\alpha$ to $\alpha_i = x$.
+In the same way, $\beta_i$ and $\beta$ lie in the same component of $S_i \setminus p$.
+By (ii), the vertices $\alpha_i$ and $\beta_i$ lie in different components of $S_i \setminus p$, and hence of its subgraph $S_i \setminus R$.
+By \cref{lem:criterion}, $R$ is a separating shortest $u$--$v$ path, and $\cp(u, v) = d(u, v)$ by \cref{lem:basic-bounds}.
+
+Conversely, suppose that $\cp(u, v) = d(u, v)$.
+By \cref{lem:basic-bounds}, $G$ contains a separating shortest $u$--$v$ path $R$, and by \cref{lem:criterion}, the vertices $\alpha_i$ and $\beta_i$ lie in different components of $S_i \setminus R$ for some $i$.
+Let $p$ be the trace of $R$ in $S_i$, and let $(x, \alpha) = (x_i, \alpha_i)$ and $(y, \beta) = (y_i, \beta_i)$.
+Condition (ii) holds because $S_i \setminus R = S_i \setminus p$.
+Condition (i) holds because the parts of the shortest path $R$ from $u$ to $x$ and from $y$ to $v$ are shortest paths.
+
+The last statement follows from \cref{prop:easy-pairs}(iii).
+\end{proof}
+
+A path $p$ with (i) is a shortest $x$--$y$ path of $G$, because $d(u, v) \leq d(u, x) + d(x, y) + d(y, v)$.
+A path $p$ with (ii) has at least one edge, because $S_i$ is connected.
+The first part of the proof constructs a separating shortest $u$--$v$ path from $p$.
+
+\begin{example}
+\label{ex:criterion}
+In the graph $G_a$ (\cref{ex:decomposition}), take $i = 2$, $(x, \alpha) = (a, b)$, $(y, \beta) = (b, a)$ and $p = a, b$.
+Then $d(u, a) + |p| + d(b, v) = 3 = d(u, v)$, and the graph $S_2 \setminus p$ has no edge, so it separates $\alpha = b$ from $\beta = a$.
+Hence $\cp(u, v) = 3$.
+
+In the graph $G_1$ (\cref{ex:worked}), take $i = 3$, $(x, \alpha) = (6, 7)$, $(y, \beta) = (7, 6)$ and $p = 6, 7$.
+Then $d(u, 6) + |p| + d(7, v) = 3 + 1 + 1 = d(u, v)$, and $S_3 \setminus p$ has no edge.
+Hence $\cp(u, v) = 5$, and $u, 1, 3, 6, 7, v$ is a minimum cut-path.
+
+Let $G_1'$ be obtained from $G_1$ by adding a vertex $9$ adjacent to $6$ and $7$.
+The set $F$, the distances from $u$ and to $v$ and the squares $S_1, S_2, S_4$ do not change, and $S_3 = \{6, 7, 9\}$.
+The only paths with at least one edge that satisfy (i) are the edges $13$ and $23$ of $S_2$ and the edge $67$ of $S_3$, and each of the graphs $S_2 \setminus \{13\}$, $S_2 \setminus \{23\}$ and $S_3 \setminus \{67\}$ is connected.
+Hence $\cp(u, v) = 6$ in $G_1'$.
+
+Let $G_1''$ be obtained from $G_1$ by removing the vertex $5$ and adding the edge $47$.
+Then $d(u, v) = 4$, the squares are those of $G_1$, and no path of a square with at least one edge satisfies (i).
+Hence $\cp(u, v) = 5$ in $G_1''$.
+\end{example}
+
+\subsection{A Linear-Time Algorithm}
+\label{sec:algorithm}
+
+In a graph of $\DC$, the paths $p$ of \cref{thm:characterization} have at most two edges, and a constant number of them has to be tested in each square.
+
+\begin{corollary}
+\label{cor:two-edges}
+Let $G \in \DC$ and let $u, v$ be two vertices of $G$ with $c(u, v) = 2$.
+Then every shortest $u$--$v$ path has at most two edges in every square.
+Every path $p$ that satisfies condition (i) of \cref{thm:characterization} has $|p| = d(x, y) \leq 2$.
+\end{corollary}
+
+\begin{proof}
+Let $x$ be an entering terminal and let $y$ be a leaving terminal of a square $S_i$.
+If $x \neq y$, then $c(x, y) \geq 3$ by \cref{thm:structure}(v), and $d(x, y) \leq 2$ by \cref{def:class}.
+Hence $d(x, y) \leq 2$ in all cases.
+The trace of a shortest $u$--$v$ path in $S_i$ is a shortest path of $G$ from an entering terminal to a leaving terminal of $S_i$.
+It contains all edges of the path in $S_i$, because an edge of a path joins two consecutive vertices of the path.
+A path $p$ with (i) is a shortest $x$--$y$ path of $G$.
+\end{proof}
+
+The set $F$ is computed from $p_1$ and $p_2$.
+Let $D$ be the directed graph with the vertex set $V$ that contains, for every edge $xy$ of $G$ outside $p_1 \cup p_2$, the arcs from $x$ to $y$ and from $y$ to $x$, and for every edge $xy$ that $p_1$ or $p_2$ traverses from $x$ to $y$, the arc from $y$ to $x$.
+It is the residual graph of the flow that sends one unit along $p_1$ and one along $p_2$.
+For a directed network, statement (i) of the following lemma is the theorem of Picard and Queyranne~\cite{PicardQueyranne1980} on the closed sets of the residual graph of a maximum flow, and statement (ii) is their criterion for saturated arcs.
+We give the short proofs for the flow of value two in the undirected graph $G$, where every edge outside $p_1 \cup p_2$ has both arcs in $D$.
+
+\begin{lemma}
+\label{lem:residual}
+Let $c(u, v) = 2$.
+(i) For a set $A \subseteq V$ with $u \in A$ and $v \notin A$, the set $\delta(A)$ is a minimum $u$--$v$ cut if and only if no arc of $D$ leads from $A$ to $V \setminus A$.
+(ii) An edge $xy$ that $p_1$ or $p_2$ traverses from $x$ to $y$ belongs to $F$ if and only if $x$ and $y$ lie in different strong components of $D$.
+\end{lemma}
+
+\begin{proof}
+(i) Let $\delta(A)$ be a minimum $u$--$v$ cut.
+By \cref{lem:orientation}, it consists of an edge of $p_1$ and an edge of $p_2$, and each of them is traversed by its path from $A$ to $V \setminus A$.
+The arcs of these two edges lead into $A$, and no other arc has its ends on different sides.
+Conversely, suppose that no arc of $D$ leads from $A$ to $V \setminus A$.
+Then every edge of $\delta(A)$ lies on $p_1$ or $p_2$ and is traversed by its path from $A$ to $V \setminus A$.
+A path that starts in $A$ and has left $A$ cannot leave $A$ again without returning to $A$ first, so each of $p_1$ and $p_2$ contains exactly one edge of $\delta(A)$.
+Hence $\delta(A)$ is a $u$--$v$ cut with two edges.
+
+(ii) Let $p_j$ be the path that contains $xy$.
+If $xy \in F$, it lies in a minimum $u$--$v$ cut $\delta(A)$, and $x \in A$, $y \notin A$ by \cref{lem:orientation}(ii).
+By (i), no directed path of $D$ leads from $x$ to $y$, so $x$ and $y$ lie in different strong components.
+Conversely, suppose that $x$ and $y$ lie in different strong components.
+Since $D$ contains the arc from $y$ to $x$, no directed path of $D$ leads from $x$ to $y$.
+Let $A$ be the set of all vertices that can be reached from $x$ by directed paths of $D$.
+Then $x \in A$, $y \notin A$, and no arc leads from $A$ to $V \setminus A$.
+The arcs of the edges of $p_j$ form a directed path from $v$ through $y$ and $x$ to $u$.
+Hence $u \in A$, and $v \notin A$ because $y$ can be reached from $v$.
+By (i), $\delta(A)$ is a minimum $u$--$v$ cut, and it contains $xy$.
+\end{proof}
+
+\begin{algorithm}[tb]
+\caption{A minimum cut-path if $c(u, v) = 2$, or two vertices that show $G \notin \DC$}
+\label{alg:cut-two}
+\begin{algorithmic}[1]
+\Require a connected graph $G = (V, E)$ and two vertices $u, v$ with $c(u, v) = 2$
+\Ensure $\cp(u, v)$ and a minimum cut-path between $u$ and $v$, or two vertices $x, y$ with $c(x, y) \geq 3$ and $d(x, y) \geq 3$ and a cut-path between $u$ and $v$ with $d(u, v) + 1$ edges
+\State compute $d(u, z)$ and $d(z, v)$ for all $z \in V$ by two breadth-first searches \label{line:bfs}
+\State compute two edge-disjoint $u$--$v$ paths $p_1$ and $p_2$ \label{line:paths}
+\State $F \gets$ the edges of $p_1 \cup p_2$ whose ends lie in different strong components of $D$ \label{line:residual}
+\State compute the pieces, the squares $S_1, \dots, S_k$ and their terminals \label{line:pieces}
+\For{$i \gets 1$ to $k$} \label{line:loop}
+    \For{each $(x, \alpha) \in \{(a_i, b_i), (b_i, a_i)\}$ and $(y, \beta) \in \{(c_i, d_i), (d_i, c_i)\}$ with $x \neq y$ and $\alpha \neq \beta$}
+        \State $\ell \gets d(u, v) - d(u, x) - d(y, v)$ \label{line:length}
+        \If{$\ell \geq 3$}
+            \State record the pair $x, y$ \Comment{$c(x, y) \geq 3$ and $d(x, y) \geq 3$} \label{line:record}
+        \EndIf
+        \State $\mathcal{P} \gets \emptyset$
+        \If{$\ell = 1$ and $xy \in E$}
+            \State $\mathcal{P} \gets$ the set that contains the path $x, y$ \label{line:edge}
+        \ElsIf{$\ell = 2$}
+            \State $q \gets$ an $\alpha$--$\beta$ path of $S_i$ \label{line:q}
+            \State $\mathcal{P} \gets$ the set of the paths $x, w, y$ of $S_i$ such that $xw$ or $wy$ is an edge of $q$ \label{line:candidates}
+        \EndIf
+        \For{each $p \in \mathcal{P}$}
+            \If{$\alpha$ and $\beta$ lie in different components of $S_i \setminus p$} \label{line:test}
+                \State \Return $d(u, v)$ and $R_x \cup p \cup R_y$ for a shortest $u$--$x$ path $R_x$ and a shortest $y$--$v$ path $R_y$ \label{line:found}
+            \EndIf
+        \EndFor
+    \EndFor
+\EndFor
+\State $R \gets$ a shortest $u$--$v$ path, $C \gets$ the set of the two edges that leave $S_1$ \label{line:union}
+\If{a pair $x, y$ is recorded}
+    \State \Return $x, y$ and $R \cup C$ \label{line:certificate}
+\EndIf
+\State \Return $d(u, v) + 1$ and $R \cup C$ \label{line:not-found}
+\end{algorithmic}
+\end{algorithm}
+
+\Cref{alg:cut-two} computes the square decomposition and searches every square for a path $p$ as in \cref{thm:characterization} with at most two edges.
+For a path with two edges it uses that a path which separates $\alpha$ from $\beta$ shares an edge with every $\alpha$--$\beta$ path of the square.
+The algorithm does not test whether $G \in \DC$.
+
+\begin{theorem}
+\label{thm:linear-time}
+There is an algorithm that, given a connected graph $G = (V, E)$ and two distinct vertices $u, v$ of $G$, decides in $O(|V| + |E|)$ time whether $c(u, v) \leq 2$.
+If so, it returns within the same time $\cp(u, v)$ and a minimum cut-path between $u$ and $v$, or it returns two vertices $x, y$ with $c(x, y) \geq 3$ and $d(x, y) \geq 3$, which show that $G \notin \DC$, and a cut-path between $u$ and $v$ with $d(u, v) + 1 \leq \cp(u, v) + 1$ edges.
+The second outcome does not occur for $G \in \DC$.
+\end{theorem}
+
+\begin{proof}
+The algorithm first computes, by at most three augmentations of the algorithm of Ford and Fulkerson~\cite[Section~10.4]{Erickson2019Algorithms}, a flow from $u$ to $v$ of value at most three in which every edge of $G$ carries at most one unit.
+Each augmentation is a search in the residual graph of the current flow and takes $O(|V| + |E|)$ time.
+The first augmentation succeeds because $G$ is connected.
+The cut-value $c(u, v)$ is one if the second augmentation fails, two if the third one fails, and at least three otherwise.
+If $c(u, v) = 1$, the algorithm returns $d(u, v)$ and a shortest $u$--$v$ path, which is correct by \cref{prop:easy-pairs}(ii).
+
+Let $c(u, v) = 2$.
+The two augmenting paths need not be edge-disjoint, because the second one can traverse an edge of the first one backwards, which cancels the flow on this edge.
+The paths $p_1$ and $p_2$ are therefore read from the flow of value two.
+Let $H$ be the directed graph formed by the edges that carry flow, each directed along the flow.
+In $H$, the vertex $u$ has two more leaving than entering arcs, the vertex $v$ has two more entering than leaving arcs, and every other vertex has as many entering as leaving arcs.
+No arc of $H$ leaves the set $X$ of the vertices that can be reached from $u$, so the vertices of $X$ have in total at most as many leaving as entering arcs, and hence $v \in X$.
+A search in $H$ therefore finds a $u$--$v$ path $p_1$.
+After the removal of the arcs of $p_1$, the same argument with one in place of two gives a $u$--$v$ path $p_2$.
+The paths $p_1$ and $p_2$ are edge-disjoint paths of $G$, and the arcs of $H$ that remain form cycles and are not used.
+Line~\ref{line:paths} of \cref{alg:cut-two} takes these two paths, and the algorithm runs \cref{alg:cut-two}.
+
+\emph{Correctness.}
+By \cref{lem:residual}(ii), line~\ref{line:residual} computes the set $F$, and the direction in which $p_1$ or $p_2$ traverses an edge of $F$ gives its tail and its head.
+Line~\ref{line:pieces} therefore computes the squares and the terminals of \cref{def:pieces,def:decomposition}.
+Every path $p$ that is tested in line~\ref{line:test} is an $x$--$y$ path of $S_i$ with $\ell$ edges, so it satisfies condition (i) of \cref{thm:characterization}.
+If the test succeeds, $p$ also satisfies condition (ii).
+By the proof of \cref{thm:characterization}, the set returned in line~\ref{line:found} is then a separating shortest $u$--$v$ path, which is a cut-path with $d(u, v) = \cp(u, v)$ edges.
+A path returned in line~\ref{line:found} is thus a minimum cut-path in every connected graph.
+
+If line~\ref{line:length} gives $\ell \geq 3$ for two terminals $x \neq y$, then $d(x, y) \geq \ell \geq 3$, because $d(u, v) \leq d(u, x) + d(x, y) + d(y, v)$, and $c(x, y) \geq 3$ by \cref{thm:structure}(v).
+A pair recorded in line~\ref{line:record} therefore shows that $G \notin \DC$, and no pair is recorded if $G \in \DC$.
+
+Suppose now that $\cp(u, v) = d(u, v)$ and that no pair is recorded.
+By \cref{thm:characterization}, there are $i$, $(x, \alpha)$, $(y, \beta)$ and $p$ with (i) and (ii).
+Then $\alpha \neq \beta$ and the path $p$ has at least one edge, so $x \neq y$, and line~\ref{line:length} gives $\ell = |p|$ for these terminals.
+Since the pair $x, y$ is not recorded, $\ell \in \{1, 2\}$.
+If $\ell = 1$, then $p$ is the path of line~\ref{line:edge}.
+If $\ell = 2$, let $p = x, w, y$.
+The path $q$ of line~\ref{line:q} is not a path of $S_i \setminus p$, so it contains the edge $xw$ or the edge $wy$.
+In both cases $p \in \mathcal{P}$, so the algorithm returns in line~\ref{line:found}, for this path or for an earlier one.
+
+Hence, if the algorithm reaches line~\ref{line:not-found}, then $\cp(u, v) = d(u, v) + 1$.
+The set $C$ of line~\ref{line:union} is a minimum $u$--$v$ cut by \cref{thm:structure}(i), and $R$ contains exactly one of its edges by \cref{lem:orientation}(ii).
+Hence $R \cup C$ is a cut-path with $d(u, v) + 1$ edges, which is a minimum cut-path in line~\ref{line:not-found} and has at most $\cp(u, v) + 1$ edges in line~\ref{line:certificate}.
+
+\emph{Running time.}
+The graph is given by adjacency lists.
+Breadth-first search~\cite[Section~8.4]{Erickson2019Algorithms} and the computation of strong components~\cite{Tarjan1972DFS} take $O(|V| + |E|)$ time.
+The paths $p_1$ and $p_2$ are found by two searches in $H$.
+Lines~\ref{line:bfs} to~\ref{line:pieces} consist of a constant number of such computations and of one search in $G \setminus F$ for the pieces.
+Let $S_i$ have $n_i$ vertices and $m_i$ edges.
+For each of the at most four choices of $(x, \alpha)$ and $(y, \beta)$, the path $q$ is found by one search in $S_i$.
+The path $q$ has at most two edges at $x$ and at most two edges at $y$, so $\mathcal{P}$ has at most four members.
+Whether $x, w, y$ is a path of $S_i$ is decided for each of these vertices $w$ after marking the neighbors of $x$ and of $y$.
+A vertex of $S_i$ is an end of at most four edges outside $S_i$, the edges that enter or leave $S_i$, so its neighbors are marked in $O(m_i + 1)$ time.
+The test of line~\ref{line:test} is one search in $S_i \setminus p$.
+The square $S_i$ therefore takes $O(n_i + m_i)$ time.
+The squares are pairwise disjoint, so the loop of line~\ref{line:loop} takes $O(|V| + |E|)$ time.
+The paths $R_x$, $R_y$ and $R$ are read from the breadth-first search trees.
+\end{proof}
+
+\Cref{alg:cut-two} returns $\cp(u, v)$ and a minimum cut-path whenever no pair is recorded, in particular if every entering terminal of every square is at distance at most two from every leaving terminal of the same square.
+
+\begin{example}
+\label{ex:two-edges}
+Let $G_a^{+}$ be obtained from the graph $G_a$ of \cref{ex:counterexamples} by adding a vertex $r$ adjacent to $u$ and $b$.
+The vertices of degree greater than two are $u$, $a$ and $b$, which are pairwise at distance at most two, so $G_a^{+} \in \DC$.
+The minimum $u$--$v$ cuts are $\{at, bv\}$ and $\{tv, bv\}$.
+Hence the squares are $S_1 = \{u, s, r, a, b\}$ and $S_2 = \{v\}$, the only link is $\{t\}$, and $c_1 = a$ and $d_1 = b$ for $p_1 = u, a, t, v$.
+For $(x, \alpha) = (u, u)$ and $(y, \beta) = (b, a)$, \cref{alg:cut-two} computes $\ell = 3 - 0 - 1 = 2$.
+Let $q$ be the path $u, a$.
+Its only edge is $ua$, so $w = a$, and $\mathcal{P}$ contains the path $p = u, a, b$.
+The vertex $a$ is isolated in $S_1 \setminus p$, so the algorithm returns $3$ and the path $u, a, b, v$.
+\end{example}
+
+\begin{corollary}
+\label{cor:class-pairs}
+Let $G \in \DC$ and let $u, v$ be two distinct vertices of $G$.
+If $c(u, v) \leq 2$, in particular if $d(u, v) \geq 3$, then $\cp(u, v)$ and a minimum cut-path between $u$ and $v$ are computed in $O(|V| + |E|)$ time.
+If $d(u, v) = 1$, they are computed by one computation of a minimum $u$--$v$ cut.
+\end{corollary}
+
+\begin{proof}
+A pair with $d(u, v) \geq 3$ has $c(u, v) \leq 2$ by \cref{def:class}.
+The first statement is \cref{thm:linear-time}, whose second outcome does not occur for $G \in \DC$, and the second is \cref{prop:easy-pairs}(i).
+A minimum $u$--$v$ cut is computed in polynomial time by a maximum flow~\cite[Sections~10.3 and~10.4]{Erickson2019Algorithms}.
+\end{proof}
+
+\begin{remark}[Coarser decompositions]
+\label{rem:coarser}
+Let $F'$ be the union of a nonempty set of minimum $u$--$v$ cuts, and define tails, heads, pieces, squares, links, terminals and general paths with $F'$ in place of $F$.
+\Cref{lem:orientation,lem:pieces,lem:degrees}, statements (i) to (iv) of \cref{thm:structure}, \cref{lem:criterion} and \cref{thm:characterization} remain true if \cref{lem:pieces}(i) is restricted to the minimum $u$--$v$ cuts contained in $F'$.
+Their proofs use only that every edge of $F$ lies in a minimum $u$--$v$ cut contained in $F$.
+Statement (v) of \cref{thm:structure} uses all minimum $u$--$v$ cuts and can fail for $F'$.
+If every entering terminal of every square of the coarser decomposition is at distance at most two from every leaving terminal of the same square, then lines~\ref{line:loop} to~\ref{line:not-found} of \cref{alg:cut-two} are correct for this decomposition as well.
+The square decomposition defined here is the finest of the decompositions of this remark.
+For $G \in \DC$, it satisfies the distance condition by \cref{thm:structure}(v).
+\end{remark}
+
+\section{From Pairs at Distance Two to a Zigzag Problem}
+\label{sec:zz-zigzag}
+
+An \emph{instance of the open case} is a triple $(G, u, v)$ with $G \in \DC$ and vertices $u, v$ of $G$ with $d(u, v) = 2$ and $c(u, v) \geq 3$.
+By \cref{prop:easy-pairs}(iv), we have $\cp(u, v) \in \{c(u, v), c(u, v) + 1\}$, so the question is whether $\cp(u, v) = c(u, v)$.
+\Cref{thm:zz-reduction} maps such an instance to an instance of a problem on a preordered set with the same answer, and \cref{lem:zz-answers} rewrites that problem in the form solved in \cref{sec:pa-polynomial}.
+In this section and in \cref{sec:pa-polynomial}, $m$ counts the switches of an instance of \cref{def:zz-general}, and the number of edges of $G$ is written $|E|$.
+
+\subsection{Preorders and the Problem ZZ}
+\label{sec:zz-preorders}
+
+\begin{definition}[Preorders]
+\label{def:zz-preorder}
+A \emph{preorder} $\leq$ on a finite set is a reflexive and transitive relation.
+We write $x < y$ if $x \leq y$ and not $y \leq x$.
+We write $x \sim y$, and call $x$ and $y$ \emph{tied}, if $x \leq y$ and $y \leq x$, and $[x]$ is the class of $x$ under this equivalence relation.
+We write $x \parallel y$, and call $x$ and $y$ \emph{incomparable}, if neither $x \leq y$ nor $y \leq x$.
+For a set $S$, we put $\dn S = \{x : x \leq y \text{ for some } y \in S\}$, $\upp S = \{x : x \geq y \text{ for some } y \in S\}$, $\dn x = \dn \{x\}$ and $\upp x = \upp \{x\}$.
+Hence $\dn x \setminus [x] = \{y : y < x\}$ and $\upp x \setminus [x] = \{y : y > x\}$.
+A \emph{down-set} $D$ satisfies $\dn D = D$, and an \emph{up-set} $D$ satisfies $\upp D = D$.
+Complements of down-sets are up-sets, intersections and unions of down-sets are down-sets, $\dn S$ is a down-set, and the complement of $\upp S$ is a down-set.
+If $x \leq y < z$ or $x < y \leq z$, then $x < z$, because $z \leq x$ would give $z \leq y$ in the first case and $y \leq x$ in the second.
+For every two elements $x, y$, exactly one of $x \leq y$, $y < x$ and $x \parallel y$ holds.
+\end{definition}
+
+\begin{definition}[ZZ and P2]
+\label{def:zz-zz}
+An instance of \emph{ZZ} is a tuple $(Q, \leq, R, u, v)$ that consists of a finite set $Q$ with a preorder $\leq$ such that $u \leq x \leq v$ for every $x \in Q$, and a set $R$ of pairs $\{a, b\} \subseteq Q$ with $a < b$ such that $\{u, v\} \notin R$.
+The pairs of $R$ are \emph{real edges}, and we write $ab$ for a real edge with $a < b$.
+For a down-set $D$ of $Q$ with $u \in D$ and $v \notin D$, the graph $G_D$ on $Q$ has as its edges the real edges with exactly one end in $D$.
+The instance is a \emph{yes-instance} if $u$ and $v$ are connected in $G_D$ for some such $D$.
+It satisfies \emph{P2} if every two incomparable elements $x, y$ have a common $R$-neighbor $z$ with $z < x$ and $z < y$ (a \emph{lower witness}) or with $z > x$ and $z > y$ (an \emph{upper witness}).
+\end{definition}
+
+A path of $G_D$ alternates between $D$ and $Q \setminus D$, which gives ZZ its name (zigzag).
+
+\subsection{The General Switch Form}
+\label{sec:zz-switch-form}
+
+\begin{definition}[General switch form]
+\label{def:zz-general}
+An instance has a finite set $\Omega$ of \emph{nodes} with two \emph{terminals} $s, t \in \Omega$, a finite set $M$ of \emph{switches} with a preorder $\leq$, and a set of middle edges.
+We write $m = |M|$.
+Every switch $w$ has an \emph{E-side} and an \emph{F-side}, with node sets $E_w \subseteq \Omega$ and $F_w \subseteq \Omega$.
+Sides are labeled, that is, a side is a switch together with E or F, and we denote a side by its node set, $E_w$ or $F_w$.
+A \emph{middle edge} is an ordered pair $(z, w)$ of switches with $z < w$, and it has a \emph{private node} $\rho(z, w) \in \Omega$ that lies in $F_z$ and in $E_w$ and in no other side.
+The sets $\LMN(w) = \{z : (z, w) \text{ is a middle edge}\}$ and $\UMN(w) = \{z : (w, z) \text{ is a middle edge}\}$ consist of the lower and the upper middle neighbors of $w$.
+The instance satisfies \emph{P2} if every two incomparable switches $x, y$ have a common E-node ($E_x \cap E_y \neq \emptyset$), or a common F-node ($F_x \cap F_y \neq \emptyset$), or a \emph{lower middle witness} $z \in \LMN(x) \cap \LMN(y)$, or an \emph{upper middle witness} $z \in \UMN(x) \cap \UMN(y)$.
+\end{definition}
+
+\begin{definition}[Mode vectors, conflict pairs, valid paths]
+\label{def:zz-valid}
+A \emph{mode vector} is a down-set $D$ of $(M, \leq)$.
+Switches in $D$ are in \emph{F-mode}, the others in \emph{E-mode}.
+The mode vector $D$ \emph{picks} $F_w$ for $w \in D$ and $E_w$ for $w \notin D$.
+It \emph{connects} $s$ and $t$ if $s = t$ or there are picked sides $X_1, \dots, X_h$ with $h \geq 1$, $s \in X_1$, $t \in X_h$ and $X_i \cap X_{i+1} \neq \emptyset$ for $i < h$.
+The instance is a \emph{yes-instance} if some mode vector connects $s$ and $t$.
+A \emph{conflict pair} is a pair of sides $\{E_w, F_z\}$ with $w \leq z$, in particular $\{E_w, F_w\}$.
+A \emph{valid path} is a sequence $P = X_1, \dots, X_q$ with $q \geq 1$ of sides of pairwise distinct switches, with $s \in X_1$, $t \in X_q$ and $X_i \cap X_{i+1} \neq \emptyset$ for $i < q$, no two of which form a conflict pair.
+Its sides are its \emph{members}.
+A switch $w$ is \emph{on} $P$ if one of its sides is a member, and then $\pos(w)$ is the index of that member.
+We write $W_E$ and $W_F$ for the sets of switches whose E-side and whose F-side, respectively, is a member, and we put $U_P = \upp W_E$ and $L_P = \dn W_F$.
+A valid path is \emph{shortest} if no valid path has fewer members.
+\end{definition}
+
+\subsection{Reduction of the Open Case to ZZ with P2}
+\label{sec:zz-reduction}
+
+Throughout this subsection, $(G, u, v)$ is an instance of the open case with $n$ vertices.
+
+\begin{lemma}[Bridges]
+\label{lem:zz-bridges}
+Let $K$ be the component containing $u$ of the graph obtained from $G$ by removing all bridges.
+(a) We have $v \in V(K)$.
+(b) For $x, y \in V(K)$, the $x$--$y$ paths of $G$ are exactly the $x$--$y$ paths of $K$.
+Hence $d_K(x, y) = d(x, y)$, $c_K(x, y) = c(x, y)$, and an edge set is a minimum $x$--$y$ cut of $G$ if and only if it is a minimum $x$--$y$ cut of $K$.
+(c) Some minimum $u$--$v$ cut of $G$ contains a $u$--$v$ path if and only if some minimum $u$--$v$ cut of $K$ does.
+(d) The graph $K$ is connected, has no bridge and lies in $\DC$, and $d_K(u, v) = 2$, $c_K(u, v) \geq 3$.
+\end{lemma}
+
+\begin{proof}
+A bridge $b = pp'$ of the connected graph $G$ lies on no cycle, and $G \setminus \{b\}$ has exactly two components $Y_p \ni p$ and $Y_{p'} \ni p'$.
+If a path with ends $x$ and $y$ uses $b$, traversed from $x$ to $p$, then to $p'$ and then to $y$, then its two sub-paths avoid $b$, so $x \in Y_p$, $y \in Y_{p'}$, and $b$ separates $x$ from $y$.
+Call this fact $(*)$.
+
+(a) A $u$--$v$ path through a bridge $b$ would make $\{b\}$ a $u$--$v$ cut by $(*)$, against $c(u, v) \geq 3$.
+As $G$ is connected, a $u$--$v$ path exists.
+It uses no bridge, so it lies in the component $K$ of $u$.
+
+(b) Let $x, y \in V(K)$.
+They are joined by a path of $K$, which avoids every bridge $b$, so $x$ and $y$ lie in one component of $G \setminus \{b\}$, and by $(*)$ no $x$--$y$ path of $G$ uses $b$.
+Hence every $x$--$y$ path of $G$ avoids all bridges and, starting in $K$, lies in $K$.
+Conversely, every path of $K$ is a path of $G$.
+So the distances agree, and an edge set $C \subseteq E$ meets every $x$--$y$ path of $G$ if and only if $C \cap E(K)$ meets every $x$--$y$ path of $K$.
+Therefore $c(x, y) = c_K(x, y)$, a minimum cut of $G$ lies in $E(K)$ because otherwise $C \cap E(K)$ is a smaller cut, and a minimum cut of $K$ is a cut of $G$ of the same size.
+
+(c) By (b) with $x = u$ and $y = v$, the minimum cuts and the $u$--$v$ paths are the same in $G$ and in $K$.
+
+(d) The graph $K$ is a component, hence connected.
+An edge $e$ of $K$ is not a bridge of $G$, so it lies on a cycle of $G$.
+That cycle contains no bridge, so it lies in the component $K$, and $e$ is not a bridge of $K$.
+Membership in $\DC$ is a condition on $d$ and $c$ of pairs of vertices, which agree by (b).
+So $K \in \DC$, $d_K(u, v) = 2$ and $c_K(u, v) = c(u, v) \geq 3$.
+\end{proof}
+
+From now on, $K$ is the graph of \cref{lem:zz-bridges}, and we put
+\[
+Q = \{u\} \cup \{x \in V(K) : c_K(u, x) \geq 3\}.
+\]
+We have $v \in Q$ because $c_K(u, v) \geq 3$.
+For distinct $x, y \in V(K)$ and a set $S \subseteq V(K)$ with $x \in S$ and $y \notin S$, the set $\delta_K(S)$ of edges of $K$ with exactly one end in $S$ is an $x$--$y$ cut of $K$, and by \cref{lem:minimum-cuts} applied to $K$, every minimum $x$--$y$ cut of $K$ has this form.
+We also call a set $S \subseteq V(K)$ with $u \in S$, $v \notin S$ and $|\delta_K(S)| = c_K(u, v)$ a \emph{minimum $u$--$v$ cut of $K$}, and we say that it \emph{contains} a path $\pi$ if $\pi \subseteq \delta_K(S)$.
+
+\begin{lemma}[Paths inside minimum cuts lie in $Q$]
+\label{lem:zz-paths-in-q}
+(a) Let $S$ be a minimum $u$--$v$ cut of $K$ that contains a $u$--$v$ path $\pi$, and let $Y \subseteq V(K) \setminus \{u, v\}$ with $|\delta_K(Y)| \leq 2$.
+Then $\pi$ has no vertex in $Y$.
+(b) Every vertex of such a path $\pi$ lies in $Q$.
+(c) Every two distinct $x, y \in Q$ satisfy $c_K(x, y) \geq 3$ and $d_K(x, y) \leq 2$.
+\end{lemma}
+
+\begin{proof}
+(a) Suppose that $\pi$ has a vertex in $Y$.
+It starts at $u \notin Y$ and ends at $v \notin Y$, so the edge by which it first enters $Y$ and the edge by which it last leaves $Y$ are two distinct edges of $\delta_K(Y)$.
+As $|\delta_K(Y)| \leq 2$, we have $\delta_K(Y) = \{e_1, e_2\}$ with $e_i = x_i y_i$, $x_i \in Y$, $y_i \notin Y$, and $e_1, e_2 \in \pi \subseteq \delta_K(S)$.
+Let $J$ be the set of edges of $\delta_K(S)$ with no end in $Y$.
+Then $|\delta_K(S)| \geq |J| + 2$.
+The sets $S \setminus Y$ and $S \cup Y$ contain $u$ and not $v$.
+An edge with no end in $Y$ lies in $\delta_K(S \setminus Y)$, and in $\delta_K(S \cup Y)$, if and only if it lies in $\delta_K(S)$, that is, in $J$.
+An edge with both ends in $Y$ lies in neither of the two sets.
+The edge $e_i$ lies in $\delta_K(S \setminus Y)$ if and only if $y_i \in S$, and in $\delta_K(S \cup Y)$ if and only if $y_i \notin S$.
+Hence $|\delta_K(S \setminus Y)| = |J| + |\{i : y_i \in S\}|$ and $|\delta_K(S \cup Y)| = |J| + |\{i : y_i \notin S\}|$.
+The two last terms sum to two, so one of the two sets has at most $|J| + 1 < |\delta_K(S)| = c_K(u, v)$ boundary edges.
+This set gives a $u$--$v$ cut with fewer than $c_K(u, v)$ edges, a contradiction.
+
+(b) The ends $u$ and $v$ lie in $Q$.
+Let $x$ be another vertex of $\pi$, and suppose that $x \notin Q$, so $c_K(u, x) \leq 2$.
+By \cref{lem:minimum-cuts}, there is a set $Y$ with $x \in Y$, $u \notin Y$ and $|\delta_K(Y)| = c_K(x, u) \leq 2$.
+If $v \in Y$, then $\delta_K(Y)$ is a $u$--$v$ cut with at most $2 < c_K(u, v)$ edges.
+So $v \notin Y$ and $Y \subseteq V(K) \setminus \{u, v\}$, and $x \in Y$ contradicts (a).
+
+(c) If $x = u$ or $y = u$, then $c_K(x, y) \geq 3$ by the definition of $Q$.
+Otherwise $c_K(x, u) \geq 3$ and $c_K(u, y) \geq 3$ give $c_K(x, y) \geq 3$ by the transitivity in \cref{prop:class}, applied to $K$.
+As $K \in \DC$ by \cref{lem:zz-bridges}(d), we have $d_K(x, y) \leq 2$.
+\end{proof}
+
+We write $K - Q$ for the graph obtained from $K$ by removing the vertices of $Q$.
+
+\begin{lemma}[Ears]
+\label{lem:zz-ears}
+Call a set $Y \subseteq V(K)$ an \emph{ear set} if $Y \neq \emptyset$, $Y \cap Q = \emptyset$ and $|\delta_K(Y)| = 2$.
+(a) Every vertex of $V(K) \setminus Q$ lies in an ear set.
+(b) If two ear sets intersect or are joined by an edge, their union is an ear set.
+(c) The inclusion-maximal ear sets, called \emph{ears}, are exactly the vertex sets of the components of $K - Q$.
+They partition $V(K) \setminus Q$, no edge joins two ears, and every ear $Y$ has $\delta_K(Y) = \{pa, p'a'\}$ with $a, a' \in Y$ and $p, p' \in Q$, where $a = a'$ or $p = p'$ is allowed.
+The vertices $p$ and $p'$ are the \emph{attachments} of $Y$.
+(d) Let $E[Y] = E(K[Y]) \cup \delta_K(Y)$ for an ear $Y$.
+If the attachments $p, p'$ of $Y$ are distinct and $S \subseteq V(K)$ contains exactly one of them, then $\delta_K(S) \cap E[Y] \neq \emptyset$.
+Every edge of $K$ lies either in $K[Q]$ or in $E[Y]$ for exactly one ear $Y$.
+\end{lemma}
+
+\begin{proof}
+Every set $Z$ with $\emptyset \neq Z \subsetneq V(K)$ has $|\delta_K(Z)| \geq 2$, with at least one edge since $K$ is connected, and a single edge would be a bridge, which $K$ does not have by \cref{lem:zz-bridges}(d).
+Call this fact $(**)$.
+
+(a) Let $x \in V(K) \setminus Q$.
+Then $x \neq u$ and $c_K(u, x) \leq 2$.
+By \cref{lem:minimum-cuts}, there is a set $Y$ with $x \in Y$, $u \notin Y$ and $|\delta_K(Y)| = c_K(x, u) \leq 2$, and $|\delta_K(Y)| = 2$ by $(**)$.
+If $x' \in Y \cap Q$, then $x' \neq u$ and $\delta_K(Y)$ separates $x'$ from $u$, so $c_K(u, x') \leq 2$, against $x' \in Q$.
+So $Y$ is an ear set containing $x$.
+
+(b) Let $Y$ and $Y'$ be ear sets.
+If $Y \cap Y' \neq \emptyset$, then $Y \cup Y'$ and $Y \cap Y'$ are non-empty and miss $u$, so by $(**)$ and \cref{lem:uncrossing} applied to $K$,
+\[
+4 \leq |\delta_K(Y \cup Y')| + |\delta_K(Y \cap Y')| \leq |\delta_K(Y)| + |\delta_K(Y')| = 4,
+\]
+whence $|\delta_K(Y \cup Y')| = 2$.
+If $Y \cap Y' = \emptyset$ and $j \geq 1$ edges join them, then $|\delta_K(Y \cup Y')| = 4 - 2j \leq 2$, and $|\delta_K(Y \cup Y')| \geq 2$ by $(**)$.
+In both cases $Y \cup Y'$ misses $Q$.
+
+(c) By (b), two distinct maximal ear sets are disjoint and not joined by an edge, because their union would be a larger ear set.
+By (a), every vertex of $V(K) \setminus Q$ lies in a maximal ear set.
+Let $Y$ be an ear.
+Distinct components $Z$ of $K[Y]$ have disjoint sets $\delta_K(Z) \subseteq \delta_K(Y)$, because no edge joins $Z$ to $Y \setminus Z$, and each of these sets has size at least two by $(**)$.
+As $|\delta_K(Y)| = 2$, the graph $K[Y]$ is connected.
+The outer end of an edge of $\delta_K(Y)$ lies outside $Y$ and in no other ear, so it lies in $Q$.
+Hence the ears are connected subsets of $K - Q$, pairwise non-adjacent, covering $V(K) \setminus Q$, so they are the vertex sets of the components of $K - Q$.
+
+(d) Let $\delta_K(Y) = \{pa, p'a'\}$ with $p \neq p'$.
+The walk that goes from $p$ to $a$, along a path from $a$ to $a'$ in the connected graph $K[Y]$, and from $a'$ to $p'$, is a $p$--$p'$ path with edges in $E[Y]$.
+Since $S$ contains exactly one of its ends, one of its edges lies in $\delta_K(S)$.
+An edge with an end in an ear $Y$ has its other end in $Y$ or in $Q$ by (c), so it lies in $E[Y]$ and in no $E[Y']$ with $Y' \neq Y$.
+An edge with no end in an ear lies in $K[Q]$.
+\end{proof}
+
+\begin{lemma}[The multigraph $H$]
+\label{lem:zz-multigraph}
+Let $H$ be the multigraph on $Q$ whose edges are the edges of $K[Q]$, called \emph{real edges}, and, for every ear with distinct attachments $p$ and $p'$, one edge $pp'$, called its \emph{ear edge}.
+The set $\delta_H(B)$ of edges with exactly one end in $B \subseteq Q$ is counted with multiplicity.
+A set $B \subseteq Q$ with $u \in B$, $v \notin B$ and least $|\delta_H(B)|$ is a \emph{minimum $u$--$v$ cut of $H$}, and $c_H(u, v)$ is that least value.
+For every ear $Y$ fix an order $(p_Y, p'_Y)$ of its attachments, and for $B \subseteq Q$ put $A(B) = B \cup \bigcup \{Y : Y \text{ is an ear with } p_Y \in B\}$.
+Then the following hold.
+(a) We have $A(B) \cap Q = B$ and $|\delta_K(A(B))| = |\delta_H(B)|$ for every $B \subseteq Q$.
+(b) We have $|\delta_K(S)| \geq |\delta_H(S \cap Q)|$ for every $S \subseteq V(K)$.
+(c) We have $c_H(u, v) = c_K(u, v)$.
+For every minimum $u$--$v$ cut $S$ of $K$, the set $S \cap Q$ is a minimum $u$--$v$ cut of $H$, and for every minimum $u$--$v$ cut $B$ of $H$, the set $A(B)$ is a minimum $u$--$v$ cut of $K$.
+(d) Some minimum $u$--$v$ cut of $K$ contains a $u$--$v$ path if and only if some minimum $u$--$v$ cut $B$ of $H$ has a $u$--$v$ path of real edges all of which lie in $\delta_H(B)$.
+(e) Every two distinct $x, y \in Q$ are joined by a real edge or by an ear edge, or have a common neighbor $z \in Q$ in $K$, so that $xz$ and $yz$ are real edges.
+\end{lemma}
+
+\begin{proof}
+By \cref{lem:zz-ears}(d), every edge of $K$ is a real edge or lies in $E[Y]$ for exactly one ear $Y$.
+
+(a) The equality $A(B) \cap Q = B$ holds since ears miss $Q$.
+A real edge lies in $\delta_K(A(B))$ if and only if it lies in $\delta_H(B)$.
+Edges of $K[Y]$ never lie in $\delta_K(A(B))$, since $Y \subseteq A(B)$ or $Y \cap A(B) = \emptyset$.
+Let $\delta_K(Y) = \{p_Y a, p'_Y a'\}$.
+If $p_Y \in B$, then $Y \subseteq A(B)$, the edge $p_Y a$ is not cut, and $p'_Y a'$ is cut if and only if $p'_Y \notin B$.
+If $p_Y \notin B$, then $Y \cap A(B) = \emptyset$, the edge $p_Y a$ is not cut, and $p'_Y a'$ is cut if and only if $p'_Y \in B$.
+So the ear contributes one edge exactly when $B$ contains exactly one of $p_Y$ and $p'_Y$.
+This needs $p_Y \neq p'_Y$, and then it is exactly the case that its ear edge lies in $\delta_H(B)$.
+Otherwise the ear contributes no edge.
+
+(b) Every real edge of $\delta_H(S \cap Q)$ lies in $\delta_K(S)$.
+For every ear edge of $\delta_H(S \cap Q)$, the set $S$ contains exactly one attachment of its ear $Y$, so $\delta_K(S)$ contains an edge of $E[Y]$ by \cref{lem:zz-ears}(d).
+These edges are distinct for distinct ears and are not real edges.
+
+(c) For a minimum $u$--$v$ cut $B$ of $H$, the set $A(B)$ contains $u$ and not $v$ by (a), so $c_K(u, v) \leq |\delta_K(A(B))| = |\delta_H(B)| = c_H(u, v)$.
+For a minimum $u$--$v$ cut $S$ of $K$, the set $S \cap Q$ contains $u$ and not $v$, so $c_H(u, v) \leq |\delta_H(S \cap Q)| \leq |\delta_K(S)| = c_K(u, v)$ by (b).
+Hence $c_H(u, v) = c_K(u, v)$, and all these inequalities are equalities.
+
+(d) Let $S$ be a minimum $u$--$v$ cut of $K$ containing a $u$--$v$ path $\pi$.
+By \cref{lem:zz-paths-in-q}(b), all vertices of $\pi$ lie in $Q$, so its edges are real edges.
+Each of them has exactly one end in $S$, hence exactly one in $S \cap Q$, which is a minimum cut of $H$ by (c).
+Conversely, let $B$ be a minimum cut of $H$ and $\pi$ a $u$--$v$ path of real edges in $\delta_H(B)$.
+Each edge of $\pi$ has both ends in $Q$ and exactly one of them in $B = A(B) \cap Q$, so it lies in $\delta_K(A(B))$, and $A(B)$ is a minimum cut of $K$ by (c).
+
+(e) By \cref{lem:zz-paths-in-q}(c), we have $d_K(x, y) \leq 2$.
+If $xy \in E(K)$, it is a real edge.
+Otherwise $x$ and $y$ have a common neighbor $z$.
+If $z \in Q$, then $xz$ and $yz$ are real edges.
+If $z \notin Q$, then $z$ lies in an ear $Y$ by \cref{lem:zz-ears}(c), and $xz$ and $yz$ are two distinct edges of $\delta_K(Y)$.
+As $|\delta_K(Y)| = 2$, the attachments of $Y$ are $x$ and $y$, with $x \neq y$, and $H$ has the ear edge $xy$.
+\end{proof}
+
+\begin{lemma}[Uncrossing in $H$]
+\label{lem:zz-uncrossing}
+Let $S_1$ and $S_2$ be minimum $u$--$v$ cuts of $H$.
+Then $S_1 \cap S_2$ and $S_1 \cup S_2$ are minimum $u$--$v$ cuts of $H$, and no edge of $H$ joins $S_1 \setminus S_2$ and $S_2 \setminus S_1$.
+\end{lemma}
+
+\begin{proof}
+The proof of \cref{lem:uncrossing} counts one edge at a time, so it gives
+\[
+|\delta_H(S_1 \cap S_2)| + |\delta_H(S_1 \cup S_2)| = |\delta_H(S_1)| + |\delta_H(S_2)| - 2 j
+\]
+for the multigraph $H$, where $j$ is the number of edges, with multiplicity, between $S_1 \setminus S_2$ and $S_2 \setminus S_1$.
+The sets $S_1 \cap S_2$ and $S_1 \cup S_2$ contain $u$ and not $v$, so each of them has at least $c_H(u, v)$ boundary edges.
+The identity with $j \geq 0$ forces both values to equal $c_H(u, v)$ and $j = 0$.
+\end{proof}
+
+\begin{definition}[The ZZ instance of $(G, u, v)$]
+\label{def:zz-instance}
+For $x, y \in Q$ let $x \leq y$ if every minimum $u$--$v$ cut of $H$ that contains $y$ contains $x$.
+Let $R$ be the set of real edges of $H$ whose ends are not tied.
+The \emph{ZZ instance of} $(G, u, v)$ is $(Q, \leq, R, u, v)$.
+\end{definition}
+
+\begin{lemma}[Incomparable elements]
+\label{lem:zz-incomparable}
+The relation $\leq$ is a preorder on $Q$ with $u \leq x \leq v$ for every $x \in Q$, and $u < v$.
+If $x, y \in Q$ are incomparable, no edge of $H$, real or ear, joins them.
+Hence every edge of $R$ joins two strictly comparable elements, and $\{u, v\} \notin R$.
+\end{lemma}
+
+\begin{proof}
+Reflexivity and transitivity follow from the definition.
+Every minimum cut contains $u$, so $u \leq x$, and none contains $v$, so $x \leq v$.
+A minimum $u$--$v$ cut of $H$ exists and contains $u$ but not $v$, so $v \leq u$ fails and $u < v$.
+Let $x \parallel y$.
+As $x \leq y$ fails, some minimum cut $S_2$ contains $y$ and not $x$.
+As $y \leq x$ fails, some minimum cut $S_1$ contains $x$ and not $y$.
+By \cref{lem:zz-uncrossing}, no edge joins $S_1 \setminus S_2 \ni x$ and $S_2 \setminus S_1 \ni y$.
+An edge of $R$ joins ends that are not tied and, by what was just shown, comparable, hence strictly comparable.
+We have $uv \notin E(K)$ since $d_K(u, v) = 2$, so $\{u, v\}$ is not a real edge.
+\end{proof}
+
+\begin{lemma}[Minimum cuts are down-sets]
+\label{lem:zz-down-sets}
+A set $D \subseteq Q$ is a minimum $u$--$v$ cut of $H$ if and only if $D$ is a down-set of $(Q, \leq)$ with $u \in D$ and $v \notin D$.
+\end{lemma}
+
+\begin{proof}
+Let $D$ be a minimum cut, $y \in D$ and $x \leq y$.
+By the definition of $\leq$, we have $x \in D$.
+So $D$ is a down-set, and $u \in D$, $v \notin D$.
+Conversely, let $D$ be a down-set with $u \in D$ and $v \notin D$, and let $y \in D$.
+Some minimum cut contains $y$, since otherwise $v \leq y$ holds vacuously and $v \in D$.
+The intersection $S_y$ of the minimum cuts containing $y$ is a minimum cut by repeated use of \cref{lem:zz-uncrossing}.
+By the definition of $\leq$, it equals $\{x : x \leq y\}$, which lies in $D$ as $D$ is a down-set.
+So $D = \bigcup_{y \in D} S_y$ is a union of minimum cuts, non-empty as $u \in D$, hence a minimum cut by \cref{lem:zz-uncrossing}.
+\end{proof}
+
+\begin{lemma}[P2]
+\label{lem:zz-p2}
+The ZZ instance $(Q, \leq, R, u, v)$ satisfies P2.
+\end{lemma}
+
+\begin{proof}
+Let $x \parallel y$, so $x \neq y$.
+By \cref{lem:zz-multigraph}(e), the elements $x$ and $y$ are joined by a real or an ear edge, or have a common neighbor $z \in Q$ with real edges $xz$ and $yz$.
+The first two cases are excluded by \cref{lem:zz-incomparable}.
+By the same lemma, $z$ is comparable with $x$ and with $y$.
+If $x \leq z \leq y$ or $y \leq z \leq x$, then $x$ and $y$ would be comparable.
+Hence $z \leq x$ and $z \leq y$, or $z \geq x$ and $z \geq y$.
+If $z \sim x$, comparability of $z$ and $y$ would make $x$ and $y$ comparable, so $z$ is not tied with $x$, and likewise not with $y$.
+Hence $z < x$ and $z < y$, or $z > x$ and $z > y$, and $xz$ and $yz$ join elements that are not tied, so they belong to $R$.
+So $z$ is a lower or an upper witness.
+\end{proof}
+
+\begin{theorem}[Reduction]
+\label{thm:zz-reduction}
+Let $(G, u, v)$ be an instance of the open case with $n$ vertices.
+Its ZZ instance $(Q, \leq, R, u, v)$ satisfies P2 and $u < v$, has $|Q| \leq n$ and $|R| \leq |E|$, and is computable in time polynomial in $n$.
+We have $\cp(u, v) = c(u, v)$ if and only if it is a yes-instance of ZZ.
+\end{theorem}
+
+\begin{proof}
+P2 is \cref{lem:zz-p2}, and $u < v$ and the form of $R$ are \cref{lem:zz-incomparable}.
+We have $Q \subseteq V(K) \subseteq V$ and $R \subseteq E(K[Q]) \subseteq E$.
+
+\emph{Answer.}
+By \cref{prop:open-pairs}, $\cp(u, v) = c(u, v)$ if and only if some minimum $u$--$v$ cut of $G$ contains a $u$--$v$ path.
+By \cref{lem:zz-bridges}(c) and \cref{lem:minimum-cuts}, this holds if and only if some minimum $u$--$v$ cut $S$ of $K$ contains a $u$--$v$ path.
+By \cref{lem:zz-multigraph}(d), this holds if and only if some minimum $u$--$v$ cut $B$ of $H$ has a $u$--$v$ path of real edges inside $\delta_H(B)$.
+By \cref{lem:zz-down-sets}, these sets $B$ are exactly the down-sets $D$ with $u \in D$ and $v \notin D$.
+For such $D$, a real edge with exactly one end in $D$ joins elements that are not tied, because a down-set contains, with an element, its whole class, so the edge lies in $R$.
+Conversely, an edge of $R$ with exactly one end in $D$ is a real edge in $\delta_H(D)$.
+So the real edges inside $\delta_H(D)$ are exactly the edges of $G_D$, and the condition says that $u$ and $v$ are connected in $G_D$ for some such $D$.
+
+\emph{Time.}
+The bridges and $K$ take $O(n + |E|)$ time.
+The set $Q$ takes one test $c_K(u, x) \geq 3$ per vertex, each by at most three augmenting-path searches.
+The ears are the components of $K - Q$ by \cref{lem:zz-ears}(c), with their attachments read off their boundary edges.
+This gives $H$, with $|Q| \leq n$ vertices and at most $|E| + n$ edges.
+The value $c_K(u, v)$ takes one maximum-flow computation.
+For the preorder, $x \leq y$ holds if $x = y$, $x = u$ or $y = v$.
+Otherwise it holds if and only if no minimum $u$--$v$ cut of $H$ contains $y$ but not $x$, that is, if and only if the least $|\delta_H(S)|$ over all $S$ with $\{u, y\} \subseteq S \subseteq Q \setminus \{x, v\}$ exceeds $c_K(u, v)$.
+This is one maximum-flow computation between $\{u, y\}$ and $\{x, v\}$.
+So at most $|Q|^2$ flow computations in $H$ are needed, and $R$ follows.
+All of this is polynomial in $n$.
+\end{proof}
+
+\subsection{The Switch Form of a ZZ Instance}
+\label{sec:zz-construction}
+
+\begin{definition}[Switch form of a ZZ instance]
+\label{def:zz-switch-form}
+Let $(Q, \leq, R, u, v)$ be a ZZ instance with $u < v$, and let $[u]$ and $[v]$ be the classes of $u$ and $v$, which are disjoint as $u < v$.
+The \emph{switches} are the elements of $M = Q \setminus ([u] \cup [v])$, with the restriction of $\leq$, and $m = |M|$.
+A real edge $ab$ with $a < b$ is of one of four kinds, namely $a \in [u]$, $b \in [v]$, or $a \in [u]$, $b \in M$, or $a \in M$, $b \in [v]$, or $a, b \in M$.
+Indeed, its ends are strictly comparable, so they are not both in $[u]$ or both in $[v]$, and $a \in [v]$ would give $v \leq a < b \leq v$, and $b \in [u]$ would give $u \leq a < b \leq u$.
+The \emph{nodes} are the vertex sets of the components of the graph on $[u] \cup [v]$ whose edges are the real edges of the first kind, and one new node $\rho(a, b)$ for every real edge $ab$ of the fourth kind.
+We write $\nodeof(x)$ for the component of $x \in [u] \cup [v]$.
+The terminals are $s = \nodeof(u)$ and $t = \nodeof(v)$.
+For $w \in M$, we put
+\begin{align*}
+E_w &= \{\nodeof(a) : aw \in R,\ a \in [u]\} \cup \{\rho(a, w) : aw \in R,\ a \in M,\ a < w\},\\
+F_w &= \{\nodeof(b) : wb \in R,\ b \in [v]\} \cup \{\rho(w, b) : wb \in R,\ b \in M,\ w < b\}.
+\end{align*}
+The middle edges are the pairs $(a, b)$ for the real edges $ab$ of the fourth kind, with private node $\rho(a, b)$.
+\end{definition}
+
+\begin{lemma}[Well defined, P2, sizes]
+\label{lem:zz-switch-form}
+\Cref{def:zz-switch-form} gives an instance of the general switch form, that is, every middle edge $(a, b)$ has $a < b$, and $\rho(a, b)$ lies in $F_a$ and $E_b$ and in no other side.
+If the ZZ instance satisfies P2, so does its switch form.
+The sizes satisfy $m \leq |Q| - 2$, $|\Omega| \leq |Q| + |R|$ and $\sum_{w \in M} (|E_w| + |F_w|) \leq 2|R|$, and the construction takes polynomial time.
+\end{lemma}
+
+\begin{proof}
+The node $\rho(a, b)$ is put into $F_a$, by the second part of $F_w$ for $w = a$, and into $E_b$, by the second part of $E_w$ for $w = b$, and nowhere else.
+
+For P2, let $x, y \in M$ be incomparable, in $M$ or equivalently in $Q$, and let $z$ be a common $R$-neighbor as in \cref{def:zz-zz}.
+If $z < x$ and $z < y$, then $z \notin [v]$, since otherwise $v \leq z < x \leq v$.
+For $z \in [u]$, the node $\nodeof(z)$ lies in $E_x \cap E_y$.
+For $z \in M$, the pairs $(z, x)$ and $(z, y)$ are middle edges and $z$ is a lower middle witness.
+If $z > x$ and $z > y$, then dually $z \notin [u]$.
+For $z \in [v]$, the node $\nodeof(z)$ lies in $F_x \cap F_y$.
+For $z \in M$, the element $z$ is an upper middle witness.
+
+For the sizes, $[u]$ and $[v]$ are non-empty and disjoint, so $m \leq |Q| - 2$.
+There are at most $|[u] \cup [v]|$ components and at most $|R|$ private nodes.
+A real edge of the second or third kind puts one node into one side, one of the fourth kind puts its private node into two sides, and one of the first kind puts no node into a side.
+\end{proof}
+
+\begin{lemma}[Answers agree]
+\label{lem:zz-answers}
+A ZZ instance with $u < v$ is a yes-instance if and only if its switch form is a yes-instance.
+\end{lemma}
+
+\begin{proof}
+(i) \emph{Down-sets.}
+Let $D'$ range over the down-sets of $(Q, \leq)$ with $u \in D'$ and $v \notin D'$, and $D$ over the mode vectors.
+We show that the maps $D' \mapsto D' \cap M$ and $D \mapsto [u] \cup D$ are inverse bijections.
+The set $D'$ contains $[u]$, because $b \leq u \in D'$ for $b \in [u]$.
+It misses $[v]$, because $x \in D' \cap [v]$ gives $v \leq x$ and $v \in D'$.
+The set $D' \cap M$ is a down-set of $M$.
+Conversely, let $D$ be a mode vector.
+An element $x$ below some $b \in [u]$ lies in $[u]$, because $x \leq b \leq u \leq x$.
+An element $x$ below some $d \in D$ lies in $[u]$, or in $M$ and then in $D$, but not in $[v]$, because $v \leq x \leq d$ would put $d$ into $[v]$.
+So $[u] \cup D$ is a down-set, and it contains $u$ and not $v$.
+
+(ii) \emph{Edges.}
+Let $D' = [u] \cup D$, and let $\pk(w)$ be the side picked by $D$ for $w \in M$.
+The edges of $G_{D'}$ are the following.
+Every real edge of the first kind is one.
+Every real edge $aw$ of the second kind with $w \notin D$ is one, and then $\nodeof(a) \in E_w = \pk(w)$.
+Every real edge $wb$ of the third kind with $w \in D$ is one, and then $\nodeof(b) \in F_w = \pk(w)$.
+Every real edge $zw$ of the fourth kind, with $z < w$, is one if $z \in D$ and $w \notin D$, because it needs exactly one end in $D$ and $w \in D$ forces $z \in D$, and then $\rho(z, w) \in F_z \cap E_w = \pk(z) \cap \pk(w)$.
+In particular, an edge of $G_{D'}$ between $w \in M$ and $e \in [u] \cup [v]$ puts $\nodeof(e)$ into $\pk(w)$.
+
+(iii) \emph{If $u$ and $v$ are connected in $G_{D'}$, then $D$ connects $s$ and $t$.}
+Take a $u$--$v$ path of $G_{D'}$.
+A maximal run of consecutive vertices in $[u] \cup [v]$ is joined by edges of the first kind, so all its vertices have the same node.
+If the path has no vertex in $M$, then $\nodeof(u) = \nodeof(v)$, that is, $s = t$.
+Otherwise let $w_1, \dots, w_h$ be its vertices in $M$ in order.
+If $w_i$ and $w_{i+1}$ are adjacent on the path, then $\pk(w_i) \cap \pk(w_{i+1})$ contains the private node of their edge.
+Otherwise the vertices between them form a run with one node $o$, and by (ii) the edges from $w_i$ and $w_{i+1}$ into that run put $o$ into $\pk(w_i)$ and $\pk(w_{i+1})$.
+The run before $w_1$ contains $u$, so by (ii) we have $s = \nodeof(u) \in \pk(w_1)$, and likewise $t \in \pk(w_h)$.
+So $\pk(w_1), \dots, \pk(w_h)$ connect $s$ and $t$.
+
+(iv) \emph{If $D$ connects $s$ and $t$, then $u$ and $v$ are connected in $G_{D'}$.}
+If $s = t$, then $u$ and $v$ lie in one component of the graph of the real edges of the first kind, all of which are edges of $G_{D'}$.
+Otherwise let $X_1, \dots, X_h$ be picked sides, $X_i = \pk(w_i)$, with $s \in X_1$, $t \in X_h$ and $X_i \cap X_{i+1} \neq \emptyset$.
+Suppose that a node $o$ lies in $\pk(w) \cap \pk(w')$ with $w \neq w'$.
+Then $w$ and $w'$ are connected in $G_{D'}$, as we now show.
+If $o$ is a component node, then by the construction and (ii), $w$ and $w'$ have $G_{D'}$-neighbors $e$ and $e'$ in the component $o$, and $e$ and $e'$ are joined by edges of the first kind.
+If $o = \rho(z, w'')$, it lies only in $F_z$ and $E_{w''}$, so $\{w, w'\} = \{z, w''\}$, $z \in D$, $w'' \notin D$, and $zw''$ is an edge of $G_{D'}$.
+Finally, $s \in \pk(w_1)$ is a component node, so $w_1$ has a $G_{D'}$-neighbor in the component $s \ni u$, which is joined to $u$ by edges of the first kind.
+Likewise $w_h$ is connected to $v$.
+
+By (i), (iii) and (iv), some $G_{D'}$ connects $u$ and $v$ if and only if some mode vector connects $s$ and $t$.
+\end{proof}
+
+\begin{lemma}[Valid paths and yes-instances]
+\label{lem:zz-valid}
+Consider an instance of the general switch form.
+(a) Let $P$ be a valid path.
+Then $U_P \cap L_P = \emptyset$, and a mode vector $D$ picks every member of $P$ if and only if $L_P \subseteq D \subseteq M \setminus U_P$.
+In particular, the mode vector $L_P$ picks every member of $P$, and every mode vector that picks every member of $P$ connects $s$ and $t$.
+(b) If a mode vector picks the sides of a sequence $Y_1, \dots, Y_h$ with $h \geq 1$, $s \in Y_1$, $t \in Y_h$ and $Y_i \cap Y_{i+1} \neq \emptyset$ for $i < h$, then a valid path with at most $h$ members exists.
+In particular, if $s \neq t$ and some mode vector connects $s$ and $t$, then a valid path exists.
+(c) The instance is a yes-instance if and only if $s = t$ or a valid path exists.
+If $s = t$, every mode vector connects $s$ and $t$.
+\end{lemma}
+
+\begin{proof}
+(a) If $x \in U_P \cap L_P$, then $w \leq x \leq z$ for some $w \in W_E$ and $z \in W_F$.
+We have $w \neq z$ because the members belong to distinct switches, and $\{E_w, F_z\}$ is a conflict pair of two members, against validity.
+The mode vector $D$ picks the F-member $F_w$ if and only if $w \in D$, so it picks all F-members if and only if $W_F \subseteq D$, that is, $L_P = \dn W_F \subseteq D$, as $D$ is a down-set.
+The mode vector $D$ picks the E-member $E_w$ if and only if $w \notin D$, so it picks all E-members if and only if $W_E \cap D = \emptyset$, that is, $U_P \cap D = \emptyset$, because $x \in U_P \cap D$ gives $w \leq x$ for some $w \in W_E$, and then $w \in D$.
+The set $L_P$ is a down-set disjoint from $U_P$, so it picks every member.
+If $D$ picks every member, the members $X_1, \dots, X_q$ are picked sides with $s \in X_1$, $t \in X_q$ and $X_i \cap X_{i+1} \neq \emptyset$.
+
+(b) Among all sequences of sides picked by this mode vector $D$ that start with a side containing $s$, end with a side containing $t$, and have consecutive sides meeting, let $X_1, \dots, X_{h'}$ be one with $h'$ least, so $h' \leq h$.
+The sides are pairwise distinct, because $X_i = X_j$ with $i < j$ would allow us to drop $X_{i+1}, \dots, X_j$.
+Hence they belong to distinct switches, since $D$ picks one side per switch.
+Two picked sides $E_w$ and $F_z$ never form a conflict pair, because $w \notin D$, $z \in D$, and $w \leq z$ would put $w$ into $D$.
+So $X_1, \dots, X_{h'}$ is a valid path.
+If $s \neq t$ and $D$ connects $s$ and $t$, then such a sequence of picked sides exists by \cref{def:zz-valid}.
+
+(c) If $s = t$, every mode vector connects $s$ and $t$ by \cref{def:zz-valid}.
+If $s \neq t$, use (a) and (b).
+\end{proof}
+
+\section{A Polynomial Algorithm for Pairs at Distance Two}
+\label{sec:pa-polynomial}
+
+A yes-instance of the general switch form with $s \neq t$ has a valid path by \cref{lem:zz-valid}(c).
+\Cref{thm:pa-formulas} shows that, under P2, every member of a shortest valid path is picked by one of six monotone formulas, each built from at most 71 switches.
+Enumerating these formulas gives the algorithm of \cref{thm:pa-open-case}.
+
+\subsection{Lemmas on a Shortest Valid Path}
+\label{sec:pa-shortest}
+
+\begin{definition}[Objects of a valid path]
+\label{def:pa-objects}
+Fix an instance of the general switch form and a valid path $P = X_1, \dots, X_q$, with $W_E$, $W_F$, $U_P$ and $L_P$ as in \cref{def:zz-valid}.
+The switches of $W_E$ are the \emph{E-members} and those of $W_F$ are the \emph{F-members}.
+The set $A_P$ consists of the \emph{minimal E-members}, the E-members with no E-member strictly below, and $B_P$ consists of the \emph{maximal F-members}, the F-members with no F-member strictly above.
+We put $M_E = \{w \in M : E_w \neq \emptyset\}$ and $M_F = \{w \in M : F_w \neq \emptyset\}$.
+For $O \subseteq \Omega$, we put $\NE(O) = \{w \in M : E_w \cap O \neq \emptyset\}$ and $\NF(O) = \{w \in M : F_w \cap O \neq \emptyset\}$.
+The \emph{stars} of a switch $w$ are
+\begin{align*}
+E^\#_w &= E_w \cup \{\rho(z, w') : z \in \LMN(w),\ (z, w') \text{ a middle edge}\},\\
+F^\#_w &= F_w \cup \{\rho(w', z) : z \in \UMN(w),\ (w', z) \text{ a middle edge}\}.
+\end{align*}
+A side is \emph{$P$-consistent} if it is $E_w$ with $w \notin L_P$ or $F_w$ with $w \notin U_P$.
+\end{definition}
+
+\begin{lemma}[Basic facts]
+\label{lem:pa-basic}
+Let $P$ be a valid path, and in (e) let $P$ be shortest.
+(a) Every member is non-empty, so $W_E \subseteq M_E$ and $W_F \subseteq M_F$.
+We have $U_P \cap L_P = \emptyset$, $U_P = \upp A_P$ and $L_P = \dn B_P$.
+(b) No element of $A_P$ lies strictly below an element of $A_P$.
+No element of $L_P$ lies strictly above an element of $B_P$.
+For $a \in A_P$, we have $\upp a \subseteq U_P$ and $\upp a \cap L_P = \emptyset$.
+(c) Let $S_1, S_2 \subseteq M$ with $S_1 \cap S_2 = \emptyset$.
+If $S_1$ is an up-set, then $\dn S_2 \cap S_1 = \emptyset$.
+If $S_1$ is a down-set, then $\upp S_2 \cap S_1 = \emptyset$.
+(d) A $P$-consistent side forms no conflict pair with a member.
+(e) If $X_p \cap X_{p'} \neq \emptyset$, then $|p - p'| \leq 1$.
+\end{lemma}
+
+\begin{proof}
+(a) If $q = 1$, then $s \in X_1$, and otherwise every member meets a neighboring member.
+The equality $U_P \cap L_P = \emptyset$ is \cref{lem:zz-valid}(a).
+The inclusion $A_P \subseteq W_E$ gives $\upp A_P \subseteq U_P$.
+For an E-member $w$, choose among the E-members $a \leq w$ one with $|\dn a|$ least.
+If an E-member $a''$ satisfied $a'' < a$, then $\dn a'' \subseteq \dn a$ and $a \notin \dn a''$, so $|\dn a''| < |\dn a|$ with $a'' \leq w$, against the choice.
+So $a \in A_P$ and $w \in \upp A_P$.
+Hence $W_E \subseteq \upp A_P$ and $U_P = \upp A_P$.
+Dually, choosing $|\upp b|$ least gives $L_P = \dn B_P$.
+
+(b) The first statement is the definition of $A_P$.
+Let $b \in B_P$ and $w \in L_P$ with $b < w$.
+By (a), $w \leq b'$ for some $b' \in B_P$, so $b < b'$ by \cref{def:zz-preorder}, and $b'$ is an F-member strictly above $b$, against $b \in B_P$.
+For $a \in A_P$, we have $\upp a \subseteq \upp W_E = U_P$, which misses $L_P$.
+
+(c) If $w \in \dn S_2 \cap S_1$ with $S_1$ an up-set, then $w \leq g$ for some $g \in S_2$, and $g \in S_1$ as $S_1$ is an up-set, against $S_1 \cap S_2 = \emptyset$.
+The second statement is dual.
+
+(d) A conflict pair consists of an E-side and an F-side.
+The side $E_w$ with $w \notin L_P$ and an F-member side $F_b$ form a conflict pair only if $w \leq b$, which puts $w$ into $\dn W_F = L_P$.
+The side $F_w$ with $w \notin U_P$ and an E-member side $E_a$ form a conflict pair only if $a \leq w$, which puts $w$ into $U_P$.
+
+(e) If $p + 2 \leq p'$ and $X_p \cap X_{p'} \neq \emptyset$, then $X_1, \dots, X_p, X_{p'}, \dots, X_q$ consists of members of $P$, of distinct switches and without a conflict pair.
+Consecutive sides meet, it starts with $X_1 \ni s$ and it ends with $X_q \ni t$.
+This is a valid path with fewer members than $P$, against the choice of $P$.
+\end{proof}
+
+\begin{lemma}[Windows of chains]
+\label{lem:pa-windows}
+Let $P$ be a shortest valid path, and let $Y_1, \dots, Y_j$ with $j \geq 1$ be $P$-consistent sides of pairwise distinct switches none of which is on $P$, no two of them a conflict pair, with $Y_i \cap Y_{i+1} \neq \emptyset$ for $i < j$.
+If $X_p \cap Y_1 \neq \emptyset$ and $X_{p'} \cap Y_j \neq \emptyset$, then $|p - p'| \leq j + 1$.
+\end{lemma}
+
+\begin{proof}
+If $p = p'$, there is nothing to prove.
+If $p > p'$, the reversed chain $Y_j, \dots, Y_1$ satisfies the same hypotheses with the roles of $p$ and $p'$ exchanged.
+So let $p < p'$.
+The sequence $X_1, \dots, X_p, Y_1, \dots, Y_j, X_{p'}, \dots, X_q$ starts with $X_1 \ni s$ and ends with $X_q \ni t$, and consecutive sides meet.
+Its sides belong to pairwise distinct switches, the members to distinct switches of $P$ and the $Y_i$ to distinct switches not on $P$.
+No two of its sides form a conflict pair, because two members do not as $P$ is valid, a member and some $Y_i$ do not by \cref{lem:pa-basic}(d), and two sides $Y_i$ do not by hypothesis.
+So it is a valid path with $p + j + (q - p' + 1)$ members, and this number is at least $q$ because $P$ is shortest, which gives $p' - p \leq j + 1$.
+\end{proof}
+
+\begin{lemma}[Stars meet few minimal E-members]
+\label{lem:pa-stars}
+Let $P$ be a shortest valid path.
+For every switch $x \notin L_P$, the set $A_P \cap \NE(E^\#_x)$ lies in an interval of at most nine consecutive positions of $P$, and in particular $|A_P \cap \NE(E^\#_x)| \leq 9$.
+Dually, for every switch $y \notin U_P$, the set $B_P \cap \NF(F^\#_y)$ lies in an interval of at most nine consecutive positions, and $|B_P \cap \NF(F^\#_y)| \leq 9$.
+\end{lemma}
+
+\begin{proof}
+Let $A_x = A_P \cap \NE(E^\#_x)$.
+
+\emph{Two types.}
+Let $a \in A_x$.
+As $a \in W_E$, we have $E_a = X_{\pos(a)}$, and we write $X_a$ for this member.
+By definition, $E_a$ meets $E_x$ (type (i)), or $E_a$ contains a private node $\rho(z, w')$ with $z \in \LMN(x)$.
+In the second case, that node lies only in $F_z$ and $E_{w'}$, so $w' = a$ and $z \in \LMN(x) \cap \LMN(a)$ (type (ii), with \emph{witness} $z$).
+
+\emph{Facts on a witness $z$.}
+Middle edges are strict, so $z < a$ and $z < x$.
+Also $z \notin U_P$, because an E-member $a'' \leq z$ would satisfy $a'' < a$ by \cref{def:zz-preorder}, against $a \in A_P$.
+So $F_z$ is $P$-consistent, it meets $X_a$ in $\rho(z, a)$ and $E_x$ in $\rho(z, x)$, and $\{E_x, F_z\}$ is not a conflict pair, since that needs $x \leq z$ whereas $z < x$.
+If $z$ is on $P$, then $z \notin U_P \supseteq W_E$ gives $z \in W_F$, and we write $X_z = F_z$ for its member.
+
+\emph{Case 1: the switch $x$ is not on $P$.}
+The side $E_x$ is $P$-consistent since $x \notin L_P$.
+Let $I = \{p : X_p \cap E_x \neq \emptyset\}$.
+
+\emph{Case 1a: $I \neq \emptyset$.}
+For $p, p' \in I$, \cref{lem:pa-windows} for the chain $E_x$ with $j = 1$ gives $|p - p'| \leq 2$.
+So $I \subseteq [p_0, p_0 + 2]$ with $p_0 = \min I$.
+Type (i) gives $\pos(a) \in I$.
+For type (ii) with $z$ on $P$, the member $X_z = F_z$ meets $E_x$, so $\pos(z) \in I$, and it meets $X_a$, so $|\pos(z) - \pos(a)| \leq 1$ by \cref{lem:pa-basic}(e).
+Hence $\pos(a) \in [p_0 - 1, p_0 + 3]$.
+For type (ii) with $z$ not on $P$, the chain $F_z, E_x$ satisfies the hypotheses of \cref{lem:pa-windows}, since these are $P$-consistent sides of the distinct switches $z$ and $x$, neither on $P$, with no conflict pair and with $F_z \cap E_x \neq \emptyset$.
+As $X_a$ meets $F_z$ and $X_{p_0}$ meets $E_x$, we get $|\pos(a) - p_0| \leq 3$.
+In every case $\pos(a) \in [p_0 - 3, p_0 + 5]$, an interval of nine positions.
+
+\emph{Case 1b: $I = \emptyset$.}
+Type (i) does not occur, and no witness is on $P$, since it would put $\pos(z)$ into $I$.
+Let $a, a' \in A_x$ with witnesses $z$ and $z'$.
+If $z = z'$, the $P$-consistent side $F_z$ of a switch not on $P$ meets $X_a$ and $X_{a'}$, so $|\pos(a) - \pos(a')| \leq 2$ by \cref{lem:pa-windows} with $j = 1$.
+If $z \neq z'$, the chain $F_z, E_x, F_{z'}$ consists of $P$-consistent sides of the distinct switches $z$, $x$ and $z'$, where $z, z' < x$, none on $P$.
+Consecutive sides meet, in $\rho(z, x)$ and $\rho(z', x)$.
+No two of them form a conflict pair, because $\{F_z, F_{z'}\}$ has no E-side, and $\{E_x, F_z\}$ and $\{E_x, F_{z'}\}$ are not conflict pairs by the facts above.
+Also $X_a$ meets $F_z$ and $X_{a'}$ meets $F_{z'}$.
+So $|\pos(a) - \pos(a')| \leq 4$ by \cref{lem:pa-windows} with $j = 3$, and $A_x$ lies in five consecutive positions.
+
+\emph{Case 2: the switch $x$ is on $P$.}
+As $x \notin L_P \supseteq W_F$, we have $x \in W_E$, and $E_x$ is the member at position $p_0 = \pos(x)$.
+For type (i), $X_a$ meets $E_x$, so $a = x$ or $|\pos(a) - p_0| \leq 1$ by \cref{lem:pa-basic}(e).
+For type (ii) with $z$ on $P$, the member $X_z = F_z$ meets $X_a$ and $E_x$, so $|\pos(a) - p_0| \leq 2$ by \cref{lem:pa-basic}(e), used twice.
+For type (ii) with $z$ not on $P$, the side $F_z$ meets $X_a$ and $E_x$, so $|\pos(a) - p_0| \leq 2$ by \cref{lem:pa-windows} with $j = 1$.
+So $A_x \subseteq [p_0 - 2, p_0 + 2]$.
+
+\emph{Dual statement.}
+The \emph{reversed instance} has the same nodes, terminals and switches, the preorder $\leq^{\mathrm{op}}$ with $x \leq^{\mathrm{op}} y$ if $y \leq x$, sides $E^{\mathrm{op}}_w = F_w$ and $F^{\mathrm{op}}_w = E_w$, and a middle edge $(w, z)$ for every middle edge $(z, w)$, with the same private node, which lies in $F^{\mathrm{op}}_w = E_w$ and $E^{\mathrm{op}}_z = F_z$ and in no other side.
+It is an instance of the general switch form, with P2 if the original has it, because common E-nodes and F-nodes are exchanged and lower and upper middle witnesses are exchanged.
+Its mode vectors are the complements of the original ones and pick the same node sets.
+Its conflict pairs $\{E^{\mathrm{op}}_w, F^{\mathrm{op}}_z\}$ with $w \leq^{\mathrm{op}} z$ are the pairs $\{F_w, E_z\}$ with $z \leq w$, that is, the original ones.
+So $P$ is a shortest valid path of it, with $W^{\mathrm{op}}_E = W_F$, $U^{\mathrm{op}}_P = L_P$, $L^{\mathrm{op}}_P = U_P$, $A^{\mathrm{op}}_P = B_P$, $\LMN^{\mathrm{op}} = \UMN$, $(E^{\mathrm{op}})^\#_w = F^\#_w$ and $\NE^{\mathrm{op}} = \NF$.
+The first statement for the reversed instance and $y \notin L^{\mathrm{op}}_P = U_P$ is the dual statement.
+\end{proof}
+
+\begin{lemma}[Duality for incomparable pairs]
+\label{lem:pa-duality}
+In an instance of the general switch form with P2, let $x$ and $y$ be incomparable switches with $F_x \neq \emptyset$ and $E_y \neq \emptyset$.
+Then $y \in \NE(E^\#_x)$ or $x \in \NF(F^\#_y)$.
+\end{lemma}
+
+\begin{proof}
+P2 gives four cases.
+A common E-node lies in $E_y \cap E_x \subseteq E_y \cap E^\#_x$, so $y \in \NE(E^\#_x)$.
+A common F-node lies in $F_x \cap F_y \subseteq F_x \cap F^\#_y$, so $x \in \NF(F^\#_y)$.
+For a lower middle witness $z \in \LMN(x) \cap \LMN(y)$, the pair $(z, y)$ is a middle edge and $z \in \LMN(x)$, so $\rho(z, y) \in E^\#_x \cap E_y$ and $y \in \NE(E^\#_x)$.
+For an upper middle witness $z \in \UMN(x) \cap \UMN(y)$, the pair $(x, z)$ is a middle edge and $z \in \UMN(y)$, so $\rho(x, z) \in F^\#_y \cap F_x$ and $x \in \NF(F^\#_y)$.
+\end{proof}
+
+\subsection{Atoms}
+\label{sec:pa-atoms}
+
+\begin{definition}[Atoms]
+\label{def:pa-atoms}
+The \emph{atoms} of an instance of the general switch form are the sets
+\begin{align*}
+\FR(x, x') &= \dn \bigl(M_F \setminus (\NF(F^\#_x) \cup \NF(F^\#_{x'}) \cup \upp x \cup \upp x')\bigr),\\
+\ER(x, x') &= M \setminus \upp \bigl(M_E \setminus (\NE(E^\#_x) \cup \NE(E^\#_{x'}) \cup \dn x \cup \dn x')\bigr),\\
+\EP(x) &= M \setminus \upp \bigl(M_E \setminus (\NE(E^\#_x) \cup (\dn x \setminus [x]))\bigr),
+\end{align*}
+together with $\dn x$ and $M \setminus \upp x$, for all switches $x$ and $x'$.
+Every atom is a down-set, because $\dn S$ and the complement of $\upp S$ are down-sets for every set $S$.
+\end{definition}
+
+Until the end of the proof of \cref{thm:pa-formulas}, we fix an instance of the general switch form with P2 and a shortest valid path $P = X_1, \dots, X_q$.
+For $a \in A_P$ we put $C(a) = B_P \cap \NF(F^\#_a)$ and $\win(a) = A_P \cap \NE(E^\#_a)$, and for $b \in B_P$ we put $C'(b) = A_P \cap \NE(E^\#_b)$.
+
+\begin{lemma}[Atoms]
+\label{lem:pa-atoms}
+(a) If $a_1, a_2 \in A_P$ and $|\pos(a_1) - \pos(a_2)| \geq 9$, then $\FR(a_1, a_2) \cap U_P = \emptyset$ and $B_P \setminus (C(a_1) \cup C(a_2)) \subseteq \FR(a_1, a_2)$.
+(b) If $b_1, b_2 \in B_P$ and $|\pos(b_1) - \pos(b_2)| \geq 9$, then $L_P \subseteq \ER(b_1, b_2)$, and $\ER(b_1, b_2)$ misses $A_P \setminus (C'(b_1) \cup C'(b_2))$.
+(c) For $a \in A_P$, the set $\EP(a)$ contains every $b \in B_P$ with $b < a$ and misses every element of $A_P \setminus \win(a)$, and $|\win(a)| \leq 9$.
+(d) For $b \in B_P$, we have $b \in \dn b$ and $\dn b \cap U_P = \emptyset$.
+For $a \in A_P$, we have $L_P \subseteq M \setminus \upp a$ and $a \notin M \setminus \upp a$.
+\end{lemma}
+
+\begin{proof}
+(a) Let $\Gamma' = M_F \setminus (\NF(F^\#_{a_1}) \cup \NF(F^\#_{a_2}) \cup \upp a_1 \cup \upp a_2)$, so that $\FR(a_1, a_2) = \dn \Gamma'$.
+Let $x \in \Gamma' \cap U_P$ and $i \in \{1, 2\}$.
+The relation $a_i \leq x$ fails by the choice of $\Gamma'$.
+The relation $x < a_i$ is impossible, because an E-member $e \leq x$ would have $e < a_i$ by \cref{def:zz-preorder}, against $a_i \in A_P$.
+So $x \parallel a_i$, and $F_x \neq \emptyset$ since $x \in M_F$, and $E_{a_i} \neq \emptyset$ by \cref{lem:pa-basic}(a).
+By \cref{lem:pa-duality}, $a_i \in \NE(E^\#_x)$ or $x \in \NF(F^\#_{a_i})$, and the second alternative is excluded by the choice of $\Gamma'$.
+So $a_1$ and $a_2$ both lie in $A_P \cap \NE(E^\#_x)$.
+As $x \in U_P$, we have $x \notin L_P$, and this contradicts \cref{lem:pa-stars}, because two positions at distance at least nine do not lie in an interval of nine positions.
+Hence $\Gamma' \cap U_P = \emptyset$, and $\dn \Gamma' \cap U_P = \emptyset$ by \cref{lem:pa-basic}(c).
+Let $b \in B_P \setminus (C(a_1) \cup C(a_2))$.
+Then $b \in M_F$ by \cref{lem:pa-basic}(a), $b \notin \NF(F^\#_{a_i})$ by the definition of $C(a_i)$, and $b \notin \upp a_i$ by \cref{lem:pa-basic}(b).
+So $b \in \Gamma' \subseteq \dn \Gamma'$.
+
+(b) Let $\Gamma = M_E \setminus (\NE(E^\#_{b_1}) \cup \NE(E^\#_{b_2}) \cup \dn b_1 \cup \dn b_2)$, so that $\ER(b_1, b_2) = M \setminus \upp \Gamma$.
+Let $y \in \Gamma \cap L_P$ and $i \in \{1, 2\}$.
+The relation $y \leq b_i$ fails by the choice of $\Gamma$.
+The relation $b_i < y$ is impossible by \cref{lem:pa-basic}(b).
+So $y \parallel b_i$, and $E_y \neq \emptyset$ since $y \in M_E$, and $F_{b_i} \neq \emptyset$ by \cref{lem:pa-basic}(a).
+By \cref{lem:pa-duality} applied to $b_i$ and $y$, $y \in \NE(E^\#_{b_i})$ or $b_i \in \NF(F^\#_y)$, and the first alternative is excluded by the choice of $\Gamma$.
+So $b_1$ and $b_2$ both lie in $B_P \cap \NF(F^\#_y)$.
+As $y \in L_P$, we have $y \notin U_P$, and this contradicts the dual statement of \cref{lem:pa-stars}.
+Hence $\Gamma \cap L_P = \emptyset$, and $\upp \Gamma \cap L_P = \emptyset$ by \cref{lem:pa-basic}(c), that is, $L_P \subseteq \ER(b_1, b_2)$.
+Let $a \in A_P \setminus (C'(b_1) \cup C'(b_2))$.
+Then $a \in M_E$ by \cref{lem:pa-basic}(a), $a \notin \NE(E^\#_{b_i})$ by the definition of $C'(b_i)$, and $a \notin \dn b_i$ because $\upp a \cap L_P = \emptyset$ by \cref{lem:pa-basic}(b).
+So $a \in \Gamma$ and $a \notin \ER(b_1, b_2)$.
+
+(c) Let $\Gamma = M_E \setminus (\NE(E^\#_a) \cup (\dn a \setminus [a]))$, so that $\EP(a) = M \setminus \upp \Gamma$.
+Let $b \in B_P$ with $b < a$.
+Then $\dn b \subseteq \dn a \setminus [a]$ by \cref{def:zz-preorder}, so $\dn b \cap \Gamma = \emptyset$, that is, $b \notin \upp \Gamma$.
+Let $a' \in A_P \setminus \win(a)$.
+Then $a' \in M_E$ by \cref{lem:pa-basic}(a), $a' \notin \NE(E^\#_a)$ by the definition of $\win(a)$, and $a' < a$ is impossible by the definition of $A_P$.
+So $a' \in \Gamma$ and $a' \notin \EP(a)$.
+We have $a \in U_P$, so $a \notin L_P$ and $|\win(a)| \leq 9$ by \cref{lem:pa-stars}.
+
+(d) We have $b \in L_P$, and $L_P$ is a down-set disjoint from $U_P$, so $\dn b \subseteq L_P$ misses $U_P$.
+We have $\upp a \cap L_P = \emptyset$ by \cref{lem:pa-basic}(b), and $a \in \upp a$.
+\end{proof}
+
+\subsection{One and Two Jumps}
+\label{sec:pa-jumps}
+
+\begin{lemma}[Walks]
+\label{lem:pa-walks}
+Let $Y_1, \dots, Y_j$ with $j \geq 1$ be a sequence of sides with $s \in Y_1$, $t \in Y_j$ and $Y_i \cap Y_{i+1} \neq \emptyset$ for $i < j$, no two of which form a conflict pair.
+Then $q \leq j$.
+\end{lemma}
+
+\begin{proof}
+Let $D$ be the down-closure of the set of switches whose F-side occurs in the sequence.
+Then $D$ picks every F-side of the sequence.
+If $E_w$ occurs and $w \in D$, then $w \leq z$ for some switch $z$ whose F-side occurs, and $\{E_w, F_z\}$ is a conflict pair, which is excluded.
+So $D$ picks every side of the sequence, and \cref{lem:zz-valid}(b) gives a valid path with at most $j$ members.
+As $P$ is shortest, $q \leq j$.
+\end{proof}
+
+For $w \in A_P$, let $\Pos[w]$ be the set of positions of the E-members tied with $w$.
+These E-members lie in $A_P$, because an E-member strictly below one of them would be strictly below $w$.
+For $w \in B_P$, let $\Pos[w]$ be the set of positions of the F-members tied with $w$, and these F-members lie in $B_P$ for the same reason.
+For $a \in A_P$ let $S(a) = \{\pos(b) : b \in C(a)\}$, and for $h \in B_P$ let $T(h) = \{\pos(a') : a' \in C'(h)\}$.
+A position of an E-member is called of \emph{type E} and a position of an F-member of \emph{type F}, and no position has both types.
+So the elements of $\Pos[a]$ and $T(h)$ have type E, and the elements of $\Pos[h]$ and $S(a)$ have type F, for $a \in A_P$ and $h \in B_P$.
+
+\emph{F-chains.}
+Let $a \in A_P$ and $b \in C(a)$.
+A node of $F_b \cap F^\#_a$ lies in $F_a$, or it is $\rho(w', w)$ with $w \in \UMN(a)$ and a middle edge $(w', w)$.
+In the second case, the node lies only in $F_{w'}$ and $E_w$, so $w' = b$ and $w \in \UMN(a) \cap \UMN(b)$, and then $\rho(a, w) \in F_a \cap E_w$ and $\rho(b, w) \in F_b \cap E_w$.
+So $F_b$ meets $F_a$, or $F_b$ meets $E_w$ and $E_w$ meets $F_a$ for some $w \in \UMN(a) \cap \UMN(b)$.
+Hence for two elements $b, b' \in C(a)$ there is an \emph{F-chain of $a$ from $b$ to $b'$}, a sequence of at most three sides with middle side $F_a$, of the form $[E_w,]\, F_a\, [, E_{w'}]$ where the brackets mark optional sides.
+Consecutive sides of an F-chain meet, $F_b$ meets its first side and $F_{b'}$ meets its last side.
+Every side $E_w$ of an F-chain of $a$ satisfies $a < w$ and $b'' < w$ for some $b'' \in B_P$.
+
+\emph{E-chains.}
+Let $h \in B_P$ and $a' \in C'(h)$.
+A node of $E_{a'} \cap E^\#_h$ lies in $E_h$, or it is $\rho(z, w')$ with $z \in \LMN(h)$ and a middle edge $(z, w')$.
+In the second case, the node lies only in $F_z$ and $E_{w'}$, so $w' = a'$ and $z \in \LMN(h) \cap \LMN(a')$, and then $\rho(z, h) \in F_z \cap E_h$ and $\rho(z, a') \in F_z \cap E_{a'}$.
+So $E_{a'}$ meets $E_h$, or $E_{a'}$ meets $F_z$ and $F_z$ meets $E_h$ for some $z \in \LMN(h) \cap \LMN(a')$.
+Hence for two elements $a', a'' \in C'(h)$ there is an \emph{E-chain of $h$ from $a'$ to $a''$}, a sequence of at most three sides with middle side $E_h$, of the form $[F_z,]\, E_h\, [, F_{z'}]$.
+Consecutive sides of an E-chain meet, $E_{a'}$ meets its first side and $E_{a''}$ meets its last side.
+Every side $F_z$ of an E-chain of $h$ satisfies $z < h$ and $z < a'''$ for some $a''' \in A_P$.
+
+\begin{lemma}[Two jumps]
+\label{lem:pa-two-jumps}
+Let $a \in A_P$ and $h \in B_P$ with $h \not\leq a$, and let $Z = \Pos[a] \cup \Pos[h]$.
+Let $p_1 < p_2 < p_3 < p_4$ be positions with $p_1 \in T(h)$ and $p_4 \in S(a)$, with one of $p_2, p_3$ in $T(h)$ and the other in $S(a)$, and with $Z \subseteq (p_1, p_2) \cup (p_3, p_4)$.
+Then $(p_2 - p_1) + (p_4 - p_3) \leq 8$.
+\end{lemma}
+
+\begin{proof}
+We build a short sequence of sides from $s$ to $t$ that avoids the members at the positions of $Z$, and we compare its length with $q$ by \cref{lem:pa-walks}.
+
+\emph{The walk.}
+If $p_2 \in T(h)$, consider the sequence $X_1, \dots, X_{p_1}$, then an E-chain of $h$ between the elements at $p_1$ and $p_2$, then $X_{p_2}, \dots, X_{p_3}$, then an F-chain of $a$ between the elements at $p_3$ and $p_4$, then $X_{p_4}, \dots, X_q$.
+If $p_3 \in T(h)$, consider the sequence $X_1, \dots, X_{p_1}$, then an E-chain of $h$ between the elements at $p_1$ and $p_3$, then $X_{p_3}, X_{p_3 - 1}, \dots, X_{p_2}$, then an F-chain of $a$ between the elements at $p_2$ and $p_4$, then $X_{p_4}, \dots, X_q$.
+In both cases, the sequence starts with $X_1 \ni s$ and ends with $X_q \ni t$, and consecutive sides meet.
+The members in it have their positions in $[1, p_1] \cup [p_2, p_3] \cup [p_4, q]$, and we call them \emph{kept}.
+No kept member has its position in $Z$, by the hypothesis on $Z$.
+The sequence has at most $p_1 + 3 + (p_3 - p_2 + 1) + 3 + (q - p_4 + 1)$ sides.
+
+\emph{No conflict pairs.}
+A conflict pair consists of an E-side and an F-side.
+The E-sides of the walk are kept sides $E_e$, the side $E_h$, and sides $E_w$ of the F-chain.
+The F-sides of the walk are kept sides $F_f$, the side $F_a$, and sides $F_z$ of the E-chain.
+Here $a < w$ and $b'' < w$ for some $b'' \in B_P$, and $z < h$ and $z < a'''$ for some $a''' \in A_P$.
+We check the nine combinations.
+(1) Kept sides $E_e$ and $F_f$ form no conflict pair, as $P$ is valid.
+(2) If $\{E_e, F_a\}$ were a conflict pair, then $e \leq a$, hence $e \sim a$ because $a \in A_P$, so $\pos(e) \in \Pos[a]$, which is not kept.
+(3) If $\{E_e, F_z\}$ were a conflict pair, then $e \leq z < a'''$ would give $e < a'''$, against $a''' \in A_P$.
+(4) If $\{E_h, F_f\}$ were a conflict pair, then $h \leq f$, hence $f \sim h$ because $h \in B_P$, so $\pos(f) \in \Pos[h]$, which is not kept.
+(5) The pair $\{E_h, F_a\}$ is not a conflict pair, because $h \not\leq a$.
+(6) The pair $\{E_h, F_z\}$ is not a conflict pair, because $z < h$.
+(7) If $\{E_w, F_f\}$ were a conflict pair, then $b'' < w \leq f$ would give $b'' < f$, against $b'' \in B_P$.
+(8) The pair $\{E_w, F_a\}$ is not a conflict pair, because $a < w$.
+(9) If $\{E_w, F_z\}$ were a conflict pair, then $b'' < w \leq z < h$ would give $b'' < h$, and $h$ is an F-member, against $b'' \in B_P$.
+
+\emph{Counting.}
+By \cref{lem:pa-walks}, we have $q \leq p_1 + 3 + (p_3 - p_2 + 1) + 3 + (q - p_4 + 1)$, which is the claim.
+\end{proof}
+
+\begin{lemma}[One jump]
+\label{lem:pa-one-jump}
+(a) Let $a \in A_P$, let $p < p'$ lie in $S(a)$, and let $\Pos[a] \subseteq (p, p')$.
+Then $p' - p \leq 4$.
+(b) Let $h \in B_P$, let $p < p'$ lie in $T(h)$, and let $\Pos[h] \subseteq (p, p')$.
+Then $p' - p \leq 4$.
+\end{lemma}
+
+\begin{proof}
+(a) Consider the sequence $X_1, \dots, X_p$, then an F-chain of $a$ between the elements at $p$ and $p'$, then $X_{p'}, \dots, X_q$.
+It starts with $X_1 \ni s$ and ends with $X_q \ni t$, consecutive sides meet, and the kept positions $[1, p] \cup [p', q]$ miss $\Pos[a]$.
+Its E-sides are kept sides $E_e$ and sides $E_w$ of the chain, and its F-sides are kept sides $F_f$ and the side $F_a$.
+So no two of its sides form a conflict pair, by items (1), (2), (7) and (8) of the proof of \cref{lem:pa-two-jumps}, whose arguments do not use $h$.
+By \cref{lem:pa-walks}, $q \leq p + 3 + (q - p' + 1)$, that is, $p' - p \leq 4$.
+
+(b) Consider the sequence $X_1, \dots, X_p$, then an E-chain of $h$ between the elements at $p$ and $p'$, then $X_{p'}, \dots, X_q$.
+It starts with $X_1 \ni s$ and ends with $X_q \ni t$, consecutive sides meet, and the kept positions $[1, p] \cup [p', q]$ miss $\Pos[h]$.
+Its E-sides are kept sides $E_e$ and the side $E_h$, and its F-sides are kept sides $F_f$ and sides $F_z$ of the chain.
+So no two of its sides form a conflict pair, by items (1), (3), (4) and (6) of the proof of \cref{lem:pa-two-jumps}, whose arguments do not use $a$.
+By \cref{lem:pa-walks}, $q \leq p + 3 + (q - p' + 1)$, that is, $p' - p \leq 4$.
+\end{proof}
+
+\subsection{Bounded Formulas}
+\label{sec:pa-formulas}
+
+\begin{definition}[Formulas]
+\label{def:pa-formulas}
+Let $x_1, \dots, x_8$ be switches and $S, S' \subseteq M$.
+The \emph{formulas} are the following sets.
+(T1) The set $M \setminus \upp S$ with $|S| \leq 9$.
+(T2) The set $\dn S$ with $|S| \leq 9$.
+(T3) The set $\FR(x_1, x_2) \cup \FR(x_3, x_4) \cup \dn S$ with $|S| \leq 28$.
+(T4) The set $(\ER(x_1, x_2) \cap \ER(x_3, x_4)) \setminus \upp S$ with $|S| \leq 38$.
+(T5) The set $\FR(x_1, x_2) \cup \FR(x_3, x_4) \cup \FR(x_5, x_6) \cup \dn S \cup ((\EP(x_5) \cup \EP(x_6)) \setminus \upp S')$ with $|S| \leq 47$ and $|S'| \leq 18$.
+(T6) The set $(\ER(x_1, x_2) \cap \ER(x_3, x_4) \cap \ER(x_5, x_6) \cap \ER(x_7, x_8)) \setminus \upp S$ with $|S| \leq 38$.
+These formulas are built from at most $9$, $9$, $32$, $42$, $71$ and $46$ switches, respectively.
+Every value of a formula is a down-set of $M$, hence a mode vector, because atoms are down-sets, unions and intersections of down-sets are down-sets, and $D \setminus \upp S$ is the intersection of $D$ with a down-set.
+\end{definition}
+
+\begin{theorem}[Bounded formulas]
+\label{thm:pa-formulas}
+Let an instance of the general switch form with P2 have a shortest valid path $P$.
+Then some value $D$ of a formula of \cref{def:pa-formulas} satisfies $L_P \subseteq D \subseteq M \setminus U_P$.
+Hence $D$ picks every member of $P$ and connects $s$ and $t$.
+\end{theorem}
+
+\begin{proof}
+Thresholds on the contacts confine all elements not handled by a bounded formula to two ranges of positions.
+The jump lemmas fix the relative place of these ranges and give a separation property $(\star)$, and two further far pairs of $B_P$ finish the proof.
+The last sentence of the theorem is \cref{lem:zz-valid}(a).
+By \cref{lem:pa-basic}(a), a down-set $D$ contains $L_P$ if and only if it contains $B_P$, and it misses $U_P$ if and only if it misses $A_P$.
+
+\emph{Small sets.}
+If $|A_P| < 10$, then $M \setminus \upp A_P = M \setminus U_P$ is a value of (T1) as required, since $L_P \cap U_P = \emptyset$.
+If $|B_P| < 10$, then $\dn B_P = L_P$ is a value of (T2) as required.
+From now on, $|A_P|, |B_P| \geq 10$.
+
+\emph{Stage 0: thresholds.}
+For $a \in A_P$ let $\ell(a) = \min S(a)$ and $r(a) = \max S(a)$, with $\ell(a) = +\infty$ and $r(a) = -\infty$ if $S(a) = \emptyset$.
+For $b \in B_P$ let $u(b) = \min T(b)$ and $v(b) = \max T(b)$, with $u(b) = +\infty$ and $v(b) = -\infty$ if $T(b) = \emptyset$.
+Any ten elements of $A_P$ or of $B_P$ have ten distinct positions, so the first and the last of them by position are at distance at least nine.
+
+Order $A_P$ by non-increasing $\ell$, breaking ties arbitrarily.
+Let $\ell^*$ be the value of $\ell$ at the tenth element, and let $a^\ell_1$ and $a^\ell_2$ be the first and the last by position among the first ten elements.
+All positions in $S(a^\ell_1) \cup S(a^\ell_2)$ are at least $\ell^*$, so by \cref{lem:pa-atoms}(a) the set $\FR_\ell = \FR(a^\ell_1, a^\ell_2)$ misses $U_P$ and contains every $b \in B_P$ with $\pos(b) < \ell^*$.
+Order $A_P$ by non-decreasing $r$.
+Let $r^*$ be the value of $r$ at the tenth element, and let $a^r_1$ and $a^r_2$ be the first and the last by position among the first ten elements.
+All positions in $S(a^r_1) \cup S(a^r_2)$ are at most $r^*$, so the set $\FR_r = \FR(a^r_1, a^r_2)$ misses $U_P$ and contains every $b \in B_P$ with $\pos(b) > r^*$.
+Order $B_P$ by non-increasing $u$.
+Let $u^*$ be the value of $u$ at the tenth element, and let $b^u_1$ and $b^u_2$ be the first and the last by position among the first ten elements.
+All positions in $T(b^u_1) \cup T(b^u_2)$ are at least $u^*$, so by \cref{lem:pa-atoms}(b) the set $\ER_u = \ER(b^u_1, b^u_2)$ contains $L_P$ and misses every $a \in A_P$ with $\pos(a) < u^*$.
+Order $B_P$ by non-decreasing $v$.
+Let $v^*$ be the value of $v$ at the tenth element, and let $b^v_1$ and $b^v_2$ be the first and the last by position among the first ten elements.
+All positions in $T(b^v_1) \cup T(b^v_2)$ are at most $v^*$, so the set $\ER_v = \ER(b^v_1, b^v_2)$ contains $L_P$ and misses every $a \in A_P$ with $\pos(a) > v^*$.
+
+Let $E_0$ consist of the first nine elements in the order by $\ell$, the first nine in the order by $r$, and all $a \in A_P$ with $u^* \leq \pos(a) < u^* + 5$ or $v^* - 5 < \pos(a) \leq v^*$, so $|E_0| \leq 28$.
+Let $H_0$ consist of the first nine elements in the order by $u$, the first nine in the order by $v$, and all $b \in B_P$ with $\ell^* \leq \pos(b) < \ell^* + 5$ or $r^* - 5 < \pos(b) \leq r^*$, so $|H_0| \leq 28$.
+Let
+\[
+F^* = \FR_\ell \cup \FR_r \cup \dn H_0 \quad\text{and}\quad E^* = (\ER_u \cap \ER_v) \setminus \upp E_0.
+\]
+By \cref{lem:pa-atoms}(a) and (d), the down-set $F^*$ misses $U_P$.
+By \cref{lem:pa-atoms}(b) and (d), the down-set $E^*$ contains $L_P$.
+Let $R_0 = A_P \cap E^*$ and $C_0 = B_P \setminus F^*$.
+If $C_0 = \emptyset$, then $F^*$ contains $B_P$, and it is a value of (T3) as required, with $x_1, \dots, x_4$ equal to $a^\ell_1, a^\ell_2, a^r_1, a^r_2$ and with $S = H_0$.
+If $R_0 = \emptyset$, then $E^*$ misses $A_P$, and it is a value of (T4) as required, with $x_1, \dots, x_4$ equal to $b^u_1, b^u_2, b^v_1, b^v_2$ and with $S = E_0$.
+
+From now on, $R_0 \neq \emptyset$ and $C_0 \neq \emptyset$.
+If $\ell^* = +\infty$ or $r^* = -\infty$, then every $b \in B_P$ lies in $\FR_\ell$ or in $\FR_r$, against $C_0 \neq \emptyset$.
+If $u^* = +\infty$ or $v^* = -\infty$, then every $a \in A_P$ lies outside $\ER_u$ or outside $\ER_v$, against $R_0 \neq \emptyset$.
+The functions $\ell$ and $u$ never take the value $-\infty$, and $r$ and $v$ never take the value $+\infty$.
+So $\ell^*$, $r^*$, $u^*$ and $v^*$ are positions.
+
+Since $E^*$ is a down-set, the E-members tied with an element $a \in R_0$ lie in $E^*$, and they lie in $A_P$, so they lie in $R_0$.
+They form the \emph{class} of $a$ in $R_0$, with position set $\Pos[a]$.
+Since $F^*$ is a down-set, the F-members tied with an element $h \in C_0$ lie outside $F^*$, and they lie in $B_P$, so they lie in $C_0$.
+They form the \emph{class} of $h$ in $C_0$, with position set $\Pos[h]$.
+
+For $a \in R_0$ and $h \in C_0$ we have
+\begin{align}
+\label{eq:pa-ranges-r}
+\Pos[a] &\subseteq [u^* + 5, v^* - 5], & \ell(a) &\leq \ell^*, & r(a) &\geq r^*,\\
+\label{eq:pa-ranges-c}
+\Pos[h] &\subseteq [\ell^* + 5, r^* - 5], & u(h) &\leq u^*, & v(h) &\geq v^*.
+\end{align}
+Indeed, an element $a \in R_0$ lies in $\ER_u \cap \ER_v$, so $u^* \leq \pos(a) \leq v^*$, and $a \notin E_0$ since $E^*$ misses $E_0$, which removes the five positions at each end.
+This holds for every element of the class of $a$, which gives the first inclusion.
+As $a$ is not among the first nine elements of the orders by $\ell$ and by $r$, we have $\ell(a) \leq \ell^*$ and $r(a) \geq r^*$.
+An element $h \in C_0$ lies outside $\FR_\ell \cup \FR_r$, so $\ell^* \leq \pos(h) \leq r^*$, and $h \notin H_0$ since $H_0 \subseteq F^*$, which removes the five positions at each end.
+This holds for every element of the class of $h$, which gives the second inclusion.
+As $h$ is not among the first nine elements of the orders by $u$ and by $v$, we have $u(h) \leq u^*$ and $v(h) \geq v^*$.
+In particular, $v^* - u^* \geq 10$ and $r^* - \ell^* \geq 10$, and the values $\ell(a)$, $r(a)$, $u(h)$ and $v(h)$ are finite.
+
+\emph{Orientation.}
+The thresholds $u^*$ and $v^*$ have type E and the thresholds $\ell^*$ and $r^*$ have type F, so $u^* \neq \ell^*$ and $v^* \neq r^*$.
+This leaves four sign cases.
+
+\emph{Case $u^* < \ell^*$ and $r^* < v^*$.}
+Let $h \in C_0$.
+By~\eqref{eq:pa-ranges-c}, $\Pos[h] \subseteq [\ell^* + 5, r^* - 5] \subseteq (u^*, v^*) \subseteq (u(h), v(h))$, and $v(h) - u(h) \geq v^* - u^* \geq 10$.
+This contradicts \cref{lem:pa-one-jump}(b), so this case does not occur.
+
+\emph{Case $\ell^* < u^*$ and $v^* < r^*$.}
+Let $a \in R_0$.
+By~\eqref{eq:pa-ranges-r}, $\Pos[a] \subseteq [u^* + 5, v^* - 5] \subseteq (\ell^*, r^*) \subseteq (\ell(a), r(a))$, and $r(a) - \ell(a) \geq r^* - \ell^* \geq 10$.
+This contradicts \cref{lem:pa-one-jump}(a), so this case does not occur.
+
+\emph{Case $\ell^* < u^*$ and $r^* < v^*$.}
+We reverse $P$.
+Exchanging $s$ and $t$ gives an instance with the same switches, sides, preorder and middle edges, hence with P2 and with the same mode vectors and conflict pairs, and $X_q, \dots, X_1$ is a shortest valid path of it.
+The atoms and the sets $U_P$, $L_P$, $A_P$, $B_P$, $C(a)$ and $C'(b)$ stay the same, and every position $p$ becomes $q + 1 - p$.
+So the orders by $\ell$ and by $r$ exchange, and the orders by $u$ and by $v$ exchange.
+With the corresponding tie-breaks, the sets $E_0$, $H_0$, $F^*$, $E^*$, $R_0$ and $C_0$ stay the same, and $(\ell^*, r^*, u^*, v^*)$ becomes $(q + 1 - r^*, q + 1 - \ell^*, q + 1 - v^*, q + 1 - u^*)$.
+The new values satisfy $u^* < \ell^*$ and $v^* < r^*$.
+The required set $D$ does not depend on the direction of $P$, so we may continue with the reversed path.
+
+\emph{Case $u^* < \ell^*$ and $v^* < r^*$.}
+This is the remaining case, and we assume it from now on.
+
+\emph{Property $(\star)$.}
+Let $a \in R_0$ and $h \in C_0$ with $h \not\leq a$, let $\alpha$ be a position of an element of $R_0$ and $\beta$ a position of an element of $C_0$, with $\alpha \in T(h)$ and $\beta \in S(a)$.
+Then the closed interval between $\alpha$ and $\beta$ contains an element of $\Pos[a] \cup \Pos[h]$.
+
+To prove $(\star)$, we have $\alpha \neq \beta$ by their types, and we put $p_1 = u(h)$, $p_4 = r(a)$, $p_2 = \min\{\alpha, \beta\}$ and $p_3 = \max\{\alpha, \beta\}$.
+Then $p_1 \in T(h)$ and $p_4 \in S(a)$, and one of $p_2, p_3$ is $\alpha \in T(h)$ and the other is $\beta \in S(a)$.
+By~\eqref{eq:pa-ranges-r} and~\eqref{eq:pa-ranges-c}, $p_1 \leq u^*$ and $p_4 \geq r^*$.
+By the same relations and $u^* < \ell^*$, we have $\alpha \geq u^* + 5$ and $\beta \geq \ell^* + 5 > u^* + 5$, so $p_2 \geq u^* + 5 \geq p_1 + 5$.
+By the same relations and $v^* < r^*$, we have $\alpha \leq v^* - 5 < r^* - 5$ and $\beta \leq r^* - 5$, so $p_3 \leq r^* - 5 \leq p_4 - 5$.
+Hence $(p_2 - p_1) + (p_4 - p_3) \geq 10$.
+Every element of $Z = \Pos[a] \cup \Pos[h]$ is greater than $u^* \geq p_1$ and less than $r^* \leq p_4$, by~\eqref{eq:pa-ranges-r}, by~\eqref{eq:pa-ranges-c} and by the orientation.
+If $[p_2, p_3]$ contained no element of $Z$, then $Z \subseteq (p_1, p_2) \cup (p_3, p_4)$, and \cref{lem:pa-two-jumps} would give $(p_2 - p_1) + (p_4 - p_3) \leq 8$, a contradiction.
+
+\emph{Positions of $C_0$.}
+Every class of $C_0$ has a position greater than $v^*$.
+Indeed, let $h \in C_0$.
+By~\eqref{eq:pa-ranges-c}, $v(h) - u(h) \geq v^* - u^* \geq 10$, so $\Pos[h] \not\subseteq (u(h), v(h))$ by \cref{lem:pa-one-jump}(b).
+The elements of $\Pos[h]$ have type F, so they differ from $u(h)$ and $v(h)$, which have type E.
+By~\eqref{eq:pa-ranges-c} and $u^* < \ell^*$, they are greater than $u^* \geq u(h)$.
+So some element of $\Pos[h]$ is greater than $v(h) \geq v^*$.
+
+\emph{Stage 1: the classes of $R_0$.}
+Distinct classes of $R_0$ have disjoint position sets, hence distinct last positions.
+Suppose that $R_0$ has at most ten classes, and let $A_\kappa$ be a set of one representative per class.
+Then $D = E^* \setminus \upp A_\kappa$ is a value of (T4) with $x_1, \dots, x_4$ equal to $b^u_1, b^u_2, b^v_1, b^v_2$ and with $S = E_0 \cup A_\kappa$.
+It contains $L_P$ by \cref{lem:pa-atoms}(d).
+An element of $A_P$ inside $E^*$ lies in $R_0$ and is tied with a representative, so it lies in $\upp A_\kappa$.
+So $D$ misses $A_P$, and $D$ is as required.
+
+Otherwise, let $\kappa_1, \dots, \kappa_{10}$ be the first ten classes of $R_0$ by last position, let $p^*$ be the last position of $\kappa_{10}$, and call the positions greater than $p^*$ the \emph{tail}.
+The classes $\kappa_i$ have no position in the tail.
+Every other class of $R_0$ has its last position in the tail.
+Every class of $C_0$ has a position in the tail, because such a class has a position greater than $v^*$ and $p^* \leq v^* - 5$ by~\eqref{eq:pa-ranges-r}.
+Let $A_\kappa$ be a set of one representative per class $\kappa_i$, and let $E_\kappa = M \setminus \upp A_\kappa$.
+
+Let $a_1$ and $a_2$ be the elements of $\kappa_1$ and $\kappa_{10}$ at their last positions.
+These two positions are the first and the last of ten distinct positions, so they are at distance at least nine.
+The sets $\Pos[a_1]$ and $\Pos[a_2]$ have no element in the tail.
+Let $W = M \setminus \upp (\win(a_1) \cup \win(a_2))$, where $|\win(a_1) \cup \win(a_2)| \leq 18$ by \cref{lem:pa-atoms}(c), and let
+\[
+F^1 = F^* \cup \FR(a_1, a_2) \cup \bigl(W \cap (\EP(a_1) \cup \EP(a_2))\bigr).
+\]
+The down-set $F^1$ misses $U_P$.
+Indeed, $F^*$ and $\FR(a_1, a_2)$ miss $U_P$ by \cref{lem:pa-atoms}(a).
+The down-set $W \cap (\EP(a_1) \cup \EP(a_2))$ misses $A_P$, because an element of $\win(a_1) \cup \win(a_2)$ lies outside $W$ and any other element of $A_P$ lies outside both sets $\EP(a_i)$ by \cref{lem:pa-atoms}(c).
+
+Let $\mathcal{C}_1$ be the set of classes of $C_0$ not contained in $F^1$.
+All elements of such a class lie outside the down-set $F^1$.
+Let $g$ and $h$ be elements of a class of $\mathcal{C}_1$.
+Then $g \notin \FR(a_1, a_2)$, so $g \in C(a_1) \cup C(a_2)$ by \cref{lem:pa-atoms}(a), and
+\begin{equation}
+\label{eq:pa-not-below}
+h \not\leq a_1 \quad\text{and}\quad h \not\leq a_2.
+\end{equation}
+Indeed, $h < a_i$ would give $h \in \EP(a_i)$ by \cref{lem:pa-atoms}(c) and $h \in L_P \subseteq W$ by \cref{lem:pa-atoms}(d), hence $h \in F^1$, and $h \sim a_i$ is impossible because $h \in L_P$, $a_i \in U_P$ and $L_P \cap U_P = \emptyset$.
+
+\emph{Shape A: $|\mathcal{C}_1| < 20$.}
+Let $H_1$ be a set of one representative per class of $\mathcal{C}_1$, and let $D = F^1 \cup \dn H_1$.
+Then $D$ is a value of (T5) with $x_1, \dots, x_6$ equal to $a^\ell_1, a^\ell_2, a^r_1, a^r_2, a_1, a_2$, with $S = H_0 \cup H_1$ and with $S' = \win(a_1) \cup \win(a_2)$.
+It misses $U_P$, because $F^1$ misses $U_P$ and $\dn H_1 \subseteq L_P$.
+It contains $B_P$, because an element of $B_P$ outside $F^1$ lies in $C_0$ and in a class of $\mathcal{C}_1$, so it is tied with an element of $H_1$.
+So $D$ is as required.
+
+\emph{Shape B: $|\mathcal{C}_1| \geq 20$.}
+Choose 20 classes of $\mathcal{C}_1$ and one element of each.
+Split these elements into two groups of ten.
+Let $h_1$ and $h_2$ be the first and the last by position in the first group, and let $h_3$ and $h_4$ be the first and the last by position in the second group.
+Then $|\pos(h_1) - \pos(h_2)| \geq 9$ and $|\pos(h_3) - \pos(h_4)| \geq 9$, and $h_1, h_2, h_3, h_4$ lie in four distinct classes.
+Let
+\[
+D = E^* \cap E_\kappa \cap \ER(h_1, h_2) \cap \ER(h_3, h_4),
+\]
+which is a value of (T6) with $x_1, \dots, x_8$ equal to $b^u_1, b^u_2, b^v_1, b^v_2, h_1, h_2, h_3, h_4$ and with $S = E_0 \cup A_\kappa$.
+It contains $L_P$ by \cref{lem:pa-atoms}(b) and (d).
+We show that $D$ misses $A_P$, so that $D$ is as required.
+
+Suppose that $a \in A_P \cap D$.
+Then $a \in R_0$, because $D \subseteq E^*$.
+The class of $a$ is not among the classes $\kappa_i$, because $D \subseteq E_\kappa$.
+So this class has a position in the tail, and it lies inside the down-set $D$.
+Let $\Lambda$ be the set of positions in the tail of the classes of $R_0$ inside $D$ and of the classes of $\mathcal{C}_1$.
+The set $\Lambda$ contains positions of both types, the first by what was just shown and the second because every class of $C_0$ has a position in the tail.
+So $\Lambda$ contains two consecutive elements $\alpha$ and $\beta$, where $\alpha$ is the position of an element $a''$ in a class of $R_0$ inside $D$, and $\beta$ is the position of an element $g$ in a class of $\mathcal{C}_1$.
+
+At most one of the four classes of $h_1, h_2, h_3, h_4$ contains $g$, so one of the two pairs has both classes not containing $g$, and we may assume by symmetry that this pair is $h_1, h_2$.
+As $a'' \in D \subseteq \ER(h_1, h_2)$, \cref{lem:pa-atoms}(b) gives $a'' \in C'(h_1) \cup C'(h_2)$.
+Choose $h \in \{h_1, h_2\}$ with $a'' \in C'(h)$, so $\alpha \in T(h)$.
+As $g \in C(a_1) \cup C(a_2)$, choose $a' \in \{a_1, a_2\}$ with $g \in C(a')$, so $\beta \in S(a')$.
+We have $a' \in R_0$, $h \in C_0$, and $h \not\leq a'$ by~\eqref{eq:pa-not-below}, so $(\star)$ applies to $a'$, $h$, $\alpha$ and $\beta$.
+
+The closed interval between $\alpha$ and $\beta$ lies in the tail, so it misses $\Pos[a']$.
+Its interior contains no element of $\Lambda$, and the class of $h$ belongs to $\mathcal{C}_1$, so its interior misses $\Pos[h]$.
+Also $\alpha \notin \Pos[h]$ by type, and $\beta \notin \Pos[h]$ because the class of $h$ does not contain $g$.
+This contradicts $(\star)$, so $D$ misses $A_P$.
+
+\emph{Count.}
+Shape A uses the switches $a^\ell_1, a^\ell_2, a^r_1, a^r_2$, at most 28 switches of $H_0$, the switches $a_1, a_2$, at most 18 switches of $\win(a_1) \cup \win(a_2)$ and at most 19 representatives, which is $4 + 28 + 2 + 18 + 19 = 71$ switches.
+Shape B uses $4 + 28 + 10 + 4 = 46$ switches.
+\end{proof}
+
+\subsection{The Algorithm}
+\label{sec:pa-algorithm}
+
+\begin{corollary}[Deciding the general switch form]
+\label{cor:pa-switch-form}
+There is an algorithm that, given an instance of the general switch form with P2, with $m$ switches, $\nu = |\Omega|$ nodes and total side size $\sigma = \sum_{w \in M} (|E_w| + |F_w|)$, decides whether it is a yes-instance and, if it is, returns a mode vector that connects $s$ and $t$.
+Its running time is $(m + 1)^{71} \cdot \mathrm{poly}(m, \nu, \sigma)$.
+\end{corollary}
+
+\begin{proof}
+If $s = t$, the algorithm returns the mode vector $\emptyset$, which connects $s$ and $t$ by \cref{lem:zz-valid}(c).
+Otherwise it computes, for each formula of \cref{def:pa-formulas} and each choice of its switches and sets, the value $D$ of the formula, and it tests whether $D$ connects $s$ and $t$.
+It returns the first $D$ that passes the test, and it reports a no-instance if there is none.
+
+\emph{Correctness.}
+Every value is a mode vector by \cref{def:pa-formulas}, so a returned $D$ proves a yes-instance.
+Conversely, a yes-instance with $s \neq t$ has a valid path by \cref{lem:zz-valid}(c), hence a shortest valid path, and \cref{thm:pa-formulas} gives a value that connects $s$ and $t$.
+
+\emph{Time.}
+A choice of switches and sets of total size at most $j$ is given by a $j$-tuple over $M$ and one extra symbol for an empty role, so there are at most $(m + 1)^j$ such choices.
+Since each formula is built from at most 71 switches, there are at most $6 (m + 1)^{71}$ tests.
+The sets $\NE(E^\#_x)$ and $\NF(F^\#_x)$ of all switches are computed once in time $\mathrm{poly}(m, \nu, \sigma)$, as distinct middle edges have distinct private nodes.
+With the table of $\leq$, each atom and each value of a formula takes time polynomial in $m$.
+Whether $D$ connects $s$ and $t$ is decided by a graph search over the nodes and the picked sides in time $O(\nu + \sigma + m)$.
+\end{proof}
+
+\begin{algorithm}[tb]
+\caption{A minimum cut-path for an instance $(G, u, v)$ of the open case}
+\label{alg:pa-open-case}
+\begin{algorithmic}[1]
+\Require a graph $G \in \DC$ and vertices $u, v$ with $d(u, v) = 2$ and $c(u, v) \geq 3$
+\Ensure a minimum cut-path between $u$ and $v$
+\State Compute $K$, the multigraph $H$, the ZZ instance and its switch form.
+\State Run the algorithm of \cref{cor:pa-switch-form} on the switch form, enumerating the formulas of \cref{def:pa-formulas}.
+\If{it returns a mode vector $D$}
+\State \Return $\delta_K(A([u] \cup D))$
+\Else
+\State \Return $C \cup \pi$ for a minimum $u$--$v$ cut $C$ of $G$ and a shortest $u$--$v$ path $\pi$ of $G$
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+
+\begin{theorem}[The open case]
+\label{thm:pa-open-case}
+There is an algorithm that, given a graph $G \in \DC$ with $n$ vertices and vertices $u, v$ of $G$ with $d(u, v) = 2$ and $c(u, v) \geq 3$, decides whether $\cp(u, v) = c(u, v)$ and computes a minimum cut-path between $u$ and $v$ in time $n^{71} \cdot n^{O(1)}$.
+\end{theorem}
+
+\begin{proof}
+We show that \cref{alg:pa-open-case} has these properties.
+The ZZ instance satisfies P2 and $u < v$ by \cref{thm:zz-reduction}, so its switch form is an instance of the general switch form with P2 by \cref{lem:zz-switch-form}.
+By \cref{thm:zz-reduction} and \cref{lem:zz-answers}, the switch form is a yes-instance if and only if $\cp(u, v) = c(u, v)$.
+
+\emph{Lifting.}
+Let the algorithm of \cref{cor:pa-switch-form} return a mode vector $D$ that connects $s$ and $t$.
+By the proof of \cref{lem:zz-answers}, $D' = [u] \cup D$ is a down-set of $(Q, \leq)$ with $u \in D'$ and $v \notin D'$, and $u$ and $v$ are connected in $G_{D'}$.
+By \cref{lem:zz-down-sets}, $D'$ is a minimum $u$--$v$ cut of $H$, and by \cref{lem:zz-multigraph}(c), $A(D')$ is a minimum $u$--$v$ cut of $K$.
+By \cref{lem:zz-bridges}(b), $\delta_K(A(D'))$ is a minimum $u$--$v$ cut of $G$.
+A $u$--$v$ path $\pi$ of $G_{D'}$ consists of real edges with exactly one end in $D' = A(D') \cap Q$, so $\pi \subseteq \delta_K(A(D'))$ by \cref{lem:zz-multigraph}(a).
+Hence $\delta_K(A(D'))$ is a cut-path with $c(u, v)$ edges, and it is a minimum cut-path by \cref{lem:basic-bounds}.
+
+\emph{No mode vector.}
+If no mode vector is returned, then $\cp(u, v) \neq c(u, v)$, so $\cp(u, v) = c(u, v) + 1$ by \cref{prop:easy-pairs}(iv).
+A shortest $u$--$v$ path $\pi$ shares an edge with every minimum $u$--$v$ cut $C$, so $C \cup \pi$ is a cut-path with at most $c(u, v) + d(u, v) - 1 = c(u, v) + 1$ edges, hence a minimum cut-path.
+
+\emph{Time.}
+The graph has $n \geq 3$ vertices, since $u$, $v$ and a common neighbor are distinct.
+The first step takes time polynomial in $n$ by \cref{thm:zz-reduction} and \cref{lem:zz-switch-form}.
+By the same results, $m \leq |Q| - 2 \leq n - 2$, $\nu \leq |Q| + |R| \leq n + |E| \leq n + n^2$ and $\sigma \leq 2|R| \leq 2|E| \leq n^2$.
+So \cref{cor:pa-switch-form} takes time $(m + 1)^{71} \cdot \mathrm{poly}(m, \nu, \sigma) \leq n^{71} \cdot n^{O(1)}$.
+The set $A(D')$, the set $\delta_K(A(D'))$, a minimum cut $C$ and a shortest path $\pi$ take polynomial time.
+\end{proof}
+
+\section{Conclusion}\label{sec:conclusion}
+
+\MinCutPath{} is NP-complete on graphs of diameter three (\cref{thm:dt-hardness}) and solvable in polynomial time on $\DC$ (\cref{thm:main}).
+A pair with $c(u, v) \leq 2$ takes linear time (\cref{thm:linear-time}), and a pair with $d(u, v) = 2$ and $c(u, v) \geq 3$ takes time $n^{71} \cdot n^{O(1)}$ (\cref{thm:pa-open-case}).
+
+We leave the following questions open.
+\begin{enumerate}
+\item Is there an algorithm with a small exponent for the pairs with $d(u, v) = 2$ and $c(u, v) \geq 3$?
+The exponent $71$ counts the elements of the formula of \cref{thm:pa-formulas}, and it does not use the structure of the formula.
+
+\item Let $k \geq 3$ be a fixed integer, and consider the connected graphs in which every two distinct vertices $x$ and $y$ satisfy $d(x, y) \leq k$ or $c(x, y) \leq 2$.
+Can $\cp(u, v)$ be computed in linear time for the pairs with $c(u, v) = 2$ in these graphs?
+The paths of \cref{thm:characterization} then have at most $k$ edges, by the argument of \cref{cor:two-edges}, but the bound of four candidates per pair of terminals in \cref{alg:cut-two} uses that they have at most two.
+
+\item Consider the connected graphs in which every two distinct vertices $x$ and $y$ satisfy $d(x, y) \leq 2$ or $c(x, y) \leq 3$.
+Can $\cp(u, v)$ be computed in polynomial time for the pairs with $c(u, v) = 3$ in these graphs?
+By \cref{lem:basic-bounds}, such a pair with $d(u, v) \geq 3$ has $d(u, v) \leq \cp(u, v) \leq d(u, v) + 2$, and the square decomposition is defined for cut-value two only.
+\end{enumerate}
+
+\backmatter
+
+\bmhead{Acknowledgements}
+
+The idea of the \MinCutPath{} problem is due to Martin Loebl, who supervised the master's thesis on which part of this paper is based.
+
+\section*{Declarations}
+
+\begin{itemize}
+\item Funding: Statement.
+\item Conflict of interest/Competing interests: Statement.
+\item Ethics approval and consent to participate: Not applicable.
+\item Consent for publication: Not applicable.
+\item Data availability: No datasets were generated or analyzed during the current study.
+\item Materials availability: Not applicable.
+\item Code availability: Not applicable.
+\item Author contribution: Statement.
+\end{itemize}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\bibliography{references}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+\end{document}

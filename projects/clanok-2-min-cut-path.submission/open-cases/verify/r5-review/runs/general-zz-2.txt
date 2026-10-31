@@ -1,0 +1,1 @@
+mode zz seed 2 count 3000 (160s): {'fixed_total': 3180, 'hyb_accept': 5264, 'max_hyp': 407, 'max_hyp_fail': 1486, 'no': 1107, 'noinst_hyp': 1560, 'noinst_hyp_fail': 349, 'own_hyp': 405, 'own_hyp_fail': 1493, 'prune_no': 1102, 'rigid': 95, 'sub_hyp': 1000, 'sub_hyp_fail': 4679, 'switch_total': 14976, 't5_accept': 8725, 't5_runs': 18000, 't5_walks': 9453054, 'yes': 1893}

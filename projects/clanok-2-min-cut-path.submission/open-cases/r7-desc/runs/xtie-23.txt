@@ -1,0 +1,9 @@
+P2                                                           3
+R_0, C_0 both non-empty                                      3
+case I                                                       3
+formula picks P                                              3
+paths                                                        3
+paths reaching Stage 0                                       3
+paths with same-type ties                                    3
+shape: F^1 alone                                             3
+FAILURES: none

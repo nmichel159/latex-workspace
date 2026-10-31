@@ -1,0 +1,12 @@
+{"k": 2, "block": false, "contact": false, "m": 12, "N": 70, "p2_viol": 0, "shortest": 4, "nsol": 79, "cdesc(1,0)": true, "kind_centre": [0, 1]}
+{"k": 2, "block": false, "contact": true, "m": 12, "N": 74, "p2_viol": 0, "shortest": 4, "nsol": 87, "cdesc(1,0)": true, "kind_centre": [0, 1]}
+{"k": 2, "block": true, "contact": false, "m": 12, "N": 70, "p2_viol": 0, "shortest": 4, "nsol": 17, "cdesc(1,0)": true, "kind_centre": [0, 1]}
+{"k": 2, "block": true, "contact": true, "m": 12, "N": 74, "p2_viol": 0, "shortest": 4, "nsol": 17, "cdesc(1,0)": true, "kind_centre": [0, 1]}
+{"k": 3, "block": false, "contact": false, "m": 18, "N": 159, "p2_viol": 0, "shortest": 6, "cdesc(1,0)": true, "kind_centre": [0, 1]}
+{"k": 3, "block": false, "contact": true, "m": 18, "N": 165, "p2_viol": 0, "shortest": 6, "cdesc(1,0)": true, "kind_centre": [0, 1]}
+{"k": 3, "block": true, "contact": false, "m": 18, "N": 159, "p2_viol": 0, "shortest": 6, "cdesc(1,0)": true, "kind_centre": [0, 1]}
+{"k": 3, "block": true, "contact": true, "m": 18, "N": 165, "p2_viol": 0, "shortest": 6, "cdesc(1,0)": true, "kind_centre": [0, 1]}
+{"k": 4, "block": false, "contact": false, "m": 24, "N": 284, "p2_viol": 0, "shortest": 6, "cdesc(1,0)": true, "kind_centre": [0, 1]}
+{"k": 4, "block": false, "contact": true, "m": 24, "N": 292, "p2_viol": 0, "shortest": 6, "cdesc(1,0)": true, "kind_centre": [0, 1]}
+{"k": 4, "block": true, "contact": false, "m": 24, "N": 284, "p2_viol": 0, "shortest": 8, "cdesc(1,0)": true, "kind_centre": [0, 1]}
+{"k": 4, "block": true, "contact": true, "m": 24, "N": 292, "p2_viol": 0, "shortest": 8, "cdesc(1,0)": true, "kind_centre": [0, 1]}

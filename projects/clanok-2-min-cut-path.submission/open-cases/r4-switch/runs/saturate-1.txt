@@ -1,0 +1,1 @@
+seed 1 saturated 31 {'yes': 31, 'no': 0, 'paths': 67, 'fail': 0, 'maxdom': 3, 'maxsing': 2, 'maxstore': 6, 'direct': 67, 'badcase': 4} 0.3s

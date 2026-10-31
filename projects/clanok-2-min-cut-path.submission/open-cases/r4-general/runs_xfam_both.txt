@@ -1,0 +1,6 @@
+X_2 mates=both q=19 |R|=26 switches=4 P2=True solutions=1 exact=True | NG(1,0)=True tried=4 peak Pi=[('t', ('z', 1, 2))] | 0.0s
+X_3 mates=both q=31 |R|=45 switches=6 P2=True solutions=1 exact=True | NG(1,0)=True tried=13 peak Pi=[('t', 't')] | 0.0s
+X_4 mates=both q=45 |R|=68 switches=8 P2=True solutions=1 exact=True | NG(1,0)=True tried=26 peak Pi=[('t', 't')] | 0.0s
+X_5 mates=both q=61 |R|=95 switches=10 P2=True solutions=1 exact=True | NG(1,0)=True tried=34 peak Pi=[('t', 't')] | 0.0s
+X_6 mates=both q=79 |R|=126 switches=12 P2=True solutions=1 exact=True | NG(1,0)=False tried=53 | NG(2,0)=True tried=82 peak Pi=[('x', 1), ('t', 't')] | 0.0s
+X_7 mates=both q=99 |R|=161 switches=14 P2=True solutions=1 exact=True | NG(1,0)=False tried=75 | NG(2,0)=True tried=97 peak Pi=[('x', 1), ('t', 't')] | 0.1s

@@ -1,0 +1,17 @@
+rsw-1-20-4-7 (1s, pid 9664)
+  F with heavy rows                    2
+  IDESC exact run                      20
+  branch E                             1
+  branch F                             3
+  instances                            20
+  levels hist                          {1: 23}
+  max anchors                          1
+  max flips                            2
+  max m                                7
+  max span L4.4                        2
+  no                                   6
+  paths checked                        23
+  trivial C=0                          10
+  trivial R=0                          1
+  yes                                  14
+  errors: 0

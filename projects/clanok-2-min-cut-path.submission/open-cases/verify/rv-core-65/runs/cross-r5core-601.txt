@@ -1,0 +1,1 @@
+﻿cross_r5core seed 601 count 2000 m 5-14: {'bad pairs': 3767, 'descriptions compared': 16995, 'instances': 2000, 'order-bad pairs covered by a star': 1465, 'paths': 3399}

@@ -1,0 +1,14 @@
+J hypothesis met 13
+S0: |A|<10 153286
+S0: |B|<10 153286
+ThA trivial 67452
+instances 60000
+max r 6
+max_span_44 4
+no 21167
+paths 153286
+tie-free paths 67452
+ties on path 0
+yes 38833
+time 17.6
+FAILURES: none

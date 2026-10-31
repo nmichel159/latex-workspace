@@ -1,0 +1,64 @@
+cross_r5data pid=25240, 24 files from C:\Users\norom\Documents\latex\projects\clanok-2-min-cut-path.submission\open-cases\r5-core\runs
+  two-levels-example.json m=27 k=5 r=20 |A|=10 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 4}
+  single-21-21.json m=29 k=5 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-21-25.json m=29 k=5 r=20 |A|=10 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-21-30.json m=32 k=6 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 3}
+  single-21-37.json m=32 k=6 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-21-40.json m=31 k=5 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-21-60.json m=31 k=5 r=20 |A|=10 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-21-64.json m=26 k=5 r=20 |A|=10 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 4}
+  single-22-1.json m=32 k=6 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-12.json m=31 k=5 r=22 |A|=11 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-14.json m=32 k=6 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 3}
+  single-22-16.json m=31 k=5 r=22 |A|=11 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-22.json m=30 k=5 r=22 |A|=11 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-24.json m=32 k=6 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-29.json m=30 k=5 r=20 |A|=10 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-30.json m=36 k=6 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-32.json m=37 k=6 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-34.json m=29 k=5 r=20 |A|=10 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-39.json m=28 k=5 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-4.json m=28 k=5 r=22 |A|=11 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-59.json m=33 k=6 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-64.json m=27 k=5 r=20 |A|=10 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 3}
+  single-22-65.json m=34 k=6 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+  single-22-78.json m=33 k=6 r=24 |A|=12 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2}
+SUMMARY cross_r5data
+  E continue: 103
+  E terms checked: 672
+  F final: 76
+  F final with anchors: 76
+  F terms checked: 727
+  bad pairs: 357
+  case E (v>=1/2): 123
+  case F (v<1/2): 76
+  duality pairs: 25298
+  duality pairs y<x: 1162
+  files: 24
+  games: 199
+  heavy rows: 382
+  levels=2 (proof): 72
+  levels=2 (stress): 19
+  levels=3 (stress): 3
+  levels=4 (stress): 2
+  max E expected uncovered x1000: 0
+  max F expected failures x1000: 0
+  max anchors: 3
+  max bad pairs on a path: 35
+  max levels proof/adversarial: 2
+  max levels proof/first: 2
+  max levels proof/sample: 2
+  max levels stress/adversarial: 4
+  max sampled anchors (distinct): 1
+  max |A & NE(E#x)|: 3
+  max |A|: 12
+  max |B & NF(F#y)|: 3
+  max |Phi|/|T| x100: 300
+  paths: 24
+  rows: 2096
+  sample: E cover drawn: 24
+  sample: F cover drawn: 24
+  sample: anchors drawn: 24
+  stored path is shortest: 1
+  stuck (no progress): 20
+FAILURES: none

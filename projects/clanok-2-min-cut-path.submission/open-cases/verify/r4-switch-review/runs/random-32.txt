@@ -1,0 +1,4 @@
+test_random_par seed=32 tasks=140 per=200 maxN=16 maxn=14
+counts {"inst": 28000, "yes": 21019, "no": 6981, "paths": 56801, "maxr": 8, "soundK": 27924}
+proof stats {"maxB": 5, "maxZ": 1, "maxsingles": 2, "maxstorT": 3, "step0_T": 2393, "step1_T": 66611, "step2_T": 44594, "swaps": 4}
+failures 0

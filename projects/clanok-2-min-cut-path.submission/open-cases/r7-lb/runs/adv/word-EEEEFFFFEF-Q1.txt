@@ -1,0 +1,11 @@
+adv sample seed 116 word EEEEFFFFEF Q 1 count 3000 probs [('E', 3.0), ('F', 3.0), ('L', 1.0), ('U', 1.0), ('C', 1.0)] pid 14156
+  it 0 new best score 11.44 cost 1 mean 1.60 npairs 5 m 14 (0s)
+  it 11 new best score 12.05 cost 1 mean 2.15 npairs 13 m 14 (0s)
+  it 45 new best score 21.64 cost 2 mean 2.00 npairs 3 m 14 (0s)
+  it 135 new best score 21.68 cost 2 mean 2.00 npairs 3 m 14 (0s)
+  it 229 new best score 21.90 cost 2 mean 2.00 npairs 1 m 14 (1s)
+  it 332 new best score 22.08 cost 2 mean 2.50 npairs 8 m 14 (1s)
+  it 698 new best score 22.27 cost 2 mean 2.50 npairs 2 m 14 (2s)
+  it 889 new best score 22.40 cost 2 mean 2.50 npairs 2 m 14 (2s)
+  it 1133 new best score 32.90 cost 3 mean 3.00 npairs 3 m 14 (3s)
+SUMMARY {"cost1": 2948, "cost2": 49, "cost3": 3} (8s)

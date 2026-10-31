@@ -1,0 +1,9 @@
+seed 2 word FFEEEEEEEEEFF PF 0.5 PX 0.5
+  (#solutions, storage k=1,2,3) (1, (None, None, 6)) 1
+  (#solutions, storage k=1,2,3) (154, None) 1
+  (#solutions, storage k=1,2,3) (172, None) 1
+  (#solutions, storage k=1,2,3) (180, None) 1
+  (#solutions, storage k=1,2,3) (189, None) 1
+  (#solutions, storage k=1,2,3) (33, None) 1
+  no-variants: PC answer counts {False: 26}
+1.8s

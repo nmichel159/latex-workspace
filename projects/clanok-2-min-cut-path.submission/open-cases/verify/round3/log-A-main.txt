@@ -1,0 +1,13 @@
+rand seed 7100: {'inst': 250, 'yes': 21, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 644, 'maxc': 10, 'len': {1: 18, 3: 3}, 'far': 232}
+rand seed 7102: {'inst': 250, 'yes': 22, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 1407, 'maxc': 12, 'len': {1: 22}, 'far': 228}
+rand seed 7104: {'inst': 250, 'yes': 21, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 5191, 'maxc': 13, 'len': {1: 20, 3: 1}, 'far': 229}
+rand seed 7106: {'inst': 250, 'yes': 28, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 11377, 'maxc': 12, 'len': {1: 27, 3: 1}, 'far': 222}
+rand seed 7108: {'inst': 250, 'yes': 25, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 2983, 'maxc': 11, 'len': {1: 24, 3: 1}, 'far': 226}
+gpi seed 7107: {'inst': 250, 'yes': 108, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 3783, 'maxc': 33, 'len': {3: 97, 5: 10, 9: 1}, 'far': 0}
+rand seed 7110: {'inst': 250, 'yes': 25, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 644, 'maxc': 11, 'len': {1: 24, 3: 1}, 'far': 225}
+gpi seed 7105: {'inst': 250, 'yes': 98, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 4303, 'maxc': 31, 'len': {3: 85, 7: 1, 5: 12}, 'far': 0}
+gpi seed 7101: {'inst': 250, 'yes': 104, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 23753, 'maxc': 32, 'len': {3: 94, 5: 8, 7: 2}, 'far': 0}
+gpi seed 7109: {'inst': 250, 'yes': 92, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 7295, 'maxc': 33, 'len': {5: 14, 3: 78}, 'far': 0}
+gpi seed 7103: {'inst': 250, 'yes': 81, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 20757, 'maxc': 32, 'len': {3: 70, 5: 10, 7: 1}, 'far': 0}
+gpi seed 7111: {'inst': 250, 'yes': 105, 'mismatch': 0, 'lemma_bad': 0, 'a4_bad': 0, 'witness_bad': 0, 'maxnodes': 4678, 'maxc': 32, 'len': {3: 91, 5: 14}, 'far': 0}
+violations: 0

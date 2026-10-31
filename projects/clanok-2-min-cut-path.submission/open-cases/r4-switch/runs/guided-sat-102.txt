@@ -1,0 +1,1 @@
+seed 102 L 10 16 {'inst': 200, 'paths': 408, 'ok': 816, 'fail': 0, 'swaps': 4, 'bad': 22, 'maxstore': 7} 68.1s

@@ -1,0 +1,8 @@
+rvc_l3 seed 2 count 3000 nm 2-9 RMAX 6
+  down-sets                                                    33777
+  instances                                                    3000
+  s = t                                                        40
+  valid paths                                                  1086703
+  with empty sides                                             2716
+  with ties                                                    2075
+  yes                                                          1085

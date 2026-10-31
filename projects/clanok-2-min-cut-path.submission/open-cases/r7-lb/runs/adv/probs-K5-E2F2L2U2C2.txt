@@ -1,0 +1,5 @@
+adv sample seed 202 word E5F5 Q 0 count 20000 probs [('E', 2.0), ('F', 2.0), ('L', 2.0), ('U', 2.0), ('C', 2.0)] pid 11824
+  it 0 new best score 21.84 cost 2 mean 2.00 npairs 1 m 12 (0s)
+  it 2 new best score 22.40 cost 2 mean 2.50 npairs 2 m 12 (0s)
+  it 3 new best score 32.90 cost 3 mean 3.00 npairs 1 m 12 (0s)
+SUMMARY {"cost1": 4782, "cost2": 13526, "cost3": 1692} (122s)

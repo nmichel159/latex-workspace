@@ -1,0 +1,4 @@
+L=9 {('R', True, True, True): 1, ('Rhelly', True, True, True): 1, ('Rdel', False, False, None): 18, ('Rtflip', False, False, None): 8} 1.1s
+L=10 {('R', True, True, True): 1, ('Rhelly', True, True, True): 1, ('Rdel', False, False, None): 20, ('Rtflip', False, False, None): 9} 2.1s
+L=11 {('R', True, True, True): 1, ('Rhelly', True, True, True): 1, ('Rdel', False, False, None): 22, ('Rtflip', False, False, None): 10} 4.0s
+L=12 {('R', True, True, True): 1, ('Rhelly', True, True, True): 1, ('Rdel', False, False, None): 24, ('Rtflip', False, False, None): 11} 6.9s

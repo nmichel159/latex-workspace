@@ -1,0 +1,9 @@
+P2                                                           2
+flips accepted                                               60
+flips rejected                                               100
+formula picks P                                              2
+paths                                                        2
+paths reaching Stage 0                                       2
+paths with same-type ties                                    2
+shape: F* (C_0 empty)                                        2
+FAILURES: none

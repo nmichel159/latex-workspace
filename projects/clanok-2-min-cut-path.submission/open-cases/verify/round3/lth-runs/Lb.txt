@@ -1,0 +1,2 @@
+{'formulas': 2131, 'sat': 1529, 'unsat': 602, 'viol': 0, 'maxswitches': 15, 'p2': 748, 'exhaustive_small': 0}
+violations: 0

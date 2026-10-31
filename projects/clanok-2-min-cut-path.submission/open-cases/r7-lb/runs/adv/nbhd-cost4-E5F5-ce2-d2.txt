@@ -1,0 +1,4 @@
+nbhd inst/cost4-E5F5-ce2.json D 2 mode all centre cost 4 pid 23352
+distance 1 done: {4: 53, 3: 63, 2: 4} (0s)
+distance 2 done: {4: 1408, 3: 4930, 2: 726, 1: 46} (8s)
+END best cost 4 centre 4 (8s)

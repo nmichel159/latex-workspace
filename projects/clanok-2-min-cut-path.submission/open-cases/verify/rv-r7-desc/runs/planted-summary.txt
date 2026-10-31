@@ -1,0 +1,57 @@
+counter                                                   A          B  allstrict      cegis      cross        mix      small      stair       ties
+(star) tested                                        346674      50946          0          0   62849844   45722016       2604   16402020    6264966
+C_1 max                                                  10         34          0          0         33         26         24         22         29
+Case I                                                 2940       1614        204          0        696        480       1080       1794       1290
+Case I: F^1 alone                                      1590        924        204          0        276        270        834       1014        894
+Case II (as written)                                    666        294          6          0        162         78        690        276        510
+Case II: R_1 empty (Prop. C)                            666        294          6          0        162         78        690        276        510
+Mirror II°                                             2940       1614        204          0        696        480       1080       1794       1290
+Mirror II°: E^1 alone                                  1590        924        204          0        276        270        834       1014        891
+Mirror I°                                               666        294          6          0        162         78        690        276        510
+Or: direct                                             4278       1434        102          0        420        522       1446       1776       1596
+Or: reversed                                           4278       1434        102          0        420        522       1446       1776       1596
+R(a) far pairs                                       470400     147600      10200       1200      42000      55200     295200     183600     175800
+R(b) far pairs                                       470400     147600      10200       1200      42000      55200     295200     183600     175800
+R_1 max                                                  10         34          0          0         33         26         24         22         29
+S0 exit: C_0 empty, F*                                  450         42          0         12          0         30       1506         60        162
+S0 exit: R_0 empty, E*                                  450         42          0         12          0         30       1506         60        162
+S0 pass: R_0, C_0 nonempty                             8556       2868        204          0        840       1044       2892       3552       3192
+S0: |A|,|B|>=10                                        9408       2952        204         24        840       1104       5904       3672       3516
+S1: |K|<20                                             5136       1032          0          0          0        504       1224       1548       1464
+S1: |K|>=20                                            3420       1836        204          0        840        540       1668       2004       1728
+Shape A (C_1 nonempty)                                 1350        384          0          0        294        126        210        778        336
+Shape A' (mirror, R_1 nonempty)                        1350        384          0          0        296        126        210        778        339
+Shape B                                                   0        306          0          0        126         84         36          2         60
+Shape B' (mirror)                                         0        306          0          0        124         84         36          2         60
+Shape B: one pair alone leaves a class of R_0             0          0          0          0        120          0          0          0          0
+base instances verified                                  31         14          2          1          5          6         25         14         16
+gen left: claim B' tested                              2362       4862          0          0       1366       1866       1770       3655       3411
+gen left: h-pair                                      36063      13662        985          0       3962       4138       9065      16830      14119
+gen right: a-pair                                     36145      13632        989          0       4016       4175       9067      16813      14123
+gen right: claim B tested                              2328       4971          0          0       1392       1850       1772       3727       3441
+max m                                                   176        203        137        114        306        263        183        200        204
+max r                                                   176        203        137        114        306        263        183        200        204
+max_span_44                                               2          2          2          2          2          2          2          2          2
+paths                                                  9408       2952        204         24        840       1104       5904       3672       3516
+paths with non-strict R_0 x C_0 pair                   4692       1512          0          0        768        990       1476       3450       2298
+accepted moves
+   A {'addT': 580, 'addTcore': 740, 'tieH': 890, 'wit': 959, 'unstrict': 385, 'addScore': 900, 'tieA': 915, 'addS': 812, 'attack': 1054}
+   B {'addTcore': 52, 'addScore': 446, 'wit': 371, 'tieH': 441, 'addS': 343, 'addT': 101, 'tieA': 389, 'attack': 48}
+   allstrict {'tieA': 20, 'addTcore': 23, 'tieH': 13, 'addT': 13, 'addS': 17, 'attack': 27, 'addScore': 14, 'wit': 9}
+   cegis {}
+   cross {'wit': 91, 'addTcore': 28, 'addT': 28, 'tieH': 107, 'addScore': 90, 'tieA': 97, 'addS': 104, 'unstrict': 53, 'attack': 10}
+   mix {'tieH': 151, 'wit': 167, 'addScore': 124, 'addS': 139, 'tieA': 158, 'addT': 38, 'addTcore': 30, 'attack': 2}
+   small {'addScore': 698, 'tieA': 680, 'tieH': 707, 'addS': 649, 'wit': 750, 'addT': 266, 'addTcore': 297, 'attack': 379}
+   stair {'tieA': 405, 'addScore': 417, 'tieH': 421, 'wit': 378, 'addS': 348, 'attack': 204, 'addTcore': 250, 'addT': 183, 'unstrict': 180}
+   ties {'addS': 400, 'tieA': 413, 'addT': 147, 'addScore': 438, 'addTcore': 140, 'wit': 431, 'attack': 139, 'tieH': 428, 'unstrict': 87}
+rejected moves
+   A {'addTcore': 187, 'attack': 813, 'addS': 118, 'addT': 300, 'unstrict': 502}
+   B {'addT': 296, 'addTcore': 389, 'attack': 808, 'addS': 56}
+   allstrict {'unstrict': 20, 'addS': 3, 'addT': 1}
+   cegis {}
+   cross {'addTcore': 53, 'attack': 177, 'unstrict': 42, 'addT': 72, 'addS': 4}
+   mix {'addTcore': 117, 'attack': 299, 'addT': 121, 'addS': 12}
+   small {'attack': 1052, 'addTcore': 447, 'addS': 74, 'addT': 480}
+   stair {'unstrict': 206, 'attack': 577, 'addT': 207, 'addTcore': 167, 'addS': 33}
+   ties {'addT': 276, 'attack': 823, 'addTcore': 311, 'addS': 36, 'unstrict': 67}
+FAILURES: none

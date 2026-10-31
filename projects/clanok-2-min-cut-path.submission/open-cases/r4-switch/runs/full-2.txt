@@ -1,0 +1,1 @@
+seed 2 count 300 nmax 5 (exact, decide_full): {(False, False): 100, (True, True): 200} 0.2s

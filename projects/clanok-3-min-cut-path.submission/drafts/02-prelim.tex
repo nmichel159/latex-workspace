@@ -1,0 +1,204 @@
+% MACROS:
+% \newcommand{\SSP}{\textsc{Separating Shortest Path}}
+
+\section{Preliminaries}
+\label{sec:preliminaries}
+
+\subsection{Cut-Paths and Minimum Cuts}
+\label{sec:cut-paths}
+
+All graphs are finite, simple and undirected.
+Notions that are not defined here follow~\cite{Diestel2025}.
+Throughout the paper, $G = (V, E)$ is a connected graph, and $u$ and $v$ are two distinct vertices of $G$.
+We write $xy$ for the edge with the ends $x$ and $y$.
+A path is a sequence of distinct vertices in which consecutive vertices are adjacent, and a single vertex is a path with no edges.
+A path from $x$ to $y$ is an $x$--$y$ path.
+We write $|P|$ for the number of edges of a path $P$ and use the symbol $P$ also for the set of its edges.
+The distance $d(x, y)$ is the number of edges of a shortest $x$--$y$ path of $G$.
+For a subgraph $H$ of $G$ and a set $M \subseteq E$, the graph $H \setminus M$ is obtained from $H$ by removing the edges of $M$.
+
+Let $x$ and $y$ be two distinct vertices.
+A set $C \subseteq E$ is an \emph{$x$--$y$ cut} if $G \setminus C$ contains no $x$--$y$ path.
+The minimum size of an $x$--$y$ cut is the \emph{cut-value} $c(x, y)$.
+For a set $A \subseteq V$, we denote by $\delta(A)$ the set of all edges with exactly one end in $A$.
+If $x \in A$ and $y \notin A$, then $\delta(A)$ is an $x$--$y$ cut.
+Distances and cut-values in a subgraph $H$ are written $d_H$ and $c_H$.
+
+\begin{definition}[Cut-path]
+\label{def:cut-path}
+A \emph{cut-path} between $u$ and $v$ is a set of edges of $G$ that contains a $u$--$v$ path and a $u$--$v$ cut.
+The minimum number of edges of a cut-path between $u$ and $v$ is denoted by $\cp(u, v)$, and a cut-path with $\cp(u, v)$ edges is a \emph{minimum cut-path}.
+\end{definition}
+
+The \MinCutPath{} problem asks for a minimum cut-path between $u$ and $v$~\cite{Michel2025MinCutPath}.
+A shortest $u$--$v$ path $P$ is \emph{separating} if $G \setminus P$ contains no $u$--$v$ path, and the \SSP{} problem asks whether $G$ contains such a path.
+The two bounds of \cref{lem:basic-bounds} are those of~\cite[Claim~7]{Michel2025MinCutPath}, and we include the short proof.
+
+\begin{lemma}[Basic bounds]
+\label{lem:basic-bounds}
+The value $\cp(u, v)$ satisfies
+\[
+\max\{c(u, v), d(u, v)\} \leq \cp(u, v) \leq c(u, v) + d(u, v) - 1.
+\]
+The equality $\cp(u, v) = d(u, v)$ holds if and only if $G$ contains a separating shortest $u$--$v$ path.
+\end{lemma}
+
+\begin{proof}
+A cut-path contains a $u$--$v$ cut and a $u$--$v$ path, which gives the lower bound.
+A shortest $u$--$v$ path $P$ shares an edge with every minimum $u$--$v$ cut $C$, so $C \cup P$ is a cut-path with at most $c(u, v) + d(u, v) - 1$ edges.
+A separating shortest $u$--$v$ path is a $u$--$v$ cut, hence a cut-path with $d(u, v)$ edges.
+Conversely, a cut-path with $d(u, v)$ edges contains a $u$--$v$ path, which has at least $d(u, v)$ edges.
+The cut-path is therefore equal to this path, which is a shortest $u$--$v$ path and a $u$--$v$ cut.
+\end{proof}
+
+\begin{lemma}
+\label{lem:minimum-cuts}
+Let $C$ be a minimum $u$--$v$ cut.
+Then $G \setminus C$ has exactly two components, and $C = \delta(A)$ for exactly one set $A \subseteq V$ with $u \in A$, the vertex set of the component that contains $u$.
+For every set $A \subseteq V$ with $u \in A$ and $v \notin A$, every $u$--$v$ path contains an odd number of edges of $\delta(A)$.
+\end{lemma}
+
+\begin{proof}
+Let $A$ be the vertex set of the component of $G \setminus C$ that contains $u$.
+Every edge of $\delta(A)$ belongs to $C$, and $\delta(A)$ is a $u$--$v$ cut because $v \notin A$.
+Hence $\delta(A) = C$ by the minimality of $C$.
+Let $Y$ be the component of $G \setminus C$ that contains $v$, and suppose that there is a third component $Y'$.
+Since $G$ is connected, some edge of $G$ has exactly one end in $Y'$.
+This edge belongs to $C = \delta(A)$ and has no end in $Y$.
+The edges of $C$ with an end in $Y$ thus form a $u$--$v$ cut with fewer than $|C|$ edges, a contradiction.
+If $C = \delta(A')$ for a set $A'$ with $u \in A'$, then no edge of $G \setminus C$ has exactly one end in $A'$, so $A'$ is the union of the vertex sets of some components of $G \setminus C$.
+Since $\delta(V)$ is empty and $C$ is not, we have $A' \neq V$ and hence $A' = A$.
+
+For the last statement, follow a $u$--$v$ path from $u$ to $v$.
+The path changes between $A$ and $V \setminus A$ exactly at its edges in $\delta(A)$, it starts in $A$ and it ends outside $A$.
+\end{proof}
+
+When we write a minimum $u$--$v$ cut as $\delta(A)$, the set $A$ contains $u$.
+
+\begin{lemma}
+\label{lem:uncrossing}
+Let $A, B \subseteq V$, and let $m(A, B)$ be the number of edges with one end in $A \setminus B$ and the other end in $B \setminus A$.
+Then
+\[
+|\delta(A \cap B)| + |\delta(A \cup B)| = |\delta(A)| + |\delta(B)| - 2m(A, B).
+\]
+\end{lemma}
+
+\begin{proof}
+The sets $A \cap B$, $A \setminus B$, $B \setminus A$ and $V \setminus (A \cup B)$ partition $V$.
+An edge with both ends in one of them is counted on neither side.
+An edge between $A \setminus B$ and $B \setminus A$ belongs to $\delta(A)$ and to $\delta(B)$ and to neither set on the left-hand side.
+An edge between $A \cap B$ and $V \setminus (A \cup B)$ belongs to all four sets.
+Every other edge belongs to exactly one of $\delta(A)$, $\delta(B)$ and to exactly one of $\delta(A \cap B)$, $\delta(A \cup B)$.
+\end{proof}
+
+The inequality $|\delta(A \cap B)| + |\delta(A \cup B)| \leq |\delta(A)| + |\delta(B)|$ is the submodularity of the cut function.
+
+\begin{proposition}
+\label{prop:open-pairs}
+Let $G$ be a connected graph and let $u, v$ be two distinct vertices of $G$.
+Then $\cp(u, v) = c(u, v)$ if and only if some minimum $u$--$v$ cut contains a $u$--$v$ path.
+Such a path has an odd number of edges, and at least three edges if $d(u, v) = 2$.
+\end{proposition}
+
+\begin{proof}
+A minimum $u$--$v$ cut that contains a $u$--$v$ path is a cut-path with $c(u, v)$ edges, and $\cp(u, v) \geq c(u, v)$ by \cref{lem:basic-bounds}.
+Conversely, a cut-path with $c(u, v)$ edges contains a $u$--$v$ cut, which has at least $c(u, v)$ edges.
+The cut-path is therefore equal to this cut, so it is a minimum $u$--$v$ cut, and it contains a $u$--$v$ path.
+A minimum $u$--$v$ cut is $\delta(A)$ for a set $A$ with $u \in A$ and $v \notin A$, and a $u$--$v$ path contained in $\delta(A)$ has an odd number of edges by \cref{lem:minimum-cuts}.
+If $d(u, v) = 2$, the path has at least two edges, hence at least three.
+\end{proof}
+
+In the graph $G_b$ of \cref{ex:counterexamples}, the minimum $u$--$v$ cut $\delta(\{u, s, b\}) = \{ua, ab, bv\}$ is the path $u, a, b, v$.
+In a graph of diameter two, $\cp(u, v) = c(u, v) + 1$ for every pair with $d(u, v) = 2$~\cite[Theorem~15]{Michel2025MinCutPath}, so by \cref{prop:open-pairs} no minimum $u$--$v$ cut contains a $u$--$v$ path.
+
+\subsection{Graphs with Distance or Cut-Value at Most Two}
+\label{sec:class}
+
+\begin{definition}[The class $\DC$, {\cite[Definition~37]{Michel2025MinCutPath}}]
+\label{def:class}
+The class $\DC$ consists of all connected graphs in which every two distinct vertices $x$ and $y$ satisfy $d(x, y) \leq 2$ or $c(x, y) \leq 2$.
+\end{definition}
+
+A graph has \emph{diameter at most two} if any two of its vertices are at distance at most two.
+A \emph{cactus graph} is a connected graph in which any two distinct cycles share at most one vertex.
+The cactus graphs are the connected graphs in which $c(x, y) \leq 2$ for every two distinct vertices $x$ and $y$.
+This characterization is folklore (one direction is proved in~\cite[Claim~17]{Michel2025MinCutPath}, both in~\cite[Lemma~6.1]{Michel2026MinCutPath}).
+
+\begin{proposition}
+\label{prop:class}
+The relation on $V$ that holds for $x$ and $y$ if $x = y$ or $c(x, y) \geq 3$ is an equivalence relation.
+The graph $G$ belongs to $\DC$ if and only if any two vertices of the same equivalence class are at distance at most two in $G$.
+In particular, $\DC$ contains all connected graphs of diameter at most two and all cactus graphs.
+\end{proposition}
+
+\begin{proof}
+The relation is reflexive and symmetric.
+For transitivity, let $x, y, z$ be distinct vertices with $c(x, y) \geq 3$ and $c(y, z) \geq 3$, and let $C$ be a minimum $x$--$z$ cut.
+If $y$ lies in the component of $G \setminus C$ that contains $x$, then $C$ is a $y$--$z$ cut, and otherwise $C$ is an $x$--$y$ cut.
+In both cases $|C| \geq 3$.
+By \cref{def:class}, the graph $G$ lies outside $\DC$ if and only if some two distinct vertices $x, y$ satisfy $c(x, y) \geq 3$ and $d(x, y) \geq 3$, which is the second statement.
+In a graph of diameter at most two all distances are at most two, and in a cactus graph every equivalence class is a single vertex.
+\end{proof}
+
+The equivalence classes of \cref{prop:class} are called 3-edge-connected components in~\cite{Mehlhorn2017Certifying}, where they are computed in linear time.
+
+In graphs of diameter at most two and in cactus graphs, every pair satisfies $\cp(u, v) = c(u, v) + d(u, v) - 1$~\cite[Theorems~15 and~18]{Michel2025MinCutPath}.
+\Cref{fig:graph-classes} shows the three classes.
+The formula fails in $\DC$, as the two graphs of~\cite[Figure~3.3]{Michel2025MinCutPath} show (\cref{ex:counterexamples}).
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{graph-classes.pdf}
+    \caption{The class $\DC$ and its two subclasses; (a) and (b) are the graphs $G_a$ and $G_b$ of \cref{fig:counterexamples}}
+    \label{fig:graph-classes}
+\end{figure}
+
+\begin{example}
+\label{ex:counterexamples}
+Let $G_a$ be the graph with the vertices $u, v, a, b, s, t$ and the edges $ua$, $us$, $sb$, $ab$, $at$, $tv$, $bv$, and let $G_b$ be obtained from $G_a$ by adding the edges $av$ and $ub$ (\cref{fig:counterexamples}).
+In both graphs, the removal of the path $u, a, b, v$ leaves the components $\{u, s, b\}$ and $\{a, t, v\}$, so this path is a cut-path with three edges.
+In $G_a$ we have $c(u, v) = 2$ and $d(u, v) = 3$, and in $G_b$ we have $c(u, v) = 3$ and $d(u, v) = 2$.
+Hence $\cp(u, v) = 3$ in both graphs by \cref{lem:basic-bounds}, whereas $c(u, v) + d(u, v) - 1 = 4$.
+Both graphs belong to $\DC$.
+In $G_a$ the only two vertices of degree greater than two are $a$ and $b$, which are adjacent.
+In $G_b$ the only two vertices at distance three are $s$ and $t$, which have degree two.
+Neither graph has diameter two, and neither is a cactus graph.
+\end{example}
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{counterexamples.pdf}
+    \caption{The graphs $G_a$ (a) and $G_b$ (b) of \cref{ex:counterexamples}; the cut-path $u, a, b, v$ is red}
+    \label{fig:counterexamples}
+\end{figure}
+
+\begin{proposition}
+\label{prop:easy-pairs}
+(i) If $d(u, v) = 1$, then $\cp(u, v) = c(u, v)$, and every minimum $u$--$v$ cut is a minimum cut-path.
+(ii) If $c(u, v) = 1$, then $\cp(u, v) = d(u, v)$, and every shortest $u$--$v$ path is a minimum cut-path.
+(iii) If $c(u, v) = 2$, then $\cp(u, v) \in \{d(u, v), d(u, v) + 1\}$.
+(iv) If $d(u, v) = 2$, then $\cp(u, v) \in \{c(u, v), c(u, v) + 1\}$.
+If $G \in \DC$, then $d(u, v) \leq 2$ or $c(u, v) \leq 2$, so at least one of the four statements applies to every pair $u, v$.
+\end{proposition}
+
+\begin{proof}
+The four values follow from \cref{lem:basic-bounds}.
+If $d(u, v) = 1$, the edge $uv$ is a $u$--$v$ path and lies in every $u$--$v$ cut, so every minimum $u$--$v$ cut is a cut-path.
+If $c(u, v) = 1$, the edge of a $u$--$v$ cut of size one lies on every $u$--$v$ path, so every shortest $u$--$v$ path is a cut-path.
+The last statement is \cref{def:class}.
+\end{proof}
+
+By \cref{prop:easy-pairs}, a minimum cut-path in a graph of $\DC$ remains to be found for the pairs with $c(u, v) = 2$ and for the pairs with $d(u, v) = 2$ and $c(u, v) \geq 3$.
+\Cref{sec:structure,sec:separating,sec:algorithm} treat the first kind.
+% TODO(check): add a pointer to the sections that treat the second kind (pairs at distance two).
+
+\begin{remark}[Bridges]
+\label{rem:bridges}
+Let $K$ be the component of $u$ in the graph obtained from $G$ by removing all bridges of $G$.
+Two vertices $x$ and $y$ of $K$ are joined by a path of $K$, so no bridge of $G$ separates them, and no $x$--$y$ path of $G$ contains a bridge.
+Every $x$--$y$ path of $G$ is therefore a path of $K$.
+Hence the distance, the cut-value and the value of a minimum cut-path of $x$ and $y$ are the same in $K$ as in $G$, and $K \in \DC$ if $G \in \DC$.
+If $c(u, v) \geq 2$, then $v \in K$, because a bridge on a $u$--$v$ path would be a $u$--$v$ cut.
+None of the results below assumes that $G = K$.
+\end{remark}

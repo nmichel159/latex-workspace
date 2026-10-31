@@ -1,0 +1,6 @@
+Y_6 q=179 switches=18 sides=36 params=(1,0,2,5) accepted=False K-pairs tried=180 0.0s
+Y_6 q=179 switches=18 sides=36 params=(1,0,2,6) accepted=True K-pairs tried=17 0.0s
+Y_7 q=240 switches=21 sides=42 params=(1,0,4,6) accepted=False K-pairs tried=230 0.0s
+Y_7 q=240 switches=21 sides=42 params=(1,0,4,7) accepted=True K-pairs tried=19 0.0s
+Y_8 q=310 switches=24 sides=48 params=(1,0,4,7) accepted=False K-pairs tried=286 0.0s
+Y_8 q=310 switches=24 sides=48 params=(1,0,4,8) accepted=True K-pairs tried=21 0.0s

@@ -1,0 +1,36 @@
+TOTAL of 6 logs: runs/enum8-4-p0.txt, runs/enum8-4-p1.txt, runs/enum8-4-p2.txt, runs/enum8-4-p3.txt, runs/enum8-4-p4.txt, runs/enum8-4-p5.txt
+  E final: 692760
+  E terms checked: 827112
+  F final: 18432
+  F final with anchors: 18432
+  F terms checked: 18432
+  P2 instances: 1111740
+  case C0: 496560
+  case E (v>=1/2): 692760
+  case F (v<1/2): 18432
+  case R0: 362280
+  duality pairs: 942552
+  duality pairs y<x: 939480
+  games: 711192
+  heavy rows: 384096
+  idesc no: 9498
+  idesc terms: 301200160
+  idesc yes: 8717
+  idesc yes: single term suffices: 8717
+  instances: 1535744
+  levels=1 (proof): 785016
+  levels=1 (stress): 785016
+  max E expected uncovered x1000: 0
+  max F expected failures x1000: 0
+  max anchors: 1
+  max paths per instance: 6
+  max |A & NE(E#x)|: 2
+  max |B & NF(F#y)|: 2
+  max |Phi|/|T| x100: 200
+  no: 581504
+  paths with bad pairs: 29184
+  preorders: 2130
+  rows: 1468128
+  shortest paths: 785016
+  yes: 530236
+FAILURES: none

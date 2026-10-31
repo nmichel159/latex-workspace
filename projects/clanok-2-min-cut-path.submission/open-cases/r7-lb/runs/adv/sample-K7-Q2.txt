@@ -1,0 +1,7 @@
+adv sample seed 2 K 7 Q 2 count 200 probs [('E', 3.0), ('F', 3.0), ('L', 1.0), ('U', 1.0), ('C', 1.0)] pid 7620
+  it 0 new best score 21.55 cost 2 mean 2.00 npairs 1 m 20 (0s)
+  it 9 new best score 21.62 cost 2 mean 2.00 npairs 8 m 20 (0s)
+  it 11 new best score 21.76 cost 2 mean 2.30 npairs 40 m 20 (0s)
+  it 17 new best score 21.85 cost 2 mean 2.39 npairs 23 m 20 (0s)
+  it 36 new best score 22.10 cost 2 mean 2.60 npairs 15 m 20 (1s)
+SUMMARY {"cost1": 149, "cost2": 51} (3s)

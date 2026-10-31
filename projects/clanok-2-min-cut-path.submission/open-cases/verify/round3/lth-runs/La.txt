@@ -1,0 +1,2 @@
+{'inst': 2999, 'yes': 1725, 'viol': 0, 'maxcount_ratio': 0.0, 'nontrivial_window': 664}
+violations: 0

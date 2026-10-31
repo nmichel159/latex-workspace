@@ -1,0 +1,16 @@
+zz-2 (1s, pid 9620)
+  IDESC exact run                      175
+  branch E                             2
+  instances                            175
+  levels hist                          {1: 16}
+  max flips                            1
+  max m                                2
+  max span L4.4                        1
+  no                                   157
+  no P2 (skipped)                      9
+  paths checked                        16
+  preorders                            12
+  trivial C=0                          8
+  trivial R=0                          2
+  yes                                  18
+  errors: 0

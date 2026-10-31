@@ -1,0 +1,1 @@
+seed 1 A M B 2 7 7 PF 0.5 PX 0.0 {'yes': 20, 'no': 0, 'paths': 84, 'fail': 0, 'maxdom': 1, 'maxsing': 2, 'maxstore': 3, 'direct': 84} 0.0s

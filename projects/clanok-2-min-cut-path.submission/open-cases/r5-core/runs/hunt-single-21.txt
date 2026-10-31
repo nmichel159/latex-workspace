@@ -1,0 +1,11 @@
+candidate it=21 m=29 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (1s)
+candidate it=25 m=29 W=EFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (2s)
+candidate it=30 m=32 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (4s)
+candidate it=37 m=32 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (6s)
+candidate it=40 m=31 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (7s)
+candidate it=60 m=31 W=EFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (8s)
+candidate it=64 m=26 W=EFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (9s)
+hunt_single seed 21 count 80 n 8-12 (9s)
+  candidates                     7
+  decide(1,1,2) accepts          7
+  yes                            80

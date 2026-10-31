@@ -1,0 +1,11 @@
+cut(6,1): q=50 |R|=62 P2=True answer=False dfs=False relax=False AC=False PC=False (0s)
+cut(6,2): q=50 |R|=62 P2=True answer=False dfs=False relax=True AC=True PC=False (23s)
+cut(6,3): q=50 |R|=62 P2=True answer=False dfs=False relax=True AC=True PC=False (35s)
+cut(6,4): q=50 |R|=62 P2=True answer=False dfs=False relax=True AC=True PC=False (44s)
+cut(6,5): q=50 |R|=62 P2=True answer=False dfs=False relax=True AC=True PC=False (39s)
+tflip(6,1): q=50 |R|=64 P2=True answer=False dfs=False relax=True AC=True PC=False (34s)
+tflip(6,2): q=50 |R|=64 P2=True answer=False dfs=False relax=True AC=True PC=False (38s)
+tflip(6,3): q=50 |R|=64 P2=True answer=False dfs=False relax=True AC=True PC=False (31s)
+tflip(6,4): q=50 |R|=64 P2=True answer=False dfs=False relax=True AC=True PC=False (35s)
+tflip(6,5): q=50 |R|=64 P2=True answer=False dfs=False relax=True AC=True PC=False (48s)
+TOTAL {'inst': 10, 'no': 10, 'relax_yes': 9, 'ac_yes': 9, 'pc_yes': 0, 'p2': 10, 'dfs_mismatch': 0}

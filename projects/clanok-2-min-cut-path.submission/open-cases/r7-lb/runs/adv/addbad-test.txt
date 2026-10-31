@@ -1,0 +1,7 @@
+addbad inst/cost4-E5F5-Q0-seed5-genome.json samples 3000 seed 1 Q 1 pid 28104
+  it 0 new best cost 2 npairs 3 m 14 (0s)
+  it 3 new best cost 2 npairs 2 m 14 (0s)
+  it 5 new best cost 3 npairs 3 m 14 (0s)
+  it 6 new best cost 3 npairs 1 m 14 (0s)
+  it 1054 new best cost 4 npairs 1 m 14 (1s)
+SUMMARY {1: 142, 2: 2198, 3: 657, 4: 3} (4s)

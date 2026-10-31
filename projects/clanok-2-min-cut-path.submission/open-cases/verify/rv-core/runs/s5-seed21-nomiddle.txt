@@ -1,0 +1,17 @@
+﻿E1 tested                                        2709
+E2 as written FAILED                             1
+E2 no-middle pairs                               2479
+E2 pairs                                         2479
+E2 |A&U| - |f*| sum                              2
+F1 tested                                        2709
+F2 as written FAILED                             13
+F2 pairs                                         2727
+FA-a tested                                      2498
+LG-E tested                                      10836
+LG-F tested                                      10836
+S52 arbitrary-B0 fails (hypothesis needed)       3629
+S52 arbitrary-B0 tested                          3931
+S52 tested                                       4559
+paths                                            2709
+yes-instances                                    2000
+example ('E2-written', 21, 1602, 'w3', 'w10')

@@ -1,0 +1,21 @@
+zz-4-1-4 (205s, pid 14820)
+  F with heavy rows                    996
+  IDESC exact run                      385624
+  allcov E-terms checked               65962
+  allcov F-terms checked               66683
+  branch E                             48782
+  branch F                             996
+  instances                            385624
+  levels hist                          {1: 227604}
+  max anchors                          1
+  max flips                            2
+  max m                                4
+  max span L4.4                        3
+  no                                   200088
+  no P2 (skipped)                      128568
+  paths checked                        227604
+  preorders                            731
+  trivial C=0                          71051
+  trivial R=0                          23527
+  yes                                  185536
+  errors: 0

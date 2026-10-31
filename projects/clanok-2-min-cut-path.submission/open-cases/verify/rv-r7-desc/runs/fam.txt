@@ -1,0 +1,96 @@
+Y-2-0 m 6 r 4 paths 1 t 0.0
+Yd-2-0-0 m 7 r 4 paths 1 t 0.0
+Yd-2-1-0 m 7 r 4 paths 1 t 0.0
+Y-2-1 m 6 r 4 paths 1 t 0.0
+Yd-2-0-1 m 7 r 4 paths 1 t 0.0
+Yd-2-1-1 m 7 r 4 paths 1 t 0.0
+Y-3-0 m 9 r 6 paths 1 t 0.0
+Yd-3-0-0 m 10 r 6 paths 1 t 0.0
+Yd-3-1-0 m 10 r 6 paths 1 t 0.0
+Y-3-1 m 9 r 6 paths 1 t 0.0
+Yd-3-0-1 m 10 r 6 paths 1 t 0.0
+Yd-3-1-1 m 10 r 6 paths 1 t 0.0
+Y-4-0 m 12 r 8 paths 1 t 0.0
+Yd-4-0-0 m 13 r 8 paths 1 t 0.0
+Yd-4-1-0 m 13 r 8 paths 1 t 0.0
+Y-4-1 m 12 r 8 paths 1 t 0.0
+Yd-4-0-1 m 13 r 8 paths 1 t 0.0
+Yd-4-1-1 m 13 r 8 paths 1 t 0.0
+Y-5-0 m 15 r 10 paths 1 t 0.0
+Yd-5-0-0 m 16 r 10 paths 1 t 0.0
+Yd-5-1-0 m 16 r 10 paths 1 t 0.9
+Y-5-1 m 15 r 10 paths 1 t 0.0
+Yd-5-0-1 m 16 r 10 paths 1 t 0.0
+Yd-5-1-1 m 16 r 10 paths 1 t 1.7
+Y-6-0 m 18 r 12 paths 1 t 0.0
+Yd-6-0-0 m 19 r 12 paths 1 t 0.0
+Yd-6-1-0 m 19 r 12 paths 1 t 217.8
+Y-6-1 m 18 r 12 paths 1 t 0.0
+Yd-6-0-1 m 19 r 12 paths 1 t 0.0
+Yd-6-1-1 m 19 r 12 paths 1 t 228.2
+X-2 m 4 r 2 paths 1 t 0.0
+X-3 m 6 r 3 paths 1 t 0.0
+X-4 m 8 r 4 paths 1 t 0.0
+X-5 m 10 r 5 paths 1 t 0.0
+X-6 m 12 r 6 paths 1 t 0.0
+X-7 m 14 r 7 paths 1 t 0.0
+X-8 m 16 r 8 paths 1 t 0.0
+X-9 m 18 r 9 paths 1 t 0.0
+X-10 m 20 r 10 paths 1 t 0.0
+X-11 m 22 r 11 paths 1 t 0.0
+X-12 m 24 r 12 paths 1 t 0.0
+X-13 m 26 r 13 paths 1 t 0.0
+X-14 m 28 r 14 paths 1 t 0.0
+X-15 m 30 r 15 paths 1 t 0.0
+X-16 m 32 r 16 paths 1 t 0.0
+X-17 m 34 r 17 paths 1 t 0.0
+X-18 m 36 r 18 paths 1 t 0.0
+X-19 m 38 r 19 paths 1 t 0.0
+X-20 m 40 r 20 paths 1 t 0.0
+X-21 m 42 r 21 paths 1 t 0.0
+X-22 m 44 r 22 paths 1 t 0.0
+X-23 m 46 r 23 paths 1 t 0.0
+X-24 m 48 r 24 paths 1 t 0.0
+X-25 m 50 r 25 paths 1 t 0.0
+X-26 m 52 r 26 paths 1 t 0.0
+X-27 m 54 r 27 paths 1 t 0.0
+X-28 m 56 r 28 paths 1 t 0.0
+X-29 m 58 r 29 paths 1 t 0.0
+X-30 m 60 r 30 paths 1 t 0.0
+== Y
+   S0: |A|<10 20
+   S0: |B|<10 20
+   ThA trivial 10
+   instances 10
+   max m 18
+   max r 12
+   max_span_44 2
+   paths 20
+   tie-free paths 10
+== Yd
+   S0: |A|<10 40
+   S0: |B|<10 40
+   ThA trivial 20
+   instances 20
+   max m 19
+   max r 12
+   max_span_44 2
+   paths 40
+   tie-free paths 20
+== X
+   R(a) far pairs 440
+   R(b) far pairs 385
+   S0 exit: C_0 empty, F* 22
+   S0 exit: R_0 empty, E* 22
+   S0: |A|,|B|>=10 22
+   S0: |A|<10 34
+   S0: |B|<10 36
+   ThA F* branch 11
+   ThA trivial 18
+   instances 29
+   max m 60
+   max r 30
+   max_span_44 0
+   paths 58
+   tie-free paths 29
+FAILURES: none

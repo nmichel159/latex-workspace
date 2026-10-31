@@ -1,0 +1,16 @@
+formula picks P                                              219
+instances BP                                                 11
+instances OB                                                 2
+instances W                                                  6
+instances X                                                  29
+instances Y                                                  8
+instances Yd                                                 16
+instances Z                                                  8
+paths                                                        219
+paths reaching Stage 0                                       14
+search budget Yd                                             2
+shape: F* (C_0 empty)                                        14
+shape: small A                                               204
+shape: small B                                               1
+tie-free paths                                               219
+FAILURES: none

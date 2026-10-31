@@ -1,0 +1,28 @@
+  50 (1s) {'inst': 50, 'yes': 50, 'paths': 105, 'levels=1': 105, 'sampled levels=1': 105, 'sample failures': 0, 'sampled max damage': 0, 'sampled max anchors': 3, 'case noA': 12, 'max damage': 0, 'max anchors': 2, 'max tools': 2, 'max heavy': 6, 'bad pairs': 655, 'max kappa': 5, 'case E': 35, 'case F': 52, 'case C0': 6}
+  100 (2s) {'inst': 100, 'yes': 100, 'paths': 226, 'levels=1': 226, 'sampled levels=1': 226, 'sample failures': 0, 'sampled max damage': 0, 'sampled max anchors': 3, 'case noA': 17, 'max damage': 0, 'max anchors': 2, 'max tools': 2, 'max heavy': 6, 'bad pairs': 1549, 'max kappa': 6, 'case E': 85, 'case F': 116, 'case C0': 8}
+  150 (4s) {'inst': 150, 'yes': 150, 'paths': 378, 'levels=1': 378, 'sampled levels=1': 378, 'sample failures': 0, 'sampled max damage': 0, 'sampled max anchors': 4, 'case noA': 24, 'max damage': 0, 'max anchors': 2, 'max tools': 2, 'max heavy': 6, 'bad pairs': 2326, 'max kappa': 6, 'case E': 155, 'case F': 182, 'case C0': 17}
+  200 (6s) {'inst': 200, 'yes': 200, 'paths': 480, 'levels=1': 480, 'sampled levels=1': 480, 'sample failures': 0, 'sampled max damage': 0, 'sampled max anchors': 4, 'case noA': 24, 'max damage': 0, 'max anchors': 2, 'max tools': 2, 'max heavy': 6, 'bad pairs': 2841, 'max kappa': 6, 'case E': 203, 'case F': 230, 'case C0': 23}
+  250 (7s) {'inst': 250, 'yes': 250, 'paths': 586, 'levels=1': 586, 'sampled levels=1': 586, 'sample failures': 0, 'sampled max damage': 0, 'sampled max anchors': 5, 'case noA': 32, 'max damage': 0, 'max anchors': 2, 'max tools': 2, 'max heavy': 6, 'bad pairs': 3471, 'max kappa': 6, 'case E': 248, 'case F': 281, 'case C0': 25}
+  300 (8s) {'inst': 300, 'yes': 300, 'paths': 711, 'levels=1': 711, 'sampled levels=1': 711, 'sample failures': 0, 'sampled max damage': 0, 'sampled max anchors': 5, 'case noA': 42, 'max damage': 0, 'max anchors': 2, 'max tools': 2, 'max heavy': 6, 'bad pairs': 4090, 'max kappa': 6, 'case E': 292, 'case F': 345, 'case C0': 32}
+  350 (10s) {'inst': 350, 'yes': 350, 'paths': 826, 'levels=1': 826, 'sampled levels=1': 826, 'sample failures': 0, 'sampled max damage': 0, 'sampled max anchors': 5, 'case noA': 54, 'max damage': 0, 'max anchors': 2, 'max tools': 2, 'max heavy': 6, 'bad pairs': 4921, 'max kappa': 6, 'case E': 337, 'case F': 399, 'case C0': 36}
+  400 (12s) {'inst': 400, 'yes': 400, 'paths': 944, 'levels=1': 944, 'sampled levels=1': 944, 'sample failures': 0, 'sampled max damage': 0, 'sampled max anchors': 5, 'case noA': 56, 'max damage': 0, 'max anchors': 2, 'max tools': 2, 'max heavy': 6, 'bad pairs': 5694, 'max kappa': 6, 'case E': 387, 'case F': 464, 'case C0': 37}
+test_bad seed 7 count 400 limit 8 (12s)
+  bad pairs                                     5694
+  case C0                                       37
+  case E                                        387
+  case F                                        464
+  case noA                                      56
+  inst                                          400
+  levels=1                                      944
+  max anchors                                   2
+  max damage                                    0
+  max heavy                                     6
+  max kappa                                     6
+  max tools                                     2
+  paths                                         944
+  sample failures                               0
+  sampled levels=1                              944
+  sampled max anchors                           5
+  sampled max damage                            0
+  yes                                           400
+  worst (no single term, levels, kappa), it, m: [((0, 1, 6), 357, 18), ((0, 1, 6), 210, 20), ((0, 1, 6), 116, 22), ((0, 1, 6), 51, 22), ((0, 1, 5), 372, 19), ((0, 1, 5), 304, 18), ((0, 1, 5), 221, 17), ((0, 1, 5), 158, 20), ((0, 1, 5), 34, 22), ((0, 1, 5), 1, 17)]

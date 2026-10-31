@@ -1,0 +1,20 @@
+graphs-n8-stride50: 243 connected graphs, 6s
+  IDESC exact run                  260
+  branch E                         14
+  bridges>0                        458
+  ear edges                        1664
+  ears                             1676
+  ears p=p'                        12
+  graphs DC                        233
+  graphs not DC                    10
+  levels hist                      {1: 18}
+  max flips                        1
+  max m                            6
+  max span L4.4                    1
+  no                               2448
+  pairs                            2466
+  seen                             2466
+  shortest paths checked           18
+  trivial C=0                      2
+  yes                              18
+  errors: 0

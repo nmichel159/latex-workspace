@@ -1,0 +1,4 @@
+seed 500: {'n': 5, 'p2': 3, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 10, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+
+TOTALS (0s): {'n': 5, 'p2': 3, 'csp_mismatch': 0, 'pc_not_ac': 0, 'unsound': 0, 'G_viol': 0, 'Gcert_bad': 0, 'Gcert_runs': 10, 'pc_fp_L': 0, 'ac_fp_L': 0, 'ac_nonmono': 0}
+violations: 0

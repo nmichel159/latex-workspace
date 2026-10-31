@@ -1,0 +1,11 @@
+A0 non-empty                                                 8
+A0, B0 both non-empty                                        8
+B0 non-empty                                                 8
+formula picks P                                              11
+formula with X                                               3
+paths                                                        11
+paths with big A, B                                          10
+small A                                                      1
+tie-free paths                                               11
+xdesign: search budget                                       8
+FAILURES: none

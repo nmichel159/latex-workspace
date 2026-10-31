@@ -1,0 +1,25 @@
+  100 instances (3s) {'P2': 100, 'yes': 88, 'paths': 418, 'max star cost': 2, 'pairs E': 1239, 'pairs F': 465, 'pairs Ea': 33, 'pairs Fa': 32, 'pairs bad': 177, 'max kappa': 2, 'max guided cost': 1, 'inst: least kappa over paths > 0': 7, 'inst max least guided': 1, 'no': 12, 'paths with bad pairs': 66}
+  200 instances (5s) {'P2': 200, 'yes': 174, 'paths': 796, 'max star cost': 2, 'pairs E': 1865, 'pairs F': 640, 'pairs Ea': 67, 'pairs Fa': 60, 'pairs bad': 276, 'max kappa': 2, 'max guided cost': 2, 'inst: least kappa over paths > 0': 12, 'inst max least guided': 1, 'no': 26, 'paths with bad pairs': 106}
+  300 instances (8s) {'P2': 300, 'yes': 258, 'paths': 1200, 'max star cost': 2, 'pairs E': 2872, 'pairs F': 1038, 'pairs Ea': 102, 'pairs Fa': 120, 'pairs bad': 519, 'max kappa': 5, 'max guided cost': 2, 'inst: least kappa over paths > 0': 20, 'inst max least guided': 1, 'no': 42, 'paths with bad pairs': 167}
+  400 instances (10s) {'P2': 400, 'yes': 340, 'paths': 1570, 'max star cost': 3, 'pairs E': 3825, 'pairs F': 1450, 'pairs Ea': 245, 'pairs Fa': 169, 'pairs bad': 687, 'max kappa': 5, 'max guided cost': 2, 'inst: least kappa over paths > 0': 29, 'inst max least guided': 1, 'no': 60, 'paths with bad pairs': 232}
+  500 instances (13s) {'P2': 500, 'yes': 418, 'paths': 1923, 'max star cost': 3, 'pairs E': 4908, 'pairs F': 1843, 'pairs Ea': 259, 'pairs Fa': 195, 'pairs bad': 818, 'max kappa': 5, 'max guided cost': 2, 'inst: least kappa over paths > 0': 36, 'inst max least guided': 1, 'no': 82, 'paths with bad pairs': 284}
+  600 instances (15s) {'P2': 600, 'yes': 498, 'paths': 2250, 'max star cost': 3, 'pairs E': 5512, 'pairs F': 2067, 'pairs Ea': 298, 'pairs Fa': 218, 'pairs bad': 963, 'max kappa': 5, 'max guided cost': 2, 'inst: least kappa over paths > 0': 43, 'inst max least guided': 2, 'no': 102, 'paths with bad pairs': 339}
+  700 instances (17s) {'P2': 700, 'yes': 588, 'paths': 2695, 'max star cost': 3, 'pairs E': 6793, 'pairs F': 2524, 'pairs Ea': 373, 'pairs Fa': 247, 'pairs bad': 1140, 'max kappa': 5, 'max guided cost': 2, 'inst: least kappa over paths > 0': 49, 'inst max least guided': 2, 'no': 112, 'paths with bad pairs': 408}
+  800 instances (19s) {'P2': 800, 'yes': 677, 'paths': 3090, 'max star cost': 3, 'pairs E': 8106, 'pairs F': 2906, 'pairs Ea': 408, 'pairs Fa': 275, 'pairs bad': 1284, 'max kappa': 5, 'max guided cost': 2, 'inst: least kappa over paths > 0': 57, 'inst max least guided': 2, 'no': 123, 'paths with bad pairs': 452}
+seed 4 count 800 n 12-18 limit 20 (19s)
+  P2                                       800
+  inst max least guided                    2
+  inst: least kappa over paths > 0         57
+  max guided cost                          2
+  max kappa                                5
+  max star cost                            3
+  no                                       123
+  pairs E                                  8106
+  pairs Ea                                 408
+  pairs F                                  2906
+  pairs Fa                                 275
+  pairs bad                                1284
+  paths                                    3090
+  paths with bad pairs                     452
+  yes                                      677
+  worst (least kappa, least guided) per instance: [((4, 1), 'r786'), ((4, 1), 'r361'), ((3, 1), 'r615'), ((2, 1), 'r767'), ((2, 1), 'r727'), ((2, 1), 'r526'), ((2, 1), 'r423'), ((2, 1), 'r395')]

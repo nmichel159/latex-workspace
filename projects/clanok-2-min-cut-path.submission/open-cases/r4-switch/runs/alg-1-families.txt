@@ -1,0 +1,18 @@
+families done 0.1s
+seed 1 params kd ks s B 1 0 4 8 1.8s
+  (family, exact, alg) ('A14', True, True) 1
+  (family, exact, alg) ('A14del', False, False) 6
+  (family, exact, alg) ('A18', True, True) 1
+  (family, exact, alg) ('A18del', False, False) 7
+  (family, exact, alg) ('R', True, True) 7
+  (family, exact, alg) ('Rdel', False, False) 70
+  (family, exact, alg) ('Rhelly', True, True) 7
+  (family, exact, alg) ('Rtflip', False, False) 28
+  (family, exact, alg) ('planted', True, True) 50
+  (family, exact, alg) ('random', False, False) 6
+  (family, exact, alg) ('random', True, True) 44
+  (family, exact, alg) ('repair', False, False) 4
+  (family, exact, alg) ('repair', True, True) 46
+  (family, exact, alg) ('sat', True, True) 29
+  (family, exact, alg) ('satdel', False, False) 3
+  (family, exact, alg) ('satdel', True, True) 15

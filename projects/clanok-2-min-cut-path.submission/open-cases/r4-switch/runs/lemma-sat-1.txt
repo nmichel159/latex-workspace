@@ -1,0 +1,1 @@
+seed 1 mode saturated {'paths': 142, 'straddles': 4, 'holes': 3, 'triples': 0, 'caseii': 151, 'fail': 0} 2.5s

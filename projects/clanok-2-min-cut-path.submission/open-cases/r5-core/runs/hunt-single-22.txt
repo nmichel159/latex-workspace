@@ -1,0 +1,20 @@
+candidate it=1 m=32 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (2s)
+candidate it=4 m=28 W=EFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (3s)
+candidate it=12 m=31 W=EFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (4s)
+candidate it=14 m=32 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (6s)
+candidate it=16 m=31 W=EFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (7s)
+candidate it=22 m=30 W=EFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (8s)
+candidate it=24 m=32 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (10s)
+candidate it=29 m=30 W=EFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (11s)
+candidate it=30 m=36 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (13s)
+candidate it=32 m=37 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (17s)
+candidate it=34 m=29 W=EFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (18s)
+candidate it=39 m=28 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (19s)
+candidate it=59 m=33 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (22s)
+candidate it=64 m=27 W=EFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (23s)
+candidate it=65 m=34 W=EFEFEFEFEFEFEFEFEFEFEFEF paths=1 decide(1,1,2)=True idesc2=None (25s)
+candidate it=78 m=33 W=EFEFEFFEFFEFEFEFEFFFEEEE paths=1 decide(1,1,2)=True idesc2=None (28s)
+hunt_single seed 22 count 80 n 8-12 (28s)
+  candidates                     16
+  decide(1,1,2) accepts          16
+  yes                            80

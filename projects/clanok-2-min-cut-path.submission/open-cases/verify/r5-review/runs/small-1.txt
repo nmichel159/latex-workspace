@@ -1,0 +1,11 @@
+== Example MW2 ==
+with a=True extra=None: |Q|=9 axioms ok, P2 failures [], incomparable pairs [('x', 'y'), ('y', 'a')], solutions 0 []
+with a=True extra=bottom: |Q|=10 axioms ok, P2 failures [], incomparable pairs [('x', 'y'), ('y', 'a')], solutions 1 ["{u,z,z',b}"]
+with a=True extra=top: |Q|=10 axioms ok, P2 failures [], incomparable pairs [('x', 'y'), ('y', 'a')], solutions 1 ["{u,z,z',p,w,x,y}"]
+with a=False extra=None: |Q|=8 axioms ok, P2 failures [], incomparable pairs [('x', 'y')], solutions 0 []
+with a=False extra=bottom: |Q|=9 axioms ok, P2 failures [], incomparable pairs [('x', 'y')], solutions 1 ["{u,z,z',b}"]
+with a=False extra=top: |Q|=9 axioms ok, P2 failures [], incomparable pairs [('x', 'y')], solutions 0 []
+== Lemma Sub ==
+{'edges': 4320, 'middle_edges': 643, 'p2_kept': 2309, 'instances': 300}
+== Lemma Mon ==
+{'solutions_checked': 2204, 'instances': 300}

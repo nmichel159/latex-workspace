@@ -1,0 +1,1 @@
+14 mixed {'instances': 3000, 'yes': 1179, 'mismatch_exact': 0, 'low2_wrong': 0, 'up2_wrong': 0, 'lemmaS_fail': 0, 'bound_fail': 0, 'max_mp': 2, 'max_mv': 3, 'min_glow_gt2': 0, 'min_gup_gt2': 0, 'both_gt2': 0} hist g_low {0: 388, 1: 769, 2: 22} hist g_up {0: 399, 1: 740, 2: 40}

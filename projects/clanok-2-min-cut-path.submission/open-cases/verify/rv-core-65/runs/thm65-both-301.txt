@@ -1,0 +1,35 @@
+  50 (0s) {'instances': 50, 'yes-instances': 41, 'sum r': 107, 'paths': 61, 'paths with bad pairs': 11, 'max bad pairs': 12, 'max kappa': 2, 'covers tested': 90, 'case C empty': 20, 'max integer/tau': Fraction(4, 3), "cor 6.5' descriptions": 87, 'max min LP cover - kappa': Fraction(1, 1), 'case R empty': 20, 'inst with kappa_min > 0': 7, 'max kappa_min': 2, 'lambda >= 1/2': 43, 'max min(kE,kF)': 1, "(E') descriptions": 74, 'max |Phi|/|T| (E)': Fraction(3, 1), "(F') descriptions": 36, 'max |Phi|/|T| (F)': Fraction(3, 1), 'no-instances': 9, 'GDESC(k, kappa_min, 9k) runs': 9, 'GDESC no-instances run': 3, 'lambda < 1/2': 7}
+  100 (0s) {'instances': 100, 'yes-instances': 85, 'sum r': 226, 'paths': 145, 'paths with bad pairs': 26, 'max bad pairs': 12, 'max kappa': 2, 'covers tested': 214, 'case C empty': 53, 'max integer/tau': Fraction(4, 3), "cor 6.5' descriptions": 205, 'max min LP cover - kappa': Fraction(3, 2), 'case R empty': 43, 'inst with kappa_min > 0': 10, 'max kappa_min': 2, 'lambda >= 1/2': 97, 'max min(kE,kF)': 2, "(E') descriptions": 141, 'max |Phi|/|T| (E)': Fraction(3, 1), "(F') descriptions": 95, 'max |Phi|/|T| (F)': Fraction(3, 1), 'no-instances': 15, 'GDESC(k, kappa_min, 9k) runs': 19, 'GDESC no-instances run': 3, 'lambda < 1/2': 21, 'lambda exactly 1/2': 2}
+  150 (1s) {'instances': 150, 'yes-instances': 129, 'sum r': 347, 'paths': 221, 'paths with bad pairs': 43, 'max bad pairs': 12, 'max kappa': 2, 'covers tested': 337, 'case C empty': 79, 'max integer/tau': Fraction(4, 3), "cor 6.5' descriptions": 320, 'max min LP cover - kappa': Fraction(3, 2), 'case R empty': 72, 'inst with kappa_min > 0': 19, 'max kappa_min': 2, 'lambda >= 1/2': 145, 'max min(kE,kF)': 2, "(E') descriptions": 213, 'max |Phi|/|T| (E)': Fraction(3, 1), "(F') descriptions": 170, 'max |Phi|/|T| (F)': Fraction(3, 1), 'no-instances': 21, 'GDESC(k, kappa_min, 9k) runs': 30, 'GDESC no-instances run': 7, 'lambda < 1/2': 41, 'lambda exactly 1/2': 4}
+  200 (1s) {'instances': 200, 'yes-instances': 173, 'sum r': 458, 'paths': 300, 'paths with bad pairs': 51, 'max bad pairs': 12, 'max kappa': 3, 'covers tested': 438, 'case C empty': 109, 'max integer/tau': Fraction(4, 3), "cor 6.5' descriptions": 432, 'max min LP cover - kappa': Fraction(3, 2), 'case R empty': 94, 'inst with kappa_min > 0': 24, 'max kappa_min': 3, 'lambda >= 1/2': 178, 'max min(kE,kF)': 2, "(E') descriptions": 264, 'max |Phi|/|T| (E)': Fraction(3, 1), "(F') descriptions": 243, 'max |Phi|/|T| (F)': Fraction(3, 1), 'no-instances': 27, 'GDESC(k, kappa_min, 9k) runs': 40, 'GDESC no-instances run': 9, 'lambda < 1/2': 57, 'lambda exactly 1/2': 7}
+  250 (1s) {'instances': 250, 'yes-instances': 218, 'sum r': 591, 'paths': 384, 'paths with bad pairs': 62, 'max bad pairs': 12, 'max kappa': 3, 'covers tested': 550, 'case C empty': 134, 'max integer/tau': Fraction(4, 3), "cor 6.5' descriptions": 560, 'max min LP cover - kappa': Fraction(3, 2), 'case R empty': 114, 'inst with kappa_min > 0': 30, 'max kappa_min': 3, 'lambda >= 1/2': 223, 'max min(kE,kF)': 2, "(E') descriptions": 340, 'max |Phi|/|T| (E)': Fraction(3, 1), "(F') descriptions": 343, 'max |Phi|/|T| (F)': Fraction(3, 1), 'no-instances': 32, 'GDESC(k, kappa_min, 9k) runs': 52, 'GDESC no-instances run': 10, 'lambda < 1/2': 79, 'lambda exactly 1/2': 8}
+  300 (1s) {'instances': 300, 'yes-instances': 261, 'sum r': 713, 'paths': 455, 'paths with bad pairs': 80, 'max bad pairs': 12, 'max kappa': 3, 'covers tested': 669, 'case C empty': 157, 'max integer/tau': Fraction(4, 3), "cor 6.5' descriptions": 670, 'max min LP cover - kappa': Fraction(3, 2), 'case R empty': 132, 'inst with kappa_min > 0': 40, 'max kappa_min': 3, 'lambda >= 1/2': 290, 'max min(kE,kF)': 2, "(E') descriptions": 446, 'max |Phi|/|T| (E)': Fraction(3, 1), "(F') descriptions": 434, 'max |Phi|/|T| (F)': Fraction(3, 1), 'no-instances': 39, 'GDESC(k, kappa_min, 9k) runs': 60, 'GDESC no-instances run': 13, 'lambda < 1/2': 90, 'lambda exactly 1/2': 12}
+  350 (1s) {'instances': 350, 'yes-instances': 306, 'sum r': 833, 'paths': 527, 'paths with bad pairs': 91, 'max bad pairs': 12, 'max kappa': 3, 'covers tested': 769, 'case C empty': 181, 'max integer/tau': Fraction(4, 3), "cor 6.5' descriptions": 773, 'max min LP cover - kappa': Fraction(3, 2), 'case R empty': 151, 'inst with kappa_min > 0': 46, 'max kappa_min': 3, 'lambda >= 1/2': 332, 'max min(kE,kF)': 2, "(E') descriptions": 515, 'max |Phi|/|T| (E)': Fraction(3, 1), "(F') descriptions": 489, 'max |Phi|/|T| (F)': Fraction(3, 1), 'no-instances': 44, 'GDESC(k, kappa_min, 9k) runs': 68, 'GDESC no-instances run': 15, 'lambda < 1/2': 105, 'lambda exactly 1/2': 17}
+  400 (1s) {'instances': 400, 'yes-instances': 352, 'sum r': 949, 'paths': 617, 'paths with bad pairs': 99, 'max bad pairs': 15, 'max kappa': 3, 'covers tested': 880, 'case C empty': 225, 'max integer/tau': Fraction(4, 3), "cor 6.5' descriptions": 895, 'max min LP cover - kappa': Fraction(3, 2), 'case R empty': 167, 'inst with kappa_min > 0': 50, 'max kappa_min': 3, 'lambda >= 1/2': 371, 'max min(kE,kF)': 2, "(E') descriptions": 587, 'max |Phi|/|T| (E)': Fraction(3, 1), "(F') descriptions": 545, 'max |Phi|/|T| (F)': Fraction(3, 1), 'no-instances': 48, 'GDESC(k, kappa_min, 9k) runs': 76, 'GDESC no-instances run': 16, 'lambda < 1/2': 117, 'lambda exactly 1/2': 18}
+test_thm65 seed 301 count 400 m 5-12 gen both cap 20 gdesc<=6 (1s)
+  (E') descriptions                                       587
+  (F') descriptions                                       545
+  GDESC no-instances run                                  16
+  GDESC(k, kappa_min, 9k) runs                            76
+  case C empty                                            225
+  case R empty                                            167
+  cor 6.5' descriptions                                   895
+  covers tested                                           880
+  inst with kappa_min > 0                                 50
+  instances                                               400
+  lambda < 1/2                                            117
+  lambda >= 1/2                                           371
+  lambda exactly 1/2                                      18
+  max bad pairs                                           15
+  max integer/tau                                         4/3
+  max kappa                                               3
+  max kappa_min                                           3
+  max min LP cover - kappa                                3/2
+  max min(kE,kF)                                          2
+  max |Phi|/|T| (E)                                       3
+  max |Phi|/|T| (F)                                       3
+  no-instances                                            48
+  paths                                                   617
+  paths with bad pairs                                    99
+  sum r                                                   949
+  yes-instances                                           352

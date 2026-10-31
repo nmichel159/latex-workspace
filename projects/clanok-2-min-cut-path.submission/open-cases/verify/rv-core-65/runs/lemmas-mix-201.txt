@@ -1,0 +1,25 @@
+  100 (1s) {'instances': 100, 'yes-instances': 95, 'paths': 293, '(c) conflicting consistent pairs': 3699, '6.2 chains with contacts j=1': 3350, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 22532, '6.2 chains with contacts j=3': 166742, '6.3 max span E': 1, '6.3 max |S_x|': 2, '6.3 max span F': 1, '6.3 max |S_y| dual': 2, 'comparable pairs (anchored)': 270, 'comparable pairs (bad)': 83, 'bad pairs': 83, 'max bad pairs on a path': 16, '6.4 incomparable pairs': 129, 'no-instances': 5}
+  200 (1s) {'instances': 200, 'yes-instances': 185, 'paths': 584, '(c) conflicting consistent pairs': 7834, '6.2 chains with contacts j=1': 6930, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 53526, '6.2 chains with contacts j=3': 467130, '6.3 max span E': 2, '6.3 max |S_x|': 2, '6.3 max span F': 2, '6.3 max |S_y| dual': 2, 'comparable pairs (anchored)': 458, 'comparable pairs (bad)': 214, 'bad pairs': 214, 'max bad pairs on a path': 25, '6.4 incomparable pairs': 289, 'no-instances': 15}
+  300 (2s) {'instances': 300, 'yes-instances': 279, 'paths': 838, '(c) conflicting consistent pairs': 11021, '6.2 chains with contacts j=1': 9575, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 70358, '6.2 chains with contacts j=3': 598202, '6.3 max span E': 2, '6.3 max |S_x|': 3, '6.3 max span F': 2, '6.3 max |S_y| dual': 2, 'comparable pairs (anchored)': 738, 'comparable pairs (bad)': 394, 'bad pairs': 394, 'max bad pairs on a path': 28, '6.4 incomparable pairs': 368, 'no-instances': 21}
+  400 (2s) {'instances': 400, 'yes-instances': 371, 'paths': 1072, '(c) conflicting consistent pairs': 14389, '6.2 chains with contacts j=1': 12055, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 86476, '6.2 chains with contacts j=3': 728224, '6.3 max span E': 2, '6.3 max |S_x|': 3, '6.3 max span F': 2, '6.3 max |S_y| dual': 2, 'comparable pairs (anchored)': 850, 'comparable pairs (bad)': 440, 'bad pairs': 440, 'max bad pairs on a path': 28, '6.4 incomparable pairs': 426, 'no-instances': 29}
+  500 (3s) {'instances': 500, 'yes-instances': 464, 'paths': 1276, '(c) conflicting consistent pairs': 16753, '6.2 chains with contacts j=1': 14007, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 97084, '6.2 chains with contacts j=3': 798818, '6.3 max span E': 2, '6.3 max |S_x|': 3, '6.3 max span F': 2, '6.3 max |S_y| dual': 2, 'comparable pairs (anchored)': 975, 'comparable pairs (bad)': 556, 'bad pairs': 556, 'max bad pairs on a path': 34, '6.4 incomparable pairs': 525, 'no-instances': 36}
+  600 (3s) {'instances': 600, 'yes-instances': 553, 'paths': 1581, '(c) conflicting consistent pairs': 20898, '6.2 chains with contacts j=1': 17704, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 124834, '6.2 chains with contacts j=3': 1024422, '6.3 max span E': 2, '6.3 max |S_x|': 3, '6.3 max span F': 2, '6.3 max |S_y| dual': 3, 'comparable pairs (anchored)': 1303, 'comparable pairs (bad)': 759, 'bad pairs': 759, 'max bad pairs on a path': 34, '6.4 incomparable pairs': 717, 'no-instances': 47}
+test_lemmas seed 201 count 600 m 6-14 cap 30 jmax 3 profile mix (3s)
+  (c) conflicting consistent pairs              20898
+  6.2 chains with contacts j=1                  17704
+  6.2 chains with contacts j=2                  124834
+  6.2 chains with contacts j=3                  1024422
+  6.2 max(|c-d| - j)                            1
+  6.3 max span E                                2
+  6.3 max span F                                2
+  6.3 max |S_x|                                 3
+  6.3 max |S_y| dual                            3
+  6.4 incomparable pairs                        717
+  bad pairs                                     759
+  comparable pairs (anchored)                   1303
+  comparable pairs (bad)                        759
+  instances                                     600
+  max bad pairs on a path                       34
+  no-instances                                  47
+  paths                                         1581
+  yes-instances                                 553

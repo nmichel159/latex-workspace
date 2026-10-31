@@ -1,0 +1,17 @@
+rsw-2-30-5-8 (1s, pid 4112)
+  IDESC exact run                      24
+  allcov E-terms checked               25
+  allcov F-terms checked               15
+  branch E                             10
+  branch F                             1
+  instances                            30
+  levels hist                          {1: 46}
+  max anchors                          1
+  max flips                            2
+  max m                                8
+  max span L4.4                        3
+  no                                   6
+  paths checked                        46
+  trivial C=0                          18
+  yes                                  24
+  errors: 0

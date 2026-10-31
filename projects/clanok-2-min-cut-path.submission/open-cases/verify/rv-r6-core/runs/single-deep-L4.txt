@@ -1,0 +1,5 @@
+single8 tools<=1 anchors<=0 flips<=2, 3 files, pid=6636
+  deep-L4-k8-104-0.json m=160: ('E', (123,), [], (), (124, 126)) after 2264160 terms (325s)
+  deep-L4-k8-104-3.json m=164: ('E', (123,), [], (), (124, 126)) after 2391084 terms (791s)
+  deep-L4-k8-104-7.json m=165: ('E', (123,), [], (), (124, 126)) after 2423671 terms (1133s)
+SUMMARY single8: 3 of 3 accepted by one term with <= 1 tools, <= 0 anchors, <= 2 flips

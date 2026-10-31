@@ -1,0 +1,51 @@
+zzrand-22-1500-2-8: 1500 jobs, 2 workers
+  50/1500 jobs (7s)
+  100/1500 jobs (11s)
+  150/1500 jobs (16s)
+  200/1500 jobs (21s)
+  250/1500 jobs (26s)
+  300/1500 jobs (31s)
+  350/1500 jobs (35s)
+  400/1500 jobs (39s)
+  450/1500 jobs (44s)
+  500/1500 jobs (51s)
+  550/1500 jobs (60s)
+  600/1500 jobs (70s)
+  650/1500 jobs (77s)
+  700/1500 jobs (86s)
+  750/1500 jobs (97s)
+  800/1500 jobs (104s)
+  850/1500 jobs (115s)
+  900/1500 jobs (124s)
+  950/1500 jobs (134s)
+  1000/1500 jobs (145s)
+  1050/1500 jobs (153s)
+  1100/1500 jobs (160s)
+  1150/1500 jobs (170s)
+  1200/1500 jobs (180s)
+  1250/1500 jobs (190s)
+  1300/1500 jobs (198s)
+  1350/1500 jobs (207s)
+  1400/1500 jobs (217s)
+  1450/1500 jobs (226s)
+  1500/1500 jobs (235s)
+== zzrand-22-1500-2-8 (235s)
+  P2 in ZZ and in switch form                   1500
+  blind IDESC(k,k,N,9k) accepts                 484
+  blind IDESC(k,k,N,9k) run (m <= FULLM)        1500
+  blind single-term search accepts              484
+  blind single-term search run                  1500
+  brute methods: core                           967
+  brute methods: core+paths                     474
+  brute methods: subsets+paths                  59
+  brute_paths over budget                       967
+  gsw.GSW identical                             1500
+  no                                            1016
+  pairs                                         1500
+  paths checked (Thm 8.2)                       908
+  random down-sets lifted                       37500
+  s = t                                         19
+  yes                                           484
+  yes certified in G (lifted D: min cut with u-v path) 484
+  maxima: {'m': 8, 'q': 14, 'n': 232, 'c': 81, 'levels': 1, 'heavy': 6, 'span': 4, 'Amax': 3, 'bad': 4, 'sf_L': 6, 'tools': 1, 'flips': 3, 'damage': 0, 'anchors': 1}
+  total records with errors: 0

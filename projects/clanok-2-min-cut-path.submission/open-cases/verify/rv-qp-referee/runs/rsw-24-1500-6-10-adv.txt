@@ -1,0 +1,20 @@
+rsw-24-1500-6-10-adv (11s, pid 25988)
+  F with heavy rows                    45
+  IDESC exact run                      625
+  adversarial E-terms                  564
+  allcov E-terms checked               4124
+  allcov F-terms checked               4270
+  branch F                             120
+  instances                            1500
+  levels hist                          {1: 2428}
+  max anchors                          2
+  max flips                            4
+  max m                                10
+  max span L4.4                        3
+  no                                   311
+  path search over budget              1
+  paths checked                        2428
+  trivial C=0                          850
+  trivial R=0                          40
+  yes                                  1189
+  errors: 0

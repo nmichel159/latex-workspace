@@ -1,0 +1,30 @@
+  20 (1s) {'yes': 20, 'projective': 1, 'planted path shortest': 14, 'paths': 32, 'max |A|': 14, 'ilp levels=1': 28, 'ilp sample failures': 0, 'ilp max damage': 1, 'ilp max anchors': 4, 'sample levels=1': 28, 'sample sample failures': 0, 'sample max damage': 1, 'sample max anchors': 13, 'kth=1 levels=4': 1, 'kth=1 sample failures': 0, 'kth=1 max damage': 6, 'kth=1 max anchors': 3, 'max kappa': 6, 'paths: single proof-term': 28, 'kth=1 levels=3': 7, 'ilp levels=2': 4, 'sample levels=2': 4, 'kth=1 levels=2': 7, 'kth=1 levels=1': 17, 'kth=1 stopped without progress': 1}
+  40 (1s) {'yes': 40, 'projective': 3, 'planted path shortest': 25, 'paths': 70, 'max |A|': 14, 'ilp levels=1': 64, 'ilp sample failures': 0, 'ilp max damage': 2, 'ilp max anchors': 4, 'sample levels=1': 64, 'sample sample failures': 0, 'sample max damage': 2, 'sample max anchors': 13, 'kth=1 levels=4': 1, 'kth=1 sample failures': 0, 'kth=1 max damage': 6, 'kth=1 max anchors': 3, 'max kappa': 6, 'paths: single proof-term': 65, 'kth=1 levels=3': 11, 'ilp levels=2': 6, 'sample levels=2': 6, 'kth=1 levels=2': 17, 'kth=1 levels=1': 41, 'kth=1 stopped without progress': 5}
+  60 (2s) {'yes': 60, 'projective': 7, 'planted path shortest': 38, 'paths': 103, 'max |A|': 14, 'ilp levels=1': 94, 'ilp sample failures': 0, 'ilp max damage': 2, 'ilp max anchors': 4, 'sample levels=1': 94, 'sample sample failures': 0, 'sample max damage': 2, 'sample max anchors': 13, 'kth=1 levels=4': 1, 'kth=1 sample failures': 0, 'kth=1 max damage': 6, 'kth=1 max anchors': 3, 'max kappa': 6, 'paths: single proof-term': 95, 'kth=1 levels=3': 14, 'ilp levels=2': 9, 'sample levels=2': 9, 'kth=1 levels=2': 28, 'kth=1 levels=1': 60, 'kth=1 stopped without progress': 6}
+test_rgen seed 5 count 60 n 9-14 (2s)
+  ilp levels=1                             94
+  ilp levels=2                             9
+  ilp max anchors                          4
+  ilp max damage                           2
+  ilp sample failures                      0
+  kth=1 levels=1                           60
+  kth=1 levels=2                           28
+  kth=1 levels=3                           14
+  kth=1 levels=4                           1
+  kth=1 max anchors                        3
+  kth=1 max damage                         6
+  kth=1 sample failures                    0
+  kth=1 stopped without progress           6
+  max kappa                                6
+  max |A|                                  14
+  paths                                    103
+  paths: single proof-term                 95
+  planted path shortest                    38
+  projective                               7
+  sample levels=1                          94
+  sample levels=2                          9
+  sample max anchors                       13
+  sample max damage                        2
+  sample sample failures                   0
+  yes                                      60
+  worst (no single term, kappa), it, W, m: [((1, 6), 38, 'EFEFEFEFEFEFEFEFEFEFEFEFEFEF', 41), ((1, 6), 19, 'EFEFEFEFEFEFEFEFEFEFEFEF', 37), ((1, 5), 2, 'EFEFEFEFEFEFEFEFEFEFEFEFEFEF', 38), ((1, 3), 58, 'EFEFEFEFEFEFEFEFEFEFEFEF', 32), ((1, 3), 51, 'EFEFEFEFEFEFEFEFEFEFEFEFEF', 33), ((1, 2), 41, 'EFEFEFEFEFEFEFEFEFEF', 24), ((1, 2), 17, 'EFEFEFEFEFEFEFEFEFEFEFEF', 32), ((1, 2), 15, 'EFEFEFEFEFEFEFEFEFEF', 29)]

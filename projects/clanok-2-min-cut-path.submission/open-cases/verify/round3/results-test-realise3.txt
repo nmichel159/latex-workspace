@@ -1,0 +1,2 @@
+{'inst': 387, 'yes': 124, 'viol': 0, 'maxV': 86, 'skipped_N<=3': 13}
+violations: 0

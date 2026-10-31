@@ -1,0 +1,5 @@
+X_8 mates=both q=121 |R|=200 switches=16 P2=True solutions=1 exact=True | NG(1,0)=False tried=88 | NG(2,0)=True tried=265 peak Pi=[('x', 1), ('t', 't')] | 0.3s
+X_9 mates=both q=145 |R|=243 switches=18 P2=True solutions=None exact=True | NG(1,0)=False tried=116 | NG(2,0)=True tried=305 peak Pi=[('x', 1), ('t', 't')] | 0.0s
+X_10 mates=both q=171 |R|=290 switches=20 P2=True solutions=None exact=True | NG(1,0)=False tried=132 | NG(2,0)=False tried=2997 | NG(3,0)=True tried=3197 peak Pi=[('x', 1), ('x', 2), ('t', 't')] | 1.1s
+X_11 mates=both q=199 |R|=341 switches=22 P2=True solutions=None exact=True | NG(1,0)=False tried=166 | NG(2,0)=False tried=4786 | NG(3,0)=True tried=4138 peak Pi=[('x', 1), ('x', 2), ('t', 't')] | 1.8s
+X_12 mates=both q=229 |R|=396 switches=24 P2=True solutions=None exact=True | NG(1,0)=False tried=185 | NG(2,0)=False tried=6212 | NG(3,0)=True tried=8190 peak Pi=[('x', 1), ('x', 2), ('t', 't')] | 3.8s

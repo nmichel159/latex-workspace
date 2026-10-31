@@ -1,0 +1,6 @@
+seed 1 formulas 400 {'yes': 290, 'no': 110, 'mism': 0, 'p3fail': 0, 'p2fail_inst': 400}
+graph 1 [[1]] sat True {'n': 367, 'm': 714, 'N': 135, 'c': 135, 'd': 2, 'far': 0, 'ears_ok': True, 'pimc': True}
+graph 1 [[1], [-1]] sat False {'n': 530, 'm': 1036, 'N': 192, 'c': 192, 'd': 2, 'far': 0, 'ears_ok': True, 'pimc': False}
+graph 2 [[1, 2]] sat True {'n': 700, 'm': 1374, 'N': 252, 'c': 252, 'd': 2, 'far': 0, 'ears_ok': True, 'pimc': True}
+graph 2 [[1], [-1, 2]] sat True {'n': 914, 'm': 1798, 'N': 326, 'c': 326, 'd': 2, 'far': 0, 'ears_ok': True, 'pimc': True}
+exit 0

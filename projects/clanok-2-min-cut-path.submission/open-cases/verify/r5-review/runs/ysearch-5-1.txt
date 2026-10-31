@@ -1,0 +1,1 @@
+Y_5: 1288 certificate sets tried with kd + ks + s = k - 1, B = k - 1: 0 accepted (claim: 0); with B = k (kd = 1): 11 accepted

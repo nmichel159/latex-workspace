@@ -1,0 +1,1 @@
+seed 1 count 300 mode all {'yes': 282, 'no': 31, 'paths': 553, 'fail': 0, 'maxdom': 1, 'maxsing': 2, 'maxstore': 3, 'direct': 553} 0.0s

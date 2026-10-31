@@ -1,0 +1,31 @@
+zzrand-21-600-3-10: 600 jobs, 2 workers
+  50/600 jobs (23s)
+  100/600 jobs (47s)
+  150/600 jobs (63s)
+  200/600 jobs (88s)
+  250/600 jobs (107s)
+  300/600 jobs (118s)
+  350/600 jobs (138s)
+  400/600 jobs (151s)
+  450/600 jobs (170s)
+  500/600 jobs (181s)
+  550/600 jobs (201s)
+  600/600 jobs (224s)
+== zzrand-21-600-3-10 (224s)
+  P2 in ZZ and in switch form                   600
+  blind single-term search accepts              237
+  blind single-term search run                  535
+  brute methods: core                           414
+  brute methods: core+paths                     176
+  brute methods: subsets+paths                  10
+  brute_paths over budget                       414
+  gsw.GSW identical                             600
+  no                                            313
+  pairs                                         600
+  paths checked (Thm 8.2)                       638
+  random down-sets lifted                       15000
+  s = t                                         13
+  yes                                           287
+  yes certified in G (lifted D: min cut with u-v path) 287
+  maxima: {'m': 10, 'q': 16, 'n': 291, 'c': 103, 'levels': 1, 'heavy': 6, 'span': 3, 'Amax': 2, 'bad': 6, 'sf_L': 4, 'tools': 1, 'flips': 2, 'damage': 0, 'anchors': 1}
+  total records with errors: 0

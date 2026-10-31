@@ -1,0 +1,3 @@
+cor42 seed 2 k 32 instances 500 construction succeeded 500 case E 471 case F 29
+small seed 2 formulas 1000 unfaithful completions 829
+exit 0

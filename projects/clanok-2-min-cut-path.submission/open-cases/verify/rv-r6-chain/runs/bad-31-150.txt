@@ -1,0 +1,14 @@
+bad-31-150: 150 jobs, 1 workers
+== bad-31-150 (903s)
+  NO GRAPH BRUTE FORCE                          150
+  P2 in ZZ and in switch form                   150
+  ZZ level only (too large to realise)          138
+  brute_paths over budget                       12
+  gsw.GSW identical                             150
+  pairs                                         150
+  paths checked (Thm 8.2)                       374
+  random down-sets lifted                       3750
+  yes                                           150
+  yes certified in G (lifted D: min cut with u-v path) 12
+  maxima: {'levels': 1, 'tools': 2, 'flips': 4, 'anchors': 3, 'heavy': 8, 'span': 4, 'Amax': 5, 'bad': 36, 'm': 24, 'q': 256, 'sf_L': 6, 'damage': 0, 'n': 4033, 'c': 1228}
+  total records with errors: 0

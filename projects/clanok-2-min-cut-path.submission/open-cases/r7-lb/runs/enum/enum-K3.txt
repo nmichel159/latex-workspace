@@ -1,0 +1,39 @@
+enum_lb K=3 part 0/1 mode all preorders 29 pid 1496
+  preorder 1/29 strict 6  instances 64  yes 0  costs []  0s
+new max cost 0 (m=3, R=[(0, 2), (0, 3), (0, 4), (2, 1), (2, 3)]) saved C:\Users\norom\Documents\latex\projects\clanok-2-min-cut-path.submission\open-cases\r7-lb\runs\enum\enum-K3-max-cost0.json
+new max cost 1 (m=3, R=[(0, 2), (0, 3), (0, 4), (2, 1), (3, 1), (2, 3)]) saved C:\Users\norom\Documents\latex\projects\clanok-2-min-cut-path.submission\open-cases\r7-lb\runs\enum\enum-K3-max-cost1.json
+  preorder 2/29 strict 7  instances 192  yes 8  costs [('cost=0', 5), ('cost=1', 3)]  0s
+  preorder 3/29 strict 7  instances 320  yes 16  costs [('cost=0', 10), ('cost=1', 6)]  0s
+  preorder 4/29 strict 8  instances 576  yes 60  costs [('cost=0', 43), ('cost=1', 17)]  0s
+  preorder 5/29 strict 7  instances 704  yes 68  costs [('cost=0', 48), ('cost=1', 20)]  0s
+  preorder 6/29 strict 6  instances 768  yes 68  costs [('cost=0', 48), ('cost=1', 20)]  0s
+  preorder 7/29 strict 7  instances 896  yes 76  costs [('cost=0', 53), ('cost=1', 23)]  0s
+  preorder 8/29 strict 8  instances 1152  yes 120  costs [('cost=0', 86), ('cost=1', 34)]  0s
+  preorder 9/29 strict 9  instances 1664  yes 276  costs [('cost=0', 187), ('cost=1', 89)]  0s
+  preorder 10/29 strict 8  instances 1920  yes 320  costs [('cost=0', 220), ('cost=1', 100)]  0s
+  preorder 11/29 strict 9  instances 2432  yes 476  costs [('cost=0', 321), ('cost=1', 155)]  0s
+  preorder 12/29 strict 8  instances 2688  yes 532  costs [('cost=0', 356), ('cost=1', 176)]  0s
+  preorder 13/29 strict 7  instances 2816  yes 540  costs [('cost=0', 361), ('cost=1', 179)]  0s
+  preorder 14/29 strict 6  instances 2880  yes 540  costs [('cost=0', 361), ('cost=1', 179)]  0s
+  preorder 15/29 strict 8  instances 3136  yes 584  costs [('cost=0', 394), ('cost=1', 190)]  0s
+  preorder 16/29 strict 9  instances 3648  yes 740  costs [('cost=0', 495), ('cost=1', 245)]  0s
+  preorder 17/29 strict 8  instances 3904  yes 796  costs [('cost=0', 530), ('cost=1', 266)]  0s
+  preorder 18/29 strict 7  instances 4032  yes 804  costs [('cost=0', 535), ('cost=1', 269)]  0s
+  preorder 19/29 strict 8  instances 4288  yes 848  costs [('cost=0', 568), ('cost=1', 280)]  0s
+  preorder 20/29 strict 9  instances 4800  yes 1004  costs [('cost=0', 669), ('cost=1', 335)]  0s
+  preorder 21/29 strict 6  instances 4864  yes 1004  costs [('cost=0', 669), ('cost=1', 335)]  0s
+  preorder 22/29 strict 8  instances 5120  yes 1060  costs [('cost=0', 704), ('cost=1', 356)]  0s
+  preorder 23/29 strict 8  instances 5376  yes 1104  costs [('cost=0', 737), ('cost=1', 367)]  0s
+  preorder 24/29 strict 9  instances 5888  yes 1260  costs [('cost=0', 838), ('cost=1', 422)]  0s
+  preorder 25/29 strict 8  instances 6144  yes 1316  costs [('cost=0', 873), ('cost=1', 443)]  0s
+  preorder 26/29 strict 9  instances 6656  yes 1472  costs [('cost=0', 974), ('cost=1', 498)]  0s
+  preorder 27/29 strict 8  instances 6912  yes 1528  costs [('cost=0', 1009), ('cost=1', 519)]  0s
+  preorder 28/29 strict 8  instances 7168  yes 1584  costs [('cost=0', 1044), ('cost=1', 540)]  0s
+  preorder 29/29 strict 6  instances 7232  yes 1584  costs [('cost=0', 1044), ('cost=1', 540)]  0s
+SUMMARY enum_lb K=3 part 0/1 mode all (0s)
+  P2: 5830
+  cost=0: 1044
+  cost=1: 540
+  instances: 7232
+  no: 4246
+  yes: 1584

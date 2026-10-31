@@ -1,0 +1,1 @@
+﻿zz_check K 3 (0s): {'P2': 5830, 'instances': 7232, 'no': 5528, 'not P2': 1402, 'yes': 1704}

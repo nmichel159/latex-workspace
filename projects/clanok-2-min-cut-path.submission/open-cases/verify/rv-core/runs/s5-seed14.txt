@@ -1,0 +1,14 @@
+E1 tested                                        2667
+E2 pairs                                         680
+E2 |A&U| - |f*| sum                              2
+F1 tested                                        2667
+F2 as written FAILED                             2
+F2 pairs                                         677
+FA-a tested                                      5607
+LG-E tested                                      10668
+LG-F tested                                      10668
+S52 arbitrary-B0 fails (hypothesis needed)       4376
+S52 arbitrary-B0 tested                          4874
+S52 tested                                       5239
+paths                                            2667
+yes-instances                                    1500

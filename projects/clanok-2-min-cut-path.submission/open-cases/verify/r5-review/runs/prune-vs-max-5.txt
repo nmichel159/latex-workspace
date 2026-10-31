@@ -1,0 +1,2 @@
+abs seed 5: yes-instances 1213, pruning = maximal sound fixing in 1212, smaller in 1
+zz seed 5: yes-instances 718, pruning = maximal sound fixing in 706, smaller in 12

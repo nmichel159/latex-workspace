@@ -1,0 +1,59 @@
+adv8 deep args=104 12 4 8 pid=11672
+  design 0 m=160 k=8 levels {'proof/adversarial': 4, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 30s
+  design 1 m=161 k=8 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 62s
+  design 2 m=165 k=8 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 1, 'stress/adversarial': 2} 96s
+  design 3 m=164 k=8 levels {'proof/adversarial': 4, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 128s
+  design 4 m=162 k=8 levels {'proof/adversarial': 4, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 158s
+  design 5 m=162 k=8 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 188s
+  design 6 m=163 k=8 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 219s
+  design 7 m=165 k=8 levels {'proof/adversarial': 4, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 252s
+  design 8 m=161 k=8 levels {'proof/adversarial': 4, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 281s
+  design 9 m=164 k=8 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 316s
+  design 10 m=160 k=8 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 1, 'stress/adversarial': 2} 349s
+  design 11 m=162 k=8 levels {'proof/adversarial': 4, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 379s
+SUMMARY adv8 deep 104 12 4 8 (379s)
+  E continue: 62
+  E final: 9
+  E terms checked: 2419
+  F final: 27
+  F final with anchors: 27
+  F terms checked: 687
+  bad pairs: 2992
+  case E (v>=1/2): 83
+  case F (v<1/2): 27
+  deep pert 0 levels proof/adv=4: 3
+  deep pert 1 levels proof/adv=2: 2
+  deep pert 1 levels proof/adv=3: 1
+  deep pert 2 levels proof/adv=3: 3
+  deep pert 3 levels proof/adv=4: 3
+  designs: 12
+  duality pairs: 409451
+  duality pairs y<x: 15494
+  games: 110
+  heavy rows: 659
+  levels=1 (proof): 2
+  levels=2 (proof): 24
+  levels=2 (stress): 12
+  levels=3 (proof): 4
+  levels=4 (proof): 6
+  max E expected uncovered x1000: 0
+  max F expected failures x1000: 38
+  max anchors: 10
+  max bad pairs on a path: 290
+  max levels proof/adversarial: 4
+  max levels proof/first: 2
+  max levels proof/sample: 2
+  max levels stress/adversarial: 2
+  max m: 165
+  max sampled anchors (distinct): 4
+  max |A & NE(E#x)|: 1
+  max |A|: 64
+  max |B & NF(F#y)|: 1
+  max |Phi|/|T| x100: 100
+  rows: 6222
+  sample: E cover drawn: 13
+  sample: F cover drawn: 9
+  sample: anchors drawn: 9
+  saved deep designs: 10
+  stuck (no progress): 12
+FAILURES: none

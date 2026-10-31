@@ -1,0 +1,25 @@
+bottie seed 1002: {'n': 300, 'hyp': 300, 'yes': 154, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 2164, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+mixed seed 1003: {'n': 300, 'hyp': 182, 'yes': 142, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 0, 'maxA': 0, 'mixed_alg_wrong': 0, 'pc_runs': 0, 'ac_fp': 0, 'pc_fp': 0}
+top seed 1001: {'n': 300, 'hyp': 300, 'yes': 124, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 11283, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 1, 'pc_fp': 0}
+bottie seed 1006: {'n': 300, 'hyp': 300, 'yes': 136, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 1595, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+top seed 1005: {'n': 300, 'hyp': 300, 'yes': 150, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 12350, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+bottom seed 1004: {'n': 300, 'hyp': 300, 'yes': 141, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 8009, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+bottom seed 1000: {'n': 300, 'hyp': 300, 'yes': 145, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 12184, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+bottie seed 1010: {'n': 300, 'hyp': 300, 'yes': 145, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 1511, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+mixed seed 1007: {'n': 300, 'hyp': 174, 'yes': 130, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 0, 'maxA': 0, 'mixed_alg_wrong': 0, 'pc_runs': 0, 'ac_fp': 0, 'pc_fp': 0}
+top seed 1009: {'n': 300, 'hyp': 300, 'yes': 148, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 7561, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+mixed seed 1011: {'n': 300, 'hyp': 185, 'yes': 130, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 0, 'maxA': 0, 'mixed_alg_wrong': 0, 'pc_runs': 0, 'ac_fp': 0, 'pc_fp': 0}
+bottom seed 1012: {'n': 300, 'hyp': 300, 'yes': 142, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 7900, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+bottom seed 1008: {'n': 300, 'hyp': 300, 'yes': 148, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 13096, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 1, 'pc_fp': 0}
+bottie seed 1014: {'n': 300, 'hyp': 300, 'yes': 159, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 1445, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+top seed 1013: {'n': 300, 'hyp': 300, 'yes': 152, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 11725, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+bottie seed 1018: {'n': 300, 'hyp': 300, 'yes': 130, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 1176, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+mixed seed 1015: {'n': 300, 'hyp': 183, 'yes': 141, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 0, 'maxA': 0, 'mixed_alg_wrong': 0, 'pc_runs': 0, 'ac_fp': 0, 'pc_fp': 0}
+top seed 1017: {'n': 300, 'hyp': 300, 'yes': 145, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 13609, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+mixed seed 1019: {'n': 300, 'hyp': 170, 'yes': 154, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 0, 'maxA': 0, 'mixed_alg_wrong': 0, 'pc_runs': 0, 'ac_fp': 0, 'pc_fp': 0}
+bottie seed 1022: {'n': 300, 'hyp': 300, 'yes': 158, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 1384, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+bottom seed 1016: {'n': 300, 'hyp': 300, 'yes': 145, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 13753, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+bottom seed 1020: {'n': 300, 'hyp': 300, 'yes': 144, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 9467, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 1, 'pc_fp': 0}
+top seed 1021: {'n': 300, 'hyp': 300, 'yes': 149, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 13211, 'maxA': 2, 'mixed_alg_wrong': 0, 'pc_runs': 40, 'ac_fp': 0, 'pc_fp': 0}
+mixed seed 1023: {'n': 300, 'hyp': 177, 'yes': 155, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 0, 'maxA': 0, 'mixed_alg_wrong': 0, 'pc_runs': 0, 'ac_fp': 0, 'pc_fp': 0}
+violations: 0

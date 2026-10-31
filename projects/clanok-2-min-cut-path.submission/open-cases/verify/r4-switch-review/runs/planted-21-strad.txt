@@ -1,0 +1,4 @@
+planted seed=21 tasks=600 (30 attempts each) mode=strad
+counts {"gen": 18000, "kept": 685, "paths": 832}
+proof stats {"holes": 1, "maxB": 8, "maxH": 1, "maxZ": 3, "max_disjoint": 1, "maxsingles": 1, "maxstorT": 6, "rows": 3, "step0_T": 24, "step1_T": 984, "step2_T": 89, "step3": 3, "step3_T": 3, "swaps": 564}
+failures 0

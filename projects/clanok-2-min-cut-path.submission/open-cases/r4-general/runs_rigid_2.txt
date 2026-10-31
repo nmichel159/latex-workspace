@@ -1,0 +1,6 @@
+R_8 2CH q=52 budget=2 NG=True valid=True tried=95 0.0s peak Pi=[('t', 10), ('t', 32)] Y=[]
+R_9 2CH q=64 budget=2 NG=True valid=True tried=120 0.0s valley Pi=[('b', 19), ('b', 41)] Y=[]
+R_10 2CH q=75 budget=2 NG=False valid=False tried=206 0.0s -
+R_11 2CH q=89 budget=2 NG=False valid=False tried=292 0.1s -
+R_12 2CH q=102 budget=2 NG=False valid=False tried=394 0.1s -
+R_13 2CH q=118 budget=2 NG=False valid=False tried=533 0.1s -

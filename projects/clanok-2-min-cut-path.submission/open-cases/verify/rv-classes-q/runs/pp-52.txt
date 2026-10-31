@@ -1,0 +1,3 @@
+instances 106 checked pairs 14892 fallbacks 436
+per (path, type): least |Err| over all pairs: [(0, 374), (1, 362), (2, 282), (3, 71), (4, 50), (5, 11), ('nopair', 436)]
+per instance: least over paths and types (0 = fallback with misclassification 0): [(0, 93), (1, 10), (2, 3)]

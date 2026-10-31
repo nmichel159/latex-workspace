@@ -1,0 +1,14 @@
+deep-13-16-3-7 (3s, pid 27984)
+  F with heavy rows                    13
+  allcov E-terms checked               33395
+  allcov F-terms checked               60228
+  branch E                             19
+  branch F                             13
+  instances                            16
+  levels hist                          {2: 16}
+  max anchors                          8
+  max flips                            3
+  max m                                83
+  max span L4.4                        1
+  paths checked                        16
+  errors: 0

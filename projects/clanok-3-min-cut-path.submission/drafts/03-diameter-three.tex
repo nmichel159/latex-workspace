@@ -1,0 +1,215 @@
+% MACROS:
+% \newcommand{\PathInMinCut}{\textsc{Path in Min Cut}}%
+
+\section{NP-Completeness on Graphs of Diameter Three}
+\label{sec:dt-diameter-three}
+
+By \cref{prop:open-pairs}, $\cp(u, v) = c(u, v)$ if and only if some minimum $u$--$v$ cut contains a $u$--$v$ path.
+The problem \PathInMinCut{} has as input a connected graph $G$ and two distinct vertices $u$ and $v$, and it asks whether some minimum $u$--$v$ cut of $G$ contains a $u$--$v$ path.
+We prove that \PathInMinCut{} is NP-complete on graphs of diameter three, already for pairs at distance two (\cref{thm:dt-hardness}), and we draw the consequences for \MinCutPath{} (\cref{cor:dt-consequences}).
+
+\subsection{The Reduction from 3-SAT}
+\label{sec:dt-construction}
+
+The reduction assigns to a formula $\varphi$ a graph $G_\varphi$ whose minimum $u$--$v$ cuts correspond to the truth assignments of $\varphi$ (\cref{lem:dt-cuts}).
+The cut of an assignment contains a $u$--$v$ path if and only if the assignment satisfies $\varphi$ (\cref{lem:dt-cut-graphs}).
+
+\begin{definition}[The graph $G_\varphi$]
+\label{con:dt-graph}
+Let $\varphi$ be a formula in conjunctive normal form with the clauses $C_1, \dots, C_m$, where $m \geq 1$, over the variables $x_1, \dots, x_p$.
+A clause is a nonempty list of literals that may contain repetitions, a literal is a variable or a negated variable, and every variable occurs in some clause.
+If every clause has three literals, then $\varphi$ is an instance of 3-SAT.
+A \emph{truth assignment} $\tau$ sets every variable to true or to false, and $\tau$ \emph{satisfies} $\varphi$ if every clause contains a literal that is true under $\tau$.
+Let $L$ be the total number of literals in the $m$ clauses, counted with repetitions, and let $c_0 = (m + 1) + 2L$ and $N = c_0 + 2$.
+
+The vertex set of $G_\varphi$ consists of two disjoint sets $K^u$ and $K^v$ with $N$ vertices each and of the \emph{occurrence vertices} $o_{k,j}$, one for the $j$-th literal of $C_k$, for all $k$ and $j$.
+Any two vertices of $K^u$ are adjacent, and so are any two vertices of $K^v$.
+The clique $K^u$ contains the vertices $u = u_0, u_1, \dots, u_m$ and two \emph{anchors} $w_1, w_2$, and the clique $K^v$ contains the vertices $v_0, v_1, \dots, v_m = v$ and two anchors $z_1, z_2$.
+Since $N - (m + 3) = 2L \geq 2$, each clique has $2L$ further vertices, its \emph{fillers}.
+The \emph{rungs} $u_k v_k$, for $0 \leq k \leq m$, are the only edges between $K^u$ and $K^v$.
+If the $j$-th literal of $C_k$ is a variable, then $o_{k,j}$ is a \emph{positive} occurrence vertex, adjacent to $v_{k-1}$, $v_k$, $w_1$ and $w_2$.
+If this literal is a negated variable, then $o_{k,j}$ is a \emph{negative} occurrence vertex, adjacent to $u_{k-1}$, $u_k$, $z_1$ and $z_2$.
+For every variable $x_i$, let $O_i$ be the set of the occurrence vertices of the literals $x_i$ and $\neg x_i$.
+The vertices of $O_i$ are joined, in an arbitrary order, into a path by $|O_i| - 1$ \emph{synchronization edges}.
+The graph $G_\varphi$ has no further edges.
+For a truth assignment $\tau$, let $A_\tau$ be the union of $K^u$ and of all sets $O_i$ such that $\tau$ sets $x_i$ to true.
+\end{definition}
+
+\Cref{fig:dt-construction} shows $G_\varphi$ for $\varphi = (x_1 \vee \neg x_2) \wedge x_2$.
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{hardness-construction.pdf}
+    \caption{The graph $G_\varphi$ for $\varphi = (x_1 \vee \neg x_2) \wedge x_2$ without the clique edges and with a $u$--$v$ path in $\delta(A_\tau)$ for $\tau(x_1) = \tau(x_2) = \text{true}$ in red}
+    \label{fig:dt-construction}
+\end{figure}
+
+Every occurrence vertex has exactly two neighbors in $K^u$ and two neighbors in $K^v$, and a filler has no neighbor outside its clique.
+The graph $G_\varphi$ is connected, because the rungs join the two cliques and every occurrence vertex has a neighbor in a clique.
+It has $2N + L$ vertices and $N(N - 1) + (m + 1) + 4L + (L - p)$ edges, where the four terms count the edges inside the cliques, the rungs, the edges at the occurrence vertices and the synchronization edges.
+Hence $G_\varphi$ is computed in time polynomial in the length of $\varphi$.
+
+\subsection{Minimum Cuts and Cut Graphs}
+\label{sec:dt-correctness}
+
+By \cref{lem:minimum-cuts}, every minimum $u$--$v$ cut is $\delta(A)$ for exactly one set $A$ with $u \in A$ and $v \notin A$.
+
+\begin{lemma}[Forcing]
+\label{lem:dt-forcing}
+Let $G = (V, E)$ be the graph $G_\varphi$ of a formula $\varphi$ (\cref{con:dt-graph}).
+Then $c(u, v) \leq c_0$, and every minimum $u$--$v$ cut $\delta(A)$ with $u \in A$ satisfies $K^u \subseteq A$ and $A \cap K^v = \emptyset$.
+\end{lemma}
+
+\begin{proof}
+The edges that leave $K^u$ are the $m + 1$ rungs and the two edges from each of the $L$ occurrence vertices to $K^u$.
+Hence $|\delta(K^u)| = c_0$, and $\delta(K^u)$ is a $u$--$v$ cut, so $c(u, v) \leq c_0$.
+Let $\delta(A)$ be a minimum $u$--$v$ cut with $u \in A$, and suppose that some vertex $a \in K^u$ is not in $A$.
+The edge $ua$ and the paths $u, y, a$ for $y \in K^u \setminus \{u, a\}$ are $N - 1$ edge-disjoint $u$--$a$ paths.
+Each of them contains an edge of $\delta(A)$, because $u \in A$ and $a \notin A$.
+Hence $|\delta(A)| \geq N - 1 = c_0 + 1 > c(u, v)$, a contradiction.
+If some vertex $b \in K^v$ were in $A$, the $N - 1$ edge-disjoint $v$--$b$ paths in the clique $K^v$ would give the same contradiction, because $v \notin A$.
+\end{proof}
+
+\begin{lemma}[Minimum cuts]
+\label{lem:dt-cuts}
+Let $G = (V, E)$ be the graph $G_\varphi$ of a formula $\varphi$ with the variables $x_1, \dots, x_p$.
+(i) Let $A$ be a set with $K^u \subseteq A \subseteq V \setminus K^v$, and let $s(A)$ be the number of synchronization edges in $\delta(A)$.
+Then $\delta(A)$ consists of the $m + 1$ rungs, of two edges at every occurrence vertex $o$, which are the edges from $o$ to $K^v$ if $o \in A$ and the edges from $o$ to $K^u$ otherwise, and of the synchronization edges with exactly one end in $A$.
+In particular, $|\delta(A)| = c_0 + s(A)$.
+(ii) We have $c(u, v) = c_0$.
+The minimum $u$--$v$ cuts are exactly the sets $\delta(A_\tau)$ for the $2^p$ truth assignments $\tau$ of $x_1, \dots, x_p$, and distinct assignments give distinct cuts.
+\end{lemma}
+
+\begin{proof}
+Each clique lies on one side of $A$, so no clique edge belongs to $\delta(A)$.
+All rungs belong to $\delta(A)$, because $u_k \in A$ and $v_k \notin A$.
+An occurrence vertex $o$ has two neighbors in $K^u$ and two in $K^v$, so exactly its two edges to $K^v$ belong to $\delta(A)$ if $o \in A$, and exactly its two edges to $K^u$ otherwise.
+All remaining edges are synchronization edges, which proves the description of $\delta(A)$.
+The rungs and the edges at the $L$ occurrence vertices are $(m + 1) + 2L = c_0$ edges, so $|\delta(A)| = c_0 + s(A)$.
+
+By \cref{lem:dt-forcing}, every minimum $u$--$v$ cut $\delta(A)$ with $u \in A$ satisfies $K^u \subseteq A \subseteq V \setminus K^v$, so $|\delta(A)| \geq c_0$.
+Together with $c(u, v) \leq c_0$ this gives $c(u, v) = c_0$.
+Hence a set $A$ with $K^u \subseteq A \subseteq V \setminus K^v$ gives a minimum $u$--$v$ cut if and only if $s(A) = 0$.
+A synchronization edge joins two vertices of the same set $O_i$, and the vertices of $O_i$ are connected by synchronization edges.
+Therefore $s(A) = 0$ if and only if every $O_i$ is contained in $A$ or disjoint from $A$.
+Every occurrence vertex lies in some $O_i$, so these sets $A$ are exactly the sets $A_\tau$, where $\tau$ sets $x_i$ to true if and only if $O_i \subseteq A$.
+Distinct assignments give distinct sets $A_\tau$, because every $O_i$ is nonempty, and distinct sets $A$ with $u \in A$ give distinct cuts by \cref{lem:minimum-cuts}.
+\end{proof}
+
+\begin{lemma}[Cut graphs]
+\label{lem:dt-cut-graphs}
+Let $G = (V, E)$ be the graph $G_\varphi$ of a formula $\varphi$, let $\tau$ be a truth assignment, and let $H_\tau$ be the graph $(V, \delta(A_\tau))$.
+Then $u$ and $v$ are connected in $H_\tau$ if and only if $\tau$ satisfies $\varphi$.
+\end{lemma}
+
+\begin{proof}
+An occurrence vertex is \emph{true} under $\tau$ if its literal is true under $\tau$, and \emph{false} otherwise.
+% TODO(check): an earlier version of this sentence said that a negative occurrence vertex of x_i lies in A_tau if and only if tau sets x_i to false. That contradicts the definition of A_tau, because O_i contains the occurrence vertices of both literals and lies on one side as a whole. The sentence and the list of edges below follow the definition.
+An occurrence vertex of the variable $x_i$ lies in $A_\tau$ if and only if $\tau$ sets $x_i$ to true, whether its literal is $x_i$ or $\neg x_i$.
+Hence a positive occurrence vertex is true if and only if it lies in $A_\tau$, and a negative one is true if and only if it lies outside $A_\tau$.
+Since $\delta(A_\tau)$ is a minimum cut, $s(A_\tau) = 0$ by \cref{lem:dt-cuts}, so the edges of $H_\tau$ are the rungs and two edges at every occurrence vertex, and $H_\tau$ has no clique edges and no synchronization edges.
+A true occurrence vertex of $C_k$ is adjacent in $H_\tau$ to $v_{k-1}, v_k$ if it is positive and to $u_{k-1}, u_k$ if it is negative.
+A false occurrence vertex is adjacent in $H_\tau$ to $w_1, w_2$ if it is positive and to $z_1, z_2$ if it is negative.
+Let $T_k = \{u_k, v_k\}$ for $0 \leq k \leq m$, whose two vertices are adjacent in $H_\tau$ by a rung.
+
+Suppose that $\tau$ satisfies $\varphi$.
+For each $k$ with $1 \leq k \leq m$, a true literal of $C_k$ gives a true occurrence vertex of $C_k$, which is adjacent in $H_\tau$ to a vertex of $T_{k-1}$ and to a vertex of $T_k$.
+Hence $T_0 \cup \dots \cup T_m$ lies in one component of $H_\tau$, and it contains $u = u_0$ and $v = v_m$.
+
+Suppose that $\tau$ does not satisfy $\varphi$, and let $C_k$ be a clause without a true literal.
+Let $W = T_0 \cup \dots \cup T_{k-1} \cup W'$, where $W'$ is the set of the true occurrence vertices of $C_1, \dots, C_{k-1}$.
+We show that no edge of $H_\tau$ leaves $W$.
+In $G$, a vertex $u_j$ or $v_j$ is adjacent outside its clique only to its partner in $T_j$ and to occurrence vertices of $C_j$ and $C_{j+1}$, and in $H_\tau$ only to true ones.
+For $j \leq k - 1$, the true occurrence vertices of $C_j$ lie in $W'$, and those of $C_{j+1}$ lie in $W'$ if $j + 1 \leq k - 1$ and do not exist if $j + 1 = k$, because $C_k$ has no true occurrence vertex.
+A true occurrence vertex of $C_j$ with $j \leq k - 1$ is adjacent in $H_\tau$ only to vertices of $T_{j-1} \cup T_j \subseteq W$.
+So no edge of $H_\tau$ leaves $W$.
+Since $m \geq k$, we have $u \in T_0 \subseteq W$ and $v = v_m \notin W$, so $u$ and $v$ are not connected in $H_\tau$.
+\end{proof}
+
+\subsection{Hardness Results}
+\label{sec:dt-results}
+
+\begin{theorem}
+\label{thm:dt-hardness}
+\PathInMinCut{} is NP-complete.
+It remains NP-complete for pairs $u, v$ with $d(u, v) = 2$ in graphs of diameter three.
+\end{theorem}
+
+\begin{proof}
+The problem is in NP.
+A certificate for an instance $(G, u, v)$ is a set $S \subseteq E$.
+The value $c(u, v)$ is computed in polynomial time by a maximum-flow algorithm, and graph searches check that $|S| = c(u, v)$, that $G \setminus S$ contains no $u$--$v$ path and that $S$ contains a $u$--$v$ path.
+If these checks succeed, then $S$ is a minimum $u$--$v$ cut that contains a $u$--$v$ path, and every such cut passes them.
+
+For hardness, we reduce 3-SAT to \PathInMinCut{}.
+Let $\varphi$ be an instance of 3-SAT.
+The triple $(G_\varphi, u, v)$ is computed in polynomial time (\cref{con:dt-graph}).
+By \cref{lem:dt-cuts}, the minimum $u$--$v$ cuts of $G_\varphi$ are the sets $\delta(A_\tau)$.
+Since two connected vertices of $H_\tau$ are joined by a path of $H_\tau$, the set $\delta(A_\tau)$ contains a $u$--$v$ path if and only if $u$ and $v$ are connected in $H_\tau$.
+By \cref{lem:dt-cut-graphs}, this holds if and only if $\tau$ satisfies $\varphi$.
+Hence some minimum $u$--$v$ cut of $G_\varphi$ contains a $u$--$v$ path if and only if $\varphi$ is satisfiable.
+
+It remains to determine the distances in $G_\varphi$.
+The vertices $u = u_0$ and $v = v_m$ are not adjacent, because the only edge between the cliques at $u_0$ is the rung $u_0 v_0$ and $m \geq 1$.
+The vertex $u_m$ is adjacent to $u$ and, by the rung $u_m v_m$, to $v$, so $d(u, v) = 2$.
+Every vertex of $G_\varphi$ lies in $K^u$ or in $K^v$ or is an occurrence vertex, which has neighbors in both cliques.
+Two vertices of one clique are adjacent.
+For $x \in K^u$ and $y \in K^v$, the path $x, u_m, v_m, y$ has at most three edges.
+An occurrence vertex is at distance at most two from every vertex of a clique, because it has a neighbor in that clique.
+Two occurrence vertices $o$ and $o'$ are joined by a path $o, y, y', o'$ with at most three edges, where $y$ and $y'$ are neighbors of $o$ and $o'$ in $K^u$.
+Hence the diameter of $G_\varphi$ is at most three.
+A filler $f$ of $K^u$ and a filler $f'$ of $K^v$ are not adjacent and have no common neighbor, because the neighbors of $f$ are the vertices of $K^u \setminus \{f\}$ and the neighbors of $f'$ are the vertices of $K^v \setminus \{f'\}$.
+So $d(f, f') = 3$, and the diameter of $G_\varphi$ is exactly three.
+\end{proof}
+
+\begin{corollary}
+\label{cor:dt-consequences}
+(a) Deciding whether $\cp(u, v) = c(u, v)$ is NP-complete, also for pairs with $d(u, v) = 2$ in graphs of diameter three.
+
+(b) The decision version of \MinCutPath{}, which asks for a connected graph $G$, two distinct vertices $u, v$ and an integer $b$ whether $\cp(u, v) \leq b$, is NP-complete on graphs of diameter three, already for pairs with $d(u, v) = 2$ and the threshold $b = c(u, v)$.
+Computing $\cp(u, v)$ is NP-hard for pairs with $d(u, v) = 2$.
+
+(c) Deciding whether $\cp(u, v) = c(u, v) + d(u, v) - 1$ is coNP-complete, also for pairs with $d(u, v) = 2$ in graphs of diameter three.
+If $\cp(u, v) = c(u, v) + d(u, v) - 1$, then the union of any minimum $u$--$v$ cut and any shortest $u$--$v$ path is a minimum cut-path, and for $d(u, v) = 2$ the converse holds: if the union of some minimum $u$--$v$ cut and some shortest $u$--$v$ path is a minimum cut-path, then $\cp(u, v) = c(u, v) + 1$.
+\end{corollary}
+
+\begin{proof}
+(a) By \cref{prop:open-pairs}, the question whether $\cp(u, v) = c(u, v)$ is \PathInMinCut{}, so (a) is \cref{thm:dt-hardness}.
+
+(b) By \cref{lem:basic-bounds}, $\cp(u, v) \geq c(u, v)$, so $\cp(u, v) \leq c(u, v)$ if and only if $\cp(u, v) = c(u, v)$.
+The threshold $b = c(u, v)$ is computed by a maximum-flow algorithm, and for $G_\varphi$ it is $c_0$ by \cref{lem:dt-cuts}.
+Hence (a) reduces to the decision version with $b = c(u, v)$, which is therefore NP-hard on graphs of diameter three, already for pairs with $d(u, v) = 2$.
+The decision version is in NP, because a cut-path with at most $b$ edges is a certificate, and two graph searches check that it contains a $u$--$v$ path and that its removal leaves no $u$--$v$ path.
+An algorithm that computes $\cp(u, v)$ decides the decision version with $b = c(u, v)$, so computing $\cp(u, v)$ is NP-hard for pairs with $d(u, v) = 2$.
+
+(c) By \cref{lem:basic-bounds}, $\cp(u, v) \leq c(u, v) + d(u, v) - 1$, so the equality fails if and only if some cut-path has at most $c(u, v) + d(u, v) - 2$ edges.
+The values $c(u, v)$ and $d(u, v)$ are computed in polynomial time, and such a cut-path is a certificate as in (b), so the problem is in coNP.
+Let $d(u, v) = 2$.
+By \cref{prop:easy-pairs}(iv), $\cp(u, v) \in \{c(u, v), c(u, v) + 1\}$, so $\cp(u, v) = c(u, v) + d(u, v) - 1 = c(u, v) + 1$ if and only if $\cp(u, v) \neq c(u, v)$.
+By (a), the problem is therefore coNP-hard for pairs with $d(u, v) = 2$ in graphs of diameter three.
+
+For the last statement, let $\delta(A)$ be a minimum $u$--$v$ cut and $P$ a shortest $u$--$v$ path.
+By the proof of \cref{lem:basic-bounds}, $\delta(A) \cup P$ is a cut-path with at most $c(u, v) + d(u, v) - 1$ edges.
+If $\cp(u, v) = c(u, v) + d(u, v) - 1$, it is therefore a minimum cut-path.
+Let $d(u, v) = 2$.
+By \cref{lem:minimum-cuts}, $P$ contains an odd number of edges of $\delta(A)$, so exactly one, and $\delta(A) \cup P$ has $c(u, v) + 1$ edges.
+If it is a minimum cut-path, then $\cp(u, v) = c(u, v) + 1$.
+\end{proof}
+
+\begin{remark}
+\label{rem:dt-not-in-dc}
+The graph $G_\varphi$ does not belong to $\DC$.
+A filler $f$ of $K^u$ and a filler $f'$ of $K^v$ are at distance three, and $c(f, f') = c_0 \geq 4$, because the proofs of \cref{lem:dt-forcing,lem:dt-cuts} apply to $f$ and $f'$ in place of $u$ and $v$.
+\end{remark}
+
+\begin{remark}
+\label{rem:dt-bounded-cut-value}
+The cut-value $c(u, v) = c_0$ of the instances in \cref{thm:dt-hardness} grows with $\varphi$.
+For every constant $k$, the question is solvable in polynomial time for pairs with $c(u, v) \leq k$, because $\cp(u, v) \leq c(u, v)$ is the decision version of \MinCutPath{} with the threshold $b = c(u, v)$, which is fixed-parameter tractable in $b$~\cite[Theorem~8.4]{Michel2026MinCutPath}.
+\end{remark}
+
+\begin{remark}
+\label{rem:dt-shifted-class}
+In a graph of diameter at most three, every two vertices $x, y$ satisfy $d(x, y) \leq 3$.
+Hence \cref{thm:dt-hardness,cor:dt-consequences} hold in the class of the connected graphs in which every pair satisfies $d(x, y) \leq 3$ or $c(x, y) \leq 2$, which is obtained from $\DC$ by raising the bound on the distance from two to three.
+\end{remark}

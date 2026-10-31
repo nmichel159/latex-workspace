@@ -1,0 +1,16 @@
+rigid-23-300-6-16-adv (3s, pid 25956)
+  F with heavy rows                    249
+  adversarial E-terms                  53
+  allcov E-terms checked               7378
+  allcov F-terms checked               107493
+  branch F                             251
+  instances                            300
+  levels hist                          {1: 296, 2: 4}
+  max anchors                          4
+  max flips                            10
+  max m                                25
+  max span L4.4                        3
+  paths checked                        300
+  planted path shortest (own search)   115
+  yes                                  115
+  errors: 0

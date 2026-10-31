@@ -1,0 +1,12 @@
+deep-32-4-4-8-adv (5s, pid 28356)
+  F with heavy rows                    3
+  adversarial E-terms                  10
+  branch F                             3
+  instances                            4
+  levels hist                          {4: 2, 2: 1, 3: 1}
+  max anchors                          8
+  max flips                            1
+  max m                                164
+  max span L4.4                        1
+  paths checked                        4
+  errors: 0

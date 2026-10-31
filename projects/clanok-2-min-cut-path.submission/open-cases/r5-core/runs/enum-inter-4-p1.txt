@@ -1,0 +1,19 @@
+  64 (0s) {'instances': 64, 'P2': 4, 'no': 4}
+  192 (0s) {'instances': 192, 'P2': 12, 'no': 12}
+  320 (0s) {'instances': 320, 'P2': 20, 'no': 18, 'yes': 2, 'paths': 2, 'levels=1': 2, 'case C0': 2, 'max anchors': 0}
+  576 (0s) {'instances': 576, 'P2': 37, 'no': 30, 'yes': 7, 'paths': 7, 'levels=1': 7, 'case C0': 7, 'max anchors': 0}
+  704 (0s) {'instances': 704, 'P2': 45, 'no': 36, 'yes': 9, 'paths': 9, 'levels=1': 9, 'case C0': 9, 'max anchors': 0}
+  960 (0s) {'instances': 960, 'P2': 62, 'no': 48, 'yes': 14, 'paths': 14, 'levels=1': 14, 'case C0': 14, 'max anchors': 0}
+  1216 (0s) {'instances': 1216, 'P2': 78, 'no': 57, 'yes': 21, 'paths': 22, 'levels=1': 22, 'case C0': 22, 'max anchors': 0}
+  1728 (0s) {'instances': 1728, 'P2': 202, 'no': 144, 'yes': 58, 'paths': 68, 'levels=1': 68, 'case C0': 68, 'max anchors': 0}
+  1856 (0s) {'instances': 1856, 'P2': 210, 'no': 152, 'yes': 58, 'paths': 68, 'levels=1': 68, 'case C0': 68, 'max anchors': 0}
+  1920 (0s) {'instances': 1920, 'P2': 214, 'no': 156, 'yes': 58, 'paths': 68, 'levels=1': 68, 'case C0': 68, 'max anchors': 0}
+  101696 (57s) {'instances': 101696, 'P2': 52984, 'no': 32160, 'yes': 20824, 'paths': 28354, 'levels=1': 28354, 'case C0': 17874, 'max anchors': 1, 'case R0': 4764, 'case E': 5678, 'case F': 38}
+  150080 (75s) {'instances': 150080, 'P2': 86057, 'no': 56232, 'yes': 29825, 'paths': 39093, 'levels=1': 39093, 'case C0': 23413, 'max anchors': 1, 'case R0': 6459, 'case E': 9006, 'case F': 215, 'paths with bad pairs': 159}
+  151104 (75s) {'instances': 151104, 'P2': 86373, 'no': 56436, 'yes': 29937, 'paths': 39225, 'levels=1': 39225, 'case C0': 23533, 'max anchors': 1, 'case R0': 6462, 'case E': 9015, 'case F': 215, 'paths with bad pairs': 159}
+  151168 (75s) {'instances': 151168, 'P2': 86377, 'no': 56440, 'yes': 29937, 'paths': 39225, 'levels=1': 39225, 'case C0': 23533, 'max anchors': 1, 'case R0': 6462, 'case E': 9015, 'case F': 215, 'paths with bad pairs': 159}
+  151296 (75s) {'instances': 151296, 'P2': 86385, 'no': 56446, 'yes': 29939, 'paths': 39227, 'levels=1': 39227, 'case C0': 23535, 'max anchors': 1, 'case R0': 6462, 'case E': 9015, 'case F': 215, 'paths with bad pairs': 159}
+  151552 (75s) {'instances': 151552, 'P2': 86405, 'no': 56460, 'yes': 29945, 'paths': 39233, 'levels=1': 39233, 'case C0': 23541, 'max anchors': 1, 'case R0': 6462, 'case E': 9015, 'case F': 215, 'paths with bad pairs': 159}
+  201856 (91s) {'instances': 201856, 'P2': 118820, 'no': 82528, 'yes': 36292, 'paths': 46472, 'levels=1': 46472, 'case C0': 27944, 'max anchors': 1, 'case R0': 6865, 'case E': 11239, 'case F': 424, 'paths with bad pairs': 318}
+  250624 (111s) {'instances': 250624, 'P2': 151980, 'no': 104522, 'yes': 47458, 'paths': 61768, 'levels=1': 61768, 'case C0': 38608, 'max anchors': 1, 'case R0': 8465, 'case E': 14189, 'case F': 506, 'paths with bad pairs': 318}
+  251136 (111s) {'instances': 251136, 'P2': 152116, 'no': 104598, 'yes': 47518, 'paths': 61860, 'levels=1': 61860, 'case C0': 38672, 'max anchors': 1, 'case R0': 8479, 'case E': 14203, 'case F': 506, 'paths with bad pairs': 318}

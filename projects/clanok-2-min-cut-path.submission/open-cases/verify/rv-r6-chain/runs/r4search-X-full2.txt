@@ -1,0 +1,22 @@
+r4search-X-full2: 157 jobs, 2 workers
+  50/157 jobs (33s)
+  100/157 jobs (99s)
+  150/157 jobs (161s)
+== r4search-X-full2 (186s)
+  NO GRAPH BRUTE FORCE                          83
+  P2 in ZZ and in switch form                   157
+  blind IDESC(k,k,N,9k) accepts                 157
+  blind IDESC(k,k,N,9k) run (m <= FULLM)        157
+  blind single-term search accepts              153
+  blind single-term search run                  153
+  brute methods: core                           73
+  brute methods: core+paths                     1
+  brute_paths over budget                       156
+  gsw.GSW identical                             157
+  pairs                                         157
+  paths checked (Thm 8.2)                       179
+  random down-sets lifted                       3925
+  yes                                           157
+  yes certified in G (lifted D: min cut with u-v path) 157
+  maxima: {'levels': 1, 'tools': 2, 'flips': 3, 'anchors': 1, 'heavy': 2, 'span': 5, 'Amax': 6, 'bad': 1, 'm': 11, 'q': 33, 'n': 1137, 'c': 362, 'sf_L': 10, 'damage': 0}
+  total records with errors: 0

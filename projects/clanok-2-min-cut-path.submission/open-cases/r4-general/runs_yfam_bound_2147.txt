@@ -1,0 +1,1 @@
+Y_8 q=310 switches=24 sides=48 params=(2,1,4,7) accepted=False K-pairs tried=1096704 12.4s

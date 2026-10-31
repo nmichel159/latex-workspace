@@ -1,0 +1,36 @@
+enum_small.py, n <= 6
+('GC0-miss', 'O') (5, 4) n=5 u=0 v=4; classes: {0} {1} {2} {3,4}; middle order (covers): 1<2; R: 0-1 0-3 1-3 1-4
+('GC0-miss', 'OE') (4, 4) n=4 u=0 v=3; classes: {0} {1} {2} {3}; middle order (covers): 1<2; R: 0-1 0-2 1-2 1-3
+('GC0-miss', 'T') (5, 4) n=5 u=0 v=4; classes: {0} {1,2} {3,4}; middle order (covers): ; R: 0-1 0-3 1-3 1-4
+('GC0-miss', 'TO') (6, 4) n=6 u=0 v=5; classes: {0} {1,2} {3} {4,5}; middle order (covers): 1<3; R: 0-1 0-4 1-4 1-5
+('GC0-miss', 'TOE') (5, 4) n=5 u=0 v=4; classes: {0} {1,2} {3} {4}; middle order (covers): 1<3; R: 0-1 0-3 1-3 1-4
+('GC0-miss', 'any') (4, 4) n=4 u=0 v=3; classes: {0} {1} {2} {3}; middle order (covers): 1<2; R: 0-1 0-2 1-2 1-3
+('GC0-miss', 'sw') (4, 4) n=4 u=0 v=3; classes: {0} {1} {2,3}; middle order (covers): ; R: 0-1 0-2 1-2 1-3
+('GC1-miss', 'OE') (6, 7) n=6 u=0 v=5; classes: {0} {1} {2} {3} {4} {5}; middle order (covers): 1<3 1<4 2<3; R: 0-2 0-4 1-3 1-4 2-3 2-5 3-5
+('GC1-miss', 'any') (6, 7) n=6 u=0 v=5; classes: {0} {1} {2} {3} {4} {5}; middle order (covers): 1<3 1<4 2<3; R: 0-2 0-4 1-3 1-4 2-3 2-5 3-5
+('H4-miss', 'OE') (5, 4) n=5 u=0 v=4; classes: {0} {1} {2} {3} {4}; middle order (covers): 1<2 2<3; R: 0-2 1-2 1-4 2-3
+('H4-miss', 'TOE') (6, 4) n=6 u=0 v=5; classes: {0} {1,2} {3} {4} {5}; middle order (covers): 1<3 3<4; R: 0-3 1-3 1-5 3-4
+('H4-miss', 'any') (5, 4) n=5 u=0 v=4; classes: {0} {1} {2} {3} {4}; middle order (covers): 1<2 2<3; R: 0-2 1-2 1-4 2-3
+('contract-false-yes', 'TOE') (6, 6) n=6 u=0 v=5; classes: {0} {1,2} {3} {4} {5}; middle order (covers): 1<3 3<4; R: 0-3 1-5 2-3 2-4 3-4 3-5
+('contract-false-yes', 'any') (6, 6) n=6 u=0 v=5; classes: {0} {1,2} {3} {4} {5}; middle order (covers): 1<3 3<4; R: 0-3 1-5 2-3 2-4 3-4 3-5
+('naive-unsound', 'O') (6, 5) n=6 u=0 v=5; classes: {0,1} {2} {3} {4,5}; middle order (covers): 2<3; R: 0-2 1-2 1-4 3-4 3-5
+('naive-unsound', 'OE') (6, 5) n=6 u=0 v=5; classes: {0} {1} {2} {3} {4} {5}; middle order (covers): 1<2 2<3 3<4; R: 0-2 1-2 1-4 3-4 3-5
+('naive-unsound', 'T') (6, 5) n=6 u=0 v=5; classes: {0,1} {2,3} {4,5}; middle order (covers): ; R: 0-3 1-3 1-4 2-4 2-5
+('naive-unsound', 'TOE') (6, 5) n=6 u=0 v=5; classes: {0} {1,3} {2} {4} {5}; middle order (covers): 1<4 2<1; R: 0-3 1-4 1-5 2-3 2-4
+('naive-unsound', 'any') (6, 5) n=6 u=0 v=5; classes: {0} {1} {2} {3} {4} {5}; middle order (covers): 1<2 2<3 3<4; R: 0-2 1-2 1-4 3-4 3-5
+count ('GC0-miss', 'O') 2117
+count ('GC0-miss', 'OE') 30245
+count ('GC0-miss', 'T') 1941
+count ('GC0-miss', 'TO') 884
+count ('GC0-miss', 'TOE') 20730
+count ('GC0-miss', 'sw') 1345
+count ('GC1-miss', 'OE') 44
+count ('H4-miss', 'OE') 5827
+count ('H4-miss', 'TOE') 2900
+count ('all', 'no') 82083
+count ('all', 'yes') 69520
+count ('contract-false-yes', 'TOE') 48
+count ('naive-unsound', 'O') 7
+count ('naive-unsound', 'OE') 56
+count ('naive-unsound', 'T') 14
+count ('naive-unsound', 'TOE') 112

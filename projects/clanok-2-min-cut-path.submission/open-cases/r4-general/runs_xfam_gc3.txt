@@ -1,0 +1,4 @@
+X_6 mates=both q=79 |R|=126 switches=12 P2=True solutions=1 exact=True | NG(1,0)=False tried=53 | GC(<=3)=(3, 'pp') | 0.3s
+X_7 mates=both q=99 |R|=161 switches=14 P2=True solutions=1 exact=True | NG(1,0)=False tried=75 | GC(<=3)=(3, 'vp') | 0.6s
+X_8 mates=both q=121 |R|=200 switches=16 P2=True solutions=1 exact=True | NG(1,0)=False tried=88 | GC(<=3)=None | 51.2s
+X_9 mates=both q=145 |R|=243 switches=18 P2=True solutions=None exact=True | NG(1,0)=False tried=116 | GC(<=3)=None | 94.1s

@@ -1,0 +1,42 @@
+30740	enum-zz-4-p0-rerun.txt	python -u enum_zz.py 4 6 0 8	2026-10-27 10:23
+30544	enum-zz-4-p5-rerun.txt	python -u enum_zz.py 4 6 5 8	2026-10-27 10:23
+9172	lemmas-mix-201.txt	python -u test_lemmas.py 201 600 6 14 30 3 mix	2026-10-27 10:23
+34272	lemmas-dmed-202.txt	python -u test_lemmas.py 202 400 6 14 30 3 dense-med	2026-10-27 10:23
+25216	lemmas-dord-203.txt	python -u test_lemmas.py 203 400 6 14 30 3 dense-order	2026-10-27 10:23
+14384	lemmas-ties-204.txt	python -u test_lemmas.py 204 400 6 14 30 3 ties	2026-10-27 10:23
+35728	thm65-both-301.txt	python -u test_thm65.py 301 400 5 12 both 20 6	2026-10-27 10:23
+38880	thm65-planted-302.txt	python -u test_thm65.py 302 400 6 12 planted 20 6	2026-10-27 10:23
+30864	lemmas-mix-211.txt	python -u test_lemmas.py 211 10000 6 16 30 3 mix	2026-10-27 10:29
+34576	lemmas-dmed-212.txt	python -u test_lemmas.py 212 8000 6 16 30 3 dense-med	2026-10-27 10:29
+30660	lemmas-dord-213.txt	python -u test_lemmas.py 213 8000 6 16 30 3 dense-order	2026-10-27 10:29
+22556	lemmas-ties-214.txt	python -u test_lemmas.py 214 8000 6 16 30 3 ties	2026-10-27 10:29
+5876	classes-501.txt	python -u test_classes.py 501 3000 4 12 20 7	2026-10-27 10:29
+3132	methods-2.txt	python -u test_methods.py 2 1500 6 15	2026-10-27 10:29
+29176	zz-check-4.txt	python -u zz_check.py 4	2026-10-27 10:30
+19704	adv-span-11.txt	python -u adv65.py span 11 400 300 8 14 0 runs/adv	2026-10-27 10:30
+15024	adv-tools-12.txt	python -u adv65.py tools 12 400 300 8 14 0 runs/adv	2026-10-27 10:30
+25364	adv-phi-13.txt	python -u adv65.py phi 13 300 300 8 14 0 runs/adv	2026-10-27 10:30
+21316	adv-kappa-14.txt	python -u adv65.py kappa 14 300 200 5 7 7 runs/adv	2026-10-27 10:30
+37012	adv-lp-15.txt	python -u adv65.py lp 15 300 300 8 14 0 runs/adv	2026-10-27 10:30
+9976	thm65-both-401.txt	python -u test_thm65.py 401 20000 5 14 both 20 6	2026-10-27 10:30
+30856	narrow-701.txt	python -u test_narrow.py 701 10000 5 14 both 20 6	2026-10-27 10:34
+19824	remark-801.txt	python -u test_remark.py 801 10000 8 16 both 10	2026-10-27 10:34
+30044	zz5-sample-p0.txt	python -u sample_zz5.py 5 200 1 6 0 3	2026-10-27 10:36
+10016	zz5-sample-p1.txt	python -u sample_zz5.py 5 200 1 6 1 3	2026-10-27 10:36
+9068	zz5-sample-p2.txt	python -u sample_zz5.py 5 200 1 6 2 3	2026-10-27 10:36
+23536	adv-span-11-rerun.txt	python -u adv65.py span 11 400 300 8 14 0 runs/adv-rerun	2026-10-27 17:02
+13160	adv-tools-12-rerun.txt	python -u adv65.py tools 12 400 300 8 14 0 runs/adv-rerun	2026-10-27 17:02
+14296	adv-phi-13-rerun.txt	python -u adv65.py phi 13 300 300 8 14 0 runs/adv-rerun	2026-10-27 17:02
+37036	adv-lp-15-rerun.txt	python -u adv65.py lp 15 300 300 8 14 0 runs/adv-rerun	2026-10-27 17:02
+7524	zz5-sample-p0-rerun.txt	python -u sample_zz5.py 5 200 1 6 0 3	2026-10-27 17:02
+30412	zz5-sample-p1-rerun.txt	python -u sample_zz5.py 5 200 1 6 1 3	2026-10-27 17:02
+19936	zz5-sample-p2-rerun.txt	python -u sample_zz5.py 5 200 1 6 2 3	2026-10-27 17:02
+26792	lemmas-dmed-j4-221-rerun.txt	python -u test_lemmas.py 221 1500 6 12 20 4 dense-med	2026-10-27 17:02
+7240	thm65-planted-402-rerun.txt	python -u test_thm65.py 402 3000 12 16 planted 10 0	2026-10-27 17:03
+25596	adv-span-11-rerun2.txt	python -u adv65.py span 11 400 300 8 14 0 runs/adv-rerun2	2026-10-27 18:17
+15364	adv-tools-12-rerun2.txt	python -u adv65.py tools 12 400 300 8 14 0 runs/adv-rerun2	2026-10-27 18:17
+35088	adv-phi-13-rerun2.txt	python -u adv65.py phi 13 300 300 8 14 0 runs/adv-rerun2	2026-10-27 18:17
+21000	adv-lp-15-rerun2.txt	python -u adv65.py lp 15 300 300 8 14 0 runs/adv-rerun2	2026-10-27 18:17
+27028	zz5-sample-p0-rerun2.txt	python -u sample_zz5.py 5 200 1 6 0 3	2026-10-27 18:17
+1808	zz5-sample-p1-rerun2.txt	python -u sample_zz5.py 5 200 1 6 1 3	2026-10-27 18:17
+21004	zz5-sample-p2-rerun2.txt	python -u sample_zz5.py 5 200 1 6 2 3	2026-10-27 18:17

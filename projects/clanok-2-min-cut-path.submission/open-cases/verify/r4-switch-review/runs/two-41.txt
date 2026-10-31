@@ -1,0 +1,4 @@
+test_two seed=41 tasks=600
+counts {"gen": 24000, "kept": 3194, "paths": 3569}
+proof stats {"holes": 81, "maxB": 13, "maxH": 2, "maxZ": 4, "max_disjoint": 2, "maxsingles": 2, "maxstorT": 10, "rows": 341, "step0_T": 15, "step1_T": 5742, "step3": 341, "step3_T": 341, "swaps": 1040}
+failures 0

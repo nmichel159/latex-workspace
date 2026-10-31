@@ -1,0 +1,21 @@
+Y^d_2 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y^d(back)_2 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y'^d_2 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y'^d(back)_2 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y^d_3 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y^d(back)_3 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y'^d_3 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y'^d(back)_3 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y^d_4 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y^d(back)_4 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y'^d_4 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y'^d(back)_4 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y^d_5 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y^d(back)_5 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y'^d_5 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y'^d(back)_5 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y^d_6 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y^d(back)_6 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y'^d_6 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+Y'^d(back)_6 {"a": true, "b": true, "c": true, "d": true, "e": true, "f": true}
+ALL OK

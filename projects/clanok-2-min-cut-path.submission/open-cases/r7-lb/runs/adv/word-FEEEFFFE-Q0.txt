@@ -1,0 +1,12 @@
+adv sample seed 107 word FEEEFFFE Q 0 count 3000 probs [('E', 3.0), ('F', 3.0), ('L', 1.0), ('U', 1.0), ('C', 1.0)] pid 28112
+  it 0 new best score 10.65 cost 1 mean 1.00 npairs 3 m 10 (0s)
+  it 2 new best score 10.74 cost 1 mean 1.00 npairs 3 m 10 (0s)
+  it 4 new best score 10.93 cost 1 mean 1.25 npairs 8 m 10 (0s)
+  it 5 new best score 11.15 cost 1 mean 1.50 npairs 6 m 10 (0s)
+  it 14 new best score 11.18 cost 1 mean 1.50 npairs 10 m 10 (0s)
+  it 24 new best score 11.23 cost 1 mean 1.67 npairs 6 m 10 (0s)
+  it 26 new best score 11.28 cost 1 mean 1.62 npairs 8 m 10 (0s)
+  it 32 new best score 11.92 cost 1 mean 2.33 npairs 3 m 10 (0s)
+  it 39 new best score 21.84 cost 2 mean 2.00 npairs 1 m 10 (0s)
+  it 232 new best score 32.90 cost 3 mean 3.00 npairs 2 m 10 (0s)
+SUMMARY {"cost1": 2952, "cost2": 36, "cost3": 12} (3s)

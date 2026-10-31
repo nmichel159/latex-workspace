@@ -1,0 +1,5 @@
+﻿saved runs\span4\span4-901-1.json: m 10, r 5, x 1 (x on P), window [2, 3, 4], positions -> witness types {1: ['ii-P'], 3: ['i', 'ii-o', 'ii-P'], 5: ['ii-o']}
+saved runs\span4\span4-901-2.json: m 10, r 5, x 3 (x off P, window non-empty), window [2, 4], positions -> witness types {1: ['ii-P'], 3: ['ii-o', 'ii-P'], 5: ['ii-o', 'ii-o', 'ii-P']}
+saved runs\span4\span4-901-3.json: m 10, r 5, x 4 (x off P, window non-empty), window [2, 4], positions -> witness types {1: ['ii-P'], 3: ['ii-o', 'ii-P'], 5: ['ii-o', 'ii-P']}
+saved runs\span4\span4-901-4.json: m 10, r 5, x 1 (x on P), window [2, 3, 4], positions -> witness types {1: ['ii-P'], 3: ['i', 'ii-P', 'ii-P'], 5: ['ii-P']}
+find_span4 seed 901 count 20000 m 6-16: {'span 0': 216063, 'span 1': 20531, 'span 2': 6060, 'span 3': 121, 'span 4': 22, 'span >= 4: x off P, window non-empty': 14, 'span >= 4: x on P': 8}

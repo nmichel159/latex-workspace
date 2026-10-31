@@ -1,0 +1,13 @@
+adv sample seed 3 K 5 Q 2 count 3000 probs [('E', 3.0), ('F', 3.0), ('L', 1.0), ('U', 1.0), ('C', 1.0)] pid 23444
+  it 0 new best score 10.84 cost 1 mean 1.00 npairs 1 m 16 (0s)
+  it 1 new best score 11.50 cost 1 mean 1.80 npairs 5 m 16 (0s)
+  it 2 new best score 11.64 cost 1 mean 1.80 npairs 5 m 16 (0s)
+  it 4 new best score 21.68 cost 2 mean 2.00 npairs 4 m 16 (0s)
+  it 6 new best score 21.89 cost 2 mean 2.17 npairs 6 m 16 (0s)
+  it 25 new best score 22.05 cost 2 mean 2.50 npairs 2 m 16 (0s)
+  it 29 new best score 22.32 cost 2 mean 2.60 npairs 5 m 16 (0s)
+  it 123 new best score 22.33 cost 2 mean 2.67 npairs 6 m 16 (1s)
+  it 132 new best score 22.50 cost 2 mean 2.83 npairs 6 m 16 (1s)
+  it 151 new best score 22.74 cost 2 mean 2.84 npairs 19 m 16 (1s)
+  it 166 new best score 32.90 cost 3 mean 3.00 npairs 2 m 16 (1s)
+SUMMARY {"cost1": 1733, "cost2": 1249, "cost3": 18} (28s)

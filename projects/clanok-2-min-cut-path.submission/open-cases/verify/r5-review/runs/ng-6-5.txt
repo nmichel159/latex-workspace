@@ -1,0 +1,13 @@
+X_2: q = 22; claimed bound |Gamma|+|Pi|+|Y| >= 1; successful triple of size <= 0: None
+X_3: q = 38; claimed bound |Gamma|+|Pi|+|Y| >= 1; successful triple of size <= 0: None
+X_4: q = 58; claimed bound |Gamma|+|Pi|+|Y| >= 2; successful triple of size <= 1: None
+X_5: q = 82; claimed bound |Gamma|+|Pi|+|Y| >= 2; successful triple of size <= 1: None
+X_6: q = 110; claimed bound |Gamma|+|Pi|+|Y| >= 3; successful triple of size <= 2: None
+Y_2: q = 42; claimed bound |Gamma|+|Pi| >= 1 (Y free); below the bound: None; least found: 1
+Y'_2: q = 46; claimed bound |Gamma|+|Pi| >= 1 (Y free); below the bound: None; least found: 1
+Y_3: q = 89; claimed bound |Gamma|+|Pi| >= 2 (Y free); below the bound: None; least found: 2
+Y'_3: q = 95; claimed bound |Gamma|+|Pi| >= 2 (Y free); below the bound: None; least found: 2
+Y_4: q = 154; claimed bound |Gamma|+|Pi| >= 2 (Y free); below the bound: None; least found: 2
+Y'_4: q = 162; claimed bound |Gamma|+|Pi| >= 2 (Y free); below the bound: None; least found: 2
+Y_5: q = 237; claimed bound |Gamma|+|Pi| >= 3 (Y free); below the bound: None; least found: 3
+Y'_5: q = 247; claimed bound |Gamma|+|Pi| >= 3 (Y free); below the bound: None; least found: 3

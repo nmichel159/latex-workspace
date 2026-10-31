@@ -1,0 +1,39 @@
+  preorder 20/29 (2s) {'preorders': 29, 'instances': 4800, 'P2 instances': 3553, 'no-instances': 2549, 'GDESC no-instances run': 2549, '6.2 chains with contacts j=1': 1316, '6.2 max(|c-d| - j)': 0, '6.3 max span E': 0, '6.3 max |S_x|': 1, '6.3 max span F': 0, '6.3 max |S_y| dual': 1, 'bad pairs': 0, 'max bad pairs on a path': 0, 'yes-instances': 1004, 'sum r': 2008, 'paths': 1204, 'paths with bad pairs': 0, 'max bad pairs': 0, 'max kappa': 0, 'covers tested': 1204, 'case R empty': 302, 'max integer/tau': Fraction(1, 1), "cor 6.5' descriptions": 1450, 'max min LP cover - kappa': Fraction(1, 1), 'inst with kappa_min > 0': 0, 'max kappa_min': 0, 'GDESC(k, kappa_min, 9k) runs': 1004, 'comparable pairs (anchored)': 536, 'lambda >= 1/2': 412, 'max min(kE,kF)': 1, "(E') descriptions": 440, 'max |Phi|/|T| (E)': Fraction(1, 1), "(F') descriptions": 440, 'max |Phi|/|T| (F)': Fraction(1, 1), '(c) conflicting consistent pairs': 288, 'case C empty': 478, 'lambda < 1/2': 12}
+enum_zz K 3 part 0/1 gdesc<=6 (2s)
+  (E') descriptions                                       702
+  (F') descriptions                                       702
+  (c) conflicting consistent pairs                        384
+  6.2 chains with contacts j=1                            1968
+  6.2 max(|c-d| - j)                                      0
+  6.3 max span E                                          0
+  6.3 max span F                                          0
+  6.3 max |S_x|                                           1
+  6.3 max |S_y| dual                                      1
+  GDESC no-instances run                                  4246
+  GDESC(k, kappa_min, 9k) runs                            1584
+  P2 instances                                            5830
+  bad pairs                                               0
+  case C empty                                            744
+  case R empty                                            474
+  comparable pairs (anchored)                             870
+  cor 6.5' descriptions                                   2304
+  covers tested                                           1896
+  inst with kappa_min > 0                                 0
+  instances                                               7232
+  lambda < 1/2                                            24
+  lambda >= 1/2                                           654
+  max bad pairs                                           0
+  max bad pairs on a path                                 0
+  max integer/tau                                         1
+  max kappa                                               0
+  max kappa_min                                           0
+  max min LP cover - kappa                                1
+  max min(kE,kF)                                          1
+  max |Phi|/|T| (E)                                       1
+  max |Phi|/|T| (F)                                       1
+  no-instances                                            4246
+  paths                                                   1896
+  paths with bad pairs                                    0
+  preorders                                               29
+  sum r                                                   3168
+  yes-instances                                           1584

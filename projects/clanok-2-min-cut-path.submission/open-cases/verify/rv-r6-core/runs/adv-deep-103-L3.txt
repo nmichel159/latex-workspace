@@ -1,0 +1,88 @@
+adv8 deep args=103 40 3 7 pid=10664
+  design 0 m=80 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 1s
+  design 1 m=79 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 1s
+  design 2 m=79 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 2s
+  design 3 m=81 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 5s
+  design 4 m=80 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 7s
+  design 5 m=82 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 10s
+  design 6 m=79 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 12s
+  design 7 m=82 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 14s
+  design 8 m=77 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 16s
+  design 9 m=78 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 18s
+  design 10 m=82 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 20s
+  design 11 m=80 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 22s
+  design 12 m=78 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 24s
+  design 13 m=83 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 27s
+  design 14 m=79 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 29s
+  design 15 m=79 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 31s
+  design 16 m=77 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 33s
+  design 17 m=81 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 35s
+  design 18 m=81 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 37s
+  design 19 m=83 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 40s
+  design 20 m=79 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 42s
+  design 21 m=77 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 43s
+  design 22 m=78 k=7 levels {'proof/adversarial': 2, 'proof/first': 1, 'proof/sample': 2, 'stress/adversarial': 2} 45s
+  design 23 m=79 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 47s
+  design 24 m=77 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 49s
+  design 25 m=80 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 51s
+  design 26 m=80 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 53s
+  design 27 m=79 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 56s
+  design 28 m=77 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 57s
+  design 29 m=80 k=7 levels {'proof/adversarial': 2, 'proof/first': 1, 'proof/sample': 2, 'stress/adversarial': 2} 59s
+  design 30 m=83 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 62s
+  design 31 m=79 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 64s
+  design 32 m=80 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 66s
+  design 33 m=77 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 67s
+  design 34 m=79 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 69s
+  design 35 m=82 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 71s
+  design 36 m=79 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 73s
+  design 37 m=78 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 76s
+  design 38 m=79 k=7 levels {'proof/adversarial': 2, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 78s
+  design 39 m=83 k=7 levels {'proof/adversarial': 3, 'proof/first': 2, 'proof/sample': 2, 'stress/adversarial': 2} 80s
+SUMMARY adv8 deep 103 40 3 7 (80s)
+  E continue: 184
+  E final: 29
+  E terms checked: 5050
+  F final: 91
+  F final with anchors: 91
+  F terms checked: 1566
+  bad pairs: 5414
+  case E (v>=1/2): 253
+  case F (v<1/2): 91
+  deep pert 0 levels proof/adv=3: 10
+  deep pert 1 levels proof/adv=2: 9
+  deep pert 1 levels proof/adv=3: 1
+  deep pert 2 levels proof/adv=2: 5
+  deep pert 2 levels proof/adv=3: 5
+  deep pert 3 levels proof/adv=3: 10
+  designs: 40
+  duality pairs: 318615
+  duality pairs y<x: 25638
+  games: 344
+  games with v = 1/2 (float): 1
+  heavy rows: 1223
+  levels=1 (proof): 2
+  levels=2 (proof): 92
+  levels=2 (stress): 40
+  levels=3 (proof): 26
+  max E expected uncovered x1000: 179
+  max F expected failures x1000: 21
+  max anchors: 7
+  max bad pairs on a path: 231
+  max levels proof/adversarial: 3
+  max levels proof/first: 2
+  max levels proof/sample: 2
+  max levels stress/adversarial: 2
+  max m: 83
+  max sampled anchors (distinct): 2
+  max |A & NE(E#x)|: 1
+  max |A|: 28
+  max |B & NF(F#y)|: 1
+  max |Phi|/|T| x100: 100
+  rows: 9930
+  sample: E cover drawn: 49
+  sample: F cover drawn: 31
+  sample: anchors drawn: 31
+  saved deep designs: 26
+  stuck (no progress): 40
+FAILURES: none

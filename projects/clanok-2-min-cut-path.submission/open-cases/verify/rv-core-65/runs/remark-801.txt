@@ -1,0 +1,10 @@
+test_remark seed 801 count 10000 m 8-16 gen both cap 10 (38s)
+  max d                                                   6
+  max kappa                                               6
+  max min tau                                             2
+  max min tau / (d + 1)                                   1
+  max min tau at d = 1                                    2
+  max min tau at kappa >= 3                               2
+  paths whose bad pairs have degree 1 on one side         2556
+  paths with bad pairs                                    5140
+  paths with kappa >= 3                                   1115

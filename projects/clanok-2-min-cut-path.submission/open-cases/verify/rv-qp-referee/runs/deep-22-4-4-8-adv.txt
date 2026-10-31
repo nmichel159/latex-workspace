@@ -1,0 +1,14 @@
+deep-22-4-4-8-adv (3s, pid 3824)
+  F with heavy rows                    2
+  adversarial E-terms                  6
+  allcov E-terms checked               13764
+  allcov F-terms checked               4679
+  branch F                             2
+  instances                            4
+  levels hist                          {2: 4}
+  max anchors                          6
+  max flips                            4
+  max m                                166
+  max span L4.4                        1
+  paths checked                        4
+  errors: 0

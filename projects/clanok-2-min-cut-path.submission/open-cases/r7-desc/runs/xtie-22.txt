@@ -1,0 +1,11 @@
+P2                                                           2
+R_0, C_0 both non-empty                                      2
+case I                                                       2
+flips accepted                                               7
+flips rejected                                               73
+formula picks P                                              2
+paths                                                        2
+paths reaching Stage 0                                       2
+paths with same-type ties                                    2
+shape: F^1 alone                                             2
+FAILURES: none

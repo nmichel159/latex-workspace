@@ -1,0 +1,10 @@
+formula picks P                                              506
+paths                                                        506
+paths reaching Stage 0                                       150
+paths with same-type ties                                    71
+shape: E* (R_0 empty)                                        3
+shape: F* (C_0 empty)                                        147
+shape: small A                                               342
+shape: small B                                               14
+tie-free paths                                               435
+FAILURES: none

@@ -1,0 +1,1 @@
+mode abs seed 1 count 3000 (107s): {'fixed_total': 1894, 'hyb_accept': 6564, 'max_hyp': 536, 'max_hyp_fail': 1905, 'no': 559, 'noinst_hyp': 989, 'noinst_hyp_fail': 196, 'own_hyp': 536, 'own_hyp_fail': 1905, 'prune_no': 559, 'rigid': 70, 'sub_hyp': 1366, 'sub_hyp_fail': 5957, 'switch_total': 15192, 't5_accept': 11635, 't5_runs': 18000, 't5_walks': 8339372, 'yes': 2441}

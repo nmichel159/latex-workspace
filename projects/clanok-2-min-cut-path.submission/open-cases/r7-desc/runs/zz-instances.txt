@@ -1,0 +1,8 @@
+J(b) instances                                               1
+formula picks P                                              179
+instances                                                    157
+paths                                                        179
+paths with same-type ties                                    10
+shape: small A                                               179
+tie-free paths                                               169
+FAILURES: none

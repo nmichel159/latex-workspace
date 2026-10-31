@@ -1,0 +1,38 @@
+rand seed 9100 t=1: {'n': 300, 'p2': 300, 'yes': 281, 'no': 19, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 2}
+nop2 seed 9103 t=1: {'n': 300, 'p2': 42, 'yes': 246, 'no': 54, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 2}
+rand seed 9105 t=1: {'n': 300, 'p2': 300, 'yes': 285, 'no': 15, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 0}
+sparse seed 9102 t=1: {'n': 300, 'p2': 300, 'yes': 272, 'no': 28, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 0}
+hardrand seed 9104 t=1: {'n': 300, 'p2': 300, 'yes': 289, 'no': 11, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 11}
+nop2 seed 9108 t=1: {'n': 300, 'p2': 47, 'yes': 234, 'no': 66, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 3}
+tree seed 9101 t=1: {'n': 300, 'p2': 300, 'yes': 239, 'no': 61, 'helly': 300, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 1}
+tree seed 9106 t=1: {'n': 300, 'p2': 300, 'yes': 243, 'no': 57, 'helly': 300, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 1}
+rand seed 9110 t=1: {'n': 300, 'p2': 300, 'yes': 278, 'no': 22, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 0}
+sparse seed 9107 t=1: {'n': 300, 'p2': 300, 'yes': 270, 'no': 30, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 1}
+nop2 seed 9113 t=1: {'n': 300, 'p2': 34, 'yes': 228, 'no': 72, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 5}
+rand seed 9115 t=1: {'n': 300, 'p2': 300, 'yes': 285, 'no': 15, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 1}
+sparse seed 9112 t=1: {'n': 300, 'p2': 300, 'yes': 251, 'no': 49, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 1}
+sparse seed 9117 t=1: {'n': 300, 'p2': 300, 'yes': 281, 'no': 19, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 0}
+hardrand seed 9109 t=1: {'n': 300, 'p2': 300, 'yes': 288, 'no': 12, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 12}
+nop2 seed 9118 t=1: {'n': 300, 'p2': 38, 'yes': 246, 'no': 54, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 3}
+rand seed 9120 t=1: {'n': 300, 'p2': 300, 'yes': 281, 'no': 19, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 4}
+hardrand seed 9114 t=1: {'n': 300, 'p2': 300, 'yes': 287, 'no': 13, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 13}
+tree seed 9111 t=1: {'n': 300, 'p2': 300, 'yes': 243, 'no': 57, 'helly': 300, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 3}
+nop2 seed 9123 t=1: {'n': 300, 'p2': 39, 'yes': 232, 'no': 68, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 3}
+sparse seed 9122 t=1: {'n': 300, 'p2': 300, 'yes': 271, 'no': 29, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 0}
+rand seed 9125 t=1: {'n': 300, 'p2': 300, 'yes': 276, 'no': 24, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 2}
+hardrand seed 9119 t=1: {'n': 300, 'p2': 300, 'yes': 291, 'no': 9, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 9}
+tree seed 9116 t=1: {'n': 300, 'p2': 300, 'yes': 241, 'no': 59, 'helly': 300, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 1}
+nop2 seed 9128 t=1: {'n': 300, 'p2': 39, 'yes': 230, 'no': 70, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 4}
+tree seed 9121 t=1: {'n': 300, 'p2': 300, 'yes': 229, 'no': 71, 'helly': 300, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 0}
+tree seed 9126 t=1: {'n': 300, 'p2': 300, 'yes': 229, 'no': 71, 'helly': 300, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 0}
+hardrand seed 9124 t=1: {'n': 300, 'p2': 300, 'yes': 289, 'no': 11, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 11}
+sparse seed 9127 t=1: {'n': 300, 'p2': 300, 'yes': 266, 'no': 34, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 2}
+hardrand seed 9129 t=1: {'n': 300, 'p2': 300, 'yes': 294, 'no': 6, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 6}
+
+TOTALS t=1 (21s)
+hardrand: {'n': 1800, 'p2': 1800, 'yes': 1738, 'no': 62, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 62}
+nop2: {'n': 1800, 'p2': 239, 'yes': 1416, 'no': 384, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 20}
+rand: {'n': 1800, 'p2': 1800, 'yes': 1686, 'no': 114, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 9}
+sparse: {'n': 1800, 'p2': 1800, 'yes': 1611, 'no': 189, 'helly': 0, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 4}
+tree: {'n': 1800, 'p2': 1800, 'yes': 1424, 'no': 376, 'helly': 1800, 'unsound': 0, 'badcert': 0, 'incomplete': 0, 'miss_need_gt_t': 0, 'relax_yes_no': 6}
+violations: 0

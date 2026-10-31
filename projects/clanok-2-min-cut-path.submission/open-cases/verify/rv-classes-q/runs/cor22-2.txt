@@ -1,0 +1,2 @@
+{"checked": 8424, "hole_singles": 2, "holes": 43, "inst": 3524, "maxH": 2, "maxZ": 4, "max_disjoint": 2, "maxsingles": 2, "maxstorage": 9, "rows": 160, "rows_bwd": 79, "rows_fwd": 81, "step0": 560, "step1": 6265, "step2": 1017, "step3": 340, "swap": 412}
+failures 0

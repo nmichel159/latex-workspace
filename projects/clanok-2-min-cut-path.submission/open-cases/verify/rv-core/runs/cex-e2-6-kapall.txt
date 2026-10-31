@@ -1,0 +1,9 @@
+﻿instance R(EFEFEFEFEFEF) with kap at [2, 4, 6, 8, 10, 12]: switches 12, nodes 85, P2 violations 0
+solutions: 1  shortest valid length: 12  number of shortest valid paths: 1
+b1=x2 b2=x8: |Phi|=5  contracted centres: FAILS (D = {x1,x2,x4,x6,x8,x10,x12})  | uncontracted: succeeds | Phi = A & U (|.|=6): succeeds   A&U-Phi = {x1}
+b1=x2 b2=x10: |Phi|=5  contracted centres: FAILS (D = {x1,x2,x4,x6,x8,x10,x12})  | uncontracted: succeeds | Phi = A & U (|.|=6): succeeds   A&U-Phi = {x1}
+b1=x2 b2=x12: |Phi|=5  contracted centres: FAILS (D = {x1,x2,x4,x6,x8,x10,x12})  | uncontracted: succeeds | Phi = A & U (|.|=6): succeeds   A&U-Phi = {x1}
+b1=x4 b2=x10: |Phi|=4  contracted centres: FAILS (D = {x2,x3,x4,x6,x8,x10,x12})  | uncontracted: succeeds | Phi = A & U (|.|=5): succeeds   A&U-Phi = {x3}
+b1=x4 b2=x12: |Phi|=4  contracted centres: FAILS (D = {x2,x3,x4,x6,x8,x10,x12})  | uncontracted: succeeds | Phi = A & U (|.|=5): succeeds   A&U-Phi = {x3}
+b1=x6 b2=x12: |Phi|=3  contracted centres: FAILS (D = {x2,x4,x5,x6,x8,x10,x12})  | uncontracted: succeeds | Phi = A & U (|.|=4): succeeds   A&U-Phi = {x5}
+failures of (E2) as written: 6

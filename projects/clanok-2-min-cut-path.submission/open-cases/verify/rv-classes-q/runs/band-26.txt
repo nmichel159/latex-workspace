@@ -1,0 +1,3 @@
+band {"dmax": 4, "lam": null, "mO": 40, "mT": 40, "mates": 1, "nOc": 1, "nTc": 1, "offc": 0, "offn": 1, "pextra": 0.5, "plim": 2, "ptour": 0.5, "r": 8, "word": 0}
+{"2a1": 36, "A2": 232, "A3_both_sides_k1": 46, "A3_multi": 2119, "A3_sides": 2816, "A4_dom": 1036, "D_pairs": 108080, "PP_fallback": 68, "PP_minErr_max": 0, "PP_pairs": 12, "Q_case1": 28, "Q_case2": 28, "Q_empty_V": 4, "Q_empty_W": 12, "Q_h_max": 3, "Q_members_in_U_max": 3, "Q_phi_max": 0, "W_maxwidth": 2, "W_sides": 206, "c_max": 2, "desc_runs": 32, "emin_f1_max": 1, "emin_f2_max": 1, "fullcover_min_max": 3, "inst": 32, "n_max": 88, "nonconsistent_maxwidth": 2, "paths": 36, "r_max": 8}
+(case, h, |Phi|) histogram: [(('1', 3, 0), 28), (('2', 3, 0), 28), (('empty', 0, 0), 16)]

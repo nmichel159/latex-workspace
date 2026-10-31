@@ -1,0 +1,146 @@
+adv8 rigid args=101 2000 8 30 pid=16576
+  20 designs, 0s, levels max proof/adv 2, proof/first 2, stress 4
+  40 designs, 1s, levels max proof/adv 2, proof/first 2, stress 4
+  60 designs, 1s, levels max proof/adv 2, proof/first 2, stress 4
+  80 designs, 1s, levels max proof/adv 2, proof/first 2, stress 4
+  100 designs, 2s, levels max proof/adv 2, proof/first 2, stress 4
+  120 designs, 3s, levels max proof/adv 2, proof/first 2, stress 4
+  140 designs, 4s, levels max proof/adv 2, proof/first 2, stress 4
+  160 designs, 5s, levels max proof/adv 2, proof/first 2, stress 4
+  180 designs, 6s, levels max proof/adv 2, proof/first 2, stress 4
+  200 designs, 8s, levels max proof/adv 2, proof/first 2, stress 4
+  220 designs, 9s, levels max proof/adv 2, proof/first 2, stress 4
+  240 designs, 10s, levels max proof/adv 2, proof/first 2, stress 4
+  260 designs, 11s, levels max proof/adv 2, proof/first 2, stress 4
+  280 designs, 13s, levels max proof/adv 2, proof/first 2, stress 4
+  300 designs, 14s, levels max proof/adv 2, proof/first 2, stress 4
+  320 designs, 16s, levels max proof/adv 2, proof/first 2, stress 4
+  340 designs, 17s, levels max proof/adv 2, proof/first 2, stress 4
+  360 designs, 18s, levels max proof/adv 2, proof/first 2, stress 4
+  380 designs, 19s, levels max proof/adv 2, proof/first 2, stress 4
+  400 designs, 20s, levels max proof/adv 2, proof/first 2, stress 4
+  420 designs, 21s, levels max proof/adv 2, proof/first 2, stress 4
+  440 designs, 22s, levels max proof/adv 2, proof/first 2, stress 4
+  460 designs, 23s, levels max proof/adv 2, proof/first 2, stress 4
+  480 designs, 24s, levels max proof/adv 2, proof/first 2, stress 4
+  500 designs, 25s, levels max proof/adv 2, proof/first 2, stress 4
+  520 designs, 26s, levels max proof/adv 2, proof/first 2, stress 4
+  540 designs, 27s, levels max proof/adv 2, proof/first 2, stress 4
+  560 designs, 28s, levels max proof/adv 2, proof/first 2, stress 4
+  580 designs, 29s, levels max proof/adv 2, proof/first 2, stress 4
+  600 designs, 31s, levels max proof/adv 2, proof/first 2, stress 4
+  620 designs, 32s, levels max proof/adv 2, proof/first 2, stress 4
+  640 designs, 33s, levels max proof/adv 2, proof/first 2, stress 4
+  660 designs, 34s, levels max proof/adv 2, proof/first 2, stress 4
+  680 designs, 35s, levels max proof/adv 2, proof/first 2, stress 4
+  700 designs, 37s, levels max proof/adv 2, proof/first 2, stress 4
+  720 designs, 38s, levels max proof/adv 2, proof/first 2, stress 4
+  740 designs, 39s, levels max proof/adv 2, proof/first 2, stress 4
+  760 designs, 40s, levels max proof/adv 2, proof/first 2, stress 4
+  780 designs, 41s, levels max proof/adv 2, proof/first 2, stress 4
+  800 designs, 42s, levels max proof/adv 2, proof/first 2, stress 4
+  820 designs, 43s, levels max proof/adv 2, proof/first 2, stress 4
+  840 designs, 44s, levels max proof/adv 2, proof/first 2, stress 4
+  860 designs, 46s, levels max proof/adv 2, proof/first 2, stress 4
+  880 designs, 47s, levels max proof/adv 2, proof/first 2, stress 4
+  900 designs, 48s, levels max proof/adv 2, proof/first 2, stress 4
+  920 designs, 49s, levels max proof/adv 2, proof/first 2, stress 4
+  940 designs, 50s, levels max proof/adv 2, proof/first 2, stress 4
+  960 designs, 51s, levels max proof/adv 2, proof/first 2, stress 4
+  980 designs, 52s, levels max proof/adv 2, proof/first 2, stress 5
+  1000 designs, 53s, levels max proof/adv 2, proof/first 2, stress 5
+  1020 designs, 54s, levels max proof/adv 2, proof/first 2, stress 5
+  1040 designs, 55s, levels max proof/adv 2, proof/first 2, stress 5
+  1060 designs, 57s, levels max proof/adv 2, proof/first 2, stress 5
+  1080 designs, 58s, levels max proof/adv 2, proof/first 2, stress 5
+  1100 designs, 59s, levels max proof/adv 2, proof/first 2, stress 5
+  1120 designs, 60s, levels max proof/adv 2, proof/first 2, stress 5
+  1140 designs, 61s, levels max proof/adv 2, proof/first 2, stress 5
+  1160 designs, 62s, levels max proof/adv 2, proof/first 2, stress 5
+  1180 designs, 63s, levels max proof/adv 2, proof/first 2, stress 5
+  1200 designs, 64s, levels max proof/adv 2, proof/first 2, stress 5
+  1220 designs, 65s, levels max proof/adv 2, proof/first 2, stress 5
+  1240 designs, 66s, levels max proof/adv 2, proof/first 2, stress 5
+  1260 designs, 67s, levels max proof/adv 2, proof/first 2, stress 5
+  1280 designs, 68s, levels max proof/adv 2, proof/first 2, stress 5
+  1300 designs, 69s, levels max proof/adv 2, proof/first 2, stress 5
+  1320 designs, 70s, levels max proof/adv 2, proof/first 2, stress 5
+  1340 designs, 71s, levels max proof/adv 2, proof/first 2, stress 5
+  1360 designs, 71s, levels max proof/adv 2, proof/first 2, stress 5
+  1380 designs, 72s, levels max proof/adv 2, proof/first 2, stress 5
+  1400 designs, 73s, levels max proof/adv 2, proof/first 2, stress 5
+  1420 designs, 75s, levels max proof/adv 2, proof/first 2, stress 5
+  1440 designs, 76s, levels max proof/adv 2, proof/first 2, stress 5
+  1460 designs, 77s, levels max proof/adv 2, proof/first 2, stress 5
+  1480 designs, 78s, levels max proof/adv 2, proof/first 2, stress 5
+  1500 designs, 79s, levels max proof/adv 2, proof/first 2, stress 5
+  1520 designs, 80s, levels max proof/adv 2, proof/first 2, stress 5
+  1540 designs, 80s, levels max proof/adv 2, proof/first 2, stress 5
+  1560 designs, 82s, levels max proof/adv 2, proof/first 2, stress 5
+  1580 designs, 83s, levels max proof/adv 2, proof/first 2, stress 5
+  1600 designs, 84s, levels max proof/adv 2, proof/first 2, stress 5
+  1620 designs, 85s, levels max proof/adv 2, proof/first 2, stress 5
+  1640 designs, 86s, levels max proof/adv 2, proof/first 2, stress 5
+  1660 designs, 87s, levels max proof/adv 2, proof/first 2, stress 5
+  1680 designs, 88s, levels max proof/adv 2, proof/first 2, stress 5
+  1700 designs, 90s, levels max proof/adv 2, proof/first 2, stress 5
+  1720 designs, 91s, levels max proof/adv 2, proof/first 2, stress 5
+  1740 designs, 91s, levels max proof/adv 2, proof/first 2, stress 5
+  1760 designs, 92s, levels max proof/adv 2, proof/first 2, stress 5
+  1780 designs, 93s, levels max proof/adv 2, proof/first 2, stress 5
+  1800 designs, 94s, levels max proof/adv 2, proof/first 2, stress 5
+  1820 designs, 95s, levels max proof/adv 2, proof/first 2, stress 5
+  1840 designs, 96s, levels max proof/adv 2, proof/first 2, stress 5
+  1860 designs, 98s, levels max proof/adv 2, proof/first 2, stress 5
+  1880 designs, 98s, levels max proof/adv 2, proof/first 2, stress 5
+  1900 designs, 99s, levels max proof/adv 2, proof/first 2, stress 5
+  1920 designs, 100s, levels max proof/adv 2, proof/first 2, stress 5
+  1940 designs, 101s, levels max proof/adv 2, proof/first 2, stress 5
+  1960 designs, 102s, levels max proof/adv 2, proof/first 2, stress 5
+  1980 designs, 103s, levels max proof/adv 2, proof/first 2, stress 5
+  2000 designs, 104s, levels max proof/adv 2, proof/first 2, stress 5
+SUMMARY adv8 rigid 101 2000 8 30 (104s)
+  E continue: 3628
+  E final: 1253
+  E terms checked: 36346
+  F final: 5965
+  F final with anchors: 5619
+  F terms checked: 33894
+  bad pairs: 24976
+  case E (v>=1/2): 5663
+  case F (v<1/2): 5965
+  designs: 2000
+  duality pairs: 1449375
+  duality pairs y<x: 52235
+  games: 11628
+  games with v = 1/2 (float): 518
+  heavy rows: 27846
+  levels=1 (proof): 4589
+  levels=1 (stress): 333
+  levels=2 (proof): 1411
+  levels=2 (stress): 1214
+  levels=3 (stress): 362
+  levels=4 (stress): 85
+  levels=5 (stress): 6
+  max E expected uncovered x1000: 375
+  max F expected failures x1000: 117
+  max anchors: 6
+  max bad pairs on a path: 143
+  max levels proof/adversarial: 2
+  max levels proof/first: 2
+  max levels proof/sample: 2
+  max levels stress/adversarial: 5
+  max m: 49
+  max sampled anchors (distinct): 18
+  max |A & NE(E#x)|: 3
+  max |A|: 18
+  max |B & NF(F#y)|: 3
+  max |Phi|/|T| x100: 300
+  planted path unique shortest (exact search, n<=14): 634
+  rows: 127843
+  sample: E cover drawn: 814
+  sample: F cover drawn: 1642
+  sample: anchors drawn: 1595
+  saved deep designs: 91
+  stuck (no progress): 782
+FAILURES: none

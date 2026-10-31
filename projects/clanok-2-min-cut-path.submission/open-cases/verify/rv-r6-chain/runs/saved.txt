@@ -1,0 +1,13 @@
+saved: 24 jobs, 1 workers
+== saved (457s)
+  NO GRAPH BRUTE FORCE                          24
+  P2 in ZZ and in switch form                   24
+  ZZ level only (too large to realise)          24
+  gsw.GSW identical                             24
+  pairs                                         24
+  paths checked (Thm 8.2)                       24
+  paths/instances with >= 2 levels              24
+  random down-sets lifted                       600
+  yes                                           24
+  maxima: {'levels': 2, 'tools': 1, 'flips': 0, 'anchors': 1, 'damage': 1, 'heavy': 5, 'span': 3, 'Amax': 12, 'bad': 35, 'm': 37, 'q': 680, 'sf_L': 24}
+  total records with errors: 0

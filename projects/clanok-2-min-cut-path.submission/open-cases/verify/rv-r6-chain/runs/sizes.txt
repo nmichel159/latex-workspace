@@ -1,0 +1,2 @@
+{'graph-level records': 249649, 'violations m > q - 2': 0, 'violations q > n': 0, 'violations |R| > |E|': 0, 'violations N > q + |R|': 0}
+{'max m': 20, 'max N': 67, 'max n': 4033}

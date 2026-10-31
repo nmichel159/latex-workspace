@@ -1,0 +1,37 @@
+enum8 K=4 part 4/6 idesc_every=61 preorders=355 pid=36912
+SUMMARY enum8 K=4 part 4/6 (317s)
+  E final: 91828
+  E terms checked: 110894
+  F final: 2132
+  F final with anchors: 2132
+  F terms checked: 2132
+  P2 instances: 150702
+  case C0: 67896
+  case E (v>=1/2): 91828
+  case F (v<1/2): 2132
+  case R0: 47716
+  duality pairs: 127338
+  duality pairs y<x: 126634
+  games: 93960
+  heavy rows: 46456
+  idesc no: 1315
+  idesc terms: 40773248
+  idesc yes: 1145
+  idesc yes: single term suffices: 1145
+  instances: 222464
+  levels=1 (proof): 104786
+  levels=1 (stress): 104786
+  max E expected uncovered x1000: 0
+  max F expected failures x1000: 0
+  max anchors: 1
+  max paths per instance: 6
+  max |A & NE(E#x)|: 2
+  max |B & NF(F#y)|: 2
+  max |Phi|/|T| x100: 200
+  no: 79645
+  paths with bad pairs: 3772
+  preorders: 355
+  rows: 196804
+  shortest paths: 104786
+  yes: 71057
+FAILURES: none

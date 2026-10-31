@@ -22,6 +22,9 @@ An element is *middle* if it is equivalent neither to `u` nor to `v`.
 | H | PC fails without P2 as well: the switch-model encoding of 3-colouring `K_4` (`k4.py`, 56 elements) passes PC with `L = 55`; each of its 120 switch pairs without P2 admits no single P2 connector that keeps the answer "no". | checked |
 | I | Adversarial runs (Section 5): about 506,000 P2 instances evaluated, about 82,000 of them no-instances, 12,850 AC false positives, 0 PC false positives; but the controls without P2 (NP-complete case) also gave 0 PC false positives, so these runs could not detect PC failures at their sizes (at most 21 elements, random structure); all 427 stored AC false positives re-checked. | checked |
 | J | Smallest PC counterexample known: 22 elements; it is minimal under deletion of one element or one real edge (except one redundant edge of the partial-order version). The random runs found none with at most 21 elements. | checked |
+| **S** | **Shortcut lemma for globally shortest zigzags** (Section 11.2). In a consistent zigzag of least length over the whole instance, two incomparable minimal peaks at distance `>= 4` have no common real neighbour below both (of any kind, bottom or middle), and two incomparable maximal valleys at distance `>= 4` none above both. So for P2 only the *direction* of a witness matters; bottom versus middle-below (top versus middle-above) is irrelevant. | proved; checked (Section 11.5) |
+| **F+** | **One-sided P2 is polynomial** (Section 11.3). If every two incomparable elements have a common real neighbour strictly below both (*lower witnesses*, any kind), a globally shortest consistent zigzag has at most two minimal peak classes and the algorithm of Theorem F decides ZZ in `O(q^2 (q + |R|))` time; dually with upper witnesses. Strictly extends Theorem F. | proved; checked (Section 11.5) |
+| **Fω** | **XP in the "upper-only" clique number** (Section 11.4). Let `U` be the graph of incomparable pairs without a lower witness (P2 gives them an upper one) and `Λ` the graph of pairs without an upper witness. A globally shortest consistent zigzag has at most `2ω(U)` minimal peak classes and at most `2ω(Λ)` maximal valley classes, so ZZ + P2 is decided in `q^{O(min(ω(U), ω(Λ)))}` time. In the switch model: `ω(U)` = most switches with pairwise disjoint E-sides. | proved; checked (Section 11.5) |
 
 Open: the complexity of ZZ + P2 (equivalently of the open case of DC). Every PC failure found uses order relations
 between middle elements; whether PC decides the switch model 2CH + P2 (middle elements pairwise incomparable,
@@ -454,6 +457,173 @@ parallel routes (colours) between `n_p` and `n_{p+1}`; for every edge `{p, q}` a
 3. The complexity of ZZ + P2 (the open case of DC) remains open; the hub family shows that P2 can be satisfied by a
    single hub at the price of a polynomial structure, so a hardness proof has to satisfy P2 by many different common
    neighbours (compare Consequence 1 of `dc-hardness.md` Section 5).
+
+## 11. Mixed witnesses (version 3, 2026-10-13)
+
+Scripts: `mixed.py` (library), `test_mixed.py` (checks). Setting: a ZZ instance `(Q, ≤, R, u, v)`, `≤` a preorder
+with least element `u` and greatest element `v`, real edges `R` between strictly comparable elements, `q = |Q|`.
+A *peak* (*valley*) of a zigzag `Z = x_0 ... x_L` is a vertex at an odd (even) position; `P(Z)`, `V(Z)` are the
+sets of peaks and valleys. `↑S` (`↓S`) is the set of elements `>=` (`<=`) some element of `S`. Facts used
+(`verify/equivalence.md` §3): for a down-set `D` with `u ∈ D`, `v ∉ D` every `u`-`v` path of the graph `G_D` of real
+edges with exactly one end in `D` is a consistent zigzag, and a consistent zigzag `Z` lies in `G_D` for every down-set
+`D` with `↓V(Z) ⊆ D ⊆ Q - ↑P(Z)`.
+
+### 11.1 Witness kinds
+For incomparable `x, y`, a *witness* is a common real neighbour `w` that is comparable with both; as `x, y` are
+incomparable, `w < x, y` (*lower*) or `w > x, y` (*upper*), strictly. Four kinds: *bottom* (`w ~ u`), *middle-below*
+(lower, `w` not `~ u`), *top* (`w ~ v`), *middle-above*. P2 says every incomparable pair has a witness. Theorem F
+assumed bottom witnesses for all pairs (or top witnesses for all pairs).
+Two graphs on `Q`: `U` has an edge `xy` for every incomparable pair without a lower witness (by P2 it has an upper
+one); `Λ` has an edge for every incomparable pair without an upper witness.
+
+### 11.2 Lemma S (globally shortest zigzags) — proved
+Let `Z = x_0 ... x_L` be a consistent zigzag of least length among all consistent zigzags of the instance, `P`, `V`
+its peaks and valleys, `D_max = Q - ↑P`, `D_min = ↓V`.
+(a) `D_min`, `D_max` are down-sets containing `u` and not `v`, `V ⊆ D_min ⊆ D_max`, `P ∩ D_max = ∅`, and every `u`-`v`
+walk in `G_D` for `D_min ⊆ D ⊆ D_max` has length `>= L`.
+(b) If `x_i`, `x_j` are peaks with `j >= i + 4`, every common real neighbour of `x_i` and `x_j` lies in `↑P`.
+(c) If `x_i`, `x_j` are valleys with `j >= i + 4`, every common real neighbour of `x_i` and `x_j` lies in `↓V`.
+(d) Two incomparable *minimal* peaks (no peak strictly below them) at distance `>= 4` have no lower witness; two
+incomparable *maximal* valleys at distance `>= 4` have no upper witness.
+
+*Proof.* (a) `↑P` is an up-set, so `D_max` is a down-set; `↓V` is a down-set. `v ∈ P`, so `v ∉ D_max`; `u ∈ V`.
+Consistency (no valley `>=` a peak) gives `V ∩ ↑P = ∅`, hence `↓V ∩ ↑P = ∅` and `V ⊆ D_min ⊆ D_max`. `u ∉ ↑P`: a peak
+`p <= u` would be `~ u`, but `p` is strictly above its neighbouring valley `>= u`. `v ∉ ↓V` because `v ∈ P`. A
+`u`-`v` walk in `G_D` contains a `u`-`v` path of `G_D`, which is a consistent zigzag, so it has length `>= L`.
+(b) Let `w` be a common real neighbour with `w ∉ ↑P`, i.e. `w ∈ D_max`. A real edge joins strictly comparable elements,
+and `w > x_i` would put `w` into `↑P`; so `w < x_i`, `w < x_j`, and the edges `w x_i`, `w x_j` have exactly one end in
+`D_max` (`x_i, x_j ∈ P` lie outside). Then `x_0 ... x_i w x_j ... x_L` is a `u`-`v` walk in `G_{D_max}` of length
+`i + 2 + (L - j) <= L - 2`, contradicting (a).
+(c) Dually: a common real neighbour `w ∉ ↓V` satisfies `w > x_i, x_j` (`w < x_i` would put `w` into `↓V`), the edges
+cross `D_min`, and the walk `x_0 ... x_i w x_j ... x_L` in `G_{D_min}` is too short.
+(d) Let `x_i`, `x_j` be incomparable minimal peaks at distance `>= 4` and `w` a lower witness. By (b) `w >= p` for a
+peak `p`; then `p <= w < x_i`, so `p < x_i`, contradicting minimality of `x_i`. The valley statement follows from (c)
+in the same way. ∎
+
+*Remark.* Theorem F(ii) used a shortest path of an arbitrary `G_D`; there a middle-below witness outside `D` gives no
+shortcut, which is why Theorem F needed witnesses equivalent to `u`. Taking `Z` globally shortest and `D = D_max`
+puts every lower witness of two minimal peaks into the cut side, so the kind of the witness no longer matters.
+
+### 11.3 Theorem F+ (one-sided P2) — proved
+Let every two incomparable elements have a lower witness (bottom or middle-below). Then every globally shortest
+consistent zigzag has at most two minimal peak classes among its peaks, and ZZ is decided in `O(q^2 (q + |R|))`
+time by the algorithm of Theorem F(iii): for every set `A` of at most two elements put `D_A = Q - ↑(A ∪ {v})`, skip it
+if `u ∉ D_A`, and search `G_{D_A}` for a `u`-`v` path. Dually, if every incomparable pair has an upper witness, the
+sets `D^B = ↓(B ∪ {u})`, `|B| <= 2`, decide ZZ.
+
+*Proof.* Let `Z` be a globally shortest consistent zigzag and `a_1, ..., a_m` one minimal peak from each minimal class
+of `P`. They are pairwise incomparable (two comparable non-equivalent ones would not both be minimal), so by
+Lemma S(d) any two of them lie at distance `< 4`; peaks sit at odd positions, so the distance is exactly 2. Three odd
+positions cannot pairwise differ by 2, so `m <= 2`. Put `A = {a_1, ..., a_m}`. Every peak lies above a minimal peak,
+so `P ⊆ ↑(A ∪ {v})`, and no valley lies in `↑A` (consistency), so `V ⊆ D_A` and `P ∩ D_A = ∅`: `Z` lies in `G_{D_A}`.
+Conversely every `D_A` with `u ∈ D_A` is a down-set without `v`, and a `u`-`v` path in `G_{D_A}` is a consistent
+zigzag. Time: `O(q^2)` sets, each `O(q + |R|)` with the up-sets precomputed. ∎
+
+Theorem F is the special case of bottom witnesses. The partial-order version of `H(m, m')` (Section 6) is not covered:
+two tops other than `v` that do not share a route have only the upper witness `v`.
+
+### 11.4 Theorem Fω (XP in the clique number of `U` or `Λ`) — proved
+Let `ω(U)` be the clique number of `U` (1 if `U` has no edge), `ω(Λ)` that of `Λ`. Every globally shortest consistent
+zigzag has at most `2ω(U)` minimal peak classes and at most `2ω(Λ)` maximal valley classes. Hence the `k`-guess
+(all `D_A`, `|A| <= k`, and all `D^B`, `|B| <= k`) decides ZZ + P2 for `k = 2 min(ω(U), ω(Λ))`, in time
+`O(q^{k} (q + |R|))`; `ω` itself is found in `q^{O(ω)}` time by trying all subsets of size `ω + 1`.
+
+*Proof.* Take one occurrence of each minimal peak class, at positions `p_1 < ... < p_m` (distinct odd numbers). For
+odd indices `r < s`, `p_s - p_r >= 4`; the elements `a_1, a_3, a_5, ...` are pairwise incomparable minimal peaks at
+distance `>= 4`, so by Lemma S(d) they have no lower witness, i.e. they form a clique of `U` of size `⌈m/2⌉`.
+So `m <= 2ω(U)`, and the proof of Theorem F+ with `|A| <= 2ω(U)` applies. Dually for valleys. ∎
+
+In the switch model (2CH, all middle elements pairwise incomparable, bottoms `~ u`, tops `~ v`), `U` is the graph of
+switch pairs with disjoint E-sides, so `ω(U)` is the largest number of switches with pairwise disjoint E-sides.
+
+### 11.5 Checks
+`test_mixed.py SEED COUNT MODE NMAX` (`runs/test-mixed-*.txt`): random preorders (1-3 elements `~ u`, up to `NMAX`
+middle elements with random order and random ties, 1-3 elements `~ v`), random real edges, P2 completed with witnesses
+of a prescribed direction (half of the time a middle witness is preferred). For each instance: exact answer by all
+down-sets and by `zz.exact_dfs`; the 2-guess on both sides; for each globally shortest zigzag found, the numbers of
+minimal peak and maximal valley classes against Theorems F+ and Fω and Lemma S(d); the generator numbers of all
+solution down-sets.
+
+| Seed, mode | Instances | Yes | 2-guess wrong (side of the theorem) | Lemma S(d) or bound failures |
+|---|---|---|---|---|
+| 11, lower witnesses | 3000 | 972 | 0 | 0 |
+| 12, upper witnesses | 3000 | 925 | 0 | 0 |
+| 13, 14, mixed directions | 6000 | 2359 | (no claim) | 0 |
+| 15, bottom witnesses only | 3000 | 1004 | 0 | 0 |
+| 16, top witnesses only | 3000 | 929 | 0 | 0 |
+
+Random instances are easy: in the mixed runs the least generator number over all solution down-sets was at most 2 on
+at least one side in all 2359 yes-instances. Adversarial searches: Section 11.6.
+
+### 11.6 Mixed instances on which every bounded guess fails
+*Generator numbers.* For a solution down-set `D` (a down-set with a `u`-`v` path in `G_D`) let `g_low(D)` be the
+number of minimal classes of `Q - D` other than the class of `v` (0 if `Q - D` is that class) and `g_up(D)` the number
+of maximal classes of `D` other than the class of `u`. The `k`-guess finds `D` on the low side iff some solution `D`
+has `g_low(D) <= k` (then `D = D_A` for `A` its minimal classes), and on the up side iff some has `g_up(D) <= k`.
+So "every guess of at most two generators fails on both sides" means: the instance is a yes-instance and every
+solution down-set has `g_low >= 3` and `g_up >= 3`.
+
+**Lower bound (proved).** Such an instance has at least 8 elements: the 3 minimal classes of `Q - D` and the 3 maximal
+classes of `D` are six middle elements, besides `u` and `v`.
+
+**Ladder `K(k)` (proved; checked `k <= 6`, `ladder.py`, `runs/ladder.txt`).** Elements `u, b_1..b_k, a_1..a_k, v`
+with `u < b_j < a_i < v` for all `i, j`; real edges: the zigzag `u a_1 b_1 a_2 b_2 ... a_k b_k v`, plus `a_i v` and
+`u b_j` for all `i, j`. `q = 2k + 2`.
+(a) P2: the incomparable pairs are `{a_i, a_j}` (top witness `v`) and `{b_i, b_j}` (bottom witness `u`).
+(b) The only solution down-set is `D* = {u, b_1, ..., b_k}`, so `g_low = g_up = k`: for `k = 3` this is an 8-element
+instance on which every 2-guess fails on both sides, hence a smallest one.
+*Proof of (b).* `D*` is a solution (the zigzag). Let `D` be a solution down-set. `G_D` consists of the zigzag edges
+that cross `D` and of the extra edges `u b_j`, `a_i v` that cross `D`.
+Case 1: some `b_j ∉ D`. Then every `a_i ∉ D`. The zigzag edges `a_j b_j`, `b_j a_{j+1}` (or `b_k v`) join two
+elements outside `D` and are missing; the extra edges `a_i v` join two elements outside `D` and are missing; an extra
+edge `u b_{j'}` with `b_{j'} ∉ D` is present, but such a `b_{j'}` has no other edge in `G_D` (its zigzag neighbours lie
+outside `D`). So `G_D` is the zigzag cut at every `b_{j'} ∉ D`, plus pendant edges at `u`; `u` and `v` lie in different
+pieces. Case 2: every `b_j ∈ D` and some `a_i ∈ D`. The zigzag edges at `a_i` join it to `b`'s or `u`, all in `D`, and
+are missing; the extra edges `u b_j` join two elements of `D` and are missing; an extra edge `a_i v` with `a_i ∈ D` is
+present, but such an `a_i` has no other edge in `G_D`. So `G_D` is the zigzag cut at every `a_i ∈ D`, plus pendant
+edges at `v`; again `u` and `v` are separated. Hence `D = D*`. ∎
+(The enumeration of all down-sets for `k <= 6` confirms (b).)
+(c) The witnesses can be private: `KW(k)` replaces `a_i v`, `u b_j` by a lower hub `W_b` (`u < W_b < b_j`, adjacent to
+all `b_j`) and an upper hub `W_a` (`a_i < W_a < v`, adjacent to all `a_i`); same conclusions (checked `k <= 6`).
+(d) Every no-variant (one zigzag edge deleted; P2 still holds) is refuted already by AC (90 of 90, `k <= 6`).
+But `K(k)` is solved by a *strict* guess with one parameter, `D = {x : x < a_1}`: the order says a lot here.
+
+**Switch model, smallest instance `A14` (checked; `hunt_antichain.py`, `shrink_words.py`, `check_ac18.py`,
+`runs/shrink-words-3.txt`, `runs/check-ac14.txt`).** When the middle elements are pairwise incomparable, the order
+determines no element from a parameter other than itself, so a guess of `j` parameters fixes at most `j` middle
+elements; every bounded guess fails as soon as every solution has many switches in each mode. In the switch model
+the generator numbers of a solution are its numbers of E-mode and F-mode switches (unused switches can be moved to
+either side). *Lower bound (proved):* such an instance with at least 3 switches of each mode in every solution has
+`q >= 14`: a zigzag with 6 switches needs one element between two consecutive switches of the same mode, two between
+switches of different modes (bottom, then top), one after a last E-switch, one before a first F-switch, so at least
+`2 + 6 + 6` elements, with equality only for the mode words `EEEFFF` along the zigzag.
+*Instance (2CH notation, nodes `0 = s, 1 = t, 2..6`):*
+
+| switch | E-side | F-side |
+|---|---|---|
+| 0 | {s, 2} | {4} |
+| 1 | {2, 3} | {5} |
+| 2 | {3, 4} | {4, 5} |
+| 3 | {4} | {4, 5} |
+| 4 | {2} | {5, 6} |
+| 5 | {2, 4} | {t, 6} |
+
+ZZ form (`swlib.to_zz`): `q = 14`, `|R| = 21`; P2 holds; exactly one solution down-set, with switches 0, 1, 2 in
+E-mode and 3, 4, 5 in F-mode, and its zigzag `u sw0 b2 sw1 b3 sw2 b4 t4 sw3 t5 sw4 t6 sw5 v` passes through all 14
+elements. `g_low = g_up = 3`; the 2-guess fails on both sides (the 3-guess succeeds); the strict guesses fail;
+`ω(U) = 2`, `ω(Λ) = 3`. *Uniqueness by hand:* `s` lies only in `E_0` and `t` only in `F_5`, so switch 0 is in E-mode
+and switch 5 in F-mode; node 6 lies only in `F_4` and `F_5`, so switch 4 is in F-mode; then node 2 lies in the picked
+sides `E_0` and `E_1` only, so switch 1 must be in E-mode, node 3 lies only in `E_1`, `E_2`, so switch 2 is in E-mode,
+and node 4 reaches node 5 only through `F_3`. So `A14` is a smallest switch-model instance on which every guess of at
+most two generators fails on both sides. It was found by shrinking the rigid instance `R(EEEFFF)` (the family `R_L`
+of `dc-hardness.md` Section 2 with an arbitrary mode word; 29 elements) greedily under the property; the alternating
+word gives 18 elements, every other word 16 or 18 (`runs/shrink-words-3.txt`).
+
+**Do other polynomial methods solve these instances?** On `A14` and on the 18-element alternating instance: the search
+of `dc-hardness.md` Theorem H with `t = 1` (`dc-hardness/helly2ch.py`) finds the solution; PC refutes every no-variant
+obtained by removing one node from one side that keeps P2 (6 of 6 and 7 of 7; AC is wrong on 0 and 4 of them). The
+ladder is solved by a strict guess and its no-variants by AC. So these instances separate the guessing algorithms
+from the general problem but not from the other known polynomial methods.
 
 ## 10. Scripts (`dc-algorithm/`)
 

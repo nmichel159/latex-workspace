@@ -1,0 +1,48 @@
+graphs-11-1500: 1500 jobs, 2 workers
+  50/1500 jobs (3s)
+  100/1500 jobs (3s)
+  150/1500 jobs (3s)
+  200/1500 jobs (3s)
+  250/1500 jobs (3s)
+  300/1500 jobs (4s)
+  350/1500 jobs (4s)
+  400/1500 jobs (4s)
+  450/1500 jobs (4s)
+  500/1500 jobs (4s)
+  550/1500 jobs (4s)
+  600/1500 jobs (4s)
+  650/1500 jobs (4s)
+  700/1500 jobs (5s)
+  750/1500 jobs (5s)
+  800/1500 jobs (5s)
+  850/1500 jobs (5s)
+  900/1500 jobs (6s)
+  950/1500 jobs (6s)
+  1000/1500 jobs (6s)
+  1050/1500 jobs (6s)
+  1100/1500 jobs (7s)
+  1150/1500 jobs (7s)
+  1200/1500 jobs (8s)
+  1250/1500 jobs (8s)
+  1300/1500 jobs (8s)
+  1350/1500 jobs (8s)
+  1400/1500 jobs (9s)
+  1450/1500 jobs (9s)
+  1500/1500 jobs (9s)
+== graphs-11-1500 (9s)
+  P2 in ZZ and in switch form                   3247
+  blind single-term search accepts              275
+  blind single-term search run                  3246
+  brute methods: subsets+paths                  3247
+  gsw.GSW identical                             3247
+  no                                            2972
+  pairs                                         3247
+  paths checked (Thm 8.2)                       219
+  random down-sets lifted                       81175
+  s = t                                         71
+  skipped: disconnected                         106
+  skipped: not open case                        117
+  yes                                           275
+  yes certified in G (lifted D: min cut with u-v path) 275
+  maxima: {'m': 10, 'q': 12, 'n': 16, 'c': 9, 'sf_L': 6, 'levels': 1, 'tools': 1, 'flips': 2, 'damage': 0, 'heavy': 5, 'span': 5, 'Amax': 3, 'bad': 3, 'anchors': 0}
+  total records with errors: 0

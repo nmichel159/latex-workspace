@@ -1,0 +1,14 @@
+zzr-1-30-3-6 (1s, pid 2680)
+  IDESC exact run                      30
+  branch E                             4
+  instances                            30
+  levels hist                          {1: 10}
+  max flips                            1
+  max m                                6
+  max span L4.4                        1
+  no                                   21
+  paths checked                        10
+  trivial C=0                          5
+  trivial R=0                          1
+  yes                                  9
+  errors: 0

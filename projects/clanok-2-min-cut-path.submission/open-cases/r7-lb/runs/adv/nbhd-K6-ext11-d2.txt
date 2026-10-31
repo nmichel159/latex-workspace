@@ -1,0 +1,4 @@
+nbhd runs/adv/ext-cost4-E5F5-Q0-seed5-genome-11.txt.best.json D 2 mode all centre cost 4 pid 16880
+distance 1 done: {4: 81, 2: 41, 3: 52} (0s)
+distance 2 done: {4: 3307, 2: 5943, 3: 5508, 1: 251} (21s)
+END best cost 4 centre 4 (21s)

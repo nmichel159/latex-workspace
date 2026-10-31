@@ -1,0 +1,9 @@
+seed 52 params kd ks s B 1 1 4 8 345.3s
+  (family, exact, alg) ('planted', True, True) 200
+  (family, exact, alg) ('random', False, False) 36
+  (family, exact, alg) ('random', True, True) 164
+  (family, exact, alg) ('repair', False, False) 21
+  (family, exact, alg) ('repair', True, True) 179
+  (family, exact, alg) ('sat', True, True) 146
+  (family, exact, alg) ('satdel', False, False) 32
+  (family, exact, alg) ('satdel', True, True) 71

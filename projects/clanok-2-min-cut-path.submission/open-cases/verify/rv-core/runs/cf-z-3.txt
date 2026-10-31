@@ -1,0 +1,4 @@
+﻿Z_2 (cross-check, author's generator): switches 12, shortest length 4, 2 shortest paths; least Lemma-G cost: 0 flips with 1 centre (E-description)
+Z^B_2 (cross-check, author's generator): switches 12, shortest length 4, 2 shortest paths; least Lemma-G cost: 0 flips with 1 centre (E-description)
+Z_3 (cross-check, author's generator): switches 18, shortest length 6, 14 shortest paths; least Lemma-G cost: 0 flips with 1 centre (E-description)
+Z^B_3 (cross-check, author's generator): switches 18, shortest length 6, 2 shortest paths; least Lemma-G cost: 0 flips with 1 centre (E-description)

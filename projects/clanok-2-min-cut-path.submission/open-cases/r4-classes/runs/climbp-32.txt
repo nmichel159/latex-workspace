@@ -1,0 +1,1 @@
+run 0 word EEFEFEEEFFEFFEEEFE planted hP (5, 5, 126) min hP over shortest paths 5 max 5 classes [('E', 4), ('E', 0), ('F', 3), ('E', 3), ('F', 5), ('E', 4), ('E', 4), ('E', 4), ('F', 4), ('F', 3), ('E', 4), ('F', 3), ('F', 3), ('E', 1), ('E', 4), ('E', 4), ('F', 2), ('E', 1)] 117s

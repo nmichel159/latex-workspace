@@ -1,0 +1,8 @@
+R_2: q=10 P2=True answer=True zigzag length=5 bottom/top witnesses=False/True; smallest k with a Theorem-F-type search (k peaks or k valleys) succeeding: 1
+R_3: q=17 P2=True answer=True zigzag length=9 bottom/top witnesses=False/False; smallest k with a Theorem-F-type search (k peaks or k valleys) succeeding: 1
+R_4: q=26 P2=True answer=True zigzag length=11 bottom/top witnesses=False/False; smallest k with a Theorem-F-type search (k peaks or k valleys) succeeding: 2
+R_5: q=37 P2=True answer=True zigzag length=15 bottom/top witnesses=False/False; smallest k with a Theorem-F-type search (k peaks or k valleys) succeeding: 2
+R_6: q=50 P2=True answer=True zigzag length=17 bottom/top witnesses=False/False; smallest k with a Theorem-F-type search (k peaks or k valleys) succeeding: 3
+R_7: q=65 P2=True answer=True zigzag length=21 bottom/top witnesses=False/False; smallest k with a Theorem-F-type search (k peaks or k valleys) succeeding: 3
+R_8: q=82 P2=True answer=True zigzag length=23 bottom/top witnesses=False/False; smallest k with a Theorem-F-type search (k peaks or k valleys) succeeding: 4
+R_9: q=101 P2=True answer=True zigzag length=27 bottom/top witnesses=False/False; smallest k with a Theorem-F-type search (k peaks or k valleys) succeeding: 4

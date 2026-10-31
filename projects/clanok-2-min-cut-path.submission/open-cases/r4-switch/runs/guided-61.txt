@@ -1,0 +1,1 @@
+seed 61 count 1500 {'yes': 1315, 'no': 215, 'paths': 2504, 'guided_ok': 2504, 'guided_fail': 0, 'unsound': 0, 'maxstore': 7, 'swaps': 0} 19.7s

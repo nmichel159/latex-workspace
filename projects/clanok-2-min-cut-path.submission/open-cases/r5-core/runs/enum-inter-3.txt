@@ -1,0 +1,22 @@
+  64 (0s) {'instances': 64, 'P2': 15, 'no': 15}
+  192 (0s) {'instances': 192, 'P2': 49, 'no': 41, 'yes': 8, 'paths': 8, 'levels=1': 8, 'case R0': 2, 'max anchors': 0, 'case E': 3, 'case C0': 3}
+  320 (0s) {'instances': 320, 'P2': 83, 'no': 67, 'yes': 16, 'paths': 16, 'levels=1': 16, 'case R0': 4, 'max anchors': 0, 'case E': 6, 'case C0': 6}
+  576 (0s) {'instances': 576, 'P2': 231, 'no': 171, 'yes': 60, 'paths': 68, 'levels=1': 68, 'case R0': 16, 'max anchors': 0, 'case E': 20, 'case C0': 32}
+  704 (0s) {'instances': 704, 'P2': 265, 'no': 197, 'yes': 68, 'paths': 76, 'levels=1': 76, 'case R0': 18, 'max anchors': 0, 'case E': 23, 'case C0': 35}
+  768 (0s) {'instances': 768, 'P2': 282, 'no': 214, 'yes': 68, 'paths': 76, 'levels=1': 76, 'case R0': 18, 'max anchors': 0, 'case E': 23, 'case C0': 35}
+  896 (0s) {'instances': 896, 'P2': 316, 'no': 240, 'yes': 76, 'paths': 84, 'levels=1': 84, 'case R0': 20, 'max anchors': 0, 'case E': 26, 'case C0': 38}
+  1152 (0s) {'instances': 1152, 'P2': 464, 'no': 344, 'yes': 120, 'paths': 136, 'levels=1': 136, 'case R0': 34, 'max anchors': 0, 'case E': 40, 'case C0': 62}
+  1664 (0s) {'instances': 1664, 'P2': 976, 'no': 700, 'yes': 276, 'paths': 328, 'levels=1': 328, 'case R0': 82, 'max anchors': 1, 'case E': 110, 'case C0': 134, 'case F': 2}
+  1920 (0s) {'instances': 1920, 'P2': 1124, 'no': 804, 'yes': 320, 'paths': 380, 'levels=1': 380, 'case R0': 94, 'max anchors': 1, 'case E': 124, 'case C0': 160, 'case F': 2}
+enum_inter K 3 part 0/1 (3s)
+  P2                                  5830
+  case C0                             744
+  case E                              666
+  case F                              12
+  case R0                             474
+  instances                           7232
+  levels=1                            1896
+  max anchors                         1
+  no                                  4246
+  paths                               1896
+  yes                                 1584

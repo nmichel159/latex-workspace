@@ -1,0 +1,20 @@
+bp-5: 10 jobs, 1 workers
+== bp-5 (231s)
+  NO GRAPH BRUTE FORCE                          6
+  P2 in ZZ and in switch form                   10
+  ZZ level only (too large to realise)          3
+  blind IDESC(k,k,N,9k) accepts                 7
+  blind IDESC(k,k,N,9k) run (m <= FULLM)        7
+  blind single-term search accepts              6
+  blind single-term search run                  6
+  brute methods: core                           3
+  brute methods: core+paths                     1
+  brute_paths over budget                       6
+  gsw.GSW identical                             10
+  pairs                                         10
+  paths checked (Thm 8.2)                       10
+  random down-sets lifted                       250
+  yes                                           10
+  yes certified in G (lifted D: min cut with u-v path) 7
+  maxima: {'levels': 1, 'tools': 1, 'flips': 1, 'anchors': 5, 'heavy': 5, 'span': 1, 'Amax': 5, 'bad': 25, 'm': 20, 'q': 125, 'n': 2875, 'c': 861, 'sf_L': 10}
+  total records with errors: 0

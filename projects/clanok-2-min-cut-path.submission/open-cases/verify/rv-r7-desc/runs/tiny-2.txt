@@ -1,0 +1,11 @@
+P2 fails 48488
+S0: |A|<10 849832
+S0: |B|<10 849832
+ThA trivial 840919
+instances 585048
+max_span_44 2
+no 68080
+paths 849832
+tie-free paths 840919
+yes 516968
+FAILURES: none

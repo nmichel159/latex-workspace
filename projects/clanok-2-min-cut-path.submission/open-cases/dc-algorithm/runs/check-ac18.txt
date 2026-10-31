@@ -1,0 +1,18 @@
+nodes 7 s 0 t 1
+  switch 0: E = [0, 2], F = [1, 2, 4]
+  switch 1: E = [3, 5], F = [2, 3]
+  switch 2: E = [3, 4], F = [1, 4]
+  switch 3: E = [5], F = [4, 5]
+  switch 4: E = [5, 6], F = [1]
+  switch 5: E = [5], F = [1, 6]
+ZZ: q = 18 |R| = 27 names ['u', ('b', 2), ('b', 3), ('b', 4), ('b', 5), ('b', 6), ('sw', 0), ('sw', 1), ('sw', 2), ('sw', 3), ('sw', 4), ('sw', 5), ('t', 2), ('t', 3), ('t', 4), ('t', 5), ('t', 6), 'v']
+R: [('u', ('sw', 0)), (('b', 2), ('sw', 0)), (('b', 2), ('t', 2)), (('b', 3), ('sw', 1)), (('b', 3), ('sw', 2)), (('b', 3), ('t', 3)), (('b', 4), ('sw', 2)), (('b', 4), ('t', 4)), (('b', 5), ('sw', 1)), (('b', 5), ('sw', 3)), (('b', 5), ('sw', 4)), (('b', 5), ('sw', 5)), (('b', 5), ('t', 5)), (('b', 6), ('sw', 4)), (('b', 6), ('t', 6)), (('sw', 0), ('t', 2)), (('sw', 0), ('t', 4)), (('sw', 0), 'v'), (('sw', 1), ('t', 2)), (('sw', 1), ('t', 3)), (('sw', 2), ('t', 4)), (('sw', 2), 'v'), (('sw', 3), ('t', 4)), (('sw', 3), ('t', 5)), (('sw', 4), 'v'), (('sw', 5), ('t', 6)), (('sw', 5), 'v')]
+P2 (ZZ): True  P2 (2CH): True
+solution down-sets: 1 exact_dfs: True
+   D middle = [('sw', 1), ('sw', 3), ('sw', 5)] g_low 3 g_up 3 path ['u', ('sw', 0), ('b', 2), ('t', 2), ('sw', 1), ('t', 3), ('b', 3), ('sw', 2), ('b', 4), ('t', 4), ('sw', 3), ('t', 5), ('b', 5), ('sw', 4), ('b', 6), ('t', 6), ('sw', 5), 'v']
+2CH mode counts (min E, min F): (3, 3)
+k-guess low: [False, False, False, True] up: [False, False, False, True]
+strict guess: False
+omega(U) = 3 omega(Lambda) = 3
+Theorem H search, t = 1: True
+no-variants (one node removed from one side): {'total': 22, 'p2': 7, 'no': 7, 'ac_fp': 4, 'pc_fp': 0}

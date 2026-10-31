@@ -1,0 +1,49 @@
+enum8 K=4 part 3/6 idesc_every=61 preorders=355 pid=4564
+  preorder 10/355  instances 1280  P2 187  yes 62  paths 76  0s
+  preorder 40/355  instances 9728  P2 2886  yes 1290  paths 1866  4s
+  preorder 70/355  instances 17920  P2 4815  yes 2159  paths 3044  10s
+  preorder 100/355  instances 58880  P2 40020  yes 19739  paths 29820  84s
+  preorder 130/355  instances 83456  P2 59480  yes 28487  paths 42426  123s
+  preorder 160/355  instances 93184  P2 62515  yes 29923  paths 44494  131s
+  preorder 190/355  instances 110080  P2 71601  yes 34021  paths 50320  149s
+  preorder 220/355  instances 131584  P2 84749  yes 40219  paths 59308  177s
+  preorder 250/355  instances 154112  P2 99909  yes 46947  paths 69004  208s
+  preorder 280/355  instances 187136  P2 130256  yes 61039  paths 89952  271s
+  preorder 310/355  instances 205568  P2 145688  yes 67235  paths 98672  300s
+  preorder 340/355  instances 234240  P2 166856  yes 77007  paths 112812  344s
+SUMMARY enum8 K=4 part 3/6 (379s)
+  E final: 111192
+  E terms checked: 134672
+  F final: 2454
+  F final with anchors: 2454
+  F terms checked: 2454
+  P2 instances: 183240
+  case C0: 75952
+  case E (v>=1/2): 111192
+  case F (v<1/2): 2454
+  case R0: 56954
+  duality pairs: 156558
+  duality pairs y<x: 156198
+  games: 113646
+  heavy rows: 52768
+  idesc no: 1621
+  idesc terms: 48535360
+  idesc yes: 1378
+  idesc yes: single term suffices: 1378
+  instances: 250624
+  levels=1 (proof): 123276
+  levels=1 (stress): 123276
+  max E expected uncovered x1000: 0
+  max F expected failures x1000: 0
+  max anchors: 1
+  max paths per instance: 6
+  max |A & NE(E#x)|: 2
+  max |B & NF(F#y)|: 2
+  max |Phi|/|T| x100: 200
+  no: 98953
+  paths with bad pairs: 6291
+  preorders: 355
+  rows: 230776
+  shortest paths: 123276
+  yes: 84287
+FAILURES: none

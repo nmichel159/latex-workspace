@@ -1,0 +1,1 @@
+seed 91 count 400 nmax 6 (exact, decide_full): {(True, True): 269, (False, False): 131} 3.7s

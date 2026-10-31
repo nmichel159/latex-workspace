@@ -1,0 +1,7 @@
+bottombig seed 2100: {'n': 40, 'hyp': 40, 'yes': 9, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 635, 'maxA': 1, 'mixed_alg_wrong': 0, 'pc_runs': 21, 'ac_fp': 0, 'pc_fp': 0}
+topbig seed 2101: {'n': 40, 'hyp': 40, 'yes': 12, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 4812, 'maxA': 1, 'mixed_alg_wrong': 0, 'pc_runs': 16, 'ac_fp': 0, 'pc_fp': 0}
+
+TOTALS (0s)
+bottombig: {'n': 40, 'hyp': 40, 'yes': 9, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 635, 'maxA': 1, 'mixed_alg_wrong': 0, 'pc_runs': 21, 'ac_fp': 0, 'pc_fp': 0}
+topbig: {'n': 40, 'hyp': 40, 'yes': 12, 'viol_alg': 0, 'viol_dfs': 0, 'viol_ii': 0, 'paths_ii': 4812, 'maxA': 1, 'mixed_alg_wrong': 0, 'pc_runs': 16, 'ac_fp': 0, 'pc_fp': 0}
+violations: 0

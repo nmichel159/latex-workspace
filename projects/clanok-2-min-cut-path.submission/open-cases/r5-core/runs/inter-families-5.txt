@@ -1,0 +1,63 @@
+  Y_2: m=6 errors=0
+  Y^d_2 back=False: m=7 errors=0
+  Y^d_2 back=True: m=7 errors=0
+  Y'_2: m=6 errors=0
+  Y'^d_2 back=False: m=7 errors=0
+  Y'^d_2 back=True: m=7 errors=0
+  Y_3: m=9 errors=0
+  Y^d_3 back=False: m=10 errors=0
+  Y^d_3 back=True: m=10 errors=0
+  Y'_3: m=9 errors=0
+  Y'^d_3 back=False: m=10 errors=0
+  Y'^d_3 back=True: m=10 errors=0
+  Y_4: m=12 errors=0
+  Y^d_4 back=False: m=13 errors=0
+  Y^d_4 back=True: m=13 errors=0
+  Y'_4: m=12 errors=0
+  Y'^d_4 back=False: m=13 errors=0
+  Y'^d_4 back=True: m=13 errors=0
+  Y_5: m=15 errors=0
+  Y^d_5 back=False: m=16 errors=0
+  Y^d_5 back=True: m=16 errors=0
+  Y'_5: m=15 errors=0
+  Y'^d_5 back=False: m=16 errors=0
+  Y'^d_5 back=True: m=16 errors=0
+  X_2: m=4 errors=0
+  X_3: m=6 errors=0
+  X_4: m=8 errors=0
+  X_5: m=10 errors=0
+  X_6: m=12 errors=0
+  X_7: m=14 errors=0
+  X_8: m=16 errors=0
+  X_9: m=18 errors=0
+  X_10: m=20 errors=0
+  Z_2: m=12 errors=0
+  Z^B_2: m=12 errors=0
+  Z_3: m=18 errors=0
+  Z^B_3: m=18 errors=0
+  Z_4: m=24 errors=0
+  Z^B_4: m=24 errors=0
+  Z_5: m=30 errors=0
+  Z^B_5: m=30 errors=0
+  W_1 F: m=8 errors=0
+  W_1 E: m=8 errors=0
+  W_2 F: m=16 errors=0
+  W_2 E: m=16 errors=0
+  W_3 F: m=24 errors=0
+  W_3 E: m=24 errors=0
+  OB(2, 2, 2, 1, 1): m=8 errors=0
+  OB(3, 3, 3, 2, 1): m=13 errors=0
+families kmax 5 (7s)
+  case E                                        176
+  case F                                        14
+  levels=1                                      190
+  max anchors                                   4
+  max damage                                    0
+  max flips                                     4
+  max heavy                                     5
+  max kappa                                     2
+  max tools                                     2
+  paths                                         190
+  paths with bad pairs                          3
+  yes                                           49
+  worst: [((1, 0, 1), 'OB(3, 3, 3, 2, 1)'), ((1, 0, 1), 'OB(2, 2, 2, 1, 1)'), ((1, 0, 0), 'Z_5'), ((1, 0, 0), 'Z_4'), ((1, 0, 0), 'Z_3'), ((1, 0, 0), 'Z_2'), ((1, 0, 0), 'Z^B_5'), ((1, 0, 0), 'Z^B_4')]

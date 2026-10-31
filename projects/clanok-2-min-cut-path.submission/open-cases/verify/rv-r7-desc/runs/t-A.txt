@@ -1,0 +1,29 @@
+base A seed 1 time 2.6
+accepted moves {'addScore': 6, 'unstrict': 3, 'tieA': 3, 'wit': 1, 'addS': 4, 'tieH': 4}
+rejected moves {'addT': 3, 'attack': 3, 'addS': 1, 'addTcore': 2}
+C_1 max 6
+Case I 72
+Case I: F^1 alone 36
+Mirror II° 72
+Mirror II°: E^1 alone 36
+Or: direct 36
+Or: reversed 36
+R(a) far pairs 3600
+R(b) far pairs 3600
+R_1 max 6
+S0 pass: R_0, C_0 nonempty 72
+S0: |A|,|B|>=10 72
+S1: |K|>=20 72
+Shape A (C_1 nonempty) 36
+Shape A' (mirror, R_1 nonempty) 36
+base instances verified 2
+gen left: claim B' tested 60
+gen left: h-pair 370
+gen right: a-pair 353
+gen right: claim B tested 62
+max m 145
+max r 145
+max_span_44 2
+paths 72
+paths with non-strict R_0 x C_0 pair 36
+FAILURES: none

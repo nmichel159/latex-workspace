@@ -1,0 +1,23 @@
+E1 tested                                        3256
+E2 as written FAILED                             8
+E2 pairs                                         635
+E2 |A&U| - |f*| sum                              12
+F1 tested                                        3256
+F2 as written FAILED                             11
+F2 pairs                                         644
+FA-a tested                                      4840
+LG-E tested                                      13024
+LG-F tested                                      13024
+S52 arbitrary-B0 fails (hypothesis needed)       4900
+S52 arbitrary-B0 tested                          5509
+S52 tested                                       6043
+paths                                            3256
+yes-instances                                    2000
+example ('E2-written', 11, 81, 'w0', 'w6')
+example ('E2-written', 11, 81, 'w4', 'w6')
+example ('E2-written', 11, 802, 'w2', 'w3')
+example ('E2-written', 11, 802, 'w3', 'w13')
+example ('E2-written', 11, 1036, 'w0', 'w11')
+example ('E2-written', 11, 1288, 'w6', 'w9')
+example ('E2-written', 11, 1431, 'w7', 'w8')
+example ('E2-written', 11, 1431, 'w7', 'w8')

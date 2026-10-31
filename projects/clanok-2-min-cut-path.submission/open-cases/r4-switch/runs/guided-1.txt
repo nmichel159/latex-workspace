@@ -1,0 +1,1 @@
+seed 1 count 100 {'yes': 104, 'no': 130, 'paths': 220, 'guided_ok': 220, 'guided_fail': 0, 'unsound': 0, 'maxstore': 6, 'swaps': 0} 2.3s

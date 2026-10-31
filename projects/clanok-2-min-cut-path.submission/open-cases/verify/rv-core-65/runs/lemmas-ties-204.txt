@@ -1,0 +1,22 @@
+  200 (0s) {'instances': 200, 'yes-instances': 174, 'paths': 387, '(c) conflicting consistent pairs': 3361, '6.2 chains with contacts j=1': 3332, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 18738, '6.2 chains with contacts j=3': 125858, '6.3 max span E': 2, '6.3 max |S_x|': 2, 'bad pairs': 95, 'max bad pairs on a path': 11, '6.3 max span F': 1, '6.3 max |S_y| dual': 2, 'no-instances': 26, 'comparable pairs (anchored)': 286, 'comparable pairs (bad)': 95, '6.4 incomparable pairs': 125}
+  300 (1s) {'instances': 300, 'yes-instances': 252, 'paths': 542, '(c) conflicting consistent pairs': 4538, '6.2 chains with contacts j=1': 4661, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 26342, '6.2 chains with contacts j=3': 184222, '6.3 max span E': 2, '6.3 max |S_x|': 2, 'bad pairs': 203, 'max bad pairs on a path': 21, '6.3 max span F': 2, '6.3 max |S_y| dual': 3, 'no-instances': 48, 'comparable pairs (anchored)': 439, 'comparable pairs (bad)': 203, '6.4 incomparable pairs': 253}
+  400 (1s) {'instances': 400, 'yes-instances': 334, 'paths': 713, '(c) conflicting consistent pairs': 5979, '6.2 chains with contacts j=1': 6114, '6.2 max(|c-d| - j)': 1, '6.2 chains with contacts j=2': 33500, '6.2 chains with contacts j=3': 227312, '6.3 max span E': 2, '6.3 max |S_x|': 2, 'bad pairs': 251, 'max bad pairs on a path': 21, '6.3 max span F': 2, '6.3 max |S_y| dual': 3, 'no-instances': 66, 'comparable pairs (anchored)': 558, 'comparable pairs (bad)': 251, '6.4 incomparable pairs': 296}
+test_lemmas seed 204 count 400 m 6-14 cap 30 jmax 3 profile ties (1s)
+  (c) conflicting consistent pairs              5979
+  6.2 chains with contacts j=1                  6114
+  6.2 chains with contacts j=2                  33500
+  6.2 chains with contacts j=3                  227312
+  6.2 max(|c-d| - j)                            1
+  6.3 max span E                                2
+  6.3 max span F                                2
+  6.3 max |S_x|                                 2
+  6.3 max |S_y| dual                            3
+  6.4 incomparable pairs                        296
+  bad pairs                                     251
+  comparable pairs (anchored)                   558
+  comparable pairs (bad)                        251
+  instances                                     400
+  max bad pairs on a path                       21
+  no-instances                                  66
+  paths                                         713
+  yes-instances                                 334

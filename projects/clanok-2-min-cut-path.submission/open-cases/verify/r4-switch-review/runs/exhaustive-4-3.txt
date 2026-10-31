@@ -1,0 +1,4 @@
+exhaustive N=4 n=3
+counts {"inst": 2829056, "p2": 2170357, "yes": 2073700, "no": 96657, "paths": 4052958, "soundK": 20513728, "decide": 41358}
+proof stats {"maxB": 3, "maxZ": 1, "maxsingles": 2, "maxstorT": 3, "step0_T": 244828, "step1_T": 4039616, "step2_T": 3821472}
+failures 0

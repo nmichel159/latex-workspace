@@ -1,0 +1,4 @@
+test_run seed=51 tasks=1500 sat=False
+counts {"gen": 60000, "pre": 22302, "kept": 3801, "paths": 4120, "planted_step3": 656}
+proof stats {"hole_singles": 5, "holes": 213, "maxB": 10, "maxH": 2, "maxZ": 4, "max_disjoint": 2, "maxsingles": 2, "maxstorT": 7, "rows": 629, "rows_bwd": 317, "rows_fwd": 312, "step0_T": 6, "step1_T": 6657, "step2_T": 322, "step3": 659, "step3_T": 659, "swaps": 596}
+failures 0

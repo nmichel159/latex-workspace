@@ -1,0 +1,5 @@
+test_lb seed 2 count 150 m 6-9 cap 3 (0s)
+  cost=0               97
+  cost=1               16
+  no                   37
+  yes                  113

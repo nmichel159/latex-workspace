@@ -1,0 +1,6 @@
+﻿Z_2: switches 12; one centre, no flip: E; one centre, <= 1 flip: E
+Z^B_2: switches 12; one centre, no flip: E; one centre, <= 1 flip: E
+Z_3: switches 18; one centre, no flip: E; one centre, <= 1 flip: E
+Z^B_3: switches 18; one centre, no flip: E; one centre, <= 1 flip: E
+Z_4: switches 24; one centre, no flip: E; one centre, <= 1 flip: E
+Z^B_4: switches 24; one centre, no flip: E; one centre, <= 1 flip: E

@@ -1,0 +1,1 @@
+FINAL seed=13 count=400 {'HYB(1, 0, 1, 3)-yes': 166, 'HYB(1, 1, 2, 6)-yes': 166, 'HYB(2, 1, 4, 8)-yes': 166, 'NG2-yes': 166, 'THR-contraction-ok': 305, 'core-yes': 80, 'dead-ok': 166, 'no': 219, 'yes': 166}
