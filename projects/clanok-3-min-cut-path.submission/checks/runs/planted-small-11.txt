@@ -1,0 +1,47 @@
+base small seed 11 rounds 109 time 1201.4
+accepted {'D tieH': 468, 'D addT': 140, 'D addScore': 420, 'D wit': 416, 'D addS': 387, 'D tieA': 420, 'D attack': 117, 'D addTcore': 71, 'I edge': 301, 'I rmedge': 358, 'I relL': 321, 'I lift': 419, 'I lower': 392, 'I unrel': 128, 'I relH': 168, 'I rel': 127, 'I off': 54}
+rejected {'D attack': 786, 'D addT': 317, 'D addTcore': 337, 'I off (invalid)': 444, 'I relH (invalid)': 233, 'I rel (invalid)': 259, 'I unrel (invalid)': 180, 'I edge': 456, 'I off': 251, 'I relL (invalid)': 70, 'I edge (invalid)': 52, 'I rmedge': 32, 'D addS': 41, 'I unrel': 95, 'I rmedge (invalid)': 1}
+(star) pairs tested 83164
+(star) quadruples 0
+C_1 max 0
+R_0 has at least 5 classes 970
+R_0, C_0 nonempty 2302
+atoms(a) tested 425826
+atoms(b) tested 425390
+atoms(c) tested 118644
+base instances verified 109
+exit id C0 empty 1
+exit id R0 empty 436
+exit id few classes 576
+exit op C0 empty 424
+exit op R0 empty 14
+exit op Shape A 485
+exit op few classes 90
+exit oprev C0 empty 425
+exit oprev R0 empty 12
+exit oprev Shape A 485
+exit oprev few classes 91
+exit rev C0 empty 1
+exit rev R0 empty 437
+exit rev few classes 575
+final: C_0 empty, F* 898
+final: R_0 empty, E* 899
+final: R_0 has at most 4 classes 1332
+final: Shape A (C_1 empty) 970
+general: tested 190
+max m 247
+max q 153
+one(a) tested 291126
+one(a) walks built 120958
+one(b) tested 291126
+one(b) walks built 120994
+one(c) A max size 1 101242
+one(c) A max size 2 68172
+one(c) A max size 3 74318
+one(c) A tested 243732
+one(c) B tested 243732
+orientation: direct 1152
+orientation: reversed 1150
+walks 4052
+|A|, |B| >= 4 4052
+FAILURES: none

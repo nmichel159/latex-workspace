@@ -1,0 +1,32 @@
+mode random seed 1 graphs 6793 time 900.0
+Y sets 169186
+atoms(c) tested 3104
+comparable pairs with a common neighbour outside Q 53646
+cp brute force 9186
+down-sets 63008
+final: small A 2720
+final: small B 2720
+graphs in DC 5787
+graphs not in DC 993
+graphs with an open pair 4223
+incomparable pairs 64
+max m 9
+max q 3
+min sides with a path 820
+no pairs 44512
+one(a) tested 784
+one(a) walks built 784
+one(b) tested 784
+one(b) walks built 784
+one(c) A max size 1 5276
+one(c) A max size 2 772
+one(c) A tested 6048
+one(c) B tested 6048
+outside Q vertices 127882
+pairs 45192
+pairs with vertices outside Q 37920
+returned cuts checked 700
+sides(b) k = 1 136371
+walks 2720
+yes pairs 680
+FAILURES: none

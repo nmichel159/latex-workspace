@@ -1,0 +1,590 @@
+\section{From Pairs at Distance Two to a Zigzag Problem}
+\label{sec:zz-zigzag}
+
+An \emph{instance of the open case} is a triple $(G, u, v)$ with $G \in \DC$ and vertices $u, v$ of $G$ with $d(u, v) = 2$ and $c(u, v) \geq 3$.
+By \cref{prop:easy-pairs}(iv), we have $\cp(u, v) \in \{c(u, v), c(u, v) + 1\}$, so the question is whether $\cp(u, v) = c(u, v)$.
+\Cref{thm:zz-reduction} maps such an instance to an instance of a problem on a preordered set with the same answer, and \cref{lem:zz-valid} turns that problem into the search for a walk.
+
+\subsection{Preorders and the Problem ZZ}
+\label{sec:zz-preorders}
+
+\begin{definition}[Preorders]
+\label{def:zz-preorder}
+A \emph{preorder} $\leq$ on a finite set is a reflexive and transitive relation.
+We write $x < y$ if $x \leq y$ and not $y \leq x$.
+We write $x \sim y$, and call $x$ and $y$ \emph{tied}, if $x \leq y$ and $y \leq x$, and $[x]$ is the class of $x$ under this equivalence relation.
+We write $x \parallel y$, and call $x$ and $y$ \emph{incomparable}, if neither $x \leq y$ nor $y \leq x$.
+For a set $S$, we put $\dn S = \{x : x \leq y \text{ for some } y \in S\}$, $\upp S = \{x : x \geq y \text{ for some } y \in S\}$, $\dn x = \dn \{x\}$ and $\upp x = \upp \{x\}$.
+A \emph{down-set} $D$ satisfies $\dn D = D$, and an \emph{up-set} $D$ satisfies $\upp D = D$.
+Complements of down-sets are up-sets, intersections and unions of down-sets are down-sets, $\dn S$ is a down-set, and the complement of $\upp S$ is a down-set.
+If $x \leq y < z$ or $x < y \leq z$, then $x < z$.
+\end{definition}
+
+\begin{definition}[ZZ and P2]
+\label{def:zz-zz}
+An instance of \emph{ZZ} is a tuple $(Q, \leq, R, u, v)$ that consists of a finite set $Q$ with a preorder $\leq$ such that $u \leq x \leq v$ for every $x \in Q$ and $u < v$, and a set $R$ of pairs $\{a, b\} \subseteq Q$ with $a < b$.
+The pairs of $R$ are its \emph{edges}.
+We write $ab$ for an edge with $a < b$, and we call $a$ its \emph{lower end} and $b$ its \emph{upper end}.
+For a down-set $D$ of $Q$ with $u \in D$ and $v \notin D$, the graph $G_D$ on $Q$ has as its edges the edges of $R$ with exactly one end in $D$.
+The instance is a \emph{yes-instance} if $u$ and $v$ are connected in $G_D$ for some such $D$.
+Two elements $x$ and $y$ \emph{meet below} if some element $z$ satisfies $zx \in R$ and $zy \in R$, and they \emph{meet above} if some element $z$ satisfies $xz \in R$ and $yz \in R$.
+The instance satisfies \emph{P2} if every two incomparable elements meet below or meet above.
+\end{definition}
+
+A path of $G_D$ alternates between $D$ and $Q \setminus D$, which gives ZZ its name (zigzag).
+
+\begin{definition}[Valid walks]
+\label{def:zz-valid}
+Let $(Q, \leq, R, u, v)$ be an instance of ZZ.
+A \emph{walk} is a sequence $P = x_0, \dots, x_q$ of elements with the ends $u$ and $v$, in either order, whose positions $0, \dots, q$ are labeled alternately \emph{low} and \emph{high}, such that the end $u$ is low, the end $v$ is high, and for every $i < q$, the pair of $x_i$ and $x_{i+1}$ is an edge of $R$ whose lower end is at the low position.
+Elements may repeat.
+The elements at low positions are the \emph{lows} of $P$, the elements at high positions are its \emph{highs}, and $q$ is its \emph{length}.
+The walk is \emph{valid} if no high is $\leq$ a low.
+For a valid walk, we put $U_P = \upp \{\text{highs of } P\}$ and $L_P = \dn \{\text{lows of } P\}$.
+A valid walk is \emph{shortest} if no valid walk has a smaller length.
+\end{definition}
+
+The reversal $x_q, \dots, x_0$ of a valid walk, with the same labels, is a valid walk of the same length.
+
+\begin{lemma}[Valid walks and yes-instances]
+\label{lem:zz-valid}
+Let $(Q, \leq, R, u, v)$ be an instance of ZZ.
+(a) If $P$ is a valid walk, then $U_P \cap L_P = \emptyset$, and every down-set $D$ with $L_P \subseteq D \subseteq Q \setminus U_P$ satisfies $u \in D$ and $v \notin D$, and $u$ and $v$ are connected in $G_D$.
+(b) If $u$ and $v$ are connected in $G_D$ for a down-set $D$ with $u \in D$ and $v \notin D$, then a valid walk exists.
+(c) The instance is a yes-instance if and only if a valid walk exists.
+(d) The elements at distinct positions of a shortest valid walk are distinct.
+\end{lemma}
+
+\begin{proof}
+(a) An element of $U_P \cap L_P$ would give $h \leq x \leq \ell$ for a high $h$ and a low $\ell$, against validity.
+Let $D$ be as stated.
+The element $u$ is a low and $v$ is a high, so $u \in D$ and $v \notin D$.
+Every edge of $P$ has its lower end at a low position, hence in $D$, and its upper end at a high position, hence outside $D$.
+So $P$ is a walk of $G_D$ between $u$ and $v$.
+
+(b) Take a $u$--$v$ path of $G_D$.
+An edge $ab$ of $G_D$ has exactly one end in $D$, and since $a < b$ and $D$ is a down-set, this end is $a$.
+So the vertices of the path alternate between $D$ and $Q \setminus D$.
+Label those in $D$ low and the others high, which gives a walk.
+If a high $h$ were $\leq$ a low $\ell$, then $\ell \in D$ would give $h \in D$, so the walk is valid.
+
+(c) This follows from (b) and from (a) with $D = L_P$.
+
+(d) Let $x_i = x_j$ with $i < j$.
+By validity, no element is both a high and a low, so the positions $i$ and $j$ have the same label.
+Removing $x_{i+1}, \dots, x_j$ leaves a valid walk of smaller length.
+\end{proof}
+
+\subsection{Reduction of the Open Case to ZZ with P2}
+\label{sec:zz-reduction}
+
+Throughout this subsection, $(G, u, v)$ is an instance of the open case with $n$ vertices, and $c = c(u, v)$.
+A \emph{minimum side} is a set $A \subseteq V$ with $u \in A$, $v \notin A$ and $|\delta(A)| = c$.
+By \cref{lem:minimum-cuts}, the minimum $u$--$v$ cuts are exactly the sets $\delta(A)$ for the minimum sides $A$.
+
+\begin{lemma}[Minimum sides]
+\label{lem:zz-sides}
+(a) If $A$ and $B$ are minimum sides, then $A \cap B$ and $A \cup B$ are minimum sides, and no edge of $G$ joins $A \setminus B$ and $B \setminus A$.
+(b) Let $A$ be a minimum side, let $Y \subseteq V \setminus \{u, v\}$ with $|\delta(Y)| \leq 2$, and let $k$ be the number of edges of $\delta(A)$ with an end in $Y$.
+Then $k \leq 1$.
+If $k = 1$, then $A \setminus Y$ and $A \cup Y$ are minimum sides.
+\end{lemma}
+
+\begin{proof}
+(a) The sets $A \cap B$ and $A \cup B$ contain $u$ and not $v$, so each of their boundaries has at least $c$ edges.
+By \cref{lem:uncrossing}, the two boundaries have $2c - 2m(A, B)$ edges together, which forces $m(A, B) = 0$ and two minimum sides.
+
+(b) An edge with no end in $Y$ lies in $\delta(A \setminus Y)$ if and only if it lies in $\delta(A)$, and the same holds for $\delta(A \cup Y)$.
+An edge with both ends in $Y$ lies in neither set.
+An edge of $\delta(Y)$ whose end outside $Y$ is $y$ lies in $\delta(A \setminus Y)$ if $y \in A$ and in $\delta(A \cup Y)$ if $y \notin A$.
+Hence $|\delta(A \setminus Y)| + |\delta(A \cup Y)| = 2(c - k) + |\delta(Y)| \leq 2c - 2k + 2$.
+The sets $A \setminus Y$ and $A \cup Y$ contain $u$ and not $v$, so the left-hand side is at least $2c$.
+This gives $k \leq 1$, and for $k = 1$ it forces $|\delta(A \setminus Y)| = |\delta(A \cup Y)| = c$.
+\end{proof}
+
+We put
+\[
+Q = \{u\} \cup \{x \in V \setminus \{u\} : c(u, x) \geq 3\},
+\]
+so $v \in Q$.
+
+\begin{lemma}[The set $Q$]
+\label{lem:zz-q}
+(a) Every vertex $x \notin Q$ lies in a set $Y \subseteq V \setminus Q$ with $|\delta(Y)| \leq 2$.
+(b) Every two distinct $x, y \in Q$ satisfy $c(x, y) \geq 3$ and $d(x, y) \leq 2$.
+(c) If $\delta(A)$ contains a $u$--$v$ path for a minimum side $A$, then all vertices of this path lie in $Q$.
+\end{lemma}
+
+\begin{proof}
+(a) We have $x \neq u$ and $c(x, u) \leq 2$, so by \cref{lem:minimum-cuts} there is a set $Y$ with $x \in Y$, $u \notin Y$ and $|\delta(Y)| \leq 2$.
+A vertex $y \in Y \cap Q$ would satisfy $y \neq u$, and $\delta(Y)$ would be a $u$--$y$ cut with at most two edges.
+
+(b) If $x = u$ or $y = u$, then $c(x, y) \geq 3$ by the definition of $Q$.
+Otherwise $c(x, u) \geq 3$ and $c(u, y) \geq 3$ give $c(x, y) \geq 3$ by \cref{prop:class}.
+As $G \in \DC$, we have $d(x, y) \leq 2$.
+
+(c) Suppose that the path has a vertex $x \notin Q$, and let $Y$ be the set of (a), which contains neither $u$ nor $v$.
+The path enters $Y$ by one edge and leaves it by a later edge, and these are two edges of $\delta(A)$ with an end in $Y$, against \cref{lem:zz-sides}(b).
+\end{proof}
+
+\begin{definition}[The ZZ instance of $(G, u, v)$]
+\label{def:zz-instance}
+For $x, y \in Q$, let $x \leq y$ if every minimum side that contains $y$ contains $x$.
+Let $R$ be the set of the edges of $G$ with both ends in $Q$ whose ends are not tied.
+The \emph{ZZ instance of} $(G, u, v)$ is $(Q, \leq, R, u, v)$.
+\end{definition}
+
+\begin{lemma}[Properties of the ZZ instance]
+\label{lem:zz-instance}
+(a) The relation $\leq$ is a preorder on $Q$ with $u \leq x \leq v$ for every $x \in Q$, and $u < v$.
+Two incomparable elements are not adjacent in $G$, so every edge in $R$ joins two strictly comparable elements, and $(Q, \leq, R, u, v)$ is an instance of ZZ.
+(b) For every minimum side $A$, the set $A \cap Q$ is a down-set of $(Q, \leq)$ that contains $u$ and not $v$.
+Every such down-set is $A \cap Q$ for some minimum side $A$.
+(c) The instance satisfies P2.
+\end{lemma}
+
+\begin{proof}
+(a) Reflexivity and transitivity follow from the definition.
+Every minimum side contains $u$ and none contains $v$, so $u \leq x \leq v$.
+A minimum side exists, so $v \leq u$ fails.
+If $x \parallel y$, some minimum side $A_1$ contains $x$ and not $y$, and some minimum side $A_2$ contains $y$ and not $x$.
+By \cref{lem:zz-sides}(a), no edge joins $x \in A_1 \setminus A_2$ and $y \in A_2 \setminus A_1$.
+
+(b) The first statement follows from the definition of $\leq$.
+Let $D$ be a down-set with $u \in D$ and $v \notin D$, and let $y \in D$.
+Some minimum side contains $y$, since otherwise $v \leq y$ holds vacuously and $v \in D$.
+By \cref{lem:zz-sides}(a), the intersection $S_y$ of all minimum sides that contain $y$ is a minimum side, and by the definition of $\leq$, we have $S_y \cap Q = \dn y \subseteq D$.
+Since $u \in D$, the union $A$ of the sets $S_y$ with $y \in D$ is a minimum side by \cref{lem:zz-sides}(a), and $A \cap Q = D$.
+
+(c) Let $x \parallel y$.
+By (a), the elements $x$ and $y$ are not adjacent, so by \cref{lem:zz-q}(b), they have a common neighbor $z$ in $G$.
+We first show that $z \in Q$.
+Suppose not, and let $Y$ be the set of \cref{lem:zz-q}(a) for $z$.
+Since $x, y \notin Y$, the edges $xz$ and $yz$ lie in $\delta(Y)$.
+Let $A_1$ and $A_2$ be as in the proof of (a).
+For $i \in \{1, 2\}$, one of the edges $xz$ and $yz$ lies in $\delta(A_i)$, because $A_i$ contains exactly one of $x$ and $y$.
+By \cref{lem:zz-sides}(b), $A_1 \setminus Y$ and $A_2 \cup Y$ are minimum sides.
+The edge $xz$ joins $(A_1 \setminus Y) \setminus (A_2 \cup Y)$ and $(A_2 \cup Y) \setminus (A_1 \setminus Y)$, against \cref{lem:zz-sides}(a).
+
+So $z \in Q$, and by (a), $z$ is comparable with $x$ and with $y$.
+If $x \leq z \leq y$ or $y \leq z \leq x$, then $x$ and $y$ would be comparable.
+If $z \sim x$, then the comparability of $z$ and $y$ would make $x$ and $y$ comparable, so $z$ is not tied with $x$, and likewise not with $y$.
+Hence $z < x$ and $z < y$, or $z > x$ and $z > y$, and $xz$ and $yz$ are edges of $R$.
+\end{proof}
+
+\begin{theorem}[Reduction]
+\label{thm:zz-reduction}
+Let $(G, u, v)$ be an instance of the open case with $n$ vertices.
+Its ZZ instance $(Q, \leq, R, u, v)$ satisfies P2, has $|Q| \leq n$ and is computable in time polynomial in $n$.
+We have $\cp(u, v) = c(u, v)$ if and only if it is a yes-instance of ZZ.
+For a down-set $D$ with $u \in D$ and $v \notin D$ such that $u$ and $v$ are connected in $G_D$, one maximum-flow computation gives a minimum side $A$ with $A \cap Q = D$, and $\delta(A)$ is a minimum cut-path between $u$ and $v$.
+\end{theorem}
+
+\begin{proof}
+The first statement on the instance is \cref{lem:zz-instance}(c), and $Q \subseteq V$.
+
+\emph{Answer.}
+Let $A$ be a minimum side such that $\delta(A)$ contains a $u$--$v$ path $\pi$.
+By \cref{lem:zz-q}(c), all vertices of $\pi$ lie in $Q$.
+By \cref{lem:zz-instance}(b), $D = A \cap Q$ is a down-set with $u \in D$ and $v \notin D$.
+Every edge of $\pi$ has exactly one end in $D$, so its ends are not tied, because a down-set contains the whole class of each of its elements.
+So $\pi$ is a path of $G_D$.
+
+Conversely, let $u$ and $v$ be connected in $G_D$, and let $A$ be a minimum side with $A \cap Q = D$, which exists by \cref{lem:zz-instance}(b).
+Every edge of a $u$--$v$ path of $G_D$ has both ends in $Q$ and exactly one end in $D$, hence exactly one end in $A$.
+So $\delta(A)$ contains this path, and it is a cut-path with $c$ edges, which is a minimum cut-path by \cref{lem:basic-bounds}.
+The equivalence is now \cref{prop:open-pairs}.
+
+\emph{Time.}
+The set $Q$ takes one test $c(u, x) \geq 3$ per vertex, each by at most three augmenting-path searches, and $c$ takes one maximum-flow computation.
+For $x \neq y$, we have $x \leq y$ if $x = u$ or $y = v$.
+Otherwise $x \leq y$ holds if and only if no minimum side contains $y$ but not $x$, that is, if and only if the least $|\delta(S)|$ over all sets $S$ with $\{u, y\} \subseteq S \subseteq V \setminus \{x, v\}$ exceeds $c$.
+This is one maximum-flow computation between $\{u, y\}$ and $\{x, v\}$.
+For a down-set $D$, a set $S$ with $D \subseteq S \subseteq V \setminus (Q \setminus D)$ and least $|\delta(S)|$ is a minimum side with $S \cap Q = D$ by \cref{lem:zz-instance}(b), and it is found by one maximum-flow computation.
+\end{proof}
+
+\section{A Polynomial Algorithm for Pairs at Distance Two}
+\label{sec:pa-polynomial}
+
+By \cref{lem:zz-valid}, a yes-instance of ZZ has a shortest valid walk, and it suffices to find a down-set between its lows and its highs.
+\Cref{thm:pa-formulas} shows that, under P2, a down-set of this kind is described by a formula over at most 31 elements.
+Enumerating these formulas gives the algorithm of \cref{thm:pa-open-case}.
+
+Throughout this section, $(Q, \leq, R, u, v)$ is an instance of ZZ with P2.
+We write $\MB(x)$ and $\MA(x)$ for the sets of the elements that meet $x$ below and above, respectively.
+The \emph{reversed instance} $(Q, \geq, R, v, u)$ has the same pairs in $R$, with lower and upper ends exchanged, and it is an instance of ZZ with P2.
+A valid walk of the original instance, with the labels low and high exchanged, is a valid walk of the reversed instance of the same length.
+This exchanges $\dn$ and $\upp$, $\MB$ and $\MA$, and $L_P$ and $U_P$, and we call the resulting statements \emph{dual}.
+
+\subsection{Detours}
+\label{sec:pa-detours}
+
+Until the end of the proof of \cref{thm:pa-formulas}, $P = x_0, \dots, x_q$ is a shortest valid walk.
+By \cref{lem:zz-valid}(d), an element on $P$ has one position, which we denote by $\pos(x)$.
+The positions of the highs have one parity and the positions of the lows have the other.
+Let $A_P$ be the set of the highs with no high strictly below, and let $B_P$ be the set of the lows with no low strictly above.
+For $w \in A_P$, let $\Pos[w]$ be the set of the positions of the highs tied with $w$, and for $w \in B_P$, let $\Pos[w]$ be the set of the positions of the lows tied with $w$.
+
+\begin{lemma}[Basic facts]
+\label{lem:pa-basic}
+(a) We have $U_P = \upp A_P$ and $L_P = \dn B_P$.
+So a down-set contains $L_P$ if and only if it contains $B_P$, and it misses $U_P$ if and only if it misses $A_P$.
+(b) A high $e \leq a$ with $a \in A_P$ is tied with $a$ and lies in $A_P$.
+A low $f \geq b$ with $b \in B_P$ is tied with $b$ and lies in $B_P$.
+\end{lemma}
+
+\begin{proof}
+(a) As $Q$ is finite, every high lies above a minimal high, and every low lies below a maximal low.
+(b) The relation $e < a$ is excluded by the definition of $A_P$, and a high strictly below $e$ would be strictly below $a$.
+The second statement is dual.
+\end{proof}
+
+\begin{lemma}[One detour]
+\label{lem:pa-one}
+(a) Let $x \in Q$, and let $a, a' \in A_P \cap \MB(x)$ with $p = \pos(a) < \pos(a') = p'$.
+If no low at a position outside $(p, p')$ is $\geq x$, then $p' - p \leq 4$.
+(b) Let $y \in Q$, and let $b, b' \in B_P \cap \MA(y)$ with $p = \pos(b) < \pos(b') = p'$.
+If no high at a position outside $(p, p')$ is $\leq y$, then $p' - p \leq 4$.
+(c) If $x \notin L_P$, then any two elements of $A_P \cap \MB(x)$ have positions at distance at most four, so $|A_P \cap \MB(x)| \leq 3$.
+If $y \notin U_P$, the same holds for $B_P \cap \MA(y)$.
+\end{lemma}
+
+\begin{proof}
+(a) Let $z$ be a common lower neighbor of $a$ and $x$, and let $z'$ be a common lower neighbor of $a'$ and $x$.
+Consider the walk $x_0, \dots, x_p, z, x, z', x_{p'}, \dots, x_q$ of length $p + 4 + q - p'$, in which $z$ and $z'$ are low, $x$ is high, and the other elements keep their labels.
+It is valid.
+Indeed, a kept high $e \leq z$ would give $e < a$ because $z < a$, against $a \in A_P$, and the same holds for $z'$ and $a'$.
+Also $x \not\leq z$ and $x \not\leq z'$, because $z, z' < x$, and $x$ is not $\leq$ a kept low by the hypothesis.
+As $P$ is shortest, $p + 4 + q - p' \geq q$.
+
+(b) This is the dual of (a).
+
+(c) If $x \notin L_P$, then no low is $\geq x$, so (a) applies.
+The positions of the elements of $A_P$ have the same parity, so at most three of them lie at pairwise distance at most four.
+The second statement is dual.
+\end{proof}
+
+\begin{lemma}[Two detours]
+\label{lem:pa-two}
+Let $a \in A_P$ and $h \in B_P$ with $h \not\leq a$, and let $Z = \Pos[a] \cup \Pos[h]$.
+Let $p_1 < p_2 < p_3 < p_4$ be positions such that the elements at $p_1$ and at one of $p_2, p_3$ lie in $A_P \cap \MB(h)$, the elements at $p_4$ and at the other of $p_2, p_3$ lie in $B_P \cap \MA(a)$, and $Z \subseteq (p_1, p_2) \cup (p_3, p_4)$.
+Then $(p_2 - p_1) + (p_4 - p_3) \leq 8$.
+\end{lemma}
+
+\begin{proof}
+Let $a_1, a_2 \in A_P \cap \MB(h)$ be the elements at $p_1$ and at the other position, and let $z_i$ be a common lower neighbor of $a_i$ and $h$.
+Let $b_1, b_2 \in B_P \cap \MA(a)$ be the elements at the remaining position and at $p_4$, and let $w_i$ be a common upper neighbor of $b_i$ and $a$.
+Let $W$ be the sequence $x_{p_2}, \dots, x_{p_3}$ if $a_2$ is at $p_2$, and the sequence $x_{p_3}, \dots, x_{p_2}$ if $a_2$ is at $p_3$.
+Consider the walk
+\[
+x_0, \dots, x_{p_1}, z_1, h, z_2, W, w_1, a, w_2, x_{p_4}, \dots, x_q,
+\]
+in which $z_1$, $z_2$ and $a$ are low, $h$, $w_1$ and $w_2$ are high, and the other elements, which we call kept, keep their labels.
+Its length is $p_1 + 4 + (p_3 - p_2) + 4 + (q - p_4)$, and no kept element has its position in $Z$.
+
+We show that the walk is valid.
+Let $e$ be a kept high and $f$ a kept low.
+(1) We have $e \not\leq f$, as $P$ is valid.
+(2) If $e \leq a$, then $\pos(e) \in \Pos[a]$ by \cref{lem:pa-basic}(b), which is not kept.
+(3) If $e \leq z_i$, then $e < a_i$, against $a_i \in A_P$.
+(4) If $h \leq f$, then $\pos(f) \in \Pos[h]$ by \cref{lem:pa-basic}(b), which is not kept.
+(5) We have $h \not\leq a$ by hypothesis.
+(6) We have $h \not\leq z_i$, because $z_i < h$.
+(7) If $w_i \leq f$, then $b_i < f$, against $b_i \in B_P$.
+(8) We have $w_i \not\leq a$, because $a < w_i$.
+(9) If $w_i \leq z_j$, then $b_i < w_i \leq z_j < h$, so $b_i < h$, and $h$ is a low, against $b_i \in B_P$.
+
+As $P$ is shortest, the length of the walk is at least $q$, which is the claim.
+\end{proof}
+
+\subsection{Atoms and Formulas}
+\label{sec:pa-atoms}
+
+\begin{definition}[Atoms and formulas]
+\label{def:pa-atoms}
+For elements $x$ and $x'$, the \emph{atoms} are the sets
+\begin{align*}
+\FR(x, x') &= \dn \bigl(Q \setminus (\MA(x) \cup \MA(x') \cup \upp x \cup \upp x')\bigr),\\
+\ER(x, x') &= Q \setminus \upp \bigl(Q \setminus (\MB(x) \cup \MB(x') \cup \dn x \cup \dn x')\bigr),\\
+\EP(x) &= Q \setminus \upp \bigl(Q \setminus (\MB(x) \cup (\dn x \setminus [x]))\bigr).
+\end{align*}
+For elements $x_1, \dots, x_8$ and sets $S, S' \subseteq Q$, an \emph{F-formula} is the set
+\[
+\FR(x_1, x_2) \cup \FR(x_3, x_4) \cup \FR(x_5, x_6) \cup \dn S \cup \bigl((\EP(x_5) \cup \EP(x_6)) \setminus \upp S'\bigr)
+\]
+with $|S| \leq 19$ and $|S'| \leq 6$, and an \emph{E-formula} is the set
+\[
+\bigl(\ER(x_1, x_2) \cap \ER(x_3, x_4) \cap \ER(x_5, x_6) \cap \ER(x_7, x_8)\bigr) \setminus \upp S
+\]
+with $|S| \leq 16$.
+In both, any of the terms with two elements may be omitted, the last term of an F-formula is omitted together with $\FR(x_5, x_6)$, and the empty intersection is $Q$.
+\end{definition}
+
+Every atom and every formula is a down-set, because $\dn S$ and the complement of $\upp S$ are down-sets.
+An F-formula is built from at most $6 + 19 + 6 = 31$ elements and an E-formula from at most $8 + 16 = 24$ elements.
+
+For $a \in A_P$, we put $C(a) = B_P \cap \MA(a)$ and $\win(a) = A_P \cap \MB(a)$, and for $b \in B_P$, we put $C'(b) = A_P \cap \MB(b)$.
+
+\begin{lemma}[Atoms]
+\label{lem:pa-atoms}
+(a) If $a_1, a_2 \in A_P$ and $|\pos(a_1) - \pos(a_2)| \geq 6$, then $\FR(a_1, a_2)$ misses $U_P$ and contains $B_P \setminus (C(a_1) \cup C(a_2))$.
+(b) If $b_1, b_2 \in B_P$ and $|\pos(b_1) - \pos(b_2)| \geq 6$, then $\ER(b_1, b_2)$ contains $L_P$ and misses $A_P \setminus (C'(b_1) \cup C'(b_2))$.
+(c) For $a \in A_P$, the set $\EP(a)$ contains every $b \in B_P$ with $b < a$ and misses $A_P \setminus \win(a)$, and $|\win(a)| \leq 3$.
+\end{lemma}
+
+\begin{proof}
+(a) Let $\Gamma = Q \setminus (\MA(a_1) \cup \MA(a_2) \cup \upp a_1 \cup \upp a_2)$, so that $\FR(a_1, a_2) = \dn \Gamma$.
+Suppose that $x \in \Gamma \cap U_P$, and let $i \in \{1, 2\}$.
+The relation $a_i \leq x$ fails by the choice of $\Gamma$.
+The relation $x < a_i$ is impossible, because a high $e \leq x$ would satisfy $e < a_i$, against $a_i \in A_P$.
+So $x \parallel a_i$, and by P2 and the choice of $\Gamma$, the elements $x$ and $a_i$ meet below.
+Thus $a_1, a_2 \in A_P \cap \MB(x)$, and $x \notin L_P$, because $x \in U_P$.
+This contradicts \cref{lem:pa-one}(c).
+Hence $\Gamma \cap U_P = \emptyset$, and $\dn \Gamma \cap U_P = \emptyset$ because $U_P$ is an up-set.
+Let $b \in B_P \setminus (C(a_1) \cup C(a_2))$.
+Then $b \notin \MA(a_i)$, and $b \notin \upp a_i$ because $L_P \cap U_P = \emptyset$.
+So $b \in \Gamma$.
+
+(b) The set $\FR(b_1, b_2)$ of the reversed instance is the complement of $\ER(b_1, b_2)$, so this is the dual of (a).
+
+(c) Let $\Gamma = Q \setminus (\MB(a) \cup (\dn a \setminus [a]))$, so that $\EP(a) = Q \setminus \upp \Gamma$.
+Let $b \in B_P$ with $b < a$.
+Then $\dn b \subseteq \dn a \setminus [a]$, so $\dn b \cap \Gamma = \emptyset$, that is, $b \notin \upp \Gamma$.
+Let $a' \in A_P \setminus \win(a)$.
+Then $a' \notin \MB(a)$, and $a' < a$ is impossible, so $a' \in \Gamma$ and $a' \notin \EP(a)$.
+Finally, $a \in U_P$, so $a \notin L_P$ and $|\win(a)| \leq 3$ by \cref{lem:pa-one}(c).
+\end{proof}
+
+\subsection{Bounded Formulas}
+\label{sec:pa-formulas}
+
+\begin{theorem}[Bounded formulas]
+\label{thm:pa-formulas}
+Let $P$ be a shortest valid walk of an instance of ZZ with P2.
+Then some F-formula or E-formula has a value $D$ with $L_P \subseteq D \subseteq Q \setminus U_P$.
+\end{theorem}
+
+\begin{proof}
+Thresholds on the contacts confine all elements not handled by a bounded formula to two ranges of positions.
+The detour lemmas fix the relative place of these ranges and give a separation property $(\star)$, and two further far pairs of $B_P$ finish the proof.
+By \cref{lem:pa-basic}(a), it suffices to find a down-set in a formula that contains $B_P$ and misses $A_P$.
+For all $a \in A_P$ and $b \in B_P$, the sets $\dn b \subseteq L_P$ and $\upp a \subseteq U_P$ are disjoint, and in particular $\dn b$ misses $U_P$ and $Q \setminus \upp a$ contains $L_P$.
+We call this fact $(\dagger)$.
+
+\emph{Small sets.}
+If $|A_P| \leq 3$, then $Q \setminus \upp A_P = Q \setminus U_P$ is an E-formula as required.
+If $|B_P| \leq 3$, then $\dn B_P = L_P$ is an F-formula as required.
+From now on, $|A_P|, |B_P| \geq 4$.
+
+\emph{Stage 0: thresholds.}
+Any four elements of $A_P$ or of $B_P$ have four distinct positions of the same parity, so the first and the last of them by position are at distance at least six.
+For $a \in A_P$, let $S(a) = \{\pos(b) : b \in C(a)\}$, let $\ell(a) = \min S(a)$ and let $r(a) = \max S(a)$, with $\ell(a) = +\infty$ and $r(a) = -\infty$ if $S(a) = \emptyset$.
+For $b \in B_P$, let $T(b) = \{\pos(a) : a \in C'(b)\}$, let $\sigma(b) = \min T(b)$ and let $\tau(b) = \max T(b)$, with the same convention.
+
+Order $A_P$ by non-increasing $\ell$, breaking ties arbitrarily.
+Let $\ell^*$ be the value of $\ell$ at the fourth element, and let $a^\ell_1$ and $a^\ell_2$ be the first and the last by position among the first four elements.
+All positions in $S(a^\ell_1) \cup S(a^\ell_2)$ are at least $\ell^*$, so by \cref{lem:pa-atoms}(a) the set $\FR_\ell = \FR(a^\ell_1, a^\ell_2)$ misses $U_P$ and contains every $b \in B_P$ with $\pos(b) < \ell^*$.
+Order $A_P$ by non-decreasing $r$, and define $r^*$, $a^r_1$ and $a^r_2$ in the same way.
+Then $\FR_r = \FR(a^r_1, a^r_2)$ misses $U_P$ and contains every $b \in B_P$ with $\pos(b) > r^*$.
+Order $B_P$ by non-increasing $\sigma$, and define $\sigma^*$, $b^\sigma_1$ and $b^\sigma_2$ in the same way.
+By \cref{lem:pa-atoms}(b), the set $\ER_\sigma = \ER(b^\sigma_1, b^\sigma_2)$ contains $L_P$ and misses every $a \in A_P$ with $\pos(a) < \sigma^*$.
+Order $B_P$ by non-decreasing $\tau$, and define $\tau^*$, $b^\tau_1$ and $b^\tau_2$ in the same way.
+Then $\ER_\tau = \ER(b^\tau_1, b^\tau_2)$ contains $L_P$ and misses every $a \in A_P$ with $\pos(a) > \tau^*$.
+
+Let $E_0$ consist of the first three elements in the order by $\ell$, the first three in the order by $r$, and all $a \in A_P$ with $\pos(a) \in \{\sigma^*, \sigma^* + 2, \sigma^* + 4, \tau^* - 4, \tau^* - 2, \tau^*\}$, so $|E_0| \leq 12$.
+Let $H_0$ consist of the first three elements in the order by $\sigma$, the first three in the order by $\tau$, and all $b \in B_P$ with $\pos(b) \in \{\ell^*, \ell^* + 2, \ell^* + 4, r^* - 4, r^* - 2, r^*\}$, so $|H_0| \leq 12$.
+Let
+\[
+F^* = \FR_\ell \cup \FR_r \cup \dn H_0 \quad\text{and}\quad E^* = (\ER_\sigma \cap \ER_\tau) \setminus \upp E_0.
+\]
+By $(\dagger)$, the down-set $F^*$ misses $U_P$ and the down-set $E^*$ contains $L_P$.
+Let $R_0 = A_P \cap E^*$ and $C_0 = B_P \setminus F^*$.
+If $C_0 = \emptyset$, then $F^*$ is an F-formula as required, and if $R_0 = \emptyset$, then $E^*$ is an E-formula as required.
+
+From now on, $R_0 \neq \emptyset$ and $C_0 \neq \emptyset$.
+If $\ell^* = +\infty$ or $r^* = -\infty$, then every $b \in B_P$ lies in $\FR_\ell$ or in $\FR_r$, against $C_0 \neq \emptyset$.
+If $\sigma^* = +\infty$ or $\tau^* = -\infty$, then every $a \in A_P$ lies outside $\ER_\sigma$ or outside $\ER_\tau$, against $R_0 \neq \emptyset$.
+So $\ell^*$, $r^*$, $\sigma^*$ and $\tau^*$ are positions.
+
+Since $E^*$ is a down-set, the highs tied with an element $a \in R_0$ lie in $E^*$ and, by \cref{lem:pa-basic}(b), in $A_P$, so they lie in $R_0$.
+They form the \emph{class} of $a$ in $R_0$, with the position set $\Pos[a]$.
+Since $F^*$ is a down-set, the lows tied with an element $h \in C_0$ lie outside $F^*$ and in $B_P$, so they lie in $C_0$.
+They form the \emph{class} of $h$ in $C_0$, with the position set $\Pos[h]$.
+
+For $a \in R_0$ and $h \in C_0$, we have
+\begin{align}
+\label{eq:pa-ranges-r}
+\Pos[a] &\subseteq [\sigma^* + 6, \tau^* - 6], & \ell(a) &\leq \ell^*, & r(a) &\geq r^*,\\
+\label{eq:pa-ranges-c}
+\Pos[h] &\subseteq [\ell^* + 6, r^* - 6], & \sigma(h) &\leq \sigma^*, & \tau(h) &\geq \tau^*.
+\end{align}
+Indeed, an element $a \in R_0$ lies in $\ER_\sigma \cap \ER_\tau$, so $\sigma^* \leq \pos(a) \leq \tau^*$, and $a \notin E_0$.
+The position $\pos(a)$ has the parity of $\sigma^*$ and $\tau^*$, so $\sigma^* + 6 \leq \pos(a) \leq \tau^* - 6$.
+This holds for every element of the class of $a$.
+As $a$ is not among the first three elements of the orders by $\ell$ and by $r$, we have $\ell(a) \leq \ell^*$ and $r(a) \geq r^*$.
+The argument for $h$ is the same, since $h$ lies outside $\FR_\ell \cup \FR_r$ and $h \notin H_0$.
+In particular, $\tau^* - \sigma^* \geq 12$ and $r^* - \ell^* \geq 12$, and the values $\ell(a)$, $r(a)$, $\sigma(h)$ and $\tau(h)$ are finite.
+
+\emph{Orientation.}
+The thresholds $\sigma^*$ and $\tau^*$ are positions of highs and the thresholds $\ell^*$ and $r^*$ are positions of lows, so $\sigma^* \neq \ell^*$ and $\tau^* \neq r^*$.
+This leaves four cases.
+
+\emph{Case $\sigma^* < \ell^*$ and $r^* < \tau^*$.}
+Let $h \in C_0$.
+By~\eqref{eq:pa-ranges-c}, $\Pos[h] \subseteq (\sigma^*, \tau^*) \subseteq (\sigma(h), \tau(h))$, and $\tau(h) - \sigma(h) \geq 12$.
+The elements of $A_P$ at the positions $\sigma(h)$ and $\tau(h)$ lie in $\MB(h)$, and a low $\geq h$ has its position in $\Pos[h]$ by \cref{lem:pa-basic}(b).
+This contradicts \cref{lem:pa-one}(a), so this case does not occur.
+
+\emph{Case $\ell^* < \sigma^*$ and $\tau^* < r^*$.}
+Let $a \in R_0$.
+By~\eqref{eq:pa-ranges-r}, $\Pos[a] \subseteq (\ell^*, r^*) \subseteq (\ell(a), r(a))$, and $r(a) - \ell(a) \geq 12$.
+The elements of $B_P$ at the positions $\ell(a)$ and $r(a)$ lie in $\MA(a)$, and a high $\leq a$ has its position in $\Pos[a]$ by \cref{lem:pa-basic}(b).
+This contradicts \cref{lem:pa-one}(b), so this case does not occur.
+
+\emph{Case $\ell^* < \sigma^*$ and $r^* < \tau^*$.}
+We replace $P$ by its reversal, which is a shortest valid walk with the same sets $U_P$, $L_P$, $A_P$ and $B_P$, and every position $p$ becomes $q - p$.
+The orders by $\ell$ and by $r$ exchange, and so do the orders by $\sigma$ and by $\tau$.
+With the corresponding tie-breaks, the sets $E_0$, $H_0$, $F^*$, $E^*$, $R_0$ and $C_0$ stay the same, and $(\ell^*, r^*, \sigma^*, \tau^*)$ becomes $(q - r^*, q - \ell^*, q - \tau^*, q - \sigma^*)$.
+The new values satisfy $\sigma^* < \ell^*$ and $\tau^* < r^*$.
+
+\emph{Case $\sigma^* < \ell^*$ and $\tau^* < r^*$.}
+This is the remaining case, and we assume it from now on.
+
+\emph{Property $(\star)$.}
+Let $a \in R_0$ and $h \in C_0$ with $h \not\leq a$, let $\alpha$ be the position of an element of $R_0 \cap C'(h)$, and let $\beta$ be the position of an element of $C_0 \cap C(a)$.
+Then the closed interval between $\alpha$ and $\beta$ contains an element of $\Pos[a] \cup \Pos[h]$.
+
+To prove $(\star)$, we have $\alpha \neq \beta$, because $\alpha$ is the position of a high and $\beta$ of a low.
+We put $p_1 = \sigma(h)$, $p_4 = r(a)$, $p_2 = \min\{\alpha, \beta\}$ and $p_3 = \max\{\alpha, \beta\}$.
+By~\eqref{eq:pa-ranges-r} and~\eqref{eq:pa-ranges-c}, $p_1 \leq \sigma^*$ and $p_4 \geq r^*$.
+By the same relations and $\sigma^* < \ell^*$, we have $\alpha \geq \sigma^* + 6$ and $\beta \geq \ell^* + 6 > \sigma^* + 6$, so $p_2 - p_1 \geq 6$.
+By the same relations and $\tau^* < r^*$, we have $\alpha \leq \tau^* - 6 < r^* - 6$ and $\beta \leq r^* - 6$, so $p_4 - p_3 \geq 6$.
+Every element of $Z = \Pos[a] \cup \Pos[h]$ is greater than $\sigma^* \geq p_1$ and less than $r^* \leq p_4$, by~\eqref{eq:pa-ranges-r}, \eqref{eq:pa-ranges-c} and the orientation.
+If $[p_2, p_3]$ contained no element of $Z$, then $Z \subseteq (p_1, p_2) \cup (p_3, p_4)$, and \cref{lem:pa-two} would give $12 \leq (p_2 - p_1) + (p_4 - p_3) \leq 8$.
+
+\emph{Positions of $C_0$.}
+Every class of $C_0$ has a position greater than $\tau^*$.
+Indeed, let $h \in C_0$.
+By~\eqref{eq:pa-ranges-c}, $\tau(h) - \sigma(h) \geq 12$, so $\Pos[h] \not\subseteq (\sigma(h), \tau(h))$ by \cref{lem:pa-one}(a) and \cref{lem:pa-basic}(b).
+The elements of $\Pos[h]$ are positions of lows, so they differ from $\sigma(h)$ and $\tau(h)$.
+By~\eqref{eq:pa-ranges-c} and $\sigma^* < \ell^*$, they are greater than $\sigma^* \geq \sigma(h)$.
+So some element of $\Pos[h]$ is greater than $\tau(h) \geq \tau^*$.
+
+\emph{Stage 1: the classes of $R_0$.}
+Distinct classes of $R_0$ have disjoint position sets, hence distinct last positions.
+Suppose that $R_0$ has at most four classes, and let $A_\kappa$ be a set of one representative per class.
+Then $E^* \setminus \upp A_\kappa$ is an E-formula with $S = E_0 \cup A_\kappa$, it contains $L_P$ by $(\dagger)$ and it misses $A_P$, as required.
+
+Otherwise, let $\kappa_1, \dots, \kappa_4$ be the first four classes of $R_0$ by last position, let $p^*$ be the last position of $\kappa_4$, and call the positions greater than $p^*$ the \emph{tail}.
+The classes $\kappa_i$ have no position in the tail, and every other class of $R_0$ has its last position in the tail.
+Every class of $C_0$ has a position in the tail, because $p^* \leq \tau^* - 6$ by~\eqref{eq:pa-ranges-r}.
+Let $A_\kappa$ be a set of one representative per class $\kappa_i$.
+
+Let $a_1$ and $a_2$ be the elements of $\kappa_1$ and $\kappa_4$ at their last positions, which are at distance at least six.
+Let $S' = \win(a_1) \cup \win(a_2)$, so that $|S'| \leq 6$ by \cref{lem:pa-atoms}(c), and let
+\[
+F^1 = F^* \cup \FR(a_1, a_2) \cup \bigl((\EP(a_1) \cup \EP(a_2)) \setminus \upp S'\bigr).
+\]
+The down-set $F^1$ misses $U_P$.
+Indeed, $F^*$ and $\FR(a_1, a_2)$ miss $U_P$.
+The last term misses $A_P$, because an element of $S'$ lies in $\upp S'$ and any other element of $A_P$ lies outside both sets $\EP(a_i)$ by \cref{lem:pa-atoms}(c).
+
+Let $\mathcal{C}_1$ be the set of the classes of $C_0$ not contained in $F^1$.
+All elements of such a class lie outside the down-set $F^1$.
+Let $g$ and $h$ be elements of a class of $\mathcal{C}_1$.
+Then $g \notin \FR(a_1, a_2)$, so $g \in C(a_1) \cup C(a_2)$ by \cref{lem:pa-atoms}(a), and
+\begin{equation}
+\label{eq:pa-not-below}
+h \not\leq a_1 \quad\text{and}\quad h \not\leq a_2.
+\end{equation}
+Indeed, $h < a_i$ would give $h \in \EP(a_i)$ by \cref{lem:pa-atoms}(c), and $h \notin \upp S'$ because $h \in L_P$ and $\upp S' \subseteq U_P$, hence $h \in F^1$.
+The relation $h \sim a_i$ is impossible because $h \in L_P$ and $a_i \in U_P$.
+
+\emph{Shape A: $|\mathcal{C}_1| \leq 7$.}
+Let $H_1$ be a set of one representative per class of $\mathcal{C}_1$.
+Then $D = F^1 \cup \dn H_1$ is an F-formula with $x_1, \dots, x_6$ equal to $a^\ell_1, a^\ell_2, a^r_1, a^r_2, a_1, a_2$, with $S = H_0 \cup H_1$ and with $S'$ as above.
+It misses $U_P$ by $(\dagger)$.
+It contains $B_P$, because an element of $B_P$ outside $F^1$ lies in a class of $\mathcal{C}_1$, so it is tied with an element of $H_1$.
+
+\emph{Shape B: $|\mathcal{C}_1| \geq 8$.}
+Choose eight classes of $\mathcal{C}_1$ and one element of each, and split these elements into two groups of four.
+Let $h_1$ and $h_2$ be the first and the last by position in the first group, and let $h_3$ and $h_4$ be the first and the last by position in the second group.
+Then $|\pos(h_1) - \pos(h_2)| \geq 6$ and $|\pos(h_3) - \pos(h_4)| \geq 6$, and $h_1, h_2, h_3, h_4$ lie in four distinct classes.
+Let
+\[
+D = \bigl(E^* \cap \ER(h_1, h_2) \cap \ER(h_3, h_4)\bigr) \setminus \upp A_\kappa,
+\]
+which is an E-formula with $x_1, \dots, x_8$ equal to $b^\sigma_1, b^\sigma_2, b^\tau_1, b^\tau_2, h_1, h_2, h_3, h_4$ and with $S = E_0 \cup A_\kappa$.
+It contains $L_P$ by \cref{lem:pa-atoms}(b) and $(\dagger)$.
+We show that $D$ misses $A_P$.
+
+Suppose that $a \in A_P \cap D$.
+Then $a \in R_0$, and the class of $a$ is not among the classes $\kappa_i$.
+So this class has a position in the tail, and it lies inside the down-set $D$.
+Let $\Lambda$ be the set of the positions in the tail of the classes of $R_0$ inside $D$ and of the classes of $\mathcal{C}_1$.
+It contains positions of highs, as just shown, and positions of lows, because every class of $C_0$ has a position in the tail.
+So $\Lambda$ contains two consecutive elements $\alpha$ and $\beta$, where $\alpha$ is the position of an element $a''$ in a class of $R_0$ inside $D$, and $\beta$ is the position of an element $g$ in a class of $\mathcal{C}_1$.
+
+At most one of the four classes of $h_1, h_2, h_3, h_4$ contains $g$, so one of the two pairs has both classes not containing $g$, and we may assume that this pair is $h_1, h_2$.
+As $a'' \in D \subseteq \ER(h_1, h_2)$, \cref{lem:pa-atoms}(b) gives $h \in \{h_1, h_2\}$ with $a'' \in C'(h)$.
+As $g \in C(a_1) \cup C(a_2)$, there is $a' \in \{a_1, a_2\}$ with $g \in C(a')$.
+We have $a' \in R_0$, $h \in C_0$, and $h \not\leq a'$ by~\eqref{eq:pa-not-below}, so $(\star)$ applies to $a'$, $h$, $\alpha$ and $\beta$.
+
+The closed interval between $\alpha$ and $\beta$ lies in the tail, so it misses $\Pos[a']$.
+Its interior contains no element of $\Lambda$, and the class of $h$ belongs to $\mathcal{C}_1$, so its interior misses $\Pos[h]$.
+Also $\alpha \notin \Pos[h]$, because $\alpha$ is the position of a high, and $\beta \notin \Pos[h]$, because the class of $h$ does not contain $g$.
+This contradicts $(\star)$, so $D$ misses $A_P$.
+\end{proof}
+
+\subsection{The Algorithm}
+\label{sec:pa-algorithm}
+
+\begin{corollary}[Deciding ZZ with P2]
+\label{cor:pa-zz}
+There is an algorithm that, given an instance of ZZ with P2 and with $|Q| = m$, decides whether it is a yes-instance and, if it is, returns a down-set $D$ with $u \in D$ and $v \notin D$ such that $u$ and $v$ are connected in $G_D$.
+Its running time is $(m + 1)^{31} \cdot m^{O(1)}$.
+\end{corollary}
+
+\begin{proof}
+For each formula of \cref{def:pa-atoms} and each choice of its elements and sets, the algorithm computes the value $D$ of the formula and tests whether $u \in D$, $v \notin D$ and $u$ and $v$ are connected in $G_D$.
+It returns the first $D$ that passes the test, and it reports a no-instance if there is none.
+
+\emph{Correctness.}
+Every value is a down-set, so a returned $D$ proves a yes-instance.
+Conversely, a yes-instance has a shortest valid walk $P$ by \cref{lem:zz-valid}(c), and by \cref{thm:pa-formulas} and \cref{lem:zz-valid}(a), some value passes the test.
+
+\emph{Time.}
+A choice of elements and sets of total size at most $j$ is given by a $j$-tuple over $Q$ and one extra symbol for an empty role, so there are at most $(m + 1)^j$ such choices.
+Since each formula is built from at most 31 elements, there are $O((m + 1)^{31})$ tests.
+With the table of $\leq$ and the sets $\MB(x)$ and $\MA(x)$, each value of a formula and each test take time polynomial in $m$.
+\end{proof}
+
+\begin{algorithm}[tb]
+\caption{A minimum cut-path for an instance $(G, u, v)$ of the open case}
+\label{alg:pa-open-case}
+\begin{algorithmic}[1]
+\Require a graph $G \in \DC$ and vertices $u, v$ with $d(u, v) = 2$ and $c(u, v) \geq 3$
+\Ensure a minimum cut-path between $u$ and $v$
+\State Compute the ZZ instance $(Q, \leq, R, u, v)$ of $(G, u, v)$.
+\State Run the algorithm of \cref{cor:pa-zz} on this instance.
+\If{it returns a down-set $D$}
+\State \Return $\delta(A)$ for a minimum side $A$ with $A \cap Q = D$
+\Else
+\State \Return $C \cup \pi$ for a minimum $u$--$v$ cut $C$ and a shortest $u$--$v$ path $\pi$
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+
+\begin{theorem}[The open case]
+\label{thm:pa-open-case}
+There is an algorithm that, given a graph $G \in \DC$ with $n$ vertices and vertices $u, v$ of $G$ with $d(u, v) = 2$ and $c(u, v) \geq 3$, decides whether $\cp(u, v) = c(u, v)$ and computes a minimum cut-path between $u$ and $v$ in time $n^{31} \cdot n^{O(1)}$.
+\end{theorem}
+
+\begin{proof}
+We show that \cref{alg:pa-open-case} has these properties.
+By \cref{thm:zz-reduction}, the ZZ instance satisfies P2, it has at most $n$ elements, and it is a yes-instance if and only if $\cp(u, v) = c(u, v)$.
+If the algorithm of \cref{cor:pa-zz} returns $D$, then $\delta(A)$ is a minimum cut-path by \cref{thm:zz-reduction}.
+Otherwise $\cp(u, v) = c(u, v) + 1$ by \cref{prop:easy-pairs}(iv), and $C \cup \pi$ has at most $c(u, v) + 1$ edges by \cref{lem:basic-bounds}, so it is a minimum cut-path.
+The running time follows from \cref{thm:zz-reduction,cor:pa-zz} and from $(n + 1)^{31} \leq 2^{31} n^{31}$.
+\end{proof}
+

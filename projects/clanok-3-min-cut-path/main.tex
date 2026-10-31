@@ -109,13 +109,9 @@
 \newcommand{\PathInMinCut}{\textsc{Path in Min Cut}}%
 \newcommand{\dn}{\mathord{\downarrow}}%
 \newcommand{\upp}{\mathord{\uparrow}}%
-\newcommand{\LMN}{\mathrm{LMN}}%
-\newcommand{\UMN}{\mathrm{UMN}}%
 \newcommand{\pos}{\mathrm{pos}}%
-\newcommand{\nodeof}{\mathrm{node}}%
-\newcommand{\pk}{\mathrm{pk}}%
-\newcommand{\NE}{\mathrm{NE}}%
-\newcommand{\NF}{\mathrm{NF}}%
+\newcommand{\MB}{\mathrm{MB}}%
+\newcommand{\MA}{\mathrm{MA}}%
 \newcommand{\Pos}{\mathrm{Pos}}%
 \newcommand{\win}{\mathrm{win}}%
 \newcommand{\FR}{\mathrm{FR}}%
@@ -147,7 +143,9 @@ We prove that \MinCutPath{} is NP-complete on graphs of diameter three, already 
 We then prove that it is solvable in polynomial time on the graphs in which every two vertices are at distance at most two or have cut-value at most two.
 This class contains the graphs of diameter two and the cactus graphs.
 For a pair with cut-value two, the minimum cuts divide the graph into a chain of subgraphs.
-A minimum cut-path has $d(u,v)$ edges if and only if one of these subgraphs contains a path that lies on a shortest $u$--$v$ path and separates two prescribed vertices of the subgraph, and in the class this gives a linear-time algorithm.
+A minimum cut-path has $d(u,v)$ edges if and only if one of these subgraphs contains a path that lies on a shortest $u$--$v$ path, joins two of the four terminals of the subgraph and separates the other two.
+In the class, this gives a linear-time algorithm.
+An adjacent pair takes one minimum cut.
 The remaining pairs have $d(u,v) = 2$ and $c(u,v) \geq 3$, and there a minimum cut-path has $c(u,v)$ edges if and only if some minimum cut contains a $u$--$v$ path.
 The minimum cuts are the down-sets of a preorder, and the condition on distances gives every two incomparable elements a common neighbor below both or above both.
 We show that a bounded number of elements determines a down-set whose cut contains a given shortest solution, and enumeration of these descriptions decides the question.}
@@ -202,13 +200,14 @@ Hence the decision version of \MinCutPath{} is NP-complete on these graphs, and 
 
 \item \emph{Pairs of $\DC$ with cut-value at most two.}
 Let $c(u, v) = 2$ in an arbitrary connected graph.
-The minimum $u$--$v$ cuts divide the graph into a chain of subgraphs, the squares (\cref{thm:structure}), and $\cp(u, v) = d(u, v)$ if and only if some square contains a path that lies on a shortest $u$--$v$ path and separates two terminals of the square (\cref{thm:characterization}).
+The minimum $u$--$v$ cuts divide the graph into a chain of subgraphs, the squares (\cref{thm:structure}).
+We have $\cp(u, v) = d(u, v)$ if and only if some square contains a path from an entering to a leaving terminal that lies on a shortest $u$--$v$ path and separates the other two terminals (\cref{thm:characterization}).
 For a graph $G = (V, E)$ of $\DC$, this gives an $O(|V| + |E|)$ algorithm for $\cp(u, v)$ and a minimum cut-path (\cref{thm:linear-time,cor:class-pairs}).
 
 \item \emph{Pairs of $\DC$ at distance two.}
-The pairs of $\DC$ that item 2 leaves have $d(u, v) = 2$ and $c(u, v) \geq 3$ (\cref{prop:easy-pairs}).
+A pair with $d(u, v) = 1$ is solved by one minimum cut, and the other pairs of $\DC$ that item 2 leaves have $d(u, v) = 2$ and $c(u, v) \geq 3$ (\cref{prop:easy-pairs}).
 For these, $\cp(u, v) \in \{c(u, v), c(u, v) + 1\}$, and $\cp(u, v) = c(u, v)$ if and only if some minimum $u$--$v$ cut contains a $u$--$v$ path (\cref{prop:open-pairs}).
-We decide this question and construct a minimum cut-path in time $n^{71} \cdot n^{O(1)}$ for $n = |V|$ (\cref{thm:pa-open-case}).
+We decide this question and construct a minimum cut-path in time $n^{31} \cdot n^{O(1)}$ for $n = |V|$ (\cref{thm:pa-open-case}).
 \end{enumerate}
 
 Items 2 and 3 together give our main result.
@@ -229,15 +228,15 @@ The hardness proof reduces from 3-SAT.
 Two cliques force every minimum $u$--$v$ cut to correspond to an assignment of the variables, and $u$ and $v$ are connected by the edges of the cut if and only if the assignment satisfies the formula.
 
 For $c(u, v) = 2$, consecutive squares are joined by two general paths, and a $u$--$v$ path $R$ follows exactly one of them.
-Hence $u$ and $v$ are separated in $G \setminus R$ if and only if, in some square, the part of $R$ in the square separates the two terminals that $R$ does not use (\cref{lem:criterion}).
+Hence $u$ and $v$ are separated in $G \setminus R$ if and only if, in some square, the part of $R$ in the square separates the two terminals at the edges of the square that $R$ does not use (\cref{lem:criterion}).
 In a graph of $\DC$, such a part of a shortest path has at most two edges (\cref{cor:two-edges}), which leaves a constant number of candidates per square.
 
 For $d(u, v) = 2$ and $c(u, v) \geq 3$, the minimum cuts are the down-sets of a preorder (Picard and Queyranne~\cite{PicardQueyranne1980}), and a path in a minimum cut alternates between the two sides.
-The hypothesis $G \in \DC$ becomes a condition on the preorder: two incomparable elements have a common neighbor below both or above both (\cref{thm:zz-reduction}).
-A solution is a shortest path $P$ that alternates between the sides of some down-set.
-It suffices to separate the minimal elements $A_P$ that $P$ uses on one side from the maximal elements $B_P$ that it uses on the other side.
-Two far-apart members of $A_P$, or of $B_P$, determine a down-set that separates all but few pairs, because a side that met two far-apart members would shorten $P$.
-A formula of unions and intersections over at most $71$ elements then gives a down-set that contains the solution (\cref{thm:pa-formulas}), and the algorithm tries all such formulas.
+The hypothesis $G \in \DC$ gives two incomparable elements of the preorder a common neighbor below both or above both (\cref{thm:zz-reduction}).
+A solution is a shortest walk $P$ that alternates between the two sides of some down-set.
+It suffices to separate the minimal elements $A_P$ that $P$ uses on the upper side from the maximal elements $B_P$ that it uses on the lower side.
+Two far-apart members of $A_P$, or of $B_P$, determine a down-set that separates all but few pairs, because an element that met two far-apart members would shorten $P$.
+A formula of unions and intersections over at most $31$ elements then gives a down-set that contains the solution (\cref{thm:pa-formulas}), and the algorithm tries all such formulas.
 
 \subsection{Related Work}\label{sec:related-work}
 
@@ -267,7 +266,7 @@ Graphs of diameter two are also a polynomial case of \textsc{Matching Cut} and, 
 Section~3.3 of the thesis~\cite[Definitions~37 to~40 and Theorems~20, 22 and~23]{Michel2025MinCutPath} contains the class $\DC$, the two graphs of \cref{ex:counterexamples} and the notions of a square and of a general path.
 It also contains the idea of a polynomial and of a linear-time algorithm for pairs with cut-value two.
 The thesis obtains a decomposition by three transformations of the graph.
-Here the decomposition is defined by the union of all minimum $u$--$v$ cuts, and every statement has a complete proof.
+Here the decomposition is defined by the union of all minimum $u$--$v$ cuts, and every statement on it has a complete proof.
 The separation criterion and the characterization for arbitrary graphs (\cref{lem:criterion,thm:characterization}), the linear running time that includes the computation of the decomposition (\cref{thm:linear-time}), and \cref{sec:dt-diameter-three,sec:zz-zigzag,sec:pa-polynomial} are new.
 
 \section{Preliminaries}
@@ -302,7 +301,7 @@ The minimum number of edges of a cut-path between $u$ and $v$ is denoted by $\cp
 The \MinCutPath{} problem asks for a minimum cut-path between $u$ and $v$.
 A shortest $u$--$v$ path $P$ is \emph{separating} if $G \setminus P$ contains no $u$--$v$ path, and the \SSP{} problem asks whether $G$ contains such a path.
 
-\begin{lemma}[{\cite[Lemma~2.3 and Corollary~3.12]{Michel2026MinCutPath}}]
+\begin{lemma}[{\cite[Lemma~2.3 and its proof, and the proof of Theorem~3.11]{Michel2026MinCutPath}}]
 \label{lem:basic-bounds}
 The value $\cp(u, v)$ satisfies
 \[
@@ -450,16 +449,6 @@ By \cref{prop:easy-pairs}, a minimum cut-path in a graph of $\DC$ remains to be 
 \Cref{sec:structure,sec:separating,sec:algorithm} treat the first kind.
 \Cref{sec:zz-zigzag,sec:pa-polynomial} treat the second kind.
 
-\begin{remark}[Bridges]
-\label{rem:bridges}
-Let $K$ be the component of $u$ in the graph obtained from $G$ by removing all bridges of $G$.
-Two vertices $x$ and $y$ of $K$ are joined by a path of $K$, so no bridge of $G$ separates them, and no $x$--$y$ path of $G$ contains a bridge.
-Every $x$--$y$ path of $G$ is therefore a path of $K$.
-Hence the distance, the cut-value and the value of a minimum cut-path of $x$ and $y$ are the same in $K$ as in $G$, and $K \in \DC$ if $G \in \DC$.
-If $c(u, v) \geq 2$, then $v \in K$, because a bridge on a $u$--$v$ path would be a $u$--$v$ cut.
-None of the results below assumes that $G = K$.
-\end{remark}
-
 \section{NP-Completeness on Graphs of Diameter Three}
 \label{sec:dt-diameter-three}
 
@@ -532,9 +521,9 @@ If some vertex $b \in K^v$ were in $A$, the $N - 1$ edge-disjoint $v$--$b$ paths
 \begin{lemma}[Minimum cuts]
 \label{lem:dt-cuts}
 Let $G = (V, E)$ be the graph $G_\varphi$ of a formula $\varphi$ with the variables $x_1, \dots, x_p$.
-(i) Let $A$ be a set with $K^u \subseteq A \subseteq V \setminus K^v$, and let $s(A)$ be the number of synchronization edges in $\delta(A)$.
+(i) Let $A$ be a set with $K^u \subseteq A \subseteq V \setminus K^v$, and let $k(A)$ be the number of synchronization edges in $\delta(A)$.
 Then $\delta(A)$ consists of the $m + 1$ rungs, of two edges at every occurrence vertex $o$, which are the edges from $o$ to $K^v$ if $o \in A$ and the edges from $o$ to $K^u$ otherwise, and of the synchronization edges with exactly one end in $A$.
-In particular, $|\delta(A)| = c_0 + s(A)$.
+In particular, $|\delta(A)| = c_0 + k(A)$.
 (ii) We have $c(u, v) = c_0$.
 The minimum $u$--$v$ cuts are exactly the sets $\delta(A_\tau)$ for the $2^p$ truth assignments $\tau$ of $x_1, \dots, x_p$, and distinct assignments give distinct cuts.
 \end{lemma}
@@ -544,13 +533,13 @@ Each clique lies on one side of $A$, so no clique edge belongs to $\delta(A)$.
 All rungs belong to $\delta(A)$, because $u_k \in A$ and $v_k \notin A$.
 An occurrence vertex $o$ has two neighbors in $K^u$ and two in $K^v$, so exactly its two edges to $K^v$ belong to $\delta(A)$ if $o \in A$, and exactly its two edges to $K^u$ otherwise.
 All remaining edges are synchronization edges, which proves the description of $\delta(A)$.
-The rungs and the edges at the $L$ occurrence vertices are $(m + 1) + 2L = c_0$ edges, so $|\delta(A)| = c_0 + s(A)$.
+The rungs and the edges at the $L$ occurrence vertices are $(m + 1) + 2L = c_0$ edges, so $|\delta(A)| = c_0 + k(A)$.
 
 By \cref{lem:dt-forcing}, every minimum $u$--$v$ cut $\delta(A)$ with $u \in A$ satisfies $K^u \subseteq A \subseteq V \setminus K^v$, so $|\delta(A)| \geq c_0$.
 Together with $c(u, v) \leq c_0$ this gives $c(u, v) = c_0$.
-Hence a set $A$ with $K^u \subseteq A \subseteq V \setminus K^v$ gives a minimum $u$--$v$ cut if and only if $s(A) = 0$.
+Hence a set $A$ with $K^u \subseteq A \subseteq V \setminus K^v$ gives a minimum $u$--$v$ cut if and only if $k(A) = 0$.
 A synchronization edge joins two vertices of the same set $O_i$, and the vertices of $O_i$ are connected by synchronization edges.
-Therefore $s(A) = 0$ if and only if every $O_i$ is contained in $A$ or disjoint from $A$.
+Therefore $k(A) = 0$ if and only if every $O_i$ is contained in $A$ or disjoint from $A$.
 Every occurrence vertex lies in some $O_i$, so these sets $A$ are exactly the sets $A_\tau$, where $\tau$ sets $x_i$ to true if and only if $O_i \subseteq A$.
 Distinct assignments give distinct sets $A_\tau$, because every $O_i$ is nonempty, and distinct sets $A$ with $u \in A$ give distinct cuts by \cref{lem:minimum-cuts}.
 \end{proof}
@@ -628,7 +617,6 @@ So $d(f, f') = 3$, and the diameter of $G_\varphi$ is exactly three.
 Computing $\cp(u, v)$ is NP-hard for pairs with $d(u, v) = 2$.
 
 (c) Deciding whether $\cp(u, v) = c(u, v) + d(u, v) - 1$ is coNP-complete, also for pairs with $d(u, v) = 2$ in graphs of diameter three.
-If $\cp(u, v) = c(u, v) + d(u, v) - 1$, then the union of any minimum $u$--$v$ cut and any shortest $u$--$v$ path is a minimum cut-path, and for $d(u, v) = 2$ the converse holds: if the union of some minimum $u$--$v$ cut and some shortest $u$--$v$ path is a minimum cut-path, then $\cp(u, v) = c(u, v) + 1$.
 \end{corollary}
 
 \begin{proof}
@@ -645,13 +633,6 @@ The values $c(u, v)$ and $d(u, v)$ are computed in polynomial time, and such a c
 Let $d(u, v) = 2$.
 By \cref{prop:easy-pairs}(iv), $\cp(u, v) \in \{c(u, v), c(u, v) + 1\}$, so $\cp(u, v) = c(u, v) + d(u, v) - 1 = c(u, v) + 1$ if and only if $\cp(u, v) \neq c(u, v)$.
 By (a), the problem is therefore coNP-hard for pairs with $d(u, v) = 2$ in graphs of diameter three.
-
-For the last statement, let $\delta(A)$ be a minimum $u$--$v$ cut and $P$ a shortest $u$--$v$ path.
-By \cref{lem:basic-bounds}, $\delta(A) \cup P$ is a cut-path with at most $c(u, v) + d(u, v) - 1$ edges.
-If $\cp(u, v) = c(u, v) + d(u, v) - 1$, it is therefore a minimum cut-path.
-Let $d(u, v) = 2$.
-By \cref{lem:minimum-cuts}, $P$ contains an odd number of edges of $\delta(A)$, so exactly one, and $\delta(A) \cup P$ has $c(u, v) + 1$ edges.
-If it is a minimum cut-path, then $\cp(u, v) = c(u, v) + 1$.
 \end{proof}
 
 \begin{remark}
@@ -663,7 +644,7 @@ A filler $f$ of $K^u$ and a filler $f'$ of $K^v$ are at distance three, and $c(f
 \begin{remark}
 \label{rem:dt-bounded-cut-value}
 The cut-value $c(u, v) = c_0$ of the instances in \cref{thm:dt-hardness} grows with $\varphi$.
-For every constant $k$, the question is solvable in polynomial time for pairs with $c(u, v) \leq k$, because $\cp(u, v) \leq c(u, v)$ is the decision version of \MinCutPath{} with the threshold $b = c(u, v)$, which is fixed-parameter tractable in $b$~\cite[Theorem~8.4]{Michel2026MinCutPath}.
+For every constant $k$, whether $\cp(u, v) = c(u, v)$ is decided in polynomial time for pairs with $c(u, v) \leq k$, because $\cp(u, v) \leq c(u, v)$ is the decision version of \MinCutPath{} with the threshold $b = c(u, v)$, which is fixed-parameter tractable in $b$~\cite[Theorem~8.4]{Michel2026MinCutPath}.
 \end{remark}
 
 \begin{remark}
@@ -681,10 +662,10 @@ Hence \cref{thm:dt-hardness,cor:dt-consequences} hold in the class of the connec
 The minimum $u$--$v$ cuts of a pair with $c(u, v) = 2$ arrange the graph into a chain of subgraphs, the squares, in which consecutive squares are joined in two ways (\cref{thm:structure}, \cref{fig:square-decomposition}).
 The structure of all minimum cuts between two vertices is known in general form, as the acyclic digraph of Picard and Queyranne~\cite{PicardQueyranne1980} and, for undirected graphs, as the strip of Dinitz and Vainshtein (see~\cite{BaswanaPandey2025Carcass} and \cref{sec:related-work}).
 \Cref{lem:orientation,lem:pieces,lem:degrees} and statements (i) to (iv) of \cref{thm:structure} describe this structure for cut-value two in the explicit form that the later sections use, with squares, links, general paths and terminals.
-We include their proofs to keep the paper self-contained.
+We include their proofs.
 Statement (v) of \cref{thm:structure} corresponds to the construction of the cactus that represents the cuts with two edges of a 2-edge-connected graph, in which every class of the relation $c(x, y) \geq 3$ is contracted to one node~\cite{Mehlhorn2017Certifying}.
 
-Throughout this section and \cref{sec:separating}, we assume that $c(u, v) = 2$.
+Throughout \cref{sec:structure,sec:separating}, we assume that $c(u, v) = 2$.
 By Menger's theorem~\cite[Corollary~3.3.5]{Diestel2025}, $G$ contains two edge-disjoint $u$--$v$ paths.
 We fix two such paths $p_1$ and $p_2$.
 Let $F = F(u, v)$ be the union of all minimum $u$--$v$ cuts.
@@ -705,9 +686,9 @@ The cut therefore contains an edge of each path, and these two edges are distinc
 The path starts in $A$, ends outside $A$ and changes between $A$ and $V \setminus A$ only at this edge.
 
 (iii) By (i), the edge $e$ lies on $p_j$ for some $j \in \{1, 2\}$.
-Let $s$ be the end of $e$ that $p_j$ meets first.
-For every minimum $u$--$v$ cut $\delta(A)$ that contains $e$, statement (ii) for the path $p_j$ gives $s \in A$, and the other end of $e$ lies outside $A$.
-Statement (ii) for a $u$--$v$ path $R$ that contains $e$ and for one such cut shows that $R$ meets $s$ before the other end of $e$.
+Let $w$ be the end of $e$ that $p_j$ meets first.
+For every minimum $u$--$v$ cut $\delta(A)$ that contains $e$, statement (ii) for the path $p_j$ gives $w \in A$, and the other end of $e$ lies outside $A$.
+Statement (ii) for a $u$--$v$ path $R$ that contains $e$ and for one such cut shows that $R$ meets $w$ before the other end of $e$.
 \end{proof}
 
 \begin{definition}[Pieces, squares and links]
@@ -1215,24 +1196,12 @@ The first statement is \cref{thm:linear-time}, whose second outcome does not occ
 A minimum $u$--$v$ cut is computed in polynomial time by a maximum flow~\cite[Sections~10.3 and~10.4]{Erickson2019Algorithms}.
 \end{proof}
 
-\begin{remark}[Coarser decompositions]
-\label{rem:coarser}
-Let $F'$ be the union of a nonempty set of minimum $u$--$v$ cuts, and define tails, heads, pieces, squares, links, terminals and general paths with $F'$ in place of $F$.
-\Cref{lem:orientation,lem:pieces,lem:degrees}, statements (i) to (iv) of \cref{thm:structure}, \cref{lem:criterion} and \cref{thm:characterization} remain true if \cref{lem:pieces}(i) is restricted to the minimum $u$--$v$ cuts contained in $F'$.
-Their proofs use only that every edge of $F$ lies in a minimum $u$--$v$ cut contained in $F$.
-Statement (v) of \cref{thm:structure} uses all minimum $u$--$v$ cuts and can fail for $F'$.
-If every entering terminal of every square of the coarser decomposition is at distance at most two from every leaving terminal of the same square, then lines~\ref{line:loop} to~\ref{line:not-found} of \cref{alg:cut-two} are correct for this decomposition as well.
-The square decomposition defined here is the finest of the decompositions of this remark.
-For $G \in \DC$, it satisfies the distance condition by \cref{thm:structure}(v).
-\end{remark}
-
 \section{From Pairs at Distance Two to a Zigzag Problem}
 \label{sec:zz-zigzag}
 
 An \emph{instance of the open case} is a triple $(G, u, v)$ with $G \in \DC$ and vertices $u, v$ of $G$ with $d(u, v) = 2$ and $c(u, v) \geq 3$.
 By \cref{prop:easy-pairs}(iv), we have $\cp(u, v) \in \{c(u, v), c(u, v) + 1\}$, so the question is whether $\cp(u, v) = c(u, v)$.
-\Cref{thm:zz-reduction} maps such an instance to an instance of a problem on a preordered set with the same answer, and \cref{lem:zz-answers} rewrites that problem in the form solved in \cref{sec:pa-polynomial}.
-In this section and in \cref{sec:pa-polynomial}, $m$ counts the switches of an instance of \cref{def:zz-general}, and the number of edges of $G$ is written $|E|$.
+\Cref{thm:zz-reduction} maps such an instance to an instance of a problem on a preordered set with the same answer, and \cref{lem:zz-valid} turns that problem into the search for a walk.
 
 \subsection{Preorders and the Problem ZZ}
 \label{sec:zz-preorders}
@@ -1244,955 +1213,482 @@ We write $x < y$ if $x \leq y$ and not $y \leq x$.
 We write $x \sim y$, and call $x$ and $y$ \emph{tied}, if $x \leq y$ and $y \leq x$, and $[x]$ is the class of $x$ under this equivalence relation.
 We write $x \parallel y$, and call $x$ and $y$ \emph{incomparable}, if neither $x \leq y$ nor $y \leq x$.
 For a set $S$, we put $\dn S = \{x : x \leq y \text{ for some } y \in S\}$, $\upp S = \{x : x \geq y \text{ for some } y \in S\}$, $\dn x = \dn \{x\}$ and $\upp x = \upp \{x\}$.
-Hence $\dn x \setminus [x] = \{y : y < x\}$ and $\upp x \setminus [x] = \{y : y > x\}$.
 A \emph{down-set} $D$ satisfies $\dn D = D$, and an \emph{up-set} $D$ satisfies $\upp D = D$.
 Complements of down-sets are up-sets, intersections and unions of down-sets are down-sets, $\dn S$ is a down-set, and the complement of $\upp S$ is a down-set.
-If $x \leq y < z$ or $x < y \leq z$, then $x < z$, because $z \leq x$ would give $z \leq y$ in the first case and $y \leq x$ in the second.
-For every two elements $x, y$, exactly one of $x \leq y$, $y < x$ and $x \parallel y$ holds.
+If $x \leq y < z$ or $x < y \leq z$, then $x < z$.
 \end{definition}
 
 \begin{definition}[ZZ and P2]
 \label{def:zz-zz}
-An instance of \emph{ZZ} is a tuple $(Q, \leq, R, u, v)$ that consists of a finite set $Q$ with a preorder $\leq$ such that $u \leq x \leq v$ for every $x \in Q$, and a set $R$ of pairs $\{a, b\} \subseteq Q$ with $a < b$ such that $\{u, v\} \notin R$.
-The pairs of $R$ are \emph{real edges}, and we write $ab$ for a real edge with $a < b$.
-For a down-set $D$ of $Q$ with $u \in D$ and $v \notin D$, the graph $G_D$ on $Q$ has as its edges the real edges with exactly one end in $D$.
+An instance of \emph{ZZ} is a tuple $(Q, \leq, R, u, v)$ that consists of a finite set $Q$ with a preorder $\leq$ such that $u \leq x \leq v$ for every $x \in Q$ and $u < v$, and a set $R$ of pairs $\{a, b\} \subseteq Q$ with $a < b$.
+The pairs of $R$ are its \emph{edges}.
+We write $ab$ for an edge with $a < b$, and we call $a$ its \emph{lower end} and $b$ its \emph{upper end}.
+For a down-set $D$ of $Q$ with $u \in D$ and $v \notin D$, the graph $G_D$ on $Q$ has as its edges the edges of $R$ with exactly one end in $D$.
 The instance is a \emph{yes-instance} if $u$ and $v$ are connected in $G_D$ for some such $D$.
-It satisfies \emph{P2} if every two incomparable elements $x, y$ have a common $R$-neighbor $z$ with $z < x$ and $z < y$ (a \emph{lower witness}) or with $z > x$ and $z > y$ (an \emph{upper witness}).
+Two elements $x$ and $y$ \emph{meet below} if some element $z$ satisfies $zx \in R$ and $zy \in R$, and they \emph{meet above} if some element $z$ satisfies $xz \in R$ and $yz \in R$.
+The instance satisfies \emph{P2} if every two incomparable elements meet below or meet above.
 \end{definition}
 
 A path of $G_D$ alternates between $D$ and $Q \setminus D$, which gives ZZ its name (zigzag).
 
-\subsection{The General Switch Form}
-\label{sec:zz-switch-form}
-
-\begin{definition}[General switch form]
-\label{def:zz-general}
-An instance has a finite set $\Omega$ of \emph{nodes} with two \emph{terminals} $s, t \in \Omega$, a finite set $M$ of \emph{switches} with a preorder $\leq$, and a set of middle edges.
-We write $m = |M|$.
-Every switch $w$ has an \emph{E-side} and an \emph{F-side}, with node sets $E_w \subseteq \Omega$ and $F_w \subseteq \Omega$.
-Sides are labeled, that is, a side is a switch together with E or F, and we denote a side by its node set, $E_w$ or $F_w$.
-A \emph{middle edge} is an ordered pair $(z, w)$ of switches with $z < w$, and it has a \emph{private node} $\rho(z, w) \in \Omega$ that lies in $F_z$ and in $E_w$ and in no other side.
-The sets $\LMN(w) = \{z : (z, w) \text{ is a middle edge}\}$ and $\UMN(w) = \{z : (w, z) \text{ is a middle edge}\}$ consist of the lower and the upper middle neighbors of $w$.
-The instance satisfies \emph{P2} if every two incomparable switches $x, y$ have a common E-node ($E_x \cap E_y \neq \emptyset$), or a common F-node ($F_x \cap F_y \neq \emptyset$), or a \emph{lower middle witness} $z \in \LMN(x) \cap \LMN(y)$, or an \emph{upper middle witness} $z \in \UMN(x) \cap \UMN(y)$.
-\end{definition}
-
-\begin{definition}[Mode vectors, conflict pairs, valid paths]
+\begin{definition}[Valid walks]
 \label{def:zz-valid}
-A \emph{mode vector} is a down-set $D$ of $(M, \leq)$.
-Switches in $D$ are in \emph{F-mode}, the others in \emph{E-mode}.
-The mode vector $D$ \emph{picks} $F_w$ for $w \in D$ and $E_w$ for $w \notin D$.
-It \emph{connects} $s$ and $t$ if $s = t$ or there are picked sides $X_1, \dots, X_h$ with $h \geq 1$, $s \in X_1$, $t \in X_h$ and $X_i \cap X_{i+1} \neq \emptyset$ for $i < h$.
-The instance is a \emph{yes-instance} if some mode vector connects $s$ and $t$.
-A \emph{conflict pair} is a pair of sides $\{E_w, F_z\}$ with $w \leq z$, in particular $\{E_w, F_w\}$.
-A \emph{valid path} is a sequence $P = X_1, \dots, X_q$ with $q \geq 1$ of sides of pairwise distinct switches, with $s \in X_1$, $t \in X_q$ and $X_i \cap X_{i+1} \neq \emptyset$ for $i < q$, no two of which form a conflict pair.
-Its sides are its \emph{members}.
-A switch $w$ is \emph{on} $P$ if one of its sides is a member, and then $\pos(w)$ is the index of that member.
-We write $W_E$ and $W_F$ for the sets of switches whose E-side and whose F-side, respectively, is a member, and we put $U_P = \upp W_E$ and $L_P = \dn W_F$.
-A valid path is \emph{shortest} if no valid path has fewer members.
+Let $(Q, \leq, R, u, v)$ be an instance of ZZ.
+A \emph{walk} is a sequence $P = x_0, \dots, x_q$ of elements with the ends $u$ and $v$, in either order, whose positions $0, \dots, q$ are labeled alternately \emph{low} and \emph{high}.
+The end $u$ is low, the end $v$ is high, and for every $i < q$, the pair of $x_i$ and $x_{i+1}$ is an edge of $R$ whose lower end is at the low position.
+Elements may repeat.
+The elements at low positions are the \emph{lows} of $P$, the elements at high positions are its \emph{highs}, and $q$ is its \emph{length}.
+The walk is \emph{valid} if no high is $\leq$ a low.
+For a valid walk, we put $U_P = \upp \{\text{highs of } P\}$ and $L_P = \dn \{\text{lows of } P\}$.
+A valid walk is \emph{shortest} if no valid walk has a smaller length.
 \end{definition}
+
+The reversal $x_q, \dots, x_0$ of a valid walk, with the same labels, is a valid walk of the same length.
+
+\begin{lemma}[Valid walks and yes-instances]
+\label{lem:zz-valid}
+Let $(Q, \leq, R, u, v)$ be an instance of ZZ.
+(a) If $P$ is a valid walk, then $U_P \cap L_P = \emptyset$, and every down-set $D$ with $L_P \subseteq D \subseteq Q \setminus U_P$ satisfies $u \in D$ and $v \notin D$, and $u$ and $v$ are connected in $G_D$.
+(b) If $u$ and $v$ are connected in $G_D$ for a down-set $D$ with $u \in D$ and $v \notin D$, then a valid walk exists.
+(c) The instance is a yes-instance if and only if a valid walk exists.
+(d) The elements at distinct positions of a shortest valid walk are distinct.
+\end{lemma}
+
+\begin{proof}
+(a) An element of $U_P \cap L_P$ would give $h \leq x \leq \ell$ for a high $h$ and a low $\ell$, against validity.
+Let $D$ be as stated.
+The element $u$ is a low and $v$ is a high, so $u \in D$ and $v \notin D$.
+Every edge of $P$ has its lower end at a low position, hence in $D$, and its upper end at a high position, hence outside $D$.
+So $P$ is a walk of $G_D$ between $u$ and $v$.
+
+(b) Take a $u$--$v$ path of $G_D$.
+An edge $ab$ of $G_D$ has exactly one end in $D$, and since $a < b$ and $D$ is a down-set, this end is $a$.
+So the vertices of the path alternate between $D$ and $Q \setminus D$.
+Label those in $D$ low and the others high, which gives a walk.
+If a high $h$ were $\leq$ a low $\ell$, then $\ell \in D$ would give $h \in D$, so the walk is valid.
+
+(c) This follows from (b) and from (a) with $D = L_P$.
+
+(d) Let $x_i = x_j$ with $i < j$.
+By validity, no element is both a high and a low, so the positions $i$ and $j$ have the same label.
+Removing $x_{i+1}, \dots, x_j$ leaves a valid walk of smaller length.
+\end{proof}
 
 \subsection{Reduction of the Open Case to ZZ with P2}
 \label{sec:zz-reduction}
 
-Throughout this subsection, $(G, u, v)$ is an instance of the open case with $n$ vertices.
+Throughout this subsection, $(G, u, v)$ is an instance of the open case with $n$ vertices, and $c = c(u, v)$.
+A \emph{minimum side} is a set $A \subseteq V$ with $u \in A$, $v \notin A$ and $|\delta(A)| = c$.
+By \cref{lem:minimum-cuts}, the minimum $u$--$v$ cuts are exactly the sets $\delta(A)$ for the minimum sides $A$.
 
-\begin{lemma}[Bridges]
-\label{lem:zz-bridges}
-Let $K$ be the component containing $u$ of the graph obtained from $G$ by removing all bridges.
-(a) We have $v \in V(K)$.
-(b) For $x, y \in V(K)$, the $x$--$y$ paths of $G$ are exactly the $x$--$y$ paths of $K$.
-Hence $d_K(x, y) = d(x, y)$, $c_K(x, y) = c(x, y)$, and an edge set is a minimum $x$--$y$ cut of $G$ if and only if it is a minimum $x$--$y$ cut of $K$.
-(c) Some minimum $u$--$v$ cut of $G$ contains a $u$--$v$ path if and only if some minimum $u$--$v$ cut of $K$ does.
-(d) The graph $K$ is connected, has no bridge and lies in $\DC$, and $d_K(u, v) = 2$, $c_K(u, v) \geq 3$.
+\begin{lemma}[Minimum sides]
+\label{lem:zz-sides}
+(a) If $A$ and $B$ are minimum sides, then $A \cap B$ and $A \cup B$ are minimum sides, and no edge of $G$ joins $A \setminus B$ and $B \setminus A$.
+(b) Let $A$ be a minimum side, let $Y \subseteq V \setminus \{u, v\}$ with $|\delta(Y)| \leq 2$, and let $k$ be the number of edges of $\delta(A)$ with an end in $Y$.
+Then $k \leq 1$.
+If $k = 1$, then $A \setminus Y$ and $A \cup Y$ are minimum sides.
 \end{lemma}
 
 \begin{proof}
-A bridge $b = pp'$ of the connected graph $G$ lies on no cycle, and $G \setminus \{b\}$ has exactly two components $Y_p \ni p$ and $Y_{p'} \ni p'$.
-If a path with ends $x$ and $y$ uses $b$, traversed from $x$ to $p$, then to $p'$ and then to $y$, then its two sub-paths avoid $b$, so $x \in Y_p$, $y \in Y_{p'}$, and $b$ separates $x$ from $y$.
-Call this fact $(*)$.
+(a) The sets $A \cap B$ and $A \cup B$ contain $u$ and not $v$, so each of their boundaries has at least $c$ edges.
+By \cref{lem:uncrossing}, the two boundaries have $2c - 2m(A, B)$ edges together, which forces $m(A, B) = 0$ and two minimum sides.
 
-(a) A $u$--$v$ path through a bridge $b$ would make $\{b\}$ a $u$--$v$ cut by $(*)$, against $c(u, v) \geq 3$.
-As $G$ is connected, a $u$--$v$ path exists.
-It uses no bridge, so it lies in the component $K$ of $u$.
-
-(b) Let $x, y \in V(K)$.
-They are joined by a path of $K$, which avoids every bridge $b$, so $x$ and $y$ lie in one component of $G \setminus \{b\}$, and by $(*)$ no $x$--$y$ path of $G$ uses $b$.
-Hence every $x$--$y$ path of $G$ avoids all bridges and, starting in $K$, lies in $K$.
-Conversely, every path of $K$ is a path of $G$.
-So the distances agree, and an edge set $C \subseteq E$ meets every $x$--$y$ path of $G$ if and only if $C \cap E(K)$ meets every $x$--$y$ path of $K$.
-Therefore $c(x, y) = c_K(x, y)$, a minimum cut of $G$ lies in $E(K)$ because otherwise $C \cap E(K)$ is a smaller cut, and a minimum cut of $K$ is a cut of $G$ of the same size.
-
-(c) By (b) with $x = u$ and $y = v$, the minimum cuts and the $u$--$v$ paths are the same in $G$ and in $K$.
-
-(d) The graph $K$ is a component, hence connected.
-An edge $e$ of $K$ is not a bridge of $G$, so it lies on a cycle of $G$.
-That cycle contains no bridge, so it lies in the component $K$, and $e$ is not a bridge of $K$.
-Membership in $\DC$ is a condition on $d$ and $c$ of pairs of vertices, which agree by (b).
-So $K \in \DC$, $d_K(u, v) = 2$ and $c_K(u, v) = c(u, v) \geq 3$.
+(b) An edge with no end in $Y$ lies in $\delta(A \setminus Y)$ if and only if it lies in $\delta(A)$, and the same holds for $\delta(A \cup Y)$.
+An edge with both ends in $Y$ lies in neither set.
+An edge of $\delta(Y)$ whose end outside $Y$ is $y$ lies in $\delta(A \setminus Y)$ if $y \in A$ and in $\delta(A \cup Y)$ if $y \notin A$.
+Hence $|\delta(A \setminus Y)| + |\delta(A \cup Y)| = 2(c - k) + |\delta(Y)| \leq 2c - 2k + 2$.
+The sets $A \setminus Y$ and $A \cup Y$ contain $u$ and not $v$, so the left-hand side is at least $2c$.
+This gives $k \leq 1$, and for $k = 1$ it forces $|\delta(A \setminus Y)| = |\delta(A \cup Y)| = c$.
 \end{proof}
 
-From now on, $K$ is the graph of \cref{lem:zz-bridges}, and we put
+We put
 \[
-Q = \{u\} \cup \{x \in V(K) : c_K(u, x) \geq 3\}.
+Q = \{u\} \cup \{x \in V \setminus \{u\} : c(u, x) \geq 3\},
 \]
-We have $v \in Q$ because $c_K(u, v) \geq 3$.
-For distinct $x, y \in V(K)$ and a set $S \subseteq V(K)$ with $x \in S$ and $y \notin S$, the set $\delta_K(S)$ of edges of $K$ with exactly one end in $S$ is an $x$--$y$ cut of $K$, and by \cref{lem:minimum-cuts} applied to $K$, every minimum $x$--$y$ cut of $K$ has this form.
-We also call a set $S \subseteq V(K)$ with $u \in S$, $v \notin S$ and $|\delta_K(S)| = c_K(u, v)$ a \emph{minimum $u$--$v$ cut of $K$}, and we say that it \emph{contains} a path $\pi$ if $\pi \subseteq \delta_K(S)$.
+so $v \in Q$.
 
-\begin{lemma}[Paths inside minimum cuts lie in $Q$]
-\label{lem:zz-paths-in-q}
-(a) Let $S$ be a minimum $u$--$v$ cut of $K$ that contains a $u$--$v$ path $\pi$, and let $Y \subseteq V(K) \setminus \{u, v\}$ with $|\delta_K(Y)| \leq 2$.
-Then $\pi$ has no vertex in $Y$.
-(b) Every vertex of such a path $\pi$ lies in $Q$.
-(c) Every two distinct $x, y \in Q$ satisfy $c_K(x, y) \geq 3$ and $d_K(x, y) \leq 2$.
+\begin{lemma}[The set $Q$]
+\label{lem:zz-q}
+(a) Every vertex $x \notin Q$ lies in a set $Y \subseteq V \setminus Q$ with $|\delta(Y)| \leq 2$.
+(b) Every two distinct $x, y \in Q$ satisfy $c(x, y) \geq 3$ and $d(x, y) \leq 2$.
+(c) If $\delta(A)$ contains a $u$--$v$ path for a minimum side $A$, then all vertices of this path lie in $Q$.
 \end{lemma}
 
 \begin{proof}
-(a) Suppose that $\pi$ has a vertex in $Y$.
-It starts at $u \notin Y$ and ends at $v \notin Y$, so the edge by which it first enters $Y$ and the edge by which it last leaves $Y$ are two distinct edges of $\delta_K(Y)$.
-As $|\delta_K(Y)| \leq 2$, we have $\delta_K(Y) = \{e_1, e_2\}$ with $e_i = x_i y_i$, $x_i \in Y$, $y_i \notin Y$, and $e_1, e_2 \in \pi \subseteq \delta_K(S)$.
-Let $J$ be the set of edges of $\delta_K(S)$ with no end in $Y$.
-Then $|\delta_K(S)| \geq |J| + 2$.
-The sets $S \setminus Y$ and $S \cup Y$ contain $u$ and not $v$.
-An edge with no end in $Y$ lies in $\delta_K(S \setminus Y)$, and in $\delta_K(S \cup Y)$, if and only if it lies in $\delta_K(S)$, that is, in $J$.
-An edge with both ends in $Y$ lies in neither of the two sets.
-The edge $e_i$ lies in $\delta_K(S \setminus Y)$ if and only if $y_i \in S$, and in $\delta_K(S \cup Y)$ if and only if $y_i \notin S$.
-Hence $|\delta_K(S \setminus Y)| = |J| + |\{i : y_i \in S\}|$ and $|\delta_K(S \cup Y)| = |J| + |\{i : y_i \notin S\}|$.
-The two last terms sum to two, so one of the two sets has at most $|J| + 1 < |\delta_K(S)| = c_K(u, v)$ boundary edges.
-This set gives a $u$--$v$ cut with fewer than $c_K(u, v)$ edges, a contradiction.
+(a) We have $x \neq u$ and $c(x, u) \leq 2$, so by \cref{lem:minimum-cuts} there is a set $Y$ with $x \in Y$, $u \notin Y$ and $|\delta(Y)| \leq 2$.
+A vertex $y \in Y \cap Q$ would satisfy $y \neq u$, and $\delta(Y)$ would be a $u$--$y$ cut with at most two edges.
 
-(b) The ends $u$ and $v$ lie in $Q$.
-Let $x$ be another vertex of $\pi$, and suppose that $x \notin Q$, so $c_K(u, x) \leq 2$.
-By \cref{lem:minimum-cuts}, there is a set $Y$ with $x \in Y$, $u \notin Y$ and $|\delta_K(Y)| = c_K(x, u) \leq 2$.
-If $v \in Y$, then $\delta_K(Y)$ is a $u$--$v$ cut with at most $2 < c_K(u, v)$ edges.
-So $v \notin Y$ and $Y \subseteq V(K) \setminus \{u, v\}$, and $x \in Y$ contradicts (a).
+(b) If $x = u$ or $y = u$, then $c(x, y) \geq 3$ by the definition of $Q$.
+Otherwise $c(x, u) \geq 3$ and $c(u, y) \geq 3$ give $c(x, y) \geq 3$ by \cref{prop:class}.
+As $G \in \DC$, we have $d(x, y) \leq 2$.
 
-(c) If $x = u$ or $y = u$, then $c_K(x, y) \geq 3$ by the definition of $Q$.
-Otherwise $c_K(x, u) \geq 3$ and $c_K(u, y) \geq 3$ give $c_K(x, y) \geq 3$ by the transitivity in \cref{prop:class}, applied to $K$.
-As $K \in \DC$ by \cref{lem:zz-bridges}(d), we have $d_K(x, y) \leq 2$.
-\end{proof}
-
-We write $K - Q$ for the graph obtained from $K$ by removing the vertices of $Q$.
-
-\begin{lemma}[Ears]
-\label{lem:zz-ears}
-Call a set $Y \subseteq V(K)$ an \emph{ear set} if $Y \neq \emptyset$, $Y \cap Q = \emptyset$ and $|\delta_K(Y)| = 2$.
-(a) Every vertex of $V(K) \setminus Q$ lies in an ear set.
-(b) If two ear sets intersect or are joined by an edge, their union is an ear set.
-(c) The inclusion-maximal ear sets, called \emph{ears}, are exactly the vertex sets of the components of $K - Q$.
-They partition $V(K) \setminus Q$, no edge joins two ears, and every ear $Y$ has $\delta_K(Y) = \{pa, p'a'\}$ with $a, a' \in Y$ and $p, p' \in Q$, where $a = a'$ or $p = p'$ is allowed.
-The vertices $p$ and $p'$ are the \emph{attachments} of $Y$.
-(d) Let $E[Y] = E(K[Y]) \cup \delta_K(Y)$ for an ear $Y$.
-If the attachments $p, p'$ of $Y$ are distinct and $S \subseteq V(K)$ contains exactly one of them, then $\delta_K(S) \cap E[Y] \neq \emptyset$.
-Every edge of $K$ lies either in $K[Q]$ or in $E[Y]$ for exactly one ear $Y$.
-\end{lemma}
-
-\begin{proof}
-Every set $Z$ with $\emptyset \neq Z \subsetneq V(K)$ has $|\delta_K(Z)| \geq 2$, with at least one edge since $K$ is connected, and a single edge would be a bridge, which $K$ does not have by \cref{lem:zz-bridges}(d).
-Call this fact $(**)$.
-
-(a) Let $x \in V(K) \setminus Q$.
-Then $x \neq u$ and $c_K(u, x) \leq 2$.
-By \cref{lem:minimum-cuts}, there is a set $Y$ with $x \in Y$, $u \notin Y$ and $|\delta_K(Y)| = c_K(x, u) \leq 2$, and $|\delta_K(Y)| = 2$ by $(**)$.
-If $x' \in Y \cap Q$, then $x' \neq u$ and $\delta_K(Y)$ separates $x'$ from $u$, so $c_K(u, x') \leq 2$, against $x' \in Q$.
-So $Y$ is an ear set containing $x$.
-
-(b) Let $Y$ and $Y'$ be ear sets.
-If $Y \cap Y' \neq \emptyset$, then $Y \cup Y'$ and $Y \cap Y'$ are non-empty and miss $u$, so by $(**)$ and \cref{lem:uncrossing} applied to $K$,
-\[
-4 \leq |\delta_K(Y \cup Y')| + |\delta_K(Y \cap Y')| \leq |\delta_K(Y)| + |\delta_K(Y')| = 4,
-\]
-whence $|\delta_K(Y \cup Y')| = 2$.
-If $Y \cap Y' = \emptyset$ and $j \geq 1$ edges join them, then $|\delta_K(Y \cup Y')| = 4 - 2j \leq 2$, and $|\delta_K(Y \cup Y')| \geq 2$ by $(**)$.
-In both cases $Y \cup Y'$ misses $Q$.
-
-(c) By (b), two distinct maximal ear sets are disjoint and not joined by an edge, because their union would be a larger ear set.
-By (a), every vertex of $V(K) \setminus Q$ lies in a maximal ear set.
-Let $Y$ be an ear.
-Distinct components $Z$ of $K[Y]$ have disjoint sets $\delta_K(Z) \subseteq \delta_K(Y)$, because no edge joins $Z$ to $Y \setminus Z$, and each of these sets has size at least two by $(**)$.
-As $|\delta_K(Y)| = 2$, the graph $K[Y]$ is connected.
-The outer end of an edge of $\delta_K(Y)$ lies outside $Y$ and in no other ear, so it lies in $Q$.
-Hence the ears are connected subsets of $K - Q$, pairwise non-adjacent, covering $V(K) \setminus Q$, so they are the vertex sets of the components of $K - Q$.
-
-(d) Let $\delta_K(Y) = \{pa, p'a'\}$ with $p \neq p'$.
-The walk that goes from $p$ to $a$, along a path from $a$ to $a'$ in the connected graph $K[Y]$, and from $a'$ to $p'$, is a $p$--$p'$ path with edges in $E[Y]$.
-Since $S$ contains exactly one of its ends, one of its edges lies in $\delta_K(S)$.
-An edge with an end in an ear $Y$ has its other end in $Y$ or in $Q$ by (c), so it lies in $E[Y]$ and in no $E[Y']$ with $Y' \neq Y$.
-An edge with no end in an ear lies in $K[Q]$.
-\end{proof}
-
-\begin{lemma}[The multigraph $H$]
-\label{lem:zz-multigraph}
-Let $H$ be the multigraph on $Q$ whose edges are the edges of $K[Q]$, called \emph{real edges}, and, for every ear with distinct attachments $p$ and $p'$, one edge $pp'$, called its \emph{ear edge}.
-The set $\delta_H(B)$ of edges with exactly one end in $B \subseteq Q$ is counted with multiplicity.
-A set $B \subseteq Q$ with $u \in B$, $v \notin B$ and least $|\delta_H(B)|$ is a \emph{minimum $u$--$v$ cut of $H$}, and $c_H(u, v)$ is that least value.
-For every ear $Y$ fix an order $(p_Y, p'_Y)$ of its attachments, and for $B \subseteq Q$ put $A(B) = B \cup \bigcup \{Y : Y \text{ is an ear with } p_Y \in B\}$.
-Then the following hold.
-(a) We have $A(B) \cap Q = B$ and $|\delta_K(A(B))| = |\delta_H(B)|$ for every $B \subseteq Q$.
-(b) We have $|\delta_K(S)| \geq |\delta_H(S \cap Q)|$ for every $S \subseteq V(K)$.
-(c) We have $c_H(u, v) = c_K(u, v)$.
-For every minimum $u$--$v$ cut $S$ of $K$, the set $S \cap Q$ is a minimum $u$--$v$ cut of $H$, and for every minimum $u$--$v$ cut $B$ of $H$, the set $A(B)$ is a minimum $u$--$v$ cut of $K$.
-(d) Some minimum $u$--$v$ cut of $K$ contains a $u$--$v$ path if and only if some minimum $u$--$v$ cut $B$ of $H$ has a $u$--$v$ path of real edges all of which lie in $\delta_H(B)$.
-(e) Every two distinct $x, y \in Q$ are joined by a real edge or by an ear edge, or have a common neighbor $z \in Q$ in $K$, so that $xz$ and $yz$ are real edges.
-\end{lemma}
-
-\begin{proof}
-By \cref{lem:zz-ears}(d), every edge of $K$ is a real edge or lies in $E[Y]$ for exactly one ear $Y$.
-
-(a) The equality $A(B) \cap Q = B$ holds since ears miss $Q$.
-A real edge lies in $\delta_K(A(B))$ if and only if it lies in $\delta_H(B)$.
-Edges of $K[Y]$ never lie in $\delta_K(A(B))$, since $Y \subseteq A(B)$ or $Y \cap A(B) = \emptyset$.
-Let $\delta_K(Y) = \{p_Y a, p'_Y a'\}$.
-If $p_Y \in B$, then $Y \subseteq A(B)$, the edge $p_Y a$ is not cut, and $p'_Y a'$ is cut if and only if $p'_Y \notin B$.
-If $p_Y \notin B$, then $Y \cap A(B) = \emptyset$, the edge $p_Y a$ is not cut, and $p'_Y a'$ is cut if and only if $p'_Y \in B$.
-So the ear contributes one edge exactly when $B$ contains exactly one of $p_Y$ and $p'_Y$.
-This needs $p_Y \neq p'_Y$, and then it is exactly the case that its ear edge lies in $\delta_H(B)$.
-Otherwise the ear contributes no edge.
-
-(b) Every real edge of $\delta_H(S \cap Q)$ lies in $\delta_K(S)$.
-For every ear edge of $\delta_H(S \cap Q)$, the set $S$ contains exactly one attachment of its ear $Y$, so $\delta_K(S)$ contains an edge of $E[Y]$ by \cref{lem:zz-ears}(d).
-These edges are distinct for distinct ears and are not real edges.
-
-(c) For a minimum $u$--$v$ cut $B$ of $H$, the set $A(B)$ contains $u$ and not $v$ by (a), so $c_K(u, v) \leq |\delta_K(A(B))| = |\delta_H(B)| = c_H(u, v)$.
-For a minimum $u$--$v$ cut $S$ of $K$, the set $S \cap Q$ contains $u$ and not $v$, so $c_H(u, v) \leq |\delta_H(S \cap Q)| \leq |\delta_K(S)| = c_K(u, v)$ by (b).
-Hence $c_H(u, v) = c_K(u, v)$, and all these inequalities are equalities.
-
-(d) Let $S$ be a minimum $u$--$v$ cut of $K$ containing a $u$--$v$ path $\pi$.
-By \cref{lem:zz-paths-in-q}(b), all vertices of $\pi$ lie in $Q$, so its edges are real edges.
-Each of them has exactly one end in $S$, hence exactly one in $S \cap Q$, which is a minimum cut of $H$ by (c).
-Conversely, let $B$ be a minimum cut of $H$ and $\pi$ a $u$--$v$ path of real edges in $\delta_H(B)$.
-Each edge of $\pi$ has both ends in $Q$ and exactly one of them in $B = A(B) \cap Q$, so it lies in $\delta_K(A(B))$, and $A(B)$ is a minimum cut of $K$ by (c).
-
-(e) By \cref{lem:zz-paths-in-q}(c), we have $d_K(x, y) \leq 2$.
-If $xy \in E(K)$, it is a real edge.
-Otherwise $x$ and $y$ have a common neighbor $z$.
-If $z \in Q$, then $xz$ and $yz$ are real edges.
-If $z \notin Q$, then $z$ lies in an ear $Y$ by \cref{lem:zz-ears}(c), and $xz$ and $yz$ are two distinct edges of $\delta_K(Y)$.
-As $|\delta_K(Y)| = 2$, the attachments of $Y$ are $x$ and $y$, with $x \neq y$, and $H$ has the ear edge $xy$.
-\end{proof}
-
-\begin{lemma}[Uncrossing in $H$]
-\label{lem:zz-uncrossing}
-Let $S_1$ and $S_2$ be minimum $u$--$v$ cuts of $H$.
-Then $S_1 \cap S_2$ and $S_1 \cup S_2$ are minimum $u$--$v$ cuts of $H$, and no edge of $H$ joins $S_1 \setminus S_2$ and $S_2 \setminus S_1$.
-\end{lemma}
-
-\begin{proof}
-The proof of \cref{lem:uncrossing} counts one edge at a time, so it gives
-\[
-|\delta_H(S_1 \cap S_2)| + |\delta_H(S_1 \cup S_2)| = |\delta_H(S_1)| + |\delta_H(S_2)| - 2 j
-\]
-for the multigraph $H$, where $j$ is the number of edges, with multiplicity, between $S_1 \setminus S_2$ and $S_2 \setminus S_1$.
-The sets $S_1 \cap S_2$ and $S_1 \cup S_2$ contain $u$ and not $v$, so each of them has at least $c_H(u, v)$ boundary edges.
-The identity with $j \geq 0$ forces both values to equal $c_H(u, v)$ and $j = 0$.
+(c) Suppose that the path has a vertex $x \notin Q$, and let $Y$ be the set of (a), which contains neither $u$ nor $v$.
+The path enters $Y$ by one edge and leaves it by a later edge, and these are two edges of $\delta(A)$ with an end in $Y$, against \cref{lem:zz-sides}(b).
 \end{proof}
 
 \begin{definition}[The ZZ instance of $(G, u, v)$]
 \label{def:zz-instance}
-For $x, y \in Q$ let $x \leq y$ if every minimum $u$--$v$ cut of $H$ that contains $y$ contains $x$.
-Let $R$ be the set of real edges of $H$ whose ends are not tied.
+For $x, y \in Q$, let $x \leq y$ if every minimum side that contains $y$ contains $x$.
+Let $R$ be the set of the edges of $G$ with both ends in $Q$ whose ends are not tied.
 The \emph{ZZ instance of} $(G, u, v)$ is $(Q, \leq, R, u, v)$.
 \end{definition}
 
-\begin{lemma}[Incomparable elements]
-\label{lem:zz-incomparable}
-The relation $\leq$ is a preorder on $Q$ with $u \leq x \leq v$ for every $x \in Q$, and $u < v$.
-If $x, y \in Q$ are incomparable, no edge of $H$, real or ear, joins them.
-Hence every edge of $R$ joins two strictly comparable elements, and $\{u, v\} \notin R$.
+\begin{lemma}[Properties of the ZZ instance]
+\label{lem:zz-instance}
+(a) The relation $\leq$ is a preorder on $Q$ with $u \leq x \leq v$ for every $x \in Q$, and $u < v$.
+Two incomparable elements are not adjacent in $G$, so every edge in $R$ joins two strictly comparable elements, and $(Q, \leq, R, u, v)$ is an instance of ZZ.
+(b) For every minimum side $A$, the set $A \cap Q$ is a down-set of $(Q, \leq)$ that contains $u$ and not $v$.
+Every such down-set is $A \cap Q$ for some minimum side $A$.
+(c) The instance satisfies P2.
 \end{lemma}
 
 \begin{proof}
-Reflexivity and transitivity follow from the definition.
-Every minimum cut contains $u$, so $u \leq x$, and none contains $v$, so $x \leq v$.
-A minimum $u$--$v$ cut of $H$ exists and contains $u$ but not $v$, so $v \leq u$ fails and $u < v$.
-Let $x \parallel y$.
-As $x \leq y$ fails, some minimum cut $S_2$ contains $y$ and not $x$.
-As $y \leq x$ fails, some minimum cut $S_1$ contains $x$ and not $y$.
-By \cref{lem:zz-uncrossing}, no edge joins $S_1 \setminus S_2 \ni x$ and $S_2 \setminus S_1 \ni y$.
-An edge of $R$ joins ends that are not tied and, by what was just shown, comparable, hence strictly comparable.
-We have $uv \notin E(K)$ since $d_K(u, v) = 2$, so $\{u, v\}$ is not a real edge.
-\end{proof}
+(a) Reflexivity and transitivity follow from the definition.
+Every minimum side contains $u$ and none contains $v$, so $u \leq x \leq v$.
+A minimum side exists, so $v \leq u$ fails.
+If $x \parallel y$, some minimum side $A_1$ contains $x$ and not $y$, and some minimum side $A_2$ contains $y$ and not $x$.
+By \cref{lem:zz-sides}(a), no edge joins $x \in A_1 \setminus A_2$ and $y \in A_2 \setminus A_1$.
 
-\begin{lemma}[Minimum cuts are down-sets]
-\label{lem:zz-down-sets}
-A set $D \subseteq Q$ is a minimum $u$--$v$ cut of $H$ if and only if $D$ is a down-set of $(Q, \leq)$ with $u \in D$ and $v \notin D$.
-\end{lemma}
+(b) The first statement follows from the definition of $\leq$.
+Let $D$ be a down-set with $u \in D$ and $v \notin D$, and let $y \in D$.
+Some minimum side contains $y$, since otherwise $v \leq y$ holds vacuously and $v \in D$.
+By \cref{lem:zz-sides}(a), the intersection $S_y$ of all minimum sides that contain $y$ is a minimum side, and by the definition of $\leq$, we have $S_y \cap Q = \dn y \subseteq D$.
+Since $u \in D$, the union $A$ of the sets $S_y$ with $y \in D$ is a minimum side by \cref{lem:zz-sides}(a), and $A \cap Q = D$.
 
-\begin{proof}
-Let $D$ be a minimum cut, $y \in D$ and $x \leq y$.
-By the definition of $\leq$, we have $x \in D$.
-So $D$ is a down-set, and $u \in D$, $v \notin D$.
-Conversely, let $D$ be a down-set with $u \in D$ and $v \notin D$, and let $y \in D$.
-Some minimum cut contains $y$, since otherwise $v \leq y$ holds vacuously and $v \in D$.
-The intersection $S_y$ of the minimum cuts containing $y$ is a minimum cut by repeated use of \cref{lem:zz-uncrossing}.
-By the definition of $\leq$, it equals $\{x : x \leq y\}$, which lies in $D$ as $D$ is a down-set.
-So $D = \bigcup_{y \in D} S_y$ is a union of minimum cuts, non-empty as $u \in D$, hence a minimum cut by \cref{lem:zz-uncrossing}.
-\end{proof}
+(c) Let $x \parallel y$.
+By (a), the elements $x$ and $y$ are not adjacent, so by \cref{lem:zz-q}(b), they have a common neighbor $z$ in $G$.
+We first show that $z \in Q$.
+Suppose not, and let $Y$ be the set of \cref{lem:zz-q}(a) for $z$.
+Since $x, y \notin Y$, the edges $xz$ and $yz$ lie in $\delta(Y)$.
+Let $A_1$ and $A_2$ be as in the proof of (a).
+For $i \in \{1, 2\}$, one of the edges $xz$ and $yz$ lies in $\delta(A_i)$, because $A_i$ contains exactly one of $x$ and $y$.
+By \cref{lem:zz-sides}(b), $A_1 \setminus Y$ and $A_2 \cup Y$ are minimum sides.
+The edge $xz$ joins $(A_1 \setminus Y) \setminus (A_2 \cup Y)$ and $(A_2 \cup Y) \setminus (A_1 \setminus Y)$, against \cref{lem:zz-sides}(a).
 
-\begin{lemma}[P2]
-\label{lem:zz-p2}
-The ZZ instance $(Q, \leq, R, u, v)$ satisfies P2.
-\end{lemma}
-
-\begin{proof}
-Let $x \parallel y$, so $x \neq y$.
-By \cref{lem:zz-multigraph}(e), the elements $x$ and $y$ are joined by a real or an ear edge, or have a common neighbor $z \in Q$ with real edges $xz$ and $yz$.
-The first two cases are excluded by \cref{lem:zz-incomparable}.
-By the same lemma, $z$ is comparable with $x$ and with $y$.
+So $z \in Q$, and by (a), $z$ is comparable with $x$ and with $y$.
 If $x \leq z \leq y$ or $y \leq z \leq x$, then $x$ and $y$ would be comparable.
-Hence $z \leq x$ and $z \leq y$, or $z \geq x$ and $z \geq y$.
-If $z \sim x$, comparability of $z$ and $y$ would make $x$ and $y$ comparable, so $z$ is not tied with $x$, and likewise not with $y$.
-Hence $z < x$ and $z < y$, or $z > x$ and $z > y$, and $xz$ and $yz$ join elements that are not tied, so they belong to $R$.
-So $z$ is a lower or an upper witness.
+If $z \sim x$, then the comparability of $z$ and $y$ would make $x$ and $y$ comparable, so $z$ is not tied with $x$, and likewise not with $y$.
+Hence $z < x$ and $z < y$, or $z > x$ and $z > y$, and $xz$ and $yz$ are edges of $R$.
 \end{proof}
 
 \begin{theorem}[Reduction]
 \label{thm:zz-reduction}
 Let $(G, u, v)$ be an instance of the open case with $n$ vertices.
-Its ZZ instance $(Q, \leq, R, u, v)$ satisfies P2 and $u < v$, has $|Q| \leq n$ and $|R| \leq |E|$, and is computable in time polynomial in $n$.
+Its ZZ instance $(Q, \leq, R, u, v)$ satisfies P2, has $|Q| \leq n$ and is computable in time polynomial in $n$.
 We have $\cp(u, v) = c(u, v)$ if and only if it is a yes-instance of ZZ.
+For a down-set $D$ with $u \in D$ and $v \notin D$ such that $u$ and $v$ are connected in $G_D$, one maximum-flow computation gives a minimum side $A$ with $A \cap Q = D$, and $\delta(A)$ is a minimum cut-path between $u$ and $v$.
 \end{theorem}
 
 \begin{proof}
-P2 is \cref{lem:zz-p2}, and $u < v$ and the form of $R$ are \cref{lem:zz-incomparable}.
-We have $Q \subseteq V(K) \subseteq V$ and $R \subseteq E(K[Q]) \subseteq E$.
+The first statement on the instance is \cref{lem:zz-instance}(c), and $Q \subseteq V$.
 
 \emph{Answer.}
-By \cref{prop:open-pairs}, $\cp(u, v) = c(u, v)$ if and only if some minimum $u$--$v$ cut of $G$ contains a $u$--$v$ path.
-By \cref{lem:zz-bridges}(c) and \cref{lem:minimum-cuts}, this holds if and only if some minimum $u$--$v$ cut $S$ of $K$ contains a $u$--$v$ path.
-By \cref{lem:zz-multigraph}(d), this holds if and only if some minimum $u$--$v$ cut $B$ of $H$ has a $u$--$v$ path of real edges inside $\delta_H(B)$.
-By \cref{lem:zz-down-sets}, these sets $B$ are exactly the down-sets $D$ with $u \in D$ and $v \notin D$.
-For such $D$, a real edge with exactly one end in $D$ joins elements that are not tied, because a down-set contains, with an element, its whole class, so the edge lies in $R$.
-Conversely, an edge of $R$ with exactly one end in $D$ is a real edge in $\delta_H(D)$.
-So the real edges inside $\delta_H(D)$ are exactly the edges of $G_D$, and the condition says that $u$ and $v$ are connected in $G_D$ for some such $D$.
+Let $A$ be a minimum side such that $\delta(A)$ contains a $u$--$v$ path $\pi$.
+By \cref{lem:zz-q}(c), all vertices of $\pi$ lie in $Q$.
+By \cref{lem:zz-instance}(b), $D = A \cap Q$ is a down-set with $u \in D$ and $v \notin D$.
+Every edge of $\pi$ has exactly one end in $D$, so its ends are not tied, because a down-set contains the whole class of each of its elements.
+So $\pi$ is a path of $G_D$.
+
+Conversely, let $u$ and $v$ be connected in $G_D$, and let $A$ be a minimum side with $A \cap Q = D$, which exists by \cref{lem:zz-instance}(b).
+Every edge of a $u$--$v$ path of $G_D$ has both ends in $Q$ and exactly one end in $D$, hence exactly one end in $A$.
+So $\delta(A)$ contains this path, and it is a cut-path with $c$ edges, which is a minimum cut-path by \cref{lem:basic-bounds}.
+The equivalence is now \cref{prop:open-pairs}.
 
 \emph{Time.}
-The bridges and $K$ take $O(n + |E|)$ time.
-The set $Q$ takes one test $c_K(u, x) \geq 3$ per vertex, each by at most three augmenting-path searches.
-The ears are the components of $K - Q$ by \cref{lem:zz-ears}(c), with their attachments read off their boundary edges.
-This gives $H$, with $|Q| \leq n$ vertices and at most $|E| + n$ edges.
-The value $c_K(u, v)$ takes one maximum-flow computation.
-For the preorder, $x \leq y$ holds if $x = y$, $x = u$ or $y = v$.
-Otherwise it holds if and only if no minimum $u$--$v$ cut of $H$ contains $y$ but not $x$, that is, if and only if the least $|\delta_H(S)|$ over all $S$ with $\{u, y\} \subseteq S \subseteq Q \setminus \{x, v\}$ exceeds $c_K(u, v)$.
+The set $Q$ takes one test $c(u, x) \geq 3$ per vertex, each by at most three augmenting-path searches, and $c$ takes one maximum-flow computation.
+For $x \neq y$, we have $x \leq y$ if $x = u$ or $y = v$.
+Otherwise $x \leq y$ holds if and only if no minimum side contains $y$ but not $x$, that is, if and only if the least $|\delta(S)|$ over all sets $S$ with $\{u, y\} \subseteq S \subseteq V \setminus \{x, v\}$ exceeds $c$.
 This is one maximum-flow computation between $\{u, y\}$ and $\{x, v\}$.
-So at most $|Q|^2$ flow computations in $H$ are needed, and $R$ follows.
-All of this is polynomial in $n$.
-\end{proof}
-
-\subsection{The Switch Form of a ZZ Instance}
-\label{sec:zz-construction}
-
-\begin{definition}[Switch form of a ZZ instance]
-\label{def:zz-switch-form}
-Let $(Q, \leq, R, u, v)$ be a ZZ instance with $u < v$, and let $[u]$ and $[v]$ be the classes of $u$ and $v$, which are disjoint as $u < v$.
-The \emph{switches} are the elements of $M = Q \setminus ([u] \cup [v])$, with the restriction of $\leq$, and $m = |M|$.
-A real edge $ab$ with $a < b$ is of one of four kinds, namely $a \in [u]$, $b \in [v]$, or $a \in [u]$, $b \in M$, or $a \in M$, $b \in [v]$, or $a, b \in M$.
-Indeed, its ends are strictly comparable, so they are not both in $[u]$ or both in $[v]$, and $a \in [v]$ would give $v \leq a < b \leq v$, and $b \in [u]$ would give $u \leq a < b \leq u$.
-The \emph{nodes} are the vertex sets of the components of the graph on $[u] \cup [v]$ whose edges are the real edges of the first kind, and one new node $\rho(a, b)$ for every real edge $ab$ of the fourth kind.
-We write $\nodeof(x)$ for the component of $x \in [u] \cup [v]$.
-The terminals are $s = \nodeof(u)$ and $t = \nodeof(v)$.
-For $w \in M$, we put
-\begin{align*}
-E_w &= \{\nodeof(a) : aw \in R,\ a \in [u]\} \cup \{\rho(a, w) : aw \in R,\ a \in M,\ a < w\},\\
-F_w &= \{\nodeof(b) : wb \in R,\ b \in [v]\} \cup \{\rho(w, b) : wb \in R,\ b \in M,\ w < b\}.
-\end{align*}
-The middle edges are the pairs $(a, b)$ for the real edges $ab$ of the fourth kind, with private node $\rho(a, b)$.
-\end{definition}
-
-\begin{lemma}[Well defined, P2, sizes]
-\label{lem:zz-switch-form}
-\Cref{def:zz-switch-form} gives an instance of the general switch form, that is, every middle edge $(a, b)$ has $a < b$, and $\rho(a, b)$ lies in $F_a$ and $E_b$ and in no other side.
-If the ZZ instance satisfies P2, so does its switch form.
-The sizes satisfy $m \leq |Q| - 2$, $|\Omega| \leq |Q| + |R|$ and $\sum_{w \in M} (|E_w| + |F_w|) \leq 2|R|$, and the construction takes polynomial time.
-\end{lemma}
-
-\begin{proof}
-The node $\rho(a, b)$ is put into $F_a$, by the second part of $F_w$ for $w = a$, and into $E_b$, by the second part of $E_w$ for $w = b$, and nowhere else.
-
-For P2, let $x, y \in M$ be incomparable, in $M$ or equivalently in $Q$, and let $z$ be a common $R$-neighbor as in \cref{def:zz-zz}.
-If $z < x$ and $z < y$, then $z \notin [v]$, since otherwise $v \leq z < x \leq v$.
-For $z \in [u]$, the node $\nodeof(z)$ lies in $E_x \cap E_y$.
-For $z \in M$, the pairs $(z, x)$ and $(z, y)$ are middle edges and $z$ is a lower middle witness.
-If $z > x$ and $z > y$, then dually $z \notin [u]$.
-For $z \in [v]$, the node $\nodeof(z)$ lies in $F_x \cap F_y$.
-For $z \in M$, the element $z$ is an upper middle witness.
-
-For the sizes, $[u]$ and $[v]$ are non-empty and disjoint, so $m \leq |Q| - 2$.
-There are at most $|[u] \cup [v]|$ components and at most $|R|$ private nodes.
-A real edge of the second or third kind puts one node into one side, one of the fourth kind puts its private node into two sides, and one of the first kind puts no node into a side.
-\end{proof}
-
-\begin{lemma}[Answers agree]
-\label{lem:zz-answers}
-A ZZ instance with $u < v$ is a yes-instance if and only if its switch form is a yes-instance.
-\end{lemma}
-
-\begin{proof}
-(i) \emph{Down-sets.}
-Let $D'$ range over the down-sets of $(Q, \leq)$ with $u \in D'$ and $v \notin D'$, and $D$ over the mode vectors.
-We show that the maps $D' \mapsto D' \cap M$ and $D \mapsto [u] \cup D$ are inverse bijections.
-The set $D'$ contains $[u]$, because $b \leq u \in D'$ for $b \in [u]$.
-It misses $[v]$, because $x \in D' \cap [v]$ gives $v \leq x$ and $v \in D'$.
-The set $D' \cap M$ is a down-set of $M$.
-Conversely, let $D$ be a mode vector.
-An element $x$ below some $b \in [u]$ lies in $[u]$, because $x \leq b \leq u \leq x$.
-An element $x$ below some $d \in D$ lies in $[u]$, or in $M$ and then in $D$, but not in $[v]$, because $v \leq x \leq d$ would put $d$ into $[v]$.
-So $[u] \cup D$ is a down-set, and it contains $u$ and not $v$.
-
-(ii) \emph{Edges.}
-Let $D' = [u] \cup D$, and let $\pk(w)$ be the side picked by $D$ for $w \in M$.
-The edges of $G_{D'}$ are the following.
-Every real edge of the first kind is one.
-Every real edge $aw$ of the second kind with $w \notin D$ is one, and then $\nodeof(a) \in E_w = \pk(w)$.
-Every real edge $wb$ of the third kind with $w \in D$ is one, and then $\nodeof(b) \in F_w = \pk(w)$.
-Every real edge $zw$ of the fourth kind, with $z < w$, is one if $z \in D$ and $w \notin D$, because it needs exactly one end in $D$ and $w \in D$ forces $z \in D$, and then $\rho(z, w) \in F_z \cap E_w = \pk(z) \cap \pk(w)$.
-In particular, an edge of $G_{D'}$ between $w \in M$ and $e \in [u] \cup [v]$ puts $\nodeof(e)$ into $\pk(w)$.
-
-(iii) \emph{If $u$ and $v$ are connected in $G_{D'}$, then $D$ connects $s$ and $t$.}
-Take a $u$--$v$ path of $G_{D'}$.
-A maximal run of consecutive vertices in $[u] \cup [v]$ is joined by edges of the first kind, so all its vertices have the same node.
-If the path has no vertex in $M$, then $\nodeof(u) = \nodeof(v)$, that is, $s = t$.
-Otherwise let $w_1, \dots, w_h$ be its vertices in $M$ in order.
-If $w_i$ and $w_{i+1}$ are adjacent on the path, then $\pk(w_i) \cap \pk(w_{i+1})$ contains the private node of their edge.
-Otherwise the vertices between them form a run with one node $o$, and by (ii) the edges from $w_i$ and $w_{i+1}$ into that run put $o$ into $\pk(w_i)$ and $\pk(w_{i+1})$.
-The run before $w_1$ contains $u$, so by (ii) we have $s = \nodeof(u) \in \pk(w_1)$, and likewise $t \in \pk(w_h)$.
-So $\pk(w_1), \dots, \pk(w_h)$ connect $s$ and $t$.
-
-(iv) \emph{If $D$ connects $s$ and $t$, then $u$ and $v$ are connected in $G_{D'}$.}
-If $s = t$, then $u$ and $v$ lie in one component of the graph of the real edges of the first kind, all of which are edges of $G_{D'}$.
-Otherwise let $X_1, \dots, X_h$ be picked sides, $X_i = \pk(w_i)$, with $s \in X_1$, $t \in X_h$ and $X_i \cap X_{i+1} \neq \emptyset$.
-Suppose that a node $o$ lies in $\pk(w) \cap \pk(w')$ with $w \neq w'$.
-Then $w$ and $w'$ are connected in $G_{D'}$, as we now show.
-If $o$ is a component node, then by the construction and (ii), $w$ and $w'$ have $G_{D'}$-neighbors $e$ and $e'$ in the component $o$, and $e$ and $e'$ are joined by edges of the first kind.
-If $o = \rho(z, w'')$, it lies only in $F_z$ and $E_{w''}$, so $\{w, w'\} = \{z, w''\}$, $z \in D$, $w'' \notin D$, and $zw''$ is an edge of $G_{D'}$.
-Finally, $s \in \pk(w_1)$ is a component node, so $w_1$ has a $G_{D'}$-neighbor in the component $s \ni u$, which is joined to $u$ by edges of the first kind.
-Likewise $w_h$ is connected to $v$.
-
-By (i), (iii) and (iv), some $G_{D'}$ connects $u$ and $v$ if and only if some mode vector connects $s$ and $t$.
-\end{proof}
-
-\begin{lemma}[Valid paths and yes-instances]
-\label{lem:zz-valid}
-Consider an instance of the general switch form.
-(a) Let $P$ be a valid path.
-Then $U_P \cap L_P = \emptyset$, and a mode vector $D$ picks every member of $P$ if and only if $L_P \subseteq D \subseteq M \setminus U_P$.
-In particular, the mode vector $L_P$ picks every member of $P$, and every mode vector that picks every member of $P$ connects $s$ and $t$.
-(b) If a mode vector picks the sides of a sequence $Y_1, \dots, Y_h$ with $h \geq 1$, $s \in Y_1$, $t \in Y_h$ and $Y_i \cap Y_{i+1} \neq \emptyset$ for $i < h$, then a valid path with at most $h$ members exists.
-In particular, if $s \neq t$ and some mode vector connects $s$ and $t$, then a valid path exists.
-(c) The instance is a yes-instance if and only if $s = t$ or a valid path exists.
-If $s = t$, every mode vector connects $s$ and $t$.
-\end{lemma}
-
-\begin{proof}
-(a) If $x \in U_P \cap L_P$, then $w \leq x \leq z$ for some $w \in W_E$ and $z \in W_F$.
-We have $w \neq z$ because the members belong to distinct switches, and $\{E_w, F_z\}$ is a conflict pair of two members, against validity.
-The mode vector $D$ picks the F-member $F_w$ if and only if $w \in D$, so it picks all F-members if and only if $W_F \subseteq D$, that is, $L_P = \dn W_F \subseteq D$, as $D$ is a down-set.
-The mode vector $D$ picks the E-member $E_w$ if and only if $w \notin D$, so it picks all E-members if and only if $W_E \cap D = \emptyset$, that is, $U_P \cap D = \emptyset$, because $x \in U_P \cap D$ gives $w \leq x$ for some $w \in W_E$, and then $w \in D$.
-The set $L_P$ is a down-set disjoint from $U_P$, so it picks every member.
-If $D$ picks every member, the members $X_1, \dots, X_q$ are picked sides with $s \in X_1$, $t \in X_q$ and $X_i \cap X_{i+1} \neq \emptyset$.
-
-(b) Among all sequences of sides picked by this mode vector $D$ that start with a side containing $s$, end with a side containing $t$, and have consecutive sides meeting, let $X_1, \dots, X_{h'}$ be one with $h'$ least, so $h' \leq h$.
-The sides are pairwise distinct, because $X_i = X_j$ with $i < j$ would allow us to drop $X_{i+1}, \dots, X_j$.
-Hence they belong to distinct switches, since $D$ picks one side per switch.
-Two picked sides $E_w$ and $F_z$ never form a conflict pair, because $w \notin D$, $z \in D$, and $w \leq z$ would put $w$ into $D$.
-So $X_1, \dots, X_{h'}$ is a valid path.
-If $s \neq t$ and $D$ connects $s$ and $t$, then such a sequence of picked sides exists by \cref{def:zz-valid}.
-
-(c) If $s = t$, every mode vector connects $s$ and $t$ by \cref{def:zz-valid}.
-If $s \neq t$, use (a) and (b).
+For a down-set $D$, a set $S$ with $D \subseteq S \subseteq V \setminus (Q \setminus D)$ and least $|\delta(S)|$ is a minimum side with $S \cap Q = D$ by \cref{lem:zz-instance}(b), and it is found by one maximum-flow computation.
 \end{proof}
 
 \section{A Polynomial Algorithm for Pairs at Distance Two}
 \label{sec:pa-polynomial}
 
-A yes-instance of the general switch form with $s \neq t$ has a valid path by \cref{lem:zz-valid}(c).
-\Cref{thm:pa-formulas} shows that, under P2, every member of a shortest valid path is picked by one of six monotone formulas, each built from at most 71 switches.
+By \cref{lem:zz-valid}, a yes-instance of ZZ has a shortest valid walk, and it suffices to find a down-set between its lows and its highs.
+\Cref{thm:pa-formulas} shows that, under P2, a down-set of this kind is described by a formula over at most 31 elements.
 Enumerating these formulas gives the algorithm of \cref{thm:pa-open-case}.
 
-\subsection{Lemmas on a Shortest Valid Path}
-\label{sec:pa-shortest}
+Throughout this section, $(Q, \leq, R, u, v)$ is an instance of ZZ with P2.
+We write $\MB(x)$ and $\MA(x)$ for the sets of the elements that meet $x$ below and above, respectively.
+The \emph{reversed instance} $(Q, \geq, R, v, u)$ has the same pairs in $R$, with lower and upper ends exchanged, and it is an instance of ZZ with P2.
+A valid walk of the original instance, with the labels low and high exchanged, is a valid walk of the reversed instance of the same length.
+This exchanges $\dn$ and $\upp$, $\MB$ and $\MA$, and $L_P$ and $U_P$, and we call the resulting statements \emph{dual}.
 
-\begin{definition}[Objects of a valid path]
-\label{def:pa-objects}
-Fix an instance of the general switch form and a valid path $P = X_1, \dots, X_q$, with $W_E$, $W_F$, $U_P$ and $L_P$ as in \cref{def:zz-valid}.
-The switches of $W_E$ are the \emph{E-members} and those of $W_F$ are the \emph{F-members}.
-The set $A_P$ consists of the \emph{minimal E-members}, the E-members with no E-member strictly below, and $B_P$ consists of the \emph{maximal F-members}, the F-members with no F-member strictly above.
-We put $M_E = \{w \in M : E_w \neq \emptyset\}$ and $M_F = \{w \in M : F_w \neq \emptyset\}$.
-For $O \subseteq \Omega$, we put $\NE(O) = \{w \in M : E_w \cap O \neq \emptyset\}$ and $\NF(O) = \{w \in M : F_w \cap O \neq \emptyset\}$.
-The \emph{stars} of a switch $w$ are
-\begin{align*}
-E^\#_w &= E_w \cup \{\rho(z, w') : z \in \LMN(w),\ (z, w') \text{ a middle edge}\},\\
-F^\#_w &= F_w \cup \{\rho(w', z) : z \in \UMN(w),\ (w', z) \text{ a middle edge}\}.
-\end{align*}
-A side is \emph{$P$-consistent} if it is $E_w$ with $w \notin L_P$ or $F_w$ with $w \notin U_P$.
-\end{definition}
+\subsection{Detours}
+\label{sec:pa-detours}
+
+Until the end of the proof of \cref{thm:pa-formulas}, $P = x_0, \dots, x_q$ is a shortest valid walk.
+By \cref{lem:zz-valid}(d), an element on $P$ has one position, which we denote by $\pos(x)$.
+The positions of the highs have one parity and the positions of the lows have the other.
+Let $A_P$ be the set of the highs with no high strictly below, and let $B_P$ be the set of the lows with no low strictly above.
+For $w \in A_P$, let $\Pos[w]$ be the set of the positions of the highs tied with $w$, and for $w \in B_P$, let $\Pos[w]$ be the set of the positions of the lows tied with $w$.
 
 \begin{lemma}[Basic facts]
 \label{lem:pa-basic}
-Let $P$ be a valid path, and in (e) let $P$ be shortest.
-(a) Every member is non-empty, so $W_E \subseteq M_E$ and $W_F \subseteq M_F$.
-We have $U_P \cap L_P = \emptyset$, $U_P = \upp A_P$ and $L_P = \dn B_P$.
-(b) No element of $A_P$ lies strictly below an element of $A_P$.
-No element of $L_P$ lies strictly above an element of $B_P$.
-For $a \in A_P$, we have $\upp a \subseteq U_P$ and $\upp a \cap L_P = \emptyset$.
-(c) Let $S_1, S_2 \subseteq M$ with $S_1 \cap S_2 = \emptyset$.
-If $S_1$ is an up-set, then $\dn S_2 \cap S_1 = \emptyset$.
-If $S_1$ is a down-set, then $\upp S_2 \cap S_1 = \emptyset$.
-(d) A $P$-consistent side forms no conflict pair with a member.
-(e) If $X_p \cap X_{p'} \neq \emptyset$, then $|p - p'| \leq 1$.
+(a) We have $U_P = \upp A_P$ and $L_P = \dn B_P$.
+So a down-set contains $L_P$ if and only if it contains $B_P$, and it misses $U_P$ if and only if it misses $A_P$.
+(b) A high $e \leq a$ with $a \in A_P$ is tied with $a$ and lies in $A_P$.
+A low $f \geq b$ with $b \in B_P$ is tied with $b$ and lies in $B_P$.
 \end{lemma}
 
 \begin{proof}
-(a) If $q = 1$, then $s \in X_1$, and otherwise every member meets a neighboring member.
-The equality $U_P \cap L_P = \emptyset$ is \cref{lem:zz-valid}(a).
-The inclusion $A_P \subseteq W_E$ gives $\upp A_P \subseteq U_P$.
-For an E-member $w$, choose among the E-members $a \leq w$ one with $|\dn a|$ least.
-If an E-member $a''$ satisfied $a'' < a$, then $\dn a'' \subseteq \dn a$ and $a \notin \dn a''$, so $|\dn a''| < |\dn a|$ with $a'' \leq w$, against the choice.
-So $a \in A_P$ and $w \in \upp A_P$.
-Hence $W_E \subseteq \upp A_P$ and $U_P = \upp A_P$.
-Dually, choosing $|\upp b|$ least gives $L_P = \dn B_P$.
-
-(b) The first statement is the definition of $A_P$.
-Let $b \in B_P$ and $w \in L_P$ with $b < w$.
-By (a), $w \leq b'$ for some $b' \in B_P$, so $b < b'$ by \cref{def:zz-preorder}, and $b'$ is an F-member strictly above $b$, against $b \in B_P$.
-For $a \in A_P$, we have $\upp a \subseteq \upp W_E = U_P$, which misses $L_P$.
-
-(c) If $w \in \dn S_2 \cap S_1$ with $S_1$ an up-set, then $w \leq g$ for some $g \in S_2$, and $g \in S_1$ as $S_1$ is an up-set, against $S_1 \cap S_2 = \emptyset$.
+(a) As $Q$ is finite, every high lies above a minimal high, and every low lies below a maximal low.
+(b) The relation $e < a$ is excluded by the definition of $A_P$, and a high strictly below $e$ would be strictly below $a$.
 The second statement is dual.
-
-(d) A conflict pair consists of an E-side and an F-side.
-The side $E_w$ with $w \notin L_P$ and an F-member side $F_b$ form a conflict pair only if $w \leq b$, which puts $w$ into $\dn W_F = L_P$.
-The side $F_w$ with $w \notin U_P$ and an E-member side $E_a$ form a conflict pair only if $a \leq w$, which puts $w$ into $U_P$.
-
-(e) If $p + 2 \leq p'$ and $X_p \cap X_{p'} \neq \emptyset$, then $X_1, \dots, X_p, X_{p'}, \dots, X_q$ consists of members of $P$, of distinct switches and without a conflict pair.
-Consecutive sides meet, it starts with $X_1 \ni s$ and it ends with $X_q \ni t$.
-This is a valid path with fewer members than $P$, against the choice of $P$.
 \end{proof}
 
-\begin{lemma}[Windows of chains]
-\label{lem:pa-windows}
-Let $P$ be a shortest valid path, and let $Y_1, \dots, Y_j$ with $j \geq 1$ be $P$-consistent sides of pairwise distinct switches none of which is on $P$, no two of them a conflict pair, with $Y_i \cap Y_{i+1} \neq \emptyset$ for $i < j$.
-If $X_p \cap Y_1 \neq \emptyset$ and $X_{p'} \cap Y_j \neq \emptyset$, then $|p - p'| \leq j + 1$.
+\begin{lemma}[One detour]
+\label{lem:pa-one}
+(a) Let $x \in Q$, and let $a, a' \in A_P \cap \MB(x)$ with $p = \pos(a) < \pos(a') = p'$.
+If no low at a position outside $(p, p')$ is $\geq x$, then $p' - p \leq 4$.
+(b) Let $y \in Q$, and let $b, b' \in B_P \cap \MA(y)$ with $p = \pos(b) < \pos(b') = p'$.
+If no high at a position outside $(p, p')$ is $\leq y$, then $p' - p \leq 4$.
+(c) If $x \notin L_P$, then any two elements of $A_P \cap \MB(x)$ have positions at distance at most four, so $|A_P \cap \MB(x)| \leq 3$.
+If $y \notin U_P$, the same holds for $B_P \cap \MA(y)$.
 \end{lemma}
 
 \begin{proof}
-If $p = p'$, there is nothing to prove.
-If $p > p'$, the reversed chain $Y_j, \dots, Y_1$ satisfies the same hypotheses with the roles of $p$ and $p'$ exchanged.
-So let $p < p'$.
-The sequence $X_1, \dots, X_p, Y_1, \dots, Y_j, X_{p'}, \dots, X_q$ starts with $X_1 \ni s$ and ends with $X_q \ni t$, and consecutive sides meet.
-Its sides belong to pairwise distinct switches, the members to distinct switches of $P$ and the $Y_i$ to distinct switches not on $P$.
-No two of its sides form a conflict pair, because two members do not as $P$ is valid, a member and some $Y_i$ do not by \cref{lem:pa-basic}(d), and two sides $Y_i$ do not by hypothesis.
-So it is a valid path with $p + j + (q - p' + 1)$ members, and this number is at least $q$ because $P$ is shortest, which gives $p' - p \leq j + 1$.
+(a) Let $z$ be a common lower neighbor of $a$ and $x$, and let $z'$ be a common lower neighbor of $a'$ and $x$.
+Consider the walk $x_0, \dots, x_p, z, x, z', x_{p'}, \dots, x_q$ of length $p + 4 + q - p'$, in which $z$ and $z'$ are low, $x$ is high, and the other elements keep their labels.
+It is valid.
+Indeed, a kept high $e \leq z$ would give $e < a$ because $z < a$, against $a \in A_P$, and the same holds for $z'$ and $a'$.
+Also $x \not\leq z$ and $x \not\leq z'$, because $z, z' < x$, and $x$ is not $\leq$ a kept low by the hypothesis.
+As $P$ is shortest, $p + 4 + q - p' \geq q$.
+
+(b) This is the dual of (a).
+
+(c) If $x \notin L_P$, then no low is $\geq x$, so (a) applies.
+The positions of the elements of $A_P$ have the same parity, so at most three of them lie at pairwise distance at most four.
+The second statement is dual.
 \end{proof}
 
-\begin{lemma}[Stars meet few minimal E-members]
-\label{lem:pa-stars}
-Let $P$ be a shortest valid path.
-For every switch $x \notin L_P$, the set $A_P \cap \NE(E^\#_x)$ lies in an interval of at most nine consecutive positions of $P$, and in particular $|A_P \cap \NE(E^\#_x)| \leq 9$.
-Dually, for every switch $y \notin U_P$, the set $B_P \cap \NF(F^\#_y)$ lies in an interval of at most nine consecutive positions, and $|B_P \cap \NF(F^\#_y)| \leq 9$.
-\end{lemma}
-
-\begin{proof}
-Let $A_x = A_P \cap \NE(E^\#_x)$.
-
-\emph{Two types.}
-Let $a \in A_x$.
-As $a \in W_E$, we have $E_a = X_{\pos(a)}$, and we write $X_a$ for this member.
-By definition, $E_a$ meets $E_x$ (type (i)), or $E_a$ contains a private node $\rho(z, w')$ with $z \in \LMN(x)$.
-In the second case, that node lies only in $F_z$ and $E_{w'}$, so $w' = a$ and $z \in \LMN(x) \cap \LMN(a)$ (type (ii), with \emph{witness} $z$).
-
-\emph{Facts on a witness $z$.}
-Middle edges are strict, so $z < a$ and $z < x$.
-Also $z \notin U_P$, because an E-member $a'' \leq z$ would satisfy $a'' < a$ by \cref{def:zz-preorder}, against $a \in A_P$.
-So $F_z$ is $P$-consistent, it meets $X_a$ in $\rho(z, a)$ and $E_x$ in $\rho(z, x)$, and $\{E_x, F_z\}$ is not a conflict pair, since that needs $x \leq z$ whereas $z < x$.
-If $z$ is on $P$, then $z \notin U_P \supseteq W_E$ gives $z \in W_F$, and we write $X_z = F_z$ for its member.
-
-\emph{Case 1: the switch $x$ is not on $P$.}
-The side $E_x$ is $P$-consistent since $x \notin L_P$.
-Let $I = \{p : X_p \cap E_x \neq \emptyset\}$.
-
-\emph{Case 1a: $I \neq \emptyset$.}
-For $p, p' \in I$, \cref{lem:pa-windows} for the chain $E_x$ with $j = 1$ gives $|p - p'| \leq 2$.
-So $I \subseteq [p_0, p_0 + 2]$ with $p_0 = \min I$.
-Type (i) gives $\pos(a) \in I$.
-For type (ii) with $z$ on $P$, the member $X_z = F_z$ meets $E_x$, so $\pos(z) \in I$, and it meets $X_a$, so $|\pos(z) - \pos(a)| \leq 1$ by \cref{lem:pa-basic}(e).
-Hence $\pos(a) \in [p_0 - 1, p_0 + 3]$.
-For type (ii) with $z$ not on $P$, the chain $F_z, E_x$ satisfies the hypotheses of \cref{lem:pa-windows}, since these are $P$-consistent sides of the distinct switches $z$ and $x$, neither on $P$, with no conflict pair and with $F_z \cap E_x \neq \emptyset$.
-As $X_a$ meets $F_z$ and $X_{p_0}$ meets $E_x$, we get $|\pos(a) - p_0| \leq 3$.
-In every case $\pos(a) \in [p_0 - 3, p_0 + 5]$, an interval of nine positions.
-
-\emph{Case 1b: $I = \emptyset$.}
-Type (i) does not occur, and no witness is on $P$, since it would put $\pos(z)$ into $I$.
-Let $a, a' \in A_x$ with witnesses $z$ and $z'$.
-If $z = z'$, the $P$-consistent side $F_z$ of a switch not on $P$ meets $X_a$ and $X_{a'}$, so $|\pos(a) - \pos(a')| \leq 2$ by \cref{lem:pa-windows} with $j = 1$.
-If $z \neq z'$, the chain $F_z, E_x, F_{z'}$ consists of $P$-consistent sides of the distinct switches $z$, $x$ and $z'$, where $z, z' < x$, none on $P$.
-Consecutive sides meet, in $\rho(z, x)$ and $\rho(z', x)$.
-No two of them form a conflict pair, because $\{F_z, F_{z'}\}$ has no E-side, and $\{E_x, F_z\}$ and $\{E_x, F_{z'}\}$ are not conflict pairs by the facts above.
-Also $X_a$ meets $F_z$ and $X_{a'}$ meets $F_{z'}$.
-So $|\pos(a) - \pos(a')| \leq 4$ by \cref{lem:pa-windows} with $j = 3$, and $A_x$ lies in five consecutive positions.
-
-\emph{Case 2: the switch $x$ is on $P$.}
-As $x \notin L_P \supseteq W_F$, we have $x \in W_E$, and $E_x$ is the member at position $p_0 = \pos(x)$.
-For type (i), $X_a$ meets $E_x$, so $a = x$ or $|\pos(a) - p_0| \leq 1$ by \cref{lem:pa-basic}(e).
-For type (ii) with $z$ on $P$, the member $X_z = F_z$ meets $X_a$ and $E_x$, so $|\pos(a) - p_0| \leq 2$ by \cref{lem:pa-basic}(e), used twice.
-For type (ii) with $z$ not on $P$, the side $F_z$ meets $X_a$ and $E_x$, so $|\pos(a) - p_0| \leq 2$ by \cref{lem:pa-windows} with $j = 1$.
-So $A_x \subseteq [p_0 - 2, p_0 + 2]$.
-
-\emph{Dual statement.}
-The \emph{reversed instance} has the same nodes, terminals and switches, the preorder $\leq^{\mathrm{op}}$ with $x \leq^{\mathrm{op}} y$ if $y \leq x$, sides $E^{\mathrm{op}}_w = F_w$ and $F^{\mathrm{op}}_w = E_w$, and a middle edge $(w, z)$ for every middle edge $(z, w)$, with the same private node, which lies in $F^{\mathrm{op}}_w = E_w$ and $E^{\mathrm{op}}_z = F_z$ and in no other side.
-It is an instance of the general switch form, with P2 if the original has it, because common E-nodes and F-nodes are exchanged and lower and upper middle witnesses are exchanged.
-Its mode vectors are the complements of the original ones and pick the same node sets.
-Its conflict pairs $\{E^{\mathrm{op}}_w, F^{\mathrm{op}}_z\}$ with $w \leq^{\mathrm{op}} z$ are the pairs $\{F_w, E_z\}$ with $z \leq w$, that is, the original ones.
-So $P$ is a shortest valid path of it, with $W^{\mathrm{op}}_E = W_F$, $U^{\mathrm{op}}_P = L_P$, $L^{\mathrm{op}}_P = U_P$, $A^{\mathrm{op}}_P = B_P$, $\LMN^{\mathrm{op}} = \UMN$, $(E^{\mathrm{op}})^\#_w = F^\#_w$ and $\NE^{\mathrm{op}} = \NF$.
-The first statement for the reversed instance and $y \notin L^{\mathrm{op}}_P = U_P$ is the dual statement.
-\end{proof}
-
-\begin{lemma}[Duality for incomparable pairs]
-\label{lem:pa-duality}
-In an instance of the general switch form with P2, let $x$ and $y$ be incomparable switches with $F_x \neq \emptyset$ and $E_y \neq \emptyset$.
-Then $y \in \NE(E^\#_x)$ or $x \in \NF(F^\#_y)$.
-\end{lemma}
-
-\begin{proof}
-P2 gives four cases.
-A common E-node lies in $E_y \cap E_x \subseteq E_y \cap E^\#_x$, so $y \in \NE(E^\#_x)$.
-A common F-node lies in $F_x \cap F_y \subseteq F_x \cap F^\#_y$, so $x \in \NF(F^\#_y)$.
-For a lower middle witness $z \in \LMN(x) \cap \LMN(y)$, the pair $(z, y)$ is a middle edge and $z \in \LMN(x)$, so $\rho(z, y) \in E^\#_x \cap E_y$ and $y \in \NE(E^\#_x)$.
-For an upper middle witness $z \in \UMN(x) \cap \UMN(y)$, the pair $(x, z)$ is a middle edge and $z \in \UMN(y)$, so $\rho(x, z) \in F^\#_y \cap F_x$ and $x \in \NF(F^\#_y)$.
-\end{proof}
-
-\subsection{Atoms}
-\label{sec:pa-atoms}
-
-\begin{definition}[Atoms]
-\label{def:pa-atoms}
-The \emph{atoms} of an instance of the general switch form are the sets
-\begin{align*}
-\FR(x, x') &= \dn \bigl(M_F \setminus (\NF(F^\#_x) \cup \NF(F^\#_{x'}) \cup \upp x \cup \upp x')\bigr),\\
-\ER(x, x') &= M \setminus \upp \bigl(M_E \setminus (\NE(E^\#_x) \cup \NE(E^\#_{x'}) \cup \dn x \cup \dn x')\bigr),\\
-\EP(x) &= M \setminus \upp \bigl(M_E \setminus (\NE(E^\#_x) \cup (\dn x \setminus [x]))\bigr),
-\end{align*}
-together with $\dn x$ and $M \setminus \upp x$, for all switches $x$ and $x'$.
-Every atom is a down-set, because $\dn S$ and the complement of $\upp S$ are down-sets for every set $S$.
-\end{definition}
-
-Until the end of the proof of \cref{thm:pa-formulas}, we fix an instance of the general switch form with P2 and a shortest valid path $P = X_1, \dots, X_q$.
-For $a \in A_P$ we put $C(a) = B_P \cap \NF(F^\#_a)$ and $\win(a) = A_P \cap \NE(E^\#_a)$, and for $b \in B_P$ we put $C'(b) = A_P \cap \NE(E^\#_b)$.
-
-\begin{lemma}[Atoms]
-\label{lem:pa-atoms}
-(a) If $a_1, a_2 \in A_P$ and $|\pos(a_1) - \pos(a_2)| \geq 9$, then $\FR(a_1, a_2) \cap U_P = \emptyset$ and $B_P \setminus (C(a_1) \cup C(a_2)) \subseteq \FR(a_1, a_2)$.
-(b) If $b_1, b_2 \in B_P$ and $|\pos(b_1) - \pos(b_2)| \geq 9$, then $L_P \subseteq \ER(b_1, b_2)$, and $\ER(b_1, b_2)$ misses $A_P \setminus (C'(b_1) \cup C'(b_2))$.
-(c) For $a \in A_P$, the set $\EP(a)$ contains every $b \in B_P$ with $b < a$ and misses every element of $A_P \setminus \win(a)$, and $|\win(a)| \leq 9$.
-(d) For $b \in B_P$, we have $b \in \dn b$ and $\dn b \cap U_P = \emptyset$.
-For $a \in A_P$, we have $L_P \subseteq M \setminus \upp a$ and $a \notin M \setminus \upp a$.
-\end{lemma}
-
-\begin{proof}
-(a) Let $\Gamma' = M_F \setminus (\NF(F^\#_{a_1}) \cup \NF(F^\#_{a_2}) \cup \upp a_1 \cup \upp a_2)$, so that $\FR(a_1, a_2) = \dn \Gamma'$.
-Let $x \in \Gamma' \cap U_P$ and $i \in \{1, 2\}$.
-The relation $a_i \leq x$ fails by the choice of $\Gamma'$.
-The relation $x < a_i$ is impossible, because an E-member $e \leq x$ would have $e < a_i$ by \cref{def:zz-preorder}, against $a_i \in A_P$.
-So $x \parallel a_i$, and $F_x \neq \emptyset$ since $x \in M_F$, and $E_{a_i} \neq \emptyset$ by \cref{lem:pa-basic}(a).
-By \cref{lem:pa-duality}, $a_i \in \NE(E^\#_x)$ or $x \in \NF(F^\#_{a_i})$, and the second alternative is excluded by the choice of $\Gamma'$.
-So $a_1$ and $a_2$ both lie in $A_P \cap \NE(E^\#_x)$.
-As $x \in U_P$, we have $x \notin L_P$, and this contradicts \cref{lem:pa-stars}, because two positions at distance at least nine do not lie in an interval of nine positions.
-Hence $\Gamma' \cap U_P = \emptyset$, and $\dn \Gamma' \cap U_P = \emptyset$ by \cref{lem:pa-basic}(c).
-Let $b \in B_P \setminus (C(a_1) \cup C(a_2))$.
-Then $b \in M_F$ by \cref{lem:pa-basic}(a), $b \notin \NF(F^\#_{a_i})$ by the definition of $C(a_i)$, and $b \notin \upp a_i$ by \cref{lem:pa-basic}(b).
-So $b \in \Gamma' \subseteq \dn \Gamma'$.
-
-(b) Let $\Gamma = M_E \setminus (\NE(E^\#_{b_1}) \cup \NE(E^\#_{b_2}) \cup \dn b_1 \cup \dn b_2)$, so that $\ER(b_1, b_2) = M \setminus \upp \Gamma$.
-Let $y \in \Gamma \cap L_P$ and $i \in \{1, 2\}$.
-The relation $y \leq b_i$ fails by the choice of $\Gamma$.
-The relation $b_i < y$ is impossible by \cref{lem:pa-basic}(b).
-So $y \parallel b_i$, and $E_y \neq \emptyset$ since $y \in M_E$, and $F_{b_i} \neq \emptyset$ by \cref{lem:pa-basic}(a).
-By \cref{lem:pa-duality} applied to $b_i$ and $y$, $y \in \NE(E^\#_{b_i})$ or $b_i \in \NF(F^\#_y)$, and the first alternative is excluded by the choice of $\Gamma$.
-So $b_1$ and $b_2$ both lie in $B_P \cap \NF(F^\#_y)$.
-As $y \in L_P$, we have $y \notin U_P$, and this contradicts the dual statement of \cref{lem:pa-stars}.
-Hence $\Gamma \cap L_P = \emptyset$, and $\upp \Gamma \cap L_P = \emptyset$ by \cref{lem:pa-basic}(c), that is, $L_P \subseteq \ER(b_1, b_2)$.
-Let $a \in A_P \setminus (C'(b_1) \cup C'(b_2))$.
-Then $a \in M_E$ by \cref{lem:pa-basic}(a), $a \notin \NE(E^\#_{b_i})$ by the definition of $C'(b_i)$, and $a \notin \dn b_i$ because $\upp a \cap L_P = \emptyset$ by \cref{lem:pa-basic}(b).
-So $a \in \Gamma$ and $a \notin \ER(b_1, b_2)$.
-
-(c) Let $\Gamma = M_E \setminus (\NE(E^\#_a) \cup (\dn a \setminus [a]))$, so that $\EP(a) = M \setminus \upp \Gamma$.
-Let $b \in B_P$ with $b < a$.
-Then $\dn b \subseteq \dn a \setminus [a]$ by \cref{def:zz-preorder}, so $\dn b \cap \Gamma = \emptyset$, that is, $b \notin \upp \Gamma$.
-Let $a' \in A_P \setminus \win(a)$.
-Then $a' \in M_E$ by \cref{lem:pa-basic}(a), $a' \notin \NE(E^\#_a)$ by the definition of $\win(a)$, and $a' < a$ is impossible by the definition of $A_P$.
-So $a' \in \Gamma$ and $a' \notin \EP(a)$.
-We have $a \in U_P$, so $a \notin L_P$ and $|\win(a)| \leq 9$ by \cref{lem:pa-stars}.
-
-(d) We have $b \in L_P$, and $L_P$ is a down-set disjoint from $U_P$, so $\dn b \subseteq L_P$ misses $U_P$.
-We have $\upp a \cap L_P = \emptyset$ by \cref{lem:pa-basic}(b), and $a \in \upp a$.
-\end{proof}
-
-\subsection{One and Two Jumps}
-\label{sec:pa-jumps}
-
-\begin{lemma}[Walks]
-\label{lem:pa-walks}
-Let $Y_1, \dots, Y_j$ with $j \geq 1$ be a sequence of sides with $s \in Y_1$, $t \in Y_j$ and $Y_i \cap Y_{i+1} \neq \emptyset$ for $i < j$, no two of which form a conflict pair.
-Then $q \leq j$.
-\end{lemma}
-
-\begin{proof}
-Let $D$ be the down-closure of the set of switches whose F-side occurs in the sequence.
-Then $D$ picks every F-side of the sequence.
-If $E_w$ occurs and $w \in D$, then $w \leq z$ for some switch $z$ whose F-side occurs, and $\{E_w, F_z\}$ is a conflict pair, which is excluded.
-So $D$ picks every side of the sequence, and \cref{lem:zz-valid}(b) gives a valid path with at most $j$ members.
-As $P$ is shortest, $q \leq j$.
-\end{proof}
-
-For $w \in A_P$, let $\Pos[w]$ be the set of positions of the E-members tied with $w$.
-These E-members lie in $A_P$, because an E-member strictly below one of them would be strictly below $w$.
-For $w \in B_P$, let $\Pos[w]$ be the set of positions of the F-members tied with $w$, and these F-members lie in $B_P$ for the same reason.
-For $a \in A_P$ let $S(a) = \{\pos(b) : b \in C(a)\}$, and for $h \in B_P$ let $T(h) = \{\pos(a') : a' \in C'(h)\}$.
-A position of an E-member is called of \emph{type E} and a position of an F-member of \emph{type F}, and no position has both types.
-So the elements of $\Pos[a]$ and $T(h)$ have type E, and the elements of $\Pos[h]$ and $S(a)$ have type F, for $a \in A_P$ and $h \in B_P$.
-
-\emph{F-chains.}
-Let $a \in A_P$ and $b \in C(a)$.
-A node of $F_b \cap F^\#_a$ lies in $F_a$, or it is $\rho(w', w)$ with $w \in \UMN(a)$ and a middle edge $(w', w)$.
-In the second case, the node lies only in $F_{w'}$ and $E_w$, so $w' = b$ and $w \in \UMN(a) \cap \UMN(b)$, and then $\rho(a, w) \in F_a \cap E_w$ and $\rho(b, w) \in F_b \cap E_w$.
-So $F_b$ meets $F_a$, or $F_b$ meets $E_w$ and $E_w$ meets $F_a$ for some $w \in \UMN(a) \cap \UMN(b)$.
-Hence for two elements $b, b' \in C(a)$ there is an \emph{F-chain of $a$ from $b$ to $b'$}, a sequence of at most three sides with middle side $F_a$, of the form $[E_w,]\, F_a\, [, E_{w'}]$ where the brackets mark optional sides.
-Consecutive sides of an F-chain meet, $F_b$ meets its first side and $F_{b'}$ meets its last side.
-Every side $E_w$ of an F-chain of $a$ satisfies $a < w$ and $b'' < w$ for some $b'' \in B_P$.
-
-\emph{E-chains.}
-Let $h \in B_P$ and $a' \in C'(h)$.
-A node of $E_{a'} \cap E^\#_h$ lies in $E_h$, or it is $\rho(z, w')$ with $z \in \LMN(h)$ and a middle edge $(z, w')$.
-In the second case, the node lies only in $F_z$ and $E_{w'}$, so $w' = a'$ and $z \in \LMN(h) \cap \LMN(a')$, and then $\rho(z, h) \in F_z \cap E_h$ and $\rho(z, a') \in F_z \cap E_{a'}$.
-So $E_{a'}$ meets $E_h$, or $E_{a'}$ meets $F_z$ and $F_z$ meets $E_h$ for some $z \in \LMN(h) \cap \LMN(a')$.
-Hence for two elements $a', a'' \in C'(h)$ there is an \emph{E-chain of $h$ from $a'$ to $a''$}, a sequence of at most three sides with middle side $E_h$, of the form $[F_z,]\, E_h\, [, F_{z'}]$.
-Consecutive sides of an E-chain meet, $E_{a'}$ meets its first side and $E_{a''}$ meets its last side.
-Every side $F_z$ of an E-chain of $h$ satisfies $z < h$ and $z < a'''$ for some $a''' \in A_P$.
-
-\begin{lemma}[Two jumps]
-\label{lem:pa-two-jumps}
+\begin{lemma}[Two detours]
+\label{lem:pa-two}
 Let $a \in A_P$ and $h \in B_P$ with $h \not\leq a$, and let $Z = \Pos[a] \cup \Pos[h]$.
-Let $p_1 < p_2 < p_3 < p_4$ be positions with $p_1 \in T(h)$ and $p_4 \in S(a)$, with one of $p_2, p_3$ in $T(h)$ and the other in $S(a)$, and with $Z \subseteq (p_1, p_2) \cup (p_3, p_4)$.
+Let $p_1 < p_2 < p_3 < p_4$ be positions such that the elements at $p_1$ and at one of $p_2, p_3$ lie in $A_P \cap \MB(h)$, the elements at $p_4$ and at the other of $p_2, p_3$ lie in $B_P \cap \MA(a)$, and $Z \subseteq (p_1, p_2) \cup (p_3, p_4)$.
 Then $(p_2 - p_1) + (p_4 - p_3) \leq 8$.
 \end{lemma}
 
 \begin{proof}
-We build a short sequence of sides from $s$ to $t$ that avoids the members at the positions of $Z$, and we compare its length with $q$ by \cref{lem:pa-walks}.
+Let $a_1, a_2 \in A_P \cap \MB(h)$ be the elements at $p_1$ and at the other position, and let $z_i$ be a common lower neighbor of $a_i$ and $h$.
+Let $b_1, b_2 \in B_P \cap \MA(a)$ be the elements at the remaining position and at $p_4$, and let $w_i$ be a common upper neighbor of $b_i$ and $a$.
+Let $W$ be the sequence $x_{p_2}, \dots, x_{p_3}$ if $a_2$ is at $p_2$, and the sequence $x_{p_3}, \dots, x_{p_2}$ if $a_2$ is at $p_3$.
+Consider the walk
+\[
+x_0, \dots, x_{p_1}, z_1, h, z_2, W, w_1, a, w_2, x_{p_4}, \dots, x_q,
+\]
+in which $z_1$, $z_2$ and $a$ are low, $h$, $w_1$ and $w_2$ are high, and the other elements, which we call kept, keep their labels.
+Its length is $p_1 + 4 + (p_3 - p_2) + 4 + (q - p_4)$, and no kept element has its position in $Z$.
 
-\emph{The walk.}
-If $p_2 \in T(h)$, consider the sequence $X_1, \dots, X_{p_1}$, then an E-chain of $h$ between the elements at $p_1$ and $p_2$, then $X_{p_2}, \dots, X_{p_3}$, then an F-chain of $a$ between the elements at $p_3$ and $p_4$, then $X_{p_4}, \dots, X_q$.
-If $p_3 \in T(h)$, consider the sequence $X_1, \dots, X_{p_1}$, then an E-chain of $h$ between the elements at $p_1$ and $p_3$, then $X_{p_3}, X_{p_3 - 1}, \dots, X_{p_2}$, then an F-chain of $a$ between the elements at $p_2$ and $p_4$, then $X_{p_4}, \dots, X_q$.
-In both cases, the sequence starts with $X_1 \ni s$ and ends with $X_q \ni t$, and consecutive sides meet.
-The members in it have their positions in $[1, p_1] \cup [p_2, p_3] \cup [p_4, q]$, and we call them \emph{kept}.
-No kept member has its position in $Z$, by the hypothesis on $Z$.
-The sequence has at most $p_1 + 3 + (p_3 - p_2 + 1) + 3 + (q - p_4 + 1)$ sides.
+We show that the walk is valid.
+Let $e$ be a kept high and $f$ a kept low.
+(1) We have $e \not\leq f$, as $P$ is valid.
+(2) If $e \leq a$, then $\pos(e) \in \Pos[a]$ by \cref{lem:pa-basic}(b), which is not kept.
+(3) If $e \leq z_i$, then $e < a_i$, against $a_i \in A_P$.
+(4) If $h \leq f$, then $\pos(f) \in \Pos[h]$ by \cref{lem:pa-basic}(b), which is not kept.
+(5) We have $h \not\leq a$ by hypothesis.
+(6) We have $h \not\leq z_i$, because $z_i < h$.
+(7) If $w_i \leq f$, then $b_i < f$, against $b_i \in B_P$.
+(8) We have $w_i \not\leq a$, because $a < w_i$.
+(9) If $w_i \leq z_j$, then $b_i < w_i \leq z_j < h$, so $b_i < h$, and $h$ is a low, against $b_i \in B_P$.
 
-\emph{No conflict pairs.}
-A conflict pair consists of an E-side and an F-side.
-The E-sides of the walk are kept sides $E_e$, the side $E_h$, and sides $E_w$ of the F-chain.
-The F-sides of the walk are kept sides $F_f$, the side $F_a$, and sides $F_z$ of the E-chain.
-Here $a < w$ and $b'' < w$ for some $b'' \in B_P$, and $z < h$ and $z < a'''$ for some $a''' \in A_P$.
-We check the nine combinations.
-(1) Kept sides $E_e$ and $F_f$ form no conflict pair, as $P$ is valid.
-(2) If $\{E_e, F_a\}$ were a conflict pair, then $e \leq a$, hence $e \sim a$ because $a \in A_P$, so $\pos(e) \in \Pos[a]$, which is not kept.
-(3) If $\{E_e, F_z\}$ were a conflict pair, then $e \leq z < a'''$ would give $e < a'''$, against $a''' \in A_P$.
-(4) If $\{E_h, F_f\}$ were a conflict pair, then $h \leq f$, hence $f \sim h$ because $h \in B_P$, so $\pos(f) \in \Pos[h]$, which is not kept.
-(5) The pair $\{E_h, F_a\}$ is not a conflict pair, because $h \not\leq a$.
-(6) The pair $\{E_h, F_z\}$ is not a conflict pair, because $z < h$.
-(7) If $\{E_w, F_f\}$ were a conflict pair, then $b'' < w \leq f$ would give $b'' < f$, against $b'' \in B_P$.
-(8) The pair $\{E_w, F_a\}$ is not a conflict pair, because $a < w$.
-(9) If $\{E_w, F_z\}$ were a conflict pair, then $b'' < w \leq z < h$ would give $b'' < h$, and $h$ is an F-member, against $b'' \in B_P$.
-
-\emph{Counting.}
-By \cref{lem:pa-walks}, we have $q \leq p_1 + 3 + (p_3 - p_2 + 1) + 3 + (q - p_4 + 1)$, which is the claim.
+As $P$ is shortest, the length of the walk is at least $q$, which is the claim.
 \end{proof}
 
-\begin{lemma}[One jump]
-\label{lem:pa-one-jump}
-(a) Let $a \in A_P$, let $p < p'$ lie in $S(a)$, and let $\Pos[a] \subseteq (p, p')$.
-Then $p' - p \leq 4$.
-(b) Let $h \in B_P$, let $p < p'$ lie in $T(h)$, and let $\Pos[h] \subseteq (p, p')$.
-Then $p' - p \leq 4$.
+\subsection{Atoms and Formulas}
+\label{sec:pa-atoms}
+
+\begin{definition}[Atoms and formulas]
+\label{def:pa-atoms}
+For elements $x$ and $x'$, the \emph{atoms} are the sets
+\begin{align*}
+\FR(x, x') &= \dn \bigl(Q \setminus (\MA(x) \cup \MA(x') \cup \upp x \cup \upp x')\bigr),\\
+\ER(x, x') &= Q \setminus \upp \bigl(Q \setminus (\MB(x) \cup \MB(x') \cup \dn x \cup \dn x')\bigr),\\
+\EP(x) &= Q \setminus \upp \bigl(Q \setminus (\MB(x) \cup (\dn x \setminus [x]))\bigr).
+\end{align*}
+For elements $x_1, \dots, x_8$ and sets $S, S' \subseteq Q$, an \emph{F-formula} is the set
+\[
+\FR(x_1, x_2) \cup \FR(x_3, x_4) \cup \FR(x_5, x_6) \cup \dn S \cup \bigl((\EP(x_5) \cup \EP(x_6)) \setminus \upp S'\bigr)
+\]
+with $|S| \leq 19$ and $|S'| \leq 6$, and an \emph{E-formula} is the set
+\[
+\bigl(\ER(x_1, x_2) \cap \ER(x_3, x_4) \cap \ER(x_5, x_6) \cap \ER(x_7, x_8)\bigr) \setminus \upp S
+\]
+with $|S| \leq 16$.
+In both, any of the terms with two elements may be omitted, the last term of an F-formula is omitted together with $\FR(x_5, x_6)$, and the empty intersection is $Q$.
+\end{definition}
+
+Every atom and every formula is a down-set, because $\dn S$ and the complement of $\upp S$ are down-sets.
+An F-formula is built from at most $6 + 19 + 6 = 31$ elements and an E-formula from at most $8 + 16 = 24$ elements.
+
+For $a \in A_P$, we put $C(a) = B_P \cap \MA(a)$ and $\win(a) = A_P \cap \MB(a)$, and for $b \in B_P$, we put $C'(b) = A_P \cap \MB(b)$.
+
+\begin{lemma}[Atoms]
+\label{lem:pa-atoms}
+(a) If $a_1, a_2 \in A_P$ and $|\pos(a_1) - \pos(a_2)| \geq 6$, then $\FR(a_1, a_2)$ misses $U_P$ and contains $B_P \setminus (C(a_1) \cup C(a_2))$.
+(b) If $b_1, b_2 \in B_P$ and $|\pos(b_1) - \pos(b_2)| \geq 6$, then $\ER(b_1, b_2)$ contains $L_P$ and misses $A_P \setminus (C'(b_1) \cup C'(b_2))$.
+(c) For $a \in A_P$, the set $\EP(a)$ contains every $b \in B_P$ with $b < a$ and misses $A_P \setminus \win(a)$, and $|\win(a)| \leq 3$.
 \end{lemma}
 
 \begin{proof}
-(a) Consider the sequence $X_1, \dots, X_p$, then an F-chain of $a$ between the elements at $p$ and $p'$, then $X_{p'}, \dots, X_q$.
-It starts with $X_1 \ni s$ and ends with $X_q \ni t$, consecutive sides meet, and the kept positions $[1, p] \cup [p', q]$ miss $\Pos[a]$.
-Its E-sides are kept sides $E_e$ and sides $E_w$ of the chain, and its F-sides are kept sides $F_f$ and the side $F_a$.
-So no two of its sides form a conflict pair, by items (1), (2), (7) and (8) of the proof of \cref{lem:pa-two-jumps}, whose arguments do not use $h$.
-By \cref{lem:pa-walks}, $q \leq p + 3 + (q - p' + 1)$, that is, $p' - p \leq 4$.
+(a) Let $\Gamma = Q \setminus (\MA(a_1) \cup \MA(a_2) \cup \upp a_1 \cup \upp a_2)$, so that $\FR(a_1, a_2) = \dn \Gamma$.
+Suppose that $x \in \Gamma \cap U_P$, and let $i \in \{1, 2\}$.
+The relation $a_i \leq x$ fails by the choice of $\Gamma$.
+The relation $x < a_i$ is impossible, because a high $e \leq x$ would satisfy $e < a_i$, against $a_i \in A_P$.
+So $x \parallel a_i$, and by P2 and the choice of $\Gamma$, the elements $x$ and $a_i$ meet below.
+Thus $a_1, a_2 \in A_P \cap \MB(x)$, and $x \notin L_P$, because $x \in U_P$.
+This contradicts \cref{lem:pa-one}(c).
+Hence $\Gamma \cap U_P = \emptyset$, and $\dn \Gamma \cap U_P = \emptyset$ because $U_P$ is an up-set.
+Let $b \in B_P \setminus (C(a_1) \cup C(a_2))$.
+Then $b \notin \MA(a_i)$, and $b \notin \upp a_i$ because $L_P \cap U_P = \emptyset$.
+So $b \in \Gamma$.
 
-(b) Consider the sequence $X_1, \dots, X_p$, then an E-chain of $h$ between the elements at $p$ and $p'$, then $X_{p'}, \dots, X_q$.
-It starts with $X_1 \ni s$ and ends with $X_q \ni t$, consecutive sides meet, and the kept positions $[1, p] \cup [p', q]$ miss $\Pos[h]$.
-Its E-sides are kept sides $E_e$ and the side $E_h$, and its F-sides are kept sides $F_f$ and sides $F_z$ of the chain.
-So no two of its sides form a conflict pair, by items (1), (3), (4) and (6) of the proof of \cref{lem:pa-two-jumps}, whose arguments do not use $a$.
-By \cref{lem:pa-walks}, $q \leq p + 3 + (q - p' + 1)$, that is, $p' - p \leq 4$.
+(b) The set $\FR(b_1, b_2)$ of the reversed instance is the complement of $\ER(b_1, b_2)$, so this is the dual of (a).
+
+(c) Let $\Gamma = Q \setminus (\MB(a) \cup (\dn a \setminus [a]))$, so that $\EP(a) = Q \setminus \upp \Gamma$.
+Let $b \in B_P$ with $b < a$.
+Then $\dn b \subseteq \dn a \setminus [a]$, so $\dn b \cap \Gamma = \emptyset$, that is, $b \notin \upp \Gamma$.
+Let $a' \in A_P \setminus \win(a)$.
+Then $a' \notin \MB(a)$, and $a' < a$ is impossible, so $a' \in \Gamma$ and $a' \notin \EP(a)$.
+Finally, $a \in U_P$, so $a \notin L_P$ and $|\win(a)| \leq 3$ by \cref{lem:pa-one}(c).
 \end{proof}
 
 \subsection{Bounded Formulas}
 \label{sec:pa-formulas}
 
-\begin{definition}[Formulas]
-\label{def:pa-formulas}
-Let $x_1, \dots, x_8$ be switches and $S, S' \subseteq M$.
-The \emph{formulas} are the following sets.
-(T1) The set $M \setminus \upp S$ with $|S| \leq 9$.
-(T2) The set $\dn S$ with $|S| \leq 9$.
-(T3) The set $\FR(x_1, x_2) \cup \FR(x_3, x_4) \cup \dn S$ with $|S| \leq 28$.
-(T4) The set $(\ER(x_1, x_2) \cap \ER(x_3, x_4)) \setminus \upp S$ with $|S| \leq 38$.
-(T5) The set $\FR(x_1, x_2) \cup \FR(x_3, x_4) \cup \FR(x_5, x_6) \cup \dn S \cup ((\EP(x_5) \cup \EP(x_6)) \setminus \upp S')$ with $|S| \leq 47$ and $|S'| \leq 18$.
-(T6) The set $(\ER(x_1, x_2) \cap \ER(x_3, x_4) \cap \ER(x_5, x_6) \cap \ER(x_7, x_8)) \setminus \upp S$ with $|S| \leq 38$.
-These formulas are built from at most $9$, $9$, $32$, $42$, $71$ and $46$ switches, respectively.
-Every value of a formula is a down-set of $M$, hence a mode vector, because atoms are down-sets, unions and intersections of down-sets are down-sets, and $D \setminus \upp S$ is the intersection of $D$ with a down-set.
-\end{definition}
-
 \begin{theorem}[Bounded formulas]
 \label{thm:pa-formulas}
-Let an instance of the general switch form with P2 have a shortest valid path $P$.
-Then some value $D$ of a formula of \cref{def:pa-formulas} satisfies $L_P \subseteq D \subseteq M \setminus U_P$.
-Hence $D$ picks every member of $P$ and connects $s$ and $t$.
+Let $P$ be a shortest valid walk of an instance of ZZ with P2.
+Then some F-formula or E-formula has a value $D$ with $L_P \subseteq D \subseteq Q \setminus U_P$.
 \end{theorem}
 
 \begin{proof}
 Thresholds on the contacts confine all elements not handled by a bounded formula to two ranges of positions.
-The jump lemmas fix the relative place of these ranges and give a separation property $(\star)$, and two further far pairs of $B_P$ finish the proof.
-The last sentence of the theorem is \cref{lem:zz-valid}(a).
-By \cref{lem:pa-basic}(a), a down-set $D$ contains $L_P$ if and only if it contains $B_P$, and it misses $U_P$ if and only if it misses $A_P$.
+The detour lemmas fix the relative place of these ranges and give a separation property $(\star)$, and two further far pairs of $B_P$ finish the proof.
+By \cref{lem:pa-basic}(a), it suffices to find a down-set in a formula that contains $B_P$ and misses $A_P$.
+For all $a \in A_P$ and $b \in B_P$, the sets $\dn b \subseteq L_P$ and $\upp a \subseteq U_P$ are disjoint, and in particular $\dn b$ misses $U_P$ and $Q \setminus \upp a$ contains $L_P$.
+We call this fact $(\dagger)$.
 
 \emph{Small sets.}
-If $|A_P| < 10$, then $M \setminus \upp A_P = M \setminus U_P$ is a value of (T1) as required, since $L_P \cap U_P = \emptyset$.
-If $|B_P| < 10$, then $\dn B_P = L_P$ is a value of (T2) as required.
-From now on, $|A_P|, |B_P| \geq 10$.
+If $|A_P| \leq 3$, then $Q \setminus \upp A_P = Q \setminus U_P$ is an E-formula as required.
+If $|B_P| \leq 3$, then $\dn B_P = L_P$ is an F-formula as required.
+From now on, $|A_P|, |B_P| \geq 4$.
 
 \emph{Stage 0: thresholds.}
-For $a \in A_P$ let $\ell(a) = \min S(a)$ and $r(a) = \max S(a)$, with $\ell(a) = +\infty$ and $r(a) = -\infty$ if $S(a) = \emptyset$.
-For $b \in B_P$ let $u(b) = \min T(b)$ and $v(b) = \max T(b)$, with $u(b) = +\infty$ and $v(b) = -\infty$ if $T(b) = \emptyset$.
-Any ten elements of $A_P$ or of $B_P$ have ten distinct positions, so the first and the last of them by position are at distance at least nine.
+Any four elements of $A_P$ or of $B_P$ have four distinct positions of the same parity, so the first and the last of them by position are at distance at least six.
+For $a \in A_P$, let $S(a) = \{\pos(b) : b \in C(a)\}$, let $\ell(a) = \min S(a)$ and let $r(a) = \max S(a)$, with $\ell(a) = +\infty$ and $r(a) = -\infty$ if $S(a) = \emptyset$.
+For $b \in B_P$, let $T(b) = \{\pos(a) : a \in C'(b)\}$, let $\sigma(b) = \min T(b)$ and let $\tau(b) = \max T(b)$, with the same convention.
 
 Order $A_P$ by non-increasing $\ell$, breaking ties arbitrarily.
-Let $\ell^*$ be the value of $\ell$ at the tenth element, and let $a^\ell_1$ and $a^\ell_2$ be the first and the last by position among the first ten elements.
+Let $\ell^*$ be the value of $\ell$ at the fourth element, and let $a^\ell_1$ and $a^\ell_2$ be the first and the last by position among the first four elements.
 All positions in $S(a^\ell_1) \cup S(a^\ell_2)$ are at least $\ell^*$, so by \cref{lem:pa-atoms}(a) the set $\FR_\ell = \FR(a^\ell_1, a^\ell_2)$ misses $U_P$ and contains every $b \in B_P$ with $\pos(b) < \ell^*$.
-Order $A_P$ by non-decreasing $r$.
-Let $r^*$ be the value of $r$ at the tenth element, and let $a^r_1$ and $a^r_2$ be the first and the last by position among the first ten elements.
-All positions in $S(a^r_1) \cup S(a^r_2)$ are at most $r^*$, so the set $\FR_r = \FR(a^r_1, a^r_2)$ misses $U_P$ and contains every $b \in B_P$ with $\pos(b) > r^*$.
-Order $B_P$ by non-increasing $u$.
-Let $u^*$ be the value of $u$ at the tenth element, and let $b^u_1$ and $b^u_2$ be the first and the last by position among the first ten elements.
-All positions in $T(b^u_1) \cup T(b^u_2)$ are at least $u^*$, so by \cref{lem:pa-atoms}(b) the set $\ER_u = \ER(b^u_1, b^u_2)$ contains $L_P$ and misses every $a \in A_P$ with $\pos(a) < u^*$.
-Order $B_P$ by non-decreasing $v$.
-Let $v^*$ be the value of $v$ at the tenth element, and let $b^v_1$ and $b^v_2$ be the first and the last by position among the first ten elements.
-All positions in $T(b^v_1) \cup T(b^v_2)$ are at most $v^*$, so the set $\ER_v = \ER(b^v_1, b^v_2)$ contains $L_P$ and misses every $a \in A_P$ with $\pos(a) > v^*$.
+Order $A_P$ by non-decreasing $r$, and define $r^*$, $a^r_1$ and $a^r_2$ in the same way.
+Then $\FR_r = \FR(a^r_1, a^r_2)$ misses $U_P$ and contains every $b \in B_P$ with $\pos(b) > r^*$.
+Order $B_P$ by non-increasing $\sigma$, and define $\sigma^*$, $b^\sigma_1$ and $b^\sigma_2$ in the same way.
+By \cref{lem:pa-atoms}(b), the set $\ER_\sigma = \ER(b^\sigma_1, b^\sigma_2)$ contains $L_P$ and misses every $a \in A_P$ with $\pos(a) < \sigma^*$.
+Order $B_P$ by non-decreasing $\tau$, and define $\tau^*$, $b^\tau_1$ and $b^\tau_2$ in the same way.
+Then $\ER_\tau = \ER(b^\tau_1, b^\tau_2)$ contains $L_P$ and misses every $a \in A_P$ with $\pos(a) > \tau^*$.
 
-Let $E_0$ consist of the first nine elements in the order by $\ell$, the first nine in the order by $r$, and all $a \in A_P$ with $u^* \leq \pos(a) < u^* + 5$ or $v^* - 5 < \pos(a) \leq v^*$, so $|E_0| \leq 28$.
-Let $H_0$ consist of the first nine elements in the order by $u$, the first nine in the order by $v$, and all $b \in B_P$ with $\ell^* \leq \pos(b) < \ell^* + 5$ or $r^* - 5 < \pos(b) \leq r^*$, so $|H_0| \leq 28$.
+Let $E_0$ consist of the first three elements in the order by $\ell$, the first three in the order by $r$, and all $a \in A_P$ with $\pos(a) \in \{\sigma^*, \sigma^* + 2, \sigma^* + 4, \tau^* - 4, \tau^* - 2, \tau^*\}$, so $|E_0| \leq 12$.
+Let $H_0$ consist of the first three elements in the order by $\sigma$, the first three in the order by $\tau$, and all $b \in B_P$ with $\pos(b) \in \{\ell^*, \ell^* + 2, \ell^* + 4, r^* - 4, r^* - 2, r^*\}$, so $|H_0| \leq 12$.
 Let
 \[
-F^* = \FR_\ell \cup \FR_r \cup \dn H_0 \quad\text{and}\quad E^* = (\ER_u \cap \ER_v) \setminus \upp E_0.
+F^* = \FR_\ell \cup \FR_r \cup \dn H_0 \quad\text{and}\quad E^* = (\ER_\sigma \cap \ER_\tau) \setminus \upp E_0.
 \]
-By \cref{lem:pa-atoms}(a) and (d), the down-set $F^*$ misses $U_P$.
-By \cref{lem:pa-atoms}(b) and (d), the down-set $E^*$ contains $L_P$.
+By $(\dagger)$, the down-set $F^*$ misses $U_P$ and the down-set $E^*$ contains $L_P$.
 Let $R_0 = A_P \cap E^*$ and $C_0 = B_P \setminus F^*$.
-If $C_0 = \emptyset$, then $F^*$ contains $B_P$, and it is a value of (T3) as required, with $x_1, \dots, x_4$ equal to $a^\ell_1, a^\ell_2, a^r_1, a^r_2$ and with $S = H_0$.
-If $R_0 = \emptyset$, then $E^*$ misses $A_P$, and it is a value of (T4) as required, with $x_1, \dots, x_4$ equal to $b^u_1, b^u_2, b^v_1, b^v_2$ and with $S = E_0$.
+If $C_0 = \emptyset$, then $F^*$ is an F-formula as required, and if $R_0 = \emptyset$, then $E^*$ is an E-formula as required.
 
 From now on, $R_0 \neq \emptyset$ and $C_0 \neq \emptyset$.
 If $\ell^* = +\infty$ or $r^* = -\infty$, then every $b \in B_P$ lies in $\FR_\ell$ or in $\FR_r$, against $C_0 \neq \emptyset$.
-If $u^* = +\infty$ or $v^* = -\infty$, then every $a \in A_P$ lies outside $\ER_u$ or outside $\ER_v$, against $R_0 \neq \emptyset$.
-The functions $\ell$ and $u$ never take the value $-\infty$, and $r$ and $v$ never take the value $+\infty$.
-So $\ell^*$, $r^*$, $u^*$ and $v^*$ are positions.
+If $\sigma^* = +\infty$ or $\tau^* = -\infty$, then every $a \in A_P$ lies outside $\ER_\sigma$ or outside $\ER_\tau$, against $R_0 \neq \emptyset$.
+So $\ell^*$, $r^*$, $\sigma^*$ and $\tau^*$ are positions.
 
-Since $E^*$ is a down-set, the E-members tied with an element $a \in R_0$ lie in $E^*$, and they lie in $A_P$, so they lie in $R_0$.
-They form the \emph{class} of $a$ in $R_0$, with position set $\Pos[a]$.
-Since $F^*$ is a down-set, the F-members tied with an element $h \in C_0$ lie outside $F^*$, and they lie in $B_P$, so they lie in $C_0$.
-They form the \emph{class} of $h$ in $C_0$, with position set $\Pos[h]$.
+Since $E^*$ is a down-set, the highs tied with an element $a \in R_0$ lie in $E^*$ and, by \cref{lem:pa-basic}(b), in $A_P$, so they lie in $R_0$.
+They form the \emph{class} of $a$ in $R_0$, with the position set $\Pos[a]$.
+Since $F^*$ is a down-set, the lows tied with an element $h \in C_0$ lie outside $F^*$ and in $B_P$, so they lie in $C_0$.
+They form the \emph{class} of $h$ in $C_0$, with the position set $\Pos[h]$.
 
-For $a \in R_0$ and $h \in C_0$ we have
+For $a \in R_0$ and $h \in C_0$, we have
 \begin{align}
 \label{eq:pa-ranges-r}
-\Pos[a] &\subseteq [u^* + 5, v^* - 5], & \ell(a) &\leq \ell^*, & r(a) &\geq r^*,\\
+\Pos[a] &\subseteq [\sigma^* + 6, \tau^* - 6], & \ell(a) &\leq \ell^*, & r(a) &\geq r^*,\\
 \label{eq:pa-ranges-c}
-\Pos[h] &\subseteq [\ell^* + 5, r^* - 5], & u(h) &\leq u^*, & v(h) &\geq v^*.
+\Pos[h] &\subseteq [\ell^* + 6, r^* - 6], & \sigma(h) &\leq \sigma^*, & \tau(h) &\geq \tau^*.
 \end{align}
-Indeed, an element $a \in R_0$ lies in $\ER_u \cap \ER_v$, so $u^* \leq \pos(a) \leq v^*$, and $a \notin E_0$ since $E^*$ misses $E_0$, which removes the five positions at each end.
-This holds for every element of the class of $a$, which gives the first inclusion.
-As $a$ is not among the first nine elements of the orders by $\ell$ and by $r$, we have $\ell(a) \leq \ell^*$ and $r(a) \geq r^*$.
-An element $h \in C_0$ lies outside $\FR_\ell \cup \FR_r$, so $\ell^* \leq \pos(h) \leq r^*$, and $h \notin H_0$ since $H_0 \subseteq F^*$, which removes the five positions at each end.
-This holds for every element of the class of $h$, which gives the second inclusion.
-As $h$ is not among the first nine elements of the orders by $u$ and by $v$, we have $u(h) \leq u^*$ and $v(h) \geq v^*$.
-In particular, $v^* - u^* \geq 10$ and $r^* - \ell^* \geq 10$, and the values $\ell(a)$, $r(a)$, $u(h)$ and $v(h)$ are finite.
+Indeed, an element $a \in R_0$ lies in $\ER_\sigma \cap \ER_\tau$, so $\sigma^* \leq \pos(a) \leq \tau^*$, and $a \notin E_0$.
+The position $\pos(a)$ has the parity of $\sigma^*$ and $\tau^*$, so $\sigma^* + 6 \leq \pos(a) \leq \tau^* - 6$.
+This holds for every element of the class of $a$.
+As $a$ is not among the first three elements of the orders by $\ell$ and by $r$, we have $\ell(a) \leq \ell^*$ and $r(a) \geq r^*$.
+The argument for $h$ is the same, since $h$ lies outside $\FR_\ell \cup \FR_r$ and $h \notin H_0$.
+In particular, $\tau^* - \sigma^* \geq 12$ and $r^* - \ell^* \geq 12$, and the values $\ell(a)$, $r(a)$, $\sigma(h)$ and $\tau(h)$ are finite.
 
 \emph{Orientation.}
-The thresholds $u^*$ and $v^*$ have type E and the thresholds $\ell^*$ and $r^*$ have type F, so $u^* \neq \ell^*$ and $v^* \neq r^*$.
-This leaves four sign cases.
+The thresholds $\sigma^*$ and $\tau^*$ are positions of highs and the thresholds $\ell^*$ and $r^*$ are positions of lows, so $\sigma^* \neq \ell^*$ and $\tau^* \neq r^*$.
+This leaves four cases.
 
-\emph{Case $u^* < \ell^*$ and $r^* < v^*$.}
+\emph{Case $\sigma^* < \ell^*$ and $r^* < \tau^*$.}
 Let $h \in C_0$.
-By~\eqref{eq:pa-ranges-c}, $\Pos[h] \subseteq [\ell^* + 5, r^* - 5] \subseteq (u^*, v^*) \subseteq (u(h), v(h))$, and $v(h) - u(h) \geq v^* - u^* \geq 10$.
-This contradicts \cref{lem:pa-one-jump}(b), so this case does not occur.
+By~\eqref{eq:pa-ranges-c}, $\Pos[h] \subseteq (\sigma^*, \tau^*) \subseteq (\sigma(h), \tau(h))$, and $\tau(h) - \sigma(h) \geq 12$.
+The elements of $A_P$ at the positions $\sigma(h)$ and $\tau(h)$ lie in $\MB(h)$, and a low $\geq h$ has its position in $\Pos[h]$ by \cref{lem:pa-basic}(b).
+This contradicts \cref{lem:pa-one}(a), so this case does not occur.
 
-\emph{Case $\ell^* < u^*$ and $v^* < r^*$.}
+\emph{Case $\ell^* < \sigma^*$ and $\tau^* < r^*$.}
 Let $a \in R_0$.
-By~\eqref{eq:pa-ranges-r}, $\Pos[a] \subseteq [u^* + 5, v^* - 5] \subseteq (\ell^*, r^*) \subseteq (\ell(a), r(a))$, and $r(a) - \ell(a) \geq r^* - \ell^* \geq 10$.
-This contradicts \cref{lem:pa-one-jump}(a), so this case does not occur.
+By~\eqref{eq:pa-ranges-r}, $\Pos[a] \subseteq (\ell^*, r^*) \subseteq (\ell(a), r(a))$, and $r(a) - \ell(a) \geq 12$.
+The elements of $B_P$ at the positions $\ell(a)$ and $r(a)$ lie in $\MA(a)$, and a high $\leq a$ has its position in $\Pos[a]$ by \cref{lem:pa-basic}(b).
+This contradicts \cref{lem:pa-one}(b), so this case does not occur.
 
-\emph{Case $\ell^* < u^*$ and $r^* < v^*$.}
-We reverse $P$.
-Exchanging $s$ and $t$ gives an instance with the same switches, sides, preorder and middle edges, hence with P2 and with the same mode vectors and conflict pairs, and $X_q, \dots, X_1$ is a shortest valid path of it.
-The atoms and the sets $U_P$, $L_P$, $A_P$, $B_P$, $C(a)$ and $C'(b)$ stay the same, and every position $p$ becomes $q + 1 - p$.
-So the orders by $\ell$ and by $r$ exchange, and the orders by $u$ and by $v$ exchange.
-With the corresponding tie-breaks, the sets $E_0$, $H_0$, $F^*$, $E^*$, $R_0$ and $C_0$ stay the same, and $(\ell^*, r^*, u^*, v^*)$ becomes $(q + 1 - r^*, q + 1 - \ell^*, q + 1 - v^*, q + 1 - u^*)$.
-The new values satisfy $u^* < \ell^*$ and $v^* < r^*$.
-The required set $D$ does not depend on the direction of $P$, so we may continue with the reversed path.
+\emph{Case $\ell^* < \sigma^*$ and $r^* < \tau^*$.}
+We replace $P$ by its reversal, which is a shortest valid walk with the same sets $U_P$, $L_P$, $A_P$ and $B_P$, and every position $p$ becomes $q - p$.
+The orders by $\ell$ and by $r$ exchange, and so do the orders by $\sigma$ and by $\tau$.
+With the corresponding tie-breaks, the sets $E_0$, $H_0$, $F^*$, $E^*$, $R_0$ and $C_0$ stay the same, and $(\ell^*, r^*, \sigma^*, \tau^*)$ becomes $(q - r^*, q - \ell^*, q - \tau^*, q - \sigma^*)$.
+The new values satisfy $\sigma^* < \ell^*$ and $\tau^* < r^*$.
 
-\emph{Case $u^* < \ell^*$ and $v^* < r^*$.}
+\emph{Case $\sigma^* < \ell^*$ and $\tau^* < r^*$.}
 This is the remaining case, and we assume it from now on.
 
 \emph{Property $(\star)$.}
-Let $a \in R_0$ and $h \in C_0$ with $h \not\leq a$, let $\alpha$ be a position of an element of $R_0$ and $\beta$ a position of an element of $C_0$, with $\alpha \in T(h)$ and $\beta \in S(a)$.
+Let $a \in R_0$ and $h \in C_0$ with $h \not\leq a$, let $\alpha$ be the position of an element of $R_0 \cap C'(h)$, and let $\beta$ be the position of an element of $C_0 \cap C(a)$.
 Then the closed interval between $\alpha$ and $\beta$ contains an element of $\Pos[a] \cup \Pos[h]$.
 
-To prove $(\star)$, we have $\alpha \neq \beta$ by their types, and we put $p_1 = u(h)$, $p_4 = r(a)$, $p_2 = \min\{\alpha, \beta\}$ and $p_3 = \max\{\alpha, \beta\}$.
-Then $p_1 \in T(h)$ and $p_4 \in S(a)$, and one of $p_2, p_3$ is $\alpha \in T(h)$ and the other is $\beta \in S(a)$.
-By~\eqref{eq:pa-ranges-r} and~\eqref{eq:pa-ranges-c}, $p_1 \leq u^*$ and $p_4 \geq r^*$.
-By the same relations and $u^* < \ell^*$, we have $\alpha \geq u^* + 5$ and $\beta \geq \ell^* + 5 > u^* + 5$, so $p_2 \geq u^* + 5 \geq p_1 + 5$.
-By the same relations and $v^* < r^*$, we have $\alpha \leq v^* - 5 < r^* - 5$ and $\beta \leq r^* - 5$, so $p_3 \leq r^* - 5 \leq p_4 - 5$.
-Hence $(p_2 - p_1) + (p_4 - p_3) \geq 10$.
-Every element of $Z = \Pos[a] \cup \Pos[h]$ is greater than $u^* \geq p_1$ and less than $r^* \leq p_4$, by~\eqref{eq:pa-ranges-r}, by~\eqref{eq:pa-ranges-c} and by the orientation.
-If $[p_2, p_3]$ contained no element of $Z$, then $Z \subseteq (p_1, p_2) \cup (p_3, p_4)$, and \cref{lem:pa-two-jumps} would give $(p_2 - p_1) + (p_4 - p_3) \leq 8$, a contradiction.
+To prove $(\star)$, we have $\alpha \neq \beta$, because $\alpha$ is the position of a high and $\beta$ of a low.
+We put $p_1 = \sigma(h)$, $p_4 = r(a)$, $p_2 = \min\{\alpha, \beta\}$ and $p_3 = \max\{\alpha, \beta\}$.
+By~\eqref{eq:pa-ranges-r} and~\eqref{eq:pa-ranges-c}, $p_1 \leq \sigma^*$ and $p_4 \geq r^*$.
+By the same relations and $\sigma^* < \ell^*$, we have $\alpha \geq \sigma^* + 6$ and $\beta \geq \ell^* + 6 > \sigma^* + 6$, so $p_2 - p_1 \geq 6$.
+By the same relations and $\tau^* < r^*$, we have $\alpha \leq \tau^* - 6 < r^* - 6$ and $\beta \leq r^* - 6$, so $p_4 - p_3 \geq 6$.
+Every element of $Z = \Pos[a] \cup \Pos[h]$ is greater than $\sigma^* \geq p_1$ and less than $r^* \leq p_4$, by~\eqref{eq:pa-ranges-r}, by~\eqref{eq:pa-ranges-c} and by the orientation.
+If $[p_2, p_3]$ contained no element of $Z$, then $Z \subseteq (p_1, p_2) \cup (p_3, p_4)$, and \cref{lem:pa-two} would give $12 \leq (p_2 - p_1) + (p_4 - p_3) \leq 8$.
 
 \emph{Positions of $C_0$.}
-Every class of $C_0$ has a position greater than $v^*$.
+Every class of $C_0$ has a position greater than $\tau^*$.
 Indeed, let $h \in C_0$.
-By~\eqref{eq:pa-ranges-c}, $v(h) - u(h) \geq v^* - u^* \geq 10$, so $\Pos[h] \not\subseteq (u(h), v(h))$ by \cref{lem:pa-one-jump}(b).
-The elements of $\Pos[h]$ have type F, so they differ from $u(h)$ and $v(h)$, which have type E.
-By~\eqref{eq:pa-ranges-c} and $u^* < \ell^*$, they are greater than $u^* \geq u(h)$.
-So some element of $\Pos[h]$ is greater than $v(h) \geq v^*$.
+By~\eqref{eq:pa-ranges-c}, $\tau(h) - \sigma(h) \geq 12$, so $\Pos[h] \not\subseteq (\sigma(h), \tau(h))$ by \cref{lem:pa-one}(a) and \cref{lem:pa-basic}(b).
+The elements of $\Pos[h]$ are positions of lows, so they differ from $\sigma(h)$ and $\tau(h)$.
+By~\eqref{eq:pa-ranges-c} and $\sigma^* < \ell^*$, they are greater than $\sigma^* \geq \sigma(h)$.
+So some element of $\Pos[h]$ is greater than $\tau(h) \geq \tau^*$.
 
 \emph{Stage 1: the classes of $R_0$.}
 Distinct classes of $R_0$ have disjoint position sets, hence distinct last positions.
-Suppose that $R_0$ has at most ten classes, and let $A_\kappa$ be a set of one representative per class.
-Then $D = E^* \setminus \upp A_\kappa$ is a value of (T4) with $x_1, \dots, x_4$ equal to $b^u_1, b^u_2, b^v_1, b^v_2$ and with $S = E_0 \cup A_\kappa$.
-It contains $L_P$ by \cref{lem:pa-atoms}(d).
-An element of $A_P$ inside $E^*$ lies in $R_0$ and is tied with a representative, so it lies in $\upp A_\kappa$.
-So $D$ misses $A_P$, and $D$ is as required.
+Suppose that $R_0$ has at most four classes, and let $A_\kappa$ be a set of one representative per class.
+Then $E^* \setminus \upp A_\kappa$ is an E-formula with $S = E_0 \cup A_\kappa$, it contains $L_P$ by $(\dagger)$ and it misses $A_P$, as required.
 
-Otherwise, let $\kappa_1, \dots, \kappa_{10}$ be the first ten classes of $R_0$ by last position, let $p^*$ be the last position of $\kappa_{10}$, and call the positions greater than $p^*$ the \emph{tail}.
-The classes $\kappa_i$ have no position in the tail.
-Every other class of $R_0$ has its last position in the tail.
-Every class of $C_0$ has a position in the tail, because such a class has a position greater than $v^*$ and $p^* \leq v^* - 5$ by~\eqref{eq:pa-ranges-r}.
-Let $A_\kappa$ be a set of one representative per class $\kappa_i$, and let $E_\kappa = M \setminus \upp A_\kappa$.
+Otherwise, let $\kappa_1, \dots, \kappa_4$ be the first four classes of $R_0$ by last position, let $p^*$ be the last position of $\kappa_4$, and call the positions greater than $p^*$ the \emph{tail}.
+The classes $\kappa_i$ have no position in the tail, and every other class of $R_0$ has its last position in the tail.
+Every class of $C_0$ has a position in the tail, because $p^* \leq \tau^* - 6$ by~\eqref{eq:pa-ranges-r}.
+Let $A_\kappa$ be a set of one representative per class $\kappa_i$.
 
-Let $a_1$ and $a_2$ be the elements of $\kappa_1$ and $\kappa_{10}$ at their last positions.
-These two positions are the first and the last of ten distinct positions, so they are at distance at least nine.
-The sets $\Pos[a_1]$ and $\Pos[a_2]$ have no element in the tail.
-Let $W = M \setminus \upp (\win(a_1) \cup \win(a_2))$, where $|\win(a_1) \cup \win(a_2)| \leq 18$ by \cref{lem:pa-atoms}(c), and let
+Let $a_1$ and $a_2$ be the elements of $\kappa_1$ and $\kappa_4$ at their last positions, which are at distance at least six.
+Let $S' = \win(a_1) \cup \win(a_2)$, so that $|S'| \leq 6$ by \cref{lem:pa-atoms}(c), and let
 \[
-F^1 = F^* \cup \FR(a_1, a_2) \cup \bigl(W \cap (\EP(a_1) \cup \EP(a_2))\bigr).
+F^1 = F^* \cup \FR(a_1, a_2) \cup \bigl((\EP(a_1) \cup \EP(a_2)) \setminus \upp S'\bigr).
 \]
 The down-set $F^1$ misses $U_P$.
-Indeed, $F^*$ and $\FR(a_1, a_2)$ miss $U_P$ by \cref{lem:pa-atoms}(a).
-The down-set $W \cap (\EP(a_1) \cup \EP(a_2))$ misses $A_P$, because an element of $\win(a_1) \cup \win(a_2)$ lies outside $W$ and any other element of $A_P$ lies outside both sets $\EP(a_i)$ by \cref{lem:pa-atoms}(c).
+Indeed, $F^*$ and $\FR(a_1, a_2)$ miss $U_P$.
+The last term misses $A_P$, because an element of $S'$ lies in $\upp S'$ and any other element of $A_P$ lies outside both sets $\EP(a_i)$ by \cref{lem:pa-atoms}(c).
 
-Let $\mathcal{C}_1$ be the set of classes of $C_0$ not contained in $F^1$.
+Let $\mathcal{C}_1$ be the set of the classes of $C_0$ not contained in $F^1$.
 All elements of such a class lie outside the down-set $F^1$.
 Let $g$ and $h$ be elements of a class of $\mathcal{C}_1$.
 Then $g \notin \FR(a_1, a_2)$, so $g \in C(a_1) \cup C(a_2)$ by \cref{lem:pa-atoms}(a), and
@@ -2200,76 +1696,66 @@ Then $g \notin \FR(a_1, a_2)$, so $g \in C(a_1) \cup C(a_2)$ by \cref{lem:pa-ato
 \label{eq:pa-not-below}
 h \not\leq a_1 \quad\text{and}\quad h \not\leq a_2.
 \end{equation}
-Indeed, $h < a_i$ would give $h \in \EP(a_i)$ by \cref{lem:pa-atoms}(c) and $h \in L_P \subseteq W$ by \cref{lem:pa-atoms}(d), hence $h \in F^1$, and $h \sim a_i$ is impossible because $h \in L_P$, $a_i \in U_P$ and $L_P \cap U_P = \emptyset$.
+Indeed, $h < a_i$ would give $h \in \EP(a_i)$ by \cref{lem:pa-atoms}(c), and $h \notin \upp S'$ because $h \in L_P$ and $\upp S' \subseteq U_P$, hence $h \in F^1$.
+The relation $h \sim a_i$ is impossible because $h \in L_P$ and $a_i \in U_P$.
 
-\emph{Shape A: $|\mathcal{C}_1| < 20$.}
-Let $H_1$ be a set of one representative per class of $\mathcal{C}_1$, and let $D = F^1 \cup \dn H_1$.
-Then $D$ is a value of (T5) with $x_1, \dots, x_6$ equal to $a^\ell_1, a^\ell_2, a^r_1, a^r_2, a_1, a_2$, with $S = H_0 \cup H_1$ and with $S' = \win(a_1) \cup \win(a_2)$.
-It misses $U_P$, because $F^1$ misses $U_P$ and $\dn H_1 \subseteq L_P$.
-It contains $B_P$, because an element of $B_P$ outside $F^1$ lies in $C_0$ and in a class of $\mathcal{C}_1$, so it is tied with an element of $H_1$.
-So $D$ is as required.
+\emph{Shape A: $|\mathcal{C}_1| \leq 7$.}
+Let $H_1$ be a set of one representative per class of $\mathcal{C}_1$.
+Then $D = F^1 \cup \dn H_1$ is an F-formula with $x_1, \dots, x_6$ equal to $a^\ell_1, a^\ell_2, a^r_1, a^r_2, a_1, a_2$, with $S = H_0 \cup H_1$ and with $S'$ as above.
+It misses $U_P$ by $(\dagger)$.
+It contains $B_P$, because an element of $B_P$ outside $F^1$ lies in a class of $\mathcal{C}_1$, so it is tied with an element of $H_1$.
 
-\emph{Shape B: $|\mathcal{C}_1| \geq 20$.}
-Choose 20 classes of $\mathcal{C}_1$ and one element of each.
-Split these elements into two groups of ten.
+\emph{Shape B: $|\mathcal{C}_1| \geq 8$.}
+Choose eight classes of $\mathcal{C}_1$ and one element of each, and split these elements into two groups of four.
 Let $h_1$ and $h_2$ be the first and the last by position in the first group, and let $h_3$ and $h_4$ be the first and the last by position in the second group.
-Then $|\pos(h_1) - \pos(h_2)| \geq 9$ and $|\pos(h_3) - \pos(h_4)| \geq 9$, and $h_1, h_2, h_3, h_4$ lie in four distinct classes.
+Then $|\pos(h_1) - \pos(h_2)| \geq 6$ and $|\pos(h_3) - \pos(h_4)| \geq 6$, and $h_1, h_2, h_3, h_4$ lie in four distinct classes.
 Let
 \[
-D = E^* \cap E_\kappa \cap \ER(h_1, h_2) \cap \ER(h_3, h_4),
+D = \bigl(E^* \cap \ER(h_1, h_2) \cap \ER(h_3, h_4)\bigr) \setminus \upp A_\kappa,
 \]
-which is a value of (T6) with $x_1, \dots, x_8$ equal to $b^u_1, b^u_2, b^v_1, b^v_2, h_1, h_2, h_3, h_4$ and with $S = E_0 \cup A_\kappa$.
-It contains $L_P$ by \cref{lem:pa-atoms}(b) and (d).
-We show that $D$ misses $A_P$, so that $D$ is as required.
+which is an E-formula with $x_1, \dots, x_8$ equal to $b^\sigma_1, b^\sigma_2, b^\tau_1, b^\tau_2, h_1, h_2, h_3, h_4$ and with $S = E_0 \cup A_\kappa$.
+It contains $L_P$ by \cref{lem:pa-atoms}(b) and $(\dagger)$.
+We show that $D$ misses $A_P$.
 
 Suppose that $a \in A_P \cap D$.
-Then $a \in R_0$, because $D \subseteq E^*$.
-The class of $a$ is not among the classes $\kappa_i$, because $D \subseteq E_\kappa$.
+Then $a \in R_0$, and the class of $a$ is not among the classes $\kappa_i$.
 So this class has a position in the tail, and it lies inside the down-set $D$.
-Let $\Lambda$ be the set of positions in the tail of the classes of $R_0$ inside $D$ and of the classes of $\mathcal{C}_1$.
-The set $\Lambda$ contains positions of both types, the first by what was just shown and the second because every class of $C_0$ has a position in the tail.
+Let $\Lambda$ be the set of the positions in the tail of the classes of $R_0$ inside $D$ and of the classes of $\mathcal{C}_1$.
+It contains positions of highs, as just shown, and positions of lows, because every class of $C_0$ has a position in the tail.
 So $\Lambda$ contains two consecutive elements $\alpha$ and $\beta$, where $\alpha$ is the position of an element $a''$ in a class of $R_0$ inside $D$, and $\beta$ is the position of an element $g$ in a class of $\mathcal{C}_1$.
 
-At most one of the four classes of $h_1, h_2, h_3, h_4$ contains $g$, so one of the two pairs has both classes not containing $g$, and we may assume by symmetry that this pair is $h_1, h_2$.
-As $a'' \in D \subseteq \ER(h_1, h_2)$, \cref{lem:pa-atoms}(b) gives $a'' \in C'(h_1) \cup C'(h_2)$.
-Choose $h \in \{h_1, h_2\}$ with $a'' \in C'(h)$, so $\alpha \in T(h)$.
-As $g \in C(a_1) \cup C(a_2)$, choose $a' \in \{a_1, a_2\}$ with $g \in C(a')$, so $\beta \in S(a')$.
+At most one of the four classes of $h_1, h_2, h_3, h_4$ contains $g$, so one of the two pairs has both classes not containing $g$, and we may assume that this pair is $h_1, h_2$.
+As $a'' \in D \subseteq \ER(h_1, h_2)$, \cref{lem:pa-atoms}(b) gives $h \in \{h_1, h_2\}$ with $a'' \in C'(h)$.
+As $g \in C(a_1) \cup C(a_2)$, there is $a' \in \{a_1, a_2\}$ with $g \in C(a')$.
 We have $a' \in R_0$, $h \in C_0$, and $h \not\leq a'$ by~\eqref{eq:pa-not-below}, so $(\star)$ applies to $a'$, $h$, $\alpha$ and $\beta$.
 
 The closed interval between $\alpha$ and $\beta$ lies in the tail, so it misses $\Pos[a']$.
 Its interior contains no element of $\Lambda$, and the class of $h$ belongs to $\mathcal{C}_1$, so its interior misses $\Pos[h]$.
-Also $\alpha \notin \Pos[h]$ by type, and $\beta \notin \Pos[h]$ because the class of $h$ does not contain $g$.
+Also $\alpha \notin \Pos[h]$, because $\alpha$ is the position of a high, and $\beta \notin \Pos[h]$, because the class of $h$ does not contain $g$.
 This contradicts $(\star)$, so $D$ misses $A_P$.
-
-\emph{Count.}
-Shape A uses the switches $a^\ell_1, a^\ell_2, a^r_1, a^r_2$, at most 28 switches of $H_0$, the switches $a_1, a_2$, at most 18 switches of $\win(a_1) \cup \win(a_2)$ and at most 19 representatives, which is $4 + 28 + 2 + 18 + 19 = 71$ switches.
-Shape B uses $4 + 28 + 10 + 4 = 46$ switches.
 \end{proof}
 
 \subsection{The Algorithm}
 \label{sec:pa-algorithm}
 
-\begin{corollary}[Deciding the general switch form]
-\label{cor:pa-switch-form}
-There is an algorithm that, given an instance of the general switch form with P2, with $m$ switches, $\nu = |\Omega|$ nodes and total side size $\sigma = \sum_{w \in M} (|E_w| + |F_w|)$, decides whether it is a yes-instance and, if it is, returns a mode vector that connects $s$ and $t$.
-Its running time is $(m + 1)^{71} \cdot \mathrm{poly}(m, \nu, \sigma)$.
+\begin{corollary}[Deciding ZZ with P2]
+\label{cor:pa-zz}
+There is an algorithm that, given an instance of ZZ with P2 and with $|Q| = m$, decides whether it is a yes-instance and, if it is, returns a down-set $D$ with $u \in D$ and $v \notin D$ such that $u$ and $v$ are connected in $G_D$.
+Its running time is $(m + 1)^{31} \cdot m^{O(1)}$.
 \end{corollary}
 
 \begin{proof}
-If $s = t$, the algorithm returns the mode vector $\emptyset$, which connects $s$ and $t$ by \cref{lem:zz-valid}(c).
-Otherwise it computes, for each formula of \cref{def:pa-formulas} and each choice of its switches and sets, the value $D$ of the formula, and it tests whether $D$ connects $s$ and $t$.
+For each formula of \cref{def:pa-atoms} and each choice of its elements and sets, the algorithm computes the value $D$ of the formula and tests whether $u \in D$, $v \notin D$ and $u$ and $v$ are connected in $G_D$.
 It returns the first $D$ that passes the test, and it reports a no-instance if there is none.
 
 \emph{Correctness.}
-Every value is a mode vector by \cref{def:pa-formulas}, so a returned $D$ proves a yes-instance.
-Conversely, a yes-instance with $s \neq t$ has a valid path by \cref{lem:zz-valid}(c), hence a shortest valid path, and \cref{thm:pa-formulas} gives a value that connects $s$ and $t$.
+Every value is a down-set, so a returned $D$ proves a yes-instance.
+Conversely, a yes-instance has a shortest valid walk $P$ by \cref{lem:zz-valid}(c), and by \cref{thm:pa-formulas} and \cref{lem:zz-valid}(a), some value passes the test.
 
 \emph{Time.}
-A choice of switches and sets of total size at most $j$ is given by a $j$-tuple over $M$ and one extra symbol for an empty role, so there are at most $(m + 1)^j$ such choices.
-Since each formula is built from at most 71 switches, there are at most $6 (m + 1)^{71}$ tests.
-The sets $\NE(E^\#_x)$ and $\NF(F^\#_x)$ of all switches are computed once in time $\mathrm{poly}(m, \nu, \sigma)$, as distinct middle edges have distinct private nodes.
-With the table of $\leq$, each atom and each value of a formula takes time polynomial in $m$.
-Whether $D$ connects $s$ and $t$ is decided by a graph search over the nodes and the picked sides in time $O(\nu + \sigma + m)$.
+A choice of elements and sets of total size at most $j$ is given by a $j$-tuple over $Q$ and one extra symbol for an empty role, so there are at most $(m + 1)^j$ such choices.
+Since each formula is built from at most 31 elements, there are $O((m + 1)^{31})$ tests.
+With the table of $\leq$ and the sets $\MB(x)$ and $\MA(x)$, each value of a formula and each test take time polynomial in $m$.
 \end{proof}
 
 \begin{algorithm}[tb]
@@ -2278,55 +1764,38 @@ Whether $D$ connects $s$ and $t$ is decided by a graph search over the nodes and
 \begin{algorithmic}[1]
 \Require a graph $G \in \DC$ and vertices $u, v$ with $d(u, v) = 2$ and $c(u, v) \geq 3$
 \Ensure a minimum cut-path between $u$ and $v$
-\State Compute $K$, the multigraph $H$, the ZZ instance and its switch form.
-\State Run the algorithm of \cref{cor:pa-switch-form} on the switch form, enumerating the formulas of \cref{def:pa-formulas}.
-\If{it returns a mode vector $D$}
-\State \Return $\delta_K(A([u] \cup D))$
+\State Compute the ZZ instance $(Q, \leq, R, u, v)$ of $(G, u, v)$.
+\State Run the algorithm of \cref{cor:pa-zz} on this instance.
+\If{it returns a down-set $D$}
+\State \Return $\delta(A)$ for a minimum side $A$ with $A \cap Q = D$
 \Else
-\State \Return $C \cup \pi$ for a minimum $u$--$v$ cut $C$ of $G$ and a shortest $u$--$v$ path $\pi$ of $G$
+\State \Return $C \cup \pi$ for a minimum $u$--$v$ cut $C$ and a shortest $u$--$v$ path $\pi$
 \EndIf
 \end{algorithmic}
 \end{algorithm}
 
 \begin{theorem}[The open case]
 \label{thm:pa-open-case}
-There is an algorithm that, given a graph $G \in \DC$ with $n$ vertices and vertices $u, v$ of $G$ with $d(u, v) = 2$ and $c(u, v) \geq 3$, decides whether $\cp(u, v) = c(u, v)$ and computes a minimum cut-path between $u$ and $v$ in time $n^{71} \cdot n^{O(1)}$.
+There is an algorithm that, given a graph $G \in \DC$ with $n$ vertices and vertices $u, v$ of $G$ with $d(u, v) = 2$ and $c(u, v) \geq 3$, decides whether $\cp(u, v) = c(u, v)$ and computes a minimum cut-path between $u$ and $v$ in time $n^{31} \cdot n^{O(1)}$.
 \end{theorem}
 
 \begin{proof}
 We show that \cref{alg:pa-open-case} has these properties.
-The ZZ instance satisfies P2 and $u < v$ by \cref{thm:zz-reduction}, so its switch form is an instance of the general switch form with P2 by \cref{lem:zz-switch-form}.
-By \cref{thm:zz-reduction} and \cref{lem:zz-answers}, the switch form is a yes-instance if and only if $\cp(u, v) = c(u, v)$.
-
-\emph{Lifting.}
-Let the algorithm of \cref{cor:pa-switch-form} return a mode vector $D$ that connects $s$ and $t$.
-By the proof of \cref{lem:zz-answers}, $D' = [u] \cup D$ is a down-set of $(Q, \leq)$ with $u \in D'$ and $v \notin D'$, and $u$ and $v$ are connected in $G_{D'}$.
-By \cref{lem:zz-down-sets}, $D'$ is a minimum $u$--$v$ cut of $H$, and by \cref{lem:zz-multigraph}(c), $A(D')$ is a minimum $u$--$v$ cut of $K$.
-By \cref{lem:zz-bridges}(b), $\delta_K(A(D'))$ is a minimum $u$--$v$ cut of $G$.
-A $u$--$v$ path $\pi$ of $G_{D'}$ consists of real edges with exactly one end in $D' = A(D') \cap Q$, so $\pi \subseteq \delta_K(A(D'))$ by \cref{lem:zz-multigraph}(a).
-Hence $\delta_K(A(D'))$ is a cut-path with $c(u, v)$ edges, and it is a minimum cut-path by \cref{lem:basic-bounds}.
-
-\emph{No mode vector.}
-If no mode vector is returned, then $\cp(u, v) \neq c(u, v)$, so $\cp(u, v) = c(u, v) + 1$ by \cref{prop:easy-pairs}(iv).
-A shortest $u$--$v$ path $\pi$ shares an edge with every minimum $u$--$v$ cut $C$, so $C \cup \pi$ is a cut-path with at most $c(u, v) + d(u, v) - 1 = c(u, v) + 1$ edges, hence a minimum cut-path.
-
-\emph{Time.}
-The graph has $n \geq 3$ vertices, since $u$, $v$ and a common neighbor are distinct.
-The first step takes time polynomial in $n$ by \cref{thm:zz-reduction} and \cref{lem:zz-switch-form}.
-By the same results, $m \leq |Q| - 2 \leq n - 2$, $\nu \leq |Q| + |R| \leq n + |E| \leq n + n^2$ and $\sigma \leq 2|R| \leq 2|E| \leq n^2$.
-So \cref{cor:pa-switch-form} takes time $(m + 1)^{71} \cdot \mathrm{poly}(m, \nu, \sigma) \leq n^{71} \cdot n^{O(1)}$.
-The set $A(D')$, the set $\delta_K(A(D'))$, a minimum cut $C$ and a shortest path $\pi$ take polynomial time.
+By \cref{thm:zz-reduction}, the ZZ instance satisfies P2, it has at most $n$ elements, and it is a yes-instance if and only if $\cp(u, v) = c(u, v)$.
+If the algorithm of \cref{cor:pa-zz} returns $D$, then $\delta(A)$ is a minimum cut-path by \cref{thm:zz-reduction}.
+Otherwise $\cp(u, v) = c(u, v) + 1$ by \cref{prop:easy-pairs}(iv), and $C \cup \pi$ has at most $c(u, v) + 1$ edges by \cref{lem:basic-bounds}, so it is a minimum cut-path.
+The running time follows from \cref{thm:zz-reduction,cor:pa-zz} and from $(n + 1)^{31} \leq 2^{31} n^{31}$.
 \end{proof}
 
 \section{Conclusion}\label{sec:conclusion}
 
 \MinCutPath{} is NP-complete on graphs of diameter three (\cref{thm:dt-hardness}) and solvable in polynomial time on $\DC$ (\cref{thm:main}).
-A pair with $c(u, v) \leq 2$ takes linear time (\cref{thm:linear-time}), and a pair with $d(u, v) = 2$ and $c(u, v) \geq 3$ takes time $n^{71} \cdot n^{O(1)}$ (\cref{thm:pa-open-case}).
+A pair with $c(u, v) \leq 2$ takes linear time (\cref{thm:linear-time}), and a pair with $d(u, v) = 2$ and $c(u, v) \geq 3$ takes time $n^{31} \cdot n^{O(1)}$ (\cref{thm:pa-open-case}).
 
 We leave the following questions open.
 \begin{enumerate}
 \item Is there an algorithm with a small exponent for the pairs with $d(u, v) = 2$ and $c(u, v) \geq 3$?
-The exponent $71$ counts the elements of the formula of \cref{thm:pa-formulas}, and it does not use the structure of the formula.
+The exponent $31$ counts the elements of the formula of \cref{thm:pa-formulas}, and it does not use the structure of the formula.
 
 \item Let $k \geq 3$ be a fixed integer, and consider the connected graphs in which every two distinct vertices $x$ and $y$ satisfy $d(x, y) \leq k$ or $c(x, y) \leq 2$.
 Can $\cp(u, v)$ be computed in linear time for the pairs with $c(u, v) = 2$ in these graphs?

@@ -1,0 +1,31 @@
+mode atlas seed 1 graphs 1230 time 3.0
+Y sets 4312
+atoms(c) tested 160
+comparable pairs with a common neighbour outside Q 2816
+cp brute force 4754
+down-sets 7828
+final: small A 152
+final: small B 152
+graphs in DC 993
+graphs with an open pair 665
+incomparable pairs 96
+max m 6
+max q 3
+min sides with a path 44
+no pairs 4716
+one(a) tested 16
+one(a) walks built 16
+one(b) tested 16
+one(b) walks built 16
+one(c) A max size 1 312
+one(c) A max size 2 16
+one(c) A tested 328
+one(c) B tested 328
+outside Q vertices 4108
+pairs 4754
+pairs with vertices outside Q 2620
+returned cuts checked 42
+sides(b) k = 1 8352
+walks 152
+yes pairs 38
+FAILURES: none

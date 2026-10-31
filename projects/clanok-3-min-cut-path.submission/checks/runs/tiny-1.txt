@@ -1,0 +1,25 @@
+seed 1 time 300.0
+atoms(c) tested 563246
+final: small A 559920
+final: small B 559920
+formula values 1761320
+formula values passing the test 571275
+instances 176132
+max m 11
+max q 7
+no-instances 70535
+one(a) max span 4
+one(a) tested 9812
+one(a) walks built 9812
+one(b) max span 4
+one(b) tested 9812
+one(b) walks built 9812
+one(c) A max size 1 2794614
+one(c) A max size 2 9644
+one(c) A max size 3 38
+one(c) A tested 2804296
+one(c) B tested 2804296
+shortest walks 139980
+walks 559920
+yes-instances 105597
+FAILURES: none

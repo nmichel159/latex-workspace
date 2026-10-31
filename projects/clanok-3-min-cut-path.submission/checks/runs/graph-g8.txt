@@ -1,0 +1,31 @@
+mode g8 seed 5 graphs 12346 time 122.8
+Y sets 116570
+atoms(c) tested 2974
+comparable pairs with a common neighbour outside Q 74750
+down-sets 171138
+final: small A 2696
+final: small B 2696
+graphs in DC 10580
+graphs not in DC 537
+graphs with an open pair 9511
+incomparable pairs 1438
+max m 7
+max q 3
+min sides with a path 782
+no pairs 116160
+one(a) tested 562
+one(a) walks built 562
+one(b) tested 562
+one(b) walks built 562
+one(c) A max size 1 5704
+one(c) A max size 2 556
+one(c) A tested 6260
+one(c) B tested 6260
+outside Q vertices 109918
+pairs 116834
+pairs with vertices outside Q 68788
+returned cuts checked 726
+sides(b) k = 1 114748
+walks 2696
+yes pairs 674
+FAILURES: none
