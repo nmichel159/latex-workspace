@@ -95,3 +95,29 @@ so the PDFs carry no date, no ID and no TeX banner.
   further. The caption and the sentence in S12 ("the whole of $G$ is one square") should state the hypothesis.
 - `decomposition-example`: the terminals of $S_2$ coincide in pairs ($a_2=c_2=a$, $b_2=d_2=b$), as in the thesis
   Figure 3.7; the figure shows the vertices only.
+
+## Figures added on 2026-11-02
+
+`padding` and `transformations` above belong to the manuscript of 2026-10-12 and are not used any more. Larger elements of a preorder are drawn higher.
+
+| File | Label | Shows |
+|---|---|---|
+| `zz-walk` | `fig:zz-walk` | the ZZ instance of `G_b` with its walk; a general valid walk with `D` between `L_P` and `Q \ U_P` |
+| `p2-outside` | `fig:p2-outside` | why a common neighbor of two incomparable elements lies in `Q` |
+| `one-detour` | `fig:one-detour` | the walks of `lem:pa-one`(a) and (b) |
+| `two-detours` | `fig:two-detours` | the walk of `lem:pa-two`, both orders of `p_2`, `p_3` |
+| `positions` | `fig:positions` | the ranges and thresholds in the remaining case of `thm:pa-formulas` |
+
+Rebuild, from PowerShell in the workspace root:
+
+From PowerShell in the workspace root (never run `pdflatex` without `--miktex-disable-installer`):
+
+```powershell
+New-Item -ItemType Directory -Force tmp\clanok-3-figures | Out-Null
+Set-Location tmp\clanok-3-figures
+foreach ($n in 'zz-walk','p2-outside','one-detour','two-detours','positions') {
+  Copy-Item "..\..\projects\clanok-2-min-cut-path.submission\figures\$n.tex" .
+  pdflatex -interaction=nonstopmode -halt-on-error --miktex-disable-installer "$n.tex"
+  Copy-Item "$n.pdf" ..\..\projects\clanok-2-min-cut-path\ -Force
+}
+```

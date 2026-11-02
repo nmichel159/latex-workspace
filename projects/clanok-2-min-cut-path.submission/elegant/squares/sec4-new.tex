@@ -1,0 +1,316 @@
+\section{Pairs with Cut-Value at Most Two}
+\label{sec:squares}
+
+\subsection{Layers}
+\label{sec:layers}
+
+Throughout \cref{sec:layers,sec:separating}, we assume that $c(u, v) = 2$.
+A \emph{flow of value two} is a set $H$ of edges of $G$ in which every edge has one end called its \emph{tail} and the other called its \emph{head}, such that $u$ is the tail of two more edges of $H$ than the head, $v$ is the head of two more edges of $H$ than the tail, and every other vertex is the tail and the head of equally many edges of $H$.
+Two edge-disjoint $u$--$v$ paths exist by Menger's theorem~\cite[Corollary~3.3.5]{Diestel2025}, and their edges, directed along the paths, form a flow of value two.
+We fix such a set $H$.
+An edge of $H$ \emph{leaves} a set $Z \subseteq V$ if its tail lies in $Z$ and its head does not, and it \emph{enters} $Z$ if its head lies in $Z$ and its tail does not.
+Summing over the vertices of $Z$ gives that the number of edges of $H$ that leave $Z$ minus the number of those that enter $Z$ is
+\begin{equation}
+\label{eq:balance}
+2 \text{ if } u \in Z \text{ and } v \notin Z, \quad -2 \text{ if } v \in Z \text{ and } u \notin Z, \quad \text{and } 0 \text{ otherwise.}
+\end{equation}
+
+Let $D$ be the digraph with the vertex set $V$ that contains, for every edge $xy \notin H$, the arcs from $x$ to $y$ and from $y$ to $x$, and for every edge of $H$ with the tail $x$ and the head $y$, the arc from $y$ to $x$.
+It is the residual graph of the flow.
+An arc leads out of $Z$ if it starts in $Z$ and ends outside $Z$.
+This happens exactly for one arc of every edge of $\delta(Z)$ outside $H$ and for the arc of every edge of $H$ that enters $Z$, so
+\begin{equation}
+\label{eq:closed}
+\text{no arc of } D \text{ leads out of } Z \text{ if and only if every edge of } \delta(Z) \text{ belongs to } H \text{ and leaves } Z.
+\end{equation}
+
+\begin{lemma}
+\label{lem:residual}
+A set $A$ with $u \in A$ and $v \notin A$ is a minimum side if and only if no arc of $D$ leads out of $A$.
+In this case, both edges of $\delta(A)$ belong to $H$ and leave $A$.
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:balance}, at least two edges of $H$ leave $A$, and exactly two if none enters $A$.
+Hence $|\delta(A)| = 2$ if and only if every edge of $\delta(A)$ belongs to $H$ and leaves $A$.
+By \eqref{eq:closed}, this means that no arc of $D$ leads out of $A$.
+\end{proof}
+
+For a directed network, \cref{lem:residual} is the theorem of Picard and Queyranne~\cite{PicardQueyranne1980} on the closed sets of the residual graph of a maximum flow.
+
+Let $X_0, \dots, X_t$ be the strong components of $D$, numbered so that no arc of $D$ leads from $X_i$ to $X_j$ if $i < j$.
+We call them \emph{layers}, and we put $A_j = X_0 \cup \dots \cup X_j$.
+
+\begin{lemma}
+\label{lem:layers}
+(a) We have $t \geq 1$, $u \in X_0$ and $v \in X_t$, and $A_0, \dots, A_{t-1}$ are minimum sides.
+(b) Every graph $G[X_j]$ is connected, and no minimum side contains exactly one of two vertices of the same layer.
+(c) Every edge of $G$ whose ends lie in different layers belongs to $H$, and its tail lies in the layer with the smaller number.
+\end{lemma}
+
+\begin{proof}
+(a) A minimum side exists, and by \cref{lem:residual} no directed path of $D$ leads from $u$ to $v$, so $t \geq 1$.
+No arc leads out of $X_0$, and no arc leads out of $V \setminus X_t$.
+Both boundaries are nonempty because $G$ is connected, so by \eqref{eq:closed} some edge of $H$ leaves each of these two sets and none enters.
+By \eqref{eq:balance}, $X_0$ and $V \setminus X_t$ contain $u$ and not $v$.
+So $u \in A_j$ and $v \notin A_j$ for $j < t$, and no arc leads out of $A_j$, which makes $A_j$ a minimum side by \cref{lem:residual}.
+
+(b) Two vertices of $X_j$ are joined by a directed path of $D$ inside $X_j$, and the arcs of $D$ are edges of $G$.
+A directed path from a vertex of a minimum side to a vertex outside it would contain an arc that leads out of it, against \cref{lem:residual}.
+
+(c) Let the ends lie in $X_i$ and $X_{i'}$ with $i < i'$.
+The edge lies in $\delta(A_i)$, so it belongs to $H$ and leaves $A_i$ by (a) and \cref{lem:residual}.
+\end{proof}
+
+By \cref{lem:layers}(c), the edges that enter $X_j$ are the edges of $\delta(A_{j-1}) \setminus \delta(A_j)$, and the edges that leave $X_j$ are the edges of $\delta(A_j) \setminus \delta(A_{j-1})$.
+The two numbers are equal.
+
+\begin{definition}[Squares]
+\label{def:squares}
+The layer $X_j$ is a \emph{square} if $j \in \{0, t\}$ or if two edges enter $X_j$.
+For $j \geq 1$, an \emph{entry} of a square $X_j$ is a pair $(x, \alpha)$ of the heads of the two edges that enter $X_j$, in either order, and the only entry of $X_0$ is $(u, u)$.
+For $j < t$, an \emph{exit} of $X_j$ is a pair $(y, \beta)$ of the tails of the two edges that leave $X_j$, in either order, and the only exit of $X_t$ is $(v, v)$.
+\end{definition}
+
+The two vertices of an entry or of an exit may coincide.
+
+\begin{lemma}
+\label{lem:terminals}
+Let $(x, \alpha)$ be an entry and $(y, \beta)$ an exit of a square $X_j$.
+If $x \neq y$, then $c(x, y) \geq 3$.
+\end{lemma}
+
+\begin{proof}
+Suppose not.
+By \cref{lem:minimum-cuts}, there is a set $B$ with $x \in B$, $y \notin B$ and $|\delta(B)| \leq 2$.
+If $B$ contains exactly one of $u$ and $v$, then $B$ or $V \setminus B$ is a minimum side, against \cref{lem:layers}(b).
+Otherwise, let $Y$ be the one of $B$ and $V \setminus B$ that contains neither $u$ nor $v$.
+If $x \in Y$, then $j \geq 1$, and an edge of $\delta(A_{j-1})$ has its head $x$ in $Y$.
+By \cref{lem:zz-sides}(b), $A_{j-1} \cup Y$ is a minimum side, which contains $x$ and not $y$, against \cref{lem:layers}(b).
+If $y \in Y$, then $j < t$, and an edge of $\delta(A_j)$ has its tail $y$ in $Y$.
+By \cref{lem:zz-sides}(b), $A_j \setminus Y$ is a minimum side, which contains $x$ and not $y$, again a contradiction.
+\end{proof}
+
+\subsection{Separating Shortest Paths}
+\label{sec:separating}
+
+By \cref{lem:basic-bounds} and \cref{prop:easy-pairs}(iii), a pair with $c(u, v) = 2$ satisfies $\cp(u, v) = d(u, v)$ if $G$ contains a separating shortest $u$--$v$ path, and $\cp(u, v) = d(u, v) + 1$ otherwise.
+
+Let $R$ be a $u$--$v$ path and let $A$ be a minimum side.
+By \cref{lem:minimum-cuts}, $R$ contains exactly one edge of $\delta(A)$, and
+\begin{equation}
+\label{eq:crossing}
+\text{the vertices of } R \text{ before this edge lie in } A \text{, and those after it lie outside } A.
+\end{equation}
+For $0 \leq j < t$, let $r_j$ be the edge of $R$ in $\delta(A_j)$ and let $s_j$ be the other edge of $\delta(A_j)$.
+By \eqref{eq:crossing}, the vertices of $R$ in $X_j$ are those after $r_{j-1}$ and before $r_j$, so they are consecutive on $R$.
+Let $X_j$ be a square.
+The edges $r_{j-1}, s_{j-1}$ enter $X_j$ and $r_j, s_j$ leave it, by the definition of a square, so the \emph{trace} of $R$ in $X_j$, formed by the vertices of $R$ in $X_j$, is a path of $G[X_j]$ from the head $x$ of $r_{j-1}$ to the tail $y$ of $r_j$, with $x = u$ if $j = 0$ and $y = v$ if $j = t$.
+Let $\alpha_j$ be the head of $s_{j-1}$ and let $\beta_j$ be the tail of $s_j$, with $\alpha_0 = u$ and $\beta_t = v$.
+Then $(x, \alpha_j)$ is an entry and $(y, \beta_j)$ is an exit of $X_j$ (\cref{fig:square-terminals}).
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{square-terminals.pdf}
+    \caption{A square $S_i$ and a trace $x, w, y$ that separates $\alpha$ from $\beta$ in (a) and does not in (b)}
+    \label{fig:square-terminals}
+\end{figure}
+
+\begin{lemma}[Separation criterion]
+\label{lem:criterion}
+Let $R$ be a $u$--$v$ path.
+The graph $G \setminus R$ contains no $u$--$v$ path if and only if $\alpha_j$ and $\beta_j$ lie in different components of $G[X_j] \setminus R$ for some square $X_j$.
+\end{lemma}
+
+\begin{proof}
+Let $Q$ be a $u$--$v$ path of $G \setminus R$ and let $X_j$ be a square.
+By \eqref{eq:crossing}, $Q$ contains $s_{j-1}$ if $j \geq 1$ and $s_j$ if $j < t$, and its vertices in $X_j$ form a path of $G[X_j] \setminus R$ from $\alpha_j$ to $\beta_j$.
+
+Conversely, suppose that $G \setminus R$ contains no $u$--$v$ path, and let $Z$ be the vertex set of the component of $G \setminus R$ that contains $u$.
+Let $j$ be the smallest number such that $j = t$ or the tail of $s_j$ is not in $Z$.
+Let $\alpha$ be the head of $s_{j-1}$, or $u$ if $j = 0$, and let $\beta$ be the tail of $s_j$, or $v$ if $j = t$.
+Then $\alpha \in Z$ and $\beta \notin Z$, because $s_{j-1}$ is an edge of $G \setminus R$.
+In particular, $s_{j-1} \neq s_j$ if $0 < j < t$.
+Since $s_{j-1}$ and $s_j$ are not on $R$, this gives $s_{j-1} \notin \delta(A_j)$ and $s_j \notin \delta(A_{j-1})$, so $\alpha$ and $\beta$ lie in $X_j$.
+The graph $G[X_j]$ is connected and $G[X_j] \setminus R$ does not join $\alpha$ to $\beta$, so $R$ has a vertex in $X_j$.
+By \eqref{eq:crossing}, $r_{j-1} \neq r_j$ if $0 < j < t$.
+Hence $\delta(A_{j-1}) \cap \delta(A_j)$ is empty, and two edges enter $X_j$.
+So $X_j$ is a square, $\alpha = \alpha_j$ and $\beta = \beta_j$.
+\end{proof}
+
+\begin{theorem}[Separating shortest paths]
+\label{thm:characterization}
+Let $G$ be a connected graph and let $u, v$ be two vertices of $G$ with $c(u, v) = 2$.
+Then $\cp(u, v) = d(u, v)$ if and only if there are a square $X$, an entry $(x, \alpha)$ and an exit $(y, \beta)$ of $X$ and an $x$--$y$ path $p$ of $G[X]$ such that
+(i) $d(u, x) + |p| + d(y, v) = d(u, v)$ and
+(ii) the vertices $\alpha$ and $\beta$ lie in different components of $G[X] \setminus p$.
+Otherwise $\cp(u, v) = d(u, v) + 1$.
+\end{theorem}
+
+\begin{proof}
+Suppose that $\cp(u, v) = d(u, v)$.
+By \cref{lem:basic-bounds}, $G$ contains a separating shortest $u$--$v$ path $R$, and \cref{lem:criterion} gives a square $X_j$.
+Let $p$ be the trace of $R$ in $X_j$, with the ends $x$ and $y$.
+Every edge of $R$ in $G[X_j]$ lies on $p$, so (ii) holds for $(x, \alpha_j)$ and $(y, \beta_j)$.
+Condition (i) holds because parts of a shortest path are shortest paths.
+
+Conversely, let $X = X_j$, $(x, \alpha)$, $(y, \beta)$ and $p$ satisfy (i) and (ii).
+Let $R_x$ be a shortest $u$--$x$ path and let $R_y$ be a shortest $y$--$v$ path of $G$.
+By (i), the paths $R_x$, $p$ and $R_y$ form a walk from $u$ to $v$ with $d(u, v)$ edges, which is a shortest $u$--$v$ path $R$.
+Its trace in $X$ contains $p$.
+We show that $\alpha_j$ and $\alpha$ lie in the same component of $G[X] \setminus p$.
+This holds if $\alpha_j = \alpha$.
+Otherwise $\alpha_j = x$ and the trace of $R$ starts at $\alpha$, and its part from $\alpha$ to $x$ has no edge of $p$.
+In the same way, $\beta_j$ and $\beta$ lie in the same component of $G[X] \setminus p$.
+By (ii), $\alpha_j$ and $\beta_j$ lie in different components of $G[X] \setminus p$, and hence of its subgraph $G[X] \setminus R$.
+By \cref{lem:criterion,lem:basic-bounds}, $\cp(u, v) = d(u, v)$.
+
+The last statement follows from \cref{prop:easy-pairs}(iii).
+\end{proof}
+
+A path $p$ with (i) is a shortest $x$--$y$ path of $G$, because $d(u, v) \leq d(u, x) + d(x, y) + d(y, v)$.
+A path $p$ with (ii) has at least one edge, because $G[X]$ is connected.
+
+\begin{example}
+\label{ex:worked}
+Let $G_1$ be the graph with the vertices $u, v, 1, \dots, 8$ and the edges
+\[
+u1,\ u2,\ 12,\ 13,\ 23,\ 36,\ 24,\ 45,\ 57,\ 67,\ 68,\ 7v,\ 8v
+\]
+(\cref{fig:worked-example}).
+We have $c(u, v) = 2$ and $d(u, v) = 5$, and we take $H$ along the paths $u, 1, 3, 6, 8, v$ and $u, 2, 4, 5, 7, v$.
+The layers, in a suitable order, are $\{u\}$, $\{1, 2, 3\}$, $\{4\}$, $\{5\}$, $\{6, 7\}$, $\{8\}$ and $\{v\}$.
+The squares are $\{u\}$, $\{1, 2, 3\}$, $\{6, 7\}$ and $\{v\}$, because one edge enters each of $\{4\}$, $\{5\}$ and $\{8\}$.
+Take the square $\{6, 7\}$, the entry $(6, 7)$, the exit $(7, 6)$ and $p = 6, 7$.
+Then $d(u, 6) + |p| + d(7, v) = 3 + 1 + 1 = d(u, v)$, and $p$ is the only edge of the square, so $\cp(u, v) = 5$, and $u, 1, 3, 6, 7, v$ is a minimum cut-path.
+Let $G_1'$ be obtained from $G_1$ by adding a vertex $9$ adjacent to $6$ and $7$.
+The layers are the same except that $9$ joins $\{6, 7\}$.
+The only paths with at least one edge that satisfy (i) are the edges $13$, $23$ and $67$, and the removal of any of them leaves its square connected.
+Hence $\cp(u, v) = 6$ in $G_1'$.
+\end{example}
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics{worked-example.pdf}
+    \caption{The graph $G_1$ of \cref{ex:worked}: its squares (boxes) and its other layers (ellipses)}
+    \label{fig:worked-example}
+\end{figure}
+
+\subsection{A Linear-Time Algorithm}
+\label{sec:algorithm}
+
+In a graph of $\DC$, the paths $p$ of \cref{thm:characterization} have at most two edges, and a constant number of them has to be tested in each square.
+
+\begin{corollary}
+\label{cor:two-edges}
+Let $G \in \DC$ and let $u, v$ be two vertices of $G$ with $c(u, v) = 2$.
+Every path $p$ that satisfies condition (i) of \cref{thm:characterization} has $|p| = d(x, y) \leq 2$.
+\end{corollary}
+
+\begin{proof}
+If $x \neq y$, then $c(x, y) \geq 3$ by \cref{lem:terminals}, and $d(x, y) \leq 2$ by \cref{def:class}.
+\end{proof}
+
+\begin{algorithm}[tb]
+\caption{A minimum cut-path if $c(u, v) = 2$, or two vertices that show $G \notin \DC$}
+\label{alg:cut-two}
+\begin{algorithmic}[1]
+\Require a connected graph $G = (V, E)$, two vertices $u, v$ with $c(u, v) = 2$, a flow $H$ of value two
+\Ensure $\cp(u, v)$ and a minimum cut-path between $u$ and $v$, or two vertices $x, y$ with $c(x, y) \geq 3$ and $d(x, y) \geq 3$ and a cut-path between $u$ and $v$ with $d(u, v) + 1$ edges
+\State compute $d(u, z)$ and $d(z, v)$ for all $z \in V$ by two breadth-first searches \label{line:bfs}
+\State compute the layers $X_0, \dots, X_t$, the squares, their entries and their exits \label{line:pieces}
+\For{each square $X$, entry $(x, \alpha)$ and exit $(y, \beta)$ of $X$ with $x \neq y$ and $\alpha \neq \beta$} \label{line:loop}
+    \State $\ell \gets d(u, v) - d(u, x) - d(y, v)$ \label{line:length}
+    \If{$\ell \geq 3$}
+        \State record the pair $x, y$ \Comment{$c(x, y) \geq 3$ and $d(x, y) \geq 3$} \label{line:record}
+    \EndIf
+    \State $\mathcal{P} \gets \emptyset$
+    \If{$\ell = 1$ and $xy \in E$}
+        \State $\mathcal{P} \gets$ the set that contains the path $x, y$ \label{line:edge}
+    \ElsIf{$\ell = 2$}
+        \State $q \gets$ an $\alpha$--$\beta$ path of $G[X]$ \label{line:q}
+        \State $\mathcal{P} \gets$ the set of the paths $x, w, y$ of $G[X]$ such that $xw$ or $wy$ is an edge of $q$ \label{line:candidates}
+    \EndIf
+    \For{each $p \in \mathcal{P}$}
+        \If{$\alpha$ and $\beta$ lie in different components of $G[X] \setminus p$} \label{line:test}
+            \State \Return $d(u, v)$ and $R_x \cup p \cup R_y$ for a shortest $u$--$x$ path $R_x$ and a shortest $y$--$v$ path $R_y$ \label{line:found}
+        \EndIf
+    \EndFor
+\EndFor
+\State $R \gets$ a shortest $u$--$v$ path, $C \gets \delta(X_0)$ \label{line:union}
+\If{a pair $x, y$ is recorded}
+    \State \Return $x, y$ and $R \cup C$ \label{line:certificate}
+\EndIf
+\State \Return $d(u, v) + 1$ and $R \cup C$ \label{line:not-found}
+\end{algorithmic}
+\end{algorithm}
+
+For a path with two edges, \cref{alg:cut-two} uses that a path which separates $\alpha$ from $\beta$ shares an edge with every $\alpha$--$\beta$ path of the square.
+The algorithm does not test whether $G \in \DC$.
+
+\begin{theorem}
+\label{thm:linear-time}
+There is an algorithm that, given a connected graph $G = (V, E)$ and two distinct vertices $u, v$ of $G$, decides in $O(|V| + |E|)$ time whether $c(u, v) \leq 2$.
+If so, it returns within the same time $\cp(u, v)$ and a minimum cut-path between $u$ and $v$, or it returns two vertices $x, y$ with $c(x, y) \geq 3$ and $d(x, y) \geq 3$, which show that $G \notin \DC$, and a cut-path between $u$ and $v$ with $d(u, v) + 1 \leq \cp(u, v) + 1$ edges.
+The second outcome does not occur for $G \in \DC$.
+\end{theorem}
+
+\begin{proof}
+The algorithm first computes, by at most three augmentations of the algorithm of Ford and Fulkerson~\cite[Section~10.4]{Erickson2019Algorithms}, a flow from $u$ to $v$ of value at most three in which every edge of $G$ carries at most one unit.
+Each augmentation is a search in the residual graph of the current flow and takes $O(|V| + |E|)$ time.
+The first augmentation succeeds because $G$ is connected.
+The cut-value $c(u, v)$ is one if the second augmentation fails, two if the third one fails, and at least three otherwise.
+If $c(u, v) = 1$, the algorithm returns $d(u, v)$ and a shortest $u$--$v$ path, which is correct by \cref{prop:easy-pairs}(ii).
+If $c(u, v) = 2$, the edges that carry flow, directed along the flow, form a flow $H$ of value two, and the algorithm runs \cref{alg:cut-two}.
+
+\emph{Correctness.}
+Every path $p$ that is tested in line~\ref{line:test} is an $x$--$y$ path of $G[X]$ with $\ell$ edges, so it satisfies condition (i) of \cref{thm:characterization}.
+If the test succeeds, it also satisfies condition (ii), and by the proof of \cref{thm:characterization}, the set returned in line~\ref{line:found} is a separating shortest $u$--$v$ path, which is a cut-path with $d(u, v) = \cp(u, v)$ edges.
+This holds in every connected graph.
+
+If line~\ref{line:length} gives $\ell \geq 3$ for $x \neq y$, then $d(x, y) \geq \ell \geq 3$, because $d(u, v) \leq d(u, x) + d(x, y) + d(y, v)$, and $c(x, y) \geq 3$ by \cref{lem:terminals}.
+A pair recorded in line~\ref{line:record} therefore shows that $G \notin \DC$, and no pair is recorded if $G \in \DC$.
+
+Suppose now that $\cp(u, v) = d(u, v)$ and that no pair is recorded.
+By \cref{thm:characterization}, there are $X$, $(x, \alpha)$, $(y, \beta)$ and $p$ with (i) and (ii).
+Then $\alpha \neq \beta$ and the path $p$ has at least one edge, so $x \neq y$, and line~\ref{line:length} gives $\ell = |p|$ for these terminals.
+Since the pair $x, y$ is not recorded, $\ell \in \{1, 2\}$.
+If $\ell = 1$, then $p$ is the path of line~\ref{line:edge}.
+If $\ell = 2$, let $p = x, w, y$.
+The path $q$ of line~\ref{line:q} is not a path of $G[X] \setminus p$, so it contains the edge $xw$ or the edge $wy$.
+In both cases $p \in \mathcal{P}$, so the algorithm returns in line~\ref{line:found}, for this path or for an earlier one.
+
+Hence, if the algorithm reaches line~\ref{line:not-found}, then $\cp(u, v) = d(u, v) + 1$.
+The set $C$ of line~\ref{line:union} is a minimum $u$--$v$ cut by \cref{lem:layers}(a), and $R$ contains exactly one of its edges.
+Hence $R \cup C$ is a cut-path with $d(u, v) + 1$ edges, which is a minimum cut-path in line~\ref{line:not-found} and has at most $\cp(u, v) + 1$ edges in line~\ref{line:certificate}.
+
+\emph{Running time.}
+The graph is given by adjacency lists.
+Breadth-first search~\cite[Section~8.4]{Erickson2019Algorithms} takes $O(|V| + |E|)$ time, and so does the algorithm of Tarjan~\cite{Tarjan1972DFS}, which outputs the strong components of $D$ in the required order, because it outputs a component only after all components that it reaches.
+By \cref{lem:layers}(c), the edges of $H$ with ends in different layers give the squares, the entries and the exits.
+Let $X$ have $n_X$ vertices and $m_X$ edges.
+For each of the at most four choices of an entry and an exit, the path $q$ is found by one search in $G[X]$.
+The path $q$ has at most two edges at $x$ and at most two edges at $y$, so $\mathcal{P}$ has at most four members.
+Whether $x, w, y$ is a path of $G[X]$ is decided for each of these vertices $w$ after marking the neighbors of $x$ and of $y$.
+By \cref{lem:layers}(c), a vertex of $X$ is an end of at most four edges outside $G[X]$, so its neighbors are marked in $O(m_X + 1)$ time.
+The test of line~\ref{line:test} is one search in $G[X] \setminus p$.
+The square $X$ therefore takes $O(n_X + m_X)$ time.
+The squares are pairwise disjoint, so the loop of line~\ref{line:loop} takes $O(|V| + |E|)$ time.
+The paths $R_x$, $R_y$ and $R$ are read from the breadth-first search trees.
+\end{proof}
+
+\Cref{alg:cut-two} returns $\cp(u, v)$ and a minimum cut-path whenever no pair is recorded, in particular if $d(x, y) \leq 2$ for every entry $(x, \alpha)$ and every exit $(y, \beta)$ of every square.
+
+\begin{corollary}
+\label{cor:class-pairs}
+Let $G \in \DC$ and let $u, v$ be two distinct vertices of $G$.
+If $c(u, v) \leq 2$, in particular if $d(u, v) \geq 3$, then $\cp(u, v)$ and a minimum cut-path between $u$ and $v$ are computed in $O(|V| + |E|)$ time.
+If $d(u, v) = 1$, they are computed by one computation of a minimum $u$--$v$ cut.
+\end{corollary}
+
+\begin{proof}
+A pair with $d(u, v) \geq 3$ has $c(u, v) \leq 2$ by \cref{def:class}.
+The first statement is \cref{thm:linear-time}, whose second outcome does not occur for $G \in \DC$, and the second is \cref{prop:easy-pairs}(i).
+A minimum $u$--$v$ cut is computed in polynomial time by a maximum flow~\cite[Sections~10.3 and~10.4]{Erickson2019Algorithms}.
+\end{proof}
+

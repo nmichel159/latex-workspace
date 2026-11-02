@@ -2,7 +2,7 @@
 
 Sources: the master's thesis *Min Cut-Path* (Charles University, Prague, 2025; **MT**), the manuscript of article 1
 (`projects/clanok-1-min-cut-path/main.tex`, the whole text in one file; **A1**) and the manuscript of article 2
-(`projects/clanok-2-min-cut-path/main.tex`, written 2026-10-12 from Section 3.3 of MT; **A2**, Section 3a below).
+(`projects/clanok-2-min-cut-path/main.tex`, first written 2026-10-12 from Section 3.3 of MT, merged 2026-11-02 with the former project `clanok-3`; **A2**, Section 3a below).
 Definition and theorem numbers of MT can be located in `knowledge/sources/diplomova-praca-2025-min-cut-path.txt`.
 
 ## 1. Problem
@@ -96,6 +96,8 @@ Both graphs have the six vertices `t, a, v, u, b, s` and the edges `ta, tv, au, 
 
 ## 3a. Article 2: the class `DC_2` (written 2026-10-12)
 
+The statement numbers of this section are those of the manuscript of 2026-10-12, archived in `archives/removed-from-projects/clanok-2-min-cut-path/2026-11-02-before-merge/`. The current text keeps the labels, except that Theorem 17 `thm:hardness` and Proposition 12 `prop:lengths` are left out, and it adds NP-completeness on diameter three (`thm:dt-hardness`) and the polynomial algorithm for the open pairs (`thm:pa-open-case`).
+
 Subject: Section 3.3 of MT with canonical definitions and complete proofs. Class `DC_2` (macro `\DC`): connected
 graphs in which every two distinct vertices satisfy `d(x,y) ≤ 2` or `c(x,y) ≤ 2` (MT: *diam or cut 2*, Def. 37).
 Statements are numbered on one counter (theorem, lemma, proposition, corollary); numbers as compiled 2026-10-12.
@@ -144,9 +146,9 @@ where edges are meant, and Theorem 23 assumes the decomposition as given.
 
 **Work on the open pairs** (`d(u,v) = 2`, `c(u,v) ≥ 3`): `projects/clanok-2-min-cut-path.submission/open-cases/`
 holds the working files of AI agents (rounds 1-5, 2026-10-12 to 2026-10-22); current state and the list of what is
-reviewed: `open-cases/status.md`. Not in A2, not read by the author. In short: the open case is equivalent to the
+reviewed: `open-cases/status.md`. Not read by the author. In short: the open case is equivalent to the
 zigzag problem ZZ + P2 (reviewed, `verify/rv-r6-chain.md`), and ZZ + P2 is in P, time `m^71 · poly` with `m <= n − 2`
-switches (`open-cases/r7-desc.md` Theorem B, reviewed `verify/rv-r7-desc.md`). Article 3 rewrites this proof directly on the preorder, time `O(n^30)`, reviewed (`projects/clanok-3-min-cut-path.submission/review/referee-direct.md`). So every pair of `DC_2` is solved in
+switches (`open-cases/r7-desc.md` Theorem B, reviewed `verify/rv-r7-desc.md`). A2 rewrites this proof directly on the preorder, time `O(n^30)`, reviewed (`projects/clanok-2-min-cut-path.submission/review/referee-direct.md`). So every pair of `DC_2` is solved in
 polynomial time, as reviewed by AI agents. Deciding `cp = c` is NP-complete on graphs of diameter three with
 `d(u,v) = 2` (reviewed, `open-cases/theory-hardness.md` Thm 2.5) and FPT in `c`.
 

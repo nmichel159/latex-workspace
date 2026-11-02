@@ -1,0 +1,32 @@
+t 0 it 1 best {'score': 102, 'cost': 1, 'pf': 1, 'pe': 1, 'exact': True, 'tree': 'T(F4)', 'nb': 17, 'na': 4, 'm': 176, 'q': 41} word EEEEFFFFFFFFFFFFFFFFF classes 21
+t 3 it 1691 best {'score': 204, 'cost': 2, 'pf': 2, 'pe': 2, 'exact': True, 'tree': '(S(E1) | EP(E2))', 'nb': 4, 'na': 3, 'm': 33, 'q': 15} word EEEFFFF classes 4
+t 4 it 2276 best {'score': 205, 'cost': 2, 'pf': 2, 'pe': 3, 'exact': True, 'tree': '(dn(F3) | dn(F5))', 'nb': 4, 'na': 3, 'm': 33, 'q': 15} word EEEFFFF classes 5
+t 5 it 3384 best {'score': 306, 'cost': 3, 'pf': 3, 'pe': 3, 'exact': True, 'tree': '(T(F2) & (T(F1) & nup(E4)))', 'nb': 3, 'na': 3, 'm': 28, 'q': 15} word FFFEEE classes 6
+t 5 it 3423 best {'score': 307, 'cost': 3, 'pf': 4, 'pe': 3, 'exact': True, 'tree': '(T(F1) & (nup(E5) & T(F3)))', 'nb': 4, 'na': 3, 'm': 35, 'q': 17} word FFFFEEE classes 7
+t 6 it 3744 best {'score': 308, 'cost': 3, 'pf': 4, 'pe': 4, 'exact': True, 'tree': '(T(F1) & (EP(F3) | dn(F2)))', 'nb': 4, 'na': 4, 'm': 41, 'q': 19} word FFFFEEEE classes 8
+t 9 restart it 6792 hist [(1, 2050), (2, 2330), (3, 1857)]
+t 19 restart it 9804 hist [(1, 4957), (2, 2330), (3, 1857)]
+t 23 restart it 12820 hist [(1, 7440), (2, 2714), (3, 1857)]
+t 42 restart it 15835 hist [(1, 9873), (2, 3195), (3, 1857)]
+t 46 restart it 18867 hist [(1, 12247), (2, 3650), (3, 1857)]
+t 58 restart it 21886 hist [(1, 13713), (2, 4880), (3, 2002)]
+t 62 restart it 24896 hist [(1, 15495), (2, 5793), (3, 2096)]
+t 65 restart it 27919 hist [(1, 18345), (2, 5793), (3, 2096)]
+t 72 restart it 30921 hist [(1, 21225), (2, 5812), (3, 2096)]
+t 76 restart it 33936 hist [(1, 22727), (2, 7044), (3, 2096)]
+t 80 restart it 36962 hist [(1, 23563), (2, 8999), (3, 2096)]
+t 88 restart it 39983 hist [(1, 24202), (2, 11249), (3, 2096)]
+t 93 restart it 43015 hist [(1, 26989), (2, 11301), (3, 2096)]
+t 97 restart it 46044 hist [(1, 29412), (2, 11733), (3, 2096)]
+t 101 restart it 49059 hist [(1, 32263), (2, 11733), (3, 2096)]
+t 107 restart it 52087 hist [(1, 33932), (2, 12855), (3, 2108)]
+t 117 restart it 55087 hist [(1, 36253), (2, 13433), (3, 2108)]
+t 120 restart it 58125 hist [(1, 39062), (2, 13433), (3, 2108)]
+t 123 restart it 61161 hist [(1, 41187), (2, 14206), (3, 2108)]
+t 128 restart it 64181 hist [(1, 43950), (2, 14230), (3, 2108)]
+t 130 restart it 67231 hist [(1, 46859), (2, 14230), (3, 2108)]
+t 139 restart it 70232 hist [(1, 48677), (2, 15216), (3, 2108)]
+t 164 restart it 73250 hist [(1, 51598), (2, 15216), (3, 2108)]
+t 170 restart it 76289 hist [(1, 53267), (2, 16309), (3, 2108)]
+t 174 restart it 79320 hist [(1, 54565), (2, 17899), (3, 2108)]
+t 179 restart it 82335 hist [(1, 56546), (2, 18552), (3, 2298)]

@@ -1,0 +1,11 @@
+fam m q result nodes depth (pivot, order) ...
+small 226 151 min:first:V/46/34 min:near:V/46/34 min:far:V/44/32 max:first:V/46/34 max:near:V/46/34 max:far:V/44/32
+B 272 179 min:first:V/62/44 min:near:V/62/44 min:far:V/60/42 max:first:V/62/44 max:near:V/62/44 max:far:V/60/42
+A 287 189 min:first:V/72/49 min:near:V/71/48 min:far:V/70/47 max:first:V/72/49 max:near:V/71/48 max:far:V/70/47
+stair 203 141 min:first:V/60/37 min:near:V/60/37 min:far:V/58/35 max:first:V/60/37 max:near:V/60/37 max:far:V/368/35
+ties 220 149 min:first:V/47/32 min:near:V/47/32 min:far:V/45/30 max:first:V/47/32 max:near:V/47/32 max:far:V/45/30
+mix 336 237 min:first:V/47/32 min:near:V/45/30 min:far:V/45/30 max:first:V/45/30 max:near:V/45/30 max:far:V/45/30
+cross 351 245 min:first:V/68/43 min:near:V/66/41 min:far:V/66/41 max:first:V/66/41 max:near:V/66/41 max:far:V/1200/41
+allstrict 173 131 min:first:V/76/51 min:near:V/76/51 min:far:V/74/49 max:first:V/76/51 max:near:V/76/51 max:far:V/76/51
+kappa 188 131 min:first:V/50/32 min:near:V/50/32 min:far:V/48/30 max:first:V/50/32 max:near:V/50/32 max:far:V/48/30
+two 89 81 min:first:V/2/1 min:near:V/2/1 min:far:V/2/1 max:first:V/2/1 max:near:V/2/1 max:far:V/2/1

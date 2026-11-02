@@ -1,0 +1,21 @@
+fam m q |A| |B| d0 | best d over samples (A,B far) | valid found | min conflicts | fraction valid
+B 242 161 40 50 41 47 False 1 0/200
+B 208 141 34 42 41 51 False 1 0/200
+A 215 145 35 44 41 47 False 1 0/200
+A 230 155 40 44 41 47 False 1 0/200
+stair 259 173 47 48 41 47 False 1 0/200
+stair 190 131 32 36 41 47 False 1 0/200
+ties 257 171 45 50 41 55 False 1 0/200
+ties 195 135 35 34 41 51 False 1 0/200
+small 150 107 24 28 41 47 False 1 0/200
+small 173 121 29 32 41 51 False 1 0/200
+mix 329 233 45 60 41 47 False 1 0/200
+mix 329 229 45 64 41 47 False 1 0/200
+cross 404 279 62 72 41 47 False 1 0/200
+cross 434 301 68 74 41 47 False 1 0/200
+allstrict 170 129 26 24 47 79 False 1 0/200
+allstrict 152 117 23 21 47 117 True 0 2/200
+kappa 174 123 32 28 41 77 False 1 0/200
+kappa 204 139 34 40 41 69 False 1 0/200
+two 96 83 41 40 45 83 True 0 189/200
+two 95 87 43 43 87 87 True 0 195/200

@@ -1,0 +1,1 @@
+time 11 best (viol, m, viol at start) (2, 106, 120) {'accepted': 198, 'end viol >0': 2, 'rej sac refutes': 381, 'rej yes': 881, 'starts': 2}

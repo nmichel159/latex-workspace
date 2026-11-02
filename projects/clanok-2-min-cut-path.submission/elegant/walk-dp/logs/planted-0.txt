@@ -1,0 +1,7 @@
+time 47
+A {'base deep failures': 0, 'base maxconf0': 66, 'base maxconf1': 64, 'base solve nodes max': 18, 'base tests': 1, 'base time sac': 0.05, 'm': 165}
+B {'base deep failures': 0, 'base maxconf0': 100, 'base maxconf1': 98, 'base solve nodes max': 37, 'base tests': 1, 'base time sac': 0.13, 'm': 225}
+cross {'base deep failures': 0, 'base maxconf0': 182, 'base maxconf1': 180, 'base solve nodes max': 53, 'base tests': 1, 'base time sac': 1.08, 'm': 371}
+mix {'base deep failures': 0, 'base maxconf0': 154, 'base maxconf1': 152, 'base solve nodes max': 53, 'base tests': 1, 'base time sac': 0.78, 'm': 329}
+stair {'base deep failures': 0, 'base maxconf0': 94, 'base maxconf1': 92, 'base solve nodes max': 35, 'base tests': 1, 'base time sac': 0.12, 'm': 215}
+ties {'base deep failures': 0, 'base maxconf0': 110, 'base maxconf1': 108, 'base solve nodes max': 35, 'base tests': 1, 'base time sac': 0.33, 'm': 239}

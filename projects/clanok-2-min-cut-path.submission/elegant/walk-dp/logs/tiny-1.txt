@@ -1,0 +1,2 @@
+{'inst': 178419, 'no': 106193, 'no: closure refutes': 106106, 'no: sac refutes': 106193, 'solve branches': 56, 'solve deep-failures': 0, 'solve maxdepth': 1, 'solve nodes': 72282, 'yes': 72226, 'yes: sac + bfs invalid': 56, 'yes: sac + bfs valid': 72170}
+[]

@@ -1,0 +1,11 @@
+time 74
+A {'NO BUT SAC PASSES': 13, 'fixed': 31, 'no-inst': 13, 'starts': 5, 'yes-inst': 18}
+B {'NO BUT SAC PASSES': 9, 'fixed': 17, 'no-inst': 10, 'no: refuted': 1, 'starts': 5, 'yes-inst': 7}
+allstrict {'fixed': 16, 'no-inst': 6, 'no: refuted': 6, 'starts': 4, 'yes-inst': 10}
+cross {'NO BUT SAC PASSES': 9, 'fixed': 11, 'no-inst': 9, 'starts': 4, 'yes-inst': 2}
+kappa {'NO BUT SAC PASSES': 7, 'fixed': 25, 'no-inst': 8, 'no: refuted': 1, 'starts': 4, 'yes-inst': 17}
+mix {'NO BUT SAC PASSES': 6, 'fixed': 15, 'no-inst': 6, 'starts': 5, 'yes-inst': 9}
+small {'NO BUT SAC PASSES': 4, 'fixed': 10, 'no-inst': 4, 'starts': 4, 'yes-inst': 6}
+stair {'NO BUT SAC PASSES': 11, 'fixed': 22, 'no-inst': 11, 'starts': 5, 'yes-inst': 11}
+ties {'NO BUT SAC PASSES': 9, 'fixed': 20, 'no-inst': 12, 'no: refuted': 3, 'starts': 5, 'yes-inst': 8}
+two {'fixed': 3, 'no conflicts left': 3, 'starts': 4, 'yes-inst': 3}

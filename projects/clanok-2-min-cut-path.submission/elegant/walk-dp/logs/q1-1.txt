@@ -1,0 +1,10 @@
+A {'inst': 6, 'k=1 maxspan': 3, 'k=1 short': 6, 'k=12 budget': 6, 'k=2 maxspan': 3, 'k=2 short': 6, 'k=4 maxspan': 5, 'k=4 short': 6, 'k=6 maxspan': 7, 'k=6 short': 6, 'k=8 budget': 6, 'm': 234, 'max |Z|': 18, 'q': 157, '|A|': 40}
+B {'inst': 6, 'k=1 maxspan': 3, 'k=1 short': 6, 'k=12 budget': 6, 'k=2 maxspan': 3, 'k=2 short': 6, 'k=4 maxspan': 5, 'k=4 short': 6, 'k=6 budget': 6, 'k=8 budget': 6, 'm': 225, 'max |Z|': 38, 'q': 151, '|A|': 41}
+allstrict {'inst': 5, 'k=1 maxspan': 9, 'k=1 short': 5, 'k=12 budget': 5, 'k=2 maxspan': 9, 'k=2 short': 5, 'k=4 maxspan': 9, 'k=4 short': 5, 'k=6 maxspan': 9, 'k=6 short': 5, 'k=8 budget': 5, 'm': 167, 'max |Z|': 17, 'q': 127, '|A|': 26}
+cross {'inst': 6, 'k=1 maxspan': 3, 'k=1 short': 6, 'k=12 budget': 6, 'k=2 maxspan': 3, 'k=2 short': 6, 'k=4 maxspan': 5, 'k=4 short': 6, 'k=6 budget': 6, 'k=8 budget': 6, 'm': 452, 'max |Z|': 72, 'q': 311, '|A|': 70}
+kappa {'inst': 5, 'k=1 maxspan': 3, 'k=1 short': 5, 'k=12 budget': 5, 'k=2 maxspan': 3, 'k=2 short': 5, 'k=4 maxspan': 5, 'k=4 short': 5, 'k=6 budget': 5, 'k=8 budget': 5, 'm': 247, 'max |Z|': 40, 'q': 165, '|A|': 43}
+mix {'inst': 6, 'k=1 maxspan': 3, 'k=1 short': 6, 'k=12 budget': 6, 'k=2 maxspan': 3, 'k=2 short': 6, 'k=4 maxspan': 5, 'k=4 short': 6, 'k=6 budget': 6, 'k=8 budget': 6, 'm': 357, 'max |Z|': 60, 'q': 249, '|A|': 49}
+small {'inst': 5, 'k=1 maxspan': 3, 'k=1 short': 5, 'k=12 budget': 5, 'k=2 maxspan': 3, 'k=2 short': 5, 'k=4 maxspan': 5, 'k=4 short': 5, 'k=6 budget': 3, 'k=6 maxspan': 7, 'k=6 short': 2, 'k=8 budget': 5, 'm': 199, 'max |Z|': 34, 'q': 135, '|A|': 31}
+stair {'inst': 6, 'k=1 maxspan': 3, 'k=1 short': 6, 'k=12 budget': 6, 'k=2 maxspan': 3, 'k=2 short': 6, 'k=4 maxspan': 5, 'k=4 short': 6, 'k=6 budget': 6, 'k=8 budget': 6, 'm': 280, 'max |Z|': 46, 'q': 185, '|A|': 50}
+ties {'inst': 6, 'k=1 maxspan': 3, 'k=1 short': 6, 'k=12 budget': 6, 'k=2 maxspan': 3, 'k=2 short': 6, 'k=4 maxspan': 5, 'k=4 short': 6, 'k=6 budget': 6, 'k=8 budget': 6, 'm': 267, 'max |Z|': 44, 'q': 177, '|A|': 47}
+two {'inst': 5, 'k=1 ok': 5, 'k=12 ok': 5, 'k=2 ok': 5, 'k=4 ok': 5, 'k=6 ok': 5, 'k=8 ok': 5, 'm': 95, 'max |Z|': 0, 'q': 87, '|A|': 43}

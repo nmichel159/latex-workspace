@@ -165,8 +165,8 @@ as reviewed by AI agents; the author has not read it; the assembled text has not
 left out for now. (2) "Diam or cut 2" is in P, by two proofs: pairs with `c <= 2` through the squares (article 2, Thm 9,
 11, 15, the author's result) and pairs with `d = 2`, `c >= 3` through ZZ + P2 (`qp-proof.md` §1-§4 for the reduction,
 `r7-desc.md` Theorem B).
-Written 2026-10-31 as project `clanok-3-min-cut-path` (44 pages, exponent 71 after Proposition C; notes in
-`projects/clanok-3-min-cut-path.md`); referee of the assembled text: `projects/clanok-3-min-cut-path.submission/review/referee-article.md`.
+Written 2026-10-31 as project `clanok-2-min-cut-path` (44 pages, exponent 71 after Proposition C; notes in
+`projects/clanok-2-min-cut-path.md`); referee of the assembled text: `projects/clanok-2-min-cut-path.submission/review/referee-article.md`.
 Article 2 is not changed. Next: apply the referee's findings; then improve the article and look for simpler proofs.
 
 ## 4. How to resume
@@ -175,7 +175,7 @@ Read this file, then `r5-brief.md` (targets A, B, C of round 5) and the reports 
 Opus agents at a time: four in parallel exhausted the session limit repeatedly (2026-10-16 to 2026-10-22). Every new
 proof goes to an independent reviewer before it is reported as a result.
 
-## Article 3, state at the last stop (2026-10-31)
+## The article, state at the last stop (2026-11-02)
 
-Second version of `projects/clanok-3-min-cut-path/main.tex`, 37 pages: Sections 5 and 6 rewritten directly on the preorder, time `O(n^30)`.
-Referee of the rewrite: `projects/clanok-3-min-cut-path.submission/review/referee-direct.md`, holds. Details and next steps: `projects/clanok-3-min-cut-path.md`.
+`projects/clanok-2-min-cut-path/main.tex`, 37 pages (former article 3, merged into article 2): Sections 5 and 6 rewritten directly on the preorder, time `O(n^30)`.
+Referee of the rewrite: `projects/clanok-2-min-cut-path.submission/review/referee-direct.md`, holds. Details and next steps: `projects/clanok-2-min-cut-path.md`.
