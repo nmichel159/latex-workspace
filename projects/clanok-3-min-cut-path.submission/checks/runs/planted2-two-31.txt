@@ -1,0 +1,40 @@
+base two seed 31 rounds 156 time 900.6
+accepted {'D near contT': 1570, 'D near tieA': 2442, 'D addTcore': 213, 'D near tieB': 2586, 'D tieH': 378, 'D near contS': 1661, 'D addScore': 272, 'D near un': 1528, 'D addT': 246, 'D tieA': 367, 'D addS': 241, 'D wit': 125, 'D unstrict': 260, 'I edge': 1088, 'I relL': 1039, 'I rel': 403, 'I unrel': 643, 'I lift': 1370, 'I rmedge': 862, 'I relH': 1034, 'I lower': 1359, 'I off': 101, 'D attack': 255, 'I xg': 5}
+rejected {'D near contT': 863, 'D near un': 3242, 'D near contS': 848, 'D addTcore': 141, 'D attack': 516, 'D addT': 137, 'D addS': 141, 'I rel (invalid)': 952, 'I xg (invalid)': 1060, 'I star (invalid)': 2628, 'I off (invalid)': 2085, 'I relL (invalid)': 262, 'I relH (invalid)': 279, 'I off': 505, 'I unrel (invalid)': 191, 'I edge (invalid)': 103, 'I unrel': 461, 'I edge': 1482, 'I xg': 253, 'I rmedge': 211, 'D unstrict': 155, 'I rmedge (invalid)': 224, 'D addScore': 132}
+atoms(a) tested 1556034
+atoms(b) tested 1556156
+atoms(c) tested 445404
+base instances verified 156
+exit id R0 empty 3678
+exit id small A 2
+exit op C0 empty 1
+exit op R0 empty 3677
+exit op small B 2
+exit oprev R0 empty 3678
+exit oprev small B 2
+exit rev R0 empty 3678
+exit rev small A 2
+final: C_0 empty, F* 14710
+final: R_0 empty, E* 14711
+final: small A 4
+final: small B 4
+max m 169
+max q 107
+one(a) max span 4
+one(a) tested 1318874
+one(a) walks built 433585
+one(b) max span 4
+one(b) tested 1318874
+one(b) walks built 436199
+one(c) A max size 1 114016
+one(c) A max size 2 266800
+one(c) A max size 3 350054
+one(c) A tested 730870
+one(c) B tested 730870
+two max sum 8
+two tested 2994
+two tight 2158
+two walks built 2994
+walks 14720
+|A|, |B| >= 4 14712
+FAILURES: none

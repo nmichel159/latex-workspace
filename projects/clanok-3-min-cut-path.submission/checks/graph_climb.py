@@ -116,12 +116,12 @@ def main():
                     records["q=%d" % cur[0]] += 1
                     if cur[0] > best_q:
                         best_q = cur[0]
-    with open(logf, "w", encoding="utf-8") as f:
-        print("seed", seed, "time", round(time.time() - t0, 1), "nmax", nmax, "best q", best_q, file=f)
-        print("graphs checked by q:", dict(records), file=f)
-        for k in sorted(st):
-            print(k, st[k], file=f)
-        print("FAILURES:", fails[:4] if fails else "none", file=f)
+        with open(logf, "w", encoding="utf-8") as f:
+            print("seed", seed, "time", round(time.time() - t0, 1), "nmax", nmax, "best q", best_q, file=f)
+            print("graphs checked by q:", dict(records), file=f)
+            for k in sorted(st):
+                print(k, st[k], file=f)
+            print("FAILURES:", fails[:4] if fails else "none", file=f)
 
 
 if __name__ == "__main__":

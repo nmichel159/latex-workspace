@@ -575,14 +575,19 @@ def construct(w, cfg, rng, st):
         return "Shape A"
 
     # Shape B
-    chosen = rng.sample(C1, 8) if len(C1) >= 8 else list(C1)
-    els = [rng.choice(list(bits(c))) for c in chosen]
-    g1, g2 = els[:len(els) // 2], els[len(els) // 2:]
-    g1.sort(key=lambda x: w.pos[x])
-    g2.sort(key=lambda x: w.pos[x])
-    h1, h2, h3, h4 = g1[0], g1[-1], g2[0], g2[-1]
     if cfg.shape_a_max == 7:
-        chk(abs(w.pos[h1] - w.pos[h2]) >= 6 and abs(w.pos[h3] - w.pos[h4]) >= 6, "far pairs of Shape B")
+        chosen = rng.sample(C1, 8)
+        els = [rng.choice(list(bits(c))) for c in chosen]
+        g1, g2 = els[:4], els[4:]
+        g1.sort(key=lambda x: w.pos[x])
+        g2.sort(key=lambda x: w.pos[x])
+        h1, h2, h3, h4 = g1[0], g1[-1], g2[0], g2[-1]
+    else:
+        # the referee's variant: five classes in the order of position, the pairs c_1, c_4 and c_2, c_5
+        chosen = rng.sample(C1, 5)
+        els = sorted((rng.choice(list(bits(c))) for c in chosen), key=lambda x: w.pos[x])
+        h1, h2, h3, h4 = els[0], els[3], els[1], els[4]
+    chk(abs(w.pos[h1] - w.pos[h2]) >= 6 and abs(w.pos[h3] - w.pos[h4]) >= 6, "far pairs of Shape B")
     S = S0.E0m | mask_of(Ak)
     pairs = [S0.ps, S0.pt, (h1, h2)] + ([(h3, h4)] if cfg.use_second_pair else [])
     Dfull = I.E_formula(pairs, S if cfg.use_Akappa else S0.E0m)

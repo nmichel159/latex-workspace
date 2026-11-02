@@ -1,0 +1,59 @@
+pool A: 4 instances
+pool B: 4 instances
+pool cross: 4 instances
+pool far2x: 4 instances
+pool kappay: 4 instances
+pool margin2: 4 instances
+pool mix: 4 instances
+pool stair: 4 instances
+pool ties: 4 instances
+pool two: 4 instances
+MUTATION control: text: runs 432, fired 0
+   exits {'R0 empty': 96, 'Shape B': 90, 'Shape A': 228, 'few classes': 18}
+   two max sum 8, one(a) max span 4, one(b) max span 4, two tested 42
+MUTATION margin 6 -> 2: runs 48, fired 31
+   exits {'R0 empty': 10, 'C0 empty': 7}
+      31  Positions of C_0: no position > tau*
+   two max sum 0, one(a) max span 4, one(b) max span 4, two tested 0
+MUTATION margin 6 -> 4 (referee: must pass): runs 480, fired 0
+   exits {'R0 empty': 96, 'Shape A': 288, 'Shape B': 96}
+   two max sum 8, one(a) max span 4, one(b) max span 4, two tested 42
+MUTATION margin 4 and five classes in Shape B (referee: must pass): runs 336, fired 0
+   exits {'Shape A': 234, 'Shape B': 102}
+   two max sum 0, one(a) max span 4, one(b) max span 4, two tested 0
+MUTATION far pair among the first 2, distance 2: runs 48, fired 48
+   exits {}
+      24  Stage 0: FR_l, FR_r miss U_P
+      24  Stage 0: ER_s, ER_t contain L_P
+   two max sum 0, one(a) max span 4, one(b) max span 4, two tested 0
+MUTATION lem:pa-atoms at distance 2: runs 48, fired 16
+   exits {'Shape A': 32}
+       8  lem:pa-atoms(a): FR meets U_P
+       8  lem:pa-atoms(b): ER misses L_P
+   two max sum 0, one(a) max span 4, one(b) max span 4, two tested 0
+MUTATION drop up A_kappa: runs 48, fired 12
+   exits {'Shape A': 36}
+      12  Shape B: D meets U_P
+   two max sum 0, one(a) max span 4, one(b) max span 4, two tested 0
+MUTATION drop the EP term of F^1: runs 48, fired 6
+   exits {'few classes': 18, 'Shape A': 24}
+       6  eq:pa-not-below
+   two max sum 0, one(a) max span 4, one(b) max span 4, two tested 0
+MUTATION drop the pair h_3, h_4: runs 48, fired 20
+   exits {'Shape B': 4, 'Shape A': 24}
+      20  Shape B: D meets U_P
+   two max sum 0, one(a) max span 4, one(b) max span 4, two tested 0
+MUTATION bound of lem:pa-one 4 -> 2: runs 48, fired 48
+   exits {}
+      26  lem:pa-one(b): distance
+      22  lem:pa-one(a): distance
+   two max sum 0, one(a) max span 2, one(b) max span 2, two tested 0
+MUTATION bound of lem:pa-two 8 -> 6: runs 48, fired 12
+   exits {'R0 empty': 36}
+      12  lem:pa-two: bound
+   two max sum 4, one(a) max span 4, one(b) max span 4, two tested 12
+MUTATION walk not shortest: 16 instances
+      14  lem:pa-two: bound
+       1  no assertion fired
+       1  (star): an interval misses Pos[a] and Pos[h]
+time 181.4

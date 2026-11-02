@@ -36,6 +36,23 @@ def far2_instance(rng):
     return J, P
 
 
+def kappa_instance(rng):
+    """base_kappa plus one off-walk element y below all lows of the zipper and incomparable with kappa_1 and kappa_4: y keeps the zipper outside EP(a_1), EP(a_2), so Shape B
+    is reached, and every class of the zipper touches kappa_1, so only the term up A_kappa removes kappa_1 from the value."""
+    d = BASES["kappa"](rng)
+    I, P = d.build()
+    upset = 0
+    for pr in d.info["H"]:
+        for z in pr:
+            upset |= I.UP[I.el[z]]
+    up, m, y = add_element(I.UP, I.m, I.CL[I.u], upset)
+    names = list(I.names) + ["y"]
+    edges = set(I.edges)
+    edges.add((y, I.names.index("hubT")))
+    edges.add((I.names.index("hubB"), y))
+    return Inst(m, up, edges, I.u, I.v, names), P
+
+
 def plain(base):
     def f(rng):
         return BASES[base](rng).build()
@@ -74,27 +91,29 @@ def nonshortest(rng):
 
 
 MUTS = [
-    ("control: text", Cfg, ["margin2", "kappa", "far2x", "A", "cross", "stair", "B", "mix"]),
+    ("control: text", Cfg, ["margin2", "kappay", "far2x", "A", "cross", "stair", "B", "mix", "two"]),
     ("margin 6 -> 2", lambda: Cfg(margin=2), ["margin2"]),
-    ("margin 6 -> 4 (referee: must pass)", lambda: Cfg(margin=4), ["margin2", "kappa", "far2x", "A", "cross", "stair", "B", "mix", "ties", "local"]),
-    ("Shape A up to 4 classes (referee: must pass)", lambda: Cfg(margin=4, shape_a_max=4), ["kappa", "cross", "stair", "B", "mix", "ties"]),
+    ("margin 6 -> 4 (referee: must pass)", lambda: Cfg(margin=4), ["margin2", "kappay", "far2x", "A", "cross", "stair", "B", "mix", "ties", "two"]),
+    ("margin 4 and five classes in Shape B (referee: must pass)", lambda: Cfg(margin=4, shape_a_max=4), ["kappay", "A", "cross", "stair", "B", "mix", "ties"]),
     ("far pair among the first 2, distance 2", lambda: Cfg(first=2), ["far2x"]),
     ("lem:pa-atoms at distance 2", lambda: Cfg(atom_far=2), ["far2x"]),
-    ("drop up A_kappa", lambda: Cfg(use_Akappa=False), ["kappa"]),
+    ("drop up A_kappa", lambda: Cfg(use_Akappa=False), ["kappay"]),
     ("drop the EP term of F^1", lambda: Cfg(use_EP=False), ["A"]),
     ("drop the pair h_3, h_4", lambda: Cfg(use_second_pair=False), ["cross"]),
-    ("bound of lem:pa-one 4 -> 2", lambda: Cfg(one_bound=2), ["local"]),
-    ("bound of lem:pa-two 8 -> 6", lambda: Cfg(two_bound=6), ["local"]),
+    ("bound of lem:pa-one 4 -> 2", lambda: Cfg(one_bound=2), ["two"]),
+    ("bound of lem:pa-two 8 -> 6", lambda: Cfg(two_bound=6), ["two"]),
 ]
 
 
 def get_inst(name, rng):
     if name == "far2x":
         return far2_instance(rng)
-    if name == "local":
-        return climbed("local", moves=120)(rng)
-    if name in ("A", "cross", "stair", "B", "mix", "ties", "kappa", "margin2"):
-        if name in ("kappa", "margin2"):
+    if name == "kappay":
+        return kappa_instance(rng)
+    if name == "two":
+        return plain("two")(rng)
+    if name in ("A", "cross", "stair", "B", "mix", "ties", "margin2"):
+        if name == "margin2":
             return plain(name)(rng)
         return climbed(name, moves=8)(rng) if rng.random() < 0.5 else plain(name)(rng)
     raise ValueError(name)

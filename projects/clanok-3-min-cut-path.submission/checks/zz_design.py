@@ -621,5 +621,60 @@ def base_far2(rng):
     return d
 
 
+def two_gadget(d, s, layout, contact_below=True):
+    """Contacts that make the hypothesis of lem:pa-two true with a sum (p_2 - p_1) + (p_4 - p_3) up to 8.  Word positions: odd = high, even = low; s is odd.
+    Returns (p_1, a, alpha, beta, h, p_4).  W runs forward if alpha < beta and backward otherwise."""
+    tbl = {
+        "aL_hR": (0, 2, 4, 5, 7, 9),     # a left, h right, sum 8
+        "hL_aR": (0, 6, 4, 5, 1, 9),     # h left, a right, sum 8
+        "both_L": (0, 2, 6, 7, 5, 9),    # both left, sum 8
+        "both_R": (0, 8, 2, 3, 5, 9),    # both right, sum 8
+        "back_hL_aR": (0, 8, 6, 5, 1, 9),    # W backward: p_2 = beta, p_3 = alpha, sum 8
+        "back_aL_hR": (0, 2, 6, 3, 7, 9),    # W backward with a left of beta and h right of alpha, sum 3 + 3 = 6
+        "back_aL_hR8": (0, 2, 6, 5, 7, 9),   # W backward, sum 5 + 3 = 8
+        "small_hL_aR": (0, 4, 2, 3, 1, 5),   # h left, a right, sum 2 + 2 = 4
+        "short": (0, 2, 4, 5, 7, 11),    # sum 4 + 6 = 10: must be rejected by the solver
+    }
+    p1, a, al, be, h, p4 = [s + x for x in tbl[layout]]
+    d.unset_strict(h, a)
+    d.T[h] |= {p1, al}
+    d.S[a] |= {be, p4}
+    if layout in ("aL_hR", "both_L", "back_aL_hR", "back_aL_hR8") and contact_below:
+        d.T[h].add(a)
+    else:
+        d.S[a].add(h)
+    return p1, a, al, be, h, p4
+
+
+def base_two(rng):
+    """Alternating word, all pairs strict, with gadgets of two_gadget, each kept only if P stays shortest (hill climbing continues from here)."""
+    n = rng.randint(50, 90)
+    d = Design()
+    E, F = [], []
+    for i in range(n):
+        if i % 2 == 0:
+            E.append(d.add("E"))
+        else:
+            F.append(d.add("F"))
+    for a in E:
+        for b in F:
+            d.set_strict(b, a)
+    d.info = {"Apos": E, "H": [(b, b) for b in F], "Vs": [], "local": True}
+    s = 5
+    kept = []
+    while s + 12 < n:
+        lay = rng.choice(["aL_hR", "aL_hR", "back_aL_hR", "back_aL_hR8", "back_aL_hR8", "small_hL_aR", "hL_aR", "both_L", "both_R", "back_hL_aR", "short"])
+        d2 = d.copy()
+        two_gadget(d2, s, lay, rng.random() < 0.5)
+        I, P = d2.build()
+        if I.p2() and I.shortest_walk(bound=len(P) - 1, budget=100000) is None:
+            d = d2
+            kept.append(lay)
+        s += 2 * rng.randint(7, 10)
+    d.info = dict(d.info, gadgets=kept)
+    return d
+
+
 BASES = {"B": base_B, "A": base_A, "stair": base_stair, "ties": base_ties, "small": base_small, "mix": base_mix, "cross": base_cross, "allstrict": base_allstrict,
-         "local": base_local, "kappa": base_kappa, "margin2": base_margin2, "far2": base_far2}
+         "local": base_local, "kappa": base_kappa, "margin2": base_margin2, "far2": base_far2, "two": base_two}
+BASES["all"] = lambda rng: BASES[rng.choice(["B", "A", "stair", "ties", "small", "mix", "cross", "kappa"])](rng)

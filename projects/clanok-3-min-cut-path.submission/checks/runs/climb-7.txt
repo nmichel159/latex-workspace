@@ -1,0 +1,32 @@
+seed 7 time 900.1 nmax 12 best q 3
+graphs checked by q: {'q=3': 411, 'q=0': 7044}
+Y sets 3032
+atoms(c) tested 1816
+comparable pairs with a common neighbour outside Q 1718
+cp brute force 5015
+down-sets 10703
+final: small A 1644
+final: small B 1644
+incomparable pairs 654
+max m 10
+max q 3
+min sides with a path 474
+no pairs 7044
+one(a) max span 2
+one(a) tested 344
+one(a) walks built 344
+one(b) max span 2
+one(b) tested 344
+one(b) walks built 344
+one(c) A max size 1 3884
+one(c) A max size 2 344
+one(c) A tested 4228
+one(c) B tested 4228
+outside Q vertices 2689
+pairs 7455
+pairs with vertices outside Q 1500
+returned cuts checked 461
+sides(b) k = 1 3039
+walks 1644
+yes pairs 411
+FAILURES: none

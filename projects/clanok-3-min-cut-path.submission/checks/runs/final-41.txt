@@ -1,0 +1,4 @@
+final constants: margin 6, Shape A up to 4 classes, Shape B five classes
+runs 600, instances dropped 0, time 62.8
+exits {'Shape B': 150, 'Shape A': 300, 'few classes': 30, 'R0 empty': 120}
+FAILURES: none

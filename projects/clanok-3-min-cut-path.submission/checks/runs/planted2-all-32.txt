@@ -1,0 +1,61 @@
+base all seed 32 rounds 90 time 900.2
+accepted {'D addTcore': 106, 'D wit': 381, 'D tieH': 349, 'D addScore': 377, 'D addS': 297, 'D attack': 109, 'D addT': 102, 'I rel': 107, 'I lower': 249, 'I edge': 208, 'I lift': 242, 'I unrel': 76, 'I rmedge': 232, 'I off': 30, 'I relL': 239, 'D tieA': 350, 'I relH': 157, 'D unstrict': 87, 'I xg': 5}
+rejected {'D attack': 619, 'D addTcore': 258, 'D addT': 263, 'D unstrict': 121, 'I star (invalid)': 291, 'I rmedge': 37, 'I star': 205, 'I edge': 271, 'I rel (invalid)': 149, 'I xg (invalid)': 204, 'I off (invalid)': 377, 'I edge (invalid)': 33, 'I xg': 73, 'I relL (invalid)': 39, 'I unrel': 47, 'I off': 121, 'I relH (invalid)': 85, 'I unrel (invalid)': 122, 'D addS': 25, 'I xg (budget)': 1}
+(star) pairs tested 501286
+(star) quadruples 13124760
+(star) quadruples without slack (sample) 2829388
+C_1 max 20
+R_0 has at least 5 classes 1914
+R_0, C_0 nonempty 2388
+Shape B: classes of kappa inside the value without A_kappa 0
+Shape B: first pair alone leaves a class 80
+atoms(a) tested 355535
+atoms(b) tested 355600
+atoms(c) tested 128922
+base instances verified 90
+exit id R0 empty 215
+exit id Shape A 210
+exit id Shape B 194
+exit id few classes 193
+exit op C0 empty 213
+exit op R0 empty 2
+exit op Shape A 553
+exit op few classes 44
+exit oprev C0 empty 209
+exit oprev R0 empty 6
+exit oprev Shape A 553
+exit oprev few classes 44
+exit rev R0 empty 215
+exit rev Shape A 209
+exit rev Shape B 195
+exit rev few classes 193
+final: C_0 empty, F* 434
+final: R_0 empty, E* 438
+final: R_0 has at most 4 classes 474
+final: Shape A (C_1 empty) 1196
+final: Shape A (C_1 nonempty) 329
+final: Shape B 389
+general: class of R_0 inside D 195
+general: tested 3346
+max m 431
+max q 297
+max |C_1| Shape A 7
+max |S'| Shape A 6
+max |S| Shape A 18
+max |S| Shape B 15
+one(a) max span 4
+one(a) tested 307134
+one(a) walks built 97745
+one(b) max span 4
+one(b) tested 307134
+one(b) walks built 97071
+one(c) A max size 1 114614
+one(c) A max size 2 69624
+one(c) A max size 3 79170
+one(c) A tested 263408
+one(c) B tested 263408
+orientation: direct 1194
+orientation: reversed 1194
+walks 3248
+|A|, |B| >= 4 3248
+FAILURES: none

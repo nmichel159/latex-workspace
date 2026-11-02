@@ -1,0 +1,9 @@
+seed 1 time 500.0
+ear: the pair became comparable 774
+ears added between incomparable elements 774
+graphs 12111
+incomparable pairs 3977
+incomparable pairs with a common neighbour 3773
+pairs with c >= 3 523207
+random graphs 344129
+FAILURES: none

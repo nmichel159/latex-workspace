@@ -1,29 +1,29 @@
 # Article 3 - Min Cut-Path: NP-completeness on diameter three and a polynomial algorithm for distance or cut-value at most two
 
-Status: **second version, 2026-10-31**: 35 pages, 12,800 words. `main.tex` is the source; the first version (44 pages, commit `c1c0fc6`) was assembled by
+Status: **third version, 2026-11-02**: 37 pages, 13,200 words, 12 figures, 1 table. `main.tex` is the source; the first version (44 pages, commit `c1c0fc6`) was assembled by
 `projects/clanok-3-min-cut-path.submission/assemble.py` from `drafts/`, with the blueprint `SPEC.md`. Do not rerun `assemble.py`. Sections 5 and 6 were then
-rewritten directly on the preorder (draft: `drafts/05-06-direct.tex`): no bridge-free graph `K`, no multigraph `H` with ears, no switch form with nodes and sides, and
-`n^31 · n^O(1)` instead of `n^71 · n^O(1)`. Results of article 1 are only cited, on the author's request (2026-10-31).
+rewritten directly on the preorder (commit `cf1b950`; first draft: `drafts/05-06-direct.tex`, since edited in `main.tex`): no bridge-free graph `K`, no multigraph `H` with ears, no switch form with nodes and sides, and
+`O(n^30)` time instead of `n^71 · n^O(1)`. New since then: five figures (sources and rebuild in `.submission/figures/`), `tab:pa-exits`, `ex:zz-instance`, `rem:zz-no-p2` (ZZ without P2 is NP-complete). Results of article 1 are only cited, on the author's request (2026-10-31).
 Sections: 1 Introduction (with `thm:main`), 2 Preliminaries, 3 NP-completeness on diameter three (`thm:dt-hardness`), 4 Pairs with cut-value at most two (squares,
 `thm:linear-time`), 5 Zigzag problem (`thm:zz-reduction`, `lem:zz-valid`), 6 Polynomial algorithm (`thm:pa-formulas`, `thm:pa-open-case`), 7 Conclusion.
 The author has read nothing of it.
 
-Checks: build clean, no undefined reference, no overfull line, 7 figures. Package check `-Template sn-jnl -Flat -KeepComments -CheckOnly`: `Verdict: PASS`, 1 finding
+Checks: build clean, no undefined reference, no overfull line. Package check `-Template sn-jnl -Flat -KeepComments -CheckOnly`: `Verdict: PASS`, 1 finding
 (`[ai-declaration]`). `check-text.ps1`: 3 findings kept (the logged "to the best of our knowledge"; "Vital" in a problem name; the sample's "Acknowledgements").
 `check-bib.ps1`: 1 recommended (no issue number for `LeLe2019MatchingCut`).
 
 ## Reviews
 
 - Sections 1 to 4: `projects/clanok-3-min-cut-path.submission/review/referee-article.md`: no gap, 3 easily repaired errors and 8 minor points, all applied (M4 is below).
-- Sections 5 and 6 as rewritten: `review/referee-direct.md` with programs in `checks/`. **Unfinished at the last stop: first pass by hand with no gap and no error, computations
-  not reported yet; until it holds, the rewrite is not a reviewed result.** If it stopped, resume this referee only, reading that file first. The earlier reviews
-  (`open-cases/verify/rv-r6-chain.md`, `rv-r7-desc.md`) cover the older form of the proof.
+- Sections 5 and 6 as rewritten: `review/referee-direct.md` with programs in `checks/`: **holds, no gap and no error, 5 minor remarks, applied** (M3 needed nothing). Limits are in its Section 5: the enumeration itself is not run, and Stage 1 was reached only from planted layouts, so the verdict rests on the hand check.
+- After the verdict, two changes to what the referee read: Shape B now uses five classes (the referee's own suggestion, so 28 elements instead of 31), and the time is stated as `O(n^30)` with `O(n^5)` for the reduction, counted by hand. `checks/run_final.py` runs exactly these constants: 600 runs, Shape A 300, Shape B 150, `FAILURES: none`. A second referee has not read these two changes.
+- The earlier reviews (`open-cases/verify/rv-r6-chain.md`, `rv-r7-desc.md`) cover the older form of the proof.
 
 ## Next steps
 
-1. Finish `review/referee-direct.md` and apply its findings to `main.tex`.
-2. The second version is commit `cf1b950`, pushed, with the referee's files as they stood then; the first version with 44 pages is `c1c0fc6`. Commit the finished referee report when the author asks. Keep `checks/runs/` small.
-3. The author reads the article; then shorter proofs and the open points below.
+1. The author reads the article.
+2. Optional, from `referee-direct.md` Section 6: margin 4 instead of 6 would give 26 elements with one more case in `(star)`; one flow gives the whole preorder. Not applied, because neither makes the proof simpler.
+3. Then the open points below.
 
 ## Intent
 

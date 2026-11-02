@@ -146,7 +146,7 @@ where edges are meant, and Theorem 23 assumes the decomposition as given.
 holds the working files of AI agents (rounds 1-5, 2026-10-12 to 2026-10-22); current state and the list of what is
 reviewed: `open-cases/status.md`. Not in A2, not read by the author. In short: the open case is equivalent to the
 zigzag problem ZZ + P2 (reviewed, `verify/rv-r6-chain.md`), and ZZ + P2 is in P, time `m^71 · poly` with `m <= n − 2`
-switches (`open-cases/r7-desc.md` Theorem B, reviewed `verify/rv-r7-desc.md`). Article 3 rewrites this proof directly on the preorder, time `n^31 · n^O(1)`, under review (`projects/clanok-3-min-cut-path.submission/review/referee-direct.md`). So every pair of `DC_2` is solved in
+switches (`open-cases/r7-desc.md` Theorem B, reviewed `verify/rv-r7-desc.md`). Article 3 rewrites this proof directly on the preorder, time `O(n^30)`, reviewed (`projects/clanok-3-min-cut-path.submission/review/referee-direct.md`). So every pair of `DC_2` is solved in
 polynomial time, as reviewed by AI agents. Deciding `cp = c` is NP-complete on graphs of diameter three with
 `d(u,v) = 2` (reviewed, `open-cases/theory-hardness.md` Thm 2.5) and FPT in `c`.
 

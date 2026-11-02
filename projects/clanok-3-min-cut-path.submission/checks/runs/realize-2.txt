@@ -3,3 +3,8 @@ m 174 n 31476 c 7954 q 113 exits ['Shape A (C_1 nonempty)'] time 9.2
 m 218 n 49826 c 12269 q 147 exits ['Shape A (C_1 nonempty)'] time 21.0
 m 246 n 63076 c 15517 q 163 exits ['R_0 has at most 4 classes'] time 23.8
 m 378 n 150477 c 35816 q 265 exits ['Shape B'] time 107.5
+m 406 n 171748 c 40641 q 283 exits ['Shape B'] time 156.1
+m 198 n 39682 c 9923 q 127 exits ['Shape B'] time 4.7
+m 162 n 27282 c 6877 q 107 exits ['Shape A (C_1 nonempty)'] time 2.4
+m 266 n 73584 c 18093 q 175 exits ['Shape A (C_1 nonempty)'] time 13.2
+m 278 n 80198 c 19683 q 183 exits ['Shape A (C_1 nonempty)'] time 19.0

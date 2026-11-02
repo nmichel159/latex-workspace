@@ -295,6 +295,17 @@ def test_all(I, P, cfg, rng, st, fails, tag, seed, base):
             dump(K, Q, str(e), os.path.join(HERE, "runs", "ce", "%s-%d-%d.json" % (base, seed, len(fails))))
 
 
+def save(logf, base, seed, rounds, t0, acc, rej, st, fails):
+    """The log is rewritten after every round, so a killed run keeps its counts."""
+    with open(logf, "w", encoding="utf-8") as lg:
+        print("base", base, "seed", seed, "rounds", rounds, "time", round(time.time() - t0, 1), file=lg)
+        print("accepted", dict(acc), file=lg)
+        print("rejected", dict(rej), file=lg)
+        for k in sorted(st):
+            print(k, st[k], file=lg)
+        print("FAILURES:", fails[:8] if fails else "none", file=lg)
+
+
 def main():
     seed, base, secs, moves, logf = int(sys.argv[1]), sys.argv[2], float(sys.argv[3]), int(sys.argv[4]), sys.argv[5]
     rng = random.Random(seed)
@@ -378,13 +389,8 @@ def main():
             if Q != P:
                 st["other shortest walks"] += 1
                 test_all(I, Q, cfg, rng, st, fails, "other", seed, base)
-    with open(logf, "w", encoding="utf-8") as lg:
-        print("base", base, "seed", seed, "rounds", rounds, "time", round(time.time() - t0, 1), file=lg)
-        print("accepted", dict(acc), file=lg)
-        print("rejected", dict(rej), file=lg)
-        for k in sorted(st):
-            print(k, st[k], file=lg)
-        print("FAILURES:", fails[:8] if fails else "none", file=lg)
+        save(logf, base, seed, rounds, t0, acc, rej, st, fails)
+    save(logf, base, seed, rounds, t0, acc, rej, st, fails)
 
 
 if __name__ == "__main__":
