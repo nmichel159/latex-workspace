@@ -1,0 +1,24 @@
+Colorings of plane graphs with small facial defect
+
+                                       Simona Voleskov´a
+                                 (joint work with Igor Fabrici)
+
+Two adjacent edges of a plane graph are facially adjacent if they are consecutive
+in the cyclic order around their end vertex (given by the embedding). An edge
+coloring is facially proper if any two facially adjacent edges obtain different colors.
+Similarly, a total coloring is facially proper if any two adjacent vertices, any two
+facially adjacent edges and any two incident elements obtain different colors.
+Jendrol’ [1] proved that each plane graph has a vertex 3-coloring such that, on
+each face, any monochromatic path consists of at most two vertices, i.e. each color
+has facial vertex defect at most two (we denote such a coloring as [2, 2, 2]-vertex
+coloring).
+
+In this talk, we show that each plane graph has [1, 2, 2]-edge coloring (there are
+no facially adjacent edges colored by 1 and, on each face, monochromatic paths
+colored by 2 or 3 consist of at most two edges) and [1, 1, 1, 2, 2]-total coloring.
+
+                                            References
+
+[1] S. Jendrol’, On a 3-coloring of plane graphs without monochromatic facial
+     3-paths, Discuss. Math. Graph Theory 46(2) (2026) 341–351.
+

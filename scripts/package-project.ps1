@@ -159,7 +159,7 @@
     Exit code: 0 = PASS (findings may exist), 1 = FAIL, 2 = invalid parameters.
 
 .PARAMETER Project
-    Name of a folder in projects/.
+    Name of a folder in projects/, or the path prezentacie/<category>/<group>/<talk> of a talk.
 
 .PARAMETER MainFile
     Main .tex file in the project root. If omitted, main.tex is used, otherwise the only .tex with \documentclass
@@ -228,7 +228,10 @@ function Stop-InvalidParameter([string]$Message) {
 # ---------------------------------------------------------------------------
 
 if (-not $Project) { Stop-InvalidParameter "Missing -Project <name>." }
-if ($Project -match '[\\/:]') { Stop-InvalidParameter "-Project is the name of a folder in projects/, not a path: $Project" }
+$Project = $Project -replace '\\', '/'
+if ($Project -match '[/:]' -and $Project -notmatch '^prezentacie(/[a-z0-9-]+){3}$') { Stop-InvalidParameter "-Project is the name of a folder in projects/, or prezentacie/<category>/<group>/<talk>: $Project" }
+# A talk of the collection has a path as its name; temporary folders and package files use it without slashes.
+$projectSlug = $Project -replace '/', '-'
 $projectDirectory = Join-Path $projectsRoot $Project
 if (-not (Test-Path -LiteralPath $projectDirectory -PathType Container)) {
     $available = (Get-ChildItem -LiteralPath $projectsRoot -Directory | ForEach-Object { $_.Name }) -join ", "
@@ -280,12 +283,12 @@ $rxNone = [System.Text.RegularExpressions.RegexOptions]"CultureInvariant"
 $rxIgnoreCase = [System.Text.RegularExpressions.RegexOptions]"IgnoreCase, CultureInvariant"
 $stamp = Get-Date -Format "yyyyMMdd"
 
-$workRoot = Join-Path $tmpRoot "package-$Project"
+$workRoot = Join-Path $tmpRoot "package-$projectSlug"
 $stageDirectory = Join-Path $workRoot "stage"
 $roundtripDirectory = Join-Path $workRoot "roundtrip"
 $packageDirectory = Join-Path $outputsRoot "$Project\package"
-$zipName = $(if ($Flat) { "$Project-$stamp-flat.zip" } else { "$Project-$stamp.zip" })
-$pdfName = "$Project-$stamp.pdf"
+$zipName = $(if ($Flat) { "$projectSlug-$stamp-flat.zip" } else { "$projectSlug-$stamp.zip" })
+$pdfName = "$projectSlug-$stamp.pdf"
 $zipPath = Join-Path $packageDirectory $zipName
 $packagePdfPath = Join-Path $packageDirectory $pdfName
 
@@ -579,8 +582,8 @@ if ($MainFile -notlike '*.tex') { Stop-InvalidParameter "The main file must be a
 $mainBase = [IO.Path]::GetFileNameWithoutExtension($MainFile)
 # A second main file of the same project (exam.tex beside main.tex) gets its own package names.
 if ($mainBase -ne "main" -and $fileIndex.ContainsKey("main.tex")) {
-    $zipName = $(if ($Flat) { "$Project-$mainBase-$stamp-flat.zip" } else { "$Project-$mainBase-$stamp.zip" })
-    $pdfName = "$Project-$mainBase-$stamp.pdf"
+    $zipName = $(if ($Flat) { "$projectSlug-$mainBase-$stamp-flat.zip" } else { "$projectSlug-$mainBase-$stamp.zip" })
+    $pdfName = "$projectSlug-$mainBase-$stamp.pdf"
     $zipPath = Join-Path $packageDirectory $zipName
     $packagePdfPath = Join-Path $packageDirectory $pdfName
 }

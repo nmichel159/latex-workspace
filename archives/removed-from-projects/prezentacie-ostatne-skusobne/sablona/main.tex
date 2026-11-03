@@ -1,0 +1,115 @@
+% Slides, 16:9. Build with pdfLaTeX; add the class option "handout" for a printable version without overlays.
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sfdefault]{FiraSans}
+\usepackage{newtxsf}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{appendixnumberbeamer}
+
+\usetheme[progressbar=frametitle,numbering=fraction,block=fill]{metropolis}
+\setbeamertemplate{bibliography item}[text]
+
+\title{Title of the Talk}
+\subtitle{Event, City, Date}
+\author{Norbert Micheľ}
+\institute{Institute of Computer Science, Pavol Jozef Šafárik University in Košice}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Statements}
+
+\begin{frame}{Definition and theorem}
+  \begin{definition}
+    The \alert{degree} $\deg v$ of a vertex $v$ of a graph $G=(V,E)$ is the number of edges incident with $v$.
+  \end{definition}
+  \pause
+  \begin{theorem}
+    Every graph $G=(V,E)$ satisfies $\sum_{v\in V}\deg v = 2|E|$.
+  \end{theorem}
+  \pause
+  \begin{proof}
+    Every edge is counted once at each of its two ends.
+  \end{proof}
+  \note{Speaker notes go here; they appear with \texttt{\textbackslash setbeameroption\{show notes\}}.}
+\end{frame}
+
+\section{Figures and tables}
+
+\begin{frame}{Figure built step by step}
+  \centering
+  \begin{tikzpicture}[v/.style={circle,fill=black,inner sep=1.6pt},every edge/.style={draw,thick}]
+    \path[use as bounding box] (-0.5,-1.6) rectangle (4.5,1.6);
+    \node[v,label=left:$s$] (s) at (0,0) {};
+    \node[v] (a) at (2,1) {};
+    \node[v] (b) at (2,-1) {};
+    \node[v,label=right:$t$] (t) at (4,0) {};
+    \path (s) edge (a) (s) edge (b) (a) edge (b) (a) edge (t) (b) edge (t);
+    \draw<2->[mLightBrown,ultra thick] (s) -- (a) -- (t);
+    \draw<3->[mDarkTeal,dashed,thick] (1,1.5) -- (1,-1.5);
+  \end{tikzpicture}
+
+  \medskip
+  \begin{overlayarea}{\textwidth}{1.5em}
+    \centering
+    \only<2>{An $s$--$t$ path.}\only<3>{The edges that cross the dashed line form an $s$--$t$ cut.}
+  \end{overlayarea}
+\end{frame}
+
+\begin{frame}{Table}
+  \centering
+  \begin{tabular}{lrr}
+    \toprule
+    Instance & $n$ & Value\\
+    \midrule
+    A & 10 & 1\\
+    B & 20 & 2\\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Two columns}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{itemize}
+        \item<1-> First point
+        \item<2-> Second point
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Remark}
+        Blocks and lists share a frame in columns.
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item Main result in one line.
+    \item Open question in one line.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+  Thank you
+\end{frame}
+
+\appendix
+
+\begin{frame}{References}
+  \nocite{NagamochiKameda1996}
+  \bibliographystyle{plain}
+  \bibliography{references}
+\end{frame}
+
+\end{document}

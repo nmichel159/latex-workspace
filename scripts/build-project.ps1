@@ -9,7 +9,8 @@
     so that \include{chapters/...} has a place to write its .aux.
 
 .PARAMETER Project
-    Name of a folder in projects/ (e.g. cv, clanok-1-min-cut-path).
+    Name of a folder in projects/ (e.g. cv, clanok-1-min-cut-path), or the path of a talk
+    (e.g. prezentacie/konferencie/csgt-2026/min-cut-path).
 
 .PARAMETER MainFile
     Main .tex file. If omitted, main.tex is used, otherwise the only .tex with \documentclass.
@@ -41,8 +42,9 @@ param(
 
 $workspace = Split-Path -Parent $PSScriptRoot
 $projectsRoot = Join-Path $workspace "projects"
-$sourceDirectory = Join-Path $projectsRoot $Project
-$outputDirectory = Join-Path $workspace "outputs\$Project"
+$Project = $Project -replace '\\', '/'
+$sourceDirectory = Join-Path $projectsRoot ($Project -replace '/', '\')
+$outputDirectory = Join-Path $workspace ("outputs\" + ($Project -replace '/', '\'))
 
 if (-not (Test-Path -LiteralPath $sourceDirectory -PathType Container)) {
     $available = (Get-ChildItem -LiteralPath $projectsRoot -Directory | ForEach-Object { $_.Name }) -join ", "

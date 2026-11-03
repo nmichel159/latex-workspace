@@ -31,6 +31,10 @@
 % Section 3.3 "Menger's theorem", Theorem 3.3.1; Corollary 3.3.5 (ii), p. 75: "The minimum number of edges
 % separating a from b in G is equal to the maximum number of edge-disjoint a-b paths in G"; Theorem 3.3.6 (global
 % version) follows on the same page.
+% Checked 2026-10-13 in the same preview: Theorem 3.2.5 (Tutte 1961), p. 68 (a graph is 3-connected iff it arises
+% from K4 by a sequence of graphs in which each is the contraction of an edge with both ends of degree at least 3
+% of the next); Notes of Chapter 3, p. 90: Tutte's wheel theorem also allows the deletion of an edge, requires
+% that a contracted edge lie in no triangle, and starts from all wheels.
 @book{Diestel2025,
   author    = {Diestel, Reinhard},
   title     = {Graph Theory},
@@ -991,6 +995,30 @@
   eprint        = {2309.03409},
   archivePrefix = {arXiv},
   primaryClass  = {cs.LG}
+}
+
+% VERIFIED 2026-11-03 (arXiv abstract page 2503.06917v1; abstract read).
+% No peer-reviewed version checked.
+@misc{Awasthi2025IteratedFineTuning,
+  author        = {Awasthi, Pranjal and Gollapudi, Sreenivas and Kumar, Ravi and Munagala, Kamesh},
+  title         = {Combinatorial Optimization via {LLM}-driven Iterated Fine-tuning},
+  year          = {2025},
+  eprint        = {2503.06917},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+% VERIFIED 2026-11-03 (ACL Anthology page; full text read).
+% Algorithm 1, line 2: the target list comes from one LLM call at initialization.
+@inproceedings{Meng2024LLMAStar,
+  author        = {Meng, Silin and Wang, Yiwei and Yang, Cheng-Fu and Peng, Nanyun and Chang, Kai-Wei},
+  title         = {{LLM-A*}: Large Language Model Enhanced Incremental Heuristic Search on Path Planning},
+  booktitle     = {Findings of the Association for Computational Linguistics: EMNLP 2024},
+  pages         = {1087--1102},
+  publisher     = {Association for Computational Linguistics},
+  address       = {Miami, Florida, USA},
+  year          = {2024},
+  doi           = {10.18653/v1/2024.findings-emnlp.60}
 }
 
 % VERIFIED 2026-10-08 (Crossref DOI record; arXiv 2310.19046v3).
@@ -2060,6 +2088,111 @@
 }
 
 % ----------------------------------------------------------------------------
+% Facially constrained colorings of plane graphs
+% (notes project poznamky-facial-defect; map: knowledge/research/facial-defect-colorings.md)
+% ----------------------------------------------------------------------------
+
+% VERIFIED 2026-10-13 (the abstract itself, https://csgt2026.tuke.sk/pdfs/VOLESKOVA.pdf, one page; conference
+% name, dates and organizers on https://csgt2026.tuke.sk/).
+% The abstract names Igor Fabrici as co-worker ("joint work with Igor Fabrici"); the speaker is the only author
+% of the abstract. No paper or preprint with the proofs was found on 2026-10-13 (knowledge/literature/searches.md).
+@misc{Voleskova2026FacialDefect,
+  author       = {Voleskov{\'a}, Simona},
+  title        = {Colorings of plane graphs with small facial defect},
+  howpublished = {Abstract of a talk, 61st Czech-Slovak Conference on Graph Theory, 1--5 June 2026; joint work with Igor Fabrici},
+  year         = {2026},
+  url          = {https://csgt2026.tuke.sk/pdfs/VOLESKOVA.pdf},
+  note         = {Accessed 2026-10-13}
+}
+
+% VERIFIED 2026-10-13 (publisher's article page dmgt.uz.zgora.pl/publish/article.php?doi=2584: volume 46, issue 2,
+% 2026, pages 341-351; publisher's PDF, first page: same volume, year, pages and DOI).
+% Read in full 2026-10-13: Theorem 3, p. 343 (every plane graph, loops and multiple edges allowed, has a 3-coloring
+% in which every monochromatic facial path has at most two vertices; "the bound 2 is optimal for 4-chromatic plane
+% graphs"). The proof was corrected in Jendrol2026Corrigendum.
+@article{Jendrol2026ThreeColoring,
+  author  = {Jendro{\v{l}}, Stanislav},
+  title   = {On a 3-coloring of plane graphs without monochromatic facial 3-paths},
+  journal = {Discussiones Mathematicae Graph Theory},
+  volume  = {46},
+  number  = {2},
+  pages   = {341--351},
+  year    = {2026},
+  doi     = {10.7151/dmgt.2584}
+}
+
+% PARTIAL 2026-10-13: authors, title, volume, year, pages and DOI from the first page of the publisher's PDF
+% (dmgt.uz.zgora.pl/publish/pdf.php?doi=2602); the issue number was not shown there and is left out.
+% Read 2026-10-13: restates Theorem 3 of Jendrol2026ThreeColoring and replaces Claim 10 and the end of its proof.
+@article{Jendrol2026Corrigendum,
+  author  = {Jendro{\v{l}}, Stanislav},
+  title   = {Corrigendum to ``{O}n a 3-coloring of plane graphs without monochromatic facial 3-path''},
+  journal = {Discussiones Mathematicae Graph Theory},
+  volume  = {46},
+  pages   = {353--355},
+  year    = {2026},
+  doi     = {10.7151/dmgt.2602}
+}
+
+% PARTIAL 2026-10-13: authors, title, volume, year, pages and DOI from the first page of the publisher's PDF
+% (dmgt.uz.zgora.pl/publish/pdf.php?doi=2319); the issue number was not shown there and is left out.
+% Read in full 2026-10-13: Theorem 1 (2-coloring without monochromatic facial 5-paths), Theorem 2, Conjecture 3
+% (2-coloring without monochromatic facial 4-paths), Theorem 4 (a configuration that forces a monochromatic
+% facial 3-path in every 2-coloring), Theorem 5, Conjecture 6 (proved in Jendrol2026ThreeColoring).
+@article{Czap2021FacialPaths,
+  author  = {Czap, J{\'u}lius and Fabrici, Igor and Jendro{\v{l}}, Stanislav},
+  title   = {Colorings of plane graphs without long monochromatic facial paths},
+  journal = {Discussiones Mathematicae Graph Theory},
+  volume  = {41},
+  pages   = {801--808},
+  year    = {2021},
+  doi     = {10.7151/dmgt.2319}
+}
+
+% PARTIAL 2026-10-13: authors (order of the running head and of the publisher's article page), title, volume, year,
+% pages and DOI from the first page of the publisher's PDF (dmgt.uz.zgora.pl/publish/pdf.php?doi=2135); the issue
+% number was not shown there and is left out.
+% Read 2026-10-13: Section 1, p. 631 (every plane graph has a facial edge-coloring with at most four colors, the
+% bound is tight for the wheel on six vertices; facial total-coloring with at most six colors); Section 4.1,
+% Theorem 14 and Conjecture 15 (five colors; proved for triangulations, outerplane and bipartite plane graphs).
+@article{Czap2019FacialRST,
+  author  = {Czap, J{\'u}lius and Jendro{\v{l}}, Stanislav and {\v{S}}ugerek, Peter and Valiska, Juraj},
+  title   = {Facial $[r,s,t]$-colorings of plane graphs},
+  journal = {Discussiones Mathematicae Graph Theory},
+  volume  = {39},
+  pages   = {629--645},
+  year    = {2019},
+  doi     = {10.7151/dmgt.2135}
+}
+
+% VERIFIED 2026-10-13 (Crossref record api.crossref.org/works/10.1090/S0002-9904-1976-14122-5: authors, title,
+% journal, volume 82, issue 5, pages 711-712, 1976). The publisher page (ams.org) answered HTTP 403.
+% Not read; cited only for the name of the Four Color Theorem.
+@article{AppelHaken1976,
+  author  = {Appel, K. and Haken, W.},
+  title   = {Every planar map is four colorable},
+  journal = {Bulletin of the American Mathematical Society},
+  volume  = {82},
+  number  = {5},
+  pages   = {711--712},
+  year    = {1976},
+  doi     = {10.1090/S0002-9904-1976-14122-5}
+}
+
+% VERIFIED 2026-10-13 (oeis.org/A006385 and oeis.org/A002840 opened on that date).
+% A006385, "Number of unsensed planar maps with n edges" (connected, loops and parallel edges allowed), offset 0:
+% 1, 2, 4, 14, 52, 248, 1416, 9172, 66366, 518868, 4301350, 37230364.
+% A002840, "Number of polyhedral graphs with n edges", offset 6: 1, 0, 1, 2, 2, 4, 12, 22, 58, 158, 448, 1342,
+% 4199, 13384, 43708, 144810, 485704, 1645576.
+@misc{OEIS,
+  author = {{OEIS Foundation Inc.}},
+  title  = {The {O}n-{L}ine {E}ncyclopedia of {I}nteger {S}equences},
+  year   = {2026},
+  url    = {https://oeis.org},
+  note   = {Sequences A002840 and A006385, accessed 2026-10-13}
+}
+
+% ----------------------------------------------------------------------------
 % Convex geometry (sources of the bachelor's thesis)
 % ----------------------------------------------------------------------------
 
@@ -2161,4 +2294,45 @@
   address = {Ko{\v{s}}ice},
   year    = {2024},
   note    = {In Slovak}
+}
+
+% ----------------------------------------------------------------------------
+% Staff rostering (hospital scheduling talk)
+% ----------------------------------------------------------------------------
+
+% VERIFIED 2026-11-02 (Crossref DOI record). Cited at survey level only.
+@article{Burke2004NurseRostering,
+  author  = {Burke, Edmund K. and De Causmaecker, Patrick and Vanden Berghe, Greet and Van Landeghem, Hendrik},
+  title   = {The State of the Art of Nurse Rostering},
+  journal = {Journal of Scheduling},
+  volume  = {7},
+  number  = {6},
+  pages   = {441--499},
+  year    = {2004},
+  doi     = {10.1023/B:JOSH.0000046076.75950.0b}
+}
+
+% VERIFIED 2026-11-02 (Crossref DOI record; author manuscript read, Section 2, on people.cs.nott.ac.uk).
+@article{Martin2013FairRosters,
+  author  = {Martin, Simon and Ouelhadj, Djamila and Smet, Pieter and Vanden Berghe, Greet and {\"O}zcan, Ender},
+  title   = {Cooperative search for fair nurse rosters},
+  journal = {Expert Systems with Applications},
+  volume  = {40},
+  number  = {16},
+  pages   = {6674--6683},
+  year    = {2013},
+  doi     = {10.1016/j.eswa.2013.06.019}
+}
+
+% VERIFIED 2026-11-02 (Crossref DOI record; DBLP gives the issue year). Crossref issued date 2014 is the online date.
+% Content checked at abstract level only.
+@article{Santos2016NurseRostering,
+  author  = {Santos, Haroldo G. and Toffolo, T{\'u}lio A. M. and Gomes, Rafael A. M. and Ribas, Sabir},
+  title   = {Integer programming techniques for the nurse rostering problem},
+  journal = {Annals of Operations Research},
+  volume  = {239},
+  number  = {1},
+  pages   = {225--251},
+  year    = {2016},
+  doi     = {10.1007/s10479-014-1594-6}
 }

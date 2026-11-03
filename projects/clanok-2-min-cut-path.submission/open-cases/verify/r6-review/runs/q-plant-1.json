@@ -1,0 +1,25 @@
+{
+ "mode": "plant",
+ "seed": 1,
+ "count": 100,
+ "stats": {
+  "instances": 100,
+  "yes": 100,
+  "paths": 172,
+  "W sides": 1741,
+  "A4 dom": 484,
+  "Q W* empty": 108,
+  "Q V* empty": 108,
+  "Q best j=0": 65,
+  "Q game": 128,
+  "Q lam>=1/2": 83,
+  "Q misclassified total": 81,
+  "Q best j=2": 3,
+  "Q lam<1/2": 45,
+  "Q best j=1": 32,
+  "A3 both sides": 14,
+  "A5 accepts": 25,
+  "PP pairs": 2
+ },
+ "fails": []
+}

@@ -29,7 +29,7 @@ The last four lines are workspace-only material: it lives in the folder and neve
 | Rule | Value | Article 1 |
 |---|---|---|
 | Place | one document = one folder `projects/<project>/` | ok |
-| Project name | lowercase, hyphens, ASCII: `clanok-<n>-<topic>`, `praca-<type>-<topic>`, `prezentacia-<topic>`, `cv` | ok |
+| Project name | lowercase, hyphens, ASCII: `clanok-<n>-<topic>`, `praca-<type>-<topic>`, `poznamky-<topic>` (research notes), `cv`; talks are not projects of their own but `prezentacie/<category>/<group>/<talk>` (`presentations.md`) | ok |
 | Main file | `main.tex`; the CV keeps `norbert-michel-cv.tex` because the PDF name is sent out | ok |
 | Template-dependent files | only `main.tex`, `.cls`, `.bst`; `sections/`, `img/` and `references.bib` survive a class swap unchanged, `preamble/` loses only lines that clash with the class and keeps those the class loads too; a class that reads standard markup differently is adapted in the wrapper ([template-porting.md](template-porting.md) §1, §3) | ok since 2026-10-09 (cas-sc key alias `H` in `main.tex`; `preamble/` and `sections/` build under `article` with `\usepackage{enumerate}`) |
 | Part files | `NN-name.tex`: `00-abstract`, `01`-`89` sections in reading order, `90-acknowledgments`, `91-ai-declaration` (only when AI tools were used; text only, the wrapper gives the venue's heading: [submission.md](submission.md) §1.3), `92-declarations` (only for venues that want declarations in the manuscript; text only, the wrapper gives the venue's heading, e.g., Springer Nature's `\section*{Declarations}`: [template-porting.md](template-porting.md) §2), `95`-`99` appendices; each section file starts with `\section{...}` and `\label{sec:...}` | ok |

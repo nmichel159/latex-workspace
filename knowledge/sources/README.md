@@ -7,6 +7,7 @@ Formulas are scrambled in the `.txt`: use it to locate a passage, read the exact
 |---|---|---|---|---|---|
 | `bakalarska-praca-2024-mriezkove-mnohosteny.pdf` | Bachelor's thesis *Mrežové mnohosteny v n-rozmernej kocke* (Lattice polytopes inside the n-dimensional cube), UPJŠ Košice, supervisor Mgr. Martin Vodička | 2024 | SK | 42 | [research/lattice-polytopes.md](../research/lattice-polytopes.md) |
 | `diplomova-praca-2025-min-cut-path.pdf` | Master's thesis *Min Cut-Path*, Charles University (MFF), supervisor prof. RNDr. Martin Loebl, CSc. | 2025 | EN | 77 | [research/min-cut-path.md](../research/min-cut-path.md) |
+| `papers/Voleskova2026FacialDefect.pdf` | Abstract of the talk *Colorings of plane graphs with small facial defect* (S. Volesková, joint work with I. Fabrici), CSGT 2026; link given by the owner 2026-10-13 | 2026 | EN | 1 | [research/facial-defect-colorings.md](../research/facial-defect-colorings.md) |
 
 The LaTeX sources of these theses are not in the repository (PDFs only). If found, they belong in `projects/praca-bakalarska-…` and `projects/praca-diplomova-…`.
 

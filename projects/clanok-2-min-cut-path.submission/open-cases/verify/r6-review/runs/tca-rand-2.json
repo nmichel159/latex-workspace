@@ -1,0 +1,19 @@
+{
+ "mode": "rand",
+ "seed": 2,
+ "count": 2000,
+ "stats": {
+  "instances": 2000,
+  "no": 478,
+  "yes": 1522,
+  "paths": 2495,
+  "LemmaG tested": 7485,
+  "F1 tested": 1420,
+  "5.2' tested": 4990,
+  "E1 tested": 1412,
+  "E2 tested": 2,
+  "E2 |Phi|": 0,
+  "E2 |A&U|": 0
+ },
+ "fails": []
+}

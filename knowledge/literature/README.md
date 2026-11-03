@@ -47,6 +47,15 @@ Notes written for article 2 (same map), 2026-10-12:
 | [Erickson2019Algorithms.md](Erickson2019Algorithms.md) | textbook statements: breadth-first search, strong components, augmenting paths and flow decomposition (Section 5 of article 2) | Sections 6.5, 6.6, 8.4, 10.3, 10.4 |
 | [Schmidt2013TwoConnectivity.md](Schmidt2013TwoConnectivity.md) | bridges and 2-edge-connectivity in linear time by chain decomposition | arXiv v1 in full |
 
+Notes for the map [../research/facial-defect-colorings.md](../research/facial-defect-colorings.md) (project `poznamky-facial-defect`), written 2026-10-13:
+
+| Note | Topic | Reading status |
+|---|---|---|
+| [Voleskova2026FacialDefect.md](Voleskova2026FacialDefect.md) | talk abstract: every plane graph has a `[1,2,2]`-edge coloring and a `[1,1,1,2,2]`-total coloring | full (one page) |
+| [Jendrol2026ThreeColoring.md](Jendrol2026ThreeColoring.md) | 3-coloring of the vertices with monochromatic facial paths of at most two vertices; corrigendum | Sections 1-3, end of the proof; corrigendum Sections 1-2 |
+| [Czap2021FacialPaths.md](Czap2021FacialPaths.md) | 2- and 3-colorings of the vertices without long monochromatic facial paths; conjectures | full |
+| [Czap2019FacialRST.md](Czap2019FacialRST.md) | facial `[r,s,t]`-colorings; source of the statements on facial edge- and total-colorings | abstract, Section 1, Section 4.1 |
+
 The notes below belong to the map [../research/llm-optimization.md](../research/llm-optimization.md); all were written 2026-10-08.
 
 | Note | Topic | Reading status |

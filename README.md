@@ -11,6 +11,8 @@ chat with the owner is Slovak. Rules for Claude Code: [CLAUDE.md](CLAUDE.md).
 | [cv](projects/cv.md) | CV (AltaCV, English, 2 pages) | `norbert-michel-cv.tex` | [outputs/cv/norbert-michel-cv.pdf](outputs/cv/norbert-michel-cv.pdf) | builds (2 pages) |
 | [clanok-1-min-cut-path](projects/clanok-1-min-cut-path.md) | article "Min Cut-Path Problem" (English) for Discrete Applied Mathematics; class `cas-sc` (official Elsevier CAS template `els-cas`) | `main.tex` | [outputs/clanok-1-min-cut-path/main.pdf](outputs/clanok-1-min-cut-path/main.pdf) | proofread and revised; ported to the DAM template 2026-10-08; one-file `main.tex` in a flat folder since 2026-10-09; preserving revision 2026-10-09 (Section 3 in lemmas, related work, all figures vector); statements of Sections 2-5 checked by computation and sources re-checked 2026-10-10; decisions and referee proposals approved and applied 2026-10-10; builds (20 pages); package check `Verdict: PASS` (`-Template els-cas -Flat -KeepComments`, 2026-10-10); title, keywords, AI declaration and funding await the author |
 | [clanok-2-min-cut-path](projects/clanok-2-min-cut-path.md) | second article: NP-completeness on diameter three, and "diam or cut 2" in P by two proofs; for Algorithmica; class `sn-jnl` | `main.tex` | [outputs/clanok-2-min-cut-path/main.pdf](outputs/clanok-2-min-cut-path/main.pdf) | merged on 2026-11-02 with the former `clanok-3`; the author has not read it |
+| [poznamky-facial-defect](projects/poznamky-facial-defect.md) | working notes on edge colorings of plane graphs with facial defect list [1,1,2] (computer search, parity criterion); unrefereed; class `article` | `main.tex` | [outputs/poznamky-facial-defect/main.pdf](outputs/poznamky-facial-defect/main.pdf) |
+| [prezentacie](projects/prezentacie.md) | all talks in one collection, `prezentacie/<category>/<group>/<talk>/`; index in the notes; class `beamer` | `main.tex` of each talk | `outputs/prezentacie/<category>/<group>/<talk>/main.pdf` | three samples; PhD report `ostatne/phd/semester-3` is a skeleton awaiting the author's facts |
 
 ## Project folders
 
@@ -31,7 +33,7 @@ projects/     one folder = one document = what is sent (edit here); notes in <pr
               in <project>.submission/ beside the folder
 outputs/      generated PDFs and auxiliary files (never edit; every build overwrites them)
 knowledge/    knowledge base: author, research maps, writing guides, venue cards, literature notes, bibliography, source theses
-templates/    pristine starting points (article-modular, thesis-modular, venue templates els-cas, elsarticle and sn-jnl, altacv, new-aiaa); origins in SOURCES.tsv
+templates/    pristine starting points (article-modular, thesis-modular, beamer-talk, venue templates els-cas, elsarticle and sn-jnl, altacv, new-aiaa); origins in SOURCES.tsv
 scripts/      build-project.ps1, check-text.ps1, check-bib.ps1, package-project.ps1
 inbox/        new, unprocessed material (zips, PDFs, templates, .bib files)
 archives/     original zips, files retired from projects, snapshots before bulk changes

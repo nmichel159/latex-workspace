@@ -50,6 +50,8 @@ the same conventions, and is backed by a knowledge base of the author's research
     workspace, its paths (`preamble/`, `sections/`, `knowledge/`, `scripts/`), a Markdown file or an AI tool.
     What belongs to a project but is not sent lies beside the folder: `projects/<project>.md` (notes) and
     `projects/<project>.submission/` (form metadata, reviews, drafts).
+    One exception: `projects/prezentacie/` is a collection with sub-folders; there each talk's own folder follows
+    this rule, and the collection as a whole is never sent.
     `scripts/package-project.ps1` is the check that must end with `Verdict: PASS` before the folder is sent (with
     `-KeepComments`, because the comments go out too); run it with `-CheckOnly` after any structural change (new
     file, new package, class files touched). A venue template is only ever the publisher's download from the
@@ -78,6 +80,8 @@ the same conventions, and is backed by a knowledge base of the author's research
 | `cv` | CV (AltaCV, English, 2 pages) | `norbert-michel-cv.tex` | `outputs/cv/norbert-michel-cv.pdf` |
 | `clanok-1-min-cut-path` | article "Min Cut-Path Problem" (English) for Discrete Applied Mathematics; one-file `main.tex` written from `cas-sc-template.tex`; class `cas-sc` from template `els-cas`; package check with `-Template els-cas -Flat -KeepComments` | `main.tex` | `outputs/clanok-1-min-cut-path/main.pdf` |
 | `clanok-2-min-cut-path` | second article "Min Cut-Path: NP-Complete on Diameter Three, Polynomial for Distance or Cut-Value Two", for Algorithmica: NP-completeness on diameter three, and "diam or cut 2" in P by two proofs (squares, ZZ + P2); merged on 2026-11-02 with the former project `clanok-3`; not yet read by the author; `main.tex` is the template's `sn-article.tex` filled in; class `sn-jnl` from template `sn-jnl`; package check with `-Template sn-jnl -Flat -KeepComments` | `main.tex` | `outputs/clanok-2-min-cut-path/main.pdf` |
+| `poznamky-facial-defect` | working notes (English) on edge colorings of plane graphs with facial defect list [1,1,2], a problem from the CSGT 2026 abstract of Volesková and Fabrici: computer search, parity criterion, examples for two colors; first version of 2026-10-13, unrefereed, not read by the author; class `article`, no venue template; programs in `projects/poznamky-facial-defect.submission/checks/` | `main.tex` | `outputs/poznamky-facial-defect/main.pdf` |
+| `prezentacie` | all talks in one collection, `prezentacie/<category>/<group>/<talk>/` (categories `predmety`, `konferencie`, `seminare`, `ostatne`), samples in `prezentacie/ukazky/`; index of talks in `projects/prezentacie.md`, no row here per talk; class `beamer`, copy of template `beamer-talk`; `-Project` takes the talk's path, package check with `-KeepComments` | `main.tex` of each talk | `outputs/prezentacie/<category>/<group>/<talk>/main.pdf` |
 
 Each project has notes beside its folder, `projects/<project>.md`, with its status, file list and known problems.
 Read them before editing the project and update them when the status changes. Add a row here and in the root
@@ -142,6 +146,7 @@ Full map with maintenance rules: `knowledge/README.md`. Paths below are relative
 | Choosing a venue; what a venue requires | `venues/README.md`, `venues/<venue>.md` |
 | AI-use statement, arXiv, submission package, cover letter, response to reviewers, self-archiving | `writing/submission.md` |
 | Dissertation and dissertation-exam text, UPJŠ rules | `writing/thesis.md` |
+| Slides, talks (Beamer) | `writing/presentations.md`, samples in `projects/prezentacie/ukazky/` |
 | Before handing over any text | `writing/checklist.md` |
 | Exact wording of a definition, theorem or proof in the author's theses | `sources/*.txt` (search), then the PDF |
 
@@ -155,12 +160,13 @@ Full map with maintenance rules: `knowledge/README.md`. Paths below are relative
 | `templates/els-cas/` | official Elsevier CAS bundle 2.4 for Discrete Applied Mathematics (class `cas-sc`), from the DAM guide for authors; article 1 |
 | `templates/elsarticle/` | official Elsevier `elsarticle` bundle, for Elsevier journals without a CAS template |
 | `templates/sn-jnl/` | official Springer Nature journal article template 3.1 (class `sn-jnl`, `.bst` files in `bst/`), recommended by the Algorithmica submission guidelines; article 2 |
+| `templates/beamer-talk/` | slides in the author's colors (`beamer`, own look without a theme, 4:3); copy to `projects/prezentacie/<category>/<group>/<talk>/` |
 | `templates/altacv/`, `templates/new-aiaa/` | CV; former class of article 1 (retired 2026-10-08) |
 | `templates/<venue>/` | venue template downloaded from the publisher's official page with the user's consent, archived zip and row in `templates/SOURCES.tsv` (skill `process-inbox`); never edited, because the packager compares projects with it; the folder name is the value of `-Template` |
 
 ## Conventions in one paragraph
 
-Project names are lowercase with hyphens (`clanok-<n>-<topic>`, `praca-<type>-<topic>`, `cv`). The main file is
+Project names are lowercase with hyphens (`clanok-<n>-<topic>`, `praca-<type>-<topic>`, `poznamky-<topic>` for research notes, `cv`; the one collection `prezentacie` for talks). The main file is
 `main.tex`: the template's sample file filled in, holding the packages, environments, macros and the whole text,
 with no `\input` of own files; the bibliography is `references.bib` and the figures lie beside it, with no
 sub-folders. A project is self-contained (class, `.bst` and all inputs inside its folder) and is sent as it is, as

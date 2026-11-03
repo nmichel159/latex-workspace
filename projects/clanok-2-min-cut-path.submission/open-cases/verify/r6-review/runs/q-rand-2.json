@@ -1,0 +1,25 @@
+{
+ "mode": "rand",
+ "seed": 2,
+ "count": 3000,
+ "stats": {
+  "instances": 3000,
+  "no": 509,
+  "yes": 2491,
+  "A5 accepts": 3921,
+  "paths": 4846,
+  "W sides": 32434,
+  "Q W* empty": 4560,
+  "Q V* empty": 4394,
+  "Q best j=0": 2430,
+  "Q game": 738,
+  "Q lam>=1/2": 557,
+  "Q misclassified total": 700,
+  "Q lam<1/2": 181,
+  "Q best j=1": 60,
+  "A4 dom": 438,
+  "Q best j=2": 1,
+  "A3 both sides": 8
+ },
+ "fails": []
+}

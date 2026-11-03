@@ -90,6 +90,7 @@ Sections are separated by a comment block of ASCII dashes; a new topic gets a ne
 | LLMs and optimization | topic of the dissertation; map in [../research/llm-optimization.md](../research/llm-optimization.md) |
 | Experimental methodology | benchmarking, statistics, reporting of experiments |
 | Writing and publishing | style guides and publisher rules the guides in `knowledge/writing/` rely on |
+| Facially constrained colorings of plane graphs | sources of the notes project `poznamky-facial-defect`; map in [../research/facial-defect-colorings.md](../research/facial-defect-colorings.md) |
 | Convex geometry | sources of the bachelor's thesis |
 | Author's own work | theses and publications of the author |
 

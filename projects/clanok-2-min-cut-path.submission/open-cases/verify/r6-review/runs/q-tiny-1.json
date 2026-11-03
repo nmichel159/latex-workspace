@@ -1,0 +1,24 @@
+{
+ "mode": "tiny",
+ "seed": 1,
+ "count": 20000,
+ "stats": {
+  "instances": 22504,
+  "no": 2909,
+  "skip noP2": 5688,
+  "yes": 19595,
+  "A5 accepts": 44181,
+  "paths": 34883,
+  "Q W* empty": 36040,
+  "Q best j=0": 19424,
+  "Q V* empty": 32844,
+  "W sides": 84731,
+  "Q game": 882,
+  "Q lam>=1/2": 750,
+  "Q misclassified total": 1401,
+  "Q lam<1/2": 132,
+  "Q best j=1": 171,
+  "A4 dom": 31
+ },
+ "fails": []
+}

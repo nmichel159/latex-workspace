@@ -8,6 +8,7 @@ venue files of a project with them byte by byte (`knowledge/writing/latex-conven
 |---|---|---|---|---|
 | `article-modular/` | **default for new articles**; venue-neutral (`article`, natbib + `plainnat`, cleveref) | built in this workspace 2026-10-07/08 | `main.tex` | infrastructure only |
 | `thesis-modular/` | dissertation (`main.tex`) and written work for the dissertation exam (`exam.tex`); rules: `knowledge/writing/thesis.md`, section 7 | built in this workspace 2026-10-08 | `main.tex`, `exam.tex` | infrastructure only |
+| `beamer-talk/` | slides in the author's colors: class `beamer`, own look in `main.tex` without a theme, 4:3, UPJŠ seal, the author's logo (`logo-white.pdf`, `logo-tint.pdf`, written by `scripts/logo-to-pdf.py`), placeholder frames; rules: `knowledge/writing/presentations.md` | built in this workspace 2026-11-02 from the author's decks | `main.tex` | infrastructure only |
 | `new-aiaa/` | former class of article 1 (until 2026-10-08; article 1 now uses `els-cas/`): `new-aiaa.cls` v1.2, `new-aiaa.bst`, from Overleaf, not a publisher download (kind `other` in `SOURCES.tsv`); `main.tex` and `references.bib` are a workspace skeleton with the author's preamble, not the venue's sample | Overleaf export of article 1 | `main.tex` | never |
 | `altacv/` | CV | `archives/CV.zip` (AltaCV 1.7.x, sample `sample.tex`) | `sample.tex` | never |
 | `els-cas/` | **template of Discrete Applied Mathematics** and of the other Elsevier journals that ask for the CAS bundle: class `cas-sc` (single column; `cas-dc` is the two-column twin), `cas-common.sty`, `cas-model2-names.bst`, samples, documentation in `doc/`, icons in `thumbnails/` (the class reads `thumbnails/cas-email.jpeg` and `thumbnails/cas-url.jpeg` by relative path), figures of the sample in `figs/`; CAS bundle 2.4, `\ProvidesClass`: `cas-sc 2024/05/04, 2.4` | Elsevier, `els-cas-templates.zip`, linked as "LaTeX template" from the DAM guide for authors (URLs: `SOURCES.tsv`); archive `archives/els-cas-templates.zip`; downloaded 2026-10-08 | `cas-sc-template.tex` (minimal sample: `cas-sc-sample.tex`) | never |
@@ -45,6 +46,10 @@ Copy-Item -Recurse templates\thesis-modular projects\praca-<type>-<topic>
 
 # written work for the dissertation exam (same project, other main file)
 .\scripts\build-project.ps1 -Project praca-<type>-<topic> -MainFile exam.tex
+
+# talk
+Copy-Item -Recurse templates\beamer-talk projects\prezentacie\<category>\<group>\<talk>
+.\scripts\build-project.ps1 -Project prezentacie/<category>/<group>/<talk>
 ```
 
 Then write the project `README.md` and add the project to the tables in the root `README.md` and `CLAUDE.md`

@@ -16,6 +16,7 @@ Use this skill when the user asks for a new document.
    | dissertation | `thesis-modular`, main file `main.tex` |
    | written work for the dissertation exam | `thesis-modular`, main file `exam.tex` (`-MainFile exam.tex`) |
    | CV | `altacv` |
+   | talk, slides | `beamer-talk`, copied to `projects/prezentacie/<category>/<group>/<talk>/`, no new project: `knowledge/writing/presentations.md` section 1 |
    | article for a venue whose template is in `templates/<venue>/` | `article-modular`, then skill `port-latex-template` |
    | anything else | minimal `main.tex` per `latex-conventions.md`; tell the user which class you chose |
 

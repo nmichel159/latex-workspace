@@ -10,6 +10,7 @@ rules, venue facts, literature notes, bibliography. Files are English; Slovak ap
 | [author.md](author.md) | name forms, affiliation, studies, supervisors, planned publications | title page, author block, acknowledgments, CV |
 | [research/min-cut-path.md](research/min-cut-path.md) | Min Cut-Path: definitions, notation, results map (thesis vs. article 1), errors in the thesis, open problems, glossary | any text on Min Cut-Path |
 | [research/lattice-polytopes.md](research/lattice-polytopes.md) | bachelor's thesis: lattice polytopes in the cube, main results | the thesis is mentioned or cited |
+| [research/facial-defect-colorings.md](research/facial-defect-colorings.md) | facial defect colorings of plane graphs (side topic, 2026-10-13): definitions, known results, our computer search and criterion, proof ideas | any text on the notes project `poznamky-facial-defect` |
 | [research/llm-optimization.md](research/llm-optimization.md) | dissertation field: LLMs for algorithm design and optimization, directions, critical studies, evaluation practice, terminology, unverified leads | any text on the dissertation topic, related work |
 | [writing/academic-style.md](writing/academic-style.md) | sentences, paragraphs, concision rules, the author's habits, English of a Slovak author, revision procedure | writing or revising any text |
 | [writing/paper-structure.md](writing/paper-structure.md) | what goes into title, abstract, introduction, related work, core, conclusion; thesis to paper | planning or writing a section |
@@ -19,6 +20,7 @@ rules, venue facts, literature notes, bibliography. Files are English; Slovak ap
 | [writing/phrase-list.tsv](writing/phrase-list.tsv) | phrase patterns read by `scripts/check-text.ps1` | adding or changing a pattern |
 | [writing/latex-conventions.md](writing/latex-conventions.md) | house rules: project layout, the invariant "follows its template and can be sent" with the packager (§1.1), preamble order, environments, labels, macros, citations | starting a project; editing sources; adding files or packages; sending a project |
 | [writing/latex-guide.md](writing/latex-guide.md) | LaTeX craft with reasons: packages, references, math, floats, tables, bibliography, build hygiene, PDF quality | a layout, package or build problem |
+| [writing/presentations.md](writing/presentations.md) | Beamer talks: where they live, template defaults, rules for slides | starting or revising a talk; samples arrive in `projects/prezentacie/ukazky/` |
 | [writing/template-porting.md](writing/template-porting.md) | moving a manuscript into a venue class; front-matter map, class quirks, porting log | a venue template is chosen or arrives |
 | [writing/submission.md](writing/submission.md) | AI-use policies and statement, arXiv, submission package, cover letter, response to reviewers, preprints and licenses | preparing a submission or revision |
 | [writing/thesis.md](writing/thesis.md) | UPJŠ rules: dissertation, written work for the dissertation exam, dissertation from papers, template requirements | any dissertation or exam text |

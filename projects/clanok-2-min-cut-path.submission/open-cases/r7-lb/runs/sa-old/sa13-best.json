@@ -1,0 +1,1 @@
+{"word": "FFEEEEEEEEFE", "nx": 4, "rel": [[4, 13], [13, 4], [5, 4], [4, 5], [7, 9], [9, 7], [11, 2]], "contact": {"8,13": ["UW", 13]}, "vol": [], "default": "R", "seed": 13, "extra": {"cost": 1, "N": 14, "verified": true, "term": ["E", [2], [], [], []]}}

@@ -1,0 +1,1478 @@
+[
+ {
+  "name": "Y_2",
+  "m": 6,
+  "N": 18,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    0
+   ]
+  ],
+  "CF_D": [
+   2,
+   3
+  ],
+  "CF_ok": true,
+  "shortest": 4
+ },
+ {
+  "name": "Y^d_2",
+  "m": 7,
+  "N": 24,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    3,
+    1
+   ]
+  ],
+  "CF_D": [
+   2,
+   3,
+   6
+  ],
+  "CF_ok": true,
+  "shortest": 4
+ },
+ {
+  "name": "Y^d(back)_2",
+  "m": 7,
+  "N": 25,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   2,
+   3,
+   6
+  ],
+  "CF_ok": true,
+  "shortest": 4
+ },
+ {
+  "name": "Y'_2",
+  "m": 6,
+  "N": 20,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    0
+   ]
+  ],
+  "CF_D": [
+   2,
+   3
+  ],
+  "CF_ok": true,
+  "shortest": 4
+ },
+ {
+  "name": "Y'^d_2",
+  "m": 7,
+  "N": 26,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    3,
+    1
+   ]
+  ],
+  "CF_D": [
+   2,
+   3,
+   6
+  ],
+  "CF_ok": true,
+  "shortest": 4
+ },
+ {
+  "name": "Y'^d(back)_2",
+  "m": 7,
+  "N": 27,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   2,
+   3,
+   6
+  ],
+  "CF_ok": true,
+  "shortest": 4
+ },
+ {
+  "name": "Y_3",
+  "m": 9,
+  "N": 40,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    5,
+    1
+   ],
+   [
+    6,
+    0
+   ],
+   [
+    7,
+    0
+   ],
+   [
+    8,
+    0
+   ]
+  ],
+  "CF_D": [
+   3,
+   4,
+   5
+  ],
+  "CF_ok": true,
+  "shortest": 6
+ },
+ {
+  "name": "Y^d_3",
+  "m": 10,
+  "N": 49,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    5,
+    1
+   ]
+  ],
+  "CF_D": [
+   3,
+   4,
+   5,
+   9
+  ],
+  "CF_ok": true,
+  "shortest": 6
+ },
+ {
+  "name": "Y^d(back)_3",
+  "m": 10,
+  "N": 50,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   3,
+   4,
+   5,
+   9
+  ],
+  "CF_ok": true,
+  "shortest": 6
+ },
+ {
+  "name": "Y'_3",
+  "m": 9,
+  "N": 43,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    5,
+    1
+   ],
+   [
+    6,
+    0
+   ],
+   [
+    7,
+    0
+   ],
+   [
+    8,
+    0
+   ]
+  ],
+  "CF_D": [
+   3,
+   4,
+   5
+  ],
+  "CF_ok": true,
+  "shortest": 6
+ },
+ {
+  "name": "Y'^d_3",
+  "m": 10,
+  "N": 52,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    5,
+    1
+   ]
+  ],
+  "CF_D": [
+   3,
+   4,
+   5,
+   9
+  ],
+  "CF_ok": true,
+  "shortest": 6
+ },
+ {
+  "name": "Y'^d(back)_3",
+  "m": 10,
+  "N": 53,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   3,
+   4,
+   5,
+   9
+  ],
+  "CF_ok": true,
+  "shortest": 6
+ },
+ {
+  "name": "Y_4",
+  "m": 12,
+  "N": 71,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    5,
+    1
+   ],
+   [
+    6,
+    1
+   ],
+   [
+    7,
+    1
+   ],
+   [
+    8,
+    0
+   ],
+   [
+    9,
+    0
+   ],
+   [
+    10,
+    0
+   ],
+   [
+    11,
+    0
+   ]
+  ],
+  "CF_D": [
+   4,
+   5,
+   6,
+   7
+  ],
+  "CF_ok": true,
+  "shortest": 8
+ },
+ {
+  "name": "Y^d_4",
+  "m": 13,
+  "N": 83,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    7,
+    1
+   ]
+  ],
+  "CF_D": [
+   4,
+   5,
+   6,
+   7,
+   12
+  ],
+  "CF_ok": true,
+  "shortest": 8
+ },
+ {
+  "name": "Y^d(back)_4",
+  "m": 13,
+  "N": 84,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   4,
+   5,
+   6,
+   7,
+   12
+  ],
+  "CF_ok": true,
+  "shortest": 8
+ },
+ {
+  "name": "Y'_4",
+  "m": 12,
+  "N": 75,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    5,
+    1
+   ],
+   [
+    6,
+    1
+   ],
+   [
+    7,
+    1
+   ],
+   [
+    8,
+    0
+   ],
+   [
+    9,
+    0
+   ],
+   [
+    10,
+    0
+   ],
+   [
+    11,
+    0
+   ]
+  ],
+  "CF_D": [
+   4,
+   5,
+   6,
+   7
+  ],
+  "CF_ok": true,
+  "shortest": 8
+ },
+ {
+  "name": "Y'^d_4",
+  "m": 13,
+  "N": 87,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    7,
+    1
+   ]
+  ],
+  "CF_D": [
+   4,
+   5,
+   6,
+   7,
+   12
+  ],
+  "CF_ok": true,
+  "shortest": 8
+ },
+ {
+  "name": "Y'^d(back)_4",
+  "m": 13,
+  "N": 88,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   4,
+   5,
+   6,
+   7,
+   12
+  ],
+  "CF_ok": true,
+  "shortest": 8
+ },
+ {
+  "name": "Y_5",
+  "m": 15,
+  "N": 111,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    1
+   ],
+   [
+    6,
+    1
+   ],
+   [
+    7,
+    1
+   ],
+   [
+    8,
+    1
+   ],
+   [
+    9,
+    1
+   ],
+   [
+    10,
+    0
+   ],
+   [
+    11,
+    0
+   ],
+   [
+    12,
+    0
+   ],
+   [
+    13,
+    0
+   ],
+   [
+    14,
+    0
+   ]
+  ],
+  "CF_D": [
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "CF_ok": true,
+  "shortest": 10
+ },
+ {
+  "name": "Y^d_5",
+  "m": 16,
+  "N": 126,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    9,
+    1
+   ]
+  ],
+  "CF_D": [
+   5,
+   6,
+   7,
+   8,
+   9,
+   15
+  ],
+  "CF_ok": true,
+  "shortest": 10
+ },
+ {
+  "name": "Y^d(back)_5",
+  "m": 16,
+  "N": 127,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   5,
+   6,
+   7,
+   8,
+   9,
+   15
+  ],
+  "CF_ok": true,
+  "shortest": 10
+ },
+ {
+  "name": "Y'_5",
+  "m": 15,
+  "N": 116,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    1
+   ],
+   [
+    6,
+    1
+   ],
+   [
+    7,
+    1
+   ],
+   [
+    8,
+    1
+   ],
+   [
+    9,
+    1
+   ],
+   [
+    10,
+    0
+   ],
+   [
+    11,
+    0
+   ],
+   [
+    12,
+    0
+   ],
+   [
+    13,
+    0
+   ],
+   [
+    14,
+    0
+   ]
+  ],
+  "CF_D": [
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "CF_ok": true,
+  "shortest": 10
+ },
+ {
+  "name": "Y'^d_5",
+  "m": 16,
+  "N": 131,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    9,
+    1
+   ]
+  ],
+  "CF_D": [
+   5,
+   6,
+   7,
+   8,
+   9,
+   15
+  ],
+  "CF_ok": true,
+  "shortest": 10
+ },
+ {
+  "name": "Y'^d(back)_5",
+  "m": 16,
+  "N": 132,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   5,
+   6,
+   7,
+   8,
+   9,
+   15
+  ],
+  "CF_ok": true,
+  "shortest": 10
+ },
+ {
+  "name": "Y_6",
+  "m": 18,
+  "N": 160,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    0
+   ],
+   [
+    6,
+    1
+   ],
+   [
+    7,
+    1
+   ],
+   [
+    8,
+    1
+   ],
+   [
+    9,
+    1
+   ],
+   [
+    10,
+    1
+   ],
+   [
+    11,
+    1
+   ],
+   [
+    12,
+    0
+   ],
+   [
+    13,
+    0
+   ],
+   [
+    14,
+    0
+   ],
+   [
+    15,
+    0
+   ],
+   [
+    16,
+    0
+   ],
+   [
+    17,
+    0
+   ]
+  ],
+  "CF_D": [
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "CF_ok": true,
+  "shortest": 12
+ },
+ {
+  "name": "Y^d_6",
+  "m": 19,
+  "N": 178,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    11,
+    1
+   ]
+  ],
+  "CF_D": [
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   18
+  ],
+  "CF_ok": true,
+  "shortest": 12
+ },
+ {
+  "name": "Y^d(back)_6",
+  "m": 19,
+  "N": 179,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   18
+  ],
+  "CF_ok": true,
+  "shortest": 12
+ },
+ {
+  "name": "Y'_6",
+  "m": 18,
+  "N": 166,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    0
+   ],
+   [
+    6,
+    1
+   ],
+   [
+    7,
+    1
+   ],
+   [
+    8,
+    1
+   ],
+   [
+    9,
+    1
+   ],
+   [
+    10,
+    1
+   ],
+   [
+    11,
+    1
+   ],
+   [
+    12,
+    0
+   ],
+   [
+    13,
+    0
+   ],
+   [
+    14,
+    0
+   ],
+   [
+    15,
+    0
+   ],
+   [
+    16,
+    0
+   ],
+   [
+    17,
+    0
+   ]
+  ],
+  "CF_D": [
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "CF_ok": true,
+  "shortest": 12
+ },
+ {
+  "name": "Y'^d_6",
+  "m": 19,
+  "N": 184,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    11,
+    1
+   ]
+  ],
+  "CF_D": [
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   18
+  ],
+  "CF_ok": true,
+  "shortest": 12
+ },
+ {
+  "name": "Y'^d(back)_6",
+  "m": 19,
+  "N": 185,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   18
+  ],
+  "CF_ok": true,
+  "shortest": 12
+ },
+ {
+  "name": "Y_7",
+  "m": 21,
+  "N": 218,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    0
+   ],
+   [
+    6,
+    0
+   ],
+   [
+    7,
+    1
+   ],
+   [
+    8,
+    1
+   ],
+   [
+    9,
+    1
+   ],
+   [
+    10,
+    1
+   ],
+   [
+    11,
+    1
+   ],
+   [
+    12,
+    1
+   ],
+   [
+    13,
+    1
+   ],
+   [
+    14,
+    0
+   ],
+   [
+    15,
+    0
+   ],
+   [
+    16,
+    0
+   ],
+   [
+    17,
+    0
+   ],
+   [
+    18,
+    0
+   ],
+   [
+    19,
+    0
+   ],
+   [
+    20,
+    0
+   ]
+  ],
+  "CF_D": [
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ],
+  "CF_ok": true,
+  "shortest": 14
+ },
+ {
+  "name": "Y^d_7",
+  "m": 22,
+  "N": 239,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    13,
+    1
+   ]
+  ],
+  "CF_D": [
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   21
+  ],
+  "CF_ok": true,
+  "shortest": 14
+ },
+ {
+  "name": "Y^d(back)_7",
+  "m": 22,
+  "N": 240,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   21
+  ],
+  "CF_ok": true,
+  "shortest": 14
+ },
+ {
+  "name": "Y'_7",
+  "m": 21,
+  "N": 225,
+  "p2_viol": [],
+  "nsol": 1,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    5,
+    0
+   ],
+   [
+    6,
+    0
+   ],
+   [
+    7,
+    1
+   ],
+   [
+    8,
+    1
+   ],
+   [
+    9,
+    1
+   ],
+   [
+    10,
+    1
+   ],
+   [
+    11,
+    1
+   ],
+   [
+    12,
+    1
+   ],
+   [
+    13,
+    1
+   ],
+   [
+    14,
+    0
+   ],
+   [
+    15,
+    0
+   ],
+   [
+    16,
+    0
+   ],
+   [
+    17,
+    0
+   ],
+   [
+    18,
+    0
+   ],
+   [
+    19,
+    0
+   ],
+   [
+    20,
+    0
+   ]
+  ],
+  "CF_D": [
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ],
+  "CF_ok": true,
+  "shortest": 14
+ },
+ {
+  "name": "Y'^d_7",
+  "m": 22,
+  "N": 246,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [
+   [
+    13,
+    1
+   ]
+  ],
+  "CF_D": [
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   21
+  ],
+  "CF_ok": true,
+  "shortest": 14
+ },
+ {
+  "name": "Y'^d(back)_7",
+  "m": 22,
+  "N": 247,
+  "p2_viol": [],
+  "nsol": 2,
+  "sols_as_claimed": true,
+  "pruned_fixed": [],
+  "CF_D": [
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   21
+  ],
+  "CF_ok": true,
+  "shortest": 14
+ },
+ {
+  "name": "X_2",
+  "m": 4,
+  "p2_viol": [],
+  "nsol": 1,
+  "CF_D": [
+   1,
+   3
+  ],
+  "CF_ok": true,
+  "CF_noflip_ok": true
+ },
+ {
+  "name": "X_3",
+  "m": 6,
+  "p2_viol": [],
+  "nsol": 1,
+  "CF_D": [
+   1,
+   4
+  ],
+  "CF_ok": true,
+  "CF_noflip_ok": false
+ },
+ {
+  "name": "X_4",
+  "m": 8,
+  "p2_viol": [],
+  "nsol": 1,
+  "CF_D": [
+   1,
+   3,
+   5,
+   7
+  ],
+  "CF_ok": true,
+  "CF_noflip_ok": true
+ },
+ {
+  "name": "X_5",
+  "m": 10,
+  "p2_viol": [],
+  "nsol": 1,
+  "CF_D": [
+   1,
+   3,
+   6,
+   8
+  ],
+  "CF_ok": true,
+  "CF_noflip_ok": false
+ },
+ {
+  "name": "X_6",
+  "m": 12,
+  "p2_viol": [],
+  "nsol": 1,
+  "CF_D": [
+   1,
+   3,
+   5,
+   7,
+   9,
+   11
+  ],
+  "CF_ok": true,
+  "CF_noflip_ok": true
+ },
+ {
+  "name": "X_7",
+  "m": 14,
+  "p2_viol": [],
+  "nsol": 1,
+  "CF_D": [
+   1,
+   3,
+   5,
+   8,
+   10,
+   12
+  ],
+  "CF_ok": true,
+  "CF_noflip_ok": false
+ },
+ {
+  "name": "X_8",
+  "m": 16,
+  "p2_viol": [],
+  "nsol": 1,
+  "CF_D": [
+   1,
+   3,
+   5,
+   7,
+   9,
+   11,
+   13,
+   15
+  ],
+  "CF_ok": true,
+  "CF_noflip_ok": true
+ }
+]
