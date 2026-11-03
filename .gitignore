@@ -26,6 +26,21 @@ projects/**/pdfa.xmpi
 *.nav
 *.snm
 
+# Bulky raw outputs of computations stay on disk only: a run writes them into a raw/ folder; the programs,
+# their parameters and small result logs and summaries stay in git. The files below are older outputs of this kind
+# (purged from the history on 2026-11-03; backup bundle in ../latex-git-backup-2026-11-03.bundle).
+projects/*.submission/**/raw/
+projects/*.submission/**/*.err
+projects/*.submission/**/*.pid
+projects/clanok-2-min-cut-path.submission/open-cases/verify/rv-r6-core/runs/deep/
+projects/clanok-2-min-cut-path.submission/open-cases/verify/rv-r6-chain/runs/small-n8.jsonl
+projects/clanok-2-min-cut-path.submission/open-cases/verify/rv-r6-chain/runs/small-n8-full.jsonl
+projects/clanok-2-min-cut-path.submission/open-cases/verify/rv-r6-chain/runs/graphs-11-1500.jsonl
+projects/clanok-2-min-cut-path.submission/open-cases/verify/hardness-compute/info-F1.jsonl
+projects/clanok-2-min-cut-path.submission/open-cases/verify/hardness-compute/info-F1s.jsonl
+projects/clanok-2-min-cut-path.submission/open-cases/verify/hardness-compute/info-F2.jsonl
+projects/clanok-2-min-cut-path.submission/open-cases/r4-search/runs/enum-yes-hard-q9-nolat.jsonl
+
 # Local notes and settings that do not belong in the repository
 archived-sessions.md
 .claude/settings.local.json

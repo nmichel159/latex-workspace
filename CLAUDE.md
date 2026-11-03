@@ -199,3 +199,8 @@ material that is not part of the paper (form metadata, reviews, rebuttal drafts)
 - `latexdiff.exe` on `PATH` is a MiKTeX stub without its script: do not run it. Marked changes for a revision:
   `knowledge/writing/submission.md` §5.3.
 - The workspace is its own git repository (branch `main`). Do not commit or stage unless the user asks.
+- Git holds what cannot be produced again: sources, notes, scripts, the programs of a computation with their
+  parameters, and small result logs and summaries. A computation writes bulky raw output (over about 1 MB) into a
+  `raw/` folder beside its program; `.gitignore` keeps every `projects/*.submission/**/raw/` out of git, and the
+  summary in git says how to produce it again. Large raw outputs were purged from the history on 2026-11-03; the
+  backup of the full history is `../latex-git-backup-2026-11-03.bundle` (outside the workspace).
